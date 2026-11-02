@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "steps": [
+    "口令哈希与独立登录信息仅写临时私有目录，文件权限0600",
+    "原127.0.0.1访问保持200；受保护监听无口令/错误口令401，正确口令200且入口字节不变",
+    "隐藏Git路径和目录列表404；登录后网页资源正常200",
+    "双监听测试进程正常回收，未操作既有常驻服务"
+  ],
+  "scope": "Uses127.0.0.2 as a protected-listener surrogate. Does not prove the organization VPN permits port8765 or mobile access."
+}

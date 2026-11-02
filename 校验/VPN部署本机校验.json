@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "loopback_http": 200,
+  "private_address_unauthenticated": 401,
+  "private_address_authenticated": 200,
+  "hidden_git_path": 404,
+  "listens": [
+    "127.0.0.1:8765",
+    "10.29.156.152:8765"
+  ],
+  "credential_file_modes": "0600; outside repository",
+  "client_8765_test": "not yet received",
+  "scope": "Server-side probe only. User has confirmed aTrust TCP22 succeeds; TCP8765 and phone entitlement remain to verify."
+}
