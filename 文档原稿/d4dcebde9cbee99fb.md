@@ -1,0 +1,7 @@
+# CHG-296 每UE SR先导与同程序矩阵驱动
+
+新增独立树research/latency-analysis/sr-per-ue方法。prepare.py冻结独立pilot及三种子/正反/三策略18条件；run.py仅使用latency-srp自有容器/namespace/新网段、同一ELF与模块，首失败停止，deadline与清理保留；study_gate.py将旧全局周期判断改为真实QoS匹配的逐UE期望值，检查C准备日志与实际UE机会事件及gNB接收关联。非通信运行包装3GPP/额外数学不适用；没有换流量/包长/PF/门禁阈值来强求成功。
+
+selftest_policy.py提取实际C research_sr_configure，实际ASN.1类型/codec回环，关闭编码一致/重复应用幂等、无DRB及11拒绝控制；不是Python代替无线算法。仍保留原scalar实际构造180组/回环3/拒绝6测试。协议/论文/教材逐项位置、名义预算公式、源代码对应及失败路径局限在本目录README与CHG295，不编造协议强制映射。
+
+实际build/test结果见TEST439；pilot/正式矩阵均须后续实际运行后记录，不预写收益。创建冻结根前README/驱动均固定；任何失败修复在新根，新旧数据不覆盖。无子代理、未改原核心/原RAN/Office，Git仍取消。预声明18条件统计243000完整/216000统计包不是已测包数。

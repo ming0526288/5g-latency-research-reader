@@ -1,0 +1,11 @@
+# TEST-448 联网基线资料与选型文档核验
+
+CHG303，用户显式允许联网。实际web搜索/打开原始资料：官方OAI mac-usage/develop，MathWorks R2026b NR scheduler，srsRAN latest配置和main scheduler_time_qos.cpp，AUGUSTE arXiv abs/v1 HTML，QUEST作者仓库/作者机构出版记录及M-LWDF原研究机构摘要。读到的具体位置与版本边界在web-sources-01.json/source_audit同名摘要，不保存协议全文或用网页版本冒称本地C。
+
+实际重要读取：OAI General PF定义；MathWorks RR/Best-CQI/PF角色；srsRAN compute_ul_qos_weights的组合delay_weight=1.0及DL使用HOL/PDB差异；AUGUSTE v1 §IV/§VI的无主动授权OAI基线/PF保持、评估回退关闭；arXiv提交历史只见2026-06-02 v1。QUEST DOI直接open被工具判不可访问，原因未定位，未循环重试；本地正式论文仍可读，不属于协议缺件或未取得原文。没有下载协议。
+
+本地协议原文背景已在TEST447实际核SHA/CRC/XML与条款，当前不改配置/参数/算法公式。新RR/AUGUSTE篇仅候选/阅读，CG/GBR也未因此启动。知识/选型表是明确标注的研究建议，不作为标准要求、全场景最优或本机新收益。实际文档链接、来源MD SHA和导航一致性在生成后记录。原RAN/核心/冻结源/数据/Office均未改，Git取消。
+
+另实际核用户本地P05 SHA=70ae279a5ed526ba2b773fcf37afe4dae3d750a88a63156de07afb7292be6f16，pdftotext -f 3 -l 6 -layout读取本地PDF3–6页exit0，baseline/PF保持/评估回退关闭段与所读arXiv v1一致；local-paper-check-01.json PASS，辅助文本在协议目录外。
+
+实际文档核查PASS：docs17/RR/AUGUSTE本地链接存在，来源JSON版本/未实施标记有效，当前7013源MD逐一SHA通过；导航exit0，7013源MD/1223内容组/26册/7130本地链接，覆盖完整PASS。写入本行后重建导航，仅做最终源SHA核验并保存delivery-01.json；没有新实验或性能数字。

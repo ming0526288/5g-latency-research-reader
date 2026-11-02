@@ -1,0 +1,17 @@
+# TEST-196 RFsim与MAC生产C观测器单位容量并发及沙箱失败
+
+实际先/usr/bin/python3 -B /tmp/read_causal_sources.py，原XML已解析，但未处理w:tab导致38300 §10.2定位断言exit1；修保留tab后exit0，四原文ZIP CRC/XML与标题定位通过，索引库外analysis-source-audit/causal-diagnosis-20261022。再实际读取38.321指定段落及P01 PDF2–4/P24 PDF7–8/教材PDF530–532，没有缺失或自行下载。
+
+实际单位命令：
+```bash
+/usr/bin/python3 -B research/latency-analysis/causal-diagnosis/verify_probe.py --output research/latency-analysis/results/causal-diagnosis-01/unit-01
+/usr/bin/python3 -B research/latency-analysis/causal-diagnosis/verify_probe.py --output research/latency-analysis/results/causal-diagnosis-01/unit-02
+```
+
+unit01在沙箱gcc ASan/UBSan编译已成功，执行OFF子程序时LSan报告ptrace不兼容并exit1，未进入RF/MAC用例、未启动gNB/UE/UDP/抓包；直接原因运行环境，非观测器越界报告，未定位其他代码错误。按工具权限沙箱外用新目录unit02重跑原检查，未关闭sanitizer/断言或提高阈值，exit0。实际PASS：OFF无文件、RF两调用时间/样本单位精确和与min/max/溢出1、MAC两线程共2000原子预留/容量32/超出1968、私有权限0600。输入原C头，-Wall -Wextra -Werror -fsanitize=address,undefined；没有完整NR业务结论。验证JSON与ELF/fixture仅私有。
+
+修改后所有新Python及multi-ue/run.py/rerun_sdap.py compile语法已通过；原补丁失败和只读路径错误见CHG122。新增gate的RU优先级在运行前按common/utils/system.h的sched_get_priority_max(SCHED_OAI)-2核为97，未把99错误带入运行。尚未实际运行的业务不填通过。
+
+## 依据与适用边界 2026-10-20补注
+
+本条2026-10-22新增。首选TS38.300 V19.4.0 §10.2/10.3；38.321 V19.4.0 §5.4.1、5.4.2.1/2、5.4.5、6.1.3.1；38.214 V19.5.0 §6.1.2.1/6.1.4.1；38.211 V19.5.0 §4.3.2，实际原文SHA/段落见causal-diagnosis/source_provenance.json。P01 III/IV本地PDF2–4、P24 VI PDF7–8、教材13.1.1.2 PDF530–532仅辅助；CPU与C时钟/二进制布局是工程诊断，不是标准指定参数。具体标准定义与工程选择按正文区分；不把未执行步骤写为通过，不构成全部NR一致性、稳态或真实射频认证。

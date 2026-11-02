@@ -1,0 +1,975 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns2="http://creativecommons.org/ns#" xmlns:ns4="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" width="907.2pt" height="648pt" viewBox="0 0 907.2 648" version="1.1">
+ <ns0:metadata>
+  <rdf:RDF>
+   <ns2:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+    <dc:date>2026-10-30T14:09:32.919693</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <ns2:Agent>
+      <dc:title>Matplotlib v3.5.1, https://matplotlib.org/</dc:title>
+     </ns2:Agent>
+    </dc:creator>
+   </ns2:Work>
+  </rdf:RDF>
+ </ns0:metadata>
+ <ns0:defs>
+  <ns0:style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</ns0:style>
+ </ns0:defs>
+ <ns0:g id="figure_1">
+  <ns0:g id="patch_1">
+   <ns0:path d="M 0 648  L 907.2 648  L 907.2 0  L 0 0  z " style="fill: #ffffff" />
+  </ns0:g>
+  <ns0:g id="axes_1">
+   <ns0:g id="patch_2">
+    <ns0:path d="M 68.04 258.701538  L 423.031304 258.701538  L 423.031304 84.24  L 68.04 84.24  z " style="fill: #ffffff" />
+   </ns0:g>
+   <ns0:g id="matplotlib.axis_1">
+    <ns0:g id="xtick_1">
+     <ns0:g id="line2d_1">
+      <ns0:defs>
+       <ns0:path id="m59d5b58e8e" d="M 0 0  L 0 3.5  " style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:defs>
+      <ns0:g>
+       <ns0:use ns4:href="#m59d5b58e8e" x="109.000535" y="258.701538" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_1">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="109.000535" y="272.948413" transform="rotate(-0, 109.000535, 272.948413)">2</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="xtick_2">
+     <ns0:g id="line2d_2">
+      <ns0:g>
+       <ns0:use ns4:href="#m59d5b58e8e" x="245.535652" y="258.701538" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_2">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="245.535652" y="272.948413" transform="rotate(-0, 245.535652, 272.948413)">4</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="xtick_3">
+     <ns0:g id="line2d_3">
+      <ns0:g>
+       <ns0:use ns4:href="#m59d5b58e8e" x="382.070769" y="258.701538" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_3">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="382.070769" y="272.948413" transform="rotate(-0, 382.070769, 272.948413)">8</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_4">
+     <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="245.535652" y="286.270288" transform="rotate(-0, 245.535652, 286.270288)">Total offered application payload (Mbps)</ns0:text>
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="matplotlib.axis_2">
+    <ns0:g id="ytick_1">
+     <ns0:g id="line2d_4">
+      <ns0:path d="M 68.04 225.317049  L 423.031304 225.317049  " clip-path="url(#p672f441dc2)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_5">
+      <ns0:defs>
+       <ns0:path id="mf90a905e76" d="M 0 0  L -3.5 0  " style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:defs>
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="68.04" y="225.317049" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_5">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="61.04" y="228.940486" transform="rotate(-0, 61.04, 228.940486)">10</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_2">
+     <ns0:g id="line2d_6">
+      <ns0:path d="M 68.04 190.697185  L 423.031304 190.697185  " clip-path="url(#p672f441dc2)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_7">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="68.04" y="190.697185" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_6">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="61.04" y="194.320622" transform="rotate(-0, 61.04, 194.320622)">11</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_3">
+     <ns0:g id="line2d_8">
+      <ns0:path d="M 68.04 156.077321  L 423.031304 156.077321  " clip-path="url(#p672f441dc2)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_9">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="68.04" y="156.077321" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_7">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="61.04" y="159.700758" transform="rotate(-0, 61.04, 159.700758)">12</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_4">
+     <ns0:g id="line2d_10">
+      <ns0:path d="M 68.04 121.457457  L 423.031304 121.457457  " clip-path="url(#p672f441dc2)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_11">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="68.04" y="121.457457" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_8">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="61.04" y="125.080894" transform="rotate(-0, 61.04, 125.080894)">13</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_5">
+     <ns0:g id="line2d_12">
+      <ns0:path d="M 68.04 86.837593  L 423.031304 86.837593  " clip-path="url(#p672f441dc2)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_13">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="68.04" y="86.837593" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_9">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="61.04" y="90.46103" transform="rotate(-0, 61.04, 90.46103)">14</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_10">
+     <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="43.843125" y="171.470769" transform="rotate(-90, 43.843125, 171.470769)">P99 (ms)</ns0:text>
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="line2d_14">
+    <ns0:path d="M 109.000535 228.114126  L 245.535652 206.880983  L 382.070769 114.827413  " clip-path="url(#p672f441dc2)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #3b5b92; stroke-width: 2" />
+    <ns0:defs>
+     <ns0:path id="me206a87025" d="M 0 3  C 0.795609 3 1.55874 2.683901 2.12132 2.12132  C 2.683901 1.55874 3 0.795609 3 0  C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132  C 1.55874 -2.683901 0.795609 -3 0 -3  C -0.795609 -3 -1.55874 -2.683901 -2.12132 -2.12132  C -2.683901 -1.55874 -3 -0.795609 -3 0  C -3 0.795609 -2.683901 1.55874 -2.12132 2.12132  C -1.55874 2.683901 -0.795609 3 0 3  z " style="stroke: #3b5b92" />
+    </ns0:defs>
+    <ns0:g clip-path="url(#p672f441dc2)">
+     <ns0:use ns4:href="#me206a87025" x="109.000535" y="228.114126" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#me206a87025" x="245.535652" y="206.880983" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#me206a87025" x="382.070769" y="114.827413" style="fill: #3b5b92; stroke: #3b5b92" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="line2d_15">
+    <ns0:path d="M 109.000535 223.088749  L 245.535652 208.831124  L 382.070769 129.944391  " clip-path="url(#p672f441dc2)" style="fill: none; stroke: #cb6725; stroke-width: 2; stroke-linecap: square" />
+    <ns0:defs>
+     <ns0:path id="m1074482d24" d="M 0 3  C 0.795609 3 1.55874 2.683901 2.12132 2.12132  C 2.683901 1.55874 3 0.795609 3 0  C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132  C 1.55874 -2.683901 0.795609 -3 0 -3  C -0.795609 -3 -1.55874 -2.683901 -2.12132 -2.12132  C -2.683901 -1.55874 -3 -0.795609 -3 0  C -3 0.795609 -2.683901 1.55874 -2.12132 2.12132  C -1.55874 2.683901 -0.795609 3 0 3  z " style="stroke: #cb6725" />
+    </ns0:defs>
+    <ns0:g clip-path="url(#p672f441dc2)">
+     <ns0:use ns4:href="#m1074482d24" x="109.000535" y="223.088749" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#m1074482d24" x="245.535652" y="208.831124" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#m1074482d24" x="382.070769" y="129.944391" style="fill: #cb6725; stroke: #cb6725" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="patch_3">
+    <ns0:path d="M 68.04 258.701538  L 68.04 84.24  " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
+   </ns0:g>
+   <ns0:g id="patch_4">
+    <ns0:path d="M 68.04 258.701538  L 423.031304 258.701538  " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
+   </ns0:g>
+   <ns0:g id="text_11">
+    <ns0:g id="patch_5">
+     <ns0:path d="M 99.703113 247.521626  L 118.297957 247.521626  L 118.297957 238.051938  L 99.703113 238.051938  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #3b5b92; font: 9px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="109.000535" y="245.114126" transform="rotate(-0, 109.000535, 245.114126)">9.92</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_12">
+    <ns0:g id="patch_6">
+     <ns0:path d="M 233.735808 199.288483  L 257.335496 199.288483  L 257.335496 189.818795  L 233.735808 189.818795  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #3b5b92; font: 9px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="245.535652" y="196.880983" transform="rotate(-0, 245.535652, 196.880983)">10.53</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_13">
+    <ns0:g id="patch_7">
+     <ns0:path d="M 370.270925 107.234913  L 393.870613 107.234913  L 393.870613 97.765225  L 370.270925 97.765225  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #3b5b92; font: 9px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="382.070769" y="104.827413" transform="rotate(-0, 382.070769, 104.827413)">13.19</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_14">
+    <ns0:g id="patch_8">
+     <ns0:path d="M 97.200691 215.496249  L 120.800379 215.496249  L 120.800379 206.026561  L 97.200691 206.026561  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #cb6725; font: 9px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="109.000535" y="213.088749" transform="rotate(-0, 109.000535, 213.088749)">10.06</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_15">
+    <ns0:g id="patch_9">
+     <ns0:path d="M 233.735808 228.238624  L 257.335496 228.238624  L 257.335496 218.768937  L 233.735808 218.768937  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #cb6725; font: 9px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="245.535652" y="225.831124" transform="rotate(-0, 245.535652, 225.831124)">10.48</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_16">
+    <ns0:g id="patch_10">
+     <ns0:path d="M 370.270925 149.351891  L 393.870613 149.351891  L 393.870613 139.882204  L 370.270925 139.882204  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #cb6725; font: 9px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="382.070769" y="146.944391" transform="rotate(-0, 382.070769, 146.944391)">12.75</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_17">
+    <ns0:text style="font: 12px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="68.04" y="72.24" transform="rotate(-0, 68.04, 72.24)">A   Worst UE: one-way UL P99</ns0:text>
+   </ns0:g>
+   <ns0:g id="legend_1">
+    <ns0:g id="line2d_16">
+     <ns0:path d="M 76.14 95.712187  L 85.14 95.712187  L 94.14 95.712187  " style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #3b5b92; stroke-width: 2" />
+     <ns0:g>
+      <ns0:use ns4:href="#me206a87025" x="85.14" y="95.712187" style="fill: #3b5b92; stroke: #3b5b92" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_18">
+     <ns0:text style="font: 9px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="101.34" y="98.862188" transform="rotate(-0, 101.34, 98.862188)">legacy-f1</ns0:text>
+    </ns0:g>
+    <ns0:g id="line2d_17">
+     <ns0:path d="M 76.14 108.601875  L 85.14 108.601875  L 94.14 108.601875  " style="fill: none; stroke: #cb6725; stroke-width: 2; stroke-linecap: square" />
+     <ns0:g>
+      <ns0:use ns4:href="#m1074482d24" x="85.14" y="108.601875" style="fill: #cb6725; stroke: #cb6725" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_19">
+     <ns0:text style="font: 9px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="101.34" y="111.751875" transform="rotate(-0, 101.34, 111.751875)">residual-f1</ns0:text>
+    </ns0:g>
+   </ns0:g>
+  </ns0:g>
+  <ns0:g id="axes_2">
+   <ns0:g id="patch_11">
+    <ns0:path d="M 529.528696 258.701538  L 884.52 258.701538  L 884.52 84.24  L 529.528696 84.24  z " style="fill: #ffffff" />
+   </ns0:g>
+   <ns0:g id="matplotlib.axis_3">
+    <ns0:g id="xtick_4">
+     <ns0:g id="line2d_18">
+      <ns0:g>
+       <ns0:use ns4:href="#m59d5b58e8e" x="570.489231" y="258.701538" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_20">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="570.489231" y="272.948413" transform="rotate(-0, 570.489231, 272.948413)">2</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="xtick_5">
+     <ns0:g id="line2d_19">
+      <ns0:g>
+       <ns0:use ns4:href="#m59d5b58e8e" x="707.024348" y="258.701538" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_21">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="707.024348" y="272.948413" transform="rotate(-0, 707.024348, 272.948413)">4</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="xtick_6">
+     <ns0:g id="line2d_20">
+      <ns0:g>
+       <ns0:use ns4:href="#m59d5b58e8e" x="843.559465" y="258.701538" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_22">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="843.559465" y="272.948413" transform="rotate(-0, 843.559465, 272.948413)">8</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_23">
+     <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="707.024348" y="286.270288" transform="rotate(-0, 707.024348, 286.270288)">Total offered application payload (Mbps)</ns0:text>
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="matplotlib.axis_4">
+    <ns0:g id="ytick_6">
+     <ns0:g id="line2d_21">
+      <ns0:path d="M 529.528696 251.27561  L 884.52 251.27561  " clip-path="url(#pf3f7dcc537)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_22">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="529.528696" y="251.27561" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_24">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="522.528696" y="254.899047" transform="rotate(-0, 522.528696, 254.899047)">9</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_7">
+     <ns0:g id="line2d_23">
+      <ns0:path d="M 529.528696 218.722138  L 884.52 218.722138  " clip-path="url(#pf3f7dcc537)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_24">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="529.528696" y="218.722138" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_25">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="522.528696" y="222.345575" transform="rotate(-0, 522.528696, 222.345575)">10</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_8">
+     <ns0:g id="line2d_25">
+      <ns0:path d="M 529.528696 186.168666  L 884.52 186.168666  " clip-path="url(#pf3f7dcc537)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_26">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="529.528696" y="186.168666" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_26">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="522.528696" y="189.792104" transform="rotate(-0, 522.528696, 189.792104)">11</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_9">
+     <ns0:g id="line2d_27">
+      <ns0:path d="M 529.528696 153.615194  L 884.52 153.615194  " clip-path="url(#pf3f7dcc537)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_28">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="529.528696" y="153.615194" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_27">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="522.528696" y="157.238632" transform="rotate(-0, 522.528696, 157.238632)">12</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_10">
+     <ns0:g id="line2d_29">
+      <ns0:path d="M 529.528696 121.061722  L 884.52 121.061722  " clip-path="url(#pf3f7dcc537)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_30">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="529.528696" y="121.061722" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_28">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="522.528696" y="124.68516" transform="rotate(-0, 522.528696, 124.68516)">13</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_11">
+     <ns0:g id="line2d_31">
+      <ns0:path d="M 529.528696 88.50825  L 884.52 88.50825  " clip-path="url(#pf3f7dcc537)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_32">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="529.528696" y="88.50825" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_29">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="522.528696" y="92.131688" transform="rotate(-0, 522.528696, 92.131688)">14</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_30">
+     <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="505.331821" y="171.470769" transform="rotate(-90, 505.331821, 171.470769)">P99 (ms)</ns0:text>
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="line2d_33">
+    <ns0:path d="M 570.489231 228.114126  L 707.024348 204.507123  L 843.559465 114.827413  " clip-path="url(#pf3f7dcc537)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #3b5b92; stroke-width: 2" />
+    <ns0:g clip-path="url(#pf3f7dcc537)">
+     <ns0:use ns4:href="#me206a87025" x="570.489231" y="228.114126" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#me206a87025" x="707.024348" y="204.507123" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#me206a87025" x="843.559465" y="114.827413" style="fill: #3b5b92; stroke: #3b5b92" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="line2d_34">
+    <ns0:path d="M 570.489231 227.168883  L 707.024348 206.577248  L 843.559465 142.316207  " clip-path="url(#pf3f7dcc537)" style="fill: none; stroke: #cb6725; stroke-width: 2; stroke-linecap: square" />
+    <ns0:g clip-path="url(#pf3f7dcc537)">
+     <ns0:use ns4:href="#m1074482d24" x="570.489231" y="227.168883" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#m1074482d24" x="707.024348" y="206.577248" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#m1074482d24" x="843.559465" y="142.316207" style="fill: #cb6725; stroke: #cb6725" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="patch_12">
+    <ns0:path d="M 529.528696 258.701538  L 529.528696 84.24  " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
+   </ns0:g>
+   <ns0:g id="patch_13">
+    <ns0:path d="M 529.528696 258.701538  L 884.52 258.701538  " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
+   </ns0:g>
+   <ns0:g id="text_31">
+    <ns0:g id="patch_14">
+     <ns0:path d="M 561.191809 247.521626  L 579.786653 247.521626  L 579.786653 238.051938  L 561.191809 238.051938  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #3b5b92; font: 9px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="570.489231" y="245.114126" transform="rotate(-0, 570.489231, 245.114126)">9.71</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_32">
+    <ns0:g id="patch_15">
+     <ns0:path d="M 695.224504 196.914623  L 718.824192 196.914623  L 718.824192 187.444935  L 695.224504 187.444935  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #3b5b92; font: 9px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="707.024348" y="194.507123" transform="rotate(-0, 707.024348, 194.507123)">10.44</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_33">
+    <ns0:g id="patch_16">
+     <ns0:path d="M 831.759621 107.234913  L 855.359309 107.234913  L 855.359309 97.765225  L 831.759621 97.765225  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #3b5b92; font: 9px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="843.559465" y="104.827413" transform="rotate(-0, 843.559465, 104.827413)">13.19</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_34">
+    <ns0:g id="patch_17">
+     <ns0:path d="M 561.191809 219.576383  L 579.786653 219.576383  L 579.786653 210.106695  L 561.191809 210.106695  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #cb6725; font: 9px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="570.489231" y="217.168883" transform="rotate(-0, 570.489231, 217.168883)">9.74</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_35">
+    <ns0:g id="patch_18">
+     <ns0:path d="M 695.224504 225.984748  L 718.824192 225.984748  L 718.824192 216.515061  L 695.224504 216.515061  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #cb6725; font: 9px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="707.024348" y="223.577248" transform="rotate(-0, 707.024348, 223.577248)">10.37</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_36">
+    <ns0:g id="patch_19">
+     <ns0:path d="M 831.759621 161.723707  L 855.359309 161.723707  L 855.359309 152.254019  L 831.759621 152.254019  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #cb6725; font: 9px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="843.559465" y="159.316207" transform="rotate(-0, 843.559465, 159.316207)">12.35</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_37">
+    <ns0:text style="font: 12px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="529.528696" y="72.24" transform="rotate(-0, 529.528696, 72.24)">B   Actual 5QI 69: one-way UL P99</ns0:text>
+   </ns0:g>
+   <ns0:g id="legend_2">
+    <ns0:g id="line2d_35">
+     <ns0:path d="M 537.628696 95.712187  L 546.628696 95.712187  L 555.628696 95.712187  " style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #3b5b92; stroke-width: 2" />
+     <ns0:g>
+      <ns0:use ns4:href="#me206a87025" x="546.628696" y="95.712187" style="fill: #3b5b92; stroke: #3b5b92" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_38">
+     <ns0:text style="font: 9px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="562.828696" y="98.862188" transform="rotate(-0, 562.828696, 98.862188)">legacy-f1</ns0:text>
+    </ns0:g>
+    <ns0:g id="line2d_36">
+     <ns0:path d="M 537.628696 108.601875  L 546.628696 108.601875  L 555.628696 108.601875  " style="fill: none; stroke: #cb6725; stroke-width: 2; stroke-linecap: square" />
+     <ns0:g>
+      <ns0:use ns4:href="#m1074482d24" x="546.628696" y="108.601875" style="fill: #cb6725; stroke: #cb6725" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_39">
+     <ns0:text style="font: 9px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="562.828696" y="111.751875" transform="rotate(-0, 562.828696, 111.751875)">residual-f1</ns0:text>
+    </ns0:g>
+   </ns0:g>
+  </ns0:g>
+  <ns0:g id="axes_3">
+   <ns0:g id="patch_20">
+    <ns0:path d="M 68.04 537.84  L 423.031304 537.84  L 423.031304 363.378462  L 68.04 363.378462  z " style="fill: #ffffff" />
+   </ns0:g>
+   <ns0:g id="matplotlib.axis_5">
+    <ns0:g id="xtick_7">
+     <ns0:g id="line2d_37">
+      <ns0:g>
+       <ns0:use ns4:href="#m59d5b58e8e" x="128.144348" y="537.84" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_40">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="128.144348" y="552.086875" transform="rotate(-0, 128.144348, 552.086875)">2</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="xtick_8">
+     <ns0:g id="line2d_38">
+      <ns0:g>
+       <ns0:use ns4:href="#m59d5b58e8e" x="245.535652" y="537.84" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_41">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="245.535652" y="552.086875" transform="rotate(-0, 245.535652, 552.086875)">4</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="xtick_9">
+     <ns0:g id="line2d_39">
+      <ns0:g>
+       <ns0:use ns4:href="#m59d5b58e8e" x="362.926957" y="537.84" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_42">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="362.926957" y="552.086875" transform="rotate(-0, 362.926957, 552.086875)">8</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_43">
+     <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="245.535652" y="565.40875" transform="rotate(-0, 245.535652, 565.40875)">Total offered application payload (Mbps)</ns0:text>
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="matplotlib.axis_6">
+    <ns0:g id="ytick_12">
+     <ns0:g id="line2d_40">
+      <ns0:path d="M 68.04 517.523158  L 423.031304 517.523158  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_41">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="68.04" y="517.523158" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_44">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="61.04" y="521.146596" transform="rotate(-0, 61.04, 521.146596)">−5</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_13">
+     <ns0:g id="line2d_42">
+      <ns0:path d="M 68.04 487.679918  L 423.031304 487.679918  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_43">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="68.04" y="487.679918" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_45">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="61.04" y="491.303356" transform="rotate(-0, 61.04, 491.303356)">0</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_14">
+     <ns0:g id="line2d_44">
+      <ns0:path d="M 68.04 457.836678  L 423.031304 457.836678  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_45">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="68.04" y="457.836678" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_46">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="61.04" y="461.460116" transform="rotate(-0, 61.04, 461.460116)">5</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_15">
+     <ns0:g id="line2d_46">
+      <ns0:path d="M 68.04 427.993438  L 423.031304 427.993438  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_47">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="68.04" y="427.993438" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_47">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="61.04" y="431.616876" transform="rotate(-0, 61.04, 431.616876)">10</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_16">
+     <ns0:g id="line2d_48">
+      <ns0:path d="M 68.04 398.150199  L 423.031304 398.150199  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_49">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="68.04" y="398.150199" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_48">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="61.04" y="401.773636" transform="rotate(-0, 61.04, 401.773636)">15</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_17">
+     <ns0:g id="line2d_50">
+      <ns0:path d="M 68.04 368.306959  L 423.031304 368.306959  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_51">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="68.04" y="368.306959" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_49">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="61.04" y="371.930396" transform="rotate(-0, 61.04, 371.930396)">20</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_50">
+     <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="43.519687" y="450.609231" transform="rotate(-90, 43.519687, 450.609231)">Reduction (%)  |  positive = lower delay</ns0:text>
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="LineCollection_1">
+    <ns0:path d="M 118.753043 505.260869  L 118.753043 475.074577  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #3b5b92; stroke-width: 1.5" />
+    <ns0:path d="M 236.144348 511.186154  L 236.144348 474.234529  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #3b5b92; stroke-width: 1.5" />
+    <ns0:path d="M 353.535652 501.756798  L 353.535652 406.77361  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #3b5b92; stroke-width: 1.5" />
+   </ns0:g>
+   <ns0:g id="line2d_52">
+    <ns0:defs>
+     <ns0:path id="m46959def26" d="M 5 0  L -5 -0  " style="stroke: #3b5b92" />
+    </ns0:defs>
+    <ns0:g clip-path="url(#p6dbaa6cbeb)">
+     <ns0:use ns4:href="#m46959def26" x="118.753043" y="505.260869" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#m46959def26" x="236.144348" y="511.186154" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#m46959def26" x="353.535652" y="501.756798" style="fill: #3b5b92; stroke: #3b5b92" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="line2d_53">
+    <ns0:g clip-path="url(#p6dbaa6cbeb)">
+     <ns0:use ns4:href="#m46959def26" x="118.753043" y="475.074577" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#m46959def26" x="236.144348" y="474.234529" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#m46959def26" x="353.535652" y="406.77361" style="fill: #3b5b92; stroke: #3b5b92" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="LineCollection_2">
+    <ns0:path d="M 137.535652 500.715437  L 137.535652 471.540804  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #cb6725; stroke-width: 1.5" />
+    <ns0:path d="M 254.926957 511.186154  L 254.926957 459.596818  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #cb6725; stroke-width: 1.5" />
+    <ns0:path d="M 372.318261 476.195797  L 372.318261 390.032308  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #cb6725; stroke-width: 1.5" />
+   </ns0:g>
+   <ns0:g id="line2d_54">
+    <ns0:defs>
+     <ns0:path id="ma1284c5ddc" d="M 5 0  L -5 -0  " style="stroke: #cb6725" />
+    </ns0:defs>
+    <ns0:g clip-path="url(#p6dbaa6cbeb)">
+     <ns0:use ns4:href="#ma1284c5ddc" x="137.535652" y="500.715437" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#ma1284c5ddc" x="254.926957" y="511.186154" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#ma1284c5ddc" x="372.318261" y="476.195797" style="fill: #cb6725; stroke: #cb6725" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="line2d_55">
+    <ns0:g clip-path="url(#p6dbaa6cbeb)">
+     <ns0:use ns4:href="#ma1284c5ddc" x="137.535652" y="471.540804" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#ma1284c5ddc" x="254.926957" y="459.596818" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#ma1284c5ddc" x="372.318261" y="390.032308" style="fill: #cb6725; stroke: #cb6725" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="line2d_56">
+    <ns0:path d="M 68.04 487.679918  L 423.031304 487.679918  " clip-path="url(#p6dbaa6cbeb)" style="fill: none; stroke: #777777; stroke-width: 0.8; stroke-linecap: square" />
+   </ns0:g>
+   <ns0:g id="line2d_57">
+    <ns0:g clip-path="url(#p6dbaa6cbeb)">
+     <ns0:use ns4:href="#me206a87025" x="118.753043" y="497.394394" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#me206a87025" x="236.144348" y="482.913542" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#me206a87025" x="353.535652" y="466.069341" style="fill: #3b5b92; stroke: #3b5b92" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="line2d_58">
+    <ns0:g clip-path="url(#p6dbaa6cbeb)">
+     <ns0:use ns4:href="#m1074482d24" x="137.535652" y="491.304266" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#m1074482d24" x="254.926957" y="485.717308" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#m1074482d24" x="372.318261" y="458.805563" style="fill: #cb6725; stroke: #cb6725" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="patch_21">
+    <ns0:path d="M 68.04 537.84  L 68.04 363.378462  " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
+   </ns0:g>
+   <ns0:g id="patch_22">
+    <ns0:path d="M 68.04 537.84  L 423.031304 537.84  " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
+   </ns0:g>
+   <ns0:g id="text_51">
+    <ns0:g id="patch_23">
+     <ns0:path d="M 92.040543 493.534394  L 111.233043 493.534394  L 111.233043 485.116894  L 92.040543 485.116894  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #3b5b92; font: 8px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="110.753043" y="491.394394" transform="rotate(-0, 110.753043, 491.394394)">-1.63</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_52">
+    <ns0:g id="patch_24">
+     <ns0:path d="M 207.423098 479.053542  L 228.624348 479.053542  L 228.624348 470.636042  L 207.423098 470.636042  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #3b5b92; font: 8px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="228.144348" y="476.913542" transform="rotate(-0, 228.144348, 476.913542)">+0.80</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_53">
+    <ns0:g id="patch_25">
+     <ns0:path d="M 324.814402 462.209341  L 346.015652 462.209341  L 346.015652 453.791841  L 324.814402 453.791841  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #3b5b92; font: 8px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="345.535652" y="460.069341" transform="rotate(-0, 345.535652, 460.069341)">+3.62</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_54">
+    <ns0:g id="patch_26">
+     <ns0:path d="M 145.055652 506.444266  L 164.248152 506.444266  L 164.248152 498.026766  L 145.055652 498.026766  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #cb6725; font: 8px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="145.535652" y="504.304266" transform="rotate(-0, 145.535652, 504.304266)">-0.61</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_55">
+    <ns0:g id="patch_27">
+     <ns0:path d="M 262.446957 500.857308  L 283.648207 500.857308  L 283.648207 492.439808  L 262.446957 492.439808  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #cb6725; font: 8px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="262.926957" y="498.717308" transform="rotate(-0, 262.926957, 498.717308)">+0.33</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_56">
+    <ns0:g id="patch_28">
+     <ns0:path d="M 379.838261 473.945563  L 401.039511 473.945563  L 401.039511 465.528063  L 379.838261 465.528063  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #cb6725; font: 8px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="380.318261" y="471.805563" transform="rotate(-0, 380.318261, 471.805563)">+4.84</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_57">
+    <ns0:text style="font: 12px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="68.04" y="351.378462" transform="rotate(-0, 68.04, 351.378462)">C   Paired P99 reduction: residual vs legacy</ns0:text>
+   </ns0:g>
+   <ns0:g id="legend_3">
+    <ns0:g id="LineCollection_3">
+     <ns0:path d="M 83.24 377.575962  L 83.24 369.575962  " style="fill: none; stroke: #3b5b92; stroke-width: 1.5" />
+    </ns0:g>
+    <ns0:g id="line2d_59">
+     <ns0:g>
+      <ns0:use ns4:href="#m46959def26" x="83.24" y="377.575962" style="fill: #3b5b92; stroke: #3b5b92" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="line2d_60">
+     <ns0:g>
+      <ns0:use ns4:href="#m46959def26" x="83.24" y="369.575962" style="fill: #3b5b92; stroke: #3b5b92" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="line2d_61" />
+    <ns0:g id="line2d_62">
+     <ns0:g>
+      <ns0:use ns4:href="#me206a87025" x="83.24" y="373.575962" style="fill: #3b5b92; stroke: #3b5b92" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_58">
+     <ns0:text style="font: 8px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="97.64" y="376.375962" transform="rotate(-0, 97.64, 376.375962)">Worst UE</ns0:text>
+    </ns0:g>
+    <ns0:g id="LineCollection_4">
+     <ns0:path d="M 83.24 389.033462  L 83.24 381.033462  " style="fill: none; stroke: #cb6725; stroke-width: 1.5" />
+    </ns0:g>
+    <ns0:g id="line2d_63">
+     <ns0:g>
+      <ns0:use ns4:href="#ma1284c5ddc" x="83.24" y="389.033462" style="fill: #cb6725; stroke: #cb6725" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="line2d_64">
+     <ns0:g>
+      <ns0:use ns4:href="#ma1284c5ddc" x="83.24" y="381.033462" style="fill: #cb6725; stroke: #cb6725" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="line2d_65" />
+    <ns0:g id="line2d_66">
+     <ns0:g>
+      <ns0:use ns4:href="#m1074482d24" x="83.24" y="385.033462" style="fill: #cb6725; stroke: #cb6725" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_59">
+     <ns0:text style="font: 8px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="97.64" y="387.833462" transform="rotate(-0, 97.64, 387.833462)">5QI 69</ns0:text>
+    </ns0:g>
+   </ns0:g>
+  </ns0:g>
+  <ns0:g id="axes_4">
+   <ns0:g id="patch_29">
+    <ns0:path d="M 529.528696 537.84  L 884.52 537.84  L 884.52 363.378462  L 529.528696 363.378462  z " style="fill: #ffffff" />
+   </ns0:g>
+   <ns0:g id="matplotlib.axis_7">
+    <ns0:g id="xtick_10">
+     <ns0:g id="line2d_67">
+      <ns0:g>
+       <ns0:use ns4:href="#m59d5b58e8e" x="589.633043" y="537.84" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_60">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="589.633043" y="552.086875" transform="rotate(-0, 589.633043, 552.086875)">2</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="xtick_11">
+     <ns0:g id="line2d_68">
+      <ns0:g>
+       <ns0:use ns4:href="#m59d5b58e8e" x="707.024348" y="537.84" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_61">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="707.024348" y="552.086875" transform="rotate(-0, 707.024348, 552.086875)">4</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="xtick_12">
+     <ns0:g id="line2d_69">
+      <ns0:g>
+       <ns0:use ns4:href="#m59d5b58e8e" x="824.415652" y="537.84" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_62">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="824.415652" y="552.086875" transform="rotate(-0, 824.415652, 552.086875)">8</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_63">
+     <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="707.024348" y="565.40875" transform="rotate(-0, 707.024348, 565.40875)">Total offered application payload (Mbps)</ns0:text>
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="matplotlib.axis_8">
+    <ns0:g id="ytick_18">
+     <ns0:g id="line2d_70">
+      <ns0:path d="M 529.528696 505.117725  L 884.52 505.117725  " clip-path="url(#pfc09f036a6)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_71">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="529.528696" y="505.117725" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_64">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="522.528696" y="508.741163" transform="rotate(-0, 522.528696, 508.741163)">−4</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_19">
+     <ns0:g id="line2d_72">
+      <ns0:path d="M 529.528696 466.390739  L 884.52 466.390739  " clip-path="url(#pfc09f036a6)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_73">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="529.528696" y="466.390739" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_65">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="522.528696" y="470.014177" transform="rotate(-0, 522.528696, 470.014177)">−2</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_20">
+     <ns0:g id="line2d_74">
+      <ns0:path d="M 529.528696 427.663753  L 884.52 427.663753  " clip-path="url(#pfc09f036a6)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_75">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="529.528696" y="427.663753" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_66">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="522.528696" y="431.28719" transform="rotate(-0, 522.528696, 431.28719)">0</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="ytick_21">
+     <ns0:g id="line2d_76">
+      <ns0:path d="M 529.528696 388.936766  L 884.52 388.936766  " clip-path="url(#pfc09f036a6)" style="fill: none; stroke: #dfe3e8; stroke-width: 0.7; stroke-linecap: square" />
+     </ns0:g>
+     <ns0:g id="line2d_77">
+      <ns0:g>
+       <ns0:use ns4:href="#mf90a905e76" x="529.528696" y="388.936766" style="stroke: #000000; stroke-width: 0.8" />
+      </ns0:g>
+     </ns0:g>
+     <ns0:g id="text_67">
+      <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="522.528696" y="392.560204" transform="rotate(-0, 522.528696, 392.560204)">2</ns0:text>
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_68">
+     <ns0:text style="font: 10px 'Liberation Sans'; text-anchor: middle; font-family: Arial, 'Liberation Sans', sans-serif" x="505.008383" y="450.609231" transform="rotate(-90, 505.008383, 450.609231)">Change (%)  |  positive = increase</ns0:text>
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="LineCollection_5">
+    <ns0:path d="M 580.241739 445.805645  L 580.241739 413.027678  " clip-path="url(#pfc09f036a6)" style="fill: none; stroke: #3b5b92; stroke-width: 1.5" />
+    <ns0:path d="M 697.633043 420.756056  L 697.633043 395.938535  " clip-path="url(#pfc09f036a6)" style="fill: none; stroke: #3b5b92; stroke-width: 1.5" />
+    <ns0:path d="M 815.024348 436.965293  L 815.024348 412.072299  " clip-path="url(#pfc09f036a6)" style="fill: none; stroke: #3b5b92; stroke-width: 1.5" />
+   </ns0:g>
+   <ns0:g id="line2d_78">
+    <ns0:g clip-path="url(#pfc09f036a6)">
+     <ns0:use ns4:href="#m46959def26" x="580.241739" y="445.805645" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#m46959def26" x="697.633043" y="420.756056" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#m46959def26" x="815.024348" y="436.965293" style="fill: #3b5b92; stroke: #3b5b92" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="line2d_79">
+    <ns0:g clip-path="url(#pfc09f036a6)">
+     <ns0:use ns4:href="#m46959def26" x="580.241739" y="413.027678" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#m46959def26" x="697.633043" y="395.938535" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#m46959def26" x="815.024348" y="412.072299" style="fill: #3b5b92; stroke: #3b5b92" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="LineCollection_6">
+    <ns0:path d="M 599.024348 443.77546  L 599.024348 390.032308  " clip-path="url(#pfc09f036a6)" style="fill: none; stroke: #cb6725; stroke-width: 1.5" />
+    <ns0:path d="M 716.415652 482.21405  L 716.415652 406.585548  " clip-path="url(#pfc09f036a6)" style="fill: none; stroke: #cb6725; stroke-width: 1.5" />
+    <ns0:path d="M 833.806957 511.186154  L 833.806957 453.362422  " clip-path="url(#pfc09f036a6)" style="fill: none; stroke: #cb6725; stroke-width: 1.5" />
+   </ns0:g>
+   <ns0:g id="line2d_80">
+    <ns0:g clip-path="url(#pfc09f036a6)">
+     <ns0:use ns4:href="#ma1284c5ddc" x="599.024348" y="443.77546" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#ma1284c5ddc" x="716.415652" y="482.21405" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#ma1284c5ddc" x="833.806957" y="511.186154" style="fill: #cb6725; stroke: #cb6725" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="line2d_81">
+    <ns0:g clip-path="url(#pfc09f036a6)">
+     <ns0:use ns4:href="#ma1284c5ddc" x="599.024348" y="390.032308" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#ma1284c5ddc" x="716.415652" y="406.585548" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#ma1284c5ddc" x="833.806957" y="453.362422" style="fill: #cb6725; stroke: #cb6725" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="line2d_82">
+    <ns0:path d="M 529.528696 427.663753  L 884.52 427.663753  " clip-path="url(#pfc09f036a6)" style="fill: none; stroke: #777777; stroke-width: 0.8; stroke-linecap: square" />
+   </ns0:g>
+   <ns0:g id="line2d_83">
+    <ns0:g clip-path="url(#pfc09f036a6)">
+     <ns0:use ns4:href="#me206a87025" x="580.241739" y="420.048853" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#me206a87025" x="697.633043" y="412.404787" style="fill: #3b5b92; stroke: #3b5b92" />
+     <ns0:use ns4:href="#me206a87025" x="815.024348" y="419.094662" style="fill: #3b5b92; stroke: #3b5b92" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="line2d_84">
+    <ns0:g clip-path="url(#pfc09f036a6)">
+     <ns0:use ns4:href="#m1074482d24" x="599.024348" y="412.036297" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#m1074482d24" x="716.415652" y="431.304171" style="fill: #cb6725; stroke: #cb6725" />
+     <ns0:use ns4:href="#m1074482d24" x="833.806957" y="472.438447" style="fill: #cb6725; stroke: #cb6725" />
+    </ns0:g>
+   </ns0:g>
+   <ns0:g id="patch_30">
+    <ns0:path d="M 529.528696 537.84  L 529.528696 363.378462  " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
+   </ns0:g>
+   <ns0:g id="patch_31">
+    <ns0:path d="M 529.528696 537.84  L 884.52 537.84  " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
+   </ns0:g>
+   <ns0:g id="text_69">
+    <ns0:g id="patch_32">
+     <ns0:path d="M 551.520489 416.188853  L 572.721739 416.188853  L 572.721739 407.771353  L 551.520489 407.771353  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #3b5b92; font: 8px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="572.241739" y="414.048853" transform="rotate(-0, 572.241739, 414.048853)">+0.39</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_70">
+    <ns0:g id="patch_33">
+     <ns0:path d="M 668.911793 408.544787  L 690.113043 408.544787  L 690.113043 400.127287  L 668.911793 400.127287  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #3b5b92; font: 8px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="689.633043" y="406.404787" transform="rotate(-0, 689.633043, 406.404787)">+0.79</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_71">
+    <ns0:g id="patch_34">
+     <ns0:path d="M 786.303098 415.234662  L 807.504348 415.234662  L 807.504348 406.817162  L 786.303098 406.817162  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #3b5b92; font: 8px 'Liberation Sans'; text-anchor: end; font-family: Arial, 'Liberation Sans', sans-serif" x="807.024348" y="413.094662" transform="rotate(-0, 807.024348, 413.094662)">+0.44</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_72">
+    <ns0:g id="patch_35">
+     <ns0:path d="M 606.544348 427.176297  L 627.745598 427.176297  L 627.745598 418.758797  L 606.544348 418.758797  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #cb6725; font: 8px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="607.024348" y="425.036297" transform="rotate(-0, 607.024348, 425.036297)">+0.81</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_73">
+    <ns0:g id="patch_36">
+     <ns0:path d="M 723.935652 446.444171  L 743.128152 446.444171  L 743.128152 438.026671  L 723.935652 438.026671  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #cb6725; font: 8px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="724.415652" y="444.304171" transform="rotate(-0, 724.415652, 444.304171)">-0.19</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_74">
+    <ns0:g id="patch_37">
+     <ns0:path d="M 841.326957 487.578447  L 860.519457 487.578447  L 860.519457 479.160947  L 841.326957 479.160947  z " style="fill: #ffffff; opacity: 0.85" />
+    </ns0:g>
+    <ns0:text style="fill: #cb6725; font: 8px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="841.806957" y="485.438447" transform="rotate(-0, 841.806957, 485.438447)">-2.31</ns0:text>
+   </ns0:g>
+   <ns0:g id="text_75">
+    <ns0:text style="font: 12px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="529.528696" y="351.378462" transform="rotate(-0, 529.528696, 351.378462)">D   Paired resource cost and mean delay</ns0:text>
+   </ns0:g>
+   <ns0:g id="legend_4">
+    <ns0:g id="LineCollection_7">
+     <ns0:path d="M 751.77625 377.575962  L 751.77625 369.575962  " style="fill: none; stroke: #3b5b92; stroke-width: 1.5" />
+    </ns0:g>
+    <ns0:g id="line2d_85">
+     <ns0:g>
+      <ns0:use ns4:href="#m46959def26" x="751.77625" y="377.575962" style="fill: #3b5b92; stroke: #3b5b92" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="line2d_86">
+     <ns0:g>
+      <ns0:use ns4:href="#m46959def26" x="751.77625" y="369.575962" style="fill: #3b5b92; stroke: #3b5b92" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="line2d_87" />
+    <ns0:g id="line2d_88">
+     <ns0:g>
+      <ns0:use ns4:href="#me206a87025" x="751.77625" y="373.575962" style="fill: #3b5b92; stroke: #3b5b92" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_76">
+     <ns0:text style="font: 8px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="766.17625" y="376.375962" transform="rotate(-0, 766.17625, 376.375962)">All grant RB x symbols / radio s</ns0:text>
+    </ns0:g>
+    <ns0:g id="LineCollection_8">
+     <ns0:path d="M 751.77625 389.033462  L 751.77625 381.033462  " style="fill: none; stroke: #cb6725; stroke-width: 1.5" />
+    </ns0:g>
+    <ns0:g id="line2d_89">
+     <ns0:g>
+      <ns0:use ns4:href="#ma1284c5ddc" x="751.77625" y="389.033462" style="fill: #cb6725; stroke: #cb6725" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="line2d_90">
+     <ns0:g>
+      <ns0:use ns4:href="#ma1284c5ddc" x="751.77625" y="381.033462" style="fill: #cb6725; stroke: #cb6725" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="line2d_91" />
+    <ns0:g id="line2d_92">
+     <ns0:g>
+      <ns0:use ns4:href="#m1074482d24" x="751.77625" y="385.033462" style="fill: #cb6725; stroke: #cb6725" />
+     </ns0:g>
+    </ns0:g>
+    <ns0:g id="text_77">
+     <ns0:text style="font: 8px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="766.17625" y="387.833462" transform="rotate(-0, 766.17625, 387.833462)">UL mean delay</ns0:text>
+    </ns0:g>
+   </ns0:g>
+  </ns0:g>
+  <ns0:g id="text_78">
+   <ns0:text style="font: 700 17px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="68.04" y="25.279688" transform="rotate(-0, 68.04, 25.279688)">ALG005 | Load sensitivity and the 5QI 69 tradeoff</ns0:text>
+  </ns0:g>
+  <ns0:g id="text_79">
+   <ns0:text style="fill: #444444; font: 11px 'Liberation Sans'; text-anchor: start; font-family: Arial, 'Liberation Sans', sans-serif" x="68.04" y="42.12" transform="rotate(-0, 68.04, 42.12)">3 UE | 120 kHz | same F=1 | 1200 B UDP UL | 6 business seeds x mirrored admission</ns0:text>
+  </ns0:g>
+  <ns0:g id="text_80">
+   <ns0:text style="fill: #444444; font: 9px 'Liberation Sans'; font-family: Arial, 'Liberation Sans', sans-serif" transform="translate(68.04 602.018438)">A/B: median of 6 seed metrics; each seed first averages forward/reverse admission.</ns0:text>
+   <ns0:text style="fill: #444444; font: 9px 'Liberation Sans'; font-family: Arial, 'Liberation Sans', sans-serif" transform="translate(68.04 613.669219)">C/D: median of 6 paired seed changes; whiskers show the full seed range, not a confidence interval.</ns0:text>
+   <ns0:text style="fill: #444444; font: 9px 'Liberation Sans'; font-family: Arial, 'Liberation Sans', sans-serif" transform="translate(68.04 625.32)">APP one-way wall time; costs use the full business window per radio second. Pilots excluded.</ns0:text>
+  </ns0:g>
+ </ns0:g>
+ <ns0:defs>
+  <ns0:clipPath id="p672f441dc2">
+   <ns0:rect x="68.04" y="84.24" width="354.991304" height="174.461538" />
+  </ns0:clipPath>
+  <ns0:clipPath id="pf3f7dcc537">
+   <ns0:rect x="529.528696" y="84.24" width="354.991304" height="174.461538" />
+  </ns0:clipPath>
+  <ns0:clipPath id="p6dbaa6cbeb">
+   <ns0:rect x="68.04" y="363.378462" width="354.991304" height="174.461538" />
+  </ns0:clipPath>
+  <ns0:clipPath id="pfc09f036a6">
+   <ns0:rect x="529.528696" y="363.378462" width="354.991304" height="174.461538" />
+  </ns0:clipPath>
+ </ns0:defs>
+</ns0:svg>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="description" content="5G通信时延研究的离线阅读站：基础知识、算法、实验报告、论文和3GPP协议。">
+ <title>5G 通信时延研究阅读站</title>
+ <link rel="stylesheet" href="网页/vendor/katex/katex.min.css">
+ <link rel="stylesheet" href="网页/style.css">
+</head>
+<body>
+ <a class="skip-link" href="#main">跳到正文</a>
+ <header class="topbar">
+  <button id="menuButton" class="icon-button mobile-only" aria-label="打开目录">☰</button>
+  <a class="brand" href="#/"><span class="brand-mark">L<span>↗</span></span><span>通信时延研究<span class="brand-sub">RESEARCH READER</span></span></a>
+  <button class="search-trigger" id="searchButton"><span>⌕</span><span>搜索知识点、文档与文献</span><kbd>Ctrl K</kbd></button>
+  <button class="icon-button" id="themeButton" aria-label="切换深浅主题" title="切换深浅主题">◐</button>
+ </header>
+ <aside class="sidebar" id="sidebar" aria-label="站点目录"></aside>
+ <div id="sidebarShade" class="sidebar-shade"></div>
+ <main id="main" tabindex="-1"><div class="initial-loading">正在打开阅读目录…</div><noscript>请启用浏览器 JavaScript 以阅读本地文档。</noscript></main>
+ <aside class="page-toc" id="pageToc" aria-label="本页目录"></aside>
+ <button class="back-top" id="backTop" aria-label="返回顶部">↑</button>
+ <div class="toast" id="toast" role="status"></div>
+ <dialog id="searchDialog" class="search-dialog">
+  <div class="search-input-row"><span>⌕</span><input id="searchInput" placeholder="搜索全文，例如：SR周期、P99、QUEST" aria-label="搜索全文" autocomplete="off"><button id="closeSearch" class="icon-button" aria-label="关闭搜索">✕</button></div>
+  <div class="search-help">全文搜索 · 支持知识点、算法、研究记录、论文与协议名称</div>
+  <div id="searchResults" class="search-results"></div>
+ </dialog>
+ <script src="网页/catalog.js"></script><script src="网页/app.js"></script>
+</body>
+</html>

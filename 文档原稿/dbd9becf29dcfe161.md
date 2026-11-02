@@ -1,0 +1,23 @@
+# TEST-492 七十二业务完整与外层收尾核验
+
+原运行命令（active树、未重启root）：
+```bash
+sudo -n /usr/bin/python3 -B research/latency-analysis/probe-load-v4/run.py /home/lbh/oiwireless/analysis-source-audit/probe-load-20261029/main-02
+```
+session62812最终实际exit0；runtime complete_plan=true，72/72、19050冻结保持、原四核心保持；UTC03:01:13.486476–05:01:01.181156/7187.695270s。432采集完整门禁PASS，TUN216流。原459.990602s维护在矩阵总时间内，不在业务窗；无旧16成功子集拼接。
+
+收尾检查实际ps exit0：`ps -p 1569899,1569894 -o pid,ppid,stat,etime,time,wchan:25,comm`，Python Z、sudo T。本机读取/usr/share/man/man5/proc.5.gz字段52为waitpid形式状态。子Z值0；父T原始值19不解释为最终失败退出码。停止只读监测协程以检查进程，没有中止业务；当时所有业务和采集已结束。问题来自维护恢复遗漏sudo父，而非无线业务失败。
+
+实际修复现场命令：
+```bash
+sudo -n /usr/bin/python3 -B research/latency-analysis/maintenance/resume_completed_sudo.py --record /home/lbh/oiwireless/analysis-source-audit/disk-cleanup-20261030/matrix-pause-01.json --output /home/lbh/oiwireless/analysis-source-audit/probe-load-20261029/launcher-reap-01.json
+```
+exit0，核子1569899/Z/tick32854461/exit0、父1569894/T/tick32854460/精确argv、无RAN后SIGCONT父；UTC05:23:28.135801父消失，随后write_stdin62812真实exit0。未重启root或改期限；外层等待不算业务runtime或包时延。原暂停JSON保持，新增独立reap证据。
+
+环境命令：
+```bash
+sudo -n /usr/bin/python3 -B research/latency-analysis/probe-load-v4/environment_check.py --output /home/lbh/oiwireless/analysis-source-audit/probe-load-20261029/environment-after-main-02.json
+```
+exit0，四核心ID/镜像/启动/运行状态与before/after相同；RAN0/netns0，无latency-load-*容器和172.30.212.0/24路由。独立Python断言72完整/432采集及环境通过，safe capture-and-process-check.json；旧计划证明目录已存在导致首次mkdir exit1/未写，随后新runtime-closure-01成功，不覆盖旧文件。
+
+新维护两脚本AST/差分通过；助手不在冻结清单，通信C/配置/模型保持。实际父恢复成功；新normal/race/exception全路径未另启动完整暂停工程测试，不伪称通过。此修正3GPP/数学推导不适用，原始日志/pcap/凭据/ELF/协议本地；安全证据results/verification/main-02/runtime-closure-01，后续独立与统计另列TEST493及后续。

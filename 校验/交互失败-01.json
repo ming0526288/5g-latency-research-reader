@@ -1,0 +1,9 @@
+{
+  "command": "NODE_PATH=/usr/share/nodejs <Node24> tools/check_interactions.cjs",
+  "exit_code": 1,
+  "last_success": "首页、基础分式、书签、全文搜索、PDF页7与9的控件均通过",
+  "failure": "等待协议页面超时",
+  "cause": "尚待定位；首次测试未捕获应用console.error，补充捕获后复查",
+  "scope": "DOM集成核验，不是浏览器截图、真实PDF展示或通信实验",
+  "followup": "将PDF资源作为HTML iframe交给jsdom时，后续动态脚本队列不完成；先协议后PDF的控制序列通过。将DOM测试中的PDF iframe资源明确禁用（仅核验src和页码，不假装渲染PDF），再验证原先PDF→协议顺序。真实浏览器展示仍未核验。"
+}

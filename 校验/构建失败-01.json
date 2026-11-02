@@ -1,0 +1,1 @@
+{"command":"python3 tools/build_reader.py --workspace /home/lbh/oiwireless","exit_code":1,"last_success":"PDF/Word原文复制、协议阅读页、1175篇Markdown转换和数学排版完成","failure":"写构建摘要时warnings.document为PosixPath，JSON序列化失败","cause":"导出器的诊断字段类型不一致","impact":"未生成成功构建摘要；不涉及通信实验或原始资料修改","correction":"将诊断路径显式转换为字符串，重新运行构建和校验"}

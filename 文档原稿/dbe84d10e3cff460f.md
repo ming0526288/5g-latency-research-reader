@@ -1,0 +1,9 @@
+# 必要的隔离SMF修正：重复关联不能清空实际收到的UP功能
+
+仅新辅助源SMF-pfcp-association-fix-01/src/smf_app/smf_pfcp_association.cpp::check_association_on_add，条件use_function_features反转为!use_function_features。原函数把有功能IE的消息清空缓存，导致重复关联后FTUP丢失；新消息有IE时应存actual功能，无IE时才清空。原SMF源/原构建/原核心不变，patch在本目录可审查。
+
+依据本地TS29.244 V20.1.0 §5.5.1/5.5.3：正常新会话FTUP/UP侧FTEID分配与CHOOSE；§6.2.6.2/3：关联可CP或UP发起；§8.2.1/Table8.2.1-1：Cause1接受、64未指定原因拒绝；§8.2.25/Table8.2.25-1：FTUP位5/5。封面由用户提供，不冒称独立认证官网最高。未进行恢复会话分支，不将相邻引用当新增所需规范；P24/教材不提供该CPP更新逻辑，不能代替协议原文。数学仅presence真值表，非新时延优化公式。
+
+原失败pilot-01真实关联响应features1000(FTUP1)，随后会话LocalFTEIDflags1(CHOOSE0)，UPF直接日志拒绝CP选项，返回Cause64；Cause64本身没有具体指出FTUP错误，不混淆。旧函数体回归按预期SIGABRT，新函数9例通过（依赖隔离桩，非完整核心集成）；全部2108输入前后冻结、完整SMF构建exit0，SHA8fb9d84082ee19be9d9f5dd156ba70b775ca3189f6fb54dfe95a6b6e0bf2ea6f。真实新先导三条件PFCP/CHOOSE/业务完整通过TEST456/457；不将先导性能与旧核心数据混池。
+
+实际命令/退出/失败CHG309–311及TEST453–457。本目录build.py使用已有无网络Docker工具链、只读新源码挂载，不改原容器/镜像。prepare_build.py核原2108与新仅一CPP不同。新正式五模式统一此SMF副本，使评分比较的核心背景一致；不是部署更换，也不是新的论文算法。

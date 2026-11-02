@@ -1,0 +1,31 @@
+# TEST-058 TDD边界与混合符号完整RFsim
+
+2026-10-20，CHG-033。引用S02/S06、教材§4.3.1 PDF79/80及P17§III/IV PDF3/4、P19§II/III PDF2/3作为方向/评价依据。单向时延与跨边界关联参考P01§III/IV PDF2至4；参数1264B只用于模型，实际UDP载荷1200B。
+
+现有核心网容器只读确认oiwireless-amf/smf/upf运行，无核心网配置修改。准备命令：缓存Python运行tdd-standard/prepare_sa_cases.py --output research/latency-analysis/results/tdd-standard/sa-configs-01。
+
+实际三个命令形式（工作目录研究仓库）：
+
+```
+sudo -n /usr/bin/python3 research/latency-analysis/tdd1/run_ul_packet_check.py --configs research/latency-analysis/results/tdd-standard/sa-configs-01/d0u4 --output research/latency-analysis/results/tdd-standard/sa-d0u4-01 --ratio 0:4
+sudo -n /usr/bin/python3 research/latency-analysis/tdd1/run_ul_packet_check.py --configs research/latency-analysis/results/tdd-standard/sa-configs-01/d4u0 --output research/latency-analysis/results/tdd-standard/sa-d4u0-01 --ratio 4:0
+sudo -n /usr/bin/python3 research/latency-analysis/tdd1/run_ul_packet_check.py --configs research/latency-analysis/results/tdd-standard/sa-configs-01/d3u1_s6f2u6 --output research/latency-analysis/results/tdd-standard/sa-d3u1-s6f2u6-01 --ratio 3:1
+```
+
+0:4退出1：gNB RF和UE PHY同步已成功；未确认RRC/TUN配置，25秒等待TUN超时；发送器、接收器业务和pcap捕获尚未启动，0个业务时延样本。无断言；根因尚未定位，无完整D槽是待查因素而非已证实原因。仅一轮，不判定协议禁止或永久不能用。
+
+4:0退出0，4500包全部四边界匹配，4000预热后样本，UL均值2.160272ms、P99 9.959328ms，零丢包。U完整槽=0但特殊槽仍有4个U符号，不能解释成无上行。
+
+3:1、特殊槽6D2F6U退出0，4500包全部四边界匹配，4000预热后样本，UL均值1.203268ms、P99 1.793326ms，零丢包。与历史6D4F4U不是随机交错重复实验，不据单轮宣称优劣或最优。
+
+两次成功解析实际用缓存Python执行tdd1/analyze_ul_packet_capture.py <对应目录>，均退出0，捕获重复0，分段非负；时钟口径差最大分别0.007647/0.006600ms。所有runner均children_stopped=true；既有5GC保持运行。原始日志/pcap留忽略results，安全逐包CSV/状态/命令/诊断归档evidence。没有改OAI通信源码。
+
+## 依据与适用边界 2026-10-20补注
+
+本段已按2026-10-20用户提供的新原文重新核查并替换旧补注。当前依据：TS38.214 V19.5.0 §5.1.2.1/6.1.2.1、§5.1.3.2/6.1.4.2；TS38.321 V19.4.0 §5.4.1/5.4.4/5.4.5；TS38.300 V19.4.0 §4.3.1.1/4.4.1/6。
+
+依据编号：S03、S04、S05；B02、B03、B04、B05；P01 §III/§IV、P06 §III；C02、C03、E02、E03、M01。英文原版文献章节/PDF页序、教材章节/PDF页序、原Word段落定位与哈希见[统一依据表](../../docs/10_协议文献教材依据与参数溯源.md)。Word无PDF页码，不沿用旧PDF页序。
+
+本记录对应范围：应用序号、包关联与分层边界参考P01，当前仅四个外部边界；TUN绑定和时钟语义依据Linux。MCS上限、2 Mbps、1200字节和4500/500/4000包为受控选择。单UE主动调度是已有fork行为，不臆测每包SR等待。本次重新核对的是未配置SBFD、正常CP、固定参考/数据μ=3等原实验范围；不外推为整个新Release的功能或一致性认证。全局D/U字段上限现为320、部分周期的μ适用范围已扩展，不能沿用旧版全局解释。
+
+原始命令、日期、原引用和运行结果保留历史事实，不改写成当时已采用新版本；本文新补注用于当前解释。2026-10-21适用边界更正：后续已核实默认DRB的UL SDAP头及N3 QFI问题，受影响完整业务已按新配置另批重测；当前数据见standards-review/evidence/current及逐阶段正文。旧业务性能仅作历史审计，不冒称新实验；独立核验的网格/TBS/模型按其声明假设保留。精确原因、条款与影响见docs/10第12及15节。

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "counts": {
+    "document_routes": 9722,
+    "paper_routes": 10033,
+    "documents": 1177,
+    "protocol_routes": 6944,
+    "page_routes": 3467,
+    "offline_resources": 149,
+    "protocol_clause_requires_keyword_fallback": 21,
+    "legacy_heading_links_with_fallback": 571,
+    "pdf_originals": 36,
+    "protocol_parts": 34,
+    "protocol_archives": 26,
+    "total_files": 2670,
+    "total_bytes": 385678028
+  },
+  "errors": [],
+  "warnings": [],
+  "browserQA": "UNVERIFIED: cua.getState returned no browsers; iab unavailable. No live browser or cross-computer manual test has been claimed.",
+  "scope": "Offline resource/route/page/hash/math/security checks; not a wireless experiment or independent certification of historical conclusions."
+}

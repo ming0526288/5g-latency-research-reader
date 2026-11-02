@@ -1,0 +1,7 @@
+# CHG-205 慢包离线绝对路径与模块命名冲突修正
+
+日期2026-10-25。collect.main入口把全部CLI Path resolve后使用relative_to；加载旧TDD辅助后移除其sys.path目录，避免calendar.py遮蔽stdlib。packet_mechanisms用明确路径/独立命名空间加载layered/analyze.read_traces，避免通用analyze名称冲突。修新离线作者，不修改493冻结/原C/二进制/数学公式或无线实测；首失败证据TEST315，需实际再运行后方能记通过。
+
+## 依据与适用边界 2026-10-20补注
+
+本条2026-10-25新增。3GPP/数学推导不适用Python路径/模块命名工程修正；原图/区间意义仍为CHG203及本组原文/论文/教材依据。具体标准定义与工程选择按正文区分；不把未执行步骤写为通过，不构成全部NR一致性、稳态或真实射频认证。

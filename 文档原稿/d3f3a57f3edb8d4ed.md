@@ -1,0 +1,46 @@
+# TEST-096 TDD交叉逐包数学与交付核验
+
+实际分析命令：
+
+    PYTHONPYCACHEPREFIX=/tmp/latency-tdd-cross-pycache /usr/bin/python3 research/latency-analysis/multi-ue/tdd_report.py --data research/latency-analysis/results/multi-ue/tdd-cross-01 --retry-data research/latency-analysis/results/multi-ue/tdd-cross-retry-01 --configs research/latency-analysis/results/multi-ue/tdd-configs-01 --output research/latency-analysis/multi-ue/evidence/tdd-cross-01 --scratch research/latency-analysis/results/multi-ue/tdd-cross-model-01
+
+第一次退出1：多UEanalyze.py与单FIFO模型analyze.py同名，先导入多UEanalyze后scs_adapter无法导入Occasion（ImportError）；尚未进入main、没有创建该scratch/分析证据，没有启动无线业务。修正tdd_report.py先导入模型、再以唯一模块名按路径加载多UE解析器；不修改底层模型/原始数据。相同命令重跑退出0，实际结果见下文。此为分析模块导入错误，不冒充无线故障。
+
+本轮逐包核验范围：15个实际尝试状态/清理、3种配置SHA与字段/原C网格，完成条件各UE 4500序号、四边界pcap与CSV时戳、零丢包/重复、前500预热、总量与分段均值/P99重算。真实跨UE共同到达轨迹16相位理想RR参照；独立粗帧率缩放机会轴保持TBS/符号预算，非按P99拟合。各完成条件残余等待闭式Σg²/(2P)对照20000相位。失败不填0，N4 DL1:3两次超时状态保留，未到业务/抓包。
+
+源码语法实际执行：
+
+    PYTHONPYCACHEPREFIX=/tmp/latency-tdd-cross-pycache /usr/bin/python3 -m py_compile research/latency-analysis/multi-ue/run.py research/latency-analysis/multi-ue/tdd_cross.py research/latency-analysis/multi-ue/tdd_report.py research/latency-analysis/multi-ue/tdd_plot.py
+    git diff --check
+
+初次编写后已退出0，后续修订再在交付时检查。科学图、白名单、来源索引与旧基线回归实际结果见下文。
+
+协议首选38.213 V19.5.0 §11.1、38.331 V19.4.0 §6.3.2和38.211 V19.5.0 §4.3.2；TBS用38.214 V19.5.0 §5.1.3.2/6.1.4.2，多UE用38.300 V19.4.0 §10.2/10.3与38.321 V19.4.0 §5.4.1/5.4.4/5.4.5。P17 §III/IV PDF3–4、P24 §VI PDF7–8、P01 §III/IV PDF2–4、教材§4.3.1 PDF79–80/§13.1.1.2 PDF530–532辅助；闭式/理想RR与流量是M01/E01假设，不是标准直接提供的总时延。当前协议资料够本项，未独立宣称官网最高版本；Word/PPT未改。
+
+
+最终实际结果：修复导入后的原命令退出0；补充报告结论与CSV统一LF后，使用相同命令但--scratch results/multi-ue/tdd-cross-model-02（实际完整前缀research/latency-analysis/）再次退出0。15尝试/11完整、144000四边界包/128000预热后统计，32实际UE轨迹×16共同相位、11项等待闭式各20000相位核验通过。全部记录回收成功；没有用新成功覆盖首批失败。4UE DL1:3无业务值、两次同步后接入超时，根因未知。
+
+模型对照：4UE UL1:3实际最差P99=3262.555131ms，名义RR逐UE相位上界最大4.010846ms，按独立帧比缩放最大41.664012ms；平均帧率解释不足，不把差额直接归CPU或某层。DL孤立机会等待闭式3:1/2:2/1:3依次.0875/.1375/.2125ms；UL固定4槽前驱均仅1机会、等待均值.3125ms，明确模型局限而非标准图样等价。实际与理论不逐值相等，不调常数强迫一致。
+
+实际旧基线回归命令：
+
+    PYTHONPYCACHEPREFIX=/tmp/latency-tdd-cross-pycache /usr/bin/python3 research/latency-analysis/multi-ue/validate.py --data research/latency-analysis/results/multi-ue --scratch /tmp/multi-tdd-cross-baseline-20261020
+
+退出0：旧17完整/64UE流/288000四边界包、224条件/1008万模型包、168单UE退化、3维度缩放核验通过。旧6顺序轮本轮未改，之前TEST-094已核验；新批另用tdd_report.py，不把旧验证脚本说成覆盖全部34完整轮。
+
+实际绘图命令：
+
+    MPLCONFIGDIR=/tmp/latency-tdd-cross-mpl PYTHONPYCACHEPREFIX=/tmp/latency-tdd-cross-pycache /usr/bin/python3 research/latency-analysis/multi-ue/tdd_plot.py --data research/latency-analysis/multi-ue/evidence/tdd-cross-01
+
+退出0，输出figures/tdd-multi-ue-cross.png/svg；绘图日志本地tdd-cross-model-01/plot-log*.txt。实际打开PNG核查标题/图例/轴/点/失败标签，调整失败文字位置避免遮挡理想短线与实际点，数据不变；缺失不画0。SVG英文数字Arial首选，环境缺原字体时PNG回退Liberation Sans，不宣称Arial嵌入。
+
+最终py_compile与git diff --check退出0。来源审计实际运行build_reference_audit.py、validate_reference_audit.py，156条覆盖CHG001–060/TEST001–096、28论文/教材与规则哈希通过；validate_protocol_storage.py退出0，7ZIP/7未改原文DOCX、三规则一致。一次apply_patch因上下文不匹配未改文件、未执行后续分析命令，修正锚点后才成功修改，不是无线失败。CSV只将新导出换行统一为LF，原始CSV/抓包/数据值未改。
+
+
+交付前实际内联Python审计退出0：全部安全status/commands/measurement与原件一致，manifest每文件大小/SHA重算一致，抽取四UE私密字段未出现在导出内容；新CSV均LF，/run/netns无本次latmu_*、/proc无RAN进程。最终语法检查与diff检查退出0；当前PNG再次实际打开确认失败文字与点/短线分离、图例/坐标完整。
+
+## 依据与适用边界 2026-10-20补注
+
+当前依据优先TS38.300 V19.4.0 §10.2/10.3、TS38.321 V19.4.0 §5.4.1/5.4.4/5.4.5；TDD/授权/TBS按38.211/213/214 V19.5.0及38.331 V19.4.0已读条款。论文/教材辅助设计，不能替代协议；精确定位见正文和[统一依据表](../../docs/10_协议文献教材依据与参数溯源.md)。
+
+依据编号：S01、S02、S03、S04 §5.4.1/5.4.4/5.4.5、S05 §10.2/10.3、S06；B02/B04/B05；P01/P06/P24 §VI PDF7–8；C02/C03/E01/E02/E03/M01。第三阶段多UE：协议定义优先，模型/软件支持/真实多UE业务分别报告，现有PF和首UE偏置未优化。 本次具体UE数量/负载/测量与数学模型属项目选择，原文版本按用户提供核读、未独立宣称官网最高版；非完整Release认证。缺协议先告诉用户，不猜测、不自行下载。

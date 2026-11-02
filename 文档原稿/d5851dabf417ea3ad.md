@@ -1,0 +1,20 @@
+# TEST-161 共同调度基线控制与逐包汇总核验
+
+2026-10-21，CHG096。实际运行collect_current.py --plan results/common-ul-policy-01/plan-01/plan.json --expected-cases 6 --packet-diagnostics，六个--root按预声明顺序指向runs-01各case，输出scheduler-baseline/evidence/current；完整展开命令在results/common-ul-policy-01/collect-command.txt，路径前缀均research/latency-analysis。退出0，6尝试6完整0失败，85500完整关联。
+
+实际后处理命令：
+
+```
+/usr/bin/python3 -B research/latency-analysis/scheduler-baseline/summarize.py --matrix research/latency-analysis/scheduler-baseline/evidence/current/current_matrix.json --research research/latency-analysis --output research/latency-analysis/scheduler-baseline/evidence/current/summary.json
+/usr/bin/python3 -B research/latency-analysis/scheduler-baseline/write_report.py --summary research/latency-analysis/scheduler-baseline/evidence/current/summary.json --output research/latency-analysis/scheduler-baseline/按3GPP边界建立共同上行调度基线.md
+```
+
+两者退出0。逐项核源SHA150f8ed6efa8b5d2ee8b774b9c3b1e133a10124b3271562c73fe38d62cacc678等于编译身份，6项同程序/同配置、计划标签共同规则、真实负载/包/超时/预检/端口种子、CPU4在流量前后实际生效且policy2/priority97、新PFCP及namespace回收。正序[0,1,2,3]和反序[3,2,1,0]实际成立，OFF无trace，ON全部旧/新关联结果0且18000包与旧混合段逐包一致。完整19流独立均值/P99/最大值及4个ON流分量公开安全summary，不只挑有利一轮或UE。
+
+新共同规则下仍有显著UL等待，N4正序/反序OFF最差P99分别944.771560/1138.896962ms。每种只有一轮，不能证明完全顺序无关/整个PF公平，也不能拿原程序的不同运行值声称净改善。新ON的分量只属于本组，旧98.91%/99.30%慢40占比没有复制到新组。
+
+本项无业务/后处理失败。源级反例/编译已在TEST159验收，不为文档整理重复RFsim。当前协议原文可读齐全，没有下载。冷DL部署前提与未独立测DCI/TB/HARQ/RFsim等待继续保留；未知不是0。
+
+## 依据与适用边界 2026-10-20补注
+
+本条2026-10-21新增。准确3GPP/论文/教材定位、实现布尔式与MCS上限见CHG095/096/README；数据收集、SHA、CPU/namespace检查为工程验证，协议不规定本研究的6项/样本量/P99公式，也不强制PF公平算法。

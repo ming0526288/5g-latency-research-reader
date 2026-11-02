@@ -1,0 +1,7 @@
+# CHG-326 剩余探测先导：内层容器名修正
+
+pilot-01已准备18872冻结输入，第一legacyF1内层preflight失败：prepare从前轮run_private_ran.py只替换IP/veth，遗漏latency-grant-upf字符串；外层已新建latency-probe-upf。此为作者运行脚本迁移错误，非3GPP缺件/新C性能退化。失败root和v1源冻结保留，不重启/覆盖。
+
+新probe-residual-v2复制首版，prepare生成内层runner时增加latency-grant→latency-probe替换，并在写文件前静态拒绝旧容器前缀、旧210IP、旧veth残留。run驱动、C/10运行文件、F/配置/流量/业务期限和资源门禁保持；新pilot-02重新准备。工程名字整理3GPP/新数学不适用，通信依据仍CHG324/325。
+
+所有后续结果必须通过实际策略和资源门禁及原始独立检查再讨论收益；本失败未产生gNB/UE业务时延。具体命令/退出码/最后成功位置/清理见TEST472，不删失败抓包或调超时。

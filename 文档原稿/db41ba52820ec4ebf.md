@@ -1,0 +1,9 @@
+# TEST-312 慢包交集数学前驱索引与运行中拒绝核验
+
+日期2026-10-25。实际 /usr/bin/python3 -B research/latency-analysis/slow-packet-mechanisms/verify_offline_math.py --output research/latency-analysis/slow-packet-mechanisms/evidence/offline-math-check.json exit0：1694种整数交集与独立逐ns区间成员枚举一致，2非法区间拒绝，39个BSR前驱结果与独立排序线扫一致（含相同时刻按seq、其他RNTI、无前驱）；合成活动controller拒绝、关闭但complete_plan=false可读。随后小脚本实际调用require_closed默认当前runs-01，确认still active拒绝；所有本模块Python AST通过，8个C只读SHA/函数点记录。未导入/运行大trace分析，没有产生新时延统计，也没有宿主无RAN断言。
+
+只读定位有两次非研究失败：辅助检索文本误拼38321而实际38.321导致cat exit1；RLC源码误少nr_rlc子目录导致rg exit2。已rg定位正确文件并读取；不是协议缺失，未自行下载。数学测试为工程/定义正确性，不是通信业务或优化算法性能测试。
+
+## 依据与适用边界 2026-10-20补注
+
+本条2026-10-25新增。CHG203的精确原文/论文/教材依据；区间和/BSR检索/关闭保护为项目数学及工程定义，3GPP未规定该观测切点格式或阈值。具体标准定义与工程选择按正文区分；不把未执行步骤写为通过，不构成全部NR一致性、稳态或真实射频认证。

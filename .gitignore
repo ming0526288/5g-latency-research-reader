@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+校验/math-input.json
+校验/math-output.json
+校验/浏览器截图/

@@ -1,0 +1,15 @@
+# TEST-486 隔离TUN抓包容量实测
+
+对应CHG339，只是工程采集测试，不是RFsim时延、算法收益或完整新72。
+
+实际命令（active树，session43649 exit0）：
+```bash
+sudo -n /usr/bin/python3 -B research/latency-analysis/probe-load-results/tun_capture_capacity.py --output /home/lbh/oiwireless/analysis-source-audit/probe-load-20261029/tun-capacity-01
+```
+驱动两个独立CLONE_NEWNET子进程，各临时latcap0 TUN fd关闭随进程退出销毁，无命名netns，无gNB/UE/核心连接；相同tcpdump4.99.1/libpcap1.10.1、即时模式/B4096/纳秒，仅snapshot262144/2048不同。预发标记已读、SIGSTOP自己的采集进程后256包注入，SIGCONT后1.2s排空，SIGINT，两个tcpdump exit0。实际received257/257；旧captured17（含标记）drop240，新captured257 drop0。解析全部记录caplen=original=1228、无重复编号，新256全在。strace两次PACKET_VERSION[1]，RX_RING建立返回0但指针未解码，关闭阶段零ring调用EBUSY原文保留、进程退出回收，不误报所有syscall成功。
+
+输出tun-capacity-01/summary.json及两模式capture.pcap/capture.log/socket.strace，原件仅本地，安全summary可Git。旧失败的停顿发生在哪个线程/CPU/IO未定，独立强制暂停不是旧根因复现；新配置容量更强不等于承诺后续无丢。v4全部Python AST实际exit0，尚未prepare/先导，不能填RAN成功。通信原文/论文/教材边界及工程源码精确定位CHG339；本工程注入测试没有新3GPP修改要求。
+
+后续只读环境核查（v3/environment_check.py --output aux/environment-after-capacity-01.json）actual exit0：原4核心保持、RAN0/netns0。旧main-01冻结通过v3/run.verify_frozen完整核19034身份，actual exit0；稀疏化及新文件未改变其任何冻结源字节。新增v4 collector和全部新Python AST可解析，仍未执行新正式结果生成。
+
+交付工程核验：新AST/当前导引链接存在；暂存仅py/md/csv/json安全白名单，无traffic/配置/ELF/协议目录。main diff --cached --check实际exit0；active按既有control_wire原复制EOF空行边界使用git -c core.whitespace=-blank-at-eof diff --cached --check，actual exit0，不改旧冻结副本。其他历史未提交草稿不混入。

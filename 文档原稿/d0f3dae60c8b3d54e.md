@@ -1,0 +1,57 @@
+# ALG005负载敏感性：预声明方法v4
+
+本文件在prepare前冻结；动态进展见CURRENT.md。研究分支latency-probe-residual，C沿b9f6f41d87已验证ALG005，复用先前实际10文件运行集，不改C/UE/RRC/无线字段/队列观察格式。旧18条件与先导全部保留，不混入新正式统计。
+
+## 范围与比较
+
+先pilot：seed2、反序、总UL2/8Mbps×legacyF1/residualF1=4条件。完整业务、原始关联、资源和预算验证全部通过才72正式。正式完整重跑：总UL2/4/8Mbps×6业务seed×正反接入×两同F1策略=72；每seed的69身份位置轮换，两轮恰各UE位置两次。seed_base=20400000+1000s，UE实际seed再加u，独立于旧批；pilot seed2不计正式。两策略复用相同seed和到达间隔，反序不当独立seed。
+
+固定120kHz/n261/66PRB、TDD0.625ms D3/S6D4F4U/U1、K2=4、SR40/offset3、MCS上限9、真实69/9/9、私有HOL报告开启但PF不评分HOL/5QI、UE主线程4共享/gnb RU6/原共同mask、1200B UDP UL。包数每UE4500，先去500统计4000；主机MONOTONIC APP单向，不是RTT。全业务与抓包均须完整、所有观察无溢出；失败即停，不删慢包/调期限。本轮不改110/120s业务期限，矩阵总上限14400s；20GiB磁盘保留检查在每新条件之前，受限即停止、不清旧结果。
+
+主比较同负载同seed/接入的residualF1对legacyF1。每seed先平均正反两次的最差UE P99，再计算配对百分比，报告6seed中位与全部12上下文方向。5QI69/两个9较差者同报；主机推进比、首等待/初传跨度/分段、SR、纯probe和全部RB×符号/无线秒成本同报。成本全业务窗，延迟去500，不混窗口。报告每seed范围，不预承诺显著性；不将各层P99相加或不同策略慢40子集当同包因果贡献。
+
+## 数学与负载边界
+
+三UE均分总目标应用payload速率R Mbps，包长L=1200B。每UE目标到达率lambda=R*10^6/(3*8L)包/墙钟秒，平均间隔1/lambda，R=2/4/8时分别14.4/7.2/3.6ms。每UE4500包的目标发送时长均值64.8/32.4/16.2s，真实指数间隔和sleep调度偏差从sent.csv复核。R不含IP/SDAP/RLC/MAC头，不能据此宣称PHY吞吐或rho<1；无线时间推进由RFsim实测，不能把R/静态TBS直接当墙钟利用率。
+
+UL_i=(rx_mono_ns-tx_mono_ns)/1e6 ms；每流P99采用inclusive线性秩n=4000，取三UE最大值为条件最差。D_(s,a,L)=条件指标；Dbar_(s,L)=(D_forward+D_reverse)/2；改善g_s=100*(Dbar_legacy-Dbar_residual)/Dbar_legacy；先配对后6seed中位，不能用两个总体中位相除。追加69分组的首等候与初传跨度等只支持定位，不自动给资源重排因果结论。F门限、残余名额/连续PRB/CCE约束沿ALG005，F=1，两策略保持相同长期纯probe额外上限300次/无线秒。
+
+## 原文依据与实现定位
+
+32本地原文当前SHA/CRC/XML或PDF可读；索引在analysis-source-audit/probe-load-20261029/source-preflight-01.json，段落提取为辅助不冒称官方转换件。沿用户授权本地版本，不声称独立核实官网最高版。
+
+* TS38.300 V19.4.0 §10.1/10.3/10.4：实际buffer/QoS与动态grant背景；不规定本研究两策略、负载或随机seed。
+* TS38.321 V19.4.0 §5.4.1、5.4.4、5.4.5及既有5.4.3.1.3：grant/SR/BSR/特定空PDU流程，均保持。实际已重新读UL grant正文2150起、SR2499起、BSR2602起（原XML递归零基段落，非条款编号）。
+* TS38.214 V19.5.0 §6.1.2.1/6.1.2.2.2：K2/TDA和Type1连续资源保持；本步不改RIV/SLIV，辅助纯文本省略公式图形，不能称重新核验其全部公式。
+* TS38.331 V19.4.0 §6.3.2 SchedulingRequestResourceConfig/TDD-UL-DL-Pattern、TS38.213 V19.5.0 §9.2.4/11.1、TS38.211 V19.5.0 §4.3.2：沿既有实际SR/TDD字段和时间网格，本次不改，运行须验证。
+* TS23.501 V20.3.0 Table5.7.4-1：69/9为实际身份观察分组，不将APP单向量当标准PDB认证。TS29.244 V20.1.0 §5.8.1/6.2.6.2/3及原修复依据：保持既有隔离SMF与PFCP gate，允许受支持的CP/UP发起，原核心不变。
+* P01 Dissecting 5G New Radio Latency（IFIP Networking2025）§III/IV本地PDF2–4：按包关联、分段与多负载方法。其裁稳定30秒/去异常峰的处理本实验不采用；不移植未经条件核验的BOI等式。
+* P05 AUGUSTE arXiv2606.03664v1（2026-06-02）§III-B/C PDF3–4、P31 MAC-Gyver arXiv2607.26012v3（2026-08-08）§V-C PDF9：候选/最小grant与预算解释；不是同论文v1/v3，未实现预测器。版本身份沿当日已核元数据+本地同SHA，无新版本全文主张。
+* 指定教材§13.1.1.2 PDF530/532、§13.1.1.4/5 PDF537–539：上行动态调度/QoS/SR/BSR背景，未规定2/4/8Mbps、接入次序、CPU或统计方法。
+
+run.py仅把原已核脚本的固定load4改为row['load']，新212网段latency-load-*隔离资源，以及case_count4/72/磁盘保留检查；不改PF公式或通信C。prepare.py复制已核原文/源码身份、10运行文件和既有配置并只改隔离地址/接口及行驱动业务参数。其余原始门禁逐字复用；独立verify.py仅接受新矩阵大小，其余字节队列/状态核验不变。新Python不是替代C协议栈。
+
+## 命令（列出不代表运行成功）
+
+```bash
+cd /home/lbh/oiwireless/oi-wireless-ran-probe-residual
+/usr/bin/python3 -B research/latency-analysis/probe-load-v4/prepare.py --matrix pilot --output /home/lbh/oiwireless/analysis-source-audit/probe-load-20261029/pilot-04
+sudo -n /usr/bin/python3 -B research/latency-analysis/probe-load-v4/run.py /home/lbh/oiwireless/analysis-source-audit/probe-load-20261029/pilot-04
+# 仅先导全部独立验证通过后：
+/usr/bin/python3 -B research/latency-analysis/probe-load-v4/prepare.py --matrix main --output /home/lbh/oiwireless/analysis-source-audit/probe-load-20261029/main-02
+sudo -n /usr/bin/python3 -B research/latency-analysis/probe-load-v4/run.py /home/lbh/oiwireless/analysis-source-audit/probe-load-20261029/main-02
+```
+
+现有root不恢复/覆盖，失败保留并说明实际停在哪里。原RAN、原核心、旧ALG005结果均不改；新必要原文缺失即全研究停、告知用户、不下载。Word/PPT本步未改，Git只代码/安全结果与CHG/TEST，原文/凭据/完整日志pcap/ELF不上传。
+
+## 前版v3修正（历史）
+
+v2/pilot-02实际在RAN前停止：迁移212网段漏改pfcp_wire.py中的SMF/UPF旧211常量。39抓包零内核丢，实际UP请求FTUP1000/CP接受cause01且sequence匹配；在同份抓包改正确期望端点后PASS，证明是核验地址迁移错误，不能称核心网关联不合规或算法失败。v3只改这两端点常量，并在prepare静态拒绝旧值；保持FTUP/CHOOSE/成功cause/序号/方向门禁，不放宽。C/10运行文件/无线/业务/期限均相同。旧失败root和旧方法不改，不计入新统计。
+
+## v4采集修正与完整复测
+
+v3/main-01实际在第17条件停止：TUN内核丢弃19观测，业务/N3全收且存在真实40～93ms慢包；16运行内通过不等于完整正式，全部旧证据保留，CHG337/TEST484。v4不修调度C、不更改业务期限/负载/无线/CPU或完整性门禁。仅prepare生成的runner TUN tcpdump把-s0（实262144）改成-s2048，保留即时模式/B4096/纳秒和原drain；status记录采集长度。固定1200B UDP实际RAW IPv4整包1228B，2048仍完整，新增capture_quality逐记录caplen==original、TUN头snaplen2048、每采集log零内核丢弃和记录数一致；既有四边界逐包/层内/资源门禁继续。N3及控制采集保持原-s0，不改变任何业务内容。
+
+工程依据为已实际读取的官方libpcap1.10.1 pcap-linux.c prepare_tpacket_socket/create_ring：https://raw.githubusercontent.com/the-tcpdump-group/libpcap/libpcap-1.10.1/pcap-linux.c 。即时模式选V2，RAW没有Ethernet按MTU收窄；小snaplen降低每ring帧预留。独立隔离TUN强制暂停后256包，旧仅16保留/240内核丢，新256全保留/零丢、1228完整，均实际V2；这是容量差异验证，不是旧停顿CPU/IO根因证明或未来零丢保证。采集是工程设置，3GPP没有规定这些tcpdump取值；P01逐包方法与以上3GPP/教材测量边界不变。
+
+先导seed2反序，总8/2Mbps×两策略4条件，覆盖旧失败的同到达配置与对照，独立检查全过才新main-02完整72。正式仍原预声明seed1..6/三负载/正反/两策略，不从旧16拼接或仅重跑失败后选快值；先导与旧停顿失败单独报告，不并入新正式。新旧根共享到达seed，因此不是相互独立的两批业务seed，也不是独立无线信道。本文仅方法，实际是否完成以CURRENT/CHG/TEST为准。

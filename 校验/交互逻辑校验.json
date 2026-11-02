@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "kind": "jsdom DOM integration, not live browser rendering",
+  "steps": [
+    "file://入口加载本地catalog.js、CSS及app.js；首页六步路线完整",
+    "基础知识真实正文加载；分式为KaTeX/MathML；已有四时间戳示意图插入",
+    "加入书签并在书签页找到原文档",
+    "全文搜索QUEST返回实际文档与文献结果",
+    "P24引用页序7及页码控件9写入真实本地PDF地址",
+    "从PDF页切换至TS38.321阅读页，定位5.4.5条，并提供原始DOCX入口",
+    "主题切换控制正常"
+  ],
+  "jsdomErrors": []
+}

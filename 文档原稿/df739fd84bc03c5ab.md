@@ -1,0 +1,13 @@
+# CHG-339 TUN采集容量验证与v4方法
+
+main-01采集失败CHG337/TEST484后，新增tun_capture_capacity.py：每模式独立unnamed NETNS/TUN，不运行gNB/UE/核心，不接原网络；原4096KiB/即时/纳秒抓包，发1标记后暂停自己的tcpdump，注入256个1200B UDP（RAW整包1228B），恢复并原1.2s排空，检查captured/received/dropped与pcap完整长度；strace仅工程socket选项。实测snap262144只保留16/256、kernel drops240；snap2048保留256/256、零丢，全部1228完整，均PACKET_VERSION[1]即V2。证明容量差异，不证明旧运行停顿的线程/CPU/IO原因或未来绝不丢。
+
+新probe-load-v4复制冻结v3，逐文件：prepare.py只将生成runner的唯一TUN -s0替换2048、status记录长度，以及先导seed99改seed2覆盖原失败同条件；正式仍原1..6完整72并明确与失败轮同到达seed，不声称两批相互独立。run.py新增capture_quality的严格完整性门禁，先逐六pcap记录caplen==original/无破损/TUN snap2048 RAW/每log kernel drop0且pcap记录=log captured，再原外部逐包/内部/资源门禁。新增capture_quality.py不重建缺失观测。其他v4 py逐字旧版；README写来源/数学/CLI/复测边界；CURRENT动态不冻结。已存在v1/v2/v3、pilot/main根均不改不重启，不拼旧16进新正式。
+
+未改C/十程序/模块/UE/RRC/PF、TDD/SCS/MCS/SR/K2/CPU、1200B/负载/4500去500、110/120s期限、统计量或完整性要求；修改是仪器容量，不是无线优化。2048是根据固定整包1228且新逐记录无截断门禁作工程选择，非3GPP规定数值。32必要本地原文仍可读，无新必要3GPP缺件；以后缺件全停。通信依据v4/README实际TS38.300 V19.4.0 §10.1/10.3/10.4、38.321 V19.4.0 §5.4.1/5.4.4/5.4.5等不变，P01 III/IV本地PDF2–4逐包方法，教材13.1.1.2 PDF530/532辅助。
+
+工程来源：已实际读取https://raw.githubusercontent.com/the-tcpdump-group/libpcap/libpcap-1.10.1/pcap-linux.c 的prepare_tpacket_socket/create_ring；即时模式排除V3、RAW按snapshot预留，只有Ethernet按MTU收窄。V2近似容量=buffer/frame；本次测试实际burst保持数16对256是观测，strace的RX_RING请求以指针显示，未声称解码出tp_frame_nr。cleanup零ring请求有EBUSY记录，tcpdump进程正常退出0后fd/私有NETNS销毁；不把该清理调用写成全系统调用均成功。
+
+独立采集测试实际TEST486。v4尚未准备/跑先导时不写成功；之后新pilot-04全独立过再新main-02完整72，坏样本与全部负收益保留。程序/安全证明/说明Git，工程测试pcap/strace原件及真实RAN数据仅本地；Office未改。
+
+新增collect_load_v4.py保留原主指标/配对数学/CSV/报告表不变，额外要求72个capture_integrity PASS，并直接重写当前报告的v3失败和v4仪器范围文字；原冻结collect_load.py不改。results/README命令指向新main-02/独立输出，旧main-01失败命令与退出仍在TEST484。当前仅AST可解析，新正式尚未汇总，不填统计PASS。
