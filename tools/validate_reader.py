@@ -60,7 +60,7 @@ foundation=next(d for d in docs.values() if any(a.endswith('算法知识点说�
 foundation_html=read_data(ROOT/'网页/data'/f'{foundation["id"]}.js')['html']
 require('mfrac' in foundation_html and 'katex' in foundation_html,'foundation fraction was not typeset')
 require('λ=R×10^6/(8L)' not in foundation_html,'requested formula still displayed as plain text')
-for name in ['网页/app.js','网页/style.css','网页/assets/闭环测量.svg','网页/assets/阅读地图.svg','网页/vendor/katex/katex.min.css','打开阅读站.html','index.html']:
+for name in ['网页/app.js','网页/typography.js','网页/style.css','网页/assets/闭环测量.svg','网页/assets/阅读地图.svg','网页/vendor/katex/katex.min.css','打开阅读站.html','index.html']:
  require((ROOT/name).is_file(),'missing entry/asset '+name)
 require('fetch(' not in (ROOT/'网页/app.js').read_text(),'file:// app must not depend on fetch')
 for p in (ROOT/'文档原稿').glob('*.md'):
@@ -72,7 +72,7 @@ oversize=[str(p.relative_to(ROOT)) for p in all_files if p.stat().st_size>100*10
 require(not oversize,'files exceed GitHub 100MiB limit: '+str(oversize))
 counts['total_files']=len(all_files);counts['total_bytes']=sum(p.stat().st_size for p in all_files)
 report={'status':'PASS' if not errors else 'FAIL','counts':dict(counts),'errors':errors,'warnings':warnings,
- 'browserQA':'UNVERIFIED: cua.getState returned no browsers; iab unavailable. No live browser or cross-computer manual test has been claimed.',
+ 'browserQA':'2026-11-02: Firefox headless 1440x1100 foundation first-screen screenshot inspected (TEST-007); all-page/mobile/cross-computer visual QA remains unverified. This validator does not rerun that visual check.',
  'scope':'Offline resource/route/page/hash/math/security checks; not a wireless experiment or independent certification of historical conclusions.'}
 (ROOT/'校验/离线资源与跳转校验.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
 print(json.dumps(report,ensure_ascii=False,indent=2));sys.exit(bool(errors))

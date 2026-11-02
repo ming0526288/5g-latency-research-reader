@@ -12,11 +12,11 @@
     "pdf_originals": 36,
     "protocol_parts": 34,
     "protocol_archives": 26,
-    "total_files": 2672,
-    "total_bytes": 385682876
+    "total_files": 2702,
+    "total_bytes": 385802968
   },
   "errors": [],
   "warnings": [],
-  "browserQA": "UNVERIFIED: cua.getState returned no browsers; iab unavailable. No live browser or cross-computer manual test has been claimed.",
+  "browserQA": "2026-11-02: Firefox headless 1440x1100 foundation first-screen screenshot inspected (TEST-007); all-page/mobile/cross-computer visual QA remains unverified. This validator does not rerun that visual check.",
   "scope": "Offline resource/route/page/hash/math/security checks; not a wireless experiment or independent certification of historical conclusions."
 }
