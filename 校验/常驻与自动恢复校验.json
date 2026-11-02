@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "active": "active",
+  "enabled": "enabled",
+  "linger": "yes",
+  "url": "http://127.0.0.1:8765/index.html",
+  "http_status": 200,
+  "old_pid": 2143778,
+  "new_pid": 2146320,
+  "recovery": "Controlled SIGTERM to verified reader process; systemd restored a new process on port 8765.",
+  "browser_open": "Not invoked. Windows browser handoff needs user execution in the VS Code terminal."
+}

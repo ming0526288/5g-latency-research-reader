@@ -10,6 +10,33 @@ git clone https://github.com/ming0526288/5g-latency-research-reader.git
 
 进入文件夹，双击 **`打开阅读站.html`** 或 `index.html`。Windows建议使用Edge或Chrome，macOS/Linux也可使用支持MathML和本地PDF的现代浏览器。
 
+在当前Linux服务器的VS Code终端，常驻运行并请求打开浏览器只需一条命令：
+
+```bash
+python3 /home/lbh/oiwireless/5g-latency-research-reader/常驻阅读站.py
+```
+
+该命令安装/启动当前用户的`5g-latency-reader.service`，已有服务则直接使用，不需保持终端运行。服务仅监听`127.0.0.1:8765`，退出后自动恢复。当前服务器已启用用户linger与服务开机启动，因此关闭终端、退出登录后也会继续运行；其他Linux电脑如需同样常驻，首次安装后可按脚本提示执行`loginctl enable-linger 用户名`。
+
+通过Windows的VS Code端口转发访问时，远程连接仍需保持；关闭终端不影响后台服务，断开远程连接会断开浏览器这一侧的隧道，但不会停止服务器上的阅读站。脚本会通过Remote CLI尝试在Windows浏览器打开转发地址。
+
+查看和停止服务：
+
+```bash
+python3 常驻阅读站.py status
+python3 常驻阅读站.py stop
+```
+
+如果只希望临时在终端运行，也可使用：
+
+```bash
+python3 /home/lbh/oiwireless/5g-latency-research-reader/启动阅读站.py
+```
+
+脚本启动仅监听`127.0.0.1`的静态阅读服务，并通过VS Code Remote的`code --openExternal`请求在本地电脑浏览器打开；普通桌面环境则请求本机浏览器。首选端口8765，占用时自动选择后续端口；相同阅读站已经运行时直接复用。若没有自动打开，可在VS Code“端口”面板转发打印出的端口并打开。新启动服务的终端需保持运行，按`Ctrl+C`停止。
+
+在克隆后的其他位置，进入仓库再运行`python3 启动阅读站.py`即可。Windows也可双击`启动阅读站.bat`，直接打开离线HTML，不需要Python。
+
 私有仓库需要使用有权限的GitHub账号克隆。阅读时无需联网、Python、Node.js、数据库或`npm install`。请完整复制/克隆文件夹，不能单独复制入口HTML。
 
 ## 阅读功能

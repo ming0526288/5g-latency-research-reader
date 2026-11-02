@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "steps": [
+    "启动实际脚本后HTTP200，入口字节与仓库一致",
+    "重复执行复用同一个阅读服务，不报端口占用、不启动第二份服务",
+    "Ctrl+C对应SIGINT使自建服务正常退出，exit0",
+    "不相关端口被占用时自动选择后续端口，原测试服务不受影响"
+  ],
+  "browser_open": "not invoked: --no-open; Remote CLI flag verified in installed server-cli.js; actual local browser handoff awaits user execution"
+}
