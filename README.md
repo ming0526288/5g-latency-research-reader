@@ -6,19 +6,54 @@
 
 ```bash
 git clone https://github.com/ming0526288/5g-latency-research-reader.git
+cd 5g-latency-research-reader
 ```
+
+下文所有命令都在仓库根目录（能看到`常驻阅读站.py`的文件夹）执行，脚本使用相对路径；移动或重新克隆仓库后，先进入新的仓库目录即可。
 
 进入文件夹，双击 **`打开阅读站.html`** 或 `index.html`。Windows建议使用Edge或Chrome，macOS/Linux也可使用支持MathML和本地PDF的现代浏览器。
 
 在当前Linux服务器的VS Code终端，常驻运行并请求打开浏览器只需一条命令：
 
 ```bash
-python3 /home/lbh/oiwireless/5g-latency-research-reader/常驻阅读站.py
+python3 常驻阅读站.py
 ```
 
-该命令安装/启动当前用户的`5g-latency-reader.service`，已有服务则直接使用，不需保持终端运行。服务仅监听`127.0.0.1:8765`，退出后自动恢复。当前服务器已启用用户linger与服务开机启动，因此关闭终端、退出登录后也会继续运行；其他Linux电脑如需同样常驻，首次安装后可按脚本提示执行`loginctl enable-linger 用户名`。
+该命令安装/启动当前用户的`5g-latency-reader.service`，已有服务则直接使用，不需保持终端运行。新电脑默认仅监听`127.0.0.1:8765`，服务进程退出后自动恢复；再次运行会保留已保存的监听设置。移动仓库后，在新位置重新运行此命令以更新服务路径。当前服务器已启用用户linger与服务开机启动，因此关闭终端、退出登录后也会继续运行；其他Linux电脑如需同样常驻，首次安装后可按脚本提示执行`loginctl enable-linger 用户名`。
 
-通过Windows的VS Code端口转发访问时，远程连接仍需保持；关闭终端不影响后台服务，断开远程连接会断开浏览器这一侧的隧道，但不会停止服务器上的阅读站。脚本会通过Remote CLI尝试在Windows浏览器打开转发地址。
+只启动或更新常驻服务，不请求打开浏览器：
+
+```bash
+python3 常驻阅读站.py --no-open
+```
+
+`--no-open`只关闭自动打开浏览器的动作，服务仍在后台运行；命令结束后可以关闭终端。
+
+当前服务器另外配置了受独立口令保护的内网监听：
+
+```text
+http://10.29.156.152:8765/index.html
+```
+
+连接能访问此服务器的aTrust后，可在浏览器直接输入该地址，不需要VS Code。用户已验证aTrust可达TCP22；TCP8765是否获准通过、手机账号是否拥有相同资源权限，仍需客户端验证。Windows PowerShell测试：
+
+```powershell
+Test-NetConnection 10.29.156.152 -Port 8765
+```
+
+首次访问内网地址需要阅读站独立账号口令；在服务器终端查看：
+
+```bash
+python3 常驻阅读站.py credentials
+```
+
+这是阅读站专用口令，不是aTrust或服务器登录密码。口令、哈希及本机设置只保存在`~/.config/5g-latency-reader/`，权限0600，不随Git提交。未登录返回401；隐藏路径和目录列表不提供下载。只绑定127.0.0.1和已明确指定的内网IP，不绑定所有网卡，不改变单位aTrust或全局防火墙规则。
+
+固定密码、增加或删除账号的方法见[修改密码与添加多个用户](#修改密码与添加多个用户)。
+
+本机设置会保存，重复运行常驻命令不会撤掉VPN监听。其他电脑初次克隆仍默认仅本机；如需配置自己的受保护内网地址，可执行`python3 常驻阅读站.py --vpn-address 本机内网IP`。恢复仅本机：`python3 常驻阅读站.py --local-only`。
+
+如果仍使用旧的localhost/127.0.0.1转发网址，则VS Code远程连接仍需保持；上面的内网直连网址不依赖这条隧道。服务器休眠、网络中断、IP变化或VPN未授权时不能保证可达。
 
 查看和停止服务：
 
@@ -27,10 +62,10 @@ python3 常驻阅读站.py status
 python3 常驻阅读站.py stop
 ```
 
-如果只希望临时在终端运行，也可使用：
+以下仅是可选的临时模式，当前常驻服务不需要保持终端：
 
 ```bash
-python3 /home/lbh/oiwireless/5g-latency-research-reader/启动阅读站.py
+python3 启动阅读站.py
 ```
 
 脚本启动仅监听`127.0.0.1`的静态阅读服务，并通过VS Code Remote的`code --openExternal`请求在本地电脑浏览器打开；普通桌面环境则请求本机浏览器。首选端口8765，占用时自动选择后续端口；相同阅读站已经运行时直接复用。若没有自动打开，可在VS Code“端口”面板转发打印出的端口并打开。新启动服务的终端需保持运行，按`Ctrl+C`停止。
@@ -38,6 +73,42 @@ python3 /home/lbh/oiwireless/5g-latency-research-reader/启动阅读站.py
 在克隆后的其他位置，进入仓库再运行`python3 启动阅读站.py`即可。Windows也可双击`启动阅读站.bat`，直接打开离线HTML，不需要Python。
 
 私有仓库需要使用有权限的GitHub账号克隆。阅读时无需联网、Python、Node.js、数据库或`npm install`。请完整复制/克隆文件夹，不能单独复制入口HTML。
+
+## 修改密码与添加多个用户
+
+账号文件是当前Linux用户目录下的 **`~/.config/5g-latency-reader/login.json`**。首次启用受保护内网监听后自动创建；它在仓库外，移动仓库不会改变此文件的位置。在编辑器中打开它即可修改，无需改Python代码。
+
+旧的单账号格式仍然支持。要添加多个账号，将内容改为下面的`users`数组，保留自己的原账号和密码，再增加新项。以下密码只是占位示例，请替换成自己设置的密码：
+
+```json
+{
+  "users": [
+    {
+      "username": "reader",
+      "password": "替换成第一个账号的密码"
+    },
+    {
+      "username": "reader2",
+      "password": "替换成第二个账号的密码"
+    }
+  ]
+}
+```
+
+- `username`是登录用户名，`password`是该用户的固定密码；每个账号都可以阅读同一份资料，没有分级权限。
+- 添加第三个用户，就在`users`数组中再加一个对象，相邻对象用逗号隔开，最后一个对象后不加逗号。
+- 用户名不能重复、不能包含冒号；用户名和密码都不能为空。JSON使用英文双引号，不支持注释。
+- 修改密码直接改对应的`password`；删除用户直接删掉对应对象，至少保留一个用户。
+
+**保存JSON后，在仓库根目录执行下面这一条命令使配置生效：**
+
+```bash
+python3 常驻阅读站.py --no-open
+```
+
+此命令读取`login.json`，更新供服务校验的`access.json`密码哈希；账号或密码变化时会重启已运行的服务，使新增、修改和删除生效。它保留已有端口和内网监听设置，不打开浏览器，也不会每次生成新密码。单独保存JSON不会立即更新正在运行的服务，保存后要执行此命令。
+
+`access.json`由脚本维护，不需要手动修改。需要查看已配置账号时运行`python3 常驻阅读站.py credentials`。浏览器记住旧账号时，可以使用隐私窗口重新登录。账号文件不随Git同步，在其他电脑上运行服务时需在那台电脑单独配置。
 
 ## 阅读功能
 
@@ -77,10 +148,10 @@ python3 /home/lbh/oiwireless/5g-latency-research-reader/启动阅读站.py
 
 ## 维护与核验
 
-普通阅读不需要运行以下命令。导出器用于原始研究工作区，依赖Python的`markdown-it-py`、Poppler的`pdfinfo`及Node.js/KaTeX；不会修改原研究文档。
+普通阅读不需要运行以下命令。导出器用于原始研究工作区，依赖Python的`markdown-it-py`、Poppler的`pdfinfo`及Node.js/KaTeX；不会修改原研究文档。下面假设阅读站仓库位于原始研究工作区内，因此`--workspace ..`指向上一级工作区；若在其他位置，请改成从当前仓库到原始研究工作区的相对路径。
 
 ```bash
-python3 tools/build_reader.py --workspace /path/to/oiwireless
+python3 tools/build_reader.py --workspace ..
 python3 tools/validate_reader.py
 ```
 
