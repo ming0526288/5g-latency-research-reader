@@ -1,0 +1,43 @@
+{
+  "source_commit": "4c6e9ba4b623ba5bfa68ac9693078676fde724af",
+  "clone_commit": "4c6e9ba4b623ba5bfa68ac9693078676fde724af",
+  "command": "git clone --no-hardlinks --quiet /home/lbh/oiwireless/5g-latency-research-reader /tmp/5g-reader-portability-20261102-01",
+  "clone_exit_code": 0,
+  "source": "local Git repository; no GitHub push or network clone claimed",
+  "resource_validation": {
+    "status": "PASS",
+    "counts": {
+      "document_routes": 9722,
+      "paper_routes": 10033,
+      "documents": 1177,
+      "protocol_routes": 6944,
+      "page_routes": 3467,
+      "offline_resources": 149,
+      "protocol_clause_requires_keyword_fallback": 21,
+      "legacy_heading_links_with_fallback": 571,
+      "pdf_originals": 36,
+      "protocol_parts": 34,
+      "protocol_archives": 26,
+      "total_files": 2668,
+      "total_bytes": 378702369
+    },
+    "errors": [],
+    "warnings": [],
+    "browserQA": "UNVERIFIED: cua.getState returned no browsers; iab unavailable. No live browser or cross-computer manual test has been claimed.",
+    "scope": "Offline resource/route/page/hash/math/security checks; not a wireless experiment or independent certification of historical conclusions."
+  },
+  "dom_validation": {
+    "status": "PASS",
+    "kind": "jsdom DOM integration, not live browser rendering",
+    "steps": [
+      "file://入口加载本地catalog.js、CSS及app.js；首页六步路线完整",
+      "基础知识真实正文加载；分式为KaTeX/MathML；已有四时间戳示意图插入",
+      "加入书签并在书签页找到原文档",
+      "全文搜索QUEST返回实际文档与文献结果",
+      "P24引用页序7及页码控件9写入真实本地PDF地址",
+      "从PDF页切换至TS38.321阅读页，定位5.4.5条，并提供原始DOCX入口",
+      "主题切换控制正常"
+    ],
+    "jsdomErrors": []
+  }
+}

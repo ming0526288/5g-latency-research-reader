@@ -53,7 +53,7 @@
  }
  function attachArticle(){
   main.querySelectorAll('pre').forEach(pre=>{const b=document.createElement('button');b.className='copy-code';b.textContent='复制';b.onclick=()=>copy(pre.querySelector('code')?.textContent||pre.textContent.replace(/复制$/,''));pre.appendChild(b);});
-  main.querySelectorAll('a.citation[href^="#/paper/"]').forEach(a=>a.addEventListener('click',()=>storage.set('returnTo',location.hash)));
+  main.querySelectorAll('a[href^="#/paper/"]').forEach(a=>a.addEventListener('click',()=>storage.set('returnTo',location.hash)));
  }
  async function docView(id,params,seq){
   const d=docs.get(id);if(!d)return missing('没有找到这篇文档。');
