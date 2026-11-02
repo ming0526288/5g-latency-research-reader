@@ -13,7 +13,6 @@
  const main=$('#main');
  let bookmarks=storage.get('bookmarks',[]),history=storage.get('history',[]);
  const outline=['算法知识点说明/00_通信与时延基础知识.md','算法知识点说明/PF_知识点说明.md','算法知识点说明/WAIT_知识点说明.md','算法知识点说明/QUEST_知识点说明.md','算法知识点说明/SR周期分配_知识点说明.md','算法知识点说明/授权时机_知识点说明.md','算法知识点说明/剩余资源预算探测_知识点说明.md'].map(find).filter(Boolean);
- const algorithmDocs=C.docs.filter(d=>d.group==='algorithms'&&/ALG-\d+/.test(d.source)).sort((a,b)=>a.source.localeCompare(b.source));
  function notify(s){$('#toast').textContent=s;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),2300);}
  function header(category,title,description=''){return `<div class="library-heading"><div class="eyebrow">${category}</div><h1>${E(title)}</h1>${description?`<p>${E(description)}</p>`:''}</div>`;}
  function breadcrumbs(label){return `<nav class="breadcrumbs"><a href="#/">阅读首页</a><span>／</span><span>${E(label)}</span></nav>`;}
@@ -23,7 +22,7 @@
   $('#sidebar').innerHTML=nav('#/','⌂','阅读首页')+nav('#/bookmarks','☆','我的书签',bookmarks.length)+
    '<div class="nav-heading">开始学习</div>'+outline.map((d,i)=>`<a class="nav-link ${current===d.id?'active':''}" href="${docUrl(d)}"><span class="nav-icon">${String(i+1).padStart(2,'0')}</span>${['通信与时延基础','PF · 比例公平','WAIT · 等待升权','QUEST · QoS调度','每UE SR周期分配','授权时机','剩余资源预算探测'][i]}</a>`).join('')+
    '<div class="nav-heading">研究资料</div>'+nav('#/browse/guides','▤','入口与五类分析',C.docs.filter(d=>d.group==='guides').length)+
-   `<details ${route.startsWith('/browse/algorithms')?'open':''}><summary class="nav-link"><span class="nav-icon">◇</span>算法实现与结果</summary>${algorithmDocs.map(d=>`<a class="nav-child ${current===d.id?'active':''}" href="${docUrl(d)}">${E(d.source.split('/').pop().replace('.md',''))}</a>`).join('')}<a class="nav-child" href="#/browse/algorithms">查看全部算法说明 →</a></details>`+
+   nav('#/browse/algorithms','◇','算法实现与结果',C.docs.filter(d=>d.group==='algorithms').length)+
    nav('#/browse/research','◷','研究报告与方法',C.docs.filter(d=>d.group==='research').length)+
    nav('#/library/papers','▥','文献与教材',C.papers.length)+nav('#/library/protocols','▦','3GPP协议',C.stats.protocolSpecs)+
    '<div class="nav-heading">过程与依据</div>'+nav('#/browse/changes','↳','修改记录 CHG',C.docs.filter(d=>d.group==='changes').length)+nav('#/browse/tests','✓','测试记录 TEST',C.docs.filter(d=>d.group==='tests').length)+nav('#/browse/all','☷','全部文档',C.docs.length)+
