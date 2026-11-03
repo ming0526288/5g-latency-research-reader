@@ -1,0 +1,255 @@
+{
+  "status": "PASS",
+  "browser": "Firefox headless / Marionette",
+  "checks": [
+    {
+      "page": "algorithm-selection-desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1114
+      },
+      "root": "16px",
+      "body": "16px",
+      "fontStack": "Arial, \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", sans-serif",
+      "article": null,
+      "nav": "16px",
+      "card": "16px",
+      "resultTitle": null,
+      "source": null,
+      "table": null,
+      "code": null,
+      "pageWidth": 1428,
+      "colors": {
+        "muted": "#58675f",
+        "background": "#f8faf8",
+        "surface": "#fff",
+        "pale": "#eaf3eb"
+      }
+    },
+    {
+      "page": "quest-results-desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1114
+      },
+      "root": "16px",
+      "body": "16px",
+      "fontStack": "Arial, \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", sans-serif",
+      "article": null,
+      "nav": "16px",
+      "card": null,
+      "resultTitle": "17px",
+      "source": "14px",
+      "table": null,
+      "code": null,
+      "pageWidth": 1428,
+      "colors": {
+        "muted": "#58675f",
+        "background": "#f8faf8",
+        "surface": "#fff",
+        "pale": "#eaf3eb"
+      }
+    },
+    {
+      "page": "knowledge-desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1114
+      },
+      "root": "16px",
+      "body": "16px",
+      "fontStack": "Arial, \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", sans-serif",
+      "article": "18px",
+      "nav": "16px",
+      "card": null,
+      "resultTitle": null,
+      "source": null,
+      "table": "16px",
+      "code": "15px",
+      "pageWidth": 1428,
+      "colors": {
+        "muted": "#58675f",
+        "background": "#f8faf8",
+        "surface": "#fff",
+        "pale": "#eaf3eb"
+      }
+    },
+    {
+      "page": "knowledge-200-percent-base-text",
+      "viewport": {
+        "width": 1440,
+        "height": 1114
+      },
+      "root": "32px",
+      "body": "32px",
+      "fontStack": "Arial, \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", sans-serif",
+      "article": "36px",
+      "nav": "32px",
+      "card": null,
+      "resultTitle": null,
+      "source": null,
+      "table": "32px",
+      "code": "30px",
+      "pageWidth": 1428,
+      "colors": {
+        "muted": "#58675f",
+        "background": "#f8faf8",
+        "surface": "#fff",
+        "pale": "#eaf3eb"
+      }
+    },
+    {
+      "page": "knowledge-narrow",
+      "viewport": {
+        "width": 500,
+        "height": 914
+      },
+      "root": "16px",
+      "body": "16px",
+      "fontStack": "Arial, \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", sans-serif",
+      "article": "17px",
+      "nav": "16px",
+      "card": null,
+      "resultTitle": null,
+      "source": null,
+      "table": "16px",
+      "code": "15px",
+      "pageWidth": 488,
+      "colors": {
+        "muted": "#58675f",
+        "background": "#f8faf8",
+        "surface": "#fff",
+        "pale": "#eaf3eb"
+      }
+    },
+    {
+      "page": "algorithm-selection-narrow",
+      "viewport": {
+        "width": 500,
+        "height": 914
+      },
+      "root": "16px",
+      "body": "16px",
+      "fontStack": "Arial, \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", sans-serif",
+      "article": null,
+      "nav": "16px",
+      "card": "16px",
+      "resultTitle": null,
+      "source": null,
+      "table": null,
+      "code": null,
+      "pageWidth": 488,
+      "colors": {
+        "muted": "#58675f",
+        "background": "#f8faf8",
+        "surface": "#fff",
+        "pale": "#eaf3eb"
+      }
+    },
+    {
+      "page": "algorithm-selection-real-320px-frame",
+      "viewport": {
+        "width": 320,
+        "height": 1000
+      },
+      "root": "16px",
+      "body": "16px",
+      "fontStack": "Arial, \"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", sans-serif",
+      "article": null,
+      "nav": "16px",
+      "card": "16px",
+      "resultTitle": null,
+      "source": null,
+      "table": null,
+      "code": null,
+      "pageWidth": 308,
+      "colors": {
+        "muted": "#58675f",
+        "background": "#f8faf8",
+        "surface": "#fff",
+        "pale": "#eaf3eb"
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "algorithm-selection-320-frame.png",
+      "width": 500,
+      "height": 914
+    },
+    {
+      "file": "algorithm-selection-desktop.png",
+      "width": 1440,
+      "height": 1114
+    },
+    {
+      "file": "algorithm-selection-narrow.png",
+      "width": 500,
+      "height": 914
+    },
+    {
+      "file": "knowledge-base-text-200.png",
+      "width": 1440,
+      "height": 1114
+    },
+    {
+      "file": "knowledge-desktop.png",
+      "width": 1440,
+      "height": 1114
+    },
+    {
+      "file": "knowledge-narrow.png",
+      "width": 500,
+      "height": 914
+    },
+    {
+      "file": "navigation-narrow.png",
+      "width": 500,
+      "height": 914
+    },
+    {
+      "file": "quest-results-desktop.png",
+      "width": 1440,
+      "height": 1114
+    }
+  ],
+  "scope": "Computed fonts, real offline pages, 200% base-text preference, narrow layout and 320px iframe media queries. Not a complete WCAG audit, physical phone or VPN test.",
+  "mutedTextContrast": [
+    {
+      "theme": ":root",
+      "text": "#58675f",
+      "background": "#f8faf8",
+      "ratio": 5.69
+    },
+    {
+      "theme": ":root",
+      "text": "#58675f",
+      "background": "#fff",
+      "ratio": 5.97
+    },
+    {
+      "theme": ":root",
+      "text": "#58675f",
+      "background": "#eaf3eb",
+      "ratio": 5.26
+    },
+    {
+      "theme": "[data-theme=dark]",
+      "text": "#98aa9d",
+      "background": "#18231f",
+      "ratio": 6.6
+    },
+    {
+      "theme": "[data-theme=dark]",
+      "text": "#98aa9d",
+      "background": "#1f2c26",
+      "ratio": 5.93
+    },
+    {
+      "theme": "[data-theme=dark]",
+      "text": "#98aa9d",
+      "background": "#293e30",
+      "ratio": 4.69
+    }
+  ]
+}

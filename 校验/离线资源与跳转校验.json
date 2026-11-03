@@ -14,11 +14,11 @@
     "pdf_originals": 36,
     "protocol_parts": 34,
     "protocol_archives": 26,
-    "total_files": 2818,
-    "total_bytes": 391163718
+    "total_files": 2822,
+    "total_bytes": 391179213
   },
   "errors": [],
   "warnings": [],
-  "browserQA": "Saved browser evidence: 校验/算法分类浏览器核验.json (TEST-014) and 校验/五类实验浏览器核验.json (TEST-011); actual offline pages, desktop content 1440x1114 / narrow content 500x914, algorithm knowledge/results navigation and dark theme. Earlier knowledge rendering: TEST-010. Not a physical-mobile/VPN test. This validator does not rerun screenshots.",
+  "browserQA": "Latest typography: 校验/字体字号浏览器核验.json (TEST-015), actual font sizes, 200% root text, desktop 1440x1114 / narrow 500x914 / real 320px iframe. Earlier navigation/results: TEST-014 and TEST-011. Not a full WCAG audit or physical-mobile/VPN test. This validator does not rerun screenshots.",
   "scope": "Offline resource/route/page/hash/math/security checks; not a wireless experiment or independent certification of historical conclusions."
 }
