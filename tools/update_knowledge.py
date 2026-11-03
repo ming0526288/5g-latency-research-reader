@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render reader-owned knowledge notes without re-exporting historical research."""
+"""Render reader-owned lessons or experiment pages without re-exporting history."""
 from __future__ import annotations
 import collections
 import hashlib
@@ -31,11 +31,18 @@ def read_catalog():
     return json.loads(text.split('window.READER_CATALOG=', 1)[1].rstrip(';'))
 
 
-def build():
+def build(kind='knowledge'):
+    if kind not in ('knowledge', 'experiments'):
+        raise ValueError('Unknown reader-owned document kind: ' + kind)
+    experiments = kind == 'experiments'
+    prefix = 'e' if experiments else 'k'
+    source_root = ROOT / ('说明/五类时延分析' if experiments else '说明/算法知识点说明')
+    report_path = ROOT / ('校验/实验分析构建校验.json' if experiments else '校验/知识点构建校验.json')
+    stat_prefix = 'experiment' if experiments else 'knowledge'
     catalog = read_catalog()
-    manifest = json.loads((ROOT / '说明/knowledge.json').read_text(encoding='utf-8'))
+    manifest = json.loads((ROOT / '说明' / (kind + '.json')).read_text(encoding='utf-8'))
     previous_sources = set()
-    previous_report = ROOT / '校验/知识点构建校验.json'
+    previous_report = report_path
     if previous_report.is_file():
         previous_sources = {doc['source'] for doc in json.loads(previous_report.read_text())['documents']
                             if doc['source'].startswith('说明/')}
@@ -61,23 +68,24 @@ def build():
     for item in manifest['documents']:
         source = item['source']
         path = (ROOT / source).resolve()
-        if not path.is_relative_to(ROOT / '说明/算法知识点说明') or path.suffix != '.md':
-            raise ValueError('Knowledge source must be Markdown below 说明/算法知识点说明/: ' + source)
+        if not path.is_relative_to(source_root) or path.suffix != '.md':
+            raise ValueError('Reader source must be Markdown below ' + str(source_root) + ': ' + source)
         if source in sources:
-            raise ValueError('Duplicate knowledge source: ' + source)
+            raise ValueError('Duplicate reader-owned source: ' + source)
         sources.add(source)
         text = path.read_text(encoding='utf-8')
         _, redactions = clean(text)
         if redactions:
             raise ValueError('Source requires credential review: ' + source)
-        did = item.get('id') or 'k' + hashlib.sha256(source.encode()).hexdigest()[:16]
-        if not re.fullmatch(r'k[a-f0-9]{16}', did) or did in builder.docs:
-            raise ValueError('Invalid or duplicate knowledge ID: ' + did)
+        did = item.get('id') or prefix + hashlib.sha256(source.encode()).hexdigest()[:16]
+        if not re.fullmatch(prefix + r'[a-f0-9]{16}', did) or did in builder.docs:
+            raise ValueError('Invalid or duplicate reader-owned ID: ' + did)
         builder.paths[path] = did
         builder.docs[did] = {
             'id': did, 'title': re.search(r'^#\s+(.+)', text, re.M)[1],
-            'source': source, 'aliases': [source], 'group': 'knowledge',
-            'topic': item['topic'], 'prerequisite': True,
+            'source': source, 'aliases': [source], 'group': 'research' if experiments else 'knowledge',
+            'topic': item['topic'], 'prerequisite': not experiments,
+            **({'experimentStage': item['topic']} if experiments else {}),
             'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'snapshot': source, 'redacted': False, 'toc': [],
             '_path': path, '_text': text,
@@ -153,8 +161,8 @@ def build():
 
     managed_sources = sources | previous_sources
     old_owned = [d for d in catalog['docs'] if d['source'] in managed_sources]
-    old_formulas = catalog['stats'].get('knowledgeFormulas', 0)
-    old_images = catalog['stats'].get('knowledgeImages', 0)
+    old_formulas = catalog['stats'].get(stat_prefix + 'Formulas', 0)
+    old_images = catalog['stats'].get(stat_prefix + 'Images', 0)
     catalog['docs'] = [d for d in catalog['docs'] if d['source'] not in managed_sources] + metadata
     if len({doc['id'] for doc in catalog['docs']}) != len(catalog['docs']):
         raise ValueError('Duplicate IDs after knowledge merge')
@@ -162,15 +170,17 @@ def build():
     catalog['stats']['sourceLocations'] += len(metadata) - len(old_owned)
     catalog['stats']['formulas'] += len(builder.math) - old_formulas
     catalog['stats']['images'] += len(builder.assets) - old_images
-    catalog['stats']['knowledgeDocuments'] = len(metadata)
-    catalog['stats']['knowledgeFormulas'] = len(builder.math)
-    catalog['stats']['knowledgeImages'] = len(builder.assets)
-    catalog['knowledgeUpdatedAt'] = manifest['updated']
-    catalog['knowledgeTopics'] = {d['topic']: d['id'] for d in metadata}
+    catalog['stats'][stat_prefix + 'Documents'] = len(metadata)
+    catalog['stats'][stat_prefix + 'Formulas'] = len(builder.math)
+    catalog['stats'][stat_prefix + 'Images'] = len(builder.assets)
+    catalog[stat_prefix + 'UpdatedAt'] = manifest['updated']
+    catalog['experimentStages' if experiments else 'knowledgeTopics'] = {d['topic']: d['id'] for d in metadata}
     for feature in catalog['featured']:
-        if feature['title'] == '通信与时延基础':
+        if experiments and feature['title'] in ('五类研究主线', '做过的五类时延分析'):
+            feature.update(title='做过的五类时延分析', id=catalog['experimentStages']['tdd'])
+        elif not experiments and feature['title'] == '通信与时延基础':
             feature['id'] = catalog['knowledgeTopics']['basics']
-        elif feature['title'] == '算法知识地图':
+        elif not experiments and feature['title'] == '算法知识地图':
             feature['id'] = catalog['knowledgeTopics']['algorithms']
     for paper in catalog['papers']:
         paper['citedPages'] = sorted(builder.papers[paper['id']]['citedPages'])
@@ -184,8 +194,8 @@ def build():
     report = {'status': 'PASS', 'documents': metadata,
               'formulas': len(builder.math), 'mathErrors': math['errors'],
               'imageCount': len(builder.assets), 'warnings': builder.warnings,
-              'scope': 'Reader-owned lessons only; historical documents and source originals retained.'}
-    (ROOT / '校验/知识点构建校验.json').write_text(
+              'scope': 'Reader-owned ' + kind + ' only; historical documents and source originals retained.'}
+    report_path.write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({'status': 'PASS', 'documents': len(metadata),
                       'formulas': len(builder.math), 'images': len(builder.assets)}, ensure_ascii=False))

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "runs": 2,
+  "documents": 1189,
+  "beforeCatalogSHA": "ed5b7f894bd838f69fd0b9d98dbca4e7b7cc7eaffae08a2fe01205e8bf48c42e",
+  "afterCatalogSHA": "ed5b7f894bd838f69fd0b9d98dbca4e7b7cc7eaffae08a2fe01205e8bf48c42e",
+  "scope": "Knowledge + experiment incremental builds preserve all 1189 IDs/metadata and are byte-idempotent after both steps."
+}

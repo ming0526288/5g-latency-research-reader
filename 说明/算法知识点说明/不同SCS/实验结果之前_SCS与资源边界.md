@@ -61,6 +61,8 @@ T_{\mathrm{slot,nom}}&=\frac{1}{2^\mu}\;\mathrm{ms}.
 
 ## 来源与原结果
 
+- [已做的SCS实验：结果图、批次和错误案例](#/doc/e4c1f2a8800000002)。
+
 - TS 38.211 V19.5.0、TS 38.214 V19.5.0、TS 38.104 V20.1.0，封面均为 2026-09，具体表号/条款见上文。
 - 教材 [§4.2–4.3.1，本地 PDF 第 77–80 页](#/paper/book?page=77)；[§6.4.3，本地 PDF 第 211–213 页](#/paper/book?page=211)。
 - P02《5G New Radio Numerologies and their Impact on the End-To-End Latency》，本地 6 页版本，[§II–III，本地 PDF 第 2 页](#/paper/P02?page=2)，用于理解参数集与处理时延的不同作用，不移植其仿真结果。

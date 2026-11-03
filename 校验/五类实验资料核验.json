@@ -1,0 +1,203 @@
+{
+  "status": "PASS",
+  "date": "2026-11-03",
+  "scope": "Reader curation of already-completed experiments, no new RAN run; original protocol availability rechecked before curation.",
+  "preflight": [
+    {
+      "spec": "38.211",
+      "version": "19.5.0",
+      "source": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38211-j50.docx",
+      "sha256": "85e88cea4b90e672fde3901253a1e52f855629090afea177934a16528365dcef",
+      "status": "PASS"
+    },
+    {
+      "spec": "38.213",
+      "version": "19.5.0",
+      "source": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38213-j50.docx",
+      "sha256": "79c15729755aaed888a3d17334fec2bf7389e9a86858fc8b970f4d65bfc92d5c",
+      "status": "PASS"
+    },
+    {
+      "spec": "38.214",
+      "version": "19.5.0",
+      "source": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38214-j50.docx",
+      "sha256": "1c093eb3f5ee17f40ebbca05bd0aab207800e224150bee711ab0037b28b71ed6",
+      "status": "PASS"
+    },
+    {
+      "spec": "38.331",
+      "version": "19.4.0",
+      "source": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38331-j40.docx",
+      "sha256": "ca9a2d760fe529e06b792bdf5947cd2626a025ec0cb4ebde163a62058b998aad",
+      "status": "PASS"
+    },
+    {
+      "spec": "38.104",
+      "version": "20.1.0",
+      "source": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38104-k10.docx",
+      "sha256": "649e135ee131523b85f843bb7285fd0b230d9fd694a08d5b5278fb3732bc23f7",
+      "status": "PASS"
+    },
+    {
+      "spec": "38.300",
+      "version": "19.4.0",
+      "source": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38300-j40.docx",
+      "sha256": "47a246c4f83b4ad1476897be7f21954e8c300d0a039fb600ead07be5f5c3e5f3",
+      "status": "PASS"
+    },
+    {
+      "spec": "38.321",
+      "version": "19.4.0",
+      "source": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38321-j40.docx",
+      "sha256": "98c9e13671e95ed50449d62eb4aaff14223158e2d04c23152778ecd8328f3f25",
+      "status": "PASS"
+    },
+    {
+      "spec": "23.501",
+      "version": "20.3.0",
+      "source": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/23501-k30/23501-k30.docx",
+      "sha256": "f057a0c3f4b955751a0e03f5b2a47549bd2c7c3363e318b43f161b076d4c82dd",
+      "status": "PASS"
+    },
+    {
+      "spec": "37.324",
+      "version": "19.0.0",
+      "source": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/37324-j00/37324-j00.docx",
+      "sha256": "180e7e665cb8367da18afa4ae34048209ee2b51bacc83abb2b830de5033b16b4",
+      "status": "PASS"
+    },
+    {
+      "spec": "38.323",
+      "version": "19.1.0",
+      "source": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38323-j10/38323-j10.docx",
+      "sha256": "52756f0db2c24e5f09d7a1e536984be0c51b15168b5758ba5229f35cd3e35b01",
+      "status": "PASS"
+    },
+    {
+      "spec": "38.322",
+      "version": "19.3.0",
+      "source": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38322-j30/38322-j30.docx",
+      "sha256": "58ca7b93c94941b2e3497dc78a5e2d3bd15eb7bee8b9dcae4e998969ea9f1abf",
+      "status": "PASS"
+    },
+    {
+      "spec": "29.281",
+      "version": "19.2.0",
+      "source": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/29281-j20/29281-j20.docx",
+      "sha256": "884af90bbf028639003c6fdd47f33688118dddf765241825c04cde18b06e819f",
+      "status": "PASS"
+    }
+  ],
+  "additionalOriginals": [
+    {
+      "spec": "38.212",
+      "filename": "38212-j40.docx",
+      "sha256": "c4c0d7e5ac8676d90713a21ca22c013bd82f0dcfe61c2d4a963a6c0d5d482746",
+      "version": [
+        "19.4.0"
+      ],
+      "dates": [
+        "2026-06"
+      ],
+      "status": "PASS"
+    },
+    {
+      "spec": "38.415",
+      "filename": "38415-j10.docx",
+      "sha256": "94c32591d53f84fa5eb66aa89021321bfc4ad2b7fda0077df4661d08cfc9b466",
+      "version": [
+        "19.1.0"
+      ],
+      "dates": [
+        "2025-12"
+      ],
+      "status": "PASS"
+    },
+    {
+      "spec": "29.244",
+      "filename": "29244-k10.docx",
+      "sha256": "2f0fe3a9cf744ffb5a7f3e170f29238ddbca9a2ea5419da815def531db163ed1",
+      "version": [
+        "20.1.0"
+      ],
+      "dates": [
+        "2026-09"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "originalParagraphChecks": [
+    {
+      "spec": "38.331",
+      "version": "19.4.0",
+      "locations": [
+        "§6.1.2 表6.1.2-1",
+        "§6.3.2 PUSCH-TimeDomainResourceAllocation",
+        "§6.3.2 SearchSpace 条件Setup4"
+      ],
+      "facts": [
+        "所用k2字段为INTEGER(0..32)",
+        "新SearchSpace的monitoringSlotPeriodicityAndOffset条件及Need M语义，与本地锁实现区分"
+      ]
+    },
+    {
+      "spec": "38.214",
+      "version": "19.5.0",
+      "locations": [
+        "表5.1.2.1.1-2，row14"
+      ],
+      "facts": [
+        "row14: dmrs-TypeA-Position=2,3 / Type A / K0=0 / S=2 / L=4"
+      ]
+    },
+    {
+      "spec": "38.213",
+      "version": "19.5.0",
+      "locations": [
+        "§10.1，监测周期/偏移字段段落"
+      ],
+      "facts": [
+        "monitoringSlotPeriodicityAndOffset关联PDCCH监测周期与偏移，不规定pthread锁"
+      ]
+    }
+  ],
+  "preservedPDFSourceIdentity": [
+    {
+      "id": "P01",
+      "filename": "1_Dissecting-5G-New-Radio-Latency.pdf",
+      "sha256": "2d272dbcb3ea0ee1d659ae2a81ab9abf2a0bcb17a957b97d917ab1bbf7a19fdd",
+      "localIdentity": "IFIP Networking 2025会议版，本地6页",
+      "readScope": "§III-A–E，PDF2–3"
+    },
+    {
+      "id": "P02",
+      "filename": "2_5G New Radio Numerologies and their Impact on.pdf",
+      "sha256": "b586f6883fdc76637be0012b79f478f180312f43ce1c8d5e397ae29bd4464b76",
+      "localIdentity": "本地6页稿；所读封面未明确标出会议卷期/修订号，未核定更新版本",
+      "readScope": "§II–III，PDF2"
+    },
+    {
+      "id": "P19",
+      "filename": "19_Analysis of Outage Latency and Throughput Performance in Industrial Factory 5G TDD Deployments.pdf",
+      "sha256": "63c86d50fc2581b712a31a931efe13e7cc8b39b9e9a1679a8614d55bbe55631c",
+      "localIdentity": "arXiv:2012.05507v1 [cs.NI]，2020-12-10，本地6页；未将该预印本改标为未取得的后续版本",
+      "readScope": "§IV，PDF4–5"
+    },
+    {
+      "id": "P24",
+      "filename": "24_QUEST_User-Based_Quality_of_Service_Aware_Uplink_Resource_Scheduling.pdf",
+      "sha256": "34863ff7dbdbf48d890d8830c90cb5e8ab1c0f53fccf41c588f9ad41c687f227",
+      "localIdentity": "IEEE TNSM Vol.23 (2026)，15页；发表2026-04-20，current version 2026-04-28",
+      "readScope": "§V–VI，PDF6–10"
+    },
+    {
+      "id": "book",
+      "filename": "(NEW)5G移动通信系统设计与标准详解（大唐移动LTE和5G技术研究和标准化团队编撰！5G宝典！）.pdf",
+      "sha256": "e43a71fdb4218ca6a6ab7d56ee862ebe6a23e93348a66a35c13c5623b1c79826",
+      "localIdentity": "用户指定767页教材；原有版本身份保持",
+      "readScope": "第2章PDF49–55；§4.2–4.3.1 PDF77–80；§6.4.3 PDF211–213；§13.1.1.2/4/5 PDF530–539"
+    }
+  ],
+  "versionBoundary": "使用已授权本地原文，不下载；未独立核官网最高版或未取得的后续论文全文。",
+  "failuresBeforeAvailabilityCheck": "NONE"
+}

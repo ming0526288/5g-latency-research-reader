@@ -1,0 +1,129 @@
+{
+  "status": "PASS",
+  "input": "说明/五类时延分析/数据/共同规则短流汇总.json",
+  "input_sha256": "8d942b01b328396d3df4d9b017ff658c17574980b1e2372427e42671d8fe81ae",
+  "plots": [
+    {
+      "file": "图片/TDD_共同规则周期结果.png",
+      "sha256": "c9e8209b396c9e91413f340f324c6c64e77f10a7f62e67c70d14b94faa8e0642",
+      "cases": [
+        "period-p0p5-ul",
+        "period-p1-ul",
+        "period-p1p25-ul",
+        "period-p2-ul",
+        "period-p2p5-ul",
+        "period-p0p5-dl",
+        "period-p1-dl",
+        "period-p1p25-dl",
+        "period-p2-dl",
+        "period-p2p5-dl"
+      ],
+      "metric": "worst_ue_p99_ms",
+      "cohort": "common-policy-rerun/short",
+      "operation": "Replot completed aggregate values; no raw packet recomputation or new experiment"
+    },
+    {
+      "file": "图片/SCS_共同规则交叉结果.png",
+      "sha256": "36f4ed90b368f6d4a29276a068030e7ffc861a7820e106facd5734954b98a222",
+      "cases": [
+        "mu1-d1u3-ul",
+        "mu1-d2u2-ul",
+        "mu1-d3u1-ul",
+        "mu3-d10u9-ul",
+        "mu3-d5u14-ul",
+        "mu3-d14u5-ul",
+        "mu1-d1u3-dl",
+        "mu1-d2u2-dl",
+        "mu1-d3u1-dl",
+        "mu3-d10u9-dl",
+        "mu3-d5u14-dl",
+        "mu3-d14u5-dl"
+      ],
+      "metric": "worst_ue_p99_ms",
+      "cohort": "common-policy-rerun/short",
+      "operation": "Replot completed aggregate values; no raw packet recomputation or new experiment"
+    },
+    {
+      "file": "图片/多UE_共同规则负载对照.png",
+      "sha256": "de81f81086bb8797bbe014e3063b066ba3f4245fb429f54be97d4125bbf842b3",
+      "cases": [
+        "n1-ul-fixed_per_ue",
+        "n2-ul-fixed_per_ue",
+        "n4-ul-fixed_per_ue",
+        "n8-ul-fixed_per_ue",
+        "n1-ul-fixed_total",
+        "n2-ul-fixed_total",
+        "n4-ul-fixed_per_ue",
+        "n8-ul-fixed_total",
+        "n1-dl-fixed_per_ue",
+        "n2-dl-fixed_per_ue",
+        "n4-dl-fixed_per_ue",
+        "n8-dl-fixed_per_ue",
+        "n1-dl-fixed_total",
+        "n2-dl-fixed_total",
+        "n4-dl-fixed_per_ue",
+        "n8-dl-fixed_total"
+      ],
+      "metric": "worst_ue_p99_ms; N4 shared input/result reused",
+      "cohort": "common-policy-rerun/short",
+      "operation": "Replot completed aggregate values; no raw packet recomputation or new experiment"
+    },
+    {
+      "file": "图片/多UE_TDD共同规则结果.png",
+      "sha256": "fd9f054891039a38cb2ec55fd9895eba4bf47023799c24bf4f0a790242f6b353",
+      "cases": [
+        "n2-ul-d3u1",
+        "n2-ul-d2u2",
+        "n2-ul-d1u3",
+        "n4-ul-d3u1",
+        "n4-ul-d2u2",
+        "n4-ul-d1u3",
+        "n2-dl-d3u1",
+        "n2-dl-d2u2",
+        "n2-dl-d1u3",
+        "n4-dl-d3u1",
+        "n4-dl-d2u2",
+        "n4-dl-d1u3"
+      ],
+      "metric": "worst_ue_p99_ms",
+      "cohort": "common-policy-rerun/short",
+      "operation": "Replot completed aggregate values; no raw packet recomputation or new experiment"
+    },
+    {
+      "file": "图片/分层_探针条件结果.png",
+      "sha256": "fbe0c1bc7f728f4cf4be63d1560d395ebe01bf650c33d27d9c26d198f058dda0",
+      "cases": [
+        "n1-ul-off",
+        "n1-ul-on",
+        "n2-ul-on",
+        "n4-ul-off",
+        "n4-ul-on",
+        "n4-ul-on-repeat",
+        "n1-dl-off",
+        "n1-dl-on",
+        "n2-dl-on",
+        "n4-dl-off",
+        "n4-dl-on",
+        "n4-dl-on-repeat"
+      ],
+      "metric": "worst_ue_p99_ms",
+      "cohort": "common-policy-rerun/short",
+      "operation": "Replot completed aggregate values; no raw packet recomputation or new experiment"
+    },
+    {
+      "file": "图片/分层_同包均值与慢包.png",
+      "sha256": "619e0e01f535221bcecaec6d55c311e9acd73e8667a6da23aceb3209bf790c5f",
+      "cases": [
+        "n1-ul-on",
+        "n1-dl-on",
+        "n4-ul-on",
+        "n4-dl-on"
+      ],
+      "metric": "sum of same-packet segment means; highest-P99 UE per condition",
+      "cohort": "common-policy-rerun/short",
+      "operation": "Replot completed aggregate values; no raw packet recomputation or new experiment"
+    }
+  ],
+  "font": "Arial requested; DejaVu Sans fallback when Arial is unavailable",
+  "scope": "Offline plots of previously completed aggregates only."
+}

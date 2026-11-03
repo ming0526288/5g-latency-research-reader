@@ -1,0 +1,5007 @@
+{
+  "cohort": "common-policy-rerun/short",
+  "counts": {
+    "tdd": {
+      "planned": 22,
+      "attempted": 22,
+      "complete": 18,
+      "failed": 4
+    },
+    "scs": {
+      "planned": 12,
+      "attempted": 12,
+      "complete": 12,
+      "failed": 0
+    },
+    "multi": {
+      "planned": 15,
+      "attempted": 15,
+      "complete": 15,
+      "failed": 0
+    },
+    "order": {
+      "planned": 6,
+      "attempted": 6,
+      "complete": 6,
+      "failed": 0
+    },
+    "multi_tdd": {
+      "planned": 12,
+      "attempted": 12,
+      "complete": 12,
+      "failed": 0
+    },
+    "layered": {
+      "planned": 12,
+      "attempted": 12,
+      "complete": 12,
+      "failed": 0
+    }
+  },
+  "cases": [
+    {
+      "phase": "tdd",
+      "case": "ratio-ul-d3u1",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "3:1",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 3.581867399999997,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "56b590b851f94ae064017a0f652a28e7eb37718279cc62cc3b58031964d9df37",
+        "measurement.json": "795bf0a088d2c173c5be8c5e2401105c6a44883db6ed68ff77e3fa673fddfbb1",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 2.230921397,
+          "p50": 2.2242285,
+          "p95": 3.1225077,
+          "p99": 3.581867399999997,
+          "max": 4.507863
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "ratio-ul-d2u2",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "2:2",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 2,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 2,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "2:2"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 3.125311759999998,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "8a332285b7a75b01e42c5b7cee2ccb2efd53b666ca5774ee0e56d0953328f43d",
+      "evidence_sha256": {
+        "status.json": "dab0abb1ec7f84676faaa1b9359611a7123347d4a6702704f2b06b6b7f160815",
+        "measurement.json": "4213fd7e010d524c3d392200b92ed30fce0b4b4f89bd4bbb35b9fef7ffbbc3ca",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1.9464303385,
+          "p50": 1.9169985,
+          "p95": 2.8057986499999994,
+          "p99": 3.125311759999998,
+          "max": 5.820989
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "ratio-ul-d1u3",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "1:3",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 1,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 3,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "1:3"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 3.3604444,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "7d8483872097e9a09e75c7d8145668b9f0ee250eb46bf08954cc2e1b04b72cfb",
+      "evidence_sha256": {
+        "status.json": "55e4cc41b2cbe576e31702f62656132a70ee0d01704d619df261066bf14590c0",
+        "measurement.json": "f754e057ed9865991bfa901c2fc507eaf64b25ff5ceb873e9b13bfeee0670907",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1.9455795695,
+          "p50": 1.907836,
+          "p95": 2.831636749999999,
+          "p99": 3.3604444,
+          "max": 4.37933
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "ratio-dl-d3u1",
+      "completed": true,
+      "stage": "explicit UL QFI preflight before measured UDP",
+      "direction": "DL",
+      "ratio": "3:1",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 0.8231380199999997,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "9098aa53d2cd42347d47612c5e7316642bdda57a8a5fbd0e43b5923773d840c3",
+        "measurement.json": "fec667492627f6a632ac146ea18671aa37b971a6359e36d3731bfbafeab723a5",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.43079618999999997,
+          "p50": 0.3987175,
+          "p95": 0.6459625999999999,
+          "p99": 0.8231380199999997,
+          "max": 2.318402
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "ratio-dl-d2u2",
+      "completed": true,
+      "stage": "explicit UL QFI preflight before measured UDP",
+      "direction": "DL",
+      "ratio": "2:2",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 2,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 2,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "2:2"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 0.7614770199999986,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "8a332285b7a75b01e42c5b7cee2ccb2efd53b666ca5774ee0e56d0953328f43d",
+      "evidence_sha256": {
+        "status.json": "344369f2bbf859feb22f53bc4be440c48fa93ba2f529c6f8b288c085fb415875",
+        "measurement.json": "9ead21f0cd25b398f34d9129f25ede4f7b4a007dced7e521ceccf1b866c06153",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.41863975775,
+          "p50": 0.3942525,
+          "p95": 0.5890393499999999,
+          "p99": 0.7614770199999986,
+          "max": 2.224487
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "ratio-dl-d1u3",
+      "completed": true,
+      "stage": "explicit UL QFI preflight before measured UDP",
+      "direction": "DL",
+      "ratio": "1:3",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 1,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 3,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "1:3"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 0.9796703999999984,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "7d8483872097e9a09e75c7d8145668b9f0ee250eb46bf08954cc2e1b04b72cfb",
+      "evidence_sha256": {
+        "status.json": "353c31d368e26d1b8e4b7578f3f30adbe14f5e30000947eca45b71999641549b",
+        "measurement.json": "c7566a2cbed45afdbd7d393d1ccc20b7b7fe212080d2291cd003a452e7d8b6ed",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.51139879525,
+          "p50": 0.477479,
+          "p95": 0.7637114999999999,
+          "p99": 0.9796703999999984,
+          "max": 2.570186
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p0p5-ul",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "2:1",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 0,
+        "nrofDownlinkSlots": 2,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.5,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "2:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 3.7206609899999963,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4b14e214c3ee9a5b18d8c521dcfa94dbab36e4574d4a1eed4e6d0dd3d2a4e15a",
+      "evidence_sha256": {
+        "status.json": "40c2fc0cad4b654e3f9c25f6d29f1c959f7641d32e7f029e67a44f92225f2a55",
+        "measurement.json": "917223600bc39c2505c06a6816976bab107fe034d7d317a0e646321d3218d290",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 2.0728524320000004,
+          "p50": 2.0635315,
+          "p95": 2.9482950499999996,
+          "p99": 3.7206609899999963,
+          "max": 5.343754
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p0p5-dl",
+      "completed": true,
+      "stage": "explicit UL QFI preflight before measured UDP",
+      "direction": "DL",
+      "ratio": "2:1",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 0,
+        "nrofDownlinkSlots": 2,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.5,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "2:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 0.71302488,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4b14e214c3ee9a5b18d8c521dcfa94dbab36e4574d4a1eed4e6d0dd3d2a4e15a",
+      "evidence_sha256": {
+        "status.json": "4ebe7162cdcc691fb4646ab62e0f305b3ee9d994c6fe8f91b3e584c88a493a7e",
+        "measurement.json": "a0cfc88da957ebd6567820a7ee7074d13e63810e4912f268746ffd61d706ead3",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.43681340475,
+          "p50": 0.4147065,
+          "p95": 0.5893013500000001,
+          "p99": 0.71302488,
+          "max": 2.500972
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p1-ul",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "5:2",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 2,
+        "nrofDownlinkSlots": 5,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 2,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 1,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "5:2"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 3.3208420199999966,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "e8194296e07280891c50a161492e614fc20b61f2526f2d27d36c4a6cfea29c25",
+      "evidence_sha256": {
+        "status.json": "9326c5573e74708f1dcda39b0bc869d2526391f45d2d5c097961d190db01c9a7",
+        "measurement.json": "c2e64f8b9fff69a06af2c8f59a3e1fd2793db5607da0a496464c4fcb233704b4",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1.83532476075,
+          "p50": 1.8071169999999999,
+          "p95": 2.65045875,
+          "p99": 3.3208420199999966,
+          "max": 5.102224
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p1-dl",
+      "completed": true,
+      "stage": "explicit UL QFI preflight before measured UDP",
+      "direction": "DL",
+      "ratio": "5:2",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 2,
+        "nrofDownlinkSlots": 5,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 2,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 1,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "5:2"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 0.8581705599999944,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "e8194296e07280891c50a161492e614fc20b61f2526f2d27d36c4a6cfea29c25",
+      "evidence_sha256": {
+        "status.json": "52a386ec0192ded1cbffb4b89978f95646a37409451e6061a3f71a7aa744375a",
+        "measurement.json": "84af90e7fb15d57fd93bccd15670e9612982344594dcc5af0e78f25e1b6d85a6",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.44590387125000003,
+          "p50": 0.4134995,
+          "p95": 0.6147234499999998,
+          "p99": 0.8581705599999944,
+          "max": 3.062916
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p1p25-ul",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "7:2",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 3,
+        "nrofDownlinkSlots": 7,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 2,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 1.25,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "7:2"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 4.13127976,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "aa8014da5faf9ab05a79d4a2c704d2a6b45f0c5557ac5191e5a0847be90fe7ac",
+      "evidence_sha256": {
+        "status.json": "7d79aa3702592c5cd94f4f63f311f78c08668d44586475224db5c1f0c407e1fa",
+        "measurement.json": "9837c934d70affe35829aa73c5f7ebc83629c151266f8b35d118c9638ae8ab26",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 2.2435898150000004,
+          "p50": 2.226179,
+          "p95": 3.3091296999999997,
+          "p99": 4.13127976,
+          "max": 6.016141
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p1p25-dl",
+      "completed": true,
+      "stage": "explicit UL QFI preflight before measured UDP",
+      "direction": "DL",
+      "ratio": "7:2",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 3,
+        "nrofDownlinkSlots": 7,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 2,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 1.25,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "7:2"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 0.8959547999999993,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "aa8014da5faf9ab05a79d4a2c704d2a6b45f0c5557ac5191e5a0847be90fe7ac",
+      "evidence_sha256": {
+        "status.json": "7d1e8e296fd428151cb9ab660175a074bb8fa211c1ce7bb1d5da5a70483e3182",
+        "measurement.json": "86ae8bb05c00a4a90f37d46bf808ff40d6171b8320becfa70b9569ba67f57a68",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.42849330750000003,
+          "p50": 0.39937849999999997,
+          "p95": 0.5755147499999999,
+          "p99": 0.8959547999999993,
+          "max": 2.763421
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p2-ul",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "11:4",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 4,
+        "nrofDownlinkSlots": 11,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 4,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "11:4"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 6.841459189999999,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "f82f05e0364164ea085de9ecf03aea9bd836c856b540794f04e71b8be5ff38ca",
+      "evidence_sha256": {
+        "status.json": "c1eb8f48dbf78d7d1fb1bfc1c710a4b369dec24ccd95b0cd27f329f1cf7c1962",
+        "measurement.json": "c04cda7c2a33b70e48d92f70ffaa382e6ea662cf57b1014d624e773fcb716021",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 3.4118627847500003,
+          "p50": 3.3294034999999997,
+          "p95": 5.4883304,
+          "p99": 6.841459189999999,
+          "max": 8.65652
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p2-dl",
+      "completed": true,
+      "stage": "explicit UL QFI preflight before measured UDP",
+      "direction": "DL",
+      "ratio": "11:4",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 4,
+        "nrofDownlinkSlots": 11,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 4,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "11:4"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 1.0670354199999976,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "f82f05e0364164ea085de9ecf03aea9bd836c856b540794f04e71b8be5ff38ca",
+      "evidence_sha256": {
+        "status.json": "d3b4ac5c182e3d71299dfc8c512f7d739de0e6b7bd40da5f487df20a6fb3b546",
+        "measurement.json": "137f2c1e1bb6d37c405f09b889eb675b76bd4ea8eb4208c815e86fcd924bef4f",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.4480395955,
+          "p50": 0.409172,
+          "p95": 0.6696000499999999,
+          "p99": 1.0670354199999976,
+          "max": 2.816341
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p2p5-ul",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "14:5",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 14,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 5,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "14:5"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 5.401659699999998,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "86d4b0bcdc65c50f70c85216bacc4e494a7c32dc73bf36ef73d2dec8832b9604",
+      "evidence_sha256": {
+        "status.json": "9aa3af94b34a9ac76e347ced2ba3da74feb84d540f545ee6132835ff2a03e4a9",
+        "measurement.json": "7b40d05955b5408c55662cf46ea68ab63e121a0f30d2766e9d1606c1045b2e90",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 3.17005039175,
+          "p50": 3.2561745,
+          "p95": 4.5134612,
+          "p99": 5.401659699999998,
+          "max": 7.257922
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p2p5-dl",
+      "completed": true,
+      "stage": "explicit UL QFI preflight before measured UDP",
+      "direction": "DL",
+      "ratio": "14:5",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 14,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 5,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "14:5"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 0.971183429999999,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "86d4b0bcdc65c50f70c85216bacc4e494a7c32dc73bf36ef73d2dec8832b9604",
+      "evidence_sha256": {
+        "status.json": "550a0f66b322cf3d75a2d2b57962026561789cca50a3db007f379679acc625c0",
+        "measurement.json": "7c82ebadf38e0a4f2d109744171edf3e9b0e57548abc7156220b736d09e1ad48",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.4988308905,
+          "p50": 0.439272,
+          "p95": 0.8131253999999998,
+          "p99": 0.971183429999999,
+          "max": 1.259344
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p5-ul",
+      "completed": false,
+      "stage": "gNB RF startup",
+      "direction": "UL",
+      "ratio": "29:10",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 6,
+        "nrofDownlinkSlots": 29,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 10,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 5,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "29:10"
+      },
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "ca889034a5db1a1ddfee9870ee87538733c40c123d144187de37636e0ba11699",
+      "evidence_sha256": {
+        "status.json": "c2b06314744a1b89a1dcf1323ce4f26e20978d4cd4956c91e1a1c22dbfad8ed2"
+      },
+      "flows": []
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p5-dl",
+      "completed": false,
+      "stage": "gNB RF启动前的Msg3 K2生成",
+      "direction": "DL",
+      "ratio": "29:10",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 6,
+        "nrofDownlinkSlots": 29,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 10,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 5,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "29:10"
+      },
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "ca889034a5db1a1ddfee9870ee87538733c40c123d144187de37636e0ba11699",
+      "evidence_sha256": {
+        "status.json": "6c8bd4acde4430874b2258fe9c6152218263b317601e4d5c8acc9935cdc01ed3"
+      },
+      "flows": []
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p10-ul",
+      "completed": false,
+      "stage": "gNB RF startup",
+      "direction": "UL",
+      "ratio": "59:20",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 7,
+        "nrofDownlinkSlots": 59,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 20,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 10,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "59:20"
+      },
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "c766d2d234115abaec0a6fcc142576f48dc377de78b3d89e8aea262932dc1fad",
+      "evidence_sha256": {
+        "status.json": "9a7d3f34d0cc0671f64ae599e1162c38dd14525ce398e1c3f964c09d895ecd43"
+      },
+      "flows": []
+    },
+    {
+      "phase": "tdd",
+      "case": "period-p10-dl",
+      "completed": false,
+      "stage": "gNB RF启动前的Msg3 K2生成",
+      "direction": "DL",
+      "ratio": "59:20",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 7,
+        "nrofDownlinkSlots": 59,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 20,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 10,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "59:20"
+      },
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "c766d2d234115abaec0a6fcc142576f48dc377de78b3d89e8aea262932dc1fad",
+      "evidence_sha256": {
+        "status.json": "64936de1f3e843eb7ba0bfa5a7117e87a749ae622d8216a5e341e68ff62f7098"
+      },
+      "flows": []
+    },
+    {
+      "phase": "tdd",
+      "case": "sa-d4u0-01",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "4:0",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 4,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 0,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "4:0"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 4.3555975,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "765ec114fe707f91e3554caf85b1085558a7ffea35431328e97f978f6a6e5ac8",
+      "evidence_sha256": {
+        "status.json": "0a15a466b616c12208df6a96a10c439340f52c3bc86207d3d7c6f978389f9e1c",
+        "measurement.json": "3a0804ce6cc2e82f6307c81f2b34400575926b2f2bc4ee93583f9b9ab1731ff7",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 2.472151452,
+          "p50": 2.453877,
+          "p95": 3.4509851499999997,
+          "p99": 4.3555975,
+          "max": 6.982155
+        }
+      ]
+    },
+    {
+      "phase": "tdd",
+      "case": "sa-d3u1-s6f2u6-01",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "3:1",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 6,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 3.52974826,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "8fd2aa0ba4b842a45561b934630022041dcae021b71a569e114264e8386cbb08",
+      "evidence_sha256": {
+        "status.json": "56b590b851f94ae064017a0f652a28e7eb37718279cc62cc3b58031964d9df37",
+        "measurement.json": "48a927d547df5f5c8c438df1ee48a7f97650ce68362a1675be9cdbab9cf79ec1",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1.91395620475,
+          "p50": 1.8830445,
+          "p95": 2.8217752999999997,
+          "p99": 3.52974826,
+          "max": 5.193206
+        }
+      ]
+    },
+    {
+      "phase": "scs",
+      "case": "mu1-d1u3-dl",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "DL",
+      "ratio": "1:3",
+      "radio": {
+        "referenceSubcarrierSpacing": 1,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 1,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 3,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 30,
+        "full_slot_D_to_U": "1:3"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 1.3655691799999985,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "23d70cea8e5c67a1d122157362182ce2128d7854d9dd3493734c3af9916d3011",
+      "evidence_sha256": {
+        "status.json": "e27211d12927fde99ee8750d4fdbbf54640c7c1f5188b438141ba80a58ff1c94",
+        "measurement.json": "aa536e2b463330f9cf12106da07917e20461e77cff909c23e03004d081e238a5",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.8721881262499999,
+          "p50": 0.846249,
+          "p95": 1.1629615499999997,
+          "p99": 1.3655691799999985,
+          "max": 3.824305
+        }
+      ]
+    },
+    {
+      "phase": "scs",
+      "case": "mu1-d1u3-ul",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "1:3",
+      "radio": {
+        "referenceSubcarrierSpacing": 1,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 1,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 3,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 30,
+        "full_slot_D_to_U": "1:3"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 5.7117229799999985,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "23d70cea8e5c67a1d122157362182ce2128d7854d9dd3493734c3af9916d3011",
+      "evidence_sha256": {
+        "status.json": "54675e49d8bc5298d8a5fbdb5d9fb975c7bca58c4b30675c5ec82c2b62985fec",
+        "measurement.json": "769377a88a2c3fa85541a271eacb93a4a75843a52aa991060e7488f9316a8448",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 3.6380845395000003,
+          "p50": 3.6586030000000003,
+          "p95": 4.8723053499999995,
+          "p99": 5.7117229799999985,
+          "max": 8.762243
+        }
+      ]
+    },
+    {
+      "phase": "scs",
+      "case": "mu1-d2u2-dl",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "DL",
+      "ratio": "2:2",
+      "radio": {
+        "referenceSubcarrierSpacing": 1,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 2,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 2,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 30,
+        "full_slot_D_to_U": "2:2"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 1.2149950699999996,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "50efab066ac59dc18780e1e94b4146c702d7933ed505b6c703e9601a0c1fb30e",
+      "evidence_sha256": {
+        "status.json": "64138d15c6b7396b5615ee0d06a9c30065c559cab76c2fb361d3bfbd35ec83ec",
+        "measurement.json": "7f6cddbc2d033449dbd3df7d4c4a76b6cbe0ceb9e7579e858409f25832561049",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.7890871072500002,
+          "p50": 0.761377,
+          "p95": 1.04148935,
+          "p99": 1.2149950699999996,
+          "max": 2.605456
+        }
+      ]
+    },
+    {
+      "phase": "scs",
+      "case": "mu1-d2u2-ul",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "2:2",
+      "radio": {
+        "referenceSubcarrierSpacing": 1,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 2,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 2,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 30,
+        "full_slot_D_to_U": "2:2"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 5.692499879999998,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "50efab066ac59dc18780e1e94b4146c702d7933ed505b6c703e9601a0c1fb30e",
+      "evidence_sha256": {
+        "status.json": "e5f66c0d1548f70abb873aa922ea071adcddcd19f0b113532af60a5cc4a3cdab",
+        "measurement.json": "6649ab1ac0fe9458c19d07193d78f66f8747d02afd88042b58a78a4230c1274b",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 3.7021117465,
+          "p50": 3.7627545,
+          "p95": 5.2408958,
+          "p99": 5.692499879999998,
+          "max": 6.55712
+        }
+      ]
+    },
+    {
+      "phase": "scs",
+      "case": "mu1-d3u1-dl",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "DL",
+      "ratio": "3:1",
+      "radio": {
+        "referenceSubcarrierSpacing": 1,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 30,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 1.0411080699999995,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "88f225452f2d6af8eddea67cb2824f2f2d2cb302fbcb4754957fb8a8bbac4ba5",
+      "evidence_sha256": {
+        "status.json": "38b90d7c3e3a71885c678c8e7e6636b859e11d0fe971e7703e918567605e8400",
+        "measurement.json": "24f694aa28f49369a9a91ec180e52d48d297731fedd96cf3c73283ebbf07a7fa",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.68272767675,
+          "p50": 0.6650375,
+          "p95": 0.87723975,
+          "p99": 1.0411080699999995,
+          "max": 2.1907
+        }
+      ]
+    },
+    {
+      "phase": "scs",
+      "case": "mu1-d3u1-ul",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "3:1",
+      "radio": {
+        "referenceSubcarrierSpacing": 1,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 30,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 6.371009449999995,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "88f225452f2d6af8eddea67cb2824f2f2d2cb302fbcb4754957fb8a8bbac4ba5",
+      "evidence_sha256": {
+        "status.json": "d49cccb88dec2b72a96b70ee691b5d61e524607c5f4f6165d12c96751a20789f",
+        "measurement.json": "a8a06f799ec509d845955e496770b0d93f3ceacd666158d21ee96d68030be1b3",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 4.168484779500001,
+          "p50": 4.2746295,
+          "p95": 5.8471139999999995,
+          "p99": 6.371009449999995,
+          "max": 8.273516
+        }
+      ]
+    },
+    {
+      "phase": "scs",
+      "case": "mu3-d10u9-dl",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "DL",
+      "ratio": "10:9",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 10,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 9,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "10:9"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 0.97002688,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "b6c1a96f580967228d05f42a97f5433ab6b853e29e7b79391c1d0e27826485a3",
+      "evidence_sha256": {
+        "status.json": "60c02df78b741e202e39db1aa4418000db44c747b0961080168a157bfac79c39",
+        "measurement.json": "969b0b2f10de02595f5b8a6d19e83d18e7f5fe12a1991df7f36eb55af36c4358",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.50502935325,
+          "p50": 0.45245199999999997,
+          "p95": 0.8211709999999998,
+          "p99": 0.97002688,
+          "max": 1.738323
+        }
+      ]
+    },
+    {
+      "phase": "scs",
+      "case": "mu3-d10u9-ul",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "10:9",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 10,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 9,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "10:9"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 4.132271919999998,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "b6c1a96f580967228d05f42a97f5433ab6b853e29e7b79391c1d0e27826485a3",
+      "evidence_sha256": {
+        "status.json": "40f7690adc11822ced544a854b2eb02e169adf7acf7febde2fe729c1e66c298c",
+        "measurement.json": "b0180bbe73f7dd4c49aa66b177aa23ebd1c3a10d2b91103d7c684f24f26f4aa5",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 2.93124289125,
+          "p50": 3.0400785,
+          "p95": 3.95736735,
+          "p99": 4.132271919999998,
+          "max": 4.466895
+        }
+      ]
+    },
+    {
+      "phase": "scs",
+      "case": "mu3-d5u14-dl",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "DL",
+      "ratio": "5:14",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 5,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 14,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "5:14"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 1.1098660399999989,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "46a57a7e631b83286f4a14bdae1464a370de8d1332686ba65a4357b5ae3d3298",
+      "evidence_sha256": {
+        "status.json": "41e09263464fe2c45d8f11d29f400529d662a1d87f6df9c06652dbdc71d352ee",
+        "measurement.json": "b8454c90e6bf5401977d4d1bf4694ca7fa3a438c96da32b61b96e0dd88620c67",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.61335046975,
+          "p50": 0.5882940000000001,
+          "p95": 0.9860219999999996,
+          "p99": 1.1098660399999989,
+          "max": 1.341273
+        }
+      ]
+    },
+    {
+      "phase": "scs",
+      "case": "mu3-d5u14-ul",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "5:14",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 5,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 14,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "5:14"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 4.119064629999986,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "46a57a7e631b83286f4a14bdae1464a370de8d1332686ba65a4357b5ae3d3298",
+      "evidence_sha256": {
+        "status.json": "b96b5f997c7ccc3d8f569f7c1320900f38f748c499aefe1741e8e18f5eb64c00",
+        "measurement.json": "5fc8f53a5fe87d6a16de8b8daf45fa8e8ec07deff44e90367f1a2362c622ba13",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 2.5664210905,
+          "p50": 2.585083,
+          "p95": 3.47915915,
+          "p99": 4.119064629999986,
+          "max": 5.977788
+        }
+      ]
+    },
+    {
+      "phase": "scs",
+      "case": "mu3-d14u5-dl",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "DL",
+      "ratio": "14:5",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 14,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 5,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "14:5"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 1.089062309999999,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "86d4b0bcdc65c50f70c85216bacc4e494a7c32dc73bf36ef73d2dec8832b9604",
+      "evidence_sha256": {
+        "status.json": "c7c4bc8b7975d7945ac304a94c619b58eb4193ded0877d5ab74fe4e5f01fb022",
+        "measurement.json": "b1fd3ecb54ecaa57318a367037f657d3c04ef37f4728f888d7572e388307c858",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.5106732505,
+          "p50": 0.44767500000000005,
+          "p95": 0.8178748499999999,
+          "p99": 1.089062309999999,
+          "max": 2.648332
+        }
+      ]
+    },
+    {
+      "phase": "scs",
+      "case": "mu3-d14u5-ul",
+      "completed": true,
+      "stage": "application delivery complete; packet correlation still required",
+      "direction": "UL",
+      "ratio": "14:5",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 5,
+        "nrofDownlinkSlots": 14,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 5,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 2.5,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "14:5"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 5.721126789999999,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "86d4b0bcdc65c50f70c85216bacc4e494a7c32dc73bf36ef73d2dec8832b9604",
+      "evidence_sha256": {
+        "status.json": "170de9a9b9593cb146d3bfbda8add13a229059afef006cd36734b56a4a36e3c4",
+        "measurement.json": "6398baa128dd833f3fd60c48ac5703ccd3a4437bc139fd6d518c30047d953c9c",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 3.27358918475,
+          "p50": 3.3946175,
+          "p95": 4.60471425,
+          "p99": 5.721126789999999,
+          "max": 7.21626
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n1-ul-fixed_per_ue",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 1,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 3.5725755399999994,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "720003c040cab8f09ef3714c37dc09afb2c0854d0225d9ce80d9b85286811c96",
+        "measurement.json": "0b85bac934f57c5075cc730c524d1f763d8aa0ac191a3bdab59897b29a3e3e1d",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 2.21371367775,
+          "p50": 2.1603700000000003,
+          "p95": 3.17494505,
+          "p99": 3.5725755399999994,
+          "max": 5.667012
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n1-ul-fixed_total",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 1,
+      "mode": "fixed_total",
+      "load": 8,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 3.5604148299999974,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "47961efc7a535f3b960d22dbe9dbe17fa6b7861841b6fe636e690d819ff89b3b",
+        "measurement.json": "aaa0d6a3a2a9e0b9b3ef63bea411ccd6070ab9695d8394e48b8e1e17fda849b7",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1.618313764,
+          "p50": 1.5390220000000001,
+          "p95": 2.5768913499999995,
+          "p99": 3.5604148299999974,
+          "max": 4.507106
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n1-dl-fixed_per_ue",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 1,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 0.7105159699999997,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "3cba2f268e9f43f21695197c389134ce7f8822bca2a005ffd59c67e30850edae",
+        "measurement.json": "cd04e8e80f5259f87ff25e3c47e3a705bdef0f9960f58311d491df923e30734b",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.4348277175,
+          "p50": 0.413836,
+          "p95": 0.5837480499999991,
+          "p99": 0.7105159699999997,
+          "max": 2.029747
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n1-dl-fixed_total",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 1,
+      "mode": "fixed_total",
+      "load": 8,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 1.1954957799999995,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "68915ec2442e8876a72d639e529a9f1fbc40b9d1bf39cae5d38f517cb82fe237",
+        "measurement.json": "31743cc55cfac121d09bbce3a3bdc97b1b868c5ba9e341a80404f333f2425a26",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.4591988875,
+          "p50": 0.4071145,
+          "p95": 0.6960748499999999,
+          "p99": 1.1954957799999995,
+          "max": 2.457646
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n2-ul-fixed_per_ue",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 10.131799089999996,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "2b4a8e71f280e40bbcefe7a327b8821014fc69a3caefa0604d710d51b7b2768c",
+        "measurement.json": "4b730b3255425253599004d83ca0480bcfeaf16e3b0cff234c929e7f77aa0f34",
+        "qfi_verification.json": "92d7a6ab0957e1e611a9f745bbb9a2b417d4688484e3f288a5ba048624ade01a"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 5.2989219185000005,
+          "p50": 5.209811,
+          "p95": 8.7131342,
+          "p99": 10.131799089999996,
+          "max": 13.38006
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 5.32895083875,
+          "p50": 5.2148075,
+          "p95": 8.70008555,
+          "p99": 10.088236179999999,
+          "max": 12.272997
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n2-ul-fixed_total",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_total",
+      "load": 8,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 10.983512099999995,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "2166f1d0dc9af4848aa75691f714012a0ebe9ae5951a1960b6636cb6a5416350",
+        "measurement.json": "44a034099d5bf26d76aebe38c8882854d97eda793129bd5aa75b7b1c746eb87f",
+        "qfi_verification.json": "92d7a6ab0957e1e611a9f745bbb9a2b417d4688484e3f288a5ba048624ade01a"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 5.1914333875,
+          "p50": 4.928706,
+          "p95": 9.00216835,
+          "p99": 10.983512099999995,
+          "max": 13.675649
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 5.135789086000001,
+          "p50": 4.907693500000001,
+          "p95": 8.850152999999995,
+          "p99": 10.971885779999994,
+          "max": 15.102924
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n2-dl-fixed_per_ue",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 1.0969213899999999,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "f9ea17d4bff430dabe98e73e681bacb3af0104c4016798c85ffdbc443fee5b7b",
+        "measurement.json": "cb527b56312bcd091b4828cdc6da24577377edc5257b0083bb34fdef89963fe4",
+        "qfi_verification.json": "5dac0a2ef0e69aad5e681770c8d79c890e2b7b478a422b4b7781200886b1e2fc"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.56125065275,
+          "p50": 0.5427074999999999,
+          "p95": 0.7753051999999999,
+          "p99": 0.9959837499999994,
+          "max": 1.767416
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 0.59021773475,
+          "p50": 0.550101,
+          "p95": 0.8930929499999996,
+          "p99": 1.0969213899999999,
+          "max": 1.715417
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n2-dl-fixed_total",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_total",
+      "load": 8,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 1.475151939999993,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "1a88bc30a4b877d80d6e667bcb3c379ac87426a65ae114ce625dc6113f21102a",
+        "measurement.json": "e583e3bd89992cda04144dd463f22f5d9e246bc37a362f77e0248f84eeaa6c72",
+        "qfi_verification.json": "5dac0a2ef0e69aad5e681770c8d79c890e2b7b478a422b4b7781200886b1e2fc"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.5834439975,
+          "p50": 0.5319895,
+          "p95": 0.9498113499999999,
+          "p99": 1.4087417699999767,
+          "max": 2.958133
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 0.62315009325,
+          "p50": 0.576076,
+          "p95": 0.9858992499999998,
+          "p99": 1.475151939999993,
+          "max": 2.879325
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n4-ul-fixed_per_ue",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 652.8804713199999,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "99c10dbd3bb1a04f2421c85dffd0f31921fa33a7c9dc0223d729d925e27edc7c",
+        "measurement.json": "7ebaac4899c391da2120ab1dc72fb116bb6df3fa7dbe8fe0f9928abb36705b3c",
+        "qfi_verification.json": "26656b48271fe70cb0ff3caefa702e7561efa1b5a08551cf8d33fd2c68342050"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 255.894598468,
+          "p50": 256.42451600000004,
+          "p95": 380.5905687,
+          "p99": 417.73113633,
+          "max": 433.426869
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 367.17058517025,
+          "p50": 332.651073,
+          "p95": 601.63878675,
+          "p99": 652.8804713199999,
+          "max": 673.529913
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 107.19141691375,
+          "p50": 83.192996,
+          "p95": 243.51753264999996,
+          "p99": 261.559065,
+          "max": 279.546059
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 98.6510666995,
+          "p50": 62.4395895,
+          "p95": 285.04922044999995,
+          "p99": 305.16103591,
+          "max": 316.652778
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n4-dl-fixed_per_ue",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 2.4985553299999976,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "220c820db0339f0e0c77e2f9b75471291b10584126819f191763515874aeeed0",
+        "measurement.json": "1348845e26b2acdf87cfab1a0f2ce02c7b8de0f6d190e582a91cda711eac02c3",
+        "qfi_verification.json": "0c4770352772e8a209e5b855028db679992c2e22092e55a59f6c67dd7abdf2e3"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.99887605075,
+          "p50": 0.8853065,
+          "p95": 1.8290935499999998,
+          "p99": 2.4985553299999976,
+          "max": 4.37383
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 1.0393026875,
+          "p50": 0.9388650000000001,
+          "p95": 1.8719510999999998,
+          "p99": 2.45299861,
+          "max": 4.735641
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 1.03502856275,
+          "p50": 0.9424965000000001,
+          "p95": 1.7645375499999973,
+          "p99": 2.469069589999995,
+          "max": 4.069809
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 1.0706647045,
+          "p50": 1.003812,
+          "p95": 1.76952165,
+          "p99": 2.47812828,
+          "max": 4.878152
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n8-ul-fixed_per_ue",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 8,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 36000,
+      "measured": 32000,
+      "worst_ue_p99_ms": 52101.26955787,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "d068ff205aad2061e89422d9b567b2e260b5c6141c9f53c16ab9ae524cf19a38",
+        "measurement.json": "51746ed0b4a692bcce412f2642374accdfde5dbc81fc0fc4b5eb3a86b3327177",
+        "qfi_verification.json": "b4a641195931fc4d28e5c300fd4f7080d60891ec87fb6655e55b61edac889640"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 26136.922853886,
+          "p50": 24959.302668,
+          "p95": 49197.4992658,
+          "p99": 51923.56680266999,
+          "max": 52555.761242
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 26187.51867773975,
+          "p50": 25025.4287675,
+          "p95": 49335.001094,
+          "p99": 52101.26955787,
+          "max": 52729.077788
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 25880.318104095502,
+          "p50": 24761.823990999997,
+          "p95": 48874.2357089,
+          "p99": 51456.91495266999,
+          "max": 52138.856838
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 25450.4482196675,
+          "p50": 24148.710496,
+          "p95": 48358.904736749995,
+          "p99": 51027.16218695,
+          "max": 51622.339249
+        },
+        {
+          "ue_index": 4,
+          "samples": 4000,
+          "mean": 25700.17075373275,
+          "p50": 24651.809118999998,
+          "p95": 48505.10877105,
+          "p99": 51216.39330254,
+          "max": 51826.693909
+        },
+        {
+          "ue_index": 5,
+          "samples": 4000,
+          "mean": 25906.430688108252,
+          "p50": 24861.282838500003,
+          "p95": 49001.356548649994,
+          "p99": 51599.239643479996,
+          "max": 52306.993947
+        },
+        {
+          "ue_index": 6,
+          "samples": 4000,
+          "mean": 25811.30958076825,
+          "p50": 24684.7161295,
+          "p95": 48777.705192149995,
+          "p99": 51446.31656487999,
+          "max": 52103.953278
+        },
+        {
+          "ue_index": 7,
+          "samples": 4000,
+          "mean": 25950.21338295575,
+          "p50": 24829.998908,
+          "p95": 48984.42348975,
+          "p99": 51628.26520578,
+          "max": 52233.710211
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n8-ul-fixed_total",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 8,
+      "mode": "fixed_total",
+      "load": 8,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 36000,
+      "measured": 32000,
+      "worst_ue_p99_ms": 54204.90299073,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "2499a05cb6f50e5c957d5a40eaa44493ef8d859fc3ea490b50813a275122c36d",
+        "measurement.json": "d8bd741100bd8b509b1a4f90d28790536d65aacd4817585b73f3fa75be4c7cf0",
+        "qfi_verification.json": "b4a641195931fc4d28e5c300fd4f7080d60891ec87fb6655e55b61edac889640"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 30468.54045218626,
+          "p50": 30389.647700499998,
+          "p95": 51771.36816775,
+          "p99": 53844.64453038,
+          "max": 54297.317699
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 30577.662541160757,
+          "p50": 30520.826788500002,
+          "p95": 52042.96862305,
+          "p99": 54204.90299073,
+          "max": 54624.933423
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 29999.5379408885,
+          "p50": 30015.432429,
+          "p95": 51186.154070749995,
+          "p99": 52964.566584659995,
+          "max": 53473.572581
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 29099.375428370244,
+          "p50": 28774.2661965,
+          "p95": 50096.63775369999,
+          "p99": 52041.238228199996,
+          "max": 52445.532865
+        },
+        {
+          "ue_index": 4,
+          "samples": 4000,
+          "mean": 29600.412247369502,
+          "p50": 29755.45398,
+          "p95": 50384.175015149995,
+          "p99": 52425.49999193,
+          "max": 52843.27511
+        },
+        {
+          "ue_index": 5,
+          "samples": 4000,
+          "mean": 30023.583187905497,
+          "p50": 30197.297861,
+          "p95": 51405.7550562,
+          "p99": 53222.71087013,
+          "max": 53786.234155
+        },
+        {
+          "ue_index": 6,
+          "samples": 4000,
+          "mean": 29820.07307473525,
+          "p50": 29826.644537,
+          "p95": 50916.908058249996,
+          "p99": 52875.05508662999,
+          "max": 53379.592813
+        },
+        {
+          "ue_index": 7,
+          "samples": 4000,
+          "mean": 30097.2078701,
+          "p50": 30129.9923955,
+          "p95": 51330.846763149995,
+          "p99": 53250.41434025,
+          "max": 53656.835323
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n8-dl-fixed_per_ue",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 8,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 36000,
+      "measured": 32000,
+      "worst_ue_p99_ms": 308.05026520999985,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "e7d16a375a5db4c83538a05a60997fea7608b66a90afedf56137393ea55c0513",
+        "measurement.json": "9f365c16ffd37f6cffed5d721adaef5e0f09bc7527dbb2e689004e08005de2a6",
+        "qfi_verification.json": "d95ae0d1e60ce4fced9eb1a31c8a8e83d403305356cee62cac3d8267b8f2c39f"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 79.50104019924999,
+          "p50": 43.563347500000006,
+          "p95": 247.1865413499999,
+          "p99": 275.3998837,
+          "max": 319.200995
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 110.14421359925001,
+          "p50": 102.186246,
+          "p95": 255.09285404999994,
+          "p99": 289.37096114999997,
+          "max": 314.542924
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 49.05559614425,
+          "p50": 27.538475,
+          "p95": 155.00437719999996,
+          "p99": 179.54256688999982,
+          "max": 198.069128
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 22.489133938,
+          "p50": 13.057504999999999,
+          "p95": 70.79260849999999,
+          "p99": 160.18568884999996,
+          "max": 189.863318
+        },
+        {
+          "ue_index": 4,
+          "samples": 4000,
+          "mean": 65.450285657,
+          "p50": 23.5891725,
+          "p95": 224.50706644999994,
+          "p99": 255.3000380599998,
+          "max": 276.449671
+        },
+        {
+          "ue_index": 5,
+          "samples": 4000,
+          "mean": 65.17483415425,
+          "p50": 33.531713499999995,
+          "p95": 265.4682041499999,
+          "p99": 308.05026520999985,
+          "max": 336.236016
+        },
+        {
+          "ue_index": 6,
+          "samples": 4000,
+          "mean": 51.714915618250004,
+          "p50": 22.602878500000003,
+          "p95": 190.5810032,
+          "p99": 207.62794698999997,
+          "max": 248.052907
+        },
+        {
+          "ue_index": 7,
+          "samples": 4000,
+          "mean": 44.76908677200001,
+          "p50": 25.7714115,
+          "p95": 132.59335539999998,
+          "p99": 176.07144313,
+          "max": 193.391458
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n8-dl-fixed_total",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 8,
+      "mode": "fixed_total",
+      "load": 8,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 36000,
+      "measured": 32000,
+      "worst_ue_p99_ms": 6.953181069999993,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "86e8f651f8f2991cd08ef0ee93d2eb66484954293187410a76040cded256ad3b",
+        "measurement.json": "3659a9808b1447281e354e2ad1bf5513df491d8902edd1f79b8d931ae884ec1d",
+        "qfi_verification.json": "d95ae0d1e60ce4fced9eb1a31c8a8e83d403305356cee62cac3d8267b8f2c39f"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 2.1409537275000003,
+          "p50": 1.8246425,
+          "p95": 4.222968599999998,
+          "p99": 6.59064434,
+          "max": 13.426082
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 2.21250279325,
+          "p50": 1.9071465,
+          "p95": 4.334282099999998,
+          "p99": 6.8670259999999965,
+          "max": 13.558539
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 2.2282696565,
+          "p50": 1.9517475,
+          "p95": 4.246239699999999,
+          "p99": 6.418977989999987,
+          "max": 17.053103
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 2.21441268325,
+          "p50": 1.9613245,
+          "p95": 4.1440451,
+          "p99": 6.242751659999998,
+          "max": 11.878712
+        },
+        {
+          "ue_index": 4,
+          "samples": 4000,
+          "mean": 2.2734117004999996,
+          "p50": 2.0193135,
+          "p95": 4.229678799999999,
+          "p99": 6.108669529999999,
+          "max": 17.992179
+        },
+        {
+          "ue_index": 5,
+          "samples": 4000,
+          "mean": 2.3293729377500005,
+          "p50": 2.0643450000000003,
+          "p95": 4.442954099999998,
+          "p99": 6.953181069999993,
+          "max": 11.863255
+        },
+        {
+          "ue_index": 6,
+          "samples": 4000,
+          "mean": 2.25675367725,
+          "p50": 2.018132,
+          "p95": 4.132728699999997,
+          "p99": 6.366245699999987,
+          "max": 11.41112
+        },
+        {
+          "ue_index": 7,
+          "samples": 4000,
+          "mean": 2.33054331025,
+          "p50": 2.088742,
+          "p95": 4.377329399999995,
+          "p99": 6.693408709999992,
+          "max": 12.109986
+        }
+      ]
+    },
+    {
+      "phase": "multi",
+      "case": "n2-ul-cpu4",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 7.949962769999999,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "cfa0b933f733d4d75dc7588d02dcde5aaf953e07667b9ec978f85aa84fe67f31",
+        "measurement.json": "6a298bc4e502166152f84a2a80b1332ca072944cba18c1b9d0b26858218e40a6",
+        "qfi_verification.json": "92d7a6ab0957e1e611a9f745bbb9a2b417d4688484e3f288a5ba048624ade01a"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 4.34190258525,
+          "p50": 4.2479665,
+          "p95": 6.871715449999998,
+          "p99": 7.949962769999999,
+          "max": 12.626968
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 4.2902930195,
+          "p50": 4.241747999999999,
+          "p95": 6.76015725,
+          "p99": 7.900008659999999,
+          "max": 11.561391
+        }
+      ]
+    },
+    {
+      "phase": "multi_tdd",
+      "case": "n2-ul-d1u3",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 1,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 3,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "1:3"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 10.795014589999997,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "7d8483872097e9a09e75c7d8145668b9f0ee250eb46bf08954cc2e1b04b72cfb",
+      "evidence_sha256": {
+        "status.json": "4a3fe2ad3449ff7018d0da360c8e1b15aae081101ed10bdb880eb43712305910",
+        "measurement.json": "d8a8acf9ae55dd5bc2ee4d89956f335cbf03ad596bb620156381c447901d0ebb",
+        "qfi_verification.json": "92d7a6ab0957e1e611a9f745bbb9a2b417d4688484e3f288a5ba048624ade01a"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 5.7861222552500005,
+          "p50": 5.6005765,
+          "p95": 9.4966013,
+          "p99": 10.795014589999997,
+          "max": 12.841932
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 5.761568530250001,
+          "p50": 5.6272035,
+          "p95": 9.3789191,
+          "p99": 10.539942339999994,
+          "max": 13.062769
+        }
+      ]
+    },
+    {
+      "phase": "multi_tdd",
+      "case": "n2-dl-d1u3",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 1,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 3,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "1:3"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 1.956912559999999,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "7d8483872097e9a09e75c7d8145668b9f0ee250eb46bf08954cc2e1b04b72cfb",
+      "evidence_sha256": {
+        "status.json": "64d65595d22a2f06ffd63ca3c60ebe6166a93beaa6cfdec26dfdebbae5913906",
+        "measurement.json": "bfa0e4f3a0d6dc9675468f8a6093c0efa681f5ff44a3599f62f97efb7277de7e",
+        "qfi_verification.json": "5dac0a2ef0e69aad5e681770c8d79c890e2b7b478a422b4b7781200886b1e2fc"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.90052978425,
+          "p50": 0.8688725,
+          "p95": 1.5731147999999993,
+          "p99": 1.956912559999999,
+          "max": 2.886958
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 0.9460227357500001,
+          "p50": 0.9239965,
+          "p95": 1.5927457499999997,
+          "p99": 1.9276214699999938,
+          "max": 3.204838
+        }
+      ]
+    },
+    {
+      "phase": "multi_tdd",
+      "case": "n4-ul-d1u3",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 1,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 3,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "1:3"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 2936.5212596300003,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "7d8483872097e9a09e75c7d8145668b9f0ee250eb46bf08954cc2e1b04b72cfb",
+      "evidence_sha256": {
+        "status.json": "c6db9ff436cf45979ef49b479cc502a555a80656b34ec0ae2a9dda15d6695e38",
+        "measurement.json": "6d545b06f9528e020c3a66b7f7581bdcf8df74507b18e7ca6393a6192c3456a3",
+        "qfi_verification.json": "26656b48271fe70cb0ff3caefa702e7561efa1b5a08551cf8d33fd2c68342050"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1552.37649746075,
+          "p50": 1519.059232,
+          "p95": 2582.4985377499997,
+          "p99": 2713.4358926,
+          "max": 2740.74977
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 1646.2163923915,
+          "p50": 1665.128878,
+          "p95": 2755.1292885999997,
+          "p99": 2936.5212596300003,
+          "max": 2954.783694
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 1308.3020677165,
+          "p50": 1315.24253,
+          "p95": 2257.5597561,
+          "p99": 2292.10663181,
+          "max": 2309.599114
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 858.61733832625,
+          "p50": 738.7069154999999,
+          "p95": 1735.2920631499994,
+          "p99": 1808.7644,
+          "max": 1833.238567
+        }
+      ]
+    },
+    {
+      "phase": "multi_tdd",
+      "case": "n4-dl-d1u3",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 1,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 3,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "1:3"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 10.359573949999994,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "7d8483872097e9a09e75c7d8145668b9f0ee250eb46bf08954cc2e1b04b72cfb",
+      "evidence_sha256": {
+        "status.json": "04321f05f52a6899c4e4a8b8b35beb7c7086999787438e650c309b0e9b96fb34",
+        "measurement.json": "91e8962b369ee3c58d3459672bb5debef88f23f25dc041b59f5b9c78397fec81",
+        "qfi_verification.json": "0c4770352772e8a209e5b855028db679992c2e22092e55a59f6c67dd7abdf2e3"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 2.18779166475,
+          "p50": 1.5993715,
+          "p95": 5.366284449999998,
+          "p99": 10.359573949999994,
+          "max": 20.784245
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 2.321729314,
+          "p50": 1.7524294999999999,
+          "p95": 5.831879799999996,
+          "p99": 9.80534589999994,
+          "max": 19.938541
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 2.15144246975,
+          "p50": 1.7029535,
+          "p95": 5.2357435,
+          "p99": 7.931073919999977,
+          "max": 18.251367
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 1.9821332094999997,
+          "p50": 1.525471,
+          "p95": 4.813200049999995,
+          "p99": 8.740530139999976,
+          "max": 15.150902
+        }
+      ]
+    },
+    {
+      "phase": "multi_tdd",
+      "case": "n2-ul-d2u2",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 2,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 2,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "2:2"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 11.802908669999999,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "8a332285b7a75b01e42c5b7cee2ccb2efd53b666ca5774ee0e56d0953328f43d",
+      "evidence_sha256": {
+        "status.json": "1989b0bb79620e69a1aeb35e571eb456a6686c528e8ec4cf666fd30666ecdcb0",
+        "measurement.json": "9b7a02b16a12ec31498d650e7344f747cc5dd6ae548622f11315e728731a9ec1",
+        "qfi_verification.json": "92d7a6ab0957e1e611a9f745bbb9a2b417d4688484e3f288a5ba048624ade01a"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 5.9367388215,
+          "p50": 5.742157499999999,
+          "p95": 9.989936199999997,
+          "p99": 11.53143934999999,
+          "max": 14.886198
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 5.982439027000001,
+          "p50": 5.812601000000001,
+          "p95": 9.913879649999998,
+          "p99": 11.802908669999999,
+          "max": 17.439735
+        }
+      ]
+    },
+    {
+      "phase": "multi_tdd",
+      "case": "n2-dl-d2u2",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 2,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 2,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "2:2"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 1.820409689999995,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "8a332285b7a75b01e42c5b7cee2ccb2efd53b666ca5774ee0e56d0953328f43d",
+      "evidence_sha256": {
+        "status.json": "82e1f8c1b6dbf7585178dfb81e93f7c7c50f0278876a3623ebe061c245a6fb43",
+        "measurement.json": "98b9e7376532a9fc8c3531186326f408191dc9f4ef6b1d8cf7a22b0eb2a60d74",
+        "qfi_verification.json": "5dac0a2ef0e69aad5e681770c8d79c890e2b7b478a422b4b7781200886b1e2fc"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.7104910655,
+          "p50": 0.692078,
+          "p95": 1.0842855499999988,
+          "p99": 1.6490576199999991,
+          "max": 3.475101
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 0.76770452675,
+          "p50": 0.7433620000000001,
+          "p95": 1.2319061999999998,
+          "p99": 1.820409689999995,
+          "max": 3.300968
+        }
+      ]
+    },
+    {
+      "phase": "multi_tdd",
+      "case": "n4-ul-d2u2",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 2,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 2,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "2:2"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 2360.2463401,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "8a332285b7a75b01e42c5b7cee2ccb2efd53b666ca5774ee0e56d0953328f43d",
+      "evidence_sha256": {
+        "status.json": "df5fb4e46fe062602cf7b5621789e7dca7b5e6f0c6f5adfb9deaa7328c6aebd9",
+        "measurement.json": "e3edd37badedc6ae44f977daf490717e4c64a562a313a80a9eea0c9b2b9f2112",
+        "qfi_verification.json": "26656b48271fe70cb0ff3caefa702e7561efa1b5a08551cf8d33fd2c68342050"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1281.86860773025,
+          "p50": 1182.5084364999998,
+          "p95": 2002.6821953499996,
+          "p99": 2139.57072131,
+          "max": 2167.722308
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 1371.8623914707498,
+          "p50": 1308.536646,
+          "p95": 2174.8199628999996,
+          "p99": 2360.2463401,
+          "max": 2379.276532
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 1039.96469838125,
+          "p50": 959.6911745,
+          "p95": 1708.08842375,
+          "p99": 1739.40134599,
+          "max": 1754.221197
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 590.3904325937501,
+          "p50": 425.1846965,
+          "p95": 1155.1362437999996,
+          "p99": 1236.60875088,
+          "max": 1260.599496
+        }
+      ]
+    },
+    {
+      "phase": "multi_tdd",
+      "case": "n4-dl-d2u2",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 2,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 2,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "2:2"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 3.6896742199999975,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "8a332285b7a75b01e42c5b7cee2ccb2efd53b666ca5774ee0e56d0953328f43d",
+      "evidence_sha256": {
+        "status.json": "b580317ccb236acbf1ef580b7749c28ed287a43718428c202a2bd5467b6d32cf",
+        "measurement.json": "7bb02077ab271277b0917d66309658c3709615232b6a6e13233e9dad57db61b5",
+        "qfi_verification.json": "0c4770352772e8a209e5b855028db679992c2e22092e55a59f6c67dd7abdf2e3"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1.31422580475,
+          "p50": 1.183674,
+          "p95": 2.5364655999999997,
+          "p99": 3.627028309999997,
+          "max": 7.458153
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 1.31199922225,
+          "p50": 1.1981614999999999,
+          "p95": 2.4409046499999967,
+          "p99": 3.565496649999989,
+          "max": 7.311944
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 1.325548188,
+          "p50": 1.2191575000000001,
+          "p95": 2.49315705,
+          "p99": 3.6438926999999945,
+          "max": 8.777425
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 1.3816676895,
+          "p50": 1.2704365,
+          "p95": 2.503275049999997,
+          "p99": 3.6896742199999975,
+          "max": 6.841731
+        }
+      ]
+    },
+    {
+      "phase": "multi_tdd",
+      "case": "n2-ul-d3u1",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 10.721829489999994,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "da683ca9d851c123c6235d5a5d76697b10cd966f48b1da62fc832057ba069240",
+        "measurement.json": "b74e5d15c82f7343d02e89e1e4207f50e98f3acb738985c1c260f97dfde1c293",
+        "qfi_verification.json": "92d7a6ab0957e1e611a9f745bbb9a2b417d4688484e3f288a5ba048624ade01a"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 5.459988599,
+          "p50": 5.3360845,
+          "p95": 8.954722649999999,
+          "p99": 10.721829489999994,
+          "max": 15.827937
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 5.4133291625,
+          "p50": 5.279561,
+          "p95": 9.04215025,
+          "p99": 10.55945449,
+          "max": 12.907307
+        }
+      ]
+    },
+    {
+      "phase": "multi_tdd",
+      "case": "n2-dl-d3u1",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 1.5147639099999965,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "a25a87ebf38df99fb3a3d6ef050ae8ae93bcf68f3882342d41400582ecdffaed",
+        "measurement.json": "57b71c0db26797a3102be289a61322b07506a8288cffac85fe44ae49e35ff6f4",
+        "qfi_verification.json": "5dac0a2ef0e69aad5e681770c8d79c890e2b7b478a422b4b7781200886b1e2fc"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.5616764647499999,
+          "p50": 0.5297115,
+          "p95": 0.80774875,
+          "p99": 1.2181841499999972,
+          "max": 3.449609
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 0.602852755,
+          "p50": 0.5595405,
+          "p95": 0.9235323999999997,
+          "p99": 1.5147639099999965,
+          "max": 3.248653
+        }
+      ]
+    },
+    {
+      "phase": "multi_tdd",
+      "case": "n4-ul-d3u1",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 1092.2653336,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "be188f0388a10fde411172ff6c25c82c0d9d3409a842921fe7f00cc433d8cea1",
+        "measurement.json": "ac28bb7aff9a272ff976a971331916666b069312c37d76d121ef7467bfdd1957",
+        "qfi_verification.json": "26656b48271fe70cb0ff3caefa702e7561efa1b5a08551cf8d33fd2c68342050"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 480.05578940525,
+          "p50": 445.78676299999995,
+          "p95": 759.17909505,
+          "p99": 855.24794509,
+          "max": 872.753473
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 586.9074505665,
+          "p50": 530.310158,
+          "p95": 987.80437105,
+          "p99": 1092.2653336,
+          "max": 1111.355773
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 250.22278958550004,
+          "p50": 198.130515,
+          "p95": 510.71705505,
+          "p99": 523.21330817,
+          "max": 539.848505
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 149.53277622225,
+          "p50": 95.498404,
+          "p95": 405.9723376,
+          "p99": 440.15246307,
+          "max": 468.994348
+        }
+      ]
+    },
+    {
+      "phase": "multi_tdd",
+      "case": "n4-dl-d3u1",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 2.530172049999999,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "f4ad5298c8c21d3fd78e95764ba786469452e2405f06391df417092acc138129",
+        "measurement.json": "9a16b1b8e22ef5edcdf2656ae54bb35b22581eeb6220a13ec39fd5b90f704072",
+        "qfi_verification.json": "0c4770352772e8a209e5b855028db679992c2e22092e55a59f6c67dd7abdf2e3"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1.0536510125,
+          "p50": 0.9443785,
+          "p95": 1.9010886499999997,
+          "p99": 2.530172049999999,
+          "max": 4.192129
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 1.0668806352499998,
+          "p50": 0.97734,
+          "p95": 1.8504672999999998,
+          "p99": 2.4932459899999997,
+          "max": 4.01326
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 1.0800517742500002,
+          "p50": 1.0042865,
+          "p95": 1.7656713499999992,
+          "p99": 2.391545969999999,
+          "max": 4.551133
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 1.12314785375,
+          "p50": 1.053009,
+          "p95": 1.81866905,
+          "p99": 2.4455256999999975,
+          "max": 4.500401
+        }
+      ]
+    },
+    {
+      "phase": "layered",
+      "case": "n1-ul-off",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 1,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 4.115415199999999,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "e50327b02f3bb59976ce86cb67fe7576754f4a7c906f5b9eb66d47f0c7b75f8d",
+        "measurement.json": "883e4574f4e3d49580f4ac1b9e75fe07b500d0ea4c641e6f65cb845b664215c4",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 2.0483167809999996,
+          "p50": 1.9983445,
+          "p95": 3.100681,
+          "p99": 4.115415199999999,
+          "max": 5.182763
+        }
+      ]
+    },
+    {
+      "phase": "layered",
+      "case": "n1-ul-on",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 1,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "on",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 3.3831976399999992,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "a9527c05739045e6abffad54e3dcfd5b798859c21e8ab2d8e8ee2a7ce6f6bbb0",
+        "measurement.json": "bbd7e803cee3d8d88faa3df7bac6d6ad6efdea807862c6ce8cf780674295628e",
+        "qfi_verification.json": "b32492c75033fd0e8223b0ba11a61f36c722ce707a23588834028a7184e60348",
+        "internal_measurement.json": "8937b8455e88d15f81d28710b73cac1ed76f15eac7d8bf15d0ffd8dbe2002c65"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 2.20395642675,
+          "p50": 2.1484294999999998,
+          "p95": 3.1321581999999997,
+          "p99": 3.3831976399999992,
+          "max": 3.959915
+        }
+      ],
+      "internal_flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "p99_ms": 3.3831976399999992,
+          "mean_total_ms": 2.20395642675,
+          "slowest_40_mean_total_ms": 3.55874345,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.011833688,
+            "sdap_to_pdcp": 0.0022661639999999998,
+            "pdcp_lock_and_prepare": 0.00217470475,
+            "pdcp_tx_process": 0.00191318575,
+            "pdcp_to_tx_queue": 0.002321364,
+            "tx_software_queue": 0.004742056,
+            "tx_queue_to_rlc_api": 0.0021079654999999996,
+            "rlc_lock_and_admit": 0.0026449190000000003,
+            "rlc_radio_reassembly_mixed": 2.1249947844999997,
+            "rlc_to_rx_queue": 0.002636485,
+            "rx_software_queue": 0.00445806775,
+            "rx_queue_to_pdcp": 0.001449475,
+            "pdcp_receive_and_reorder": 0.0014981957499999997,
+            "sdap_receive_to_upper": 0.0013770547500000002,
+            "upper_to_app": 0.037538317
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.026109799999999996,
+            "sdap_to_pdcp": 0.0031773,
+            "pdcp_lock_and_prepare": 0.0025705,
+            "pdcp_tx_process": 0.00220185,
+            "pdcp_to_tx_queue": 0.003026475,
+            "tx_software_queue": 0.00597255,
+            "tx_queue_to_rlc_api": 0.0032597749999999995,
+            "rlc_lock_and_admit": 0.0038880500000000005,
+            "rlc_radio_reassembly_mixed": 3.4143085749999997,
+            "rlc_to_rx_queue": 0.004037649999999999,
+            "rx_software_queue": 0.006363775,
+            "rx_queue_to_pdcp": 0.0017793750000000001,
+            "pdcp_receive_and_reorder": 0.0020883,
+            "sdap_receive_to_upper": 0.002243175,
+            "upper_to_app": 0.07771629999999999
+          }
+        }
+      ],
+      "internal_validation": {
+        "result": "PASS",
+        "complete_packets": 4500,
+        "events_per_packet": 14,
+        "matched_internal_events": 63000,
+        "sum_residual_ns": 0
+      }
+    },
+    {
+      "phase": "layered",
+      "case": "n1-dl-off",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 1,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 1.0077897499999995,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "58925ae78cbb3aea8527e82eb2014d8d71bae43c6455bfb0b0a2cc636f6c3904",
+        "measurement.json": "e94f9fd36ceac9d1eb0cfaac4a50441c5dc1298127087b052952ac5bd3ff4ebd",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.44712082724999996,
+          "p50": 0.4101285,
+          "p95": 0.6410622499999996,
+          "p99": 1.0077897499999995,
+          "max": 3.015618
+        }
+      ]
+    },
+    {
+      "phase": "layered",
+      "case": "n1-dl-on",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 1,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "on",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 4500,
+      "measured": 4000,
+      "worst_ue_p99_ms": 0.7070927099999995,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "c11be0b9806dfcf30ac20b8d0d388d0285f50da2fa8163a3e26aad3d4d382e74",
+        "measurement.json": "ea99d661652738af19b85a144634555dfa09728f174d5d9c90fa1451f1354ee3",
+        "qfi_verification.json": "0239d6ef9c97b15ae550d2fdedcc71c1e44f84b9e3e619642a703bccb9749697",
+        "internal_measurement.json": "d97cf03b79fbf4cafc6a70491ed967354830c29f8a632f4f6993c3369209522b"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.43792937275000005,
+          "p50": 0.4182215,
+          "p95": 0.5876875999999998,
+          "p99": 0.7070927099999995,
+          "max": 2.174529
+        }
+      ],
+      "internal_flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "p99_ms": 0.7070927099999995,
+          "mean_total_ms": 0.43792937275000005,
+          "slowest_40_mean_total_ms": 0.8470755750000001,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.02695359,
+            "sdap_to_pdcp": 0.0013316634999999998,
+            "pdcp_lock_and_prepare": 0.0013627375,
+            "pdcp_tx_process": 0.0011344195000000002,
+            "pdcp_to_tx_queue": 0.00153616025,
+            "tx_software_queue": 0.004018916,
+            "tx_queue_to_rlc_api": 0.00205083575,
+            "rlc_lock_and_admit": 0.00258181375,
+            "rlc_radio_reassembly_mixed": 0.3735279455,
+            "rlc_to_rx_queue": 0.00143100525,
+            "rx_software_queue": 0.003658879,
+            "rx_queue_to_pdcp": 0.0015669952500000001,
+            "pdcp_receive_and_reorder": 0.0016831685,
+            "sdap_receive_to_upper": 0.0014920615000000002,
+            "upper_to_app": 0.0135991815
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.16786565,
+            "sdap_to_pdcp": 0.0014678500000000001,
+            "pdcp_lock_and_prepare": 0.001319025,
+            "pdcp_tx_process": 0.00118865,
+            "pdcp_to_tx_queue": 0.0019458,
+            "tx_software_queue": 0.004793749999999999,
+            "tx_queue_to_rlc_api": 0.01679465,
+            "rlc_lock_and_admit": 0.0130048,
+            "rlc_radio_reassembly_mixed": 0.606127375,
+            "rlc_to_rx_queue": 0.00144235,
+            "rx_software_queue": 0.0044972,
+            "rx_queue_to_pdcp": 0.001997375,
+            "pdcp_receive_and_reorder": 0.00212515,
+            "sdap_receive_to_upper": 0.002486625,
+            "upper_to_app": 0.020019324999999998
+          }
+        }
+      ],
+      "internal_validation": {
+        "result": "PASS",
+        "complete_packets": 4500,
+        "events_per_packet": 14,
+        "matched_internal_events": 63000,
+        "sum_residual_ns": 0
+      }
+    },
+    {
+      "phase": "layered",
+      "case": "n2-ul-on",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "on",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 10.441863199999991,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "fab046223c8363fefd7f534990643abd9df7fc9f202551d84b49f33f459569d1",
+        "measurement.json": "1c9ddc0ae9aff307db56e371b0354937fe28137cddcad6c08a2d4e8a71900c23",
+        "qfi_verification.json": "92d7a6ab0957e1e611a9f745bbb9a2b417d4688484e3f288a5ba048624ade01a",
+        "internal_measurement.json": "88b013fbc2b72f6750810af1cd2dd52bdee72b5727af432b958794b84bc0aaf2"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 5.420219943,
+          "p50": 5.324436,
+          "p95": 8.85100515,
+          "p99": 10.441863199999991,
+          "max": 13.366208
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 5.39346878625,
+          "p50": 5.3185015,
+          "p95": 8.71825065,
+          "p99": 10.335138739999996,
+          "max": 13.23498
+        }
+      ],
+      "internal_flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "p99_ms": 10.441863199999991,
+          "mean_total_ms": 5.420219943,
+          "slowest_40_mean_total_ms": 11.456676075,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.0104816,
+            "sdap_to_pdcp": 0.0020256875,
+            "pdcp_lock_and_prepare": 0.00182433275,
+            "pdcp_tx_process": 0.0015587157499999998,
+            "pdcp_to_tx_queue": 0.00195844225,
+            "tx_software_queue": 0.0041583015,
+            "tx_queue_to_rlc_api": 0.00176542875,
+            "rlc_lock_and_admit": 0.0022473312500000003,
+            "rlc_radio_reassembly_mixed": 5.35521867075,
+            "rlc_to_rx_queue": 0.0024706944999999996,
+            "rx_software_queue": 0.004642000749999999,
+            "rx_queue_to_pdcp": 0.0017992637500000002,
+            "pdcp_receive_and_reorder": 0.002018855,
+            "sdap_receive_to_upper": 0.0019463037499999997,
+            "upper_to_app": 0.02610431475
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.012412725,
+            "sdap_to_pdcp": 0.0024460499999999995,
+            "pdcp_lock_and_prepare": 0.0016515000000000002,
+            "pdcp_tx_process": 0.002029675,
+            "pdcp_to_tx_queue": 0.002014125,
+            "tx_software_queue": 0.004737549999999999,
+            "tx_queue_to_rlc_api": 0.00247285,
+            "rlc_lock_and_admit": 0.002024025,
+            "rlc_radio_reassembly_mixed": 11.386254574999999,
+            "rlc_to_rx_queue": 0.0026395999999999998,
+            "rx_software_queue": 0.004604675,
+            "rx_queue_to_pdcp": 0.0027292749999999998,
+            "pdcp_receive_and_reorder": 0.0022872749999999996,
+            "sdap_receive_to_upper": 0.0018941,
+            "upper_to_app": 0.026478075
+          }
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "p99_ms": 10.335138739999996,
+          "mean_total_ms": 5.39346878625,
+          "slowest_40_mean_total_ms": 10.914395175,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.010976425,
+            "sdap_to_pdcp": 0.0020686642500000003,
+            "pdcp_lock_and_prepare": 0.0018792040000000002,
+            "pdcp_tx_process": 0.0016516335,
+            "pdcp_to_tx_queue": 0.0020420984999999997,
+            "tx_software_queue": 0.00446659075,
+            "tx_queue_to_rlc_api": 0.00187251325,
+            "rlc_lock_and_admit": 0.0023751615,
+            "rlc_radio_reassembly_mixed": 5.3268797039999995,
+            "rlc_to_rx_queue": 0.002439693,
+            "rx_software_queue": 0.00468214725,
+            "rx_queue_to_pdcp": 0.0018200715,
+            "pdcp_receive_and_reorder": 0.0020309919999999997,
+            "sdap_receive_to_upper": 0.0019393785,
+            "upper_to_app": 0.02634450925
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.011031925000000001,
+            "sdap_to_pdcp": 0.002134275,
+            "pdcp_lock_and_prepare": 0.002045375,
+            "pdcp_tx_process": 0.001833075,
+            "pdcp_to_tx_queue": 0.002421125,
+            "tx_software_queue": 0.0050059,
+            "tx_queue_to_rlc_api": 0.002439175,
+            "rlc_lock_and_admit": 0.0029289000000000003,
+            "rlc_radio_reassembly_mixed": 10.81954395,
+            "rlc_to_rx_queue": 0.002391775,
+            "rx_software_queue": 0.0048542,
+            "rx_queue_to_pdcp": 0.001867075,
+            "pdcp_receive_and_reorder": 0.002043225,
+            "sdap_receive_to_upper": 0.0019053750000000002,
+            "upper_to_app": 0.051949825000000005
+          }
+        }
+      ],
+      "internal_validation": {
+        "result": "PASS",
+        "complete_packets": 9000,
+        "events_per_packet": 14,
+        "matched_internal_events": 126000,
+        "sum_residual_ns": 0
+      }
+    },
+    {
+      "phase": "layered",
+      "case": "n2-dl-on",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 2,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "on",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 9000,
+      "measured": 8000,
+      "worst_ue_p99_ms": 1.4389920799999998,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "9cb49bb1981c4da84a9d1f4be2604a23e5376317eb84694e517b87d152a28442",
+        "measurement.json": "247d818fd0779bcb6ccf31f87a8174e7204f8fd4078c870210adb19bc49b732d",
+        "qfi_verification.json": "5dac0a2ef0e69aad5e681770c8d79c890e2b7b478a422b4b7781200886b1e2fc",
+        "internal_measurement.json": "598bac9c7eb4c00df20813568fe0e4543a8795bee1818177331c8fac33f284b2"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 0.6082224322499998,
+          "p50": 0.5720245,
+          "p95": 0.8760777999999999,
+          "p99": 1.4389920799999998,
+          "max": 2.965399
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 0.64636585,
+          "p50": 0.6050255,
+          "p95": 1.0069071499999995,
+          "p99": 1.4338907499999989,
+          "max": 2.976683
+        }
+      ],
+      "internal_flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "p99_ms": 1.4389920799999998,
+          "mean_total_ms": 0.6082224322499998,
+          "slowest_40_mean_total_ms": 2.0056818,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.021757057250000003,
+            "sdap_to_pdcp": 0.0023466095000000005,
+            "pdcp_lock_and_prepare": 0.002155668,
+            "pdcp_tx_process": 0.0020111707499999997,
+            "pdcp_to_tx_queue": 0.00230648275,
+            "tx_software_queue": 0.0041478765,
+            "tx_queue_to_rlc_api": 0.00146585125,
+            "rlc_lock_and_admit": 0.0018640007500000002,
+            "rlc_radio_reassembly_mixed": 0.54878510825,
+            "rlc_to_rx_queue": 0.0015189840000000001,
+            "rx_software_queue": 0.00358637,
+            "rx_queue_to_pdcp": 0.0013818385,
+            "pdcp_receive_and_reorder": 0.00153202075,
+            "sdap_receive_to_upper": 0.00139299,
+            "upper_to_app": 0.011970404
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.025744875,
+            "sdap_to_pdcp": 0.0023068000000000003,
+            "pdcp_lock_and_prepare": 0.00206265,
+            "pdcp_tx_process": 0.0020302000000000002,
+            "pdcp_to_tx_queue": 0.0029025250000000004,
+            "tx_software_queue": 0.004402499999999999,
+            "tx_queue_to_rlc_api": 0.0018724000000000002,
+            "rlc_lock_and_admit": 0.0020719500000000004,
+            "rlc_radio_reassembly_mixed": 1.9374455999999998,
+            "rlc_to_rx_queue": 0.0016528250000000001,
+            "rx_software_queue": 0.003526625,
+            "rx_queue_to_pdcp": 0.001375,
+            "pdcp_receive_and_reorder": 0.0018793499999999997,
+            "sdap_receive_to_upper": 0.0016695250000000003,
+            "upper_to_app": 0.014738974999999998
+          }
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "p99_ms": 1.4338907499999989,
+          "mean_total_ms": 0.64636585,
+          "slowest_40_mean_total_ms": 1.961818875,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.02179003125,
+            "sdap_to_pdcp": 0.002294903,
+            "pdcp_lock_and_prepare": 0.00218354175,
+            "pdcp_tx_process": 0.00197565375,
+            "pdcp_to_tx_queue": 0.00236975325,
+            "tx_software_queue": 0.00413601975,
+            "tx_queue_to_rlc_api": 0.0014378605000000002,
+            "rlc_lock_and_admit": 0.0018582005000000001,
+            "rlc_radio_reassembly_mixed": 0.58461642525,
+            "rlc_to_rx_queue": 0.001513633,
+            "rx_software_queue": 0.00368882575,
+            "rx_queue_to_pdcp": 0.00147799975,
+            "pdcp_receive_and_reorder": 0.0016438435,
+            "sdap_receive_to_upper": 0.0014753530000000002,
+            "upper_to_app": 0.013903806000000001
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.026138525000000003,
+            "sdap_to_pdcp": 0.0021966,
+            "pdcp_lock_and_prepare": 0.002307775,
+            "pdcp_tx_process": 0.0019186500000000003,
+            "pdcp_to_tx_queue": 0.0022566250000000004,
+            "tx_software_queue": 0.004441425,
+            "tx_queue_to_rlc_api": 0.0014706250000000001,
+            "rlc_lock_and_admit": 0.0019683,
+            "rlc_radio_reassembly_mixed": 1.8889772,
+            "rlc_to_rx_queue": 0.0017590000000000001,
+            "rx_software_queue": 0.004173649999999999,
+            "rx_queue_to_pdcp": 0.0015230999999999999,
+            "pdcp_receive_and_reorder": 0.0024521,
+            "sdap_receive_to_upper": 0.0014924749999999998,
+            "upper_to_app": 0.018742825
+          }
+        }
+      ],
+      "internal_validation": {
+        "result": "PASS",
+        "complete_packets": 9000,
+        "events_per_packet": 14,
+        "matched_internal_events": 126000,
+        "sum_residual_ns": 0
+      }
+    },
+    {
+      "phase": "layered",
+      "case": "n4-ul-off",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 2680.9326577599995,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "725171872cccad08c1bb258cb611925bd3e084563ce57eb19135ce96cfcc19e7",
+        "measurement.json": "2f688c600b60e6383a06f1e517a3e76966d354a85a9074e06eb3149056e3b783",
+        "qfi_verification.json": "26656b48271fe70cb0ff3caefa702e7561efa1b5a08551cf8d33fd2c68342050"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1425.905484976,
+          "p50": 1406.1845755,
+          "p95": 2205.50723155,
+          "p99": 2455.79630447,
+          "max": 2486.988296
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 1519.28115785,
+          "p50": 1543.7106045,
+          "p95": 2385.1163212999995,
+          "p99": 2680.9326577599995,
+          "max": 2702.78272
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 1183.6642072245,
+          "p50": 1214.362683,
+          "p95": 1931.0804643,
+          "p99": 2015.86115548,
+          "max": 2055.354372
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 734.6189854639999,
+          "p50": 603.6551744999999,
+          "p95": 1354.30604585,
+          "p99": 1551.81484117,
+          "max": 1571.000454
+        }
+      ]
+    },
+    {
+      "phase": "layered",
+      "case": "n4-ul-on",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "on",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 38.93416741999993,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "ebcc5c82a66f8f832bdd04e9e705a666d596815d0422aea9a407fd7b86dcdbee",
+        "measurement.json": "c01802c3eb25b1a212e6a79345fa32d7ce2807b8b1f481edd2d92839c2fd97aa",
+        "qfi_verification.json": "26656b48271fe70cb0ff3caefa702e7561efa1b5a08551cf8d33fd2c68342050",
+        "internal_measurement.json": "4d948e9f1007d58fca538ccf1b5a503d55efce875ae6a22aeb8a24cc419eb236"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 10.3187613095,
+          "p50": 9.0802715,
+          "p95": 21.852109249999966,
+          "p99": 38.93416741999993,
+          "max": 53.499728
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 10.107578214500002,
+          "p50": 9.1337175,
+          "p95": 21.0178276,
+          "p99": 28.09068230999992,
+          "max": 41.354956
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 9.656237022499997,
+          "p50": 8.879913,
+          "p95": 19.746777499999997,
+          "p99": 27.139544249999968,
+          "max": 36.450337
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 9.810940823000001,
+          "p50": 8.901368000000002,
+          "p95": 20.69677225,
+          "p99": 31.774469519999958,
+          "max": 51.510141
+        }
+      ],
+      "internal_flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "p99_ms": 38.93416741999993,
+          "mean_total_ms": 10.3187613095,
+          "slowest_40_mean_total_ms": 43.22878849999999,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.012711080750000001,
+            "sdap_to_pdcp": 0.00227499875,
+            "pdcp_lock_and_prepare": 0.0020297874999999996,
+            "pdcp_tx_process": 0.00202383475,
+            "pdcp_to_tx_queue": 0.00229463275,
+            "tx_software_queue": 0.004550027999999999,
+            "tx_queue_to_rlc_api": 0.0020032302500000002,
+            "rlc_lock_and_admit": 0.0025568624999999998,
+            "rlc_radio_reassembly_mixed": 10.247054900250001,
+            "rlc_to_rx_queue": 0.0025203142500000004,
+            "rx_software_queue": 0.0046580645,
+            "rx_queue_to_pdcp": 0.0015005567500000002,
+            "pdcp_receive_and_reorder": 0.00150476325,
+            "sdap_receive_to_upper": 0.0014490365,
+            "upper_to_app": 0.02962921875
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.011158499999999998,
+            "sdap_to_pdcp": 0.002424875,
+            "pdcp_lock_and_prepare": 0.0024763,
+            "pdcp_tx_process": 0.002034575,
+            "pdcp_to_tx_queue": 0.002752175,
+            "tx_software_queue": 0.00493285,
+            "tx_queue_to_rlc_api": 0.002251425,
+            "rlc_lock_and_admit": 0.002581825,
+            "rlc_radio_reassembly_mixed": 43.149132550000004,
+            "rlc_to_rx_queue": 0.0030689750000000003,
+            "rx_software_queue": 0.006804,
+            "rx_queue_to_pdcp": 0.0019448,
+            "pdcp_receive_and_reorder": 0.00211975,
+            "sdap_receive_to_upper": 0.0021123,
+            "upper_to_app": 0.0329936
+          }
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "p99_ms": 28.09068230999992,
+          "mean_total_ms": 10.107578214500002,
+          "slowest_40_mean_total_ms": 32.718852625,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.012795740500000001,
+            "sdap_to_pdcp": 0.00231767275,
+            "pdcp_lock_and_prepare": 0.00218110825,
+            "pdcp_tx_process": 0.0019487329999999998,
+            "pdcp_to_tx_queue": 0.0023964565,
+            "tx_software_queue": 0.00460427775,
+            "tx_queue_to_rlc_api": 0.0018054607499999999,
+            "rlc_lock_and_admit": 0.0023040155,
+            "rlc_radio_reassembly_mixed": 10.03553893325,
+            "rlc_to_rx_queue": 0.0025354895,
+            "rx_software_queue": 0.004767415,
+            "rx_queue_to_pdcp": 0.0014644377500000001,
+            "pdcp_receive_and_reorder": 0.001512988,
+            "sdap_receive_to_upper": 0.00149774675,
+            "upper_to_app": 0.02990773925
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.015208975,
+            "sdap_to_pdcp": 0.0026665999999999994,
+            "pdcp_lock_and_prepare": 0.0025494249999999997,
+            "pdcp_tx_process": 0.00266135,
+            "pdcp_to_tx_queue": 0.002974975,
+            "tx_software_queue": 0.005109875000000001,
+            "tx_queue_to_rlc_api": 0.0017329749999999999,
+            "rlc_lock_and_admit": 0.0030081749999999997,
+            "rlc_radio_reassembly_mixed": 32.6357737,
+            "rlc_to_rx_queue": 0.002642925,
+            "rx_software_queue": 0.005167275000000001,
+            "rx_queue_to_pdcp": 0.00146295,
+            "pdcp_receive_and_reorder": 0.001978875,
+            "sdap_receive_to_upper": 0.001450025,
+            "upper_to_app": 0.034464525
+          }
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "p99_ms": 27.139544249999968,
+          "mean_total_ms": 9.656237022499997,
+          "slowest_40_mean_total_ms": 30.220601024999997,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.013003559,
+            "sdap_to_pdcp": 0.00226508025,
+            "pdcp_lock_and_prepare": 0.00206897475,
+            "pdcp_tx_process": 0.0018344000000000001,
+            "pdcp_to_tx_queue": 0.0022937149999999996,
+            "tx_software_queue": 0.004655934999999999,
+            "tx_queue_to_rlc_api": 0.00192658525,
+            "rlc_lock_and_admit": 0.0025934162499999997,
+            "rlc_radio_reassembly_mixed": 9.584141892,
+            "rlc_to_rx_queue": 0.0025110905,
+            "rx_software_queue": 0.00474229225,
+            "rx_queue_to_pdcp": 0.0015131555000000001,
+            "pdcp_receive_and_reorder": 0.0015977952499999998,
+            "sdap_receive_to_upper": 0.0014401715000000002,
+            "upper_to_app": 0.029648960000000002
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.012333125,
+            "sdap_to_pdcp": 0.0026508749999999996,
+            "pdcp_lock_and_prepare": 0.0022331,
+            "pdcp_tx_process": 0.002098575,
+            "pdcp_to_tx_queue": 0.002652975,
+            "tx_software_queue": 0.005937400000000001,
+            "tx_queue_to_rlc_api": 0.0018632499999999999,
+            "rlc_lock_and_admit": 0.0019995000000000004,
+            "rlc_radio_reassembly_mixed": 30.140119400000003,
+            "rlc_to_rx_queue": 0.0026416499999999997,
+            "rx_software_queue": 0.005451575,
+            "rx_queue_to_pdcp": 0.001576125,
+            "pdcp_receive_and_reorder": 0.00148595,
+            "sdap_receive_to_upper": 0.0014879,
+            "upper_to_app": 0.036069625
+          }
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "p99_ms": 31.774469519999958,
+          "mean_total_ms": 9.810940823000001,
+          "slowest_40_mean_total_ms": 38.1128309,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.01300047925,
+            "sdap_to_pdcp": 0.002320888,
+            "pdcp_lock_and_prepare": 0.0021534180000000003,
+            "pdcp_tx_process": 0.00185763425,
+            "pdcp_to_tx_queue": 0.0023727275,
+            "tx_software_queue": 0.00465942675,
+            "tx_queue_to_rlc_api": 0.0018969450000000001,
+            "rlc_lock_and_admit": 0.0024580229999999997,
+            "rlc_radio_reassembly_mixed": 9.73894405275,
+            "rlc_to_rx_queue": 0.0025145962500000003,
+            "rx_software_queue": 0.004799368250000001,
+            "rx_queue_to_pdcp": 0.0014705624999999999,
+            "pdcp_receive_and_reorder": 0.00157872125,
+            "sdap_receive_to_upper": 0.001402449,
+            "upper_to_app": 0.02951153125
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.013100625,
+            "sdap_to_pdcp": 0.0025422749999999997,
+            "pdcp_lock_and_prepare": 0.0021797749999999997,
+            "pdcp_tx_process": 0.0019301,
+            "pdcp_to_tx_queue": 0.0021535,
+            "tx_software_queue": 0.00568685,
+            "tx_queue_to_rlc_api": 0.0018163000000000003,
+            "rlc_lock_and_admit": 0.002772675,
+            "rlc_radio_reassembly_mixed": 38.03176882499999,
+            "rlc_to_rx_queue": 0.0026308499999999997,
+            "rx_software_queue": 0.00558945,
+            "rx_queue_to_pdcp": 0.001444075,
+            "pdcp_receive_and_reorder": 0.0015807249999999998,
+            "sdap_receive_to_upper": 0.00167715,
+            "upper_to_app": 0.035957725
+          }
+        }
+      ],
+      "internal_validation": {
+        "result": "PASS",
+        "complete_packets": 18000,
+        "events_per_packet": 14,
+        "matched_internal_events": 252000,
+        "sum_residual_ns": 0
+      }
+    },
+    {
+      "phase": "layered",
+      "case": "n4-dl-off",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "off",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 2.6848581499999997,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "f07c799c011aa032a4d059a37471dea016e3e09b48067dfc2df08e4c3abb307a",
+        "measurement.json": "59520d7349df3c199fad56c42c0d150b8b74a3fb8d2608464dbd0463555e4014",
+        "qfi_verification.json": "0c4770352772e8a209e5b855028db679992c2e22092e55a59f6c67dd7abdf2e3"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1.0441561452500001,
+          "p50": 0.9217165,
+          "p95": 1.8971062999999995,
+          "p99": 2.6848581499999997,
+          "max": 4.609863
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 1.0579468509999999,
+          "p50": 0.9558255,
+          "p95": 1.9038932499999996,
+          "p99": 2.592633489999997,
+          "max": 4.016587
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 1.0689484195,
+          "p50": 0.984082,
+          "p95": 1.8203100999999984,
+          "p99": 2.509145439999999,
+          "max": 4.167339
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 1.1157324149999999,
+          "p50": 1.0451815,
+          "p95": 1.8716753499999992,
+          "p99": 2.67772948,
+          "max": 4.929964
+        }
+      ]
+    },
+    {
+      "phase": "layered",
+      "case": "n4-dl-on",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "on",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 2.739240319999997,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "27a98147f42770b5dac1177cb580959499762a1d7ae00c9514d4d8d52fb2a243",
+        "measurement.json": "ca3ef89e56cafb1f440e4d833cc6f585e6d7480028af22919989b0bd74581039",
+        "qfi_verification.json": "0c4770352772e8a209e5b855028db679992c2e22092e55a59f6c67dd7abdf2e3",
+        "internal_measurement.json": "bff980d5d7176483fe5a4ad1d0e3a80a451cf03107615c685b912191a2007381"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1.0743710395,
+          "p50": 0.947838,
+          "p95": 1.9568333999999992,
+          "p99": 2.7324608099999903,
+          "max": 5.087944
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 1.0975905055000001,
+          "p50": 0.992666,
+          "p95": 1.9485594499999992,
+          "p99": 2.6672511699999957,
+          "max": 5.698854
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 1.10762100625,
+          "p50": 1.0180764999999998,
+          "p95": 1.8784524999999994,
+          "p99": 2.6849238199999976,
+          "max": 4.701427
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 1.1476898415,
+          "p50": 1.077434,
+          "p95": 1.9288514499999998,
+          "p99": 2.739240319999997,
+          "max": 4.510801
+        }
+      ],
+      "internal_flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "p99_ms": 2.7324608099999903,
+          "mean_total_ms": 1.0743710395,
+          "slowest_40_mean_total_ms": 3.251741775,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.020521326000000003,
+            "sdap_to_pdcp": 0.0023403115000000005,
+            "pdcp_lock_and_prepare": 0.0022563325,
+            "pdcp_tx_process": 0.002077795,
+            "pdcp_to_tx_queue": 0.0024339684999999996,
+            "tx_software_queue": 0.00403080325,
+            "tx_queue_to_rlc_api": 0.001456485,
+            "rlc_lock_and_admit": 0.0019154172499999999,
+            "rlc_radio_reassembly_mixed": 1.01536595175,
+            "rlc_to_rx_queue": 0.00155931825,
+            "rx_software_queue": 0.003726458,
+            "rx_queue_to_pdcp": 0.00140410425,
+            "pdcp_receive_and_reorder": 0.0016284985,
+            "sdap_receive_to_upper": 0.00135138725,
+            "upper_to_app": 0.0123028825
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.0789515,
+            "sdap_to_pdcp": 0.002364825,
+            "pdcp_lock_and_prepare": 0.002399225,
+            "pdcp_tx_process": 0.002150575,
+            "pdcp_to_tx_queue": 0.0022851250000000003,
+            "tx_software_queue": 0.004434100000000001,
+            "tx_queue_to_rlc_api": 0.0014836000000000003,
+            "rlc_lock_and_admit": 0.00207495,
+            "rlc_radio_reassembly_mixed": 3.13095735,
+            "rlc_to_rx_queue": 0.0015153,
+            "rx_software_queue": 0.00408235,
+            "rx_queue_to_pdcp": 0.001352675,
+            "pdcp_receive_and_reorder": 0.0020859249999999998,
+            "sdap_receive_to_upper": 0.0017201750000000002,
+            "upper_to_app": 0.0138841
+          }
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "p99_ms": 2.6672511699999957,
+          "mean_total_ms": 1.0975905055000001,
+          "slowest_40_mean_total_ms": 3.2594755749999997,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.020454227,
+            "sdap_to_pdcp": 0.00232332875,
+            "pdcp_lock_and_prepare": 0.0022492062500000004,
+            "pdcp_tx_process": 0.002077686,
+            "pdcp_to_tx_queue": 0.002388177,
+            "tx_software_queue": 0.0039826855,
+            "tx_queue_to_rlc_api": 0.0014691844999999999,
+            "rlc_lock_and_admit": 0.0018293844999999998,
+            "rlc_radio_reassembly_mixed": 1.03875395275,
+            "rlc_to_rx_queue": 0.00158509075,
+            "rx_software_queue": 0.003815666,
+            "rx_queue_to_pdcp": 0.0013974947499999998,
+            "pdcp_receive_and_reorder": 0.0016308965,
+            "sdap_receive_to_upper": 0.0013701384999999999,
+            "upper_to_app": 0.012263386750000002
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.063504925,
+            "sdap_to_pdcp": 0.00219655,
+            "pdcp_lock_and_prepare": 0.00287395,
+            "pdcp_tx_process": 0.0019440500000000003,
+            "pdcp_to_tx_queue": 0.002579025,
+            "tx_software_queue": 0.004177175,
+            "tx_queue_to_rlc_api": 0.0014614749999999998,
+            "rlc_lock_and_admit": 0.0026371000000000003,
+            "rlc_radio_reassembly_mixed": 3.1552288000000006,
+            "rlc_to_rx_queue": 0.001530975,
+            "rx_software_queue": 0.003829425,
+            "rx_queue_to_pdcp": 0.001445575,
+            "pdcp_receive_and_reorder": 0.001418875,
+            "sdap_receive_to_upper": 0.0011895,
+            "upper_to_app": 0.013458175
+          }
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "p99_ms": 2.6849238199999976,
+          "mean_total_ms": 1.10762100625,
+          "slowest_40_mean_total_ms": 3.2042435749999996,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.020586253,
+            "sdap_to_pdcp": 0.0023285692500000003,
+            "pdcp_lock_and_prepare": 0.00223544925,
+            "pdcp_tx_process": 0.0020249350000000003,
+            "pdcp_to_tx_queue": 0.0024431292500000003,
+            "tx_software_queue": 0.0039799877499999995,
+            "tx_queue_to_rlc_api": 0.0014610812499999998,
+            "rlc_lock_and_admit": 0.0018590982499999999,
+            "rlc_radio_reassembly_mixed": 1.048842316,
+            "rlc_to_rx_queue": 0.00158984925,
+            "rx_software_queue": 0.0037407492500000005,
+            "rx_queue_to_pdcp": 0.0014166192500000001,
+            "pdcp_receive_and_reorder": 0.00161876375,
+            "sdap_receive_to_upper": 0.00136807075,
+            "upper_to_app": 0.012126134999999998
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.018205700000000002,
+            "sdap_to_pdcp": 0.0021475500000000002,
+            "pdcp_lock_and_prepare": 0.0020671250000000004,
+            "pdcp_tx_process": 0.0019022000000000002,
+            "pdcp_to_tx_queue": 0.002601025,
+            "tx_software_queue": 0.003964825,
+            "tx_queue_to_rlc_api": 0.0016277750000000001,
+            "rlc_lock_and_admit": 0.00197205,
+            "rlc_radio_reassembly_mixed": 3.146853125,
+            "rlc_to_rx_queue": 0.00165055,
+            "rx_software_queue": 0.004615075000000001,
+            "rx_queue_to_pdcp": 0.0012902,
+            "pdcp_receive_and_reorder": 0.00163715,
+            "sdap_receive_to_upper": 0.001393875,
+            "upper_to_app": 0.01231535
+          }
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "p99_ms": 2.739240319999997,
+          "mean_total_ms": 1.1476898415,
+          "slowest_40_mean_total_ms": 3.2384825499999996,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.021147890500000002,
+            "sdap_to_pdcp": 0.002300815,
+            "pdcp_lock_and_prepare": 0.00226742525,
+            "pdcp_tx_process": 0.0020357225000000004,
+            "pdcp_to_tx_queue": 0.00238486775,
+            "tx_software_queue": 0.00405006575,
+            "tx_queue_to_rlc_api": 0.00148812675,
+            "rlc_lock_and_admit": 0.0018365520000000002,
+            "rlc_radio_reassembly_mixed": 1.0888265917500002,
+            "rlc_to_rx_queue": 0.0015979287499999998,
+            "rx_software_queue": 0.00392990025,
+            "rx_queue_to_pdcp": 0.0013980275,
+            "pdcp_receive_and_reorder": 0.00158664425,
+            "sdap_receive_to_upper": 0.0013389224999999997,
+            "upper_to_app": 0.011500361
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.06391717499999999,
+            "sdap_to_pdcp": 0.002329875,
+            "pdcp_lock_and_prepare": 0.00289075,
+            "pdcp_tx_process": 0.0019525,
+            "pdcp_to_tx_queue": 0.002337875,
+            "tx_software_queue": 0.00478815,
+            "tx_queue_to_rlc_api": 0.001325125,
+            "rlc_lock_and_admit": 0.0019514499999999998,
+            "rlc_radio_reassembly_mixed": 3.13176065,
+            "rlc_to_rx_queue": 0.001587875,
+            "rx_software_queue": 0.005066225000000001,
+            "rx_queue_to_pdcp": 0.0015442000000000001,
+            "pdcp_receive_and_reorder": 0.00153355,
+            "sdap_receive_to_upper": 0.0012906500000000002,
+            "upper_to_app": 0.0142065
+          }
+        }
+      ],
+      "internal_validation": {
+        "result": "PASS",
+        "complete_packets": 18000,
+        "events_per_packet": 14,
+        "matched_internal_events": 252000,
+        "sum_residual_ns": 0
+      }
+    },
+    {
+      "phase": "layered",
+      "case": "n4-ul-on-repeat",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "UL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "on",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 658.94899183,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "39af076a574136555858484ee647cbcb4b4ccd16f0a6550976ae4659e915980a",
+        "measurement.json": "79dbdcd7be155b8a14096b66d750ce3daa9ce127571c80efcd40abd051bfa158",
+        "qfi_verification.json": "26656b48271fe70cb0ff3caefa702e7561efa1b5a08551cf8d33fd2c68342050",
+        "internal_measurement.json": "983a7477d1fba53f13eb95e8ef7e799f1572c9c7e6a775f94fa3f4e9fd886fee"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 249.62332153875,
+          "p50": 241.276182,
+          "p95": 417.7101786,
+          "p99": 453.11753548999974,
+          "max": 488.854488
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 356.72966901025,
+          "p50": 297.4476555,
+          "p95": 598.4929102,
+          "p99": 658.94899183,
+          "max": 678.847989
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 141.58827846725,
+          "p50": 111.9912425,
+          "p95": 305.36828815,
+          "p99": 319.6868694599999,
+          "max": 335.308305
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 119.1331701415,
+          "p50": 64.555872,
+          "p95": 306.8442686,
+          "p99": 330.66166582999995,
+          "max": 345.690482
+        }
+      ],
+      "internal_flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "p99_ms": 453.11753548999974,
+          "mean_total_ms": 249.62332153875,
+          "slowest_40_mean_total_ms": 464.519182575,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.01100576575,
+            "sdap_to_pdcp": 0.0021190065000000003,
+            "pdcp_lock_and_prepare": 0.00243655425,
+            "pdcp_tx_process": 0.00176777825,
+            "pdcp_to_tx_queue": 0.0021016770000000006,
+            "tx_software_queue": 0.00396398125,
+            "tx_queue_to_rlc_api": 0.0016339540000000002,
+            "rlc_lock_and_admit": 0.0022990185,
+            "rlc_radio_reassembly_mixed": 249.558960741,
+            "rlc_to_rx_queue": 0.0013450457499999998,
+            "rx_software_queue": 0.0037947045,
+            "rx_queue_to_pdcp": 0.0013766615,
+            "pdcp_receive_and_reorder": 0.001438293,
+            "sdap_receive_to_upper": 0.001334622,
+            "upper_to_app": 0.027743735500000002
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.00803535,
+            "sdap_to_pdcp": 0.001267475,
+            "pdcp_lock_and_prepare": 0.001322075,
+            "pdcp_tx_process": 0.001177125,
+            "pdcp_to_tx_queue": 0.00130475,
+            "tx_software_queue": 0.003079325,
+            "tx_queue_to_rlc_api": 0.0011731000000000003,
+            "rlc_lock_and_admit": 0.0021725,
+            "rlc_radio_reassembly_mixed": 464.467843575,
+            "rlc_to_rx_queue": 0.001330875,
+            "rx_software_queue": 0.005183124999999999,
+            "rx_queue_to_pdcp": 0.001431375,
+            "pdcp_receive_and_reorder": 0.0015290250000000003,
+            "sdap_receive_to_upper": 0.001231175,
+            "upper_to_app": 0.021101725
+          }
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "p99_ms": 658.94899183,
+          "mean_total_ms": 356.72966901025,
+          "slowest_40_mean_total_ms": 667.8917027499999,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.0107597945,
+            "sdap_to_pdcp": 0.0021578272500000005,
+            "pdcp_lock_and_prepare": 0.00196838175,
+            "pdcp_tx_process": 0.0018684382500000001,
+            "pdcp_to_tx_queue": 0.0022006247500000005,
+            "tx_software_queue": 0.0043761007499999996,
+            "tx_queue_to_rlc_api": 0.0015878052500000002,
+            "rlc_lock_and_admit": 0.00226599875,
+            "rlc_radio_reassembly_mixed": 356.66498085924997,
+            "rlc_to_rx_queue": 0.0013485385,
+            "rx_software_queue": 0.0039164795,
+            "rx_queue_to_pdcp": 0.00142567825,
+            "pdcp_receive_and_reorder": 0.0014471327499999999,
+            "sdap_receive_to_upper": 0.00134260575,
+            "upper_to_app": 0.028022745
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.014515400000000001,
+            "sdap_to_pdcp": 0.00276645,
+            "pdcp_lock_and_prepare": 0.00257655,
+            "pdcp_tx_process": 0.0021475,
+            "pdcp_to_tx_queue": 0.002517475,
+            "tx_software_queue": 0.0038810500000000005,
+            "tx_queue_to_rlc_api": 0.0013321750000000001,
+            "rlc_lock_and_admit": 0.001714125,
+            "rlc_radio_reassembly_mixed": 667.82693195,
+            "rlc_to_rx_queue": 0.001551425,
+            "rx_software_queue": 0.002951525,
+            "rx_queue_to_pdcp": 0.001244075,
+            "pdcp_receive_and_reorder": 0.0014458499999999998,
+            "sdap_receive_to_upper": 0.00125105,
+            "upper_to_app": 0.02487615
+          }
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "p99_ms": 319.6868694599999,
+          "mean_total_ms": 141.58827846725,
+          "slowest_40_mean_total_ms": 324.34764537499996,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.01136875025,
+            "sdap_to_pdcp": 0.00225439525,
+            "pdcp_lock_and_prepare": 0.0019755629999999996,
+            "pdcp_tx_process": 0.0017949784999999998,
+            "pdcp_to_tx_queue": 0.00220697125,
+            "tx_software_queue": 0.004351232250000001,
+            "tx_queue_to_rlc_api": 0.0016089467499999998,
+            "rlc_lock_and_admit": 0.00218442975,
+            "rlc_radio_reassembly_mixed": 141.52374060874996,
+            "rlc_to_rx_queue": 0.00132610175,
+            "rx_software_queue": 0.00378029325,
+            "rx_queue_to_pdcp": 0.001456202,
+            "pdcp_receive_and_reorder": 0.001448991,
+            "sdap_receive_to_upper": 0.0013208202500000002,
+            "upper_to_app": 0.02746018325
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.0083342,
+            "sdap_to_pdcp": 0.00192505,
+            "pdcp_lock_and_prepare": 0.0018193,
+            "pdcp_tx_process": 0.0015898499999999999,
+            "pdcp_to_tx_queue": 0.0016898,
+            "tx_software_queue": 0.0032774749999999997,
+            "tx_queue_to_rlc_api": 0.00160195,
+            "rlc_lock_and_admit": 0.00195065,
+            "rlc_radio_reassembly_mixed": 324.294644725,
+            "rlc_to_rx_queue": 0.0014999249999999998,
+            "rx_software_queue": 0.004541000000000001,
+            "rx_queue_to_pdcp": 0.0011416249999999998,
+            "pdcp_receive_and_reorder": 0.001423175,
+            "sdap_receive_to_upper": 0.00111185,
+            "upper_to_app": 0.021094799999999997
+          }
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "p99_ms": 330.66166582999995,
+          "mean_total_ms": 119.1331701415,
+          "slowest_40_mean_total_ms": 335.96164609999994,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.01029211525,
+            "sdap_to_pdcp": 0.001878251,
+            "pdcp_lock_and_prepare": 0.0017364167499999998,
+            "pdcp_tx_process": 0.00152435,
+            "pdcp_to_tx_queue": 0.00204013175,
+            "tx_software_queue": 0.0039377232500000005,
+            "tx_queue_to_rlc_api": 0.0016777455,
+            "rlc_lock_and_admit": 0.00217148375,
+            "rlc_radio_reassembly_mixed": 119.06970196175,
+            "rlc_to_rx_queue": 0.00137630875,
+            "rx_software_queue": 0.00367155225,
+            "rx_queue_to_pdcp": 0.0014232627499999998,
+            "pdcp_receive_and_reorder": 0.00145612725,
+            "sdap_receive_to_upper": 0.0013133012499999999,
+            "upper_to_app": 0.028969410250000004
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.007320650000000001,
+            "sdap_to_pdcp": 0.001498525,
+            "pdcp_lock_and_prepare": 0.0014946,
+            "pdcp_tx_process": 0.001306625,
+            "pdcp_to_tx_queue": 0.0016684,
+            "tx_software_queue": 0.003010075,
+            "tx_queue_to_rlc_api": 0.0011351,
+            "rlc_lock_and_admit": 0.002355425,
+            "rlc_radio_reassembly_mixed": 335.909592775,
+            "rlc_to_rx_queue": 0.0012196,
+            "rx_software_queue": 0.0033896250000000003,
+            "rx_queue_to_pdcp": 0.0013808749999999997,
+            "pdcp_receive_and_reorder": 0.0016265750000000003,
+            "sdap_receive_to_upper": 0.00128305,
+            "upper_to_app": 0.0233642
+          }
+        }
+      ],
+      "internal_validation": {
+        "result": "PASS",
+        "complete_packets": 18000,
+        "events_per_packet": 14,
+        "matched_internal_events": 252000,
+        "sum_residual_ns": 0
+      }
+    },
+    {
+      "phase": "layered",
+      "case": "n4-dl-on-repeat",
+      "completed": true,
+      "stage": "application delivery complete; correlation required",
+      "direction": "DL",
+      "ratio": null,
+      "n": 4,
+      "mode": "fixed_per_ue",
+      "load": 2,
+      "arm": "on",
+      "radio": {
+        "referenceSubcarrierSpacing": 3,
+        "dl_UL_TransmissionPeriodicity": 1,
+        "nrofDownlinkSlots": 3,
+        "nrofDownlinkSymbols": 6,
+        "nrofUplinkSlots": 1,
+        "nrofUplinkSymbols": 4,
+        "period_ms": 0.625,
+        "scs_kHz": 120,
+        "full_slot_D_to_U": "3:1"
+      },
+      "matched": 18000,
+      "measured": 16000,
+      "worst_ue_p99_ms": 2.80883302,
+      "binary_sha256": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "gnb_config_sha256": "4ab0686a1cff7972a8feebea25dd7c74c2439fd6ae27bac6e3af0742040b6c0e",
+      "evidence_sha256": {
+        "status.json": "b32b568971ca48437d0be66a119f7002b6fe2c4435652ac8db6dc47b7d0cab5d",
+        "measurement.json": "1e638110a885dc06888a6109a3cee935cc0765938b30681718347d10c64af6db",
+        "qfi_verification.json": "0c4770352772e8a209e5b855028db679992c2e22092e55a59f6c67dd7abdf2e3",
+        "internal_measurement.json": "f922517a35eff3d0baec038a8b5fd246e13ef0561ae249153a13e5a30954369e"
+      },
+      "flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "mean": 1.01022727975,
+          "p50": 0.9054825,
+          "p95": 1.83600035,
+          "p99": 2.58856254,
+          "max": 6.455564
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "mean": 1.0420780287500002,
+          "p50": 0.944616,
+          "p95": 1.8138636499999998,
+          "p99": 2.540394929999999,
+          "max": 4.153038
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "mean": 1.01731067975,
+          "p50": 0.9284224999999999,
+          "p95": 1.7797176999999993,
+          "p99": 2.5166967899999944,
+          "max": 4.595731
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "mean": 1.114217408,
+          "p50": 1.0055040000000002,
+          "p95": 1.9695137999999999,
+          "p99": 2.80883302,
+          "max": 4.103109
+        }
+      ],
+      "internal_flows": [
+        {
+          "ue_index": 0,
+          "samples": 4000,
+          "p99_ms": 2.58856254,
+          "mean_total_ms": 1.01022727975,
+          "slowest_40_mean_total_ms": 3.391652825,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.022485402749999998,
+            "sdap_to_pdcp": 0.0023125497499999997,
+            "pdcp_lock_and_prepare": 0.0022740307500000003,
+            "pdcp_tx_process": 0.002046891,
+            "pdcp_to_tx_queue": 0.0026742025,
+            "tx_software_queue": 0.004253377,
+            "tx_queue_to_rlc_api": 0.0016035309999999998,
+            "rlc_lock_and_admit": 0.001986991,
+            "rlc_radio_reassembly_mixed": 0.94558141425,
+            "rlc_to_rx_queue": 0.001627143,
+            "rx_software_queue": 0.004087075999999999,
+            "rx_queue_to_pdcp": 0.0014886917500000001,
+            "pdcp_receive_and_reorder": 0.0016589369999999999,
+            "sdap_receive_to_upper": 0.001423924,
+            "upper_to_app": 0.014723118
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.023131924999999998,
+            "sdap_to_pdcp": 0.0021964999999999997,
+            "pdcp_lock_and_prepare": 0.00230165,
+            "pdcp_tx_process": 0.0021762500000000002,
+            "pdcp_to_tx_queue": 0.00259275,
+            "tx_software_queue": 0.004215125,
+            "tx_queue_to_rlc_api": 0.0019158750000000003,
+            "rlc_lock_and_admit": 0.002277075,
+            "rlc_radio_reassembly_mixed": 3.32628605,
+            "rlc_to_rx_queue": 0.001986075,
+            "rx_software_queue": 0.004510024999999999,
+            "rx_queue_to_pdcp": 0.0016246000000000003,
+            "pdcp_receive_and_reorder": 0.001664925,
+            "sdap_receive_to_upper": 0.0013850000000000002,
+            "upper_to_app": 0.013389000000000002
+          }
+        },
+        {
+          "ue_index": 1,
+          "samples": 4000,
+          "p99_ms": 2.540394929999999,
+          "mean_total_ms": 1.0420780287500002,
+          "slowest_40_mean_total_ms": 2.97245085,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.02216001875,
+            "sdap_to_pdcp": 0.0022245292499999997,
+            "pdcp_lock_and_prepare": 0.00227640475,
+            "pdcp_tx_process": 0.00204219775,
+            "pdcp_to_tx_queue": 0.00258158725,
+            "tx_software_queue": 0.0043139865,
+            "tx_queue_to_rlc_api": 0.0016048229999999998,
+            "rlc_lock_and_admit": 0.00207225575,
+            "rlc_radio_reassembly_mixed": 0.9774797094999998,
+            "rlc_to_rx_queue": 0.00163468375,
+            "rx_software_queue": 0.003961829,
+            "rx_queue_to_pdcp": 0.00139062475,
+            "pdcp_receive_and_reorder": 0.001606135,
+            "sdap_receive_to_upper": 0.00143252325,
+            "upper_to_app": 0.0152967205
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.02172735,
+            "sdap_to_pdcp": 0.0023695749999999996,
+            "pdcp_lock_and_prepare": 0.002793575,
+            "pdcp_tx_process": 0.002122825,
+            "pdcp_to_tx_queue": 0.0027367500000000005,
+            "tx_software_queue": 0.0048023250000000005,
+            "tx_queue_to_rlc_api": 0.0014739,
+            "rlc_lock_and_admit": 0.002528575,
+            "rlc_radio_reassembly_mixed": 2.852551075,
+            "rlc_to_rx_queue": 0.00183865,
+            "rx_software_queue": 0.004678525,
+            "rx_queue_to_pdcp": 0.0013308999999999999,
+            "pdcp_receive_and_reorder": 0.001379775,
+            "sdap_receive_to_upper": 0.001368075,
+            "upper_to_app": 0.06874897500000002
+          }
+        },
+        {
+          "ue_index": 2,
+          "samples": 4000,
+          "p99_ms": 2.5166967899999944,
+          "mean_total_ms": 1.01731067975,
+          "slowest_40_mean_total_ms": 2.995381075,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.02193892275,
+            "sdap_to_pdcp": 0.0022462832500000003,
+            "pdcp_lock_and_prepare": 0.0022424215,
+            "pdcp_tx_process": 0.0020542002500000003,
+            "pdcp_to_tx_queue": 0.0025967514999999997,
+            "tx_software_queue": 0.004778194,
+            "tx_queue_to_rlc_api": 0.0016010762500000002,
+            "rlc_lock_and_admit": 0.0019777049999999997,
+            "rlc_radio_reassembly_mixed": 0.9527220085,
+            "rlc_to_rx_queue": 0.00160572775,
+            "rx_software_queue": 0.00391673525,
+            "rx_queue_to_pdcp": 0.001465675,
+            "pdcp_receive_and_reorder": 0.0016651599999999997,
+            "sdap_receive_to_upper": 0.00144052725,
+            "upper_to_app": 0.015059291499999999
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.02053765,
+            "sdap_to_pdcp": 0.0022317500000000002,
+            "pdcp_lock_and_prepare": 0.00246385,
+            "pdcp_tx_process": 0.0024223999999999995,
+            "pdcp_to_tx_queue": 0.002709625,
+            "tx_software_queue": 0.03344475,
+            "tx_queue_to_rlc_api": 0.006199825,
+            "rlc_lock_and_admit": 0.002242725,
+            "rlc_radio_reassembly_mixed": 2.8951702999999998,
+            "rlc_to_rx_queue": 0.00169055,
+            "rx_software_queue": 0.0047061,
+            "rx_queue_to_pdcp": 0.0015224750000000001,
+            "pdcp_receive_and_reorder": 0.00176625,
+            "sdap_receive_to_upper": 0.001401875,
+            "upper_to_app": 0.016870950000000003
+          }
+        },
+        {
+          "ue_index": 3,
+          "samples": 4000,
+          "p99_ms": 2.80883302,
+          "mean_total_ms": 1.114217408,
+          "slowest_40_mean_total_ms": 3.2180715500000003,
+          "segment_mean_ms": {
+            "app_to_sdap": 0.0228887675,
+            "sdap_to_pdcp": 0.0022275542500000004,
+            "pdcp_lock_and_prepare": 0.0022870390000000003,
+            "pdcp_tx_process": 0.0020416842500000005,
+            "pdcp_to_tx_queue": 0.002613429,
+            "tx_software_queue": 0.004253953499999999,
+            "tx_queue_to_rlc_api": 0.001574359,
+            "rlc_lock_and_admit": 0.0019816625,
+            "rlc_radio_reassembly_mixed": 1.049429867,
+            "rlc_to_rx_queue": 0.00160020725,
+            "rx_software_queue": 0.0040748595,
+            "rx_queue_to_pdcp": 0.0014650165,
+            "pdcp_receive_and_reorder": 0.00163463125,
+            "sdap_receive_to_upper": 0.0014236795,
+            "upper_to_app": 0.014720698
+          },
+          "same_slowest_40_segment_mean_ms": {
+            "app_to_sdap": 0.025349624999999997,
+            "sdap_to_pdcp": 0.0026637749999999997,
+            "pdcp_lock_and_prepare": 0.0021486499999999998,
+            "pdcp_tx_process": 0.00201255,
+            "pdcp_to_tx_queue": 0.002490725,
+            "tx_software_queue": 0.004660325,
+            "tx_queue_to_rlc_api": 0.00159925,
+            "rlc_lock_and_admit": 0.0019251249999999998,
+            "rlc_radio_reassembly_mixed": 3.140385575,
+            "rlc_to_rx_queue": 0.0015945500000000001,
+            "rx_software_queue": 0.005022925,
+            "rx_queue_to_pdcp": 0.00566385,
+            "pdcp_receive_and_reorder": 0.0018381500000000002,
+            "sdap_receive_to_upper": 0.0018322999999999998,
+            "upper_to_app": 0.018884175
+          }
+        }
+      ],
+      "internal_validation": {
+        "result": "PASS",
+        "complete_packets": 18000,
+        "events_per_packet": 14,
+        "matched_internal_events": 252000,
+        "sum_residual_ns": 0
+      }
+    }
+  ]
+}

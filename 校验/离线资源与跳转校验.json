@@ -1,22 +1,22 @@
 {
   "status": "PASS",
   "counts": {
-    "document_routes": 9744,
-    "paper_routes": 10060,
-    "documents": 1184,
-    "protocol_routes": 6999,
+    "document_routes": 9831,
+    "paper_routes": 10061,
+    "documents": 1189,
+    "protocol_routes": 7012,
     "page_routes": 3481,
-    "offline_resources": 173,
+    "offline_resources": 212,
     "protocol_clause_requires_keyword_fallback": 21,
     "legacy_heading_links_with_fallback": 571,
     "pdf_originals": 36,
     "protocol_parts": 34,
     "protocol_archives": 26,
-    "total_files": 2748,
-    "total_bytes": 386594438
+    "total_files": 2802,
+    "total_bytes": 391101976
   },
   "errors": [],
   "warnings": [],
-  "browserQA": "2026-11-03: Firefox TDD entry checked at 1440x1200 and 390x1000; generated-content TDD/SCS formula previews checked at 1000x1350 (TEST-010). This is not every-page or physical-mobile/VPN QA. This validator does not rerun screenshots.",
+  "browserQA": "Saved browser evidence: 校验/五类实验浏览器核验.json (TEST-011); five real result pages and loaded images, desktop content 1440x1114 / narrow content 500x914. Earlier knowledge rendering: TEST-010. Not a physical-mobile/VPN test. This validator does not rerun screenshots.",
   "scope": "Offline resource/route/page/hash/math/security checks; not a wireless experiment or independent certification of historical conclusions."
 }

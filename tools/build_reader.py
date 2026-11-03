@@ -214,6 +214,12 @@ class Builder:
    if r[1].endswith('.svg'):
     viewbox=ET.parse(ROOT/r[1]).getroot().get('viewBox','').split()
     if len(viewbox)==4:dimensions=f' width="{float(viewbox[2]):g}" height="{float(viewbox[3]):g}" style="height:auto"'
+   elif r[1].endswith('.png'):
+    # Reserve lazy-loaded plot space so heading jumps do not move afterwards.
+    with (ROOT/r[1]).open('rb') as stream:header=stream.read(24)
+    if header[:8]==b'\x89PNG\r\n\x1a\n' and header[12:16]==b'IHDR':
+     width=int.from_bytes(header[16:20],'big');height=int.from_bytes(header[20:24],'big')
+     dimensions=f' width="{width}" height="{height}" style="height:auto"'
    return f'<figure class="source-figure"><a href="{esc(r[1])}" target="_blank" rel="noopener"><img loading="lazy" src="{esc(r[1])}" alt="{esc(token.content)}"{dimensions}></a><figcaption>{esc(token.content)} · <a href="{esc(r[1])}" target="_blank" rel="noopener">放大查看</a></figcaption></figure>'
   return f'<span class="local-asset">原文图片：{esc(token.content)}（原文路径未包含可展示图片）</span>'
  def collect_docs(self):
@@ -430,4 +436,7 @@ def main():
  if (ROOT/'说明/knowledge.json').is_file():
   from update_knowledge import build
   build()
+ if (ROOT/'说明/experiments.json').is_file():
+  from update_knowledge import build
+  build('experiments')
 if __name__=='__main__':main()

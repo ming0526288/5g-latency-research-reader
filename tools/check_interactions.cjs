@@ -40,6 +40,31 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
   }
  }
  steps.push('知识点七类均为图标单行入口；六个主题点击加载对应正文；算法知识点集中展示且同名版本归并，PF/WAIT/QUEST/SR等保留，数量与列表一致');
+ if(cat.experimentStages){
+  const heading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='研究结果与分析');
+  const links=[];for(let el=heading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)links.push(el);
+  const stages=links.slice(0,5).map(el=>el.getAttribute('href'));
+  assert(!links.some(el=>el.textContent.includes('入口与五类分析')));
+  assert.deepEqual(stages,Object.values(cat.experimentStages).map(id=>'#/doc/'+id));
+  assert.equal(links.length,7);
+  const materialsHeading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='研究资料');
+  const materials=[];for(let el=materialsHeading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)materials.push(el);
+  assert.deepEqual(materials.map(el=>el.getAttribute('href')),['#/library/papers','#/library/protocols']);
+  assert(materials[0].textContent.includes('文献与材料'));
+  for(const [topic,id] of Object.entries(cat.experimentStages)){
+   const url='#/doc/'+id;d.querySelector('#sidebar a[href="'+url+'"]').click();
+   await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===cat.docs.find(x=>x.id===id).source,'experiment page '+topic);
+   assert(d.querySelectorAll('.article figure').length>=2);
+   assert(d.querySelector('.article a[href^="网页/images/"][target="_blank"]'));
+   const backlink=[...d.querySelectorAll('.article a')].find(a=>a.getAttribute('href').startsWith('#/doc/'+cat.knowledgeTopics[topic]+'?anchor='));
+   assert(backlink);const target=backlink.getAttribute('href');backlink.click();
+   await waitFor(()=>w.location.hash===target&&d.querySelector('.source-label')?.getAttribute('title')===cat.docs.find(x=>x.id===cat.knowledgeTopics[topic]).source,'knowledge backlink '+topic);
+   assert(d.getElementById(new URLSearchParams(target.split('?')[1]).get('anchor')));
+  }
+  d.querySelector('#searchButton').click();const query=d.querySelector('#searchInput');query.value='抓包失败';query.dispatchEvent(new w.Event('input',{bubbles:true}));
+  await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+cat.experimentStages.tdd+'"]'),'new experimental failure indexed');d.querySelector('#closeSearch').click();
+  steps.push('研究结果与分析含五类实验、算法和报告；研究资料仅含文献与材料及3GPP协议；五类实验点击加载结果图并可放大，知识链接定位标题，错误案例可检索');
+ }
  if(cat.knowledgeTopics){
   assert.equal(Object.keys(cat.knowledgeTopics).length,7);
   const tdd=cat.knowledgeTopics.tdd;w.location.hash='#/doc/'+tdd;

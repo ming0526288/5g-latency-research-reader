@@ -1,0 +1,10 @@
+{
+  "updated": "2026-11-03",
+  "documents": [
+    {"id": "e4c1f2a8800000001", "topic": "tdd", "source": "说明/五类时延分析/TDD_已做实验与错误案例.md"},
+    {"id": "e4c1f2a8800000002", "topic": "scs", "source": "说明/五类时延分析/SCS_已做实验与错误案例.md"},
+    {"id": "e4c1f2a8800000003", "topic": "multi-ue", "source": "说明/五类时延分析/多UE_已做实验与错误案例.md"},
+    {"id": "e4c1f2a8800000004", "topic": "layers", "source": "说明/五类时延分析/分层时延_已做实验与错误案例.md"},
+    {"id": "e4c1f2a8800000005", "topic": "tail", "source": "说明/五类时延分析/尾时延_已做实验与错误案例.md"}
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "status": "PASS",
+  "browser": "Firefox headless / Marionette",
+  "realResultPages": [
+    {
+      "topic": "tdd",
+      "images": [
+        {
+          "src": "网页/images/c9e8209b396c9e91413f.png",
+          "naturalWidth": 1890
+        },
+        {
+          "src": "网页/images/7a86c71c1405d9cd1196.png",
+          "naturalWidth": 2250
+        },
+        {
+          "src": "网页/images/774dd3ba816d0caf5782.png",
+          "naturalWidth": 2340
+        }
+      ],
+      "viewportOverflow": false
+    },
+    {
+      "topic": "scs",
+      "images": [
+        {
+          "src": "网页/images/36f4ed90b368f6d4a292.png",
+          "naturalWidth": 1890
+        },
+        {
+          "src": "网页/images/d9bad1e6f4278843e9c2.png",
+          "naturalWidth": 1800
+        }
+      ],
+      "viewportOverflow": false
+    },
+    {
+      "topic": "multi-ue",
+      "images": [
+        {
+          "src": "网页/images/de81f81086bb8797bbe0.png",
+          "naturalWidth": 1890
+        },
+        {
+          "src": "网页/images/fd9f054891039a38cb2e.png",
+          "naturalWidth": 1890
+        },
+        {
+          "src": "网页/images/34e54a3e9432fbe6f77f.png",
+          "naturalWidth": 1800
+        }
+      ],
+      "viewportOverflow": false
+    },
+    {
+      "topic": "layers",
+      "images": [
+        {
+          "src": "网页/images/fbe0c1bc7f728f4cf4be.png",
+          "naturalWidth": 1890
+        },
+        {
+          "src": "网页/images/619e0e01f535221bceca.png",
+          "naturalWidth": 1890
+        },
+        {
+          "src": "网页/images/a12f30bbb3d480f078f1.png",
+          "naturalWidth": 2180
+        }
+      ],
+      "viewportOverflow": false
+    },
+    {
+      "topic": "tail",
+      "images": [
+        {
+          "src": "网页/images/919a73fcba26d273e9d5.png",
+          "naturalWidth": 2304
+        },
+        {
+          "src": "网页/images/8fe60f736bfa94210261.png",
+          "naturalWidth": 2304
+        }
+      ],
+      "viewportOverflow": false
+    },
+    {
+      "knowledgeAnchor": "同一个带宽prb-数也可能一起变化",
+      "positionTop": 99.60000610351562
+    }
+  ],
+  "navigationGroups": {
+    "知识点": [
+      {
+        "href": "#/doc/kc3e4e8560cabef23",
+        "text": "⌘通信与时延基础"
+      },
+      {
+        "href": "#/doc/k7be2718894117a09",
+        "text": "⇄不同 TDD 知识点"
+      },
+      {
+        "href": "#/doc/k704fbf83fa34477b",
+        "text": "≋不同 SCS 知识点"
+      },
+      {
+        "href": "#/doc/kbc84a4ab741e2050",
+        "text": "♧多 UE 知识点"
+      },
+      {
+        "href": "#/doc/k5d6e74ad114beadb",
+        "text": "▤分层时延知识点"
+      },
+      {
+        "href": "#/doc/k992ba75961d9517b",
+        "text": "⌁尾时延知识点"
+      },
+      {
+        "href": "#/browse/algorithm-knowledge",
+        "text": "◇算法知识点 15"
+      }
+    ],
+    "研究结果与分析": [
+      {
+        "href": "#/doc/e4c1f2a8800000001",
+        "text": "⇄TDD 时延分析"
+      },
+      {
+        "href": "#/doc/e4c1f2a8800000002",
+        "text": "≋SCS 时延分析"
+      },
+      {
+        "href": "#/doc/e4c1f2a8800000003",
+        "text": "♧多 UE 时延分析"
+      },
+      {
+        "href": "#/doc/e4c1f2a8800000004",
+        "text": "▤分层时延分析"
+      },
+      {
+        "href": "#/doc/e4c1f2a8800000005",
+        "text": "⌁尾时延分析"
+      },
+      {
+        "href": "#/browse/algorithms",
+        "text": "◇算法实现与结果 9"
+      },
+      {
+        "href": "#/browse/research",
+        "text": "◷研究报告与方法 211"
+      }
+    ],
+    "研究资料": [
+      {
+        "href": "#/library/papers",
+        "text": "▥文献与材料 36"
+      },
+      {
+        "href": "#/library/protocols",
+        "text": "▦3GPP 协议 24"
+      }
+    ],
+    "过程与依据": [
+      {
+        "href": "#/browse/changes",
+        "text": "↳修改记录 CHG346"
+      },
+      {
+        "href": "#/browse/tests",
+        "text": "✓测试记录 TEST487"
+      },
+      {
+        "href": "#/browse/all",
+        "text": "☷全部文档 1189"
+      },
+      {
+        "href": null,
+        "text": "一份可以带走的研究资料资料快照 · 2026-11-02历史结论请结合对应版本阅读。"
+      }
+    ]
+  },
+  "narrowRequestedWindow": {
+    "width": 390,
+    "height": 1000
+  },
+  "narrowActualWindow": {
+    "x": 4,
+    "y": 4,
+    "width": 500,
+    "height": 1000
+  },
+  "narrowActualContent": {
+    "width": 500,
+    "height": 914
+  },
+  "narrowViewport": "Actual dimensions recorded; Firefox minimum width may exceed request. Not a physical phone/VPN test.",
+  "screenshots": [
+    {
+      "file": "layers-figure-loaded.png",
+      "width": 1440,
+      "height": 1114
+    },
+    {
+      "file": "scs-figure-loaded.png",
+      "width": 1440,
+      "height": 1114
+    },
+    {
+      "file": "scs-narrow-figure.png",
+      "width": 500,
+      "height": 914
+    },
+    {
+      "file": "scs-narrow-top.png",
+      "width": 500,
+      "height": 914
+    },
+    {
+      "file": "tdd-desktop-loaded.png",
+      "width": 1440,
+      "height": 1114
+    },
+    {
+      "file": "tdd-figure-loaded.png",
+      "width": 1440,
+      "height": 1114
+    }
+  ]
+}

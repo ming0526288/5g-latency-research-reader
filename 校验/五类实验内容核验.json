@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "shortConditions": 73,
+  "shortFailedBeforeBusiness": 4,
+  "originalFigures": 7,
+  "replottedFigures": 6,
+  "exactSourceReports": 12,
+  "documents": [
+    {
+      "id": "e4c1f2a8800000001",
+      "title": "TDD 时延分析：做过的实验、图片与错误案例",
+      "figures": 3,
+      "knowledgeLinks": 7,
+      "canonicalSourceSHA": "ad7e01bf7f340cd49b3435ff44b72e18cb3ee36013f675a984b8a072b469158d"
+    },
+    {
+      "id": "e4c1f2a8800000002",
+      "title": "SCS 时延分析：做过的实验、图片与错误案例",
+      "figures": 2,
+      "knowledgeLinks": 6,
+      "canonicalSourceSHA": "f3a8f89d6f75425a755709fd0736ba8abb516f5e11a404d4863aaf46b60207ee"
+    },
+    {
+      "id": "e4c1f2a8800000003",
+      "title": "多 UE 时延分析：做过的实验、图片与错误案例",
+      "figures": 3,
+      "knowledgeLinks": 7,
+      "canonicalSourceSHA": "379a6eb30399d8d2da20afed5bf1e77dde942e70575fd99880af057ad88fa96d"
+    },
+    {
+      "id": "e4c1f2a8800000004",
+      "title": "分层时延分析：做过的实验、图片与错误案例",
+      "figures": 3,
+      "knowledgeLinks": 6,
+      "canonicalSourceSHA": "ba8e4fe71badeb4724b541b5073334696889871ba16bb5e95e05a6f8ecf27f5c"
+    },
+    {
+      "id": "e4c1f2a8800000005",
+      "title": "尾时延分析：做过的实验、图片与错误案例",
+      "figures": 2,
+      "knowledgeLinks": 7,
+      "canonicalSourceSHA": "62ab382b9b3d7607b4bbd3db393109eaa605e1c1e457a7c53cf9198be1955161"
+    }
+  ],
+  "scope": "Portable aggregate/hash/link/identity checks; no new experiment or raw packet statistical recomputation."
+}

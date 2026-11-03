@@ -30,6 +30,10 @@
  }
  const algorithmKnowledge=[...knowledgeByFile.values()];
  const outline=[...studyDocs.map(entry=>entry.doc),...algorithmKnowledge];
+ const researchStages=[
+  ['tdd','⇄','TDD 时延分析'],['scs','≋','SCS 时延分析'],
+  ['multi-ue','♧','多 UE 时延分析'],['layers','▤','分层时延分析'],['tail','⌁','尾时延分析']
+ ].map(([topic,icon,label])=>({icon,label,doc:docs.get(C.experimentStages?.[topic])})).filter(entry=>entry.doc);
  function notify(s){$('#toast').textContent=s;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),2300);}
  function header(category,title,description=''){return `<div class="library-heading"><div class="eyebrow">${category}</div><h1>${E(title)}</h1>${description?`<p>${E(description)}</p>`:''}</div>`;}
  function breadcrumbs(label){return `<nav class="breadcrumbs"><a href="#/">阅读首页</a><span>／</span><span>${E(label)}</span></nav>`;}
@@ -39,15 +43,15 @@
   $('#sidebar').innerHTML=nav('#/','⌂','阅读首页')+nav('#/bookmarks','☆','我的书签',bookmarks.length)+
    '<div class="nav-heading">知识点</div>'+studyDocs.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
    nav('#/browse/algorithm-knowledge','◇','算法知识点',algorithmKnowledge.length)+
-   '<div class="nav-heading">研究资料</div>'+nav('#/browse/guides','▤','入口与五类分析',C.docs.filter(d=>d.group==='guides').length)+
+   '<div class="nav-heading">研究结果与分析</div>'+researchStages.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
    nav('#/browse/algorithms','◇','算法实现与结果',C.docs.filter(d=>d.group==='algorithms').length)+
    nav('#/browse/research','◷','研究报告与方法',C.docs.filter(d=>d.group==='research').length)+
-   nav('#/library/papers','▥','文献与教材',C.papers.length)+nav('#/library/protocols','▦','3GPP协议',C.stats.protocolSpecs)+
+   '<div class="nav-heading">研究资料</div>'+nav('#/library/papers','▥','文献与材料',C.papers.length)+nav('#/library/protocols','▦','3GPP 协议',C.stats.protocolSpecs)+
    '<div class="nav-heading">过程与依据</div>'+nav('#/browse/changes','↳','修改记录 CHG',C.docs.filter(d=>d.group==='changes').length)+nav('#/browse/tests','✓','测试记录 TEST',C.docs.filter(d=>d.group==='tests').length)+nav('#/browse/all','☷','全部文档',C.docs.length)+
    '<div class="nav-note"><strong>一份可以带走的研究资料</strong>资料快照 · '+E(C.builtAt)+'<br>历史结论请结合对应版本阅读。</div>';
  }
  function home(){
-  const descriptions=['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','沿TDD、SCS、多UE、分层与尾时延展开。','先读概念与例子，再进入调度公式。','连接原理、代码改动、实验结果与限制。','查看最新工作点，以及尚未完成的部分。'];
+  const descriptions=['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','查看五类已做实验、结果图片与错误案例。','先读概念与例子，再进入调度公式。','连接原理、代码改动、实验结果与限制。','查看最新工作点，以及尚未完成的部分。'];
   const recent=history.filter(h=>docs.has(h.id)).slice(0,3);
   const latest=['docs/22_ALG005不同负载验证与69代价分析.md','docs/24_ALG005同业务编号慢包配对分析.md','docs/28_上行重传RB预算指针修复与旧数据影响.md'].map(find).filter(Boolean);
   main.innerHTML=`<section class="hero"><div class="hero-grid"><div><div class="eyebrow">5G LATENCY · RESEARCH NOTEBOOK</div><h1>从基础开始，<br>读懂每一次改动。</h1><p>把分散的知识点、算法、实验记录和原始文献连起来。<br>沿着阅读路线学习，遇到公式与引用，随时向下追溯。</p><div class="stats"><span><b>${C.stats.documents}</b>篇研究文档</span><span><b>${C.papers.length}</b>份论文与教材</span><span><b>${C.stats.protocolSpecs}</b>个协议编号</span></div></div><img class="hero-art" src="网页/assets/阅读地图.svg" alt="从知识点到算法、实验与原文的阅读关系图"></div></section>
@@ -75,7 +79,8 @@
  async function docView(id,params,seq){
   const d=docs.get(id);if(!d)return missing('没有找到这篇文档。');
   state.doc=id;const c=await content(id);if(seq!==state.sequence)return;
-  const pos=outline.findIndex(x=>x.id===id);const prev=outline[pos-1];const next=outline[pos+1];
+  const sequence=d.experimentStage?researchStages.map(entry=>entry.doc):outline;
+  const pos=sequence.findIndex(x=>x.id===id);const prev=sequence[pos-1];const next=sequence[pos+1];
   main.innerHTML=`<div class="doc-view">${breadcrumbs(groups[d.group]||'文档')}<div class="doc-toolbar"><span class="pill">${E(groups[d.group])}</span><span class="pill warm">约 ${d.minutes} 分钟</span><button class="soft-button" id="bookmarkDoc">${bookmarks.includes(id)?'★ 已收藏':'☆ 加入书签'}</button><a class="soft-button" href="${encodeURI(d.snapshot)}" download>Markdown原稿</a><span class="source-label" title="${E(d.source)}">${E(d.source)}</span></div><article class="article">${c.html}</article>${pos>=0?`<nav class="doc-pagination">${prev?`<a href="${docUrl(prev)}"><small>← 上一篇</small>${E(prev.title)}</a>`:'<span></span>'}${next?`<a href="${docUrl(next)}"><small>下一篇 →</small>${E(next.title)}</a>`:`<a href="#/browse/research"><small>继续探索 →</small>研究报告与实验结果</a>`}</nav>`:''}</div>`;
   if(d.source.endsWith('算法知识点说明/00_通信与时延基础知识.md')){
    const h=Array.from(main.querySelectorAll('h2')).find(x=>x.textContent.startsWith('5.'));
@@ -106,7 +111,7 @@
   function update(){const q=$('#browseFilter').value.trim().toLowerCase();let items=q?list.filter(d=>(d.title+' '+d.search).toLowerCase().includes(q)):list;$('#browseList').innerHTML=items.length?items.slice(0,120).map(row).join(''):'<div class="empty-state">'+(group==='bookmarks'?'还没有书签。阅读时点击“加入书签”即可收藏。':'没有符合筛选条件的文档。')+'</div>';$('#browseCount').textContent=items.length>120?`显示前120篇，共${items.length}篇；输入关键词缩小范围。`:`共${items.length}篇`;}update();$('#browseFilter').addEventListener('input',update);
  }
  function paperLibrary(){
-  main.innerHTML=breadcrumbs('文献与教材')+header('SOURCE LIBRARY','文献与教材','点击引用页码即可直达。页码均为本地PDF从1开始的页序。')+`<div class="library-tools"><input id="paperFilter" class="library-input" placeholder="搜索论文名称、P24、QUEST、AUGUSTE…" aria-label="筛选文献"></div><div id="paperList"></div>`;
+  main.innerHTML=breadcrumbs('文献与材料')+header('SOURCE LIBRARY','文献与材料','点击引用页码即可直达。页码均为本地PDF从1开始的页序。')+`<div class="library-tools"><input id="paperFilter" class="library-input" placeholder="搜索论文名称、P24、QUEST、AUGUSTE…" aria-label="筛选文献"></div><div id="paperList"></div>`;
   function update(){const q=$('#paperFilter').value.trim().toLowerCase();const ps=C.papers.filter(p=>(p.id+' '+p.title).toLowerCase().includes(q)).sort((a,b)=>a.id==='book'?-1:b.id==='book'?1:a.id.localeCompare(b.id));$('#paperList').innerHTML=ps.map(p=>`<div class="library-card"><span class="file-icon">${p.id==='book'?'BOOK':p.id}</span><div class="card-body"><h3><a href="#/paper/${p.id}">${E(p.title)}</a></h3><p>${p.pages} 页 · ${(p.bytes/1048576).toFixed(1)} MB · ${p.kind}原文件</p>${p.citedPages.length?`<div class="page-links">${p.citedPages.slice(0,18).map(n=>`<a class="page-link" href="#/paper/${p.id}?page=${n}">第${n}页</a>`).join('')}</div>`:''}</div><a class="soft-button" href="#/paper/${p.id}">阅读 ↗</a></div>`).join('')||'<div class="empty-state">没有找到匹配的文献。</div>';}update();$('#paperFilter').addEventListener('input',update);
  }
  function paperView(id,params){
@@ -119,7 +124,7 @@
  }
  function protocolLibrary(){
   const specs=Object.groupBy?Object.groupBy(C.protocols,p=>p.spec):C.protocols.reduce((a,p)=>((a[p.spec]??=[]).push(p),a),{});
-  main.innerHTML=breadcrumbs('3GPP协议')+header('STANDARDS LIBRARY','3GPP协议库','用户提供的本地原文版本；支持条款定位，原始Word与压缩包随仓库保存。')+`<div class="library-tools"><input id="protocolFilter" class="library-input" placeholder="查找协议编号，例如38.321、38.331、23.501…" aria-label="查找协议"></div><div id="protocolList"></div>`;
+  main.innerHTML=breadcrumbs('3GPP 协议')+header('STANDARDS LIBRARY','3GPP 协议库','用户提供的本地原文版本；支持条款定位，原始Word与压缩包随仓库保存。')+`<div class="library-tools"><input id="protocolFilter" class="library-input" placeholder="查找协议编号，例如38.321、38.331、23.501…" aria-label="查找协议"></div><div id="protocolList"></div>`;
   function update(){const q=$('#protocolFilter').value.trim().toLowerCase();$('#protocolList').innerHTML=Object.entries(specs).filter(([s,ps])=>(s+' '+ps[0].version).includes(q)).sort(([a],[b])=>a.localeCompare(b)).map(([spec,parts])=>`<div class="library-card"><span class="file-icon">3GPP</span><div class="card-body"><h3><a href="#/protocol/${spec}">TS ${spec}</a> <span class="pill">V${E(parts[0].version)}</span></h3><p>${parts.length} 个原文分册 · 本地转换阅读页与官方Word区分保存</p><div class="page-links">${parts.length>1?parts.map(p=>`<a class="page-link" href="#/protocol/${spec}?part=${p.id}">${E(p.part)}</a>`).join(''):['4','5','6'].filter(n=>parts[0].toc.some(t=>t.clause===n)).map(n=>`<a class="page-link" href="#/protocol/${spec}?clause=${n}">第${n}章</a>`).join('')}</div></div><a class="soft-button" href="#/protocol/${spec}">阅读 ↗</a></div>`).join('')||'<div class="empty-state">没有找到匹配的协议。</div>';}update();$('#protocolFilter').addEventListener('input',update);
  }
  async function protocolView(spec,params,seq){
@@ -129,7 +134,7 @@
   p??=parts.find(p=>!p.part.includes('cover'))||parts[0];
   const c=await content(p.id);if(seq!==state.sequence)return;
   const v=params.get('version');const mismatch=v&&v!==p.version;
-  main.innerHTML=`<div class="doc-view">${breadcrumbs('3GPP协议 / TS '+spec)}<div class="eyebrow">3GPP TS ${spec} · V${E(p.version)}</div><div class="source-notice">这是从用户提供Word生成的<strong>本地转换阅读页</strong>，用于检索和跳转；版式、矢量图或复杂公式需要精确核对时，请打开官方Word原文。此版本未另行声明为官网最高版。${mismatch?`<br><strong>版本提示：引用写的是V${E(v)}，本地可用原文为V${E(p.version)}，不能视为相同版本。</strong>`:''}</div><div class="protocol-tools"><a class="soft-button" href="${encodeURI(p.file)}" target="_blank" rel="noopener">打开官方Word原文 ↗</a>${p.archive?`<a class="soft-button" href="${encodeURI(p.archive)}" download>原始ZIP</a>`:''}${parts.length>1?`<select id="protocolPart" aria-label="选择原文分册">${parts.map(x=>`<option value="${x.id}" ${x.id===p.id?'selected':''}>${E(x.part)}</option>`).join('')}</select>`:''}<input id="clauseInput" value="${E(clause||'')}" placeholder="条款号或IE关键词，如5.4.5、SchedulingRequestConfig" aria-label="定位条款或关键词"><button class="soft-button primary" id="findClause">定位</button></div><article class="article protocol-article">${c.html}</article></div>`;
+  main.innerHTML=`<div class="doc-view">${breadcrumbs('3GPP 协议 / TS '+spec)}<div class="eyebrow">3GPP TS ${spec} · V${E(p.version)}</div><div class="source-notice">这是从用户提供Word生成的<strong>本地转换阅读页</strong>，用于检索和跳转；版式、矢量图或复杂公式需要精确核对时，请打开官方Word原文。此版本未另行声明为官网最高版。${mismatch?`<br><strong>版本提示：引用写的是V${E(v)}，本地可用原文为V${E(p.version)}，不能视为相同版本。</strong>`:''}</div><div class="protocol-tools"><a class="soft-button" href="${encodeURI(p.file)}" target="_blank" rel="noopener">打开官方Word原文 ↗</a>${p.archive?`<a class="soft-button" href="${encodeURI(p.archive)}" download>原始ZIP</a>`:''}${parts.length>1?`<select id="protocolPart" aria-label="选择原文分册">${parts.map(x=>`<option value="${x.id}" ${x.id===p.id?'selected':''}>${E(x.part)}</option>`).join('')}</select>`:''}<input id="clauseInput" value="${E(clause||'')}" placeholder="条款号或IE关键词，如5.4.5、SchedulingRequestConfig" aria-label="定位条款或关键词"><button class="soft-button primary" id="findClause">定位</button></div><article class="article protocol-article">${c.html}</article></div>`;
   const url=`#/protocol/${spec}?part=${p.id}`;setToc(c.toc,url);
   if($('#protocolPart'))$('#protocolPart').onchange=e=>{location.hash=`#/protocol/${spec}?part=${e.target.value}`;};
   $('#findClause').onclick=()=>locateProtocol($('#clauseInput').value.trim(),c.toc);

@@ -1,0 +1,138 @@
+{
+  "scope": "Completed experiments only; curated aggregate copies and original figures. No experiment executed, no packet data regenerated.",
+  "sources": [
+    {
+      "source": "common-policy-rerun/evidence/short/current_matrix.json",
+      "sha256": "2ad950e86f27c052d2f99cff2314464afe48111cf2072dd991856e6c857c3dde"
+    },
+    {
+      "source": "common-policy-rerun/evidence/tail/current_matrix.json",
+      "sha256": "99dc2ffe2dc27651ba874ea388ad3a39d82705807ab2d626f75e6a21a45ed6e8"
+    },
+    {
+      "source": "tdd-confirmation/evidence/current/summary.json",
+      "sha256": "e20cb2d0fdd347afbb9236f2854014c7a3377bea7176cfbd4d53f0f44b40292a"
+    },
+    {
+      "source": "long-baseline/evidence/current/summary.json",
+      "sha256": "17bd6fc48a1ebdb8d6b18f78bc77bedbd279ab1b3fd3d7a483bddf734eb34dde"
+    },
+    {
+      "source": "tdd1/第一项_完整RFsim上下行业务时延对照.md",
+      "sha256": "82d72d1fe3098264243bd35cc673daf4fa1a470aa52f3f1d40ae0cf9c8a32ff5"
+    },
+    {
+      "source": "scs-stage2/第二阶段_SCS与TDD交叉分析.md",
+      "sha256": "cbc173e0d6fb47db07ea907657e1cadea8d7abef225b1a00367d5445d68df2d9"
+    },
+    {
+      "source": "multi-ue/第三阶段_多UE时延与资源处理边界.md",
+      "sha256": "4f62ed1d95097648f4b7e7f88f37a8f583c7bfb642f56a41c1de61132de945db"
+    },
+    {
+      "source": "multi-ue/第三阶段_多UE与TDD配比交叉.md",
+      "sha256": "55c967bc7725fa8e056ff232255f41cf066d07c40568a3ba929da9ceecaf290d"
+    },
+    {
+      "source": "layered/第四阶段_内部边界与软件队列时延分析.md",
+      "sha256": "aea787b9d0e9e11e93507e92cb8f08072c6ed1d28afada74a7846fee1afd3b78"
+    },
+    {
+      "source": "layered/第四阶段_多UE恢复与失败原因分析.md",
+      "sha256": "2b31dd9909e8e6a0c66963fd8856e884864383d9b755a96d4db8272f446cb174"
+    },
+    {
+      "source": "stability/第一步_多UE接入同步修复与复测.md",
+      "sha256": "fb9212b31f7b7cc3845c50ae4c67376af90b3e32ae78a07e1a3a6298c9d41d5c"
+    },
+    {
+      "source": "tdd-confirmation/固定CPU条件下TDD与多UE时延对照结果.md",
+      "sha256": "96e24251af6fb53bfb1688d21b202575208b6367b6f308f0c726b324b3430ba6"
+    },
+    {
+      "source": "tdd-confirmation/八UE上行长流抓包失败与严格接续说明.md",
+      "sha256": "8ec7c047997b9ff1dad533747f0e24e995566214c4362f1e996f5b0bfb89d6b5"
+    },
+    {
+      "source": "long-baseline/固定每UE与长流尾时延实验结果.md",
+      "sha256": "f9e74999c778198fb75f329361194170e0b14e76644b6ff0613d0a520a394355"
+    },
+    {
+      "source": "records/tests/TEST-249_离线首次运行NumPy版本参数不兼容.md",
+      "sha256": "64cf0d9a734e34e8c91de17d2aea08f8de8ae241f704a7da36d21f396be8d8cc"
+    },
+    {
+      "source": "tail/第五阶段_长样本尾时延分析.md",
+      "sha256": "6bd8691c5e4276c4ecbb7861bd21a31ca820928a902f8ab52fe4426f67b5bcd1"
+    }
+  ],
+  "figures": [
+    {
+      "source": "tdd-confirmation/figures/current/short-tdd-ul-dl.png",
+      "file": "图片/TDD_固定CPU短流.png",
+      "sha256": "7a86c71c1405d9cd1196c9349822d64b3d25e94ccb983bff9b883e7130f2d524",
+      "cohort": "tdd-confirmation/24 completed conditions",
+      "operation": "byte-identical original copy"
+    },
+    {
+      "source": "tdd-confirmation/figures/current/long-tdd-tail.png",
+      "file": "图片/TDD_固定CPU长流.png",
+      "sha256": "774dd3ba816d0caf5782838e2b80a3edd3c3b3b41496d1945d1699affd324304",
+      "cohort": "tdd-confirmation/24 completed conditions",
+      "operation": "byte-identical original copy"
+    },
+    {
+      "source": "long-baseline/figures/latency-and-tail.png",
+      "file": "图片/尾时延_短长流对照.png",
+      "sha256": "919a73fcba26d273e9d507d059313b5e4bffe34a8261f09016350bd5ea6bedcf",
+      "cohort": "long-baseline/12 completed conditions",
+      "operation": "byte-identical original copy"
+    },
+    {
+      "source": "long-baseline/figures/ccdf-and-windows.png",
+      "file": "图片/尾时延_CCDF与顺序窗口.png",
+      "sha256": "8fe60f736bfa94210261264bc2fa54702752302680302e0de42692f74aadfb44",
+      "cohort": "long-baseline/12 completed conditions",
+      "operation": "byte-identical original copy"
+    },
+    {
+      "source": "scs-stage2/figures/full-stack-latency.png",
+      "file": "图片/历史_SCS旧程序结果.png",
+      "sha256": "d9bad1e6f4278843e9c2e1b46bd99e17a341dc42e66293c9a3e3e481002027fd",
+      "cohort": "historical pre-common-policy; NOT current rerun",
+      "operation": "byte-identical original copy"
+    },
+    {
+      "source": "multi-ue/figures/measured-multi-ue.png",
+      "file": "图片/历史_多UE旧程序结果.png",
+      "sha256": "34e54a3e9432fbe6f77f757131f9e2e850c0ebd84adaf681095e95379bf064d2",
+      "cohort": "historical pre-common-policy; NOT current rerun",
+      "operation": "byte-identical original copy"
+    },
+    {
+      "source": "layered/figures/recovery/internal-partitions.png",
+      "file": "图片/历史_分层旧程序结果.png",
+      "sha256": "a12f30bbb3d480f078f1a5edf053299668bd08eb7c030081b9ce1b3898389d25",
+      "cohort": "historical recovery pre-common-policy; NOT current rerun",
+      "operation": "byte-identical original copy"
+    }
+  ],
+  "aggregateCopies": [
+    {
+      "file": "数据/共同规则短流汇总.json",
+      "sha256": "8d942b01b328396d3df4d9b017ff658c17574980b1e2372427e42671d8fe81ae"
+    },
+    {
+      "file": "数据/共同规则长流汇总.json",
+      "sha256": "e75bc1670c5de0f129ee6193124cb50662aaa99571e418bf2863423f8dd95809"
+    },
+    {
+      "file": "数据/固定CPU_TDD汇总.json",
+      "sha256": "892ae08d6c51c8bdfb8f33056ee5148087bca136e0f33893ffa6471d164626b7"
+    },
+    {
+      "file": "数据/固定负载长流汇总.json",
+      "sha256": "b718fe803b944eb5f46b82fdc14578b71e5f76599fbf864fa50cd40993da1f0c"
+    }
+  ]
+}
