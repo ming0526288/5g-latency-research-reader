@@ -3,6 +3,7 @@
   "kind": "jsdom DOM integration, not live browser rendering",
   "steps": [
     "file://入口加载本地catalog.js、CSS及app.js；首页六步路线完整",
+    "知识点七类均为图标单行入口；六个主题点击加载对应正文；算法知识点集中展示且同名版本归并，PF/WAIT/QUEST/SR等保留，数量与列表一致",
     "基础知识真实正文加载；分式为KaTeX/MathML；已有四时间戳示意图插入",
     "实际Priority段落及动态粗体/内联代码边界已补间距；单位排版正常；代码、URL、文件名、公式、协议原文、链接与标题ID保持；重复处理不累加空格",
     "加入书签并在书签页找到原文档",

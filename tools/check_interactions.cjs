@@ -16,7 +16,31 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  debugWindow=w;
  await waitFor(()=>d.querySelectorAll('.path-card').length===6,'home reading path');
  steps.push('file://入口加载本地catalog.js、CSS及app.js；首页六步路线完整');
- const cat=w.READER_CATALOG;const basic=cat.docs.find(x=>x.aliases.some(a=>a.endsWith('算法知识点说明/00_通信与时延基础知识.md')));
+ const cat=w.READER_CATALOG;
+ const knowledgeHeading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='知识点');
+ assert(knowledgeHeading);const studyLinks=[];
+ for(let el=knowledgeHeading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)studyLinks.push(el);
+ assert.equal(studyLinks.length,7);
+ assert(!d.querySelector('#sidebar details'));
+ assert(studyLinks.every(el=>el.matches('a.nav-link')&&!/^\d+$/.test(el.querySelector('.nav-icon').textContent)));
+ const studyUrls=studyLinks.map(el=>el.getAttribute('href'));
+ for(const url of studyUrls){
+  d.querySelector(`#sidebar a[href="${url}"]`).click();
+  if(url.startsWith('#/doc/')){
+   const target=cat.docs.find(doc=>doc.id===url.slice('#/doc/'.length));assert(target);
+   await waitFor(()=>w.location.hash===url&&d.querySelector('.article')&&d.querySelector('.source-label')?.getAttribute('title')===target.source,'knowledge entry '+target.title);
+  }else{
+   await waitFor(()=>w.location.hash===url&&d.querySelector('.library-heading h1')?.textContent==='算法知识点','algorithm knowledge collection');
+   const ids=[...d.querySelectorAll('.record-row')].map(el=>el.getAttribute('href').slice('#/doc/'.length));
+   const selected=ids.map(id=>cat.docs.find(doc=>doc.id===id));
+   assert(selected.length>=14);assert(selected.every(doc=>doc?.group==='knowledge'&&!/\/(?:00_通信与时延基础知识|README)\.md$/.test(doc.source)));
+   assert.equal(new Set(selected.map(doc=>doc.source.split('/').pop())).size,selected.length);
+   assert.equal(Number(d.querySelector('#sidebar a[href="'+url+'"] .nav-count').textContent),selected.length);
+   assert(['PF_知识点说明.md','WAIT_知识点说明.md','QUEST_知识点说明.md','SR周期分配_知识点说明.md'].every(name=>selected.some(doc=>doc.source.endsWith('/'+name))));
+  }
+ }
+ steps.push('知识点七类均为图标单行入口；六个主题点击加载对应正文；算法知识点集中展示且同名版本归并，PF/WAIT/QUEST/SR等保留，数量与列表一致');
+ const basic=cat.docs.find(x=>x.aliases.some(a=>a.endsWith('算法知识点说明/00_通信与时延基础知识.md')));
  w.location.hash='#/doc/'+basic.id;await waitFor(()=>d.querySelector('.article .katex'),'foundation');
  assert(d.querySelectorAll('.article mfrac').length>=2);assert(d.querySelector('.diagram-panel img').getAttribute('src').includes('闭环测量'));
  steps.push('基础知识真实正文加载；分式为KaTeX/MathML；已有四时间戳示意图插入');

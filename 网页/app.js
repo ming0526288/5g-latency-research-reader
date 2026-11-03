@@ -4,7 +4,7 @@
  const C=window.READER_CATALOG;
  const $=s=>document.querySelector(s);
  const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const groups={guides:'入口与导引',knowledge:'知识点',algorithms:'算法说明',research:'研究报告',changes:'修改记录',tests:'测试记录'};
+ const groups={guides:'入口与导引',knowledge:'知识点','algorithm-knowledge':'算法知识点',algorithms:'算法说明',research:'研究报告',changes:'修改记录',tests:'测试记录'};
  const state={sequence:0,route:'',doc:null,observer:null,searchTimer:null};
  const storage={get(k,f){try{return JSON.parse(localStorage.getItem('latency-reader:'+k))??f;}catch{return f;}},set(k,v){try{localStorage.setItem('latency-reader:'+k,JSON.stringify(v));}catch{}}};
  const docs=new Map(C.docs.map(d=>[d.id,d]));
@@ -12,15 +12,33 @@
  const docUrl=d=>'#/doc/'+(typeof d==='string'?d:d.id);
  const main=$('#main');
  let bookmarks=storage.get('bookmarks',[]),history=storage.get('history',[]);
- const outline=['算法知识点说明/00_通信与时延基础知识.md','算法知识点说明/PF_知识点说明.md','算法知识点说明/WAIT_知识点说明.md','算法知识点说明/QUEST_知识点说明.md','算法知识点说明/SR周期分配_知识点说明.md','算法知识点说明/授权时机_知识点说明.md','算法知识点说明/剩余资源预算探测_知识点说明.md'].map(find).filter(Boolean);
+ const studyDocs=[
+  ['⌘','通信与时延基础','算法知识点说明/00_通信与时延基础知识.md'],
+  ['⇄','不同 TDD 知识点','docs/03_TDD配比与周期分析.md'],
+  ['≋','不同 SCS 知识点','docs/04_SCS分析与支持边界.md'],
+  ['♧','多 UE 知识点','docs/05_多UE与负载分析.md'],
+  ['▤','分层时延知识点','docs/02_时延定义与分层测量.md'],
+  ['⌁','尾时延知识点','docs/06_尾时延与机制归因.md']
+ ].map(([icon,label,source])=>({icon,label,doc:find(source)})).filter(entry=>entry.doc);
+ // One current reading entry per algorithm; historical variants remain in the
+ // complete catalogue and search. Prefer reader-owned notes, then main sources.
+ const knowledgeByFile=new Map();
+ const knowledgeRank=d=>d.source.startsWith('说明/')?2:Number(d.aliases.some(a=>a.startsWith('oi-wireless-ran-latency-analysis/')));
+ for(const d of C.docs.filter(d=>d.group==='knowledge'&&!/\/(?:00_通信与时延基础知识|README)\.md$/.test(d.source))){
+  const key=d.source.split('/').pop(),previous=knowledgeByFile.get(key);
+  if(!previous||knowledgeRank(d)>knowledgeRank(previous))knowledgeByFile.set(key,d);
+ }
+ const algorithmKnowledge=[...knowledgeByFile.values()];
+ const outline=[...studyDocs.map(entry=>entry.doc),...algorithmKnowledge];
  function notify(s){$('#toast').textContent=s;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),2300);}
  function header(category,title,description=''){return `<div class="library-heading"><div class="eyebrow">${category}</div><h1>${E(title)}</h1>${description?`<p>${E(description)}</p>`:''}</div>`;}
  function breadcrumbs(label){return `<nav class="breadcrumbs"><a href="#/">阅读首页</a><span>／</span><span>${E(label)}</span></nav>`;}
  function sidebar(){
-  const current=state.doc;const route=state.route;
+  const route=state.route;
   const nav=(url,icon,label,count)=>`<a href="${url}" class="nav-link ${route===url.slice(1)?'active':''}"><span class="nav-icon">${icon}</span>${label}${count?`<span class="nav-count">${count}</span>`:''}</a>`;
   $('#sidebar').innerHTML=nav('#/','⌂','阅读首页')+nav('#/bookmarks','☆','我的书签',bookmarks.length)+
-   '<div class="nav-heading">开始学习</div>'+outline.map((d,i)=>`<a class="nav-link ${current===d.id?'active':''}" href="${docUrl(d)}"><span class="nav-icon">${String(i+1).padStart(2,'0')}</span>${['通信与时延基础','PF · 比例公平','WAIT · 等待升权','QUEST · QoS调度','每UE SR周期分配','授权时机','剩余资源预算探测'][i]}</a>`).join('')+
+   '<div class="nav-heading">知识点</div>'+studyDocs.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
+   nav('#/browse/algorithm-knowledge','◇','算法知识点',algorithmKnowledge.length)+
    '<div class="nav-heading">研究资料</div>'+nav('#/browse/guides','▤','入口与五类分析',C.docs.filter(d=>d.group==='guides').length)+
    nav('#/browse/algorithms','◇','算法实现与结果',C.docs.filter(d=>d.group==='algorithms').length)+
    nav('#/browse/research','◷','研究报告与方法',C.docs.filter(d=>d.group==='research').length)+
@@ -77,7 +95,7 @@
  function missing(message){main.innerHTML=header('READING NOTE','暂时无法打开')+`<div class="empty-state">${E(message)}<br><a href="#/">返回阅读首页</a></div>`;}
  function row(d){return `<a class="record-row" href="${docUrl(d)}"><strong>${E(d.title)}</strong><small>${E(d.source)} · ${d.minutes} 分钟${d.aliases.length>1?' · 已合并 '+d.aliases.length+' 个相同副本':''}</small></a>`;}
  function browse(group){
-  let list=group==='all'?C.docs:C.docs.filter(d=>d.group===group);
+  let list=group==='all'?C.docs:group==='algorithm-knowledge'?algorithmKnowledge:C.docs.filter(d=>d.group===group);
   if(group==='bookmarks')list=bookmarks.map(id=>docs.get(id)).filter(Boolean);
   list=list.slice().sort((a,b)=>{
    if(group==='changes'||group==='tests')return parseInt((b.source.match(/(?:CHG|TEST)-(\d+)/)||[])[1]||0)-parseInt((a.source.match(/(?:CHG|TEST)-(\d+)/)||[])[1]||0);
