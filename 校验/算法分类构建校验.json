@@ -1,0 +1,168 @@
+{
+  "status": "PASS",
+  "families": 4,
+  "sources": [
+    {
+      "id": "k4f5f00700a16ad5b",
+      "source": "说明/算法知识点说明/算法实验_共同前置条件.md",
+      "sha256": "bda8032e00e09c51cc0a772301762fbd8c870b4c84e91d80e2e53309b49477b4"
+    },
+    {
+      "id": "d99a69159f894326f",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/QUEST_知识点说明.md",
+      "sha256": "99a69159f894326f7134daa01ee93ef1edb402f7f25ae9a3149e378a9191fc82"
+    },
+    {
+      "id": "d16a3cbe41ad9f0b3",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/QUEST无HOL评分消融_知识点说明.md",
+      "sha256": "16a3cbe41ad9f0b31b215c50e983ff8ceadc28e77e8e3e59f18f06b0a6908e69"
+    },
+    {
+      "id": "da37365378580228f",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/PF_知识点说明.md",
+      "sha256": "a37365378580228fae596dd9101a402687d5b1b98ebfafb341c9a97465365cdb"
+    },
+    {
+      "id": "daf22a818fd9fe114",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/WAIT_知识点说明.md",
+      "sha256": "af22a818fd9fe1147b146b9e89173885b921b3b5026d87603d7e507ea910167f"
+    },
+    {
+      "id": "dd8a01bc6e9c09f70",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/EDF_知识点说明.md",
+      "sha256": "d8a01bc6e9c09f70a8262a4d3cd1450ee1cd16e458aecd3c9510ea0b0dd1679a"
+    },
+    {
+      "id": "d8f5cb8205449a8c7",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/M-LWDF_知识点说明.md",
+      "sha256": "8f5cb8205449a8c7345a46a155356abe2455edba479015cc2a97372225f4bcbb"
+    },
+    {
+      "id": "d30b435c4fe430911",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/MT_知识点说明.md",
+      "sha256": "30b435c4fe430911a1afafd2125b242fb0d5d14f555c6272d7b4c4fefd9a8628"
+    },
+    {
+      "id": "df0cb80d62b830819",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/PB_知识点说明.md",
+      "sha256": "f0cb80d62b8308194d6d57f3e9a5ad03ab80f77c45994f217624eb932773f00b"
+    },
+    {
+      "id": "df74e93e7c43bc1fa",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/RR_知识点说明.md",
+      "sha256": "f74e93e7c43bc1fac5019a1827cabe89c1f131d85406511561b0803c32df50b7"
+    },
+    {
+      "id": "ddeaba74342756c5f",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/AUGUSTE_知识点说明.md",
+      "sha256": "deaba74342756c5fc5716e8a5e4ee44e3bdf17fa587711d9517f002574ae8abf"
+    },
+    {
+      "id": "dde90a88676d226d2",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/服务欠账控制_候选知识点说明.md",
+      "sha256": "de90a88676d226d236c6ecc5bd667d783f2193f5816a7e90a13c1b732a5be56e"
+    },
+    {
+      "id": "d0132636b2e465369",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-001_QUEST与BSR_DSR说明.md",
+      "sha256": "0132636b2e465369b4a51dc06a6f76739d9b54228b7ae1bb7ebccfde2ab894fa"
+    },
+    {
+      "id": "da1b786c110aceb58",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-003_QUEST无HOL评分消融.md",
+      "sha256": "a1b786c110aceb58c8129fa7ebe79c85ae5012d68c1b38ef4e033b11fa0a4936"
+    },
+    {
+      "id": "d029d65826c5298e2",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/QUEST结果汇总/QUEST_已测结果汇总.md",
+      "sha256": "029d65826c5298e257df1c8e2e6cbda13c51894633123b769fbef058fdad6e59"
+    },
+    {
+      "id": "dad8c55e3c1191164",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/19_QUEST收尾结论与下一方向.md",
+      "sha256": "ad8c55e3c11911641f031df0a4d7937dc33288c108b1486229c8a1886b47a5c3"
+    },
+    {
+      "id": "dcee72dfbdfa892b4",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/SR周期分配_知识点说明.md",
+      "sha256": "cee72dfbdfa892b414b8f6177653f4f9c6767b295d483ce3dfbd463c6741891b"
+    },
+    {
+      "id": "db77297d98c3cf540",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-002_控制预算约束的每UE_SR周期分配.md",
+      "sha256": "b77297d98c3cf5409f49decacaee52efbe23c38a3c9fd60a0bd088995b11b9dc"
+    },
+    {
+      "id": "d01bcd72243803688",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/授权时机_知识点说明.md",
+      "sha256": "01bcd722438036889ea6a7998917e18e891f170232d444d4c114047e39a4fa08"
+    },
+    {
+      "id": "d538ae3bf6be67b67",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-004_预算约束授权时机_机制先导.md",
+      "sha256": "538ae3bf6be67b674d6a722f6d2637d1b6dae9c1e4a7ac6814aeb5f35d9b1475"
+    },
+    {
+      "id": "d8ecb236ee8e7a9bf",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/20_授权时机机制结果与下一步.md",
+      "sha256": "8ecb236ee8e7a9bf30422c46f0051a83fed30adce4eb42c916779b373195bc9c"
+    },
+    {
+      "id": "d9a2b7028dbc707a8",
+      "source": "oi-wireless-ran-probe-residual/research/latency-analysis/算法文档/ALG-004_预算约束授权时机_机制先导.md",
+      "sha256": "9a2b7028dbc707a8ad4771dde3a03570227ca50e8e95c8ea37b2809987308fb8"
+    },
+    {
+      "id": "df1ea8b748c1e8c8f",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/剩余资源预算探测_知识点说明.md",
+      "sha256": "f1ea8b748c1e8c8f8c2ea62b11817280905cf51d4e8e8fae4bed4118a38a9f3d"
+    },
+    {
+      "id": "d2bfcd9076e0108c8",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-005_剩余资源约束的预算探测授权.md",
+      "sha256": "2bfcd9076e0108c845b4383196305f5666bd13d86c453d3db04ad41b29d13c6d"
+    },
+    {
+      "id": "d87c81eb2aee8df8b",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/22_ALG005不同负载验证与69代价分析.md",
+      "sha256": "87c81eb2aee8df8bb3aca9f1ddbf68f77e90398e2c3cdcba811fc9888994c015"
+    },
+    {
+      "id": "dba48a74191b79dd7",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/24_ALG005同业务编号慢包配对分析.md",
+      "sha256": "ba48a74191b79dd76054291a27a2c2264ffbe82651bc77b33c9175a153b6883a"
+    },
+    {
+      "id": "dacde862a5fcbbb4c",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/25_ALG005首段前等待与授权切点分析.md",
+      "sha256": "acde862a5fcbbb4cfe8954af9fd102ed81c932765bb4df6a95a81a5afb27fba0"
+    },
+    {
+      "id": "d524f65cb14b1efd4",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/26_8Mbps更早授权载荷与慢包排队分析.md",
+      "sha256": "524f65cb14b1efd444e151cd8a48506eaaf2525a4cb20b8e35cfe2cddaa01c09"
+    },
+    {
+      "id": "d5217c00e3f790050",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/27_RB来源还原与授权间隔双时钟分析.md",
+      "sha256": "5217c00e3f790050c3cf6d7f96829f6f0aaef4fb2916b49fa9169077dffad654"
+    },
+    {
+      "id": "df0bc90441ae2636e",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/28_上行重传RB预算指针修复与旧数据影响.md",
+      "sha256": "f0bc90441ae2636e944b0ec743c54d7b2f546dd4fdd1559787012a3f27a46396"
+    },
+    {
+      "id": "d2ff5d53ef6fd72c4",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/21_ALG005剩余资源探测结果与边界.md",
+      "sha256": "2ff5d53ef6fd72c44301a4065f2aec30396bb211585a5193be47a952cc00c2ee"
+    },
+    {
+      "id": "dea6a1cea93a6cb56",
+      "source": "oi-wireless-ran-probe-residual/research/latency-analysis/算法文档/ALG-005_剩余资源约束的预算探测授权.md",
+      "sha256": "ea6a1cea93a6cb5672b53e9d6e10dd1c243bbec6369f8f5ea4140d0752d28261"
+    }
+  ],
+  "manifestSHA": "f8423cbc3d62170bff61af45ec8b26ca3af490c423d9c85c5db635dd693e05c1",
+  "scope": "Reading navigation and source identities only; no protocol/model/formula change or new experiment."
+}

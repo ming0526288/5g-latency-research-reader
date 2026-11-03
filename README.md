@@ -114,6 +114,7 @@ python3 常驻阅读站.py --no-open
 
 - 六步阅读路线；知识点、算法、研究报告、CHG和TEST分类目录。
 - 左侧知识点分为通信与时延基础、不同TDD、不同SCS、多UE、分层时延、尾时延、算法知识点七类，使用小图标导航；各算法解释统一在“算法知识点”中查看。
+- “算法知识点”和“算法实现与结果”先选择算法方向，再进入对应页面。已做方向为 QUEST（含无 HOL 消融）、每 UE SR 周期分配、授权时机、剩余资源预算探测；实现结果可直接跳同一算法的知识页，知识正文也可返回结果。QUEST 的实验对照与阅读候选分别分组，不将候选标为已实现方向。
 - “研究结果与分析”列出 TDD、SCS、多 UE、分层时延、尾时延五个已做实验入口，以及算法实现与结果；每类实验有实际结果图、条件/批次、失败或错误解释，以及返回知识段落的链接。旧图标明历史身份，旧说明保留可检索。
 - “研究资料”仅放“文献与材料”和“3GPP 协议”，与实验结果分组展示。
 - 本地全文搜索：点击搜索框，或按`Ctrl K`/`/`。
@@ -175,6 +176,35 @@ python3 tools/validate_reader.py
 ```
 
 需要重新排版现有结果图时，在装有 Matplotlib 的 Python 环境执行 `python3 tools/draw_experiment_results.py`，再运行上述命令。脚本只读取随站保存的汇总，不启动 RAN、不重新计算原始包时延，也不将旧图改标签冒充新实验。普通阅读不需要绘图库。全量历史导出末尾会重新生成知识页和五类实验页。
+
+算法选择页由 `说明/algorithms.json` 管理，每个方向分别登记知识、实现/结果以及历史版本的来源。运行以下命令可更新分类入口；不重新导出历史工作区：
+
+```bash
+python3 tools/update_algorithm_index.py
+python3 tools/validate_reader.py
+```
+
+新增算法时，独立建立 `说明/算法知识点说明/新算法_知识点说明.md` 和 `说明/算法文档/ALG-006_新算法.md`（编号按实际下一个未使用编号递增），不追加到 QUEST 正文。将两份稿登记在 `说明/algorithm-notes.json` 的 `documents`，例如：
+
+```json
+[
+  {"source":"说明/算法知识点说明/新算法_知识点说明.md","algorithm":"new-algorithm","kind":"knowledge"},
+  {"source":"说明/算法文档/ALG-006_新算法.md","algorithm":"new-algorithm","kind":"results"}
+]
+```
+
+再在 `说明/algorithms.json` 的 `families` 增加一项，独立的 `id` 与上面的 `algorithm` 相同，填写名称、编号、简介和两个阅读分组：
+
+```json
+{
+  "id":"new-algorithm", "name":"新算法", "code":"ALG-006",
+  "subtitle":"算法副标题", "description":"本算法的阅读说明", "keywords":["新算法"],
+  "knowledge":[{"title":"算法知识","documents":[{"source":"说明/算法知识点说明/新算法_知识点说明.md"}]}],
+  "results":[{"title":"实现与结果","documents":[{"source":"说明/算法文档/ALG-006_新算法.md"}]}]
+}
+```
+
+再次执行 `python3 tools/update_algorithm_index.py` 会先生成新稿的页面/搜索数据，再生成算法分类；无需修改前端代码。条目只代表登记的实际状态，未测部分须在正文写明。已有算法的新知识更新对应源稿；新算法另建稿、另建选择卡片。普通阅读不需要运行维护命令，已有全部资料仍可检索和跳转。
 
 普通阅读不需要运行以下命令。导出器用于原始研究工作区，依赖Python的`markdown-it-py`、Poppler的`pdfinfo`及Node.js/KaTeX；不会修改原研究文档。下面假设阅读站仓库位于原始研究工作区内，因此`--workspace ..`指向上一级工作区；若在其他位置，请改成从当前仓库到原始研究工作区的相对路径。
 

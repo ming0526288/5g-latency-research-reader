@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "documents": 1189,
+  "algorithmIndexSHA": "79ae5fbb8c5be61731d0c802e25589e7302dc327096ea4e8eb1e7f6157a1b899",
+  "repeatBuildUnchanged": true,
+  "existingCataloguePayloadsAndOriginalsChanged": false,
+  "scope": "Navigation metadata publication only. Existing documents/measurements retained; no new experiment."
+}

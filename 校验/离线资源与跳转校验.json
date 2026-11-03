@@ -1,6 +1,8 @@
 {
   "status": "PASS",
   "counts": {
+    "algorithm_document_links": 31,
+    "algorithm_families": 4,
     "document_routes": 9831,
     "paper_routes": 10061,
     "documents": 1189,
@@ -12,11 +14,11 @@
     "pdf_originals": 36,
     "protocol_parts": 34,
     "protocol_archives": 26,
-    "total_files": 2802,
-    "total_bytes": 391101976
+    "total_files": 2818,
+    "total_bytes": 391163718
   },
   "errors": [],
   "warnings": [],
-  "browserQA": "Saved browser evidence: 校验/五类实验浏览器核验.json (TEST-011); five real result pages and loaded images, desktop content 1440x1114 / narrow content 500x914. Earlier knowledge rendering: TEST-010. Not a physical-mobile/VPN test. This validator does not rerun screenshots.",
+  "browserQA": "Saved browser evidence: 校验/算法分类浏览器核验.json (TEST-014) and 校验/五类实验浏览器核验.json (TEST-011); actual offline pages, desktop content 1440x1114 / narrow content 500x914, algorithm knowledge/results navigation and dark theme. Earlier knowledge rendering: TEST-010. Not a physical-mobile/VPN test. This validator does not rerun screenshots.",
   "scope": "Offline resource/route/page/hash/math/security checks; not a wireless experiment or independent certification of historical conclusions."
 }

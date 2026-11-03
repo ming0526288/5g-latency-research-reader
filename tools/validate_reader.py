@@ -11,6 +11,18 @@ def read_data(p):
  s=p.read_text();return json.loads(s[s.index('=')+1:].rstrip(';'))
 s=(ROOT/'网页/catalog.js').read_text();catalog=json.loads(s.split('window.READER_CATALOG=',1)[1].rstrip(';'))
 docs={d['id']:d for d in catalog['docs']};papers={p['id']:p for p in catalog['papers']};protos={p['id']:p for p in catalog['protocols']}
+algorithm_data=(ROOT/'网页/algorithms.js').read_text()
+algorithms=json.loads(algorithm_data.split('window.READER_ALGORITHMS=',1)[1].rstrip(';'))
+families={f['id']:f for f in algorithms['families']}
+require(algorithms['commonKnowledge'] in docs,'missing algorithm common prerequisites')
+for family in families.values():
+ for kind in ['knowledge','results']:
+  require(bool(family[kind]),'empty algorithm category '+family['id'])
+  for section in family[kind]:
+   for did in section['documents']:
+    require(did in docs,'missing algorithm document '+did);counts['algorithm_document_links']+=1
+    if kind=='knowledge' and did in docs:require(docs[did]['group']=='knowledge','non-knowledge algorithm link '+did)
+ counts['algorithm_families']+=1
 specs=collections.defaultdict(list)
 for p in protos.values():specs[p['spec']].append(p)
 class Scan(HTMLParser):
@@ -36,6 +48,8 @@ class Scan(HTMLParser):
      if 'clause' in query and parts[1] in specs:
       clause=query['clause'][0]
       if clause and not any(t['clause']==clause for p in specs[parts[1]] for t in p['toc']):counts['protocol_clause_requires_keyword_fallback']+=1
+    elif parts[0]=='algorithm':
+     require(len(parts)==3 and parts[1] in families and parts[2] in ['knowledge','results'],f'{self.name}: invalid algorithm route {v}')
    elif not U.urlsplit(v).scheme and not v.startswith('#'):
     path=ROOT/U.unquote(v.split('#')[0]);require(path.is_file(),f'{self.name}: missing offline asset {v}');counts['offline_resources']+=1
 for d in docs.values():
@@ -60,7 +74,7 @@ foundation=next(d for d in docs.values() if any(a.endswith('算法知识点说�
 foundation_html=read_data(ROOT/'网页/data'/f'{foundation["id"]}.js')['html']
 require('mfrac' in foundation_html and 'katex' in foundation_html,'foundation fraction was not typeset')
 require('λ=R×10^6/(8L)' not in foundation_html,'requested formula still displayed as plain text')
-for name in ['网页/app.js','网页/typography.js','网页/style.css','网页/assets/闭环测量.svg','网页/assets/阅读地图.svg','网页/vendor/katex/katex.min.css','打开阅读站.html','index.html']:
+for name in ['网页/app.js','网页/algorithms.js','网页/typography.js','网页/style.css','网页/assets/闭环测量.svg','网页/assets/阅读地图.svg','网页/vendor/katex/katex.min.css','打开阅读站.html','index.html']:
  require((ROOT/name).is_file(),'missing entry/asset '+name)
 require('fetch(' not in (ROOT/'网页/app.js').read_text(),'file:// app must not depend on fetch')
 for p in (ROOT/'文档原稿').glob('*.md'):
@@ -72,7 +86,7 @@ oversize=[str(p.relative_to(ROOT)) for p in all_files if p.stat().st_size>100*10
 require(not oversize,'files exceed GitHub 100MiB limit: '+str(oversize))
 counts['total_files']=len(all_files);counts['total_bytes']=sum(p.stat().st_size for p in all_files)
 report={'status':'PASS' if not errors else 'FAIL','counts':dict(counts),'errors':errors,'warnings':warnings,
- 'browserQA':'Saved browser evidence: 校验/五类实验浏览器核验.json (TEST-011); five real result pages and loaded images, desktop content 1440x1114 / narrow content 500x914. Earlier knowledge rendering: TEST-010. Not a physical-mobile/VPN test. This validator does not rerun screenshots.',
+ 'browserQA':'Saved browser evidence: 校验/算法分类浏览器核验.json (TEST-014) and 校验/五类实验浏览器核验.json (TEST-011); actual offline pages, desktop content 1440x1114 / narrow content 500x914, algorithm knowledge/results navigation and dark theme. Earlier knowledge rendering: TEST-010. Not a physical-mobile/VPN test. This validator does not rerun screenshots.',
  'scope':'Offline resource/route/page/hash/math/security checks; not a wireless experiment or independent certification of historical conclusions.'}
 (ROOT/'校验/离线资源与跳转校验.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
 print(json.dumps(report,ensure_ascii=False,indent=2));sys.exit(bool(errors))

@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "browser": "Firefox headless / Marionette",
+  "families": [
+    {
+      "id": "quest",
+      "name": "QUEST",
+      "resultsRows": 4,
+      "knowledgeDocument": "d99a69159f894326f",
+      "knowledgeJumpAndDocumentReturn": "PASS"
+    },
+    {
+      "id": "sr-allocation",
+      "name": "每 UE SR 周期分配",
+      "resultsRows": 1,
+      "knowledgeDocument": "dcee72dfbdfa892b4",
+      "knowledgeJumpAndDocumentReturn": "PASS"
+    },
+    {
+      "id": "grant-timing",
+      "name": "授权时机",
+      "resultsRows": 3,
+      "knowledgeDocument": "d01bcd72243803688",
+      "knowledgeJumpAndDocumentReturn": "PASS"
+    },
+    {
+      "id": "residual-probe",
+      "name": "剩余资源预算探测",
+      "resultsRows": 9,
+      "knowledgeDocument": "df1ea8b748c1e8c8f",
+      "knowledgeJumpAndDocumentReturn": "PASS"
+    }
+  ],
+  "desktopRequestedWindow": {
+    "width": 1440,
+    "height": 1200
+  },
+  "narrowRequestedWindow": {
+    "width": 390,
+    "height": 1000
+  },
+  "narrowActualContent": {
+    "width": 500,
+    "height": 914
+  },
+  "screenshots": [
+    {
+      "file": "algorithm-results-desktop.png",
+      "width": 1440,
+      "height": 1114
+    },
+    {
+      "file": "algorithm-results-narrow.png",
+      "width": 500,
+      "height": 914
+    },
+    {
+      "file": "quest-knowledge-desktop.png",
+      "width": 1440,
+      "height": 1114
+    },
+    {
+      "file": "quest-results-dark.png",
+      "width": 500,
+      "height": 914
+    },
+    {
+      "file": "quest-results-desktop.png",
+      "width": 1440,
+      "height": 1114
+    },
+    {
+      "file": "quest-results-narrow.png",
+      "width": 500,
+      "height": 914
+    }
+  ],
+  "scope": "Actual offline app at file://; algorithm selection, result-to-knowledge jumps, document return links, narrow columns/overflow and dark theme. Not a physical phone or VPN test."
+}

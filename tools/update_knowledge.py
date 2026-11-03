@@ -32,13 +32,14 @@ def read_catalog():
 
 
 def build(kind='knowledge'):
-    if kind not in ('knowledge', 'experiments'):
+    if kind not in ('knowledge', 'experiments', 'algorithm-notes'):
         raise ValueError('Unknown reader-owned document kind: ' + kind)
     experiments = kind == 'experiments'
-    prefix = 'e' if experiments else 'k'
-    source_root = ROOT / ('说明/五类时延分析' if experiments else '说明/算法知识点说明')
-    report_path = ROOT / ('校验/实验分析构建校验.json' if experiments else '校验/知识点构建校验.json')
-    stat_prefix = 'experiment' if experiments else 'knowledge'
+    algorithm_notes = kind == 'algorithm-notes'
+    prefix = 'a' if algorithm_notes else 'e' if experiments else 'k'
+    source_root = ROOT / ('说明' if algorithm_notes else '说明/五类时延分析' if experiments else '说明/算法知识点说明')
+    report_path = ROOT / ('校验/算法自有稿构建校验.json' if algorithm_notes else '校验/实验分析构建校验.json' if experiments else '校验/知识点构建校验.json')
+    stat_prefix = 'algorithmNote' if algorithm_notes else 'experiment' if experiments else 'knowledge'
     catalog = read_catalog()
     manifest = json.loads((ROOT / '说明' / (kind + '.json')).read_text(encoding='utf-8'))
     previous_sources = set()
@@ -68,6 +69,12 @@ def build(kind='knowledge'):
     for item in manifest['documents']:
         source = item['source']
         path = (ROOT / source).resolve()
+        if algorithm_notes:
+            if item.get('kind') not in ('knowledge', 'results') or not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', item.get('algorithm', '')):
+                raise ValueError('Algorithm notes require kind (knowledge/results) and an algorithm slug: ' + source)
+            folder = '说明/算法知识点说明' if item['kind'] == 'knowledge' else '说明/算法文档'
+            if not path.is_relative_to(ROOT / folder):
+                raise ValueError('Algorithm note must be below ' + folder)
         if not path.is_relative_to(source_root) or path.suffix != '.md':
             raise ValueError('Reader source must be Markdown below ' + str(source_root) + ': ' + source)
         if source in sources:
@@ -83,8 +90,11 @@ def build(kind='knowledge'):
         builder.paths[path] = did
         builder.docs[did] = {
             'id': did, 'title': re.search(r'^#\s+(.+)', text, re.M)[1],
-            'source': source, 'aliases': [source], 'group': 'research' if experiments else 'knowledge',
-            'topic': item['topic'], 'prerequisite': not experiments,
+            'source': source, 'aliases': [source],
+            'group': ('knowledge' if item['kind'] == 'knowledge' else 'algorithms') if algorithm_notes else 'research' if experiments else 'knowledge',
+            'topic': 'algorithms' if algorithm_notes else item['topic'],
+            'prerequisite': not (experiments or algorithm_notes),
+            **({'algorithm': item['algorithm']} if algorithm_notes else {}),
             **({'experimentStage': item['topic']} if experiments else {}),
             'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'snapshot': source, 'redacted': False, 'toc': [],
@@ -174,13 +184,14 @@ def build(kind='knowledge'):
     catalog['stats'][stat_prefix + 'Formulas'] = len(builder.math)
     catalog['stats'][stat_prefix + 'Images'] = len(builder.assets)
     catalog[stat_prefix + 'UpdatedAt'] = manifest['updated']
-    catalog['experimentStages' if experiments else 'knowledgeTopics'] = {d['topic']: d['id'] for d in metadata}
+    if not algorithm_notes:
+        catalog['experimentStages' if experiments else 'knowledgeTopics'] = {d['topic']: d['id'] for d in metadata}
     for feature in catalog['featured']:
         if experiments and feature['title'] in ('五类研究主线', '做过的五类时延分析'):
             feature.update(title='做过的五类时延分析', id=catalog['experimentStages']['tdd'])
-        elif not experiments and feature['title'] == '通信与时延基础':
+        elif kind == 'knowledge' and feature['title'] == '通信与时延基础':
             feature['id'] = catalog['knowledgeTopics']['basics']
-        elif not experiments and feature['title'] == '算法知识地图':
+        elif kind == 'knowledge' and feature['title'] == '算法知识地图':
             feature['id'] = catalog['knowledgeTopics']['algorithms']
     for paper in catalog['papers']:
         paper['citedPages'] = sorted(builder.papers[paper['id']]['citedPages'])

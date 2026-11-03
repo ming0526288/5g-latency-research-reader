@@ -439,4 +439,7 @@ def main():
  if (ROOT/'说明/experiments.json').is_file():
   from update_knowledge import build
   build('experiments')
+ if (ROOT/'说明/algorithms.json').is_file():
+  from update_algorithm_index import main as update_algorithm_index
+  update_algorithm_index()
 if __name__=='__main__':main()

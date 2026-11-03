@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "sources": [
+    {
+      "id": "d4766a895f268c0c7",
+      "title": "算法文档总目录",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/README.md",
+      "snapshot": "文档原稿/d4766a895f268c0c7.md",
+      "sourceSHA": "4766a895f268c0c796aab0f7c070460713eca34b670f58fa31ae1a7487e10511",
+      "snapshotSHA": "4766a895f268c0c796aab0f7c070460713eca34b670f58fa31ae1a7487e10511"
+    },
+    {
+      "id": "d0132636b2e465369",
+      "title": "ALG-001 QUEST的HOL扩展BSR与标准DSR说明",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-001_QUEST与BSR_DSR说明.md",
+      "snapshot": "文档原稿/d0132636b2e465369.md",
+      "sourceSHA": "0132636b2e465369b4a51dc06a6f76739d9b54228b7ae1bb7ebccfde2ab894fa",
+      "snapshotSHA": "0132636b2e465369b4a51dc06a6f76739d9b54228b7ae1bb7ebccfde2ab894fa"
+    },
+    {
+      "id": "db77297d98c3cf540",
+      "title": "ALG-002 控制预算约束的每UE SR周期分配",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-002_控制预算约束的每UE_SR周期分配.md",
+      "snapshot": "文档原稿/db77297d98c3cf540.md",
+      "sourceSHA": "b77297d98c3cf5409f49decacaee52efbe23c38a3c9fd60a0bd088995b11b9dc",
+      "snapshotSHA": "b77297d98c3cf5409f49decacaee52efbe23c38a3c9fd60a0bd088995b11b9dc"
+    },
+    {
+      "id": "da1b786c110aceb58",
+      "title": "ALG-003 QUEST无HOL评分消融：诊断变体",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-003_QUEST无HOL评分消融.md",
+      "snapshot": "文档原稿/da1b786c110aceb58.md",
+      "sourceSHA": "a1b786c110aceb58c8129fa7ebe79c85ae5012d68c1b38ef4e033b11fa0a4936",
+      "snapshotSHA": "a1b786c110aceb58c8129fa7ebe79c85ae5012d68c1b38ef4e033b11fa0a4936"
+    },
+    {
+      "id": "d538ae3bf6be67b67",
+      "title": "ALG-004 预算约束授权时机：已完成首轮机制对照",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-004_预算约束授权时机_机制先导.md",
+      "snapshot": "文档原稿/d538ae3bf6be67b67.md",
+      "sourceSHA": "538ae3bf6be67b674d6a722f6d2637d1b6dae9c1e4a7ac6814aeb5f35d9b1475",
+      "snapshotSHA": "538ae3bf6be67b674d6a722f6d2637d1b6dae9c1e4a7ac6814aeb5f35d9b1475"
+    },
+    {
+      "id": "d2bfcd9076e0108c8",
+      "title": "ALG-005 剩余资源约束的预算探测授权：首轮与负载验证完成",
+      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-005_剩余资源约束的预算探测授权.md",
+      "snapshot": "文档原稿/d2bfcd9076e0108c8.md",
+      "sourceSHA": "2bfcd9076e0108c845b4383196305f5666bd13d86c453d3db04ad41b29d13c6d",
+      "snapshotSHA": "2bfcd9076e0108c845b4383196305f5666bd13d86c453d3db04ad41b29d13c6d"
+    }
+  ],
+  "decision": {
+    "quest": "ALG-001与诊断消融ALG-003同一阅读方向；PF/WAIT等按实验对照，RR/AUGUSTE/服务欠账按阅读候选，保留原文状态",
+    "sr-allocation": "ALG-002独立，原文明确非QUEST修改",
+    "grant-timing": "ALG-004机制对照，独立方向，不冒充新自适应算法",
+    "residual-probe": "ALG-005独立方向"
+  },
+  "scope": "Read original document identity/status for navigation only; no new protocol requirement, numerical result, mathematical conclusion or experiment. 3GPP/新增数学推导不适用。"
+}

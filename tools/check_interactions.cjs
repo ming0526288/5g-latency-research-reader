@@ -17,6 +17,7 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  await waitFor(()=>d.querySelectorAll('.path-card').length===6,'home reading path');
  steps.push('file://入口加载本地catalog.js、CSS及app.js；首页六步路线完整');
  const cat=w.READER_CATALOG;
+ const algorithmFamilies=w.READER_ALGORITHMS.families;
  const knowledgeHeading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='知识点');
  assert(knowledgeHeading);const studyLinks=[];
  for(let el=knowledgeHeading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)studyLinks.push(el);
@@ -30,16 +31,41 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
    const target=cat.docs.find(doc=>doc.id===url.slice('#/doc/'.length));assert(target);
    await waitFor(()=>w.location.hash===url&&d.querySelector('.article')&&d.querySelector('.source-label')?.getAttribute('title')===target.source,'knowledge entry '+target.title);
   }else{
-   await waitFor(()=>w.location.hash===url&&d.querySelector('.library-heading h1')?.textContent==='算法知识点','algorithm knowledge collection');
-   const ids=[...d.querySelectorAll('.record-row')].map(el=>el.getAttribute('href').slice('#/doc/'.length));
-   const selected=ids.map(id=>cat.docs.find(doc=>doc.id===id));
-   assert(selected.length>=14);assert(selected.every(doc=>doc?.group==='knowledge'&&!/\/(?:00_通信与时延基础知识|README)\.md$/.test(doc.source)));
-   assert.equal(new Set(selected.map(doc=>doc.source.split('/').pop())).size,selected.length);
-   assert.equal(Number(d.querySelector('#sidebar a[href="'+url+'"] .nav-count').textContent),selected.length);
-   assert(['PF_知识点说明.md','WAIT_知识点说明.md','QUEST_知识点说明.md','SR周期分配_知识点说明.md'].every(name=>selected.some(doc=>doc.source.endsWith('/'+name))));
+   await waitFor(()=>w.location.hash===url&&d.querySelectorAll('.algorithm-card').length===algorithmFamilies.length,'algorithm knowledge selection');
+   assert.deepEqual([...d.querySelectorAll('.algorithm-card')].map(a=>a.getAttribute('href')),algorithmFamilies.map(f=>'#/algorithm/'+f.id+'/knowledge'));
+   assert.equal(Number(d.querySelector('#sidebar a[href="'+url+'"] .nav-count').textContent),algorithmFamilies.length);
   }
  }
- steps.push('知识点七类均为图标单行入口；六个主题点击加载对应正文；算法知识点集中展示且同名版本归并，PF/WAIT/QUEST/SR等保留，数量与列表一致');
+ steps.push('知识点七类图标入口保留；算法知识点先选方向，导航数量与算法卡片一致');
+ for(const family of algorithmFamilies){
+  d.querySelector('#sidebar a[href="#/browse/algorithms"]').click();
+  await waitFor(()=>w.location.hash==='#/browse/algorithms'&&d.querySelector('.library-heading h1')?.textContent==='算法实现与结果'&&d.querySelectorAll('.algorithm-card').length===algorithmFamilies.length,'implementation algorithm selection');
+  const resultUrl='#/algorithm/'+family.id+'/results';d.querySelector('.algorithm-card[href="'+resultUrl+'"]').click();
+  await waitFor(()=>d.querySelector('.library-heading h1')?.textContent===family.name+' · 实现与结果','algorithm result '+family.id);
+  assert.deepEqual([...d.querySelectorAll('.record-row')].map(a=>a.getAttribute('href')),family.results.flatMap(s=>s.documents).map(id=>'#/doc/'+id));
+  assert(d.querySelector('#sidebar a[href="#/browse/algorithms"].active'));
+  const knowledgeUrl='#/algorithm/'+family.id+'/knowledge';d.querySelector('.algorithm-learning > a').click();
+  await waitFor(()=>w.location.hash===knowledgeUrl&&d.querySelector('.library-heading h1')?.textContent===family.name+' · 算法知识点','same algorithm knowledge '+family.id);
+  assert(d.querySelector('#sidebar a[href="#/browse/algorithm-knowledge"].active'));
+  const ids=[...d.querySelectorAll('.record-row')].map(a=>a.getAttribute('href').slice('#/doc/'.length));
+  assert.deepEqual(ids,family.knowledge.flatMap(s=>s.documents));
+  if(family.id==='quest')assert(['PF_知识点说明.md','WAIT_知识点说明.md','QUEST_知识点说明.md'].every(name=>ids.some(id=>cat.docs.find(doc=>doc.id===id).source.endsWith('/'+name))));
+  d.querySelector('.record-row').click();
+  await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===cat.docs.find(doc=>doc.id===ids[0]).source,'algorithm knowledge document '+family.id);
+  assert([...d.querySelectorAll('.doc-pagination a[href^="#/doc/"]')].every(a=>ids.includes(a.getAttribute('href').slice('#/doc/'.length))));
+  const resultLink=d.querySelector('.algorithm-context a[href="'+resultUrl+'"]');assert(resultLink);resultLink.click();
+  await waitFor(()=>d.querySelector('.library-heading h1')?.textContent===family.name+' · 实现与结果','document return to its algorithm '+family.id);
+  const resultIds=family.results.flatMap(s=>s.documents);d.querySelector('.record-row').click();
+  await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===cat.docs.find(doc=>doc.id===resultIds[0]).source,'algorithm implementation document '+family.id);
+  assert([...d.querySelectorAll('.doc-pagination a[href^="#/doc/"]')].every(a=>resultIds.includes(a.getAttribute('href').slice('#/doc/'.length))));
+  const learnLink=d.querySelector('.algorithm-context a[href="'+knowledgeUrl+'"]');assert(learnLink);learnLink.click();
+  await waitFor(()=>d.querySelector('.library-heading h1')?.textContent===family.name+' · 算法知识点','implementation to knowledge '+family.id);
+ }
+ d.querySelector('#sidebar a[href="#/browse/algorithm-knowledge"]').click();
+ await waitFor(()=>d.querySelector('#algorithmFilter'),'algorithm filter');
+ const filter=d.querySelector('#algorithmFilter');filter.value='QUEST';filter.dispatchEvent(new w.Event('input',{bubbles:true}));
+ assert.equal(d.querySelectorAll('.algorithm-card').length,1);assert(d.querySelector('.algorithm-card h2').textContent==='QUEST');
+ steps.push('两个算法入口均先选方向；逐方向结果行归属准确；结果跳同算法知识页；知识正文可返回该算法结果；QUEST含自身、消融与对照知识；筛选可用');
  if(cat.experimentStages){
   const heading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='研究结果与分析');
   const links=[];for(let el=heading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)links.push(el);
@@ -105,6 +131,7 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  steps.push('加入书签并在书签页找到原文档');
  d.querySelector('#searchButton').click();const input=d.querySelector('#searchInput');input.value='QUEST';input.dispatchEvent(new w.Event('input',{bubbles:true}));
  await waitFor(()=>d.querySelector('.search-result')?.textContent.toLowerCase().includes('quest'),'QUEST search results refreshed');d.querySelector('#closeSearch').click();
+ assert(d.querySelector('.search-result[href="#/algorithm/quest/results"]'));
  steps.push('全文搜索QUEST返回实际文档与文献结果');
  w.location.hash='#/paper/P24?page=7';await waitFor(()=>d.querySelector('.pdf-frame'),'PDF route');assert(d.querySelector('.pdf-frame').getAttribute('src').includes('#page=7'));assert.equal(d.querySelector('#pdfPage').value,'7');
  d.querySelector('#pdfPage').value='9';d.querySelector('#goPdf').click();await waitFor(()=>w.location.hash.includes('page=9')&&d.querySelector('#pdfPage')?.value==='9','PDF page control');

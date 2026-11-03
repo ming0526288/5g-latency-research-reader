@@ -1,0 +1,245 @@
+{
+  "updated": "2026-11-03",
+  "commonKnowledge": {
+    "source": "说明/算法知识点说明/算法实验_共同前置条件.md"
+  },
+  "families": [
+    {
+      "id": "quest",
+      "name": "QUEST",
+      "code": "ALG-001 / ALG-003",
+      "subtitle": "调度评分与 HOL 消融",
+      "description": "集中阅读 QUEST 原理、消融说明、对照算法与已测结果。",
+      "keywords": [
+        "QUEST",
+        "HOL",
+        "PF",
+        "WAIT",
+        "EDF",
+        "M-LWDF",
+        "MT",
+        "PB",
+        "BSR",
+        "DSR"
+      ],
+      "knowledge": [
+        {
+          "title": "QUEST 原理与消融",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/QUEST_知识点说明.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/QUEST无HOL评分消融_知识点说明.md"
+            }
+          ]
+        },
+        {
+          "title": "实验中的对照算法",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/PF_知识点说明.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/WAIT_知识点说明.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/EDF_知识点说明.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/M-LWDF_知识点说明.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/MT_知识点说明.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/PB_知识点说明.md"
+            }
+          ]
+        },
+        {
+          "title": "阅读与候选背景",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/RR_知识点说明.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/AUGUSTE_知识点说明.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/服务欠账控制_候选知识点说明.md"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "title": "实现与消融说明",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-001_QUEST与BSR_DSR说明.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-003_QUEST无HOL评分消融.md"
+            }
+          ]
+        },
+        {
+          "title": "已测结果与结论",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/QUEST结果汇总/QUEST_已测结果汇总.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/19_QUEST收尾结论与下一方向.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sr-allocation",
+      "name": "每 UE SR 周期分配",
+      "code": "ALG-002",
+      "subtitle": "控制预算与请求资源分配",
+      "description": "阅读每 UE SR 周期分配的知识、实现说明及已有对照结果。",
+      "keywords": [
+        "SR",
+        "周期",
+        "控制预算",
+        "每UE"
+      ],
+      "knowledge": [
+        {
+          "title": "算法知识",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/SR周期分配_知识点说明.md"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "title": "实现与已测结果",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-002_控制预算约束的每UE_SR周期分配.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grant-timing",
+      "name": "授权时机",
+      "code": "ALG-004",
+      "subtitle": "预算约束下的机制对照",
+      "description": "阅读授权时机的前置知识、实现边界与已完成机制对照。",
+      "keywords": [
+        "授权时机",
+        "probe",
+        "F10",
+        "F1"
+      ],
+      "knowledge": [
+        {
+          "title": "算法与机制知识",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/授权时机_知识点说明.md"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "title": "机制对照与结论",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-004_预算约束授权时机_机制先导.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/20_授权时机机制结果与下一步.md"
+            }
+          ]
+        },
+        {
+          "title": "历史版本",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-probe-residual/research/latency-analysis/算法文档/ALG-004_预算约束授权时机_机制先导.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "residual-probe",
+      "name": "剩余资源预算探测",
+      "code": "ALG-005",
+      "subtitle": "探测授权与剩余资源约束",
+      "description": "阅读预算探测知识、负载验证、慢包分析和历史结果。",
+      "keywords": [
+        "剩余资源",
+        "预算探测",
+        "ALG005",
+        "probe"
+      ],
+      "knowledge": [
+        {
+          "title": "算法知识",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/剩余资源预算探测_知识点说明.md"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "title": "实现与负载验证",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法文档/ALG-005_剩余资源约束的预算探测授权.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/22_ALG005不同负载验证与69代价分析.md"
+            }
+          ]
+        },
+        {
+          "title": "慢包与资源分析",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/24_ALG005同业务编号慢包配对分析.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/25_ALG005首段前等待与授权切点分析.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/26_8Mbps更早授权载荷与慢包排队分析.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/27_RB来源还原与授权间隔双时钟分析.md"
+            },
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/28_上行重传RB预算指针修复与旧数据影响.md"
+            }
+          ]
+        },
+        {
+          "title": "首轮与历史版本",
+          "documents": [
+            {
+              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/docs/21_ALG005剩余资源探测结果与边界.md"
+            },
+            {
+              "source": "oi-wireless-ran-probe-residual/research/latency-analysis/算法文档/ALG-005_剩余资源约束的预算探测授权.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

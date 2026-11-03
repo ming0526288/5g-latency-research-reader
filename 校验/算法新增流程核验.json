@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scope": "Isolated synthetic publishing fixture in /tmp only; not a real algorithm or communication experiment. No fixture added to live catalogue.",
+  "existingDocumentsPreserved": 1189,
+  "newSyntheticNotes": 2,
+  "familiesInFixture": 5,
+  "checks": [
+    "knowledge/results own Markdown compiled with stable IDs",
+    "source is download; no duplicate Markdown snapshot",
+    "math rendered with bundled KaTeX",
+    "relative cross links resolved to notes",
+    "existing seven knowledge topics and five experiment stages unchanged",
+    "existing document IDs preserved",
+    "new algorithm resolved without front-end edits",
+    "repeat build byte-idempotent"
+  ]
+}
