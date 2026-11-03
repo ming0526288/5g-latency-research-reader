@@ -46,7 +46,7 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
   const stages=links.slice(0,5).map(el=>el.getAttribute('href'));
   assert(!links.some(el=>el.textContent.includes('入口与五类分析')));
   assert.deepEqual(stages,Object.values(cat.experimentStages).map(id=>'#/doc/'+id));
-  assert.equal(links.length,7);
+  assert.equal(links.length,6);
   const materialsHeading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='研究资料');
   const materials=[];for(let el=materialsHeading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)materials.push(el);
   assert.deepEqual(materials.map(el=>el.getAttribute('href')),['#/library/papers','#/library/protocols']);
@@ -63,7 +63,7 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
   }
   d.querySelector('#searchButton').click();const query=d.querySelector('#searchInput');query.value='抓包失败';query.dispatchEvent(new w.Event('input',{bubbles:true}));
   await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+cat.experimentStages.tdd+'"]'),'new experimental failure indexed');d.querySelector('#closeSearch').click();
-  steps.push('研究结果与分析含五类实验、算法和报告；研究资料仅含文献与材料及3GPP协议；五类实验点击加载结果图并可放大，知识链接定位标题，错误案例可检索');
+  steps.push('研究结果与分析含五类实验及算法入口；研究资料仅含文献与材料及3GPP协议；五类实验点击加载结果图并可放大，知识链接定位标题，错误案例可检索');
  }
  if(cat.knowledgeTopics){
   assert.equal(Object.keys(cat.knowledgeTopics).length,7);
