@@ -44,7 +44,7 @@
    '<div class="nav-heading">知识点</div>'+studyDocs.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
    nav('#/browse/algorithm-knowledge','◇','算法知识点',algorithmKnowledge.length)+
    '<div class="nav-heading">研究结果与分析</div>'+researchStages.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
-   nav('#/browse/algorithms','◇','算法实现与结果',C.docs.filter(d=>d.group==='algorithms').length)+
+   nav('#/browse/algorithms','<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-3px"><rect x="2.5" y="3.5" width="19" height="17" rx="3"/><path d="m9 9-3 3 3 3m6-6 3 3-3 3"/></svg>','算法实现与结果',C.docs.filter(d=>d.group==='algorithms').length)+
    nav('#/browse/research','◷','研究报告与方法',C.docs.filter(d=>d.group==='research').length)+
    '<div class="nav-heading">研究资料</div>'+nav('#/library/papers','▥','文献与材料',C.papers.length)+nav('#/library/protocols','▦','3GPP 协议',C.stats.protocolSpecs)+
    '<div class="nav-heading">过程与依据</div>'+nav('#/browse/changes','↳','修改记录 CHG',C.docs.filter(d=>d.group==='changes').length)+nav('#/browse/tests','✓','测试记录 TEST',C.docs.filter(d=>d.group==='tests').length)+nav('#/browse/all','☷','全部文档',C.docs.length)+
