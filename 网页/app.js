@@ -13,18 +13,18 @@
  const main=$('#main');
  let bookmarks=storage.get('bookmarks',[]),history=storage.get('history',[]);
  const studyDocs=[
-  ['⌘','通信与时延基础','算法知识点说明/00_通信与时延基础知识.md'],
-  ['⇄','不同 TDD 知识点','docs/03_TDD配比与周期分析.md'],
-  ['≋','不同 SCS 知识点','docs/04_SCS分析与支持边界.md'],
-  ['♧','多 UE 知识点','docs/05_多UE与负载分析.md'],
-  ['▤','分层时延知识点','docs/02_时延定义与分层测量.md'],
-  ['⌁','尾时延知识点','docs/06_尾时延与机制归因.md']
- ].map(([icon,label,source])=>({icon,label,doc:find(source)})).filter(entry=>entry.doc);
+  ['basics','⌘','通信与时延基础','算法知识点说明/00_通信与时延基础知识.md'],
+  ['tdd','⇄','不同 TDD 知识点','docs/03_TDD配比与周期分析.md'],
+  ['scs','≋','不同 SCS 知识点','docs/04_SCS分析与支持边界.md'],
+  ['multi-ue','♧','多 UE 知识点','docs/05_多UE与负载分析.md'],
+  ['layers','▤','分层时延知识点','docs/02_时延定义与分层测量.md'],
+  ['tail','⌁','尾时延知识点','docs/06_尾时延与机制归因.md']
+ ].map(([topic,icon,label,source])=>({icon,label,doc:docs.get(C.knowledgeTopics?.[topic])||find(source)})).filter(entry=>entry.doc);
  // One current reading entry per algorithm; historical variants remain in the
  // complete catalogue and search. Prefer reader-owned notes, then main sources.
  const knowledgeByFile=new Map();
  const knowledgeRank=d=>d.source.startsWith('说明/')?2:Number(d.aliases.some(a=>a.startsWith('oi-wireless-ran-latency-analysis/')));
- for(const d of C.docs.filter(d=>d.group==='knowledge'&&!/\/(?:00_通信与时延基础知识|README)\.md$/.test(d.source))){
+ for(const d of C.docs.filter(d=>d.group==='knowledge'&&(!d.topic||d.topic==='algorithms')&&!/\/(?:00_通信与时延基础知识|README)\.md$/.test(d.source))){
   const key=d.source.split('/').pop(),previous=knowledgeByFile.get(key);
   if(!previous||knowledgeRank(d)>knowledgeRank(previous))knowledgeByFile.set(key,d);
  }
@@ -98,6 +98,7 @@
   let list=group==='all'?C.docs:group==='algorithm-knowledge'?algorithmKnowledge:C.docs.filter(d=>d.group===group);
   if(group==='bookmarks')list=bookmarks.map(id=>docs.get(id)).filter(Boolean);
   list=list.slice().sort((a,b)=>{
+   if(group==='algorithm-knowledge'&&Boolean(a.prerequisite)!==Boolean(b.prerequisite))return Number(Boolean(b.prerequisite))-Number(Boolean(a.prerequisite));
    if(group==='changes'||group==='tests')return parseInt((b.source.match(/(?:CHG|TEST)-(\d+)/)||[])[1]||0)-parseInt((a.source.match(/(?:CHG|TEST)-(\d+)/)||[])[1]||0);
    const am=a.source.startsWith('oi-wireless-ran-latency-analysis/'),bm=b.source.startsWith('oi-wireless-ran-latency-analysis/');return Number(bm)-Number(am)||a.title.localeCompare(b.title,'zh-CN');
   });

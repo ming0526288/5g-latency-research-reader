@@ -72,7 +72,7 @@ oversize=[str(p.relative_to(ROOT)) for p in all_files if p.stat().st_size>100*10
 require(not oversize,'files exceed GitHub 100MiB limit: '+str(oversize))
 counts['total_files']=len(all_files);counts['total_bytes']=sum(p.stat().st_size for p in all_files)
 report={'status':'PASS' if not errors else 'FAIL','counts':dict(counts),'errors':errors,'warnings':warnings,
- 'browserQA':'2026-11-02: Firefox headless 1440x1100 foundation first-screen screenshot inspected (TEST-007); all-page/mobile/cross-computer visual QA remains unverified. This validator does not rerun that visual check.',
+ 'browserQA':'2026-11-03: Firefox TDD entry checked at 1440x1200 and 390x1000; generated-content TDD/SCS formula previews checked at 1000x1350 (TEST-010). This is not every-page or physical-mobile/VPN QA. This validator does not rerun screenshots.',
  'scope':'Offline resource/route/page/hash/math/security checks; not a wireless experiment or independent certification of historical conclusions.'}
 (ROOT/'校验/离线资源与跳转校验.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
 print(json.dumps(report,ensure_ascii=False,indent=2));sys.exit(bool(errors))

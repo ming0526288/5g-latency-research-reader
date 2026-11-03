@@ -1,22 +1,22 @@
 {
   "status": "PASS",
   "counts": {
-    "document_routes": 9722,
-    "paper_routes": 10033,
-    "documents": 1177,
-    "protocol_routes": 6944,
-    "page_routes": 3467,
-    "offline_resources": 149,
+    "document_routes": 9744,
+    "paper_routes": 10060,
+    "documents": 1184,
+    "protocol_routes": 6999,
+    "page_routes": 3481,
+    "offline_resources": 173,
     "protocol_clause_requires_keyword_fallback": 21,
     "legacy_heading_links_with_fallback": 571,
     "pdf_originals": 36,
     "protocol_parts": 34,
     "protocol_archives": 26,
-    "total_files": 2702,
-    "total_bytes": 385802968
+    "total_files": 2748,
+    "total_bytes": 386594438
   },
   "errors": [],
   "warnings": [],
-  "browserQA": "2026-11-02: Firefox headless 1440x1100 foundation first-screen screenshot inspected (TEST-007); all-page/mobile/cross-computer visual QA remains unverified. This validator does not rerun that visual check.",
+  "browserQA": "2026-11-03: Firefox TDD entry checked at 1440x1200 and 390x1000; generated-content TDD/SCS formula previews checked at 1000x1350 (TEST-010). This is not every-page or physical-mobile/VPN QA. This validator does not rerun screenshots.",
   "scope": "Offline resource/route/page/hash/math/security checks; not a wireless experiment or independent certification of historical conclusions."
 }

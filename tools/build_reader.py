@@ -174,6 +174,7 @@ class Builder:
  def resolve(self,url):
   raw=U.unquote(url);raw=raw.removeprefix('file://');parts=U.urlsplit(raw)
   if parts.scheme in ['http','https','mailto','tel']:return ('external',url)
+  if raw.startswith('#/'):return ('route',raw)
   if raw.startswith('#'):return ('anchor',raw[1:])
   path=Path(parts.path);path=(self.current.parent/path if not path.is_absolute() else path).resolve()
   if path in self.paths:return ('doc',self.paths[path],U.unquote(parts.fragment))
@@ -208,7 +209,12 @@ class Builder:
   return self.md.renderer.renderToken(tokens,idx,options,env)
  def image_rule(self,tokens,idx,options,env):
   token=tokens[idx];r=self.resolve(token.attrGet('src') or '')
-  if r[0]=='asset':return f'<figure class="source-figure"><img loading="lazy" src="{esc(r[1])}" alt="{esc(token.content)}"><figcaption>{esc(token.content)}</figcaption></figure>'
+  if r[0]=='asset':
+   dimensions=''
+   if r[1].endswith('.svg'):
+    viewbox=ET.parse(ROOT/r[1]).getroot().get('viewBox','').split()
+    if len(viewbox)==4:dimensions=f' width="{float(viewbox[2]):g}" height="{float(viewbox[3]):g}" style="height:auto"'
+   return f'<figure class="source-figure"><a href="{esc(r[1])}" target="_blank" rel="noopener"><img loading="lazy" src="{esc(r[1])}" alt="{esc(token.content)}"{dimensions}></a><figcaption>{esc(token.content)} · <a href="{esc(r[1])}" target="_blank" rel="noopener">放大查看</a></figcaption></figure>'
   return f'<span class="local-asset">原文图片：{esc(token.content)}（原文路径未包含可展示图片）</span>'
  def collect_docs(self):
   candidates=[]
@@ -421,4 +427,7 @@ class Builder:
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--workspace',type=Path,required=True);args=ap.parse_args()
  b=Builder(args.workspace);b.collect_papers();print('PDF library ready',flush=True);b.collect_protocols();print('Protocol original files and reading views ready',flush=True);b.collect_docs();print('Markdown views ready',len(b.docs),flush=True);b.render_math();b.finish()
+ if (ROOT/'说明/knowledge.json').is_file():
+  from update_knowledge import build
+  build()
 if __name__=='__main__':main()

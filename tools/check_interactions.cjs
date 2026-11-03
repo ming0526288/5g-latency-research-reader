@@ -40,6 +40,18 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
   }
  }
  steps.push('知识点七类均为图标单行入口；六个主题点击加载对应正文；算法知识点集中展示且同名版本归并，PF/WAIT/QUEST/SR等保留，数量与列表一致');
+ if(cat.knowledgeTopics){
+  assert.equal(Object.keys(cat.knowledgeTopics).length,7);
+  const tdd=cat.knowledgeTopics.tdd;w.location.hash='#/doc/'+tdd;
+  await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===cat.docs.find(x=>x.id===tdd).source,'reader-owned TDD lesson');
+  assert(d.querySelector('.article .source-figure a[target="_blank"]'));
+  const citation=[...d.querySelectorAll('.article a')].find(a=>a.getAttribute('href').startsWith('#/protocol/38.213?')&&a.getAttribute('href').includes('q='));
+  assert(citation);citation.click();
+  await waitFor(()=>d.querySelector('.protocol-article .section-found')?.textContent.includes('Table 11.1.1-1'),'TDD original table location');
+  d.querySelector('#searchButton').click();const query=d.querySelector('#searchInput');query.value='从字段算出整周期';query.dispatchEvent(new w.Event('input',{bubbles:true}));
+  await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+tdd+'"]'),'new knowledge indexed for search');d.querySelector('#closeSearch').click();
+  steps.push('自有知识稿七类已接入；TDD插图可放大；引用实际定位至38.213表11.1.1-1；新正文关键词可被全文搜索找到');
+ }
  const basic=cat.docs.find(x=>x.aliases.some(a=>a.endsWith('算法知识点说明/00_通信与时延基础知识.md')));
  w.location.hash='#/doc/'+basic.id;await waitFor(()=>d.querySelector('.article .katex'),'foundation');
  assert(d.querySelectorAll('.article mfrac').length>=2);assert(d.querySelector('.diagram-panel img').getAttribute('src').includes('闭环测量'));
@@ -67,7 +79,7 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  w.location.hash='#/bookmarks';await waitFor(()=>d.querySelector('.record-row'),'bookmarks');assert(d.querySelector('.record-row').textContent.includes('通信与时延'));
  steps.push('加入书签并在书签页找到原文档');
  d.querySelector('#searchButton').click();const input=d.querySelector('#searchInput');input.value='QUEST';input.dispatchEvent(new w.Event('input',{bubbles:true}));
- await waitFor(()=>d.querySelectorAll('.search-result').length>0,'search');assert(d.querySelector('.search-result').textContent.toLowerCase().includes('quest'));d.querySelector('#closeSearch').click();
+ await waitFor(()=>d.querySelector('.search-result')?.textContent.toLowerCase().includes('quest'),'QUEST search results refreshed');d.querySelector('#closeSearch').click();
  steps.push('全文搜索QUEST返回实际文档与文献结果');
  w.location.hash='#/paper/P24?page=7';await waitFor(()=>d.querySelector('.pdf-frame'),'PDF route');assert(d.querySelector('.pdf-frame').getAttribute('src').includes('#page=7'));assert.equal(d.querySelector('#pdfPage').value,'7');
  d.querySelector('#pdfPage').value='9';d.querySelector('#goPdf').click();await waitFor(()=>w.location.hash.includes('page=9')&&d.querySelector('#pdfPage')?.value==='9','PDF page control');
