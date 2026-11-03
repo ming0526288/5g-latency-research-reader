@@ -44,3 +44,19 @@ html{font-size:100%}
 .algorithm-card{overflow-wrap:anywhere}
 @media(max-width:1050px){.algorithm-grid{grid-template-columns:1fr}}
 @media(max-width:740px){.search-trigger{min-width:2.5rem;max-width:2.5rem}.sidebar{width:min(18rem,calc(100vw - 2rem))}.library-heading h1{font-size:1.75rem}}
+
+/* A slightly more compact phone scale, without changing desktop reading. */
+@media screen and (max-width:740px){
+ .article{font-size:1rem;line-height:1.85}
+ .article h1{font-size:1.5625rem}.article h2{font-size:1.3125rem}
+ .article h3{font-size:1.1875rem}.article h4{font-size:1.0625rem}
+ .nav-link,.algorithm-card p,.library-heading p,.algorithm-common,.algorithm-tabs a,.algorithm-learning{font-size:.9375rem}
+ .nav-heading,.algorithm-code,.algorithm-card-foot,.algorithm-common>span,.algorithm-back,.algorithm-learning strong{font-size:.8125rem}
+ .algorithm-card h2{font-size:1.375rem}.library-heading h1{font-size:1.625rem}
+ .algorithm-learning>div,.algorithm-context,.soft-button{font-size:.875rem}
+ .record-row strong{font-size:1rem}
+ .record-row small,.doc-toolbar .source-label,.article figcaption,.diagram-panel figcaption,.result-limit{font-size:.8125rem}
+ .article table,.path-card p,.doc-pagination a{font-size:.9375rem}
+ .article code,.article pre code{font-size:.875rem}
+ .hero p{font-size:1rem}.section-title h2{font-size:1.1875rem}
+}
