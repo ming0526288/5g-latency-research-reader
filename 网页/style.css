@@ -47,16 +47,18 @@ html{font-size:100%}
 
 /* A slightly more compact phone scale, without changing desktop reading. */
 @media screen and (max-width:740px){
- .article{font-size:1rem;line-height:1.85}
- .article h1{font-size:1.5625rem}.article h2{font-size:1.3125rem}
- .article h3{font-size:1.1875rem}.article h4{font-size:1.0625rem}
- .nav-link,.algorithm-card p,.library-heading p,.algorithm-common,.algorithm-tabs a,.algorithm-learning{font-size:.9375rem}
- .nav-heading,.algorithm-code,.algorithm-card-foot,.algorithm-common>span,.algorithm-back,.algorithm-learning strong{font-size:.8125rem}
- .algorithm-card h2{font-size:1.375rem}.library-heading h1{font-size:1.625rem}
- .algorithm-learning>div,.algorithm-context,.soft-button{font-size:.875rem}
- .record-row strong{font-size:1rem}
- .record-row small,.doc-toolbar .source-label,.article figcaption,.diagram-panel figcaption,.result-limit{font-size:.8125rem}
- .article table,.path-card p,.doc-pagination a{font-size:.9375rem}
- .article code,.article pre code{font-size:.875rem}
- .hero p{font-size:1rem}.section-title h2{font-size:1.1875rem}
+ .article{font-size:.9375rem;line-height:1.85}
+ .article h1{font-size:1.5rem}.article h2{font-size:1.25rem}
+ .article h3{font-size:1.125rem}.article h4{font-size:1rem}
+ .nav-link,.algorithm-card p,.library-heading p,.algorithm-common,.algorithm-tabs a,.algorithm-learning{font-size:.875rem}
+ .nav-heading,.algorithm-code,.algorithm-card-foot,.algorithm-common>span,.algorithm-back,.algorithm-learning strong{font-size:.75rem}
+ .algorithm-card h2{font-size:1.3125rem}.library-heading h1{font-size:1.5625rem}
+ .algorithm-card .algorithm-subtitle{font-size:.875rem}
+ .algorithm-learning>div,.algorithm-context,.soft-button{font-size:.8125rem}
+ .record-row strong{font-size:.9375rem}
+ .record-row small,.doc-toolbar .source-label,.article figcaption,.diagram-panel figcaption,.result-limit{font-size:.75rem}
+ .article table,.path-card p,.doc-pagination a{font-size:.875rem}
+ .article code,.article pre code{font-size:.8125rem}
+ .hero h1{font-size:1.625rem}.hero p{font-size:.9375rem}
+ .path-card h3{font-size:1.0625rem}.section-title h2{font-size:1.125rem}
 }

@@ -86,7 +86,7 @@ oversize=[str(p.relative_to(ROOT)) for p in all_files if p.stat().st_size>100*10
 require(not oversize,'files exceed GitHub 100MiB limit: '+str(oversize))
 counts['total_files']=len(all_files);counts['total_bytes']=sum(p.stat().st_size for p in all_files)
 report={'status':'PASS' if not errors else 'FAIL','counts':dict(counts),'errors':errors,'warnings':warnings,
- 'browserQA':'Latest phone type tuning: 校验/手机字号微调浏览器核验.json (TEST-016); desktop fonts retained, smaller phone type at 500px and real 320px iframe, desktop 200% base text. Original type review TEST-015, navigation/results TEST-014 and TEST-011. Not a full WCAG audit or physical-mobile/VPN test. This validator does not rerun screenshots.',
+ 'browserQA':'Latest phone type tuning: 校验/手机字号再收小浏览器核验.json (TEST-017); desktop fonts retained, phone article15px/nav14px at 500px and real 320px iframe, desktop 200% base text. Original type review TEST-015, navigation/results TEST-014 and TEST-011. Not a full WCAG audit or physical-mobile/VPN test. This validator does not rerun screenshots.',
  'scope':'Offline resource/route/page/hash/math/security checks; not a wireless experiment or independent certification of historical conclusions.'}
 (ROOT/'校验/离线资源与跳转校验.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
 print(json.dumps(report,ensure_ascii=False,indent=2));sys.exit(bool(errors))

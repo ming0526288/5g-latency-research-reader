@@ -14,11 +14,11 @@
     "pdf_originals": 36,
     "protocol_parts": 34,
     "protocol_archives": 26,
-    "total_files": 2825,
-    "total_bytes": 391189529
+    "total_files": 2828,
+    "total_bytes": 391197788
   },
   "errors": [],
   "warnings": [],
-  "browserQA": "Latest phone type tuning: 校验/手机字号微调浏览器核验.json (TEST-016); desktop fonts retained, smaller phone type at 500px and real 320px iframe, desktop 200% base text. Original type review TEST-015, navigation/results TEST-014 and TEST-011. Not a full WCAG audit or physical-mobile/VPN test. This validator does not rerun screenshots.",
+  "browserQA": "Latest phone type tuning: 校验/手机字号再收小浏览器核验.json (TEST-017); desktop fonts retained, phone article15px/nav14px at 500px and real 320px iframe, desktop 200% base text. Original type review TEST-015, navigation/results TEST-014 and TEST-011. Not a full WCAG audit or physical-mobile/VPN test. This validator does not rerun screenshots.",
   "scope": "Offline resource/route/page/hash/math/security checks; not a wireless experiment or independent certification of historical conclusions."
 }
