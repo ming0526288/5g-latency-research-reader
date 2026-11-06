@@ -1,0 +1,317 @@
+{
+  "status": "PASS",
+  "scope": "Read-only old data; no new RFsim experiment",
+  "protocols_and_pdf_reads": [
+    {
+      "spec": "38.211",
+      "cover": "3GPP TS 38.211 V19.5.0 (2026-09)",
+      "original_word": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38211-j50.docx",
+      "sha256": "85e88cea4b90e672fde3901253a1e52f855629090afea177934a16528365dcef",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "spec": "38.213",
+      "cover": "3GPP TS 38.213 V19.5.0 (2026-09)",
+      "original_word": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38213-j50.docx",
+      "sha256": "79c15729755aaed888a3d17334fec2bf7389e9a86858fc8b970f4d65bfc92d5c",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "spec": "38.214",
+      "cover": "3GPP TS 38.214 V19.5.0 (2026-09)",
+      "original_word": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38214-j50.docx",
+      "sha256": "1c093eb3f5ee17f40ebbca05bd0aab207800e224150bee711ab0037b28b71ed6",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "spec": "38.104",
+      "cover": "3GPP TS 38.104 V20.1.0 (2026-09)",
+      "original_word": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38104-k10.docx",
+      "sha256": "649e135ee131523b85f843bb7285fd0b230d9fd694a08d5b5278fb3732bc23f7",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "spec": "38.331",
+      "cover": "3GPP TS 38.331 V19.4.0 (2026-09)",
+      "original_word": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38331-j40.docx",
+      "sha256": "ca9a2d760fe529e06b792bdf5947cd2626a025ec0cb4ebde163a62058b998aad",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "spec": "38.321",
+      "cover": "3GPP TS 38.321 V19.4.0 (2026-09)",
+      "original_word": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38321-j40.docx",
+      "sha256": "98c9e13671e95ed50449d62eb4aaff14223158e2d04c23152778ecd8328f3f25",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "pdf": "/home/lbh/oiwireless/pdf-英文原版/1_Dissecting-5G-New-Radio-Latency.pdf",
+      "sha256": "2d272dbcb3ea0ee1d659ae2a81ab9abf2a0bcb17a957b97d917ab1bbf7a19fdd",
+      "local_pdf_pages": [
+        2,
+        4
+      ],
+      "extraction_exit": 0
+    },
+    {
+      "pdf": "/home/lbh/oiwireless/pdf-英文原版/2_5G New Radio Numerologies and their Impact on.pdf",
+      "sha256": "b586f6883fdc76637be0012b79f478f180312f43ce1c8d5e397ae29bd4464b76",
+      "local_pdf_pages": [
+        2,
+        3
+      ],
+      "extraction_exit": 0
+    },
+    {
+      "pdf": "/home/lbh/oiwireless/(NEW)5G移动通信系统设计与标准详解（大唐移动LTE和5G技术研究和标准化团队编撰！5G宝典！）.pdf",
+      "sha256": "e43a71fdb4218ca6a6ab7d56ee862ebe6a23e93348a66a35c13c5623b1c79826",
+      "local_pdf_pages": [
+        77,
+        80
+      ],
+      "extraction_exit": 0
+    }
+  ],
+  "cases": [
+    {
+      "case": "mu1-d1u3-dl",
+      "scs_kHz": 30,
+      "slot_ms": 0.5,
+      "period_ms": 2.5,
+      "slots_per_period": 5,
+      "D": 1,
+      "U": 3,
+      "S": "6D4F4U",
+      "full_packets": 4500,
+      "stat_packets": 4000,
+      "p99_ms": 1.36556918,
+      "old_program_identity": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "raw_packet_sha256": "ad3d6056ae673ca12fe62242be7d31a4672c55c7e861d1035aa6c35750833217",
+      "evidence_sha256_verified": true
+    },
+    {
+      "case": "mu1-d1u3-ul",
+      "scs_kHz": 30,
+      "slot_ms": 0.5,
+      "period_ms": 2.5,
+      "slots_per_period": 5,
+      "D": 1,
+      "U": 3,
+      "S": "6D4F4U",
+      "full_packets": 4500,
+      "stat_packets": 4000,
+      "p99_ms": 5.71172298,
+      "old_program_identity": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "raw_packet_sha256": "517c6571ab4fdf408041bce84d75796669907413011c1a6cc58b748cc96a452f",
+      "evidence_sha256_verified": true
+    },
+    {
+      "case": "mu1-d2u2-dl",
+      "scs_kHz": 30,
+      "slot_ms": 0.5,
+      "period_ms": 2.5,
+      "slots_per_period": 5,
+      "D": 2,
+      "U": 2,
+      "S": "6D4F4U",
+      "full_packets": 4500,
+      "stat_packets": 4000,
+      "p99_ms": 1.21499507,
+      "old_program_identity": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "raw_packet_sha256": "25cf6f547819995741f8058aee3cd645becf59818ceb443dd930476deda4cebd",
+      "evidence_sha256_verified": true
+    },
+    {
+      "case": "mu1-d2u2-ul",
+      "scs_kHz": 30,
+      "slot_ms": 0.5,
+      "period_ms": 2.5,
+      "slots_per_period": 5,
+      "D": 2,
+      "U": 2,
+      "S": "6D4F4U",
+      "full_packets": 4500,
+      "stat_packets": 4000,
+      "p99_ms": 5.69249988,
+      "old_program_identity": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "raw_packet_sha256": "d3d833a4aacf03eba4fef92e07a147eb3f84119dbf4af3f2615d4c6aa9150300",
+      "evidence_sha256_verified": true
+    },
+    {
+      "case": "mu1-d3u1-dl",
+      "scs_kHz": 30,
+      "slot_ms": 0.5,
+      "period_ms": 2.5,
+      "slots_per_period": 5,
+      "D": 3,
+      "U": 1,
+      "S": "6D4F4U",
+      "full_packets": 4500,
+      "stat_packets": 4000,
+      "p99_ms": 1.04110807,
+      "old_program_identity": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "raw_packet_sha256": "d88321d0a1a07835522aa9ab1f6f17756d73fe6ce4572b67980c6f82b29a29f3",
+      "evidence_sha256_verified": true
+    },
+    {
+      "case": "mu1-d3u1-ul",
+      "scs_kHz": 30,
+      "slot_ms": 0.5,
+      "period_ms": 2.5,
+      "slots_per_period": 5,
+      "D": 3,
+      "U": 1,
+      "S": "6D4F4U",
+      "full_packets": 4500,
+      "stat_packets": 4000,
+      "p99_ms": 6.37100945,
+      "old_program_identity": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "raw_packet_sha256": "e8e3118692f8cfaa856c028c45138fff3324391133dfef189a9439b3ee9caaa0",
+      "evidence_sha256_verified": true
+    },
+    {
+      "case": "mu3-d10u9-dl",
+      "scs_kHz": 120,
+      "slot_ms": 0.125,
+      "period_ms": 2.5,
+      "slots_per_period": 20,
+      "D": 10,
+      "U": 9,
+      "S": "6D4F4U",
+      "full_packets": 4500,
+      "stat_packets": 4000,
+      "p99_ms": 0.97002688,
+      "old_program_identity": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "raw_packet_sha256": "a0d350da2288987034a78c7be5846f5cb989f77e6869c352e1c9f09cf8bc9999",
+      "evidence_sha256_verified": true
+    },
+    {
+      "case": "mu3-d10u9-ul",
+      "scs_kHz": 120,
+      "slot_ms": 0.125,
+      "period_ms": 2.5,
+      "slots_per_period": 20,
+      "D": 10,
+      "U": 9,
+      "S": "6D4F4U",
+      "full_packets": 4500,
+      "stat_packets": 4000,
+      "p99_ms": 4.13227192,
+      "old_program_identity": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "raw_packet_sha256": "91c7acb68c50c738f04f5db32733756aff019c2453f42ed0176ab9c681042f39",
+      "evidence_sha256_verified": true
+    },
+    {
+      "case": "mu3-d5u14-dl",
+      "scs_kHz": 120,
+      "slot_ms": 0.125,
+      "period_ms": 2.5,
+      "slots_per_period": 20,
+      "D": 5,
+      "U": 14,
+      "S": "6D4F4U",
+      "full_packets": 4500,
+      "stat_packets": 4000,
+      "p99_ms": 1.10986604,
+      "old_program_identity": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "raw_packet_sha256": "4dda38d7e4607ac6c43aca87cc6b405c843c0e457d8e6af041834555e1d9f3cf",
+      "evidence_sha256_verified": true
+    },
+    {
+      "case": "mu3-d5u14-ul",
+      "scs_kHz": 120,
+      "slot_ms": 0.125,
+      "period_ms": 2.5,
+      "slots_per_period": 20,
+      "D": 5,
+      "U": 14,
+      "S": "6D4F4U",
+      "full_packets": 4500,
+      "stat_packets": 4000,
+      "p99_ms": 4.11906463,
+      "old_program_identity": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "raw_packet_sha256": "62bda23e1cfc1f17cb12b0366a85526c091275db99b2e5caff62ca15200eb43f",
+      "evidence_sha256_verified": true
+    },
+    {
+      "case": "mu3-d14u5-dl",
+      "scs_kHz": 120,
+      "slot_ms": 0.125,
+      "period_ms": 2.5,
+      "slots_per_period": 20,
+      "D": 14,
+      "U": 5,
+      "S": "6D4F4U",
+      "full_packets": 4500,
+      "stat_packets": 4000,
+      "p99_ms": 1.08906231,
+      "old_program_identity": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "raw_packet_sha256": "2854d940186f24e7574b8a31c69eb4264fb6fdf49f7524f3daf712ef8588a5f8",
+      "evidence_sha256_verified": true
+    },
+    {
+      "case": "mu3-d14u5-ul",
+      "scs_kHz": 120,
+      "slot_ms": 0.125,
+      "period_ms": 2.5,
+      "slots_per_period": 20,
+      "D": 14,
+      "U": 5,
+      "S": "6D4F4U",
+      "full_packets": 4500,
+      "stat_packets": 4000,
+      "p99_ms": 5.7211267900000005,
+      "old_program_identity": {
+        "nr-softmodem": "949993a69c7c0bf3968c0ea8b6c8bb04438e17f0757e1deaf7a9ab9645bcf718",
+        "nr-uesoftmodem": "d0e91df329b3bc3d42500951dab86b448af7280fca78cc20fa1df60d8c5ea5fa"
+      },
+      "raw_packet_sha256": "1f54914c260dd49c54ce56910d1f97c98a76b97a3799ef07ebacd0f615a5347d",
+      "evidence_sha256_verified": true
+    }
+  ],
+  "stat_packets": 48000,
+  "full_packets": 54000,
+  "old_batch": "2026-10-22; before MAC subheader correction CHG213/214",
+  "new_repaired_SCS_full_stack": "not measured",
+  "latest_official_version_independently_verified": false,
+  "matrix_sha256": "2ad950e86f27c052d2f99cff2314464afe48111cf2072dd991856e6c857c3dde"
+}

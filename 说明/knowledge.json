@@ -1,12 +1,40 @@
 {
-  "updated": "2026-11-03",
+  "updated": "2026-11-06",
   "documents": [
-    {"id": "kc3e4e8560cabef23", "topic": "basics", "source": "说明/算法知识点说明/00_通信与时延基础知识.md"},
-    {"id": "k7be2718894117a09", "topic": "tdd", "source": "说明/算法知识点说明/不同TDD/实验结果之前_TDD配置与时隙图.md"},
-    {"id": "k704fbf83fa34477b", "topic": "scs", "source": "说明/算法知识点说明/不同SCS/实验结果之前_SCS与资源边界.md"},
-    {"id": "kbc84a4ab741e2050", "topic": "multi-ue", "source": "说明/算法知识点说明/多UE/实验结果之前_多UE负载与对照条件.md"},
-    {"id": "k5d6e74ad114beadb", "topic": "layers", "source": "说明/算法知识点说明/分层时延/实验结果之前_协议层与计时边界.md"},
-    {"id": "k992ba75961d9517b", "topic": "tail", "source": "说明/算法知识点说明/尾时延/实验结果之前_分位数样本与慢包.md"},
-    {"id": "k4f5f00700a16ad5b", "topic": "algorithms", "source": "说明/算法知识点说明/算法实验_共同前置条件.md"}
+    {
+      "id": "kc3e4e8560cabef23",
+      "topic": "basics",
+      "source": "说明/算法知识点说明/00_通信与时延基础知识.md"
+    },
+    {
+      "id": "k7be2718894117a09",
+      "topic": "tdd",
+      "source": "说明/算法知识点说明/不同TDD/实验结果之前_TDD配置与时隙图.md"
+    },
+    {
+      "id": "k704fbf83fa34477b",
+      "topic": "scs",
+      "source": "说明/算法知识点说明/不同SCS/实验结果之前_SCS与资源边界.md"
+    },
+    {
+      "id": "kbc84a4ab741e2050",
+      "topic": "multi-ue",
+      "source": "说明/算法知识点说明/多UE/实验结果之前_多UE负载与对照条件.md"
+    },
+    {
+      "id": "k5d6e74ad114beadb",
+      "topic": "layers",
+      "source": "说明/算法知识点说明/分层时延/实验结果之前_协议层与计时边界.md"
+    },
+    {
+      "id": "k992ba75961d9517b",
+      "topic": "tail",
+      "source": "说明/算法知识点说明/尾时延/实验结果之前_分位数样本与慢包.md"
+    },
+    {
+      "id": "k4f5f00700a16ad5b",
+      "topic": "algorithms",
+      "source": "说明/算法知识点说明/算法实验_共同前置条件.md"
+    }
   ]
 }

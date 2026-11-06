@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "page_payload_and_search_checks": [
+    {
+      "id": "e4c1f2a8800000002",
+      "source": "说明/五类时延分析/SCS_已做实验与错误案例.md",
+      "source_sha256": "eb89e338ecc411a356cdf98182316ee932853513d20775fc64e68b379d4ac8eb",
+      "new_text_in_html_and_search": true,
+      "toc_entries": 7
+    },
+    {
+      "id": "k704fbf83fa34477b",
+      "source": "说明/算法知识点说明/不同SCS/实验结果之前_SCS与资源边界.md",
+      "source_sha256": "a08e70bf4793374a60988b473bb2cc1fe8ea34549a47fc2045932aeb174543ca",
+      "new_text_in_html_and_search": true,
+      "toc_entries": 7
+    },
+    {
+      "id": "k4f5f00700a16ad5b",
+      "source": "说明/算法知识点说明/算法实验_共同前置条件.md",
+      "source_sha256": "cf860715b1c9060fd0104325e425e9772415234c688db243297751823ecc7300",
+      "new_text_in_html_and_search": true,
+      "toc_entries": 8
+    }
+  ],
+  "unrelated_original_dirty_preserved": true,
+  "wireless_experiment_started": false,
+  "ui_layout_changed": false,
+  "browser_screenshot_rerun": false,
+  "knowledge_check_exit": 0,
+  "experiment_check_exit": 0,
+  "whole_reader_check_exit": 0,
+  "whole_reader_documents": 1189,
+  "whole_reader_errors": []
+}
