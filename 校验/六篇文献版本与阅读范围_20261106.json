@@ -1,0 +1,373 @@
+{
+  "scope": "focused re-read of 6 local papers from the 35-paper inventory; not all 35 full texts re-read",
+  "papers": [
+    {
+      "id": "P04",
+      "path": "/home/lbh/oiwireless/pdf-英文原版/4_retalin-queue-aware-uplink-scheduling-5g-nr-2023.pdf",
+      "sha256": "989cc2c0e4ddafc7696a8c11e17a3a008ae40e76f5a7c637047152ed71fc455f",
+      "local_pdf_page_ranges": [
+        [
+          9,
+          10
+        ],
+        [
+          18,
+          18
+        ]
+      ],
+      "text_extract_exit": 0,
+      "actual_text_commands": [
+        [
+          "pdftotext",
+          "-f",
+          "9",
+          "-l",
+          "10",
+          "-layout",
+          "/home/lbh/oiwireless/pdf-英文原版/4_retalin-queue-aware-uplink-scheduling-5g-nr-2023.pdf",
+          "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/P04-pages9-10.txt"
+        ],
+        [
+          "pdftotext",
+          "-f",
+          "18",
+          "-l",
+          "18",
+          "-layout",
+          "/home/lbh/oiwireless/pdf-英文原版/4_retalin-queue-aware-uplink-scheduling-5g-nr-2023.pdf",
+          "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/P04-pages18-18.txt"
+        ]
+      ]
+    },
+    {
+      "id": "P05",
+      "path": "/home/lbh/oiwireless/pdf-英文原版/5_AUGUSTE Online-Learning dApp for Predictive URLLC Scheduling.pdf",
+      "sha256": "70ae279a5ed526ba2b773fcf37afe4dae3d750a88a63156de07afb7292be6f16",
+      "local_pdf_page_ranges": [
+        [
+          3,
+          6
+        ]
+      ],
+      "text_extract_exit": 0,
+      "actual_text_commands": [
+        [
+          "pdftotext",
+          "-f",
+          "3",
+          "-l",
+          "6",
+          "-layout",
+          "/home/lbh/oiwireless/pdf-英文原版/5_AUGUSTE Online-Learning dApp for Predictive URLLC Scheduling.pdf",
+          "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/P05-pages3-6.txt"
+        ]
+      ]
+    },
+    {
+      "id": "P19",
+      "path": "/home/lbh/oiwireless/pdf-英文原版/19_Analysis of Outage Latency and Throughput Performance in Industrial Factory 5G TDD Deployments.pdf",
+      "sha256": "63c86d50fc2581b712a31a931efe13e7cc8b39b9e9a1679a8614d55bbe55631c",
+      "local_pdf_page_ranges": [
+        [
+          2,
+          5
+        ]
+      ],
+      "text_extract_exit": 0,
+      "actual_text_commands": [
+        [
+          "pdftotext",
+          "-f",
+          "2",
+          "-l",
+          "5",
+          "-layout",
+          "/home/lbh/oiwireless/pdf-英文原版/19_Analysis of Outage Latency and Throughput Performance in Industrial Factory 5G TDD Deployments.pdf",
+          "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/P19-pages2-5.txt"
+        ]
+      ]
+    },
+    {
+      "id": "P24",
+      "path": "/home/lbh/oiwireless/pdf-英文原版/24_QUEST_User-Based_Quality_of_Service_Aware_Uplink_Resource_Scheduling.pdf",
+      "sha256": "34863ff7dbdbf48d890d8830c90cb5e8ab1c0f53fccf41c588f9ad41c687f227",
+      "local_pdf_page_ranges": [
+        [
+          6,
+          7
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          14,
+          14
+        ]
+      ],
+      "text_extract_exit": 0,
+      "actual_text_commands": [
+        [
+          "pdftotext",
+          "-f",
+          "6",
+          "-l",
+          "7",
+          "-layout",
+          "/home/lbh/oiwireless/pdf-英文原版/24_QUEST_User-Based_Quality_of_Service_Aware_Uplink_Resource_Scheduling.pdf",
+          "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/P24-pages6-7.txt"
+        ],
+        [
+          "pdftotext",
+          "-f",
+          "11",
+          "-l",
+          "12",
+          "-layout",
+          "/home/lbh/oiwireless/pdf-英文原版/24_QUEST_User-Based_Quality_of_Service_Aware_Uplink_Resource_Scheduling.pdf",
+          "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/P24-pages11-12.txt"
+        ],
+        [
+          "pdftotext",
+          "-f",
+          "14",
+          "-l",
+          "14",
+          "-layout",
+          "/home/lbh/oiwireless/pdf-英文原版/24_QUEST_User-Based_Quality_of_Service_Aware_Uplink_Resource_Scheduling.pdf",
+          "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/P24-pages14-14.txt"
+        ]
+      ]
+    },
+    {
+      "id": "P29",
+      "path": "/home/lbh/oiwireless/pdf-英文原版/29_Efficient fair queueing using deficit round robin.pdf",
+      "sha256": "b113e7cda003d4c03cc2d92fa5714502564988128f83716b3f03e020a2e67c02",
+      "local_pdf_page_ranges": [
+        [
+          5,
+          7
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "text_extract_exit": 0,
+      "actual_text_commands": [
+        [
+          "pdftotext",
+          "-f",
+          "5",
+          "-l",
+          "7",
+          "-layout",
+          "/home/lbh/oiwireless/pdf-英文原版/29_Efficient fair queueing using deficit round robin.pdf",
+          "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/P29-pages5-7.txt"
+        ],
+        [
+          "pdftotext",
+          "-f",
+          "10",
+          "-l",
+          "11",
+          "-layout",
+          "/home/lbh/oiwireless/pdf-英文原版/29_Efficient fair queueing using deficit round robin.pdf",
+          "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/P29-pages10-11.txt"
+        ]
+      ]
+    },
+    {
+      "id": "P31",
+      "path": "/home/lbh/oiwireless/pdf-英文原版/31_MAC-Gyver Open, Programmable, Scheduling.pdf",
+      "sha256": "a504178653c544e74420bdccfe469b206febee625248e144204db60bd6004a8a",
+      "local_pdf_page_ranges": [
+        [
+          9,
+          11
+        ],
+        [
+          14,
+          16
+        ]
+      ],
+      "text_extract_exit": 0,
+      "actual_text_commands": [
+        [
+          "pdftotext",
+          "-f",
+          "9",
+          "-l",
+          "11",
+          "-layout",
+          "/home/lbh/oiwireless/pdf-英文原版/31_MAC-Gyver Open, Programmable, Scheduling.pdf",
+          "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/P31-pages9-11.txt"
+        ],
+        [
+          "pdftotext",
+          "-f",
+          "14",
+          "-l",
+          "16",
+          "-layout",
+          "/home/lbh/oiwireless/pdf-英文原版/31_MAC-Gyver Open, Programmable, Scheduling.pdf",
+          "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/P31-pages14-16.txt"
+        ]
+      ]
+    }
+  ],
+  "book": {
+    "path": "/home/lbh/oiwireless/(NEW)5G移动通信系统设计与标准详解（大唐移动LTE和5G技术研究和标准化团队编撰！5G宝典！）.pdf",
+    "sha256": "e43a71fdb4218ca6a6ab7d56ee862ebe6a23e93348a66a35c13c5623b1c79826",
+    "local_pdf_page_ranges": [
+      [
+        205,
+        206
+      ],
+      [
+        530,
+        532
+      ],
+      [
+        537,
+        539
+      ]
+    ],
+    "actual_text_commands": [
+      [
+        "pdftotext",
+        "-f",
+        "205",
+        "-l",
+        "206",
+        "-layout",
+        "/home/lbh/oiwireless/(NEW)5G移动通信系统设计与标准详解（大唐移动LTE和5G技术研究和标准化团队编撰！5G宝典！）.pdf",
+        "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/book-205-206.txt"
+      ],
+      [
+        "pdftotext",
+        "-f",
+        "530",
+        "-l",
+        "532",
+        "-layout",
+        "/home/lbh/oiwireless/(NEW)5G移动通信系统设计与标准详解（大唐移动LTE和5G技术研究和标准化团队编撰！5G宝典！）.pdf",
+        "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/book-530-532.txt"
+      ],
+      [
+        "pdftotext",
+        "-f",
+        "537",
+        "-l",
+        "539",
+        "-layout",
+        "/home/lbh/oiwireless/(NEW)5G移动通信系统设计与标准详解（大唐移动LTE和5G技术研究和标准化团队编撰！5G宝典！）.pdf",
+        "/home/lbh/oiwireless/analysis-source-audit/paper-focus-review-20261106/book-537-539.txt"
+      ]
+    ]
+  },
+  "no_new_radio_experiment": true,
+  "version_review": [
+    {
+      "paper": "P04",
+      "status": "local draft; final bibliography identified; final full-text differences not verified",
+      "primary_urls": [
+        "https://newslab.iith.ac.in/files/journals/Retalin_IEEE_Access-2.pdf",
+        "https://pr.iith.ac.in/reports/annual/IITH-AR-2024-25.pdf"
+      ],
+      "final_bibliography": "IEEE Access 12:16632-16651 (2024), DOI10.1109/ACCESS.2024.3359028",
+      "failed_final_doi_open": "not accessible by web tool",
+      "related_separate_work": "VTC2024-Spring DOI10.1109/VTC2024-Spring62846.2024.10683169; predictive BSR, primary author paper/slide search index readable, direct PDF404; not in local35, no full read claimed"
+    },
+    {
+      "paper": "P05",
+      "primary_url": "https://arxiv.org/abs/2606.03664",
+      "web_current": "v1, 2026-06-02",
+      "matches_local_version": true
+    },
+    {
+      "paper": "P31",
+      "primary_url": "https://arxiv.org/abs/2607.26012",
+      "web_current": "v3, 2026-08-08",
+      "matches_local_version": true,
+      "separate_arxiv_from_P05": true
+    },
+    {
+      "paper": "P19",
+      "primary_url": "https://arxiv.org/abs/2012.05507",
+      "web_current": "v1, 2020-12-10",
+      "matches_local_version": true,
+      "not_claimed_latest_publisher_full_text": true
+    },
+    {
+      "paper": "P24",
+      "primary_url": "https://portal.fis.tum.de/en/publications/quest-user-based-quality-of-service-aware-uplink-resource-schedul/",
+      "doi": "10.1109/TNSM.2026.3685537",
+      "local": "15-page TNSM2026 layout",
+      "portal_state": "Accepted/In press2026",
+      "publisher_final_byte_comparison_done": false
+    },
+    {
+      "paper": "P29",
+      "local": "SIGCOMM1995 conference PDF,12pages",
+      "primary_earlier_report": "https://repository.library.washu.edu/cse_research/339/",
+      "earlier_report_year": 1994,
+      "conference_doi": "10.1145/217382.217453",
+      "later_journal": "IEEE/ACM ToN4(3):375-385 (1996), DOI10.1109/90.502236",
+      "journal_full_text_read": false,
+      "acm_doi_open": "403",
+      "ieee_doi_open": "not accessible"
+    }
+  ],
+  "protocols": [
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38321-j40.docx",
+      "cover": "3GPP TS 38.321 V19.4.0 (2026-09)",
+      "sha256": "98c9e13671e95ed50449d62eb4aaff14223158e2d04c23152778ecd8328f3f25",
+      "crc_xml_readable": true
+    },
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38214-j50.docx",
+      "cover": "3GPP TS 38.214 V19.5.0 (2026-09)",
+      "sha256": "1c093eb3f5ee17f40ebbca05bd0aab207800e224150bee711ab0037b28b71ed6",
+      "crc_xml_readable": true
+    },
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38331-j40.docx",
+      "cover": "3GPP TS 38.331 V19.4.0 (2026-09)",
+      "sha256": "ca9a2d760fe529e06b792bdf5947cd2626a025ec0cb4ebde163a62058b998aad",
+      "crc_xml_readable": true
+    },
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38213-j50.docx",
+      "cover": "3GPP TS 38.213 V19.5.0 (2026-09)",
+      "sha256": "79c15729755aaed888a3d17334fec2bf7389e9a86858fc8b970f4d65bfc92d5c",
+      "crc_xml_readable": true
+    },
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38211-j50.docx",
+      "cover": "3GPP TS 38.211 V19.5.0 (2026-09)",
+      "sha256": "85e88cea4b90e672fde3901253a1e52f855629090afea177934a16528365dcef",
+      "crc_xml_readable": true
+    },
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/23501-k30/23501-k30.docx",
+      "cover": "3GPP TS 23.501 V20.3.0 (2026-09)",
+      "sha256": "f057a0c3f4b955751a0e03f5b2a47549bd2c7c3363e318b43f161b076d4c82dd",
+      "crc_xml_readable": true
+    },
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38300-j40.docx",
+      "cover": "3GPP TS 38.300 V19.4.0 (2026-09)",
+      "sha256": "47a246c4f83b4ad1476897be7f21954e8c300d0a039fb600ead07be5f5c3e5f3",
+      "crc_xml_readable": true
+    },
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38322-j30/38322-j30.docx",
+      "cover": "3GPP TS 38.322 V19.3.0 (2026-06)",
+      "sha256": "58ca7b93c94941b2e3497dc78a5e2d3bd15eb7bee8b9dcae4e998969ea9f1abf",
+      "crc_xml_readable": true
+    }
+  ],
+  "claims_scope": "Focused reading and provisional research-use selection only; no new parameter, algorithm, formula, wireless experiment, publisher-final-version equivalence or global novelty proof."
+}

@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "page_id": "k4f5f00700a16ad5b",
+  "source_sha256": "c06d957c761ed8d2b7911d1aeccc3a5bc364095d9eee62217801c3a854915333",
+  "new_html_toc_search_verified": true,
+  "six_local_original_sha256_unchanged": true,
+  "other_six_canonical_knowledge_sources_match_committed_HEAD": [
+    "说明/算法知识点说明/00_通信与时延基础知识.md",
+    "说明/算法知识点说明/不同TDD/实验结果之前_TDD配置与时隙图.md",
+    "说明/算法知识点说明/不同SCS/实验结果之前_SCS与资源边界.md",
+    "说明/算法知识点说明/多UE/实验结果之前_多UE负载与对照条件.md",
+    "说明/算法知识点说明/分层时延/实验结果之前_协议层与计时边界.md",
+    "说明/算法知识点说明/尾时延/实验结果之前_分位数样本与慢包.md"
+  ],
+  "preexisting_main_dirty_SHA_unchanged": [
+    "research/latency-analysis/docs/00_总路线与阶段验收.md",
+    "research/latency-analysis/docs/10_协议文献教材依据与参数溯源.md",
+    "research/latency-analysis/算法文档/ALG-001_QUEST与BSR_DSR说明.md"
+  ],
+  "other_concurrent_main_edits_not_staged": [],
+  "shared_START_policy": "keep concurrent handoff changes; stage only our paragraph against current HEAD",
+  "independent_GTPU_changes": "preserved; shared canonical changes were committed separately",
+  "knowledge_check_exit": 0,
+  "reader_check_exit": 0,
+  "new_wireless_experiment": false,
+  "new_algorithm_implemented": false,
+  "scope": "focused literature comparison; no global novelty or final-edition equivalence claim"
+}
