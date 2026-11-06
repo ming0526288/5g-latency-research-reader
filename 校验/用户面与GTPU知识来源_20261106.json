@@ -1,0 +1,136 @@
+{
+  "checked_at": "2026-11-06T15:42:51.865985+08:00",
+  "protocols": [
+    {
+      "file": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38300-j40.docx",
+      "sha256": "47a246c4f83b4ad1476897be7f21954e8c300d0a039fb600ead07be5f5c3e5f3",
+      "cover": "3GPP TS 38.300 V19.4.0 (2026-09)",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "file": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/37324-j00/37324-j00.docx",
+      "sha256": "180e7e665cb8367da18afa4ae34048209ee2b51bacc83abb2b830de5033b16b4",
+      "cover": "3GPP TS 37.324 V19.0.0 (2025-09)",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "file": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38323-j10/38323-j10.docx",
+      "sha256": "52756f0db2c24e5f09d7a1e536984be0c51b15168b5758ba5229f35cd3e35b01",
+      "cover": "3GPP TS 38.323 V19.1.0 (2025-12)",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "file": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38322-j30/38322-j30.docx",
+      "sha256": "58ca7b93c94941b2e3497dc78a5e2d3bd15eb7bee8b9dcae4e998969ea9f1abf",
+      "cover": "3GPP TS 38.322 V19.3.0 (2026-06)",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "file": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38321-j40.docx",
+      "sha256": "98c9e13671e95ed50449d62eb4aaff14223158e2d04c23152778ecd8328f3f25",
+      "cover": "3GPP TS 38.321 V19.4.0 (2026-09)",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "file": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38211-j50.docx",
+      "sha256": "85e88cea4b90e672fde3901253a1e52f855629090afea177934a16528365dcef",
+      "cover": "3GPP TS 38.211 V19.5.0 (2026-09)",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "file": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/29281-j20/29281-j20.docx",
+      "sha256": "884af90bbf028639003c6fdd47f33688118dddf765241825c04cde18b06e819f",
+      "cover": "3GPP TS 29.281 V19.2.0 (2025-09)",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "file": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38415-j10/38415-j10.docx",
+      "sha256": "94c32591d53f84fa5eb66aa89021321bfc4ad2b7fda0077df4661d08cfc9b466",
+      "cover": "3GPP TS 38.415 V19.1.0 (2025-12)",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    },
+    {
+      "file": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/23501-k30/23501-k30.docx",
+      "sha256": "f057a0c3f4b955751a0e03f5b2a47549bd2c7c3363e318b43f161b076d4c82dd",
+      "cover": "3GPP TS 23.501 V20.3.0 (2026-09)",
+      "zip_crc": "PASS",
+      "docx_crc_xml": "PASS"
+    }
+  ],
+  "code_tree": "/home/lbh/oiwireless/oi-wireless-ran-probe-residual",
+  "code_source_sha256": {
+    "research/latency-analysis/tdd1/udp_packet_probe.py": "0797efb905a7ac8192774b04adc2733524bd0ac14ac4cad146b000f2b238045d",
+    "research/latency-analysis/multi-ue/probe.py": "adff8ec175f018d135bbc8614b34b6a858243ff8a8a48f3bd9f9d9d77d609f95",
+    "research/latency-analysis/multi-ue/probe_durable.py": "aef99ddfb996e23696f851b5a99e0683aac9fc00c2a6f312e8bd7dd175c538d7",
+    "research/latency-analysis/multi-ue/analyze.py": "73d27ce2bfb990b15bd27308a49072f7ffc9f9e297295a7589e0452ac0f95c20",
+    "openair2/LAYER2/nr_rlc/nr_rlc_entity_am.c": "47738cc32d0a7016b10e1f23a5578bd86bf92db51d1cd84aaacb011cf08d9763",
+    "openair1/PHY/NR_UE_TRANSPORT/nr_ulsch_ue.c": "c350e6cb00f9a03d00a45fd5a648714d8bb563e79e4e2284066e652dc8c231d1",
+    "openair3/ocp-gtpu/gtp_itf.cpp": "1c22b66d6b3c6fd91bdaf43007cadd30d6d8efac48a37ed9d49adc3b267a58dc",
+    "common/utils/ul_service_trace.h": "8f529d936f45b596e27d2a24e899f01ec391e931858c69a1ac331800303ac2bf"
+  },
+  "required_protocol_missing": [],
+  "latest_official_version_independently_verified": false,
+  "radio_or_business_started": false,
+  "scope": "Definitions and source-location explanation only; no new code or latency result",
+  "used_protocol_clauses": {
+    "38.300": [
+      "4.3.1.1",
+      "6.1",
+      "5 (physical-layer context)"
+    ],
+    "37.324": [
+      "4.4"
+    ],
+    "38.323": [
+      "4.4"
+    ],
+    "38.322": [
+      "4.4"
+    ],
+    "38.321": [
+      "5.4.1"
+    ],
+    "29.281": [
+      "4.2.1",
+      "4.4.1",
+      "4.4.2.3",
+      "5.1"
+    ],
+    "23.501": [
+      "4.2.7"
+    ]
+  },
+  "integrity_only_not_used_for_new_claims": [
+    "38.211",
+    "38.415"
+  ],
+  "pdf_sources": [
+    {
+      "file": "/home/lbh/oiwireless/pdf-英文原版/1_Dissecting-5G-New-Radio-Latency.pdf",
+      "sha256": "2d272dbcb3ea0ee1d659ae2a81ab9abf2a0bcb17a957b97d917ab1bbf7a19fdd",
+      "local_pdf_pages": [
+        2,
+        3
+      ],
+      "use": "P01 IFIP Networking2025 III-A–E and Fig1; not full probe replication"
+    },
+    {
+      "file": "/home/lbh/oiwireless/(NEW)5G移动通信系统设计与标准详解（大唐移动LTE和5G技术研究和标准化团队编撰！5G宝典！）.pdf",
+      "sha256": "e43a71fdb4218ca6a6ab7d56ee862ebe6a23e93348a66a35c13c5623b1c79826",
+      "local_pdf_pages": [
+        49,
+        55
+      ],
+      "use": "specified textbook Chapter2 layer functions; not fixed per-layer delay"
+    }
+  ],
+  "review_note": "The 38.415 digit-only paragraph match was not treated as a clause; definitions in the new text use only the listed clauses. A helper grep requested nonexistent common/utils/ul_queue_trace.h (exit2); source anchors were read from the actual AM/UST files instead."
+}

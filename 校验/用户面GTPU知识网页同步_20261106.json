@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "page_id": "kc3e4e8560cabef23",
+  "actual_body_commit": "98020633f126dde526730da84120eea1fec2f578",
+  "actual_committed_source_sha256": "0b7d1b6f6d03284bc8f46dc706c42cce467c5c042e231751b339222ad7476425",
+  "live_source_sha256": "0b7d1b6f6d03284bc8f46dc706c42cce467c5c042e231751b339222ad7476425",
+  "exact_requested_section_already_committed_and_preserved": true,
+  "live_html_search_toc_verified": true,
+  "independent_old_base_candidate_check": "PASS; candidate source9f6fa06f is historical protection check, not actual final published source",
+  "actual_body_commit_includes_parallel_authorized_knowledge_changes": true,
+  "this_followup_commit_scope": "only source/evidence summaries; no overwrite of already committed page",
+  "required_local_originals": 9,
+  "prerequisite_check_exit": 0,
+  "whole_reader_check_exit": 0,
+  "new_radio_experiment": false,
+  "browser_screenshots_rerun": false
+}
