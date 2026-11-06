@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-11-06T15:29:22.086448+08:00",
+  "scope": "conference classifications, CFP metadata and school-recognition limits; non-communication administration",
+  "sources": [
+    {
+      "url": "https://www.ccf.org.cn/Academic_Evaluation/By_category/",
+      "actual_use_and_limit": "2026-03-31发布第七版，会议类别仍A/B/C；正式长文与Workshop等分开。",
+      "access": "search-index readable; direct open405"
+    },
+    {
+      "url": "https://www.ccf.org.cn/Academic_Evaluation/CN/",
+      "actual_use_and_limit": "官网当前计算机网络目录：INFOCOM/MobiCom A；ICC/GLOBECOM C。",
+      "access": "search-index readable; direct open405"
+    },
+    {
+      "url": "https://www.sigmobile.org/mobicom/2027/cfp.html",
+      "actual_use_and_limit": "官方征稿范围及评价重视原创、技术正确性、评估与影响；夏季2026-09-02已过，冬季日期TBD。",
+      "access": "direct open readable"
+    },
+    {
+      "url": "https://www.comsoc.org/engagement-community/boards-councils-committees/committee/globecomicc-management-strategy-gims-standing-committee",
+      "actual_use_and_limit": "ICC/GLOBECOM属ComSoc年度通信技术会议，涵盖通信研究、技术和应用。",
+      "access": "search-index readable"
+    },
+    {
+      "url": "https://sice.bupt.edu.cn/kxyj/kycg.htm",
+      "actual_use_and_limit": "学院科研菜单可见重要会议列表；不能据此推出具体学位或一区认定。",
+      "access": "search-index partial; direct open412"
+    },
+    {
+      "url": "https://math.bupt.edu.cn/__local/E/7D/40/58846FA7B36F7F96A44D6344BC0_FF992DAF_B7682.pdf",
+      "actual_use_and_limit": "搜索检出2024级学硕培养方案，但原文打开404；不用来认证当前年级学位条件。",
+      "access": "direct open404"
+    },
+    {
+      "url": "https://infocom2027.ieee-infocom.org/2027-ieee-infocom-call-papers",
+      "actual_use_and_limit": "本次未读到完整CFP，不编造下一轮截止和页数。",
+      "access": "direct open not accessible"
+    }
+  ],
+  "bupt_school_specific_acceptance_or_zone1_verified": false,
+  "no_external_messages_or_submissions_sent": true,
+  "protocol_scope": "Current administrative venue task requires no new 3GPP service metric. Local 60-file recursive inventory included ZIP members; no industrial quantitative requirement or new research experiment proceeded.",
+  "current_required_protocols_missing": []
+}
