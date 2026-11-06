@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "basic_page_id": "kc3e4e8560cabef23",
+  "source_sha256": "586e037aa0b2c7402bd2ff00f13c2eaf5969be636092b81d197f6a57b0fd4479",
+  "html_toc_search_synced": true,
+  "verified_text": [
+    "应用负载、UDP、IP 和头部是什么意思",
+    "32 B",
+    "1208",
+    "1228",
+    "8.186667",
+    "RFC 768"
+  ],
+  "svg_source": "说明/插图/应用负载与UDP_IP头部.svg",
+  "svg_sha256": "65ad51bb5283520028b890abf7402de72155e90d70c4babaa45d4e4b4abab083",
+  "published_svg": "网页/images/65ad51bb5283520028b8.svg",
+  "svg_render_visual_QA": "local librsvg PNG inspected; no clipped labels",
+  "final_knowledge_exit": 0,
+  "final_reader_validation_exit": 0,
+  "new_wireless_experiment": false,
+  "unrelated_dirty_preserved": true
+}
