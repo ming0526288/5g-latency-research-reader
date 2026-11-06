@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "topic": "basics",
+      "id": "kc3e4e8560cabef23",
+      "source": "说明/算法知识点说明/00_通信与时延基础知识.md",
+      "sha256": "0b7d1b6f6d03284bc8f46dc706c42cce467c5c042e231751b339222ad7476425",
+      "html_search_match": true,
+      "toc_count": 24
+    },
+    {
+      "topic": "tail",
+      "id": "k992ba75961d9517b",
+      "source": "说明/算法知识点说明/尾时延/实验结果之前_分位数样本与慢包.md",
+      "sha256": "d1e73bd5cdf2197cb36d3eed1dd7bb2346294030ae52aa229afe61f78af6117f",
+      "html_search_match": true,
+      "toc_count": 7
+    },
+    {
+      "topic": "multi-ue",
+      "id": "kbc84a4ab741e2050",
+      "source": "说明/算法知识点说明/多UE/实验结果之前_多UE负载与对照条件.md",
+      "sha256": "e9080c2bffa9bb1aa3d772a7557a4fb858d23e6e97caa015ef0bd6394a18165e",
+      "html_search_match": true,
+      "toc_count": 6
+    }
+  ],
+  "knowledge_build": {
+    "pages": 7,
+    "formulas": 80,
+    "images": 9,
+    "exit": 0
+  },
+  "algorithm_navigation": {
+    "families": 4,
+    "linked_docs": 32,
+    "exit": 0
+  },
+  "knowledge_source_check_exit": 0,
+  "reader_validation_exit": 0,
+  "whole_reader_errors": [],
+  "new_wireless_experiment": false,
+  "other_session_change_observed": [
+    "research/latency-analysis/START_HERE_新会话引导.md"
+  ],
+  "existing_other_changes_not_overwritten": true,
+  "initial_preservation_assertion_failed_only_on_external_START_update": true,
+  "scope": "Definitions and teaching explanations, not new algorithms or performance results",
+  "unrelated_reader_common_source_left_unstaged": "说明/算法知识点说明/算法实验_共同前置条件.md",
+  "unrelated_common_metadata_matches_parent_HEAD": true,
+  "whole_reader_check_timing": "Passed before subsequent external common-source worktree update; its rendered metadata still matches committed parent and is excluded from this change"
+}
