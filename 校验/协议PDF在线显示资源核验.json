@@ -1,0 +1,225 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "file": "网页/app.js",
+      "http_status": 200,
+      "matches_local_bytes": true
+    },
+    {
+      "file": "网页/protocol-pdfs.js",
+      "http_status": 200,
+      "matches_local_bytes": true
+    },
+    {
+      "file": "网页/data/kc3e4e8560cabef23.js",
+      "http_status": 200,
+      "matches_local_bytes": true
+    },
+    {
+      "file": "阅读转换件/3GPP/23501-k30.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 7894710
+    },
+    {
+      "file": "阅读转换件/3GPP/23502-k30.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 17406991
+    },
+    {
+      "file": "阅读转换件/3GPP/23503-k30.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 1092583
+    },
+    {
+      "file": "阅读转换件/3GPP/24501-k10_0_cover.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 160851
+    },
+    {
+      "file": "阅读转换件/3GPP/24501-k10_1_Main-Body_s00_s04.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 575531
+    },
+    {
+      "file": "阅读转换件/3GPP/24501-k10_2_Main-Body_s05_s0504.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 1258239
+    },
+    {
+      "file": "阅读转换件/3GPP/24501-k10_3_Main-Body_s0505_s0506.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 1153262
+    },
+    {
+      "file": "阅读转换件/3GPP/24501-k10_4_Main-Body_s06_s08.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 1800480
+    },
+    {
+      "file": "阅读转换件/3GPP/24501-k10_5_Main-Body_s09_s10.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 759359
+    },
+    {
+      "file": "阅读转换件/3GPP/24501-k10_6_Annexes_sA_sHistory.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 997274
+    },
+    {
+      "file": "阅读转换件/3GPP/28552-k40.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 2215689
+    },
+    {
+      "file": "阅读转换件/3GPP/29244-k10.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 2866722
+    },
+    {
+      "file": "阅读转换件/3GPP/29281-j20.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 332445
+    },
+    {
+      "file": "阅读转换件/3GPP/37324-j00.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 223359
+    },
+    {
+      "file": "阅读转换件/3GPP/38101-1-k10_cover.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 164865
+    },
+    {
+      "file": "阅读转换件/3GPP/38101-1-k10_s00-05.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 666800
+    },
+    {
+      "file": "阅读转换件/3GPP/38101-1-k10_s06-06.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 2287808
+    },
+    {
+      "file": "阅读转换件/3GPP/38101-1-k10_s07-XX.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 1036609
+    },
+    {
+      "file": "阅读转换件/3GPP/38101-1-k10_sAnnexes.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 980852
+    },
+    {
+      "file": "阅读转换件/3GPP/38101-2-k10.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 2581146
+    },
+    {
+      "file": "阅读转换件/3GPP/38104-k10.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 3192584
+    },
+    {
+      "file": "阅读转换件/3GPP/38211-j50.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 1329994
+    },
+    {
+      "file": "阅读转换件/3GPP/38212-j40.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 2225214
+    },
+    {
+      "file": "阅读转换件/3GPP/38213-j50.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 2058039
+    },
+    {
+      "file": "阅读转换件/3GPP/38214-j50.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 3522280
+    },
+    {
+      "file": "阅读转换件/3GPP/38300-j40.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 5595367
+    },
+    {
+      "file": "阅读转换件/3GPP/38321-j40.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 3592295
+    },
+    {
+      "file": "阅读转换件/3GPP/38322-j30.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 455171
+    },
+    {
+      "file": "阅读转换件/3GPP/38323-j10.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 791108
+    },
+    {
+      "file": "阅读转换件/3GPP/38331-j40.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 7033400
+    },
+    {
+      "file": "阅读转换件/3GPP/38401-j30.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 6250612
+    },
+    {
+      "file": "阅读转换件/3GPP/38413-j40.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 3672295
+    },
+    {
+      "file": "阅读转换件/3GPP/38415-j10.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 210349
+    },
+    {
+      "file": "阅读转换件/3GPP/38473-j40.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "bytes": 3582866
+    }
+  ],
+  "scope": "Live loopback resources; not a remote client/VPN access check."
+}

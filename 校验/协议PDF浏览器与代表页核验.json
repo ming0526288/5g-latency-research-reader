@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Firefox real native PDF viewer screenshot shows TS23.501 page49 architecture and page49/805 controls",
+    "Converted PDF page49 original EMF architecture image rendered and inspected",
+    "Representative SCS table, TDD heading, MCS table, TBS equations, BSR section page samples rendered for visual review"
+  ],
+  "files": [
+    {
+      "local": "analysis-source-audit/protocol-pdf-reader-20261109/protocol-pdf-browser.png",
+      "sha256": "9d2b3f9929d82e1587cd73e82bbc05bf87bd8c5ce20a0d533556db3acbbf2ea1"
+    },
+    {
+      "local": "analysis-source-audit/protocol-pdf-reader-20261109/ts23501-figure-page49.png",
+      "sha256": "3eafad91e970763a6fb18da6fcdbcbbbe27c01ea58e73bffc8c939b41fbe7c11"
+    },
+    {
+      "local": "analysis-source-audit/protocol-pdf-reader-20261109/scs-table-page12.png",
+      "sha256": "0e84fa7f964cc8364353e71ee1c1a95d3a5613ad5a8500aac7f0bf5e27a67bc7"
+    },
+    {
+      "local": "analysis-source-audit/protocol-pdf-reader-20261109/tdd-page239.png",
+      "sha256": "853bbb25a4b25dd8b4e179b1ce2a890688ad12241170bedadae271a95fa84e6e"
+    },
+    {
+      "local": "analysis-source-audit/protocol-pdf-reader-20261109/tbs-formulas-page42.png",
+      "sha256": "21807b7efe90680a276c79d89e9d7e676a7b9db0d1b487b8853dbea2a4c48019"
+    },
+    {
+      "local": "analysis-source-audit/protocol-pdf-reader-20261109/tbs-formulas-page43.png",
+      "sha256": "8ae78aa9c2b836087dd4bf7993414f4e937726c343fa79bfbf5847c04f5d44d6"
+    },
+    {
+      "local": "analysis-source-audit/protocol-pdf-reader-20261109/bsr-page94.png",
+      "sha256": "31b64b4bb303d95dad3102aff28f2041e93cf4eb009c1d69db4f3ed96d01a6a0"
+    }
+  ],
+  "limits": "Representative page checks, not manual proof of all 11827 pages. LibreOffice font/equation layout can reflow, e.g. 38.211 page12 inline numerology symbol moved within paragraph; source Word remains authoritative. No source protocol edits. Actual browser tested file:// locally, not user VPN/client."
+}

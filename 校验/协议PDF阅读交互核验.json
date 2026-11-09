@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "steps": [
+    "Protocol library reads PDF by default",
+    "Exact architecture figure opens converted PDF page 49, with original Word/ZIP preserved",
+    "Previous/next/page input and bounds work",
+    "Clause text search and return to PDF preserve the requested clause",
+    "Version mismatch remains explicit in PDF mode",
+    "All 34 source-matched PDF previews exist; multipart selection defaults to main body and switches correctly"
+  ],
+  "parts": 34,
+  "scope": "Real local reader scripts and DOM routes; PDF native viewer pixels and remote client access checked separately."
+}

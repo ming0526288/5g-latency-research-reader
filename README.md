@@ -13,6 +13,20 @@ cd 5g-latency-research-reader
 
 进入文件夹，双击 **`打开阅读站.html`** 或 `index.html`。Windows建议使用Edge或Chrome，macOS/Linux也可使用支持MathML和本地PDF的现代浏览器。
 
+## 3GPP 协议的 PDF 阅读界面
+
+当前服务器的 34 个协议分册已从用户提供的 Word 转成 PDF。进入“3GPP 协议”，点击协议即可在与文献相同的 PDF 阅读界面查看、放大和翻页；原 Word、ZIP、分册选择与条款网页检索保留。基础知识中的图 4.2.3-2 引用直接打开 TS 23.501 转换 PDF 第 49 页。
+
+PDF 是本地阅读转换件，非 3GPP 官方下载 PDF；转换页序可能与原 Word 印刷页码不同，精确核对仍保留原 Word。协议原文目录不放转换件。PDF 位于 `阅读转换件/3GPP/`，当前版本清单为 `校验/协议PDF转换清单.json`。
+
+PDF 全文及其本机运行索引 `网页/protocol-pdfs.js` 不上传 Git。新电脑仅克隆仓库不会取得这些 PDF；可通过现有服务器阅读，或在具备 LibreOffice Writer/Math、Poppler 和相同本地协议原文的环境中重新生成：
+
+```bash
+python3 -B tools/build_protocol_pdfs.py --jobs 2
+```
+
+命令先核对本地原文 CRC/XML/SHA，再转换并生成 PDF 索引与条款页序；不下载协议、不修改原文。未生成预览或版本不一致时，界面明确提示并保留原 Word 与检索页入口。来源、实际命令、抽核范围与失败见研究仓库 CHG-368/TEST-515；未声称 11,827 页均经人工逐页校样。
+
 在当前Linux服务器的VS Code终端，常驻运行并请求打开浏览器只需一条命令：
 
 ```bash

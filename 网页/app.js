@@ -72,9 +72,9 @@
   if(!loading.has(id))loading.set(id,new Promise((resolve,reject)=>{const s=document.createElement('script');s.async=true;s.src='网页/data/'+encodeURIComponent(id)+'.js';s.onload=()=>resolve(window.READER_CONTENT[id]);s.onerror=()=>reject(new Error('未能读取文档，请确认网页/data目录与入口文件一起复制。'));document.head.appendChild(s);}));
   return loading.get(id);
  }
- function setToc(toc,url){
+ function setToc(toc,url,linkFor){
   const list=toc.filter(h=>h.level<=3);document.body.classList.add('has-toc');
-  $('#pageToc').innerHTML='<div class="toc-label">本页目录</div><div class="reading-progress"><span id="progressBar"></span></div>'+list.map(h=>`<a class="toc-link ${h.level>2?'sub':''}" data-target="${E(h.id)}" href="${url}${url.includes('?')?'&':'?'}anchor=${encodeURIComponent(h.id)}">${E(h.title)}</a>`).join('');
+  $('#pageToc').innerHTML='<div class="toc-label">本页目录</div><div class="reading-progress"><span id="progressBar"></span></div>'+list.map(h=>`<a class="toc-link ${h.level>2?'sub':''}" data-target="${E(h.id)}" href="${E(linkFor?linkFor(h):url+(url.includes('?')?'&':'?')+'anchor='+encodeURIComponent(h.id))}">${E(h.title)}</a>`).join('');
   if(state.observer)state.observer.disconnect();
   state.observer=new IntersectionObserver(entries=>{for(const e of entries){if(!e.isIntersecting)continue;document.querySelectorAll('.toc-link').forEach(a=>a.classList.toggle('active',a.dataset.target===e.target.id));}},{rootMargin:'-90px 0px -65% 0px'});
   main.querySelectorAll('h1[id],h2[id],h3[id]').forEach(h=>state.observer.observe(h));
@@ -162,19 +162,45 @@
  }
  function protocolLibrary(){
   const specs=Object.groupBy?Object.groupBy(C.protocols,p=>p.spec):C.protocols.reduce((a,p)=>((a[p.spec]??=[]).push(p),a),{});
-  main.innerHTML=breadcrumbs('3GPP 协议')+header('STANDARDS LIBRARY','3GPP 协议库','用户提供的本地原文版本；支持条款定位，原始Word与压缩包随仓库保存。')+`<div class="library-tools"><input id="protocolFilter" class="library-input" placeholder="查找协议编号，例如38.321、38.331、23.501…" aria-label="查找协议"></div><div id="protocolList"></div>`;
-  function update(){const q=$('#protocolFilter').value.trim().toLowerCase();$('#protocolList').innerHTML=Object.entries(specs).filter(([s,ps])=>(s+' '+ps[0].version).includes(q)).sort(([a],[b])=>a.localeCompare(b)).map(([spec,parts])=>`<div class="library-card"><span class="file-icon">3GPP</span><div class="card-body"><h3><a href="#/protocol/${spec}">TS ${spec}</a> <span class="pill">V${E(parts[0].version)}</span></h3><p>${parts.length} 个原文分册 · 本地转换阅读页与官方Word区分保存</p><div class="page-links">${parts.length>1?parts.map(p=>`<a class="page-link" href="#/protocol/${spec}?part=${p.id}">${E(p.part)}</a>`).join(''):['4','5','6'].filter(n=>parts[0].toc.some(t=>t.clause===n)).map(n=>`<a class="page-link" href="#/protocol/${spec}?clause=${n}">第${n}章</a>`).join('')}</div></div><a class="soft-button" href="#/protocol/${spec}">阅读 ↗</a></div>`).join('')||'<div class="empty-state">没有找到匹配的协议。</div>';}update();$('#protocolFilter').addEventListener('input',update);
+  main.innerHTML=breadcrumbs('3GPP 协议')+header('STANDARDS LIBRARY','3GPP 协议库','点击即可预览 PDF；由用户提供的 Word 本地转换，原 Word、ZIP 与条款检索入口保留。')+`<div class="library-tools"><input id="protocolFilter" class="library-input" placeholder="查找协议编号，例如38.321、38.331、23.501…" aria-label="查找协议"></div><div id="protocolList"></div>`;
+  function update(){const q=$('#protocolFilter').value.trim().toLowerCase();$('#protocolList').innerHTML=Object.entries(specs).filter(([s,ps])=>(s+' '+ps[0].version).includes(q)).sort(([a],[b])=>a.localeCompare(b)).map(([spec,parts])=>`<div class="library-card"><span class="file-icon">3GPP</span><div class="card-body"><h3><a href="#/protocol/${spec}">TS ${spec}</a> <span class="pill">V${E(parts[0].version)}</span></h3><p>${parts.length} 个原文分册 · PDF 预览 · 保留原 Word 与 ZIP</p><div class="page-links">${parts.length>1?parts.map(p=>`<a class="page-link" href="#/protocol/${spec}?part=${p.id}">${E(p.part)}</a>`).join(''):['4','5','6'].filter(n=>parts[0].toc.some(t=>t.clause===n)).map(n=>`<a class="page-link" href="#/protocol/${spec}?clause=${n}">第${n}章</a>`).join('')}</div></div><a class="soft-button" href="#/protocol/${spec}">阅读 PDF ↗</a></div>`).join('')||'<div class="empty-state">没有找到匹配的协议。</div>';}update();$('#protocolFilter').addEventListener('input',update);
+ }
+ let protocolPdfLoading;
+ function protocolPdfs(){
+  if(window.READER_PROTOCOL_PDFS)return Promise.resolve(window.READER_PROTOCOL_PDFS);
+  if(!protocolPdfLoading)protocolPdfLoading=new Promise(resolve=>{const script=document.createElement('script');script.src='网页/protocol-pdfs.js?v='+Date.now().toString(36);script.onload=()=>resolve(window.READER_PROTOCOL_PDFS||null);script.onerror=()=>resolve(null);document.head.appendChild(script);});
+  return protocolPdfLoading;
+ }
+ function protocolPdfView(spec,parts,p,c,pdf,params){
+  const clause=params.get('clause'),requestedVersion=params.get('version');
+  const mismatch=requestedVersion&&requestedVersion!==p.version;
+  const page=Math.max(1,Math.min(pdf.pages,Number(params.get('page'))||pdf.clausePages[clause]||1));
+  const base='#/protocol/'+spec+'?part='+p.id+(requestedVersion?'&version='+encodeURIComponent(requestedVersion):'');
+  const textUrl=base+'&view=text'+(clause?'&clause='+encodeURIComponent(clause):'')+(params.get('q')?'&q='+encodeURIComponent(params.get('q')):'');
+  const direct=encodeURI(pdf.file)+'#page='+page+'&view=FitH';
+  const clauseNotice=clause?(pdf.clausePages[clause]?`条款 ${E(clause)} 起于转换 PDF 第 ${pdf.clausePages[clause]} 页；当前显示第 ${page} 页。`:`尚未核定条款 ${E(clause)} 的转换 PDF 页序，请使用“条款网页检索”。`):'';
+  let back=storage.get('returnTo','#/library/protocols');if(!back.startsWith('#/doc/'))back='#/library/protocols';
+  main.innerHTML=`<section class="pdf-view">${breadcrumbs('3GPP 协议 / TS '+spec)}<div class="eyebrow">3GPP TS ${E(spec)} · V${E(p.version)} · LOCAL PDF</div><h1>TS ${E(spec)} · V${E(p.version)}</h1><p class="pdf-hint">由用户提供的 Word 本地转换，非 3GPP 官方下载 PDF；原 Word 与 ZIP 保留。${E(p.part)} · ${pdf.pages} 页。</p>${mismatch?`<div class="source-notice"><strong>版本提示：引用为 V${E(requestedVersion)}，此原文及转换件为 V${E(p.version)}，不能视为相同版本。</strong></div>`:''}<div class="pdf-controls"><a class="soft-button" href="${E(back)}">← 返回阅读文档</a><a class="soft-button primary" href="${direct}" target="_blank" rel="noopener">独立打开 PDF ↗</a><a class="soft-button" href="${encodeURI(p.file)}" target="_blank" rel="noopener">打开 Word 原文 ↗</a>${p.archive?`<a class="soft-button" href="${encodeURI(p.archive)}" download>原始 ZIP</a>`:''}<a class="soft-button" href="${E(textUrl)}">条款网页检索</a>${parts.length>1?`<select id="protocolPart" aria-label="选择原文分册">${parts.map(x=>`<option value="${x.id}" ${x.id===p.id?'selected':''}>${E(x.part)}</option>`).join('')}</select>`:''}</div><div class="pdf-controls"><button id="prevPdf" class="soft-button" ${page===1?'disabled':''}>上一页</button><label>本地 PDF 第 <input id="pdfPage" type="number" min="1" max="${pdf.pages}" value="${page}"> / ${pdf.pages} 页</label><button id="goPdf" class="soft-button">跳转</button><button id="nextPdf" class="soft-button" ${page===pdf.pages?'disabled':''}>下一页</button><span class="pdf-hint">${clauseNotice}</span></div><iframe class="pdf-frame" title="TS ${E(spec)} V${E(p.version)}，本地转换 PDF 第 ${page} 页" src="${direct}"></iframe><p class="pdf-hint">转换页序可能与原 Word 的印刷页码不同。可放大查看图表；复杂版式需精确核对时仍以原 Word 为准。</p></section>`;
+  const go=n=>{location.hash=base+'&page='+Math.max(1,Math.min(pdf.pages,n));};
+  $('#goPdf').onclick=()=>go(Number($('#pdfPage').value)||1);$('#pdfPage').onkeydown=e=>{if(e.key==='Enter')$('#goPdf').click();};$('#prevPdf').onclick=()=>go(page-1);$('#nextPdf').onclick=()=>go(page+1);
+  if($('#protocolPart'))$('#protocolPart').onchange=e=>{location.hash='#/protocol/'+spec+'?part='+e.target.value;};
+  setToc(c.toc,base,h=>pdf.clausePages[h.clause]?base+'&clause='+encodeURIComponent(h.clause):base+'&view=text&anchor='+encodeURIComponent(h.id));
  }
  async function protocolView(spec,params,seq){
   const parts=C.protocols.filter(p=>p.spec===spec);if(!parts.length)return missing('没有找到这个协议编号的本地原文。');
   const clause=params.get('clause');let p=parts.find(p=>p.id===params.get('part'));
   if(!p&&clause)p=parts.find(p=>p.toc.some(t=>t.clause===clause));
   p??=parts.find(p=>!p.part.includes('cover'))||parts[0];
-  const c=await content(p.id);if(seq!==state.sequence)return;
+  const [c,pdfData]=await Promise.all([content(p.id),protocolPdfs()]);if(seq!==state.sequence)return;
+  const pdf=pdfData?.documents?.[p.id];
+  const textRequested=params.get('view')==='text'||(params.has('q')&&!params.has('page'));
+  if(!textRequested&&pdf?.source_sha256===p.sha256){protocolPdfView(spec,parts,p,c,pdf,params);return;}
   const v=params.get('version');const mismatch=v&&v!==p.version;
   main.innerHTML=`<div class="doc-view">${breadcrumbs('3GPP 协议 / TS '+spec)}<div class="eyebrow">3GPP TS ${spec} · V${E(p.version)}</div><div class="source-notice">这是从用户提供Word生成的<strong>本地转换阅读页</strong>，用于检索和跳转；版式、矢量图或复杂公式需要精确核对时，请打开官方Word原文。此版本未另行声明为官网最高版。${mismatch?`<br><strong>版本提示：引用写的是V${E(v)}，本地可用原文为V${E(p.version)}，不能视为相同版本。</strong>`:''}</div><div class="protocol-tools"><a class="soft-button" href="${encodeURI(p.file)}" target="_blank" rel="noopener">打开官方Word原文 ↗</a>${p.archive?`<a class="soft-button" href="${encodeURI(p.archive)}" download>原始ZIP</a>`:''}${parts.length>1?`<select id="protocolPart" aria-label="选择原文分册">${parts.map(x=>`<option value="${x.id}" ${x.id===p.id?'selected':''}>${E(x.part)}</option>`).join('')}</select>`:''}<input id="clauseInput" value="${E(clause||'')}" placeholder="条款号或IE关键词，如5.4.5、SchedulingRequestConfig" aria-label="定位条款或关键词"><button class="soft-button primary" id="findClause">定位</button></div><article class="article protocol-article">${c.html}</article></div>`;
-  const url=`#/protocol/${spec}?part=${p.id}`;setToc(c.toc,url);
-  if($('#protocolPart'))$('#protocolPart').onchange=e=>{location.hash=`#/protocol/${spec}?part=${e.target.value}`;};
+  if(pdf?.source_sha256===p.sha256){const link=document.createElement('a');link.className='soft-button primary';link.href=`#/protocol/${spec}?part=${p.id}`+(clause?'&clause='+encodeURIComponent(clause):'');link.textContent='PDF 预览 ↗';main.querySelector('.protocol-tools').prepend(link);}
+  else{const notice=document.createElement('p');notice.className='source-notice';notice.textContent='本分册的 PDF 预览尚未生成或与原文版本不匹配；当前仅显示条款检索辅助页。';main.querySelector('.protocol-tools').before(notice);}
+  const url=`#/protocol/${spec}?part=${p.id}&view=text`;setToc(c.toc,url);
+  if($('#protocolPart'))$('#protocolPart').onchange=e=>{location.hash=`#/protocol/${spec}?part=${e.target.value}&view=text`;};
   $('#findClause').onclick=()=>locateProtocol($('#clauseInput').value.trim(),c.toc);
   $('#clauseInput').onkeydown=e=>{if(e.key==='Enter')$('#findClause').click();};
   if(params.get('anchor'))jump(params.get('anchor'));else if(clause)locateProtocol(clause,c.toc);else if(params.get('q'))locateProtocol(params.get('q'),c.toc);

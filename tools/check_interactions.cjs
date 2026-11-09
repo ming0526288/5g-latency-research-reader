@@ -137,8 +137,8 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  d.querySelector('#pdfPage').value='9';d.querySelector('#goPdf').click();await waitFor(()=>w.location.hash.includes('page=9')&&d.querySelector('#pdfPage')?.value==='9','PDF page control');
  steps.push('P24引用页序7及页码控件9写入真实本地PDF地址');
  await tick(80);
- w.location.hash='#/protocol/38.321?clause=5.4.5';await waitFor(()=>d.querySelector('.protocol-article')||d.querySelector('.empty-state'),'protocol');assert(d.querySelector('.protocol-article'),d.querySelector('#main').textContent+' '+failures.join('\n'));await waitFor(()=>d.querySelector('.section-found'),'clause location');
- assert.equal(d.querySelector('.section-found').id,'clause-5-4-5');assert(d.querySelector('.protocol-tools a').getAttribute('href').includes('.docx'));
+ w.location.hash='#/protocol/38.321?clause=5.4.5&view=text';await waitFor(()=>d.querySelector('.protocol-article')||d.querySelector('.empty-state'),'protocol');assert(d.querySelector('.protocol-article'),d.querySelector('#main').textContent+' '+failures.join('\n'));await waitFor(()=>d.querySelector('.section-found'),'clause location');
+ assert.equal(d.querySelector('.section-found').id,'clause-5-4-5');assert([...d.querySelectorAll('.protocol-tools a')].some(a=>a.getAttribute('href').includes('.docx')));
  steps.push('从PDF页切换至TS38.321阅读页，定位5.4.5条，并提供原始DOCX入口');
  const theme=w.document.documentElement.dataset.theme;d.querySelector('#themeButton').click();assert.notEqual(w.document.documentElement.dataset.theme,theme);
  steps.push('主题切换控制正常');
