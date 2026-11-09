@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "tree": "integrated_working_tree",
+      "source_sha256": "dd94f5c2e3d0c92272014da1e15477f8c80644f5f363a7270548afdb4bd9ed10",
+      "anchor": "新实验实际-ping-能验证到哪一步",
+      "statistics_and_limits_in_HTML_and_search": true,
+      "cross_link": true,
+      "catalog_documents": 1190,
+      "images": 11
+    },
+    {
+      "tree": "task_only_staged_build",
+      "source_sha256": "b726218b10febe64ee15f1f575942546b19f506933ecdfd10427199ecd144d10",
+      "anchor": "新实验实际-ping-能验证到哪一步",
+      "statistics_and_limits_in_HTML_and_search": true,
+      "cross_link": true,
+      "catalog_documents": 1190,
+      "images": 11
+    }
+  ],
+  "independent_raw_evidence": "oi-wireless-ran-ping-slot-validation/research/latency-analysis/ping-slot-results/evidence/main-01/independent-verification.json",
+  "corrected_QA_assumption": "Initial custom assertion expected #id; actual reader uses ?anchor=percent-encoded-id. Corrected assertion against actual router. No source/content/measurement change.",
+  "scope": "Source/hash/HTML/TOC/navigation/search and crosslinks; integrated pending changes preserved; no browser screenshot claim"
+}
