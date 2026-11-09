@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "source_sha256": "c4b09f9663bccedc80a7ae918798d403f5cc5b15cfc4442a13096f40299b9b76",
+  "page": "kc3e4e8560cabef23",
+  "navigation": "kc3e4e8560cabef23",
+  "checks": [
+    "actual UE192.169.0.3/UPF tun0 192.169.0.1",
+    "non-local route via oaitun_ue1",
+    "UE initiates UL then DL RTT",
+    "not loopback/industrial action loop",
+    "HTML/search/source hash retained"
+  ],
+  "scope": "Explanation of completed main-01; no new RAN/core/traffic/capture or changed results"
+}
