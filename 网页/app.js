@@ -148,17 +148,73 @@
   main.innerHTML=breadcrumbs(group==='bookmarks'?'我的书签':groups[group]||'全部文档')+header('RESEARCH LIBRARY',group==='bookmarks'?'我的书签':groups[group]||'全部文档',`共 ${list.length} 篇；相同内容合并展示，保留原始来源位置。`)+`<div class="library-tools"><input id="browseFilter" class="library-input" placeholder="按标题或内容筛选…" aria-label="筛选文档"></div><div id="browseList" class="record-list"></div><div id="browseCount" class="result-limit"></div>`;
   function update(){const q=$('#browseFilter').value.trim().toLowerCase();let items=q?list.filter(d=>(d.title+' '+d.search).toLowerCase().includes(q)):list;$('#browseList').innerHTML=items.length?items.slice(0,120).map(row).join(''):'<div class="empty-state">'+(group==='bookmarks'?'还没有书签。阅读时点击“加入书签”即可收藏。':'没有符合筛选条件的文档。')+'</div>';$('#browseCount').textContent=items.length>120?`显示前120篇，共${items.length}篇；输入关键词缩小范围。`:`共${items.length}篇`;}update();$('#browseFilter').addEventListener('input',update);
  }
+ let paperTranslationsPromise;
+ function loadPaperTranslations(force=false){
+  if(force||!paperTranslationsPromise)paperTranslationsPromise=new Promise(resolve=>{
+   const script=document.createElement('script');
+   script.src='网页/paper-translations.js?v='+Date.now().toString(36);
+   script.onload=()=>resolve(window.READER_PAPER_TRANSLATIONS||{papers:{}});
+   script.onerror=()=>resolve({papers:{},unavailable:true});
+   document.head.appendChild(script);
+  });
+  return paperTranslationsPromise;
+ }
+ function translatedPaper(p){return window.READER_PAPER_TRANSLATIONS?.papers?.[p.id];}
+ function canPreviewTranslation(translated){
+  return ['generated','ready'].includes(translated?.status)&&typeof translated.file==='string'&&translated.file.length>0&&Number.isInteger(translated.pages)&&translated.pages>0;
+ }
+ function translationLabel(translated){
+  return translated?.visualQA==='passed'?'中文 PDF（已完成页面核对）':'中文 PDF 预览（尚未校对）';
+ }
+ function chinesePdfPanel(p,page){
+  if(p.id==='book')return '';
+  const translated=translatedPaper(p);
+  if(translated?.status==='original-chinese')return '';
+  if(!canPreviewTranslation(translated)){
+   const message=translated?.status==='failed'?'中文 PDF 生成失败，仍可阅读上方原文。':translated?.status==='processing'?'中文 PDF 正在生成，生成后即可预览。':'暂未生成中文 PDF，仍可阅读上方原文。';
+   return `<section class="pdf-translation" aria-labelledby="chinesePdfHeading"><h2 id="chinesePdfHeading">中文译文</h2><p class="pdf-hint">${message}</p><button id="refreshZhPdf" class="soft-button">刷新中文状态</button></section>`;
+  }
+  const zhPage=Math.max(1,Math.min(translated.pages,page));
+  const direct=encodeURI(translated.file)+'#page='+zhPage+'&view=FitH';
+  const note=translated.visualQA==='passed'?'已完成页面核对的中文辅助译本，可与上方英文对照；专业含义仍以原文为准。':'中文 PDF 已生成，可先预览；尚未完成逐页校对，译文、公式与排版请结合上方原文阅读。';
+  return `<section class="pdf-translation" aria-labelledby="chinesePdfHeading"><h2 id="chinesePdfHeading">中文译文</h2><p class="pdf-hint">${note}</p><div class="pdf-controls"><button id="prevZhPdf" class="soft-button" ${zhPage===1?'disabled':''}>上一页</button><label>中文 PDF 第 <input id="zhPdfPage" type="number" min="1" max="${translated.pages}" value="${zhPage}"> / ${translated.pages} 页</label><button id="goZhPdf" class="soft-button">跳转</button><button id="nextZhPdf" class="soft-button" ${zhPage===translated.pages?'disabled':''}>下一页</button><button id="syncZhPdf" class="soft-button">对齐原文第 ${page} 页</button><a id="openZhPdf" class="soft-button primary" href="${direct}" target="_blank" rel="noopener">独立打开中文 PDF ↗</a><button id="refreshZhPdf" class="soft-button">刷新中文状态</button></div><iframe id="chinesePdfFrame" class="pdf-frame" title="${E(p.title)}，中文 PDF 第 ${zhPage} 页" src="${direct}" loading="lazy"></iframe></section>`;
+ }
+ function bindChinesePdf(p,page){
+  if($('#refreshZhPdf'))$('#refreshZhPdf').onclick=()=>{const hash=location.hash;loadPaperTranslations(true).then(()=>{if(location.hash===hash&&$('#chinesePdfPanel')){$('#chinesePdfPanel').innerHTML=chinesePdfPanel(p,page);bindChinesePdf(p,page);}});};
+  const frame=$('#chinesePdfFrame');if(!frame)return;
+  const translated=translatedPaper(p);
+  function go(n){
+   const current=Math.max(1,Math.min(translated.pages,n));
+   const direct=encodeURI(translated.file)+'#page='+current+'&view=FitH';
+   $('#zhPdfPage').value=current;frame.src=direct;
+   frame.title=p.title+'，中文 PDF 第 '+current+' 页';$('#openZhPdf').href=direct;
+   $('#prevZhPdf').disabled=current===1;$('#nextZhPdf').disabled=current===translated.pages;
+  }
+  $('#goZhPdf').onclick=()=>go(Number($('#zhPdfPage').value)||1);
+  $('#zhPdfPage').onkeydown=e=>{if(e.key==='Enter')$('#goZhPdf').click();};
+  $('#prevZhPdf').onclick=()=>go((Number($('#zhPdfPage').value)||1)-1);
+  $('#nextZhPdf').onclick=()=>go((Number($('#zhPdfPage').value)||1)+1);
+  $('#syncZhPdf').onclick=()=>go(page);
+ }
  function paperLibrary(){
   main.innerHTML=breadcrumbs('文献与材料')+header('SOURCE LIBRARY','文献与材料','点击引用页码即可直达。页码均为本地PDF从1开始的页序。')+`<div class="library-tools"><input id="paperFilter" class="library-input" placeholder="搜索论文名称、P24、QUEST、AUGUSTE…" aria-label="筛选文献"></div><div id="paperList"></div>`;
-  function update(){const q=$('#paperFilter').value.trim().toLowerCase();const ps=C.papers.filter(p=>(p.id+' '+p.title).toLowerCase().includes(q)).sort((a,b)=>a.id==='book'?-1:b.id==='book'?1:a.id.localeCompare(b.id));$('#paperList').innerHTML=ps.map(p=>`<div class="library-card"><span class="file-icon">${p.id==='book'?'BOOK':p.id}</span><div class="card-body"><h3><a href="#/paper/${p.id}">${E(p.title)}</a></h3><p>${p.pages} 页 · ${(p.bytes/1048576).toFixed(1)} MB · ${p.kind}原文件</p>${p.citedPages.length?`<div class="page-links">${p.citedPages.slice(0,18).map(n=>`<a class="page-link" href="#/paper/${p.id}?page=${n}">第${n}页</a>`).join('')}</div>`:''}</div><a class="soft-button" href="#/paper/${p.id}">阅读 ↗</a></div>`).join('')||'<div class="empty-state">没有找到匹配的文献。</div>';}update();$('#paperFilter').addEventListener('input',update);
+  function update(){const q=$('#paperFilter').value.trim().toLowerCase();const ps=C.papers.filter(p=>(p.id+' '+p.title+' '+(canPreviewTranslation(translatedPaper(p))?'中文译文 '+translationLabel(translatedPaper(p)):'' )).toLowerCase().includes(q)).sort((a,b)=>a.id==='book'?-1:b.id==='book'?1:a.id.localeCompare(b.id));$('#paperList').innerHTML=ps.map(p=>`<div class="library-card"><span class="file-icon">${p.id==='book'?'BOOK':p.id}</span><div class="card-body"><h3><a href="#/paper/${p.id}">${E(p.title)}</a></h3><p>${p.pages} 页 · ${(p.bytes/1048576).toFixed(1)} MB · ${p.kind}原文件${canPreviewTranslation(translatedPaper(p))?' · '+translationLabel(translatedPaper(p)):''}</p>${p.citedPages.length?`<div class="page-links">${p.citedPages.slice(0,18).map(n=>`<a class="page-link" href="#/paper/${p.id}?page=${n}">第${n}页</a>`).join('')}</div>`:''}</div><a class="soft-button" href="#/paper/${p.id}">阅读 ↗</a></div>`).join('')||'<div class="empty-state">没有找到匹配的文献。</div>';}update();$('#paperFilter').addEventListener('input',update);loadPaperTranslations().then(()=>{if($('#paperFilter'))update();});
  }
  function paperView(id,params){
   const p=C.papers.find(p=>p.id===id);if(!p)return missing('没有找到这份文献。');
   const page=Math.max(1,Math.min(p.pages,Number(params.get('page'))||1));const direct=encodeURI(p.file)+'#page='+page+'&view=FitH';
   let back=storage.get('returnTo','#/library/papers');if(!back.startsWith('#/doc/'))back='#/library/papers';
-  main.innerHTML=`<section class="pdf-view">${breadcrumbs('文献原文')}<div class="eyebrow">${E(p.id==='book'?'TEXTBOOK':p.id)} · LOCAL PDF</div><h1>${E(p.title)}</h1><div class="pdf-controls"><a class="soft-button" href="${E(back)}">← 返回阅读文档</a><button id="prevPdf" class="soft-button" ${page===1?'disabled':''}>上一页</button><label>本地PDF第 <input id="pdfPage" type="number" min="1" max="${p.pages}" value="${page}"> / ${p.pages} 页</label><button id="goPdf" class="soft-button">跳转</button><button id="nextPdf" class="soft-button" ${page===p.pages?'disabled':''}>下一页</button><a class="soft-button primary" href="${direct}" target="_blank" rel="noopener">独立打开PDF ↗</a></div><iframe class="pdf-frame" title="${E(p.title)}，本地PDF第${page}页" src="${direct}"></iframe><p class="pdf-hint">若浏览器未内嵌显示PDF，请点击“独立打开PDF”。采用PDF页序定位，可能与论文印刷页码不同。文件：${E(p.file)}</p></section>`;
+  main.innerHTML=`<section class="pdf-view">${breadcrumbs('文献原文')}<div class="eyebrow">${E(p.id==='book'?'TEXTBOOK':p.id)} · LOCAL PDF</div><h1>${E(p.title)}</h1><div class="pdf-controls"><a class="soft-button" href="${E(back)}">← 返回阅读文档</a><button id="prevPdf" class="soft-button" ${page===1?'disabled':''}>上一页</button><label>本地PDF第 <input id="pdfPage" type="number" min="1" max="${p.pages}" value="${page}"> / ${p.pages} 页</label><button id="goPdf" class="soft-button">跳转</button><button id="nextPdf" class="soft-button" ${page===p.pages?'disabled':''}>下一页</button><a class="soft-button primary" href="${direct}" target="_blank" rel="noopener">独立打开PDF ↗</a></div>${p.id!=='book'?'<h2>英文原文</h2>':''}<iframe class="pdf-frame" title="${E(p.title)}，本地PDF第${page}页" src="${direct}"></iframe><p class="pdf-hint">若浏览器未内嵌显示PDF，请点击“独立打开PDF”。采用PDF页序定位，可能与论文印刷页码不同。文件：${E(p.file)}</p><div id="chinesePdfPanel">${chinesePdfPanel(p,page)}</div></section>`;
   function go(n){location.hash=`#/paper/${id}?page=${Math.max(1,Math.min(p.pages,n))}`;}
   $('#goPdf').onclick=()=>go(Number($('#pdfPage').value)||1);$('#pdfPage').onkeydown=e=>{if(e.key==='Enter')$('#goPdf').click();};$('#prevPdf').onclick=()=>go(page-1);$('#nextPdf').onclick=()=>go(page+1);
+  bindChinesePdf(p,page);
+  if(p.id!=='book'){
+   const currentHash=location.hash;
+   loadPaperTranslations().then(()=>{
+    if(location.hash!==currentHash||!$('#chinesePdfPanel'))return;
+    $('#chinesePdfPanel').innerHTML=chinesePdfPanel(p,page);bindChinesePdf(p,page);
+   });
+  }
  }
  function protocolLibrary(){
   const specs=Object.groupBy?Object.groupBy(C.protocols,p=>p.spec):C.protocols.reduce((a,p)=>((a[p.spec]??=[]).push(p),a),{});

@@ -62,3 +62,7 @@ html{font-size:100%}
  .hero h1{font-size:1.625rem}.hero p{font-size:.9375rem}
  .path-card h3{font-size:1.0625rem}.section-title h2{font-size:1.125rem}
 }
+
+/* Separate, vertically stacked original and translated PDF readers. */
+.pdf-translation{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--line)}
+.pdf-view h2{font-size:1.25rem;line-height:1.5;margin:1.25rem 0 .75rem}
