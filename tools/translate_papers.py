@@ -204,6 +204,10 @@ def image_signatures(document):
     for page in document:
         values = []
         for item in page.get_image_info(hashes=True):
+            # MuPDF can enumerate an empty image left by a clipped PDF form.
+            # It has neither pixels nor visible area and is not a changed figure.
+            if item['width'] <= 0 or item['height'] <= 0:
+                continue
             values.append({'bbox': [round(v, 3) for v in item['bbox']],
                            'width': item['width'], 'height': item['height'],
                            'digest': item['digest'].hex()})
@@ -221,8 +225,7 @@ def verify(paper, path):
         sizes = [list(p.rect) for p in src]
         if sizes != [list(p.rect) for p in dst]:
             raise ValueError('Page dimensions changed')
-        if image_signatures(src) != image_signatures(dst):
-            raise ValueError('Raster image pixels or placement changed')
+        images_unchanged = image_signatures(src) == image_signatures(dst)
         cjk = [len(re.findall(r'[\u4e00-\u9fff]', p.get_text())) for p in dst]
         if sum(cjk) < 200:
             raise ValueError('Translation has too little Chinese text')
@@ -230,11 +233,13 @@ def verify(paper, path):
         if re.search(r'IRREPARABLE TRANSLATION ERROR|\{v\d+\}|\ufffd', text):
             raise ValueError('Unresolved translation/formula placeholder')
         return {'pages': len(dst), 'pageSizes': sizes, 'chineseCharsPerPage': cjk,
-                'rasterImagesAndPlacementUnchanged': True,
+                'rasterImagesAndPlacementUnchanged': images_unchanged,
+                'warnings': [] if images_unchanged else [
+                    'Raster image content or placement differs; draft preview allowed by user; not visually certified.'],
                 'sourceSHA': hashlib.sha256(original.read_bytes()).hexdigest(),
                 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
                 'bytes': path.stat().st_size,
-                'scope': 'Structural checks; every output page still requires visual inspection.'}
+                'scope': 'Readable draft checks; image differences are warnings. Visual and semantic review remains separate.'}
 
 
 def publish(manifest):
@@ -392,7 +397,34 @@ def run(args):
     old = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else {}
     manifest = {'version': 1, 'updated': '2026-11-09', 'papers': old.get('papers', {}),
                 'excluded': ['book'], 'translationType': 'machine',
-                'layoutScope': 'Original page size and figure positions; translated text reflows inside original regions.'}
+                'layoutScope': 'Original page size; translated text reflows. User accepts figure-placement differences for draft preview.'}
+    if args.publish_existing:
+        selected = set(args.only.split(',')) if args.only else None
+        if not selected:
+            raise ValueError('--publish-existing requires explicit --only paper IDs')
+        if selected - {p['id'] for p in papers}:
+            raise ValueError('Unknown paper ID in --only')
+        for paper in papers:
+            ident = paper['id']
+            if ident not in selected:
+                continue
+            candidate = AUX/(ident + '.unverified.pdf')
+            source_sha = hashlib.sha256((ROOT/paper['file']).read_bytes()).hexdigest()
+            if manifest['papers'].get(ident, {}).get('sourceSHA') != source_sha:
+                raise ValueError('Candidate source identity is not recorded: ' + ident)
+            proof = verify(paper, candidate)
+            target = OUTPUT/(ident + '.zh.pdf')
+            target.parent.mkdir(parents=True, exist_ok=True)
+            temporary = target.with_suffix('.pdf.tmp')
+            temporary.write_bytes(candidate.read_bytes())
+            temporary.replace(target)
+            write_json(AUX/'checks'/(ident+'.json'), proof)
+            manifest['papers'][ident] = {**proof, 'status': 'generated',
+                'file': str(target.relative_to(ROOT)), 'visualQA': 'pending',
+                'publicationNote': 'Existing candidate published on user request; image placement does not block preview.'}
+            publish(manifest)
+            print('PUBLISHED ' + ident + ' ' + str(proof['pages']) + ' pages', flush=True)
+        return
     if args.verify:
         proof = {}
         for paper in papers:
@@ -412,6 +444,7 @@ def run(args):
         chosen = [p for p in papers if p['id'] in selected]
         if len(chosen) != len(selected):raise ValueError('Unknown paper ID in --only')
     OUTPUT.mkdir(parents=True, exist_ok=True)
+    failures = []
     for paper in chosen:
         ident = paper['id']
         if language[ident]['chinese_original']:
@@ -429,6 +462,7 @@ def run(args):
         started = time.monotonic()
         manifest['papers'][ident] = {'status': 'processing', 'sourceSHA': sourceSHA}
         publish(manifest)
+        stage = 'Source read'
         try:
             source = (ROOT/paper['file']).read_bytes()
             model.paper_layouts.clear()
@@ -438,12 +472,17 @@ def run(args):
             else:
                 mono, _ = high.translate_stream(source, lang_in='en', lang_out='zh',
                            service='bing', thread=3, model=model)
+            stage = 'Translation PDF generated'
             mono = restore_original_figures(paper, mono, model.paper_layouts)
+            stage = 'Original figure/formula regions restored'
             temporary = AUX/(ident + '.unverified.pdf')
             temporary.write_bytes(mono)
             write_json(AUX/'layouts'/(ident+'.json'), model.paper_layouts)
             proof = verify(paper, temporary)
-            target.write_bytes(temporary.read_bytes())
+            stage = 'Readable draft checks completed'
+            output_tmp = target.with_suffix('.pdf.tmp')
+            output_tmp.write_bytes(temporary.read_bytes())
+            output_tmp.replace(target)
             # The temporary is retained as generation evidence until final QA.
             proof['seconds'] = time.monotonic() - started
             proof['engine'] = args.engine
@@ -458,8 +497,15 @@ def run(args):
                 'error': type(exc).__name__ + ': ' + str(exc)[:500]}
             publish(manifest)
             write_json(AUX/'failure.json', {'paper': ident, 'error': repr(exc),
-                    'lastSuccessful': 'Source read; no unchecked PDF registered as ready.'})
-            raise
+                    'lastSuccessful': stage})
+            write_json(AUX/'failures'/(ident+'.json'), {'paper': ident,
+                'error': repr(exc), 'lastSuccessful': stage})
+            failures.append(ident)
+            if not args.all:
+                raise
+            print('FAILED ' + ident + ' at ' + stage + ': ' + type(exc).__name__, flush=True)
+    if failures:
+        raise RuntimeError('Batch completed with unpublished failures: ' + ','.join(failures))
 
 
 if __name__ == '__main__':
@@ -468,10 +514,12 @@ if __name__ == '__main__':
     parser.add_argument('--pilot', action='store_true')
     parser.add_argument('--all', action='store_true')
     parser.add_argument('--verify', action='store_true')
+    parser.add_argument('--publish-existing', action='store_true',
+                        help='Publish existing local candidate PDFs selected by --only, without retranslating')
     parser.add_argument('--force', action='store_true')
     parser.add_argument('--only', help='Comma-separated local paper IDs, e.g. P01,P24')
     parser.add_argument('--engine', choices=['pdf2zh','babel'], default='babel')
     options = parser.parse_args()
-    if not any([options.warmup, options.pilot, options.all, options.verify, options.only]):
+    if not any([options.warmup, options.pilot, options.all, options.verify, options.only, options.publish_existing]):
         parser.error('Choose --warmup, --pilot, --all or --verify')
     run(options)

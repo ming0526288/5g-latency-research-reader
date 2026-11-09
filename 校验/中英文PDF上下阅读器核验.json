@@ -4,12 +4,25 @@
   "ready": [
     "P05"
   ],
+  "previewable": [
+    "P05",
+    "P01",
+    "P31",
+    "P24",
+    "P02",
+    "P03",
+    "P04",
+    "P06"
+  ],
+  "expected": 35,
+  "allDisplayed": false,
   "steps": [
     "P05 English first and Chinese second; both open page 3",
     "Chinese independent pagination clamps to 6 and aligns with original on request",
     "Chinese textbook retains only its original reader",
     "Unfinished papers have no fake PDF link or iframe",
-    "Library Chinese filter identifies the actual completed translation"
+    "Library Chinese filter identifies the actual completed translation",
+    "Every generated draft has matching bytes/page count and an actual second reader: 8/35"
   ],
   "errors": []
 }

@@ -18,5 +18,13 @@ async function until(fn,label){for(let i=0;i<200;i++){if(fn())return;await wait(
  w.location.hash='#/library/papers';await until(()=>d.querySelector('#paperFilter'),'library');await wait(100);d.querySelector('#paperFilter').value='中文';d.querySelector('#paperFilter').dispatchEvent(new w.Event('input'));assert(d.querySelector('#paperList').textContent.includes('AUGUSTE'));steps.push('Library Chinese filter identifies the actual completed translation');
  const manifest=JSON.parse(fs.readFileSync(path.join(root,'说明/paper-translations.json')));const ready=Object.entries(manifest.papers).filter(([,p])=>p.status==='ready');assert(ready.length>=1);
  for(const [id,p] of ready){assert(p.visualQA==='passed');const data=fs.readFileSync(path.join(root,p.file));assert.equal(crypto.createHash('sha256').update(data).digest('hex'),p.sha256);assert.equal(p.pages,w.READER_CATALOG.papers.find(source=>source.id===id).pages);}
- assert.deepEqual(errors,[]);const report={status:'PASS',scope:'DOM/navigation/local file identity; not a native-browser PDF renderer test',ready:ready.map(([id])=>id),steps,errors};fs.writeFileSync(path.join(root,'校验/中英文PDF上下阅读器核验.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));w.close();
+ const previewable=Object.entries(manifest.papers).filter(([,p])=>['generated','ready'].includes(p.status));
+ for(const [id,p] of previewable){
+  const source=w.READER_CATALOG.papers.find(source=>source.id===id);assert(source);assert.equal(p.pages,source.pages);const bytes=fs.readFileSync(path.join(root,p.file));assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),p.sha256);
+  w.location.hash='#/paper/'+id+'?page=1';await until(()=>d.querySelector('#chinesePdfFrame')?.getAttribute('src').includes(id+'.zh.pdf#page=1'),'draft '+id);assert.equal(d.querySelectorAll('.pdf-frame').length,2);assert(d.querySelectorAll('.pdf-frame')[0].getAttribute('src').startsWith(encodeURI(source.file)));assert.equal(d.querySelector('#zhPdfPage').max,String(p.pages));
+ }
+ const expected=w.READER_CATALOG.papers.filter(p=>p.id!=='book').length;
+ if(process.argv.includes('--require-all'))assert.equal(previewable.length,expected,'All English papers must have a real translated file and reader');
+ steps.push('Every generated draft has matching bytes/page count and an actual second reader: '+previewable.length+'/'+expected);
+ assert.deepEqual(errors,[]);const report={status:'PASS',scope:'DOM/navigation/local file identity; not a native-browser PDF renderer test',ready:ready.map(([id])=>id),previewable:previewable.map(([id])=>id),expected,allDisplayed:previewable.length===expected,steps,errors};fs.writeFileSync(path.join(root,'校验/中英文PDF上下阅读器核验.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));w.close();
 })().catch(e=>{console.error(e.stack);process.exitCode=1});
