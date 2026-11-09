@@ -1,0 +1,165 @@
+{
+  "status": "PASS",
+  "date": "2026-11-09",
+  "documents": [
+    {
+      "id": "kc3e4e8560cabef23",
+      "source": "说明/算法知识点说明/00_通信与时延基础知识.md",
+      "sha256": "0a5067b0629b6b3dea1f2dabb469b99f714c95a592324cc8435c8ba43fa082de",
+      "checked_terms": [
+        "一个 Slot 是 0.125 ms",
+        "HARQ-ACK",
+        "工程模型假设",
+        "不能不核切点"
+      ]
+    },
+    {
+      "id": "k7be2718894117a09",
+      "source": "说明/算法知识点说明/不同TDD/实验结果之前_TDD配置与时隙图.md",
+      "sha256": "04a22e16d93325896db8fc0951f4715ad43725d0bc04a1befee09e57e6dc7c40",
+      "checked_terms": [
+        "为什么不是统一等待0～4个Slot",
+        "0.501",
+        "0.624",
+        "五个槽边界相位"
+      ]
+    }
+  ],
+  "scope": "Knowledge/protocol/teaching arithmetic only, not a live ping validation",
+  "sources": {
+    "date": "2026-11-09",
+    "scope": "Protocol and explicit teaching model review; new live ping experiment subsequently authorized and preparing separately",
+    "protocols": [
+      {
+        "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38211-j50.docx",
+        "sha256": "85e88cea4b90e672fde3901253a1e52f855629090afea177934a16528365dcef",
+        "cover": "3GPP TS 38.211 V19.5.0 (2026-09)",
+        "CRC_XML_ZIP_member_identity": "PASS"
+      },
+      {
+        "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38213-j50.docx",
+        "sha256": "79c15729755aaed888a3d17334fec2bf7389e9a86858fc8b970f4d65bfc92d5c",
+        "cover": "3GPP TS 38.213 V19.5.0 (2026-09)",
+        "CRC_XML_ZIP_member_identity": "PASS"
+      },
+      {
+        "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38214-j50.docx",
+        "sha256": "1c093eb3f5ee17f40ebbca05bd0aab207800e224150bee711ab0037b28b71ed6",
+        "cover": "3GPP TS 38.214 V19.5.0 (2026-09)",
+        "CRC_XML_ZIP_member_identity": "PASS"
+      },
+      {
+        "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38331-j40.docx",
+        "sha256": "ca9a2d760fe529e06b792bdf5947cd2626a025ec0cb4ebde163a62058b998aad",
+        "cover": "3GPP TS 38.331 V19.4.0 (2026-09)",
+        "CRC_XML_ZIP_member_identity": "PASS"
+      },
+      {
+        "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38300-j40.docx",
+        "sha256": "47a246c4f83b4ad1476897be7f21954e8c300d0a039fb600ead07be5f5c3e5f3",
+        "cover": "3GPP TS 38.300 V19.4.0 (2026-09)",
+        "CRC_XML_ZIP_member_identity": "PASS"
+      },
+      {
+        "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38321-j40.docx",
+        "sha256": "98c9e13671e95ed50449d62eb4aaff14223158e2d04c23152778ecd8328f3f25",
+        "cover": "3GPP TS 38.321 V19.4.0 (2026-09)",
+        "CRC_XML_ZIP_member_identity": "PASS"
+      }
+    ],
+    "used_clauses": {
+      "38.211 V19.5.0": [
+        "4.2",
+        "4.3.2 Tables4.2-1/4.3.2-1"
+      ],
+      "38.213 V19.5.0": [
+        "11.1"
+      ],
+      "38.214 V19.5.0": [
+        "5.3",
+        "6.4",
+        "6.1.2.1"
+      ],
+      "38.331 V19.4.0": [
+        "6.3.2 TDD-UL-DL-Pattern"
+      ],
+      "38.300 V19.4.0": [
+        "5.2.2",
+        "5.3.2"
+      ],
+      "38.321 V19.4.0": [
+        "5.4.1"
+      ]
+    },
+    "model": {
+      "status": "PASS",
+      "scope": "Teaching model only; not a new experiment",
+      "slot_ms": 0.125,
+      "three_slots_ms": 0.375,
+      "four_slots_ms": 0.5,
+      "period_ms": 0.625,
+      "boundary_waits_ms": [
+        0.5,
+        0.375,
+        0.25,
+        0.125,
+        0.0
+      ],
+      "discrete_equal_phase_mean_ms": 0.25,
+      "continuous_uniform_phase_mean_ms": 0.3125,
+      "counterexample": {
+        "ready_ms": 0.501,
+        "next_full_U_start_ms": 1.125,
+        "wait_ms": 0.624,
+        "greater_than_four_slots": true
+      },
+      "assumptions": [
+        "slot-boundary model uses only full U start",
+        "grant and preparation already complete",
+        "no resource contention, queue or retransmission",
+        "S UL symbols ignored explicitly",
+        "nominal radio time, not measured RFsim wall time"
+      ]
+    },
+    "official_highest_versions_independently_verified": false,
+    "required_protocol_missing": [],
+    "new_experiment_results": false,
+    "PDF_sources": [
+      {
+        "path": "/home/lbh/oiwireless/pdf-英文原版/2_5G New Radio Numerologies and their Impact on.pdf",
+        "sha256": "b586f6883fdc76637be0012b79f478f180312f43ce1c8d5e397ae29bd4464b76",
+        "local_PDF_page_range": [
+          1,
+          2
+        ],
+        "use": "Local P02, II/III, old Rel15 discussion; no claim latest full version reviewed or fixed whole-ping3-slot rule"
+      },
+      {
+        "path": "/home/lbh/oiwireless/(NEW)5G移动通信系统设计与标准详解（大唐移动LTE和5G技术研究和标准化团队编撰！5G宝典！）.pdf",
+        "sha256": "e43a71fdb4218ca6a6ab7d56ee862ebe6a23e93348a66a35c13c5623b1c79826",
+        "local_PDF_page_range": [
+          530,
+          532
+        ],
+        "use": "13.1.1.2 scheduling background"
+      }
+    ]
+  },
+  "commands": [
+    {
+      "command": "python3 -B tools/update_knowledge.py",
+      "exit_code": 0,
+      "knowledgePages": 7,
+      "formulas": 101,
+      "images": 9
+    },
+    {
+      "command": "python3 -B tools/check_prerequisites.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -B tools/validate_reader.py",
+      "exit_code": 0
+    }
+  ]
+}
