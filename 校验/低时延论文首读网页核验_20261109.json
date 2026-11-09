@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "reading recommendation and webpage; not new radio experiment",
+  "source": "说明/算法知识点说明/算法实验_共同前置条件.md",
+  "sourceSHA": "a5f7a8ef2a47a3c01a4382077f1da3d580350e068afd8008434e6093779e53b7",
+  "id": "k4f5f00700a16ad5b",
+  "html_toc_search_algorithm_navigation": true,
+  "preexisting_dirty_drift_observed": {
+    "research": [
+      "research/latency-analysis/START_HERE_新会话引导.md"
+    ],
+    "reader": [
+      "校验/知识点构建校验.json",
+      "校验/离线资源与跳转校验.json",
+      "网页/catalog.js"
+    ]
+  },
+  "preservation_scope": "UI/core/code not edited by this task. Other-session basics/TDD edits are retained; shared generated catalog/report are partially staged for the common-page change only."
+}
