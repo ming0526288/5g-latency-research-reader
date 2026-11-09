@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "scope": "DOM/navigation/local file identity; not a native-browser PDF renderer test",
+  "ready": [
+    "P05"
+  ],
+  "steps": [
+    "P05 English first and Chinese second; both open page 3",
+    "Chinese independent pagination clamps to 6 and aligns with original on request",
+    "Chinese textbook retains only its original reader",
+    "Unfinished papers have no fake PDF link or iframe",
+    "Library Chinese filter identifies the actual completed translation"
+  ],
+  "errors": []
+}

@@ -65,4 +65,3 @@ html{font-size:100%}
 
 /* Separate, vertically stacked original and translated PDF readers. */
 .pdf-translation{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--line)}
-.pdf-view h2{font-size:1.25rem;line-height:1.5;margin:1.25rem 0 .75rem}
