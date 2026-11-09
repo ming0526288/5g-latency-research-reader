@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "date": "2026-11-09",
+  "source": "说明/算法知识点说明/00_通信与时延基础知识.md",
+  "sha256": "c0c178a207e6a612e2332fe20b708ca940a2ded99ffc0f2d332e72dc52faa99c",
+  "page_id": "kc3e4e8560cabef23",
+  "source_catalog_identity": true,
+  "html_search_terms": [
+    "之前 120 kHz 仿真的 ping 时延是多少，能代表业务吗",
+    "56(84)",
+    "0.737",
+    "0.807",
+    "0.822",
+    "0.897",
+    "真实业务并非必然超过 2 ms",
+    "2.441689",
+    "完整 5G 注册过程",
+    "不是严格同程序/同负载对照"
+  ],
+  "toc": [
+    {
+      "id": "之前-120-khz-仿真的-ping-时延是多少能代表业务吗",
+      "title": "之前 120 kHz 仿真的 ping 时延是多少，能代表业务吗",
+      "level": 3
+    }
+  ],
+  "old_ping_samples_read": 20,
+  "old_ping_runs": 4,
+  "historical_echo_summary_rows_crosschecked": 3,
+  "historical_echo_per_UE_rows": 18,
+  "new_radio_or_business_run": false,
+  "commands": [
+    {
+      "command": "python3 -B tools/update_knowledge.py",
+      "exit_code": 0,
+      "knowledge_pages": 7,
+      "formulas": 84,
+      "images": 9
+    },
+    {
+      "command": "python3 -B tools/check_prerequisites.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -B tools/validate_reader.py",
+      "exit_code": 0
+    }
+  ],
+  "scope": "Historical evidence/knowledge/page consistency; no repaired-binary baseline or packet-size causal attribution",
+  "source_audit": "oi-wireless-ran-latency-analysis/research/latency-analysis/source_audit/ping_rtt_business_boundary_20261109.json"
+}
