@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "source": "说明/算法知识点说明/00_通信与时延基础知识.md",
+  "source_sha256": "fcc1410e7ad90752ef9bf344ac794ceec02e136f5bc052dc52c59ca74ea20bc4",
+  "page_id": "kc3e4e8560cabef23",
+  "new_toc": [
+    {
+      "id": "网络侧是什么意思网络侧应用在哪里",
+      "title": "“网络侧”是什么意思，网络侧应用在哪里",
+      "level": 3
+    }
+  ],
+  "HTML_and_search_terms": [
+    "“网络侧”是什么意思，网络侧应用在哪里",
+    "相对于 UE 终端说的",
+    "工厂控制服务器",
+    "不要求经过公网互联网",
+    "讲解用的角色名称",
+    "命名空间和计时终点"
+  ],
+  "navigation": "knowledgeTopics.basics",
+  "source_catalog_identity": true,
+  "commands": [
+    {
+      "command": "python3 -B tools/update_knowledge.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -B tools/check_prerequisites.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -B tools/validate_reader.py",
+      "exit_code": 0
+    }
+  ],
+  "scope": "Knowledge explanation and generated page consistency; no wireless experiment",
+  "failure_retained": "Initial update_knowledge exit1 unparsed emphasis delimiters; added Markdown delimiter spacing, rerun exit0",
+  "sources": {
+    "date": "2026-11-09",
+    "scope": "Explain contextual network-side/application terminology, distinguish UE/access/core/data-network roles; no new code/config/formula/experiment",
+    "protocols": [
+      {
+        "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/23501-k30/23501-k30.docx",
+        "sha256": "f057a0c3f4b955751a0e03f5b2a47549bd2c7c3363e318b43f161b076d4c82dd",
+        "cover": "3GPP TS 23.501 V20.3.0 (2026-09)",
+        "clauses": [
+          "4.2.7Reference points",
+          "6.2.3UPF"
+        ],
+        "crc_xml_zip_identity": "PASS"
+      },
+      {
+        "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38300-j40.docx",
+        "sha256": "47a246c4f83b4ad1476897be7f21954e8c300d0a039fb600ead07be5f5c3e5f3",
+        "cover": "3GPP TS 38.300 V19.4.0 (2026-09)",
+        "clauses": [
+          "4.3.1.1NG User Plane"
+        ],
+        "crc_xml_zip_identity": "PASS"
+      }
+    ],
+    "required_protocol_missing": [],
+    "official_highest_versions_independently_verified": false,
+    "paper_and_book_background": [
+      {
+        "path": "/home/lbh/oiwireless/pdf-英文原版/1_Dissecting-5G-New-Radio-Latency.pdf",
+        "sha256": "2d272dbcb3ea0ee1d659ae2a81ab9abf2a0bcb17a957b97d917ab1bbf7a19fdd",
+        "local_pdf_pages": [
+          2,
+          3
+        ],
+        "use": "IFIP Networking2025 III-A/B/E and Fig1, boundaries/segmentation background"
+      },
+      {
+        "path": "/home/lbh/oiwireless/(NEW)5G移动通信系统设计与标准详解（大唐移动LTE和5G技术研究和标准化团队编撰！5G宝典！）.pdf",
+        "sha256": "e43a71fdb4218ca6a6ab7d56ee862ebe6a23e93348a66a35c13c5623b1c79826",
+        "local_pdf_pages": [
+          49,
+          55
+        ],
+        "use": "Chapter2 MAC/RLC/PDCP layer functions, local PDF49–55"
+      }
+    ],
+    "new_latency_or_radio_measurement": false
+  }
+}
