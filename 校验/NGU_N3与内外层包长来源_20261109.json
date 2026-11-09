@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-09",
+  "scope": "Explain business packet vs network signalling, NG-U/N3 relationship, nested inner/outer UDP/IP and byte boundaries; no communication code or experiments",
+  "protocols": [
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38300-j40.docx",
+      "sha256": "47a246c4f83b4ad1476897be7f21954e8c300d0a039fb600ead07be5f5c3e5f3",
+      "crc_xml": "PASS",
+      "cover": "3GPP TS 38.300 V19.4.0 (2026-09)",
+      "zip_path": "/home/lbh/oiwireless/3GPP协议原文/38300-j40.zip",
+      "zip_sha256": "a938cffbb1cf2d5c565245ad5469bad54f6a5fbc88d65e0dcae4ddd1f8864d1d",
+      "zip_crc_and_original_member_identity": "PASS",
+      "used_clauses": [
+        "4.3.1.1",
+        "4.3.1.2"
+      ]
+    },
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/23501-k30/23501-k30.docx",
+      "sha256": "f057a0c3f4b955751a0e03f5b2a47549bd2c7c3363e318b43f161b076d4c82dd",
+      "crc_xml": "PASS",
+      "cover": "3GPP TS 23.501 V20.3.0 (2026-09)",
+      "zip_path": "/home/lbh/oiwireless/3GPP协议原文/23501-k30.zip",
+      "zip_sha256": "bde17d861ca7e393464784b394df8014004c1d816a3e98e4833f1098b37d70a5",
+      "zip_crc_and_original_member_identity": "PASS",
+      "used_clauses": [
+        "3.2 (AMF/NG abbreviation background)",
+        "4.2.7"
+      ]
+    },
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/29281-j20/29281-j20.docx",
+      "sha256": "884af90bbf028639003c6fdd47f33688118dddf765241825c04cde18b06e819f",
+      "crc_xml": "PASS",
+      "cover": "3GPP TS 29.281 V19.2.0 (2025-09)",
+      "zip_path": "/home/lbh/oiwireless/3GPP协议原文/29281-j20.zip",
+      "zip_sha256": "c0bce6b3bfc06f8fa4ef4f787cf506c9097d382b4279671a7979212c4a4fc2b2",
+      "zip_crc_and_original_member_identity": "PASS",
+      "used_clauses": [
+        "3.1",
+        "4.2.1",
+        "4.2.4",
+        "4.2.5",
+        "4.4.1",
+        "4.4.2.3",
+        "5.1"
+      ]
+    }
+  ],
+  "papers_and_book": [
+    {
+      "path": "/home/lbh/oiwireless/pdf-英文原版/1_Dissecting-5G-New-Radio-Latency.pdf",
+      "sha256": "2d272dbcb3ea0ee1d659ae2a81ab9abf2a0bcb17a957b97d917ab1bbf7a19fdd",
+      "local_pdf_page_range": [
+        2,
+        3
+      ],
+      "use": "P01 IFIP Networking 2025, III-A/B and Fig.1, layer/packet measurement boundary background only; no GTP header size derived from paper"
+    },
+    {
+      "path": "/home/lbh/oiwireless/(NEW)5G移动通信系统设计与标准详解（大唐移动LTE和5G技术研究和标准化团队编撰！5G宝典！）.pdf",
+      "sha256": "e43a71fdb4218ca6a6ab7d56ee862ebe6a23e93348a66a35c13c5623b1c79826",
+      "local_pdf_page_range": [
+        49,
+        55
+      ],
+      "use": "Chapter 2, local PDF 49–55, especially MAC logical control/traffic channel distinction; not authority for N3 or GTP size"
+    }
+  ],
+  "required_protocol_missing": [],
+  "official_highest_versions_independently_verified": false,
+  "version_note": "User-authorized readable local cover versions; no new official-latest certification or version relabeling",
+  "arithmetic": {
+    "assumptions": "both IP layers IPv4 without options; ordinary UDP; no fragmentation; illustrative only",
+    "inner_ip_B": 1228,
+    "outer_ip_B": "1256 + H_GTP",
+    "minimum_header_illustration_B": 1264,
+    "actual_N3_length_measured": false
+  },
+  "radio_core_business_capture_started": false,
+  "communication_code_changed": false
+}

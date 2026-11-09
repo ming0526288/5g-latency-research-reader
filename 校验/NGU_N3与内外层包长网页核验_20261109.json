@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "date": "2026-11-09",
+  "source": "说明/算法知识点说明/00_通信与时延基础知识.md",
+  "source_sha256": "c5d540d47ef08f2ecaa3da1347e2986a487cf02c32cd52d746074ef09ccaa29d",
+  "page_id": "kc3e4e8560cabef23",
+  "source_catalog_identity": true,
+  "html_and_search_terms": [
+    "业务包：视频、传感器数据和机械臂指令都可以",
+    "NG-U 和 N3：本场景中指向同一段用户面连接",
+    "内层与外层：同一个业务包在 N3 上又加了一套运输头部",
+    "两层长度不能混在一起",
+    "1256",
+    "1264",
+    "2152",
+    "不能把它们算成前后串联的两段传输或两份时延"
+  ],
+  "new_toc": [
+    {
+      "id": "业务包视频传感器数据和机械臂指令都可以",
+      "title": "业务包：视频、传感器数据和机械臂指令都可以",
+      "level": 3
+    },
+    {
+      "id": "ng-u-和-n3本场景中指向同一段用户面连接",
+      "title": "NG-U 和 N3：本场景中指向同一段用户面连接",
+      "level": 3
+    },
+    {
+      "id": "内层与外层同一个业务包在-n3-上又加了一套运输头部",
+      "title": "内层与外层：同一个业务包在 N3 上又加了一套运输头部",
+      "level": 3
+    },
+    {
+      "id": "两层长度不能混在一起具体怎么算",
+      "title": "“两层长度不能混在一起”具体怎么算",
+      "level": 3
+    }
+  ],
+  "knowledge_navigation": "kc3e4e8560cabef23",
+  "math_scope": "Byte accounting teaching only, not measured GTP length or new latency",
+  "existing_offline_report_note": "Was modified before this task; validator regenerates this file, excluded from task staging",
+  "unchanged_C_Python_reference_files": 8,
+  "radio_business_capture_started": false,
+  "UI_layout_changed_by_this_task": false,
+  "browser_visual_QA_rerun": false,
+  "commands": [
+    {
+      "command": "python3 -B tools/update_knowledge.py",
+      "exit_code": 0,
+      "documents": 7,
+      "formulas": 83,
+      "images": 9
+    },
+    {
+      "command": "python3 -B tools/check_prerequisites.py",
+      "exit_code": 0,
+      "protocolOriginals": 12
+    },
+    {
+      "command": "python3 -B tools/validate_reader.py",
+      "exit_code": 0,
+      "documents": 1189,
+      "protocol_routes": 7058,
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}
