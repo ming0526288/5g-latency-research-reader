@@ -23,7 +23,7 @@ class Loader extends ResourceLoader{fetch(url,options){if(options.element?.local
   const figureLink=[...d.querySelectorAll('.article a')].find(a=>a.textContent.includes('点击直达本地转换 PDF 第 49 页'));
   assert(figureLink,'Figure reference is a real direct link');figureLink.click();
   await until(()=>d.querySelector('.pdf-frame')?.title.includes('23.501'),'figure PDF view');
-  assert(d.querySelector('.pdf-frame').getAttribute('src').includes('#page=49&view=FitH'));
+  assert(d.querySelector('.pdf-frame').getAttribute('src').includes('#page=49&zoom=95'));
   assert.equal(d.querySelector('#pdfPage').value,'49');assert(!d.querySelector('.protocol-article'));
   assert(d.querySelector('#main').textContent.includes('非 3GPP 官方下载 PDF'));
   assert([...d.querySelectorAll('.pdf-controls a')].some(a=>a.getAttribute('href').endsWith('.docx')));

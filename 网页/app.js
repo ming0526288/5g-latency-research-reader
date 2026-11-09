@@ -175,7 +175,7 @@
    return `<section class="pdf-translation" aria-labelledby="chinesePdfHeading"><h2 id="chinesePdfHeading">中文译文</h2><p class="pdf-hint">${message}</p><button id="refreshZhPdf" class="soft-button">刷新中文状态</button></section>`;
   }
   const zhPage=Math.max(1,Math.min(translated.pages,page));
-  const direct=encodeURI(translated.file)+'#page='+zhPage+'&view=FitH';
+  const direct=encodeURI(translated.file)+'#page='+zhPage+'&zoom=95';
   const note=translated.visualQA==='passed'?'已完成页面核对的中文辅助译本，可与上方英文对照；专业含义仍以原文为准。':'中文 PDF 已生成，可先预览；尚未完成逐页校对，译文、公式与排版请结合上方原文阅读。';
   return `<section class="pdf-translation" aria-labelledby="chinesePdfHeading"><h2 id="chinesePdfHeading">中文译文</h2><p class="pdf-hint">${note}</p><div class="pdf-controls"><button id="prevZhPdf" class="soft-button" ${zhPage===1?'disabled':''}>上一页</button><label>中文 PDF 第 <input id="zhPdfPage" type="number" min="1" max="${translated.pages}" value="${zhPage}"> / ${translated.pages} 页</label><button id="goZhPdf" class="soft-button">跳转</button><button id="nextZhPdf" class="soft-button" ${zhPage===translated.pages?'disabled':''}>下一页</button><button id="syncZhPdf" class="soft-button">对齐原文第 ${page} 页</button><a id="openZhPdf" class="soft-button primary" href="${direct}" target="_blank" rel="noopener">独立打开中文 PDF ↗</a><button id="refreshZhPdf" class="soft-button">刷新中文状态</button></div><iframe id="chinesePdfFrame" class="pdf-frame" title="${E(p.title)}，中文 PDF 第 ${zhPage} 页" src="${direct}" loading="lazy"></iframe></section>`;
  }
@@ -185,7 +185,7 @@
   const translated=translatedPaper(p);
   function go(n){
    const current=Math.max(1,Math.min(translated.pages,n));
-   const direct=encodeURI(translated.file)+'#page='+current+'&view=FitH';
+   const direct=encodeURI(translated.file)+'#page='+current+'&zoom=95';
    $('#zhPdfPage').value=current;frame.src=direct;
    frame.title=p.title+'，中文 PDF 第 '+current+' 页';$('#openZhPdf').href=direct;
    $('#prevZhPdf').disabled=current===1;$('#nextZhPdf').disabled=current===translated.pages;
@@ -202,7 +202,7 @@
  }
  function paperView(id,params){
   const p=C.papers.find(p=>p.id===id);if(!p)return missing('没有找到这份文献。');
-  const page=Math.max(1,Math.min(p.pages,Number(params.get('page'))||1));const direct=encodeURI(p.file)+'#page='+page+'&view=FitH';
+  const page=Math.max(1,Math.min(p.pages,Number(params.get('page'))||1));const direct=encodeURI(p.file)+'#page='+page+'&zoom=95';
   let back=storage.get('returnTo','#/library/papers');if(!back.startsWith('#/doc/'))back='#/library/papers';
   main.innerHTML=`<section class="pdf-view">${breadcrumbs('文献原文')}<div class="eyebrow">${E(p.id==='book'?'TEXTBOOK':p.id)} · LOCAL PDF</div><h1>${E(p.title)}</h1><div class="pdf-controls"><a class="soft-button" href="${E(back)}">← 返回阅读文档</a><button id="prevPdf" class="soft-button" ${page===1?'disabled':''}>上一页</button><label>本地PDF第 <input id="pdfPage" type="number" min="1" max="${p.pages}" value="${page}"> / ${p.pages} 页</label><button id="goPdf" class="soft-button">跳转</button><button id="nextPdf" class="soft-button" ${page===p.pages?'disabled':''}>下一页</button><a class="soft-button primary" href="${direct}" target="_blank" rel="noopener">独立打开PDF ↗</a></div>${p.id!=='book'?'<h2>英文原文</h2>':''}<iframe class="pdf-frame" title="${E(p.title)}，本地PDF第${page}页" src="${direct}"></iframe><p class="pdf-hint">若浏览器未内嵌显示PDF，请点击“独立打开PDF”。采用PDF页序定位，可能与论文印刷页码不同。文件：${E(p.file)}</p><div id="chinesePdfPanel">${chinesePdfPanel(p,page)}</div></section>`;
   function go(n){location.hash=`#/paper/${id}?page=${Math.max(1,Math.min(p.pages,n))}`;}
@@ -233,7 +233,7 @@
   const page=Math.max(1,Math.min(pdf.pages,Number(params.get('page'))||pdf.clausePages[clause]||1));
   const base='#/protocol/'+spec+'?part='+p.id+(requestedVersion?'&version='+encodeURIComponent(requestedVersion):'');
   const textUrl=base+'&view=text'+(clause?'&clause='+encodeURIComponent(clause):'')+(params.get('q')?'&q='+encodeURIComponent(params.get('q')):'');
-  const direct=encodeURI(pdf.file)+'#page='+page+'&view=FitH';
+  const direct=encodeURI(pdf.file)+'#page='+page+'&zoom=95';
   const clauseNotice=clause?(pdf.clausePages[clause]?`条款 ${E(clause)} 起于转换 PDF 第 ${pdf.clausePages[clause]} 页；当前显示第 ${page} 页。`:`尚未核定条款 ${E(clause)} 的转换 PDF 页序，请使用“条款网页检索”。`):'';
   let back=storage.get('returnTo','#/library/protocols');if(!back.startsWith('#/doc/'))back='#/library/protocols';
   main.innerHTML=`<section class="pdf-view">${breadcrumbs('3GPP 协议 / TS '+spec)}<div class="eyebrow">3GPP TS ${E(spec)} · V${E(p.version)} · LOCAL PDF</div><h1>TS ${E(spec)} · V${E(p.version)}</h1><p class="pdf-hint">由用户提供的 Word 本地转换，非 3GPP 官方下载 PDF；原 Word 与 ZIP 保留。${E(p.part)} · ${pdf.pages} 页。</p>${mismatch?`<div class="source-notice"><strong>版本提示：引用为 V${E(requestedVersion)}，此原文及转换件为 V${E(p.version)}，不能视为相同版本。</strong></div>`:''}<div class="pdf-controls"><a class="soft-button" href="${E(back)}">← 返回阅读文档</a><a class="soft-button primary" href="${direct}" target="_blank" rel="noopener">独立打开 PDF ↗</a><a class="soft-button" href="${encodeURI(p.file)}" target="_blank" rel="noopener">打开 Word 原文 ↗</a>${p.archive?`<a class="soft-button" href="${encodeURI(p.archive)}" download>原始 ZIP</a>`:''}<a class="soft-button" href="${E(textUrl)}">条款网页检索</a>${parts.length>1?`<select id="protocolPart" aria-label="选择原文分册">${parts.map(x=>`<option value="${x.id}" ${x.id===p.id?'selected':''}>${E(x.part)}</option>`).join('')}</select>`:''}</div><div class="pdf-controls"><button id="prevPdf" class="soft-button" ${page===1?'disabled':''}>上一页</button><label>本地 PDF 第 <input id="pdfPage" type="number" min="1" max="${pdf.pages}" value="${page}"> / ${pdf.pages} 页</label><button id="goPdf" class="soft-button">跳转</button><button id="nextPdf" class="soft-button" ${page===pdf.pages?'disabled':''}>下一页</button><span class="pdf-hint">${clauseNotice}</span></div><iframe class="pdf-frame" title="TS ${E(spec)} V${E(p.version)}，本地转换 PDF 第 ${page} 页" src="${direct}"></iframe><p class="pdf-hint">转换页序可能与原 Word 的印刷页码不同。可放大查看图表；复杂版式需精确核对时仍以原 Word 为准。</p></section>`;

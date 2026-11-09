@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-11-09T12:32:37.623945+08:00",
+  "scope": "PDF viewer scale only; PDF files and website font settings not edited by this change",
+  "default_zoom_percent": 95,
+  "web_css_matches_current_HEAD": true,
+  "web_css_sha256": "3a182c0a841b6c9dc772c213c7e290189248af511e7b64421546c01a01c147ef",
+  "baseline_CSS_difference": "A concurrent commit 33599cb removed only .pdf-view h2 styling; preserved that committed change. Our temporary web-size changes were completely removed.",
+  "font_rules_no_own_diff": true,
+  "reader_sites_changed": [
+    "original paper view",
+    "Chinese PDF view",
+    "Chinese PDF page controls",
+    "protocol PDF view"
+  ],
+  "dom_test": {
+    "command": "NODE_PATH=/usr/share/nodejs modern-node tools/check_protocol_pdfs.cjs",
+    "actual_exit": 0,
+    "parts": 34
+  },
+  "browser": {
+    "actual_exit": 0,
+    "screenshot": "analysis-source-audit/font-size-compact-20261109/pdf-zoom95.png",
+    "visual_inspection": "Real Firefox native PDF viewer shows 95% in its toolbar; page data rendered. Website CSS has no own diff.",
+    "sha256": "092bd696335d4f5703446b0b0b3c9f2530fff6b14bf025428a3c8f3eb1474baa"
+  },
+  "failed_invariant": "Initial whole-CSS byte assertion failed because HEAD advanced with the independent one-rule removal; evidence retained and invariant narrowed to no own CSS change. Not a PDF-source/translation failure.",
+  "quality_boundary": "No PDF editing or translation-quality validation. Viewer percentage is absolute 95%, not 95% of FitH."
+}
