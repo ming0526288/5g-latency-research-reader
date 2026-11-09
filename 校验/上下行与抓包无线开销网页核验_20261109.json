@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "date": "2026-11-09",
+  "source": "说明/算法知识点说明/00_通信与时延基础知识.md",
+  "source_sha256": "cf50f35c03f22e273a35a368748df675d545ee76f5a37323469f0b8487b50c6a",
+  "page_id": "kc3e4e8560cabef23",
+  "html_search_terms": [
+    "上行、下行和上行业务包是什么意思",
+    "UPF 是什么意思，和接收应用是什么关系",
+    "抓包长度与无线开销为什么要分开",
+    "UE → gNB",
+    "gNB → UE",
+    "不是 UE 前面另外一台设备",
+    "User Plane Function",
+    "UE〔应用程序 → UE 协议栈〕",
+    "不同进程"
+  ],
+  "new_toc": [
+    {
+      "id": "上行下行和上行业务包是什么意思",
+      "title": "上行、下行和上行业务包是什么意思",
+      "level": 3
+    },
+    {
+      "id": "upf-是什么意思和接收应用是什么关系",
+      "title": "UPF 是什么意思，和接收应用是什么关系",
+      "level": 3
+    },
+    {
+      "id": "抓包长度与无线开销为什么要分开",
+      "title": "抓包长度与无线开销为什么要分开",
+      "level": 3
+    }
+  ],
+  "source_catalog_identity": true,
+  "navigation_updated": true,
+  "unchanged_C_Python_files": 8,
+  "UI_or_style_changed_by_this_task": false,
+  "browser_screenshots_rerun": false,
+  "math_scope": "No new formula or model; existing packet byte arithmetic retained",
+  "scope": "Knowledge generation and consistency only, not performance measurement",
+  "commands": [
+    {
+      "command": "python3 -B tools/update_knowledge.py",
+      "exit_code": 0,
+      "documents": 7,
+      "formulas": 83,
+      "images": 9
+    },
+    {
+      "command": "python3 -B tools/check_prerequisites.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -B tools/validate_reader.py",
+      "exit_code": 0
+    }
+  ]
+}

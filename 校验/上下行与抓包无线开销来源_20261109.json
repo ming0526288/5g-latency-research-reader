@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-09",
+  "scope": "UL/DL and uplink business packet teaching, packet capture vs radio accounting; no code, new latency or new wireless experiment; clarify application within UE functional boundary and UPF vs receiving application",
+  "protocols": [
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38300-j40.docx",
+      "sha256": "47a246c4f83b4ad1476897be7f21954e8c300d0a039fb600ead07be5f5c3e5f3",
+      "cover": "3GPP TS 38.300 V19.4.0 (2026-09)",
+      "zip": "/home/lbh/oiwireless/3GPP协议原文/38300-j40.zip",
+      "zip_crc_docx_xml_original_identity": "PASS"
+    },
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38321-j40.docx",
+      "sha256": "98c9e13671e95ed50449d62eb4aaff14223158e2d04c23152778ecd8328f3f25",
+      "cover": "3GPP TS 38.321 V19.4.0 (2026-09)",
+      "zip": "/home/lbh/oiwireless/3GPP协议原文/38321-j40.zip",
+      "zip_crc_docx_xml_original_identity": "PASS"
+    },
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/38214-j50.docx",
+      "sha256": "1c093eb3f5ee17f40ebbca05bd0aab207800e224150bee711ab0037b28b71ed6",
+      "cover": "3GPP TS 38.214 V19.5.0 (2026-09)",
+      "zip": "/home/lbh/oiwireless/3GPP协议原文/38214-j50.zip",
+      "zip_crc_docx_xml_original_identity": "PASS"
+    },
+    {
+      "path": "/home/lbh/oiwireless/3GPP协议原文/官方解压原文/23501-k30/23501-k30.docx",
+      "sha256": "f057a0c3f4b955751a0e03f5b2a47549bd2c7c3363e318b43f161b076d4c82dd",
+      "cover": "3GPP TS 23.501 V20.3.0 (2026-09)",
+      "zip": "/home/lbh/oiwireless/3GPP协议原文/23501-k30.zip",
+      "zip_crc_docx_xml_original_identity": "PASS"
+    }
+  ],
+  "used_clauses": {
+    "38.300 V19.4.0": [
+      "4.3.1.1",
+      "5.2",
+      "5.2.2",
+      "5.2.3",
+      "5.3",
+      "5.3.2",
+      "6.1",
+      "6.2.1"
+    ],
+    "38.321 V19.4.0": [
+      "5.3.1",
+      "5.4.1",
+      "6.1.2"
+    ],
+    "38.214 V19.5.0": [
+      "6.1.4.2 (allocation/overhead context only, no new equation derived from extracted text)"
+    ],
+    "23.501 V20.3.0": [
+      "3.2 (UPF abbreviation)",
+      "4.2.7",
+      "6.2.3"
+    ]
+  },
+  "pdfs": [
+    {
+      "path": "/home/lbh/oiwireless/pdf-英文原版/1_Dissecting-5G-New-Radio-Latency.pdf",
+      "sha256": "2d272dbcb3ea0ee1d659ae2a81ab9abf2a0bcb17a957b97d917ab1bbf7a19fdd",
+      "local_pdf_pages": [
+        2,
+        3
+      ],
+      "use": "IFIP Networking2025 III-A/B/E and Fig1, boundaries/segmentation background"
+    },
+    {
+      "path": "/home/lbh/oiwireless/(NEW)5G移动通信系统设计与标准详解（大唐移动LTE和5G技术研究和标准化团队编撰！5G宝典！）.pdf",
+      "sha256": "e43a71fdb4218ca6a6ab7d56ee862ebe6a23e93348a66a35c13c5623b1c79826",
+      "local_pdf_pages": [
+        49,
+        55
+      ],
+      "use": "Chapter2 MAC/RLC/PDCP layer functions, local PDF49–55"
+    }
+  ],
+  "required_protocol_missing": [],
+  "official_highest_versions_independently_verified": false,
+  "version_note": "User-authorized local cover versions; no independent latest certification",
+  "new_radio_or_core_or_business_or_capture": false,
+  "new_numeric_radio_overhead_or_latency_claim": false
+}
