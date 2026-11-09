@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-09T10:56:23.515310+08:00",
+  "source_sha256": "0a5067b0629b6b3dea1f2dabb469b99f714c95a592324cc8435c8ba43fa082de",
+  "page_id": "kc3e4e8560cabef23",
+  "heading": {
+    "id": "对照架构图n3n6-的端点到底是谁",
+    "title": "对照架构图：N3、N6 的“端点”到底是谁",
+    "level": 3
+  },
+  "search_queries": [
+    "对照架构图",
+    "N3、N6",
+    "图 4.2.3-2",
+    "图 2-2",
+    "端点",
+    "数据网络 DN"
+  ],
+  "figures": [
+    {
+      "source": "说明/插图/5G架构与N3_N6端点.svg",
+      "published": "网页/images/306e0b960a3333b71fa8.svg",
+      "sha256": "306e0b960a3333b71fa888af85845678ed73e8de7cf8a05bfa8b65c3458c2102",
+      "alt": "5G 架构与 N3、N6 端点中文简图"
+    },
+    {
+      "source": "说明/插图/教材_图2-2_5G系统架构.png",
+      "published": "网页/images/6d5224c47a2c258cada8.png",
+      "sha256": "6d5224c47a2c258cada85c940ca17129018b58fb952150c5e638a384157c8fa4",
+      "alt": "教材图 2-2：5G 系统架构原图节选"
+    }
+  ],
+  "visual_QA": "Rsvg/cairo source preview and textbook full pages/crop visually inspected; real Firefox file:// page screenshot 1440x20000 exit 0, two diagrams visible in inspected crop. Initial viewport screenshot alone did not confirm figure. Not user VPN/client verification.",
+  "scope": "Teaching diagram/source/navigation/search checks, not a full-stack experiment or measured topology.",
+  "browser_screenshot_sha256": "49edd23a0da73d9a7fc946e97babe1f4d10c0e891ef257e1b2d8396e5dbadae4"
+}

@@ -1,0 +1,69 @@
+{
+  "checked_at": "2026-11-09T10:55:54.607750+08:00",
+  "scope": "Architecture explanation and figures only; no radio/core/traffic test, no new latency data or model.",
+  "protocol": {
+    "file": "3GPP协议原文/官方解压原文/23501-k30/23501-k30.docx",
+    "sha256": "f057a0c3f4b955751a0e03f5b2a47549bd2c7c3363e318b43f161b076d4c82dd",
+    "archive": "3GPP协议原文/23501-k30.zip",
+    "archive_sha256": "bde17d861ca7e393464784b394df8014004c1d816a3e98e4833f1098b37d70a5",
+    "version": "V20.3.0 (2026-09)",
+    "integrity": "ZIP CRC, nested DOCX CRC, document XML readable; extracted original matches ZIP member SHA",
+    "used": [
+      "4.2.3 Figure 4.2.3-2",
+      "4.2.7 N2/N3/N4/N6/N11 endpoints",
+      "6.2.3 UPF functions"
+    ],
+    "figure_member": "word/media/image4.emf",
+    "figure_member_sha256": "cbb852fdb6e831241dcb3ac61f16ab15963fa7ea25e1854c14a34850f60d6ddc",
+    "rendering_boundary": "Original embedded EMF identified by relationship and caption, labels checked from EMF records; no native full original figure render available in installed CLI. Delivered SVG is explicitly simplified redraw, not a faithful original extraction.",
+    "official_latest_status": "Local user-authorized version; official highest version not independently checked"
+  },
+  "textbook": {
+    "file": "(NEW)5G移动通信系统设计与标准详解（大唐移动LTE和5G技术研究和标准化团队编撰！5G宝典！）.pdf",
+    "sha256": "e43a71fdb4218ca6a6ab7d56ee862ebe6a23e93348a66a35c13c5623b1c79826",
+    "used": "2.2.1, figure 2-2 PDF page 40; figure 2-3 and explanation PDF page 41",
+    "original_diagram": "Cropped only from Poppler rendering of page 40; visually checked full page and crop",
+    "parser_warning": "Poppler reports Bad block header in flate stream for some objects; used page 40 chart/title render readable. No replacement or repair of original."
+  },
+  "paper": {
+    "file": "pdf-英文原版/1_Dissecting-5G-New-Radio-Latency.pdf",
+    "sha256": "2d272dbcb3ea0ee1d659ae2a81ab9abf2a0bcb17a957b97d917ab1bbf7a19fdd",
+    "read": "P01 IFIP Networking 2025, III-A through E / figure 1, local PDF pages 2-3",
+    "use_boundary": "Measurement-boundary context only; not source of architecture or a newly reproduced method"
+  },
+  "figures": [
+    {
+      "file": "说明/插图/5G架构与N3_N6端点.svg",
+      "sha256": "306e0b960a3333b71fa888af85845678ed73e8de7cf8a05bfa8b65c3458c2102",
+      "kind": "simplified teaching redraw"
+    },
+    {
+      "file": "说明/插图/教材_图2-2_5G系统架构.png",
+      "sha256": "6d5224c47a2c258cada85c940ca17129018b58fb952150c5e638a384157c8fa4",
+      "kind": "textbook original chart crop"
+    }
+  ],
+  "math": "Not applicable: no new numerical model, formula, or performance claim. Consistency checks cover endpoints, role boundaries, actual rendered assets/TOC/search.",
+  "initial_failures": [
+    {
+      "command": "source inventory helper importing lxml under default python3",
+      "exit": 1,
+      "cause": "default Miniconda Python lacks lxml; retried using standard-library XML; no source failure"
+    },
+    {
+      "command": "initial pdftotext output and rg before audit directory existed",
+      "exit": 2,
+      "cause": "previous helper failed before directory creation; directory created and extraction rerun"
+    },
+    {
+      "command": "initial catalog JSON helper split at first equals sign",
+      "exit": 1,
+      "cause": "catalog contains a READER_CONTENT assignment before READER_CATALOG; corrected parser to use exact catalog marker"
+    },
+    {
+      "command": "source summary helper cover assertion on direct body paragraphs",
+      "exit": 1,
+      "cause": "cover is in table; full document XML text includes actual cover; corrected selection and original verified readable"
+    }
+  ]
+}
