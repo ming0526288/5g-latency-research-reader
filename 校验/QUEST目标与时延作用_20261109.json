@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "QUEST interpretation and generated reader only; no new radio experiment",
+  "pageId": "a6f6fc247929e3b43",
+  "sourceSHA": "bca996a9f1783914527314f72ab4a015d8c810e8053e26bc183c0ec806f39efe",
+  "web_html_search_toc_navigation": true,
+  "teaching_ratio": 3,
+  "preexisting_dirty_preserved_except_rebuilt_validation_report": true,
+  "head_before": {
+    "research": "0556c31887f0d9c1492217d8f143a3dc6c2f2fc6",
+    "reader": "9a3a97a059444ccfa04b2aa224b965aa7b1246f1"
+  }
+}

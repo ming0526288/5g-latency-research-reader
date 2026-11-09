@@ -5,7 +5,12 @@
     {
       "id": "k4f5f00700a16ad5b",
       "source": "说明/算法知识点说明/算法实验_共同前置条件.md",
-      "sha256": "c06d957c761ed8d2b7911d1aeccc3a5bc364095d9eee62217801c3a854915333"
+      "sha256": "5b53cc21b27d5ea1a081deba0a8ee20c98d40124f0b98a2fb7cf51b1093d3048"
+    },
+    {
+      "id": "a6f6fc247929e3b43",
+      "source": "说明/算法知识点说明/QUEST_知识点说明.md",
+      "sha256": "bca996a9f1783914527314f72ab4a015d8c810e8053e26bc183c0ec806f39efe"
     },
     {
       "id": "d99a69159f894326f",
@@ -163,6 +168,6 @@
       "sha256": "ea6a1cea93a6cb5672b53e9d6e10dd1c243bbec6369f8f5ea4140d0752d28261"
     }
   ],
-  "manifestSHA": "f8423cbc3d62170bff61af45ec8b26ca3af490c423d9c85c5db635dd693e05c1",
+  "manifestSHA": "4b470ff1209dcd28c492518093de57ba6b3d5b1f33d6abac8682fadf71a94b0b",
   "scope": "Reading navigation and source identities only; no protocol/model/formula change or new experiment."
 }

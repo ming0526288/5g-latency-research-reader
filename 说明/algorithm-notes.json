@@ -1,4 +1,10 @@
 {
-  "updated": "2026-11-03",
-  "documents": []
+  "updated": "2026-11-09",
+  "documents": [
+    {
+      "source": "说明/算法知识点说明/QUEST_知识点说明.md",
+      "algorithm": "quest",
+      "kind": "knowledge"
+    }
+  ]
 }

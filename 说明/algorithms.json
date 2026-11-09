@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03",
+  "updated": "2026-11-09",
   "commonKnowledge": {
     "source": "说明/算法知识点说明/算法实验_共同前置条件.md"
   },
@@ -23,6 +23,14 @@
         "DSR"
       ],
       "knowledge": [
+        {
+          "title": "当前目标、时延作用与评价边界",
+          "documents": [
+            {
+              "source": "说明/算法知识点说明/QUEST_知识点说明.md"
+            }
+          ]
+        },
         {
           "title": "QUEST 原理与消融",
           "documents": [
