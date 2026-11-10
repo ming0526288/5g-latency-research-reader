@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "actualPDFCases": [
+    {
+      "id": "P09",
+      "page": 5,
+      "aliases": [
+        {
+          "trace": "PJFFBO+STIXMathCalligraphy-Regu",
+          "resource": "PJFFBO+STIXMathCalligraphy-Regular"
+        },
+        {
+          "trace": "YHOHXW+STIXMathBlackboard-Regul",
+          "resource": "YHOHXW+STIXMathBlackboard-Regular"
+        },
+        {
+          "trace": "CNRFBO+STIXMathExtensions-Regul",
+          "resource": "CNRFBO+STIXMathExtensions-Regular"
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "page": 1,
+      "aliases": [
+        {
+          "trace": "RNLHLB+STIXMathCalligraphy-Regu",
+          "resource": "RNLHLB+STIXMathCalligraphy-Regular"
+        }
+      ]
+    }
+  ],
+  "negativeControl": "Two full PDF resource names with the same observed prefix are rejected",
+  "scope": "Font-name reporting only; coordinate tolerance and PDF bytes unchanged"
+}

@@ -76,3 +76,5 @@ cd /home/lbh/oiwireless/5g-latency-research-reader
 最终逐篇方法既核源/译SHA与页尺寸，也核最终PDF实际的数学字形字体/位置，而非仅数全文括号。生成器源/译SHA绑定、坐标和原笔画证据在本地aux/paper-zh-20261109/math-guards，原PDF和候选/被拒稿不Git；安全逐篇汇总在校验/论文数学排版逐篇核验.json。600秒是单篇文档生成超时，不是无线时延阈值；超时/失败不能删掉冒充检查通过。数学知识说明已补“通信与时延基础”的E[·]章节，链接P39原文PDF第2页。
 
 先读 records/接续_论文公式核查.md、CHG-019/TEST-020 确定是否已有批次在运行，勿重复启动。39篇完成必须同时有最终生成PASS和逐篇物理核验PASS，不以原先14篇/中间scope批次替代。
+
+本轮最终39篇核查说明在 `说明/文献导读/论文译稿公式核查与修复说明.md`（文献导读可达、搜索“公式核查”）。P10重做用 `--only P10 --force --repair-math --repair-layouts`；P29扫描版重影与原推导页处理随正式生成流程执行。P14/P17/P18/P28/P30/P37仍有已列局部版式问题，不能标全文ready。检查入口另有check_math_trace_fonts.py、check_math_layout.py、check_scan_math.py、check_math_live.py、check_math_report.cjs。后两者分别核最终HTTP字节与网页导航/搜索。

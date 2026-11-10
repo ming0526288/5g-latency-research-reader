@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "document": "re403499a7e0b4ec7",
+  "paperRows": 39,
+  "steps": [
+    "Canonical report loaded with current scope/counts and source links",
+    "Literature guide reaches report",
+    "Global search finds the generated report"
+  ],
+  "errors": [],
+  "scope": "Reader DOM/navigation/search only; no new mathematical theorem or wireless experiment"
+}

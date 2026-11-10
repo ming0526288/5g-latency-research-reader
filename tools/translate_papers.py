@@ -271,6 +271,18 @@ def restore_original_figures(paper, mono, layouts):
     original = fitz.open(ROOT/paper['file'])
     translated = fitz.open(stream=mono,filetype='pdf')
     proof=[]
+    if paper['id']=='P29':
+        # This supplied 1995 copy has a page-sized scan plus an OCR text layer.
+        # Keep source scans read-only; remove only matching page-sized raster
+        # backgrounds from the auxiliary translation before restoring figures.
+        scan_hashes={image['digest'] for page in original for image in page.get_image_info(hashes=True)
+                     if (fitz.Rect(image['bbox']) & page.rect).get_area()/page.rect.get_area()>.9}
+        removed=set()
+        for page in translated:
+            for image in page.get_image_info(hashes=True,xrefs=True):
+                if image['digest'] in scan_hashes and image['xref'] and image['xref'] not in removed:
+                    removed.add(image['xref']);page.delete_image(image['xref'])
+        proof.append({'kind':'matching-scanned-backgrounds-removed','count':len(removed)})
     for index, boxes in enumerate(layouts):
         for entry in boxes:
             if entry['kind'] not in ('figure','isolate_formula'):
@@ -294,6 +306,24 @@ def restore_original_figures(paper, mono, layouts):
             translated[index].draw_rect(rect,color=None,fill=(1,1,1),overlay=True)
             translated[index].show_pdf_page(rect,original,index,clip=rect,keep_proportion=False,overlay=True)
             proof.append({'page':index+1,'kind':entry['kind'],'bbox':list(rect)})
+    if paper['id']=='P10':
+        # Page 8, Algorithm 1: source pseudocode variables/line spacing are
+        # restored together rather than allowing translated labels to overlap.
+        rect=fitz.Rect(37.4,48,288.9,184)
+        translated[7].draw_rect(rect,color=None,fill=(1,1,1),overlay=True)
+        translated[7].show_pdf_page(rect,original,7,clip=rect,keep_proportion=False,overlay=True)
+        proof.append({'page':8,'kind':'original-algorithm-1','bbox':list(rect)})
+    if paper['id']=='P29':
+        # OCR gives no instrumentable math-font glyphs in this scan. Preserve
+        # the algorithm/proof pages verbatim instead of inventing a math pass.
+        for index in (5,6):
+            page=translated[index]
+            page.draw_rect(page.rect,color=None,fill=(1,1,1),overlay=True)
+            page.show_pdf_page(page.rect,original,index,keep_proportion=False,overlay=True)
+            page.insert_font(fontname='zhProofNote',fontfile=str(AUX/'cache/NotoSerifCJKsc-Regular.otf'))
+            page.insert_text((42,25),'本页算法与证明保留原文；扫描公式不作自动认证。',
+                             fontname='zhProofNote',fontsize=8)
+            proof.append({'page':index+1,'kind':'original-scan-math-proof-fallback','bbox':list(page.rect)})
     if paper['id']=='P05':
         # Proper names remain original. The parser merged the VI heading with
         # Fig.9's caption; the corrected caption and separate original position
@@ -322,9 +352,12 @@ def restore_original_figures(paper, mono, layouts):
     return data
 
 
-def translate_with_babel(paper, model):
+def translate_with_babel(paper, model, repair_layouts=False):
     from babel_math_guard import install
     install(AUX/'math-guards'/(paper['id']+'.json'),ROOT/paper['file'])
+    if repair_layouts:
+        from babel_layout_guard import install as install_layout
+        install_layout()
     from babeldoc.translation_config import TranslationConfig, WatermarkOutputMode
     from babeldoc.document_il.translator.translator import BaseTranslator
     from babeldoc.document_il.translator.cache import init_db
@@ -337,6 +370,7 @@ def translate_with_babel(paper, model):
             super().__init__('en','zh',False)
             self.model = 'bounded-bing'
             self.inner = BingTranslator('en','zh','')
+            self.failures = []
         def translate(self, text, ignore_cache=False):
             # Normalize only proven ordinary typographic ligatures. Mathematical
             # placeholders and mathematical Unicode symbols remain untouched.
@@ -346,7 +380,12 @@ def translate_with_babel(paper, model):
             custom = json.loads(corrections.read_text()) if corrections.exists() else {}
             output = custom.get(hashlib.sha256(text.encode()).hexdigest())
             if output is None:
-                output = super().translate(text, ignore_cache)
+                try:
+                    output = super().translate(text, ignore_cache)
+                except Exception as exc:
+                    self.failures.append({'inputSHA':hashlib.sha256(text.encode()).hexdigest(),
+                                          'type':type(exc).__name__})
+                    raise
             for old,new in [('中介接入控制','媒体接入控制'),('授予','授权'),('信心阶段','置信阶段'),('自信学习','置信学习'),('自信状态','置信状态'),('可信状态','置信状态')]:
                 output = output.replace(old,new)
             return output
@@ -386,7 +425,8 @@ def translate_with_babel(paper, model):
                                                 conf=np.float32(.99),cls=0))
                 result=YoloResult(names={0:'table_text'},boxes=boxes)
                 yield page,result
-    config = TranslationConfig(translator=Adapter(),input_file=ROOT/paper['file'],
+    translator = Adapter()
+    config = TranslationConfig(translator=translator,input_file=ROOT/paper['file'],
                 lang_in='en',lang_out='zh',doc_layout_model=model,
                 output_dir=folder,working_dir=AUX/'babel-working'/paper['id'],
                 no_dual=True,disable_rich_text_translate=True,qps=3,table_model=NativeTableText(),
@@ -394,6 +434,11 @@ def translate_with_babel(paper, model):
                 use_rich_pbar=False,skip_scanned_detection=True)
     config._is_temp_dir = False  # retain explicit working directory as failure evidence
     result = high_level.translate(config)
+    # ILTranslator catches a failed paragraph and can still return a PDF with
+    # original prose. Do not publish that as a successfully translated draft.
+    if translator.failures:
+        write_json(AUX/'failures'/(paper['id']+'-translation-paragraphs.json'),translator.failures)
+        raise ValueError('One or more translation paragraphs failed; draft publication blocked')
     from babel_math_guard import restore_strokes
     return restore_strokes(Path(result.mono_pdf_path).read_bytes(),ROOT/paper['file'])
 
@@ -486,7 +531,7 @@ def run(args):
             model.paper_layouts.clear()
             # Use the stream API: no library path cleanup, no mutation of originals.
             if args.engine == 'babel':
-                mono = translate_with_babel(paper, model)
+                mono = translate_with_babel(paper, model, getattr(args,'repair_layouts',False))
             else:
                 mono, _ = high.translate_stream(source, lang_in='en', lang_out='zh',
                            service='bing', thread=3, model=model)
@@ -510,6 +555,9 @@ def run(args):
                 if audit['status'] != 'PASS':
                     raise ValueError('Math font scope audit failed')
                 proof['mathGuard'] = GUARD_VERSION
+                if getattr(args,'repair_layouts',False):
+                    from babel_layout_guard import COUNTS
+                    proof['layoutGuard'] = dict(COUNTS)
                 audit.update(sourceSHA=sourceSHA,translationSHA=proof['sha256'])
                 write_json(AUX/'math-guards'/(ident+'.json'),audit)
             write_json(AUX/'checks'/(ident+'.json'), proof)
@@ -545,6 +593,8 @@ if __name__ == '__main__':
     parser.add_argument('--force', action='store_true')
     parser.add_argument('--repair-math', action='store_true',
                         help='Regenerate existing drafts missing the reviewed math font scope guard')
+    parser.add_argument('--repair-layouts', action='store_true',
+                        help='Use reviewed character-center text/formula boundary selection; use --force to rebuild')
     parser.add_argument('--only', help='Comma-separated local paper IDs, e.g. P01,P24')
     parser.add_argument('--engine', choices=['pdf2zh','babel'], default='babel')
     options = parser.parse_args()

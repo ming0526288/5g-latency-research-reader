@@ -28,6 +28,27 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def traced_font_keys(page, spans):
+    """Resolve observed Type1 name truncation against unique PDF resources.
+
+    P09/P10 text traces report exactly the first 31 ASCII bytes of several
+    embedded STIX BaseFont names, including the subset prefix. Do not blindly
+    shorten all names or merge ambiguous resources to make a check pass.
+    """
+    resources={f[3] for f in page.get_fonts(full=True)}
+    result={};proof=[]
+    for raw in {span['font'] for span in spans}:
+        matches={name for name in resources if name==raw}
+        if not matches and len(raw.encode('utf-8'))==31 and raw.isascii():
+            matches={name for name in resources if name.isascii() and len(name)>31 and name[:31]==raw}
+            if len(matches)>1:
+                raise ValueError('Ambiguous truncated PDF font resource: '+raw)
+            if matches:
+                proof.append({'trace':raw,'resource':next(iter(matches))})
+        result[raw]=font_key(next(iter(matches)) if matches else raw)
+    return result,proof
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--manifest',type=Path,default=ROOT/'说明/paper-translations.json')
@@ -38,6 +59,7 @@ def main():
     cat=json.loads((ROOT/'网页/catalog.js').read_text().split('window.READER_CATALOG=',1)[1].rstrip(';'))
     papers=[p for p in cat['papers'] if p['id']!='book' and (not args.only or p['id'] in args.only.split(','))]
     manifest=json.loads(args.manifest.read_text())['papers'];reports=[];errors=[]
+    fitz.TOOLS.set_subset_fontnames(True)
     for paper in papers:
         ident=paper['id'];entry=manifest.get(ident,{})
         try:
@@ -51,11 +73,14 @@ def main():
             expected=json.loads((AUX/'math-guards'/(ident+'.glyphs.json')).read_text())
             with fitz.open(source) as original,fitz.open(path) as translated:
                 assert len(original)==len(translated)==entry['pages']
-                actual=defaultdict(list)
+                actual=defaultdict(list);font_aliases=[]
                 for i,page in enumerate(translated):
                     assert list(page.rect)==list(original[i].rect)
-                    for span in page.get_texttrace():
-                        name=font_key(span['font'])
+                    spans=page.get_texttrace()
+                    keys,aliases=traced_font_keys(page,spans)
+                    font_aliases.extend({'page':i+1,**alias} for alias in aliases)
+                    for span in spans:
+                        name=keys[span['font']]
                         for char in span['chars']:
                             x,y=char[2]
                             actual[(i,name,round(x*10),round(y*10))].append((x,y,span['size']))
@@ -76,7 +101,9 @@ def main():
                     'sourceSHA':paper['sha256'],'translationSHA':entry['sha256'],
                     'expectedMathGlyphs':len(expected),'matchedMathGlyphs':len(expected)-len(missing),
                     'unmatchedMathGlyphs':len(missing),'renderedPages':len(translated) if args.render else 0,
-                    'mathGuard':audit,'visualQA':'pending'}
+                    'mathGuard':audit,'resolvedTraceFontAliases':font_aliases,'visualQA':'pending',
+                    'mathCoverage':'Recorded protected mathematical fragments only' if expected else
+                        'No instrumented mathematical font glyphs; zero is not a mathematical fidelity certificate'}
                 if missing:
                     folder=OUTPUT/'unmatched';folder.mkdir(exist_ok=True)
                     (folder/(ident+'.json')).write_text(json.dumps(missing,ensure_ascii=False,indent=2))

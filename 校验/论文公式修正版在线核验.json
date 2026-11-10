@@ -1,0 +1,212 @@
+{
+  "status": "PASS",
+  "papers": 39,
+  "checks": [
+    {
+      "file": "网页/catalog.js",
+      "status": 200,
+      "sha256": "60f422b0aa6e0b6f075778e1cc59d9f3d847b29320c36378ffa47203b84ded9a"
+    },
+    {
+      "file": "网页/paper-translations.js",
+      "status": 200,
+      "sha256": "f8dc1a63cf0806154d2afba7970e82fefeac3cae925e755d6854856845a93912"
+    },
+    {
+      "file": "阅读转换件/论文中文/P05.zh.pdf",
+      "status": 200,
+      "sha256": "0a5ee7e712877514f58467437663cad3e32246a15597ab0565563fe2490ea55f"
+    },
+    {
+      "file": "阅读转换件/论文中文/P01.zh.pdf",
+      "status": 200,
+      "sha256": "2677de062f1819f4ab949323aebf4c749a9fc5d1088bbbbae0da33e247c67631"
+    },
+    {
+      "file": "阅读转换件/论文中文/P31.zh.pdf",
+      "status": 200,
+      "sha256": "1bc438d7da1164ba3f8ffe58cd25760b85dcbeca907df4934f38e3a009daa0b3"
+    },
+    {
+      "file": "阅读转换件/论文中文/P24.zh.pdf",
+      "status": 200,
+      "sha256": "8f296cd296c9b963ad69c7bafe0d9be1d813df70cee8a5b59139a7bebcc13a20"
+    },
+    {
+      "file": "阅读转换件/论文中文/P02.zh.pdf",
+      "status": 200,
+      "sha256": "e331617293c54dbfba6395c146025e5ae45f345a8a3e16aa97945dacf82a645b"
+    },
+    {
+      "file": "阅读转换件/论文中文/P03.zh.pdf",
+      "status": 200,
+      "sha256": "a62174a896961f7e5af8d54f99f026deb7893cc431c9e2ea550f74205607b704"
+    },
+    {
+      "file": "阅读转换件/论文中文/P04.zh.pdf",
+      "status": 200,
+      "sha256": "8c1075f285dc34c305a4e54365bd9a654b117f29eb164e03f79f269a92113170"
+    },
+    {
+      "file": "阅读转换件/论文中文/P06.zh.pdf",
+      "status": 200,
+      "sha256": "ed1518256c5925f605f0355f3d0700980f31b3910afa8024dc47052e0e704a2f"
+    },
+    {
+      "file": "阅读转换件/论文中文/P07.zh.pdf",
+      "status": 200,
+      "sha256": "738d02b5b0fa5a64a5f362d1c3aed837073e10b7d4c832b92cf0a54616e4ac04"
+    },
+    {
+      "file": "阅读转换件/论文中文/P08.zh.pdf",
+      "status": 200,
+      "sha256": "49598c20b13322c9e6485f56b7f42a18b6d523a98bf10b39ab3b04a0ce5a2071"
+    },
+    {
+      "file": "阅读转换件/论文中文/P09.zh.pdf",
+      "status": 200,
+      "sha256": "51bc9ae2d92bc26dfc8d740a2f7a245218058f5649964554968e92da8902b494"
+    },
+    {
+      "file": "阅读转换件/论文中文/P10.zh.pdf",
+      "status": 200,
+      "sha256": "1c58ab73dd9f5edf87e89ed7c0bc9d52413ec3775a239dc3ffaddf57c0ef5ce9"
+    },
+    {
+      "file": "阅读转换件/论文中文/P11.zh.pdf",
+      "status": 200,
+      "sha256": "94a7d2428c47b989a373dc281eaa72c123e9439a9d6ab28aa2c8374ec84005f7"
+    },
+    {
+      "file": "阅读转换件/论文中文/P12.zh.pdf",
+      "status": 200,
+      "sha256": "9330d3b065b9f0f85ccb6cf355fcfea226ae7e0fba614a6b7bb62b1e4e7eb1ba"
+    },
+    {
+      "file": "阅读转换件/论文中文/P13.zh.pdf",
+      "status": 200,
+      "sha256": "372691762546ed08164aacf74346626bbd5e62178ef99b7d03e3c4e872245293"
+    },
+    {
+      "file": "阅读转换件/论文中文/P14.zh.pdf",
+      "status": 200,
+      "sha256": "c436bf7ffe03d5394c8cfeb2d66a337eb165ef20c6c367ff753b463989158ba2"
+    },
+    {
+      "file": "阅读转换件/论文中文/P15.zh.pdf",
+      "status": 200,
+      "sha256": "57aa972ad55369e8b26908269d2e48c3589f25598a65dbfe2488fd716742ef0c"
+    },
+    {
+      "file": "阅读转换件/论文中文/P16.zh.pdf",
+      "status": 200,
+      "sha256": "46957c7b4fbad89abb079e931d049618b68a38c1f3391a5eda550a266c28de92"
+    },
+    {
+      "file": "阅读转换件/论文中文/P17.zh.pdf",
+      "status": 200,
+      "sha256": "67a468d198a5c14f6e38f21a43c703543a0a8e7546981efcfca2113f955371af"
+    },
+    {
+      "file": "阅读转换件/论文中文/P18.zh.pdf",
+      "status": 200,
+      "sha256": "1c757a4d77a6313e1cf7c78707aa3e9e8e2fd4f5ae3d71725aa95ce8db49e89b"
+    },
+    {
+      "file": "阅读转换件/论文中文/P19.zh.pdf",
+      "status": 200,
+      "sha256": "1774281063990230f5982e064a2947762ad197ac5be69aa40bbe4ace0321a6bc"
+    },
+    {
+      "file": "阅读转换件/论文中文/P20.zh.pdf",
+      "status": 200,
+      "sha256": "884c63bc6414f759145321cb4a2c732fb84c9bfe03784f36315eb4244e25a80e"
+    },
+    {
+      "file": "阅读转换件/论文中文/P36.zh.pdf",
+      "status": 200,
+      "sha256": "c6cbdf391696744173c98ea707672ad4dfa8907fc3dde1b84eb9123a7e320832"
+    },
+    {
+      "file": "阅读转换件/论文中文/P37.zh.pdf",
+      "status": 200,
+      "sha256": "aa15c4957d41c7979f6f3e8a29734ca218985634f8d42fcea1e59629de291a8b"
+    },
+    {
+      "file": "阅读转换件/论文中文/P38.zh.pdf",
+      "status": 200,
+      "sha256": "78f251ae79c2177545a227bb1cdf3896f60d56ba1499de4b70b2629fb4a220db"
+    },
+    {
+      "file": "阅读转换件/论文中文/P39.zh.pdf",
+      "status": 200,
+      "sha256": "c30365f7adbd72d6ba5ce35120d5408d9e1787326f1149aaa33505d6d6f06953"
+    },
+    {
+      "file": "阅读转换件/论文中文/P21.zh.pdf",
+      "status": 200,
+      "sha256": "6711fae6f30d52d92415df2e9b58b6c22536120359550f8d7c0734c7fce0e926"
+    },
+    {
+      "file": "阅读转换件/论文中文/P22.zh.pdf",
+      "status": 200,
+      "sha256": "d45e287cc28781d62a8161490e76dd25a04af1e9d6bfc38aa151683cdde1a746"
+    },
+    {
+      "file": "阅读转换件/论文中文/P23.zh.pdf",
+      "status": 200,
+      "sha256": "3d3e467fb5e5d30cca7db580c7e0575b3df0b43ae6af886b6508eb584f58fb73"
+    },
+    {
+      "file": "阅读转换件/论文中文/P25.zh.pdf",
+      "status": 200,
+      "sha256": "c1eaccfb9389ce437cc2da88c52131c656371e609c3ee9970c50debf618b3dc4"
+    },
+    {
+      "file": "阅读转换件/论文中文/P26.zh.pdf",
+      "status": 200,
+      "sha256": "c83cfc7a177c649b0ee7e49b05610355bb8355b33001d1cf8fb2b1876c2de0cf"
+    },
+    {
+      "file": "阅读转换件/论文中文/P27.zh.pdf",
+      "status": 200,
+      "sha256": "65bee10601522a03c8357163da9c19cd293da0833636a78432477d6cd2ca7aed"
+    },
+    {
+      "file": "阅读转换件/论文中文/P28.zh.pdf",
+      "status": 200,
+      "sha256": "2a0dc218f182cf1d9d0dbdaf4550b3f93b1ff94be1e677d863ad8104bcd7dfea"
+    },
+    {
+      "file": "阅读转换件/论文中文/P29.zh.pdf",
+      "status": 200,
+      "sha256": "e4bafee59b830c3c7456a837ea939e1ef56e27decc71ec0915d1b3e820aab6d0"
+    },
+    {
+      "file": "阅读转换件/论文中文/P30.zh.pdf",
+      "status": 200,
+      "sha256": "9aa46dd7d9aea84a9ba3dc8b5ee5d2ecd0a7e40baef300c603497048855a94bc"
+    },
+    {
+      "file": "阅读转换件/论文中文/P32.zh.pdf",
+      "status": 200,
+      "sha256": "6a719667203eec7791b31ff6be57118cea4c40f7399e120c63e81793a6fa85c2"
+    },
+    {
+      "file": "阅读转换件/论文中文/P33.zh.pdf",
+      "status": 200,
+      "sha256": "de92fc75a1554892a131951d8f610a6fd902b2d9a0adaa59ddd720de9cc84b1e"
+    },
+    {
+      "file": "阅读转换件/论文中文/P34.zh.pdf",
+      "status": 200,
+      "sha256": "9886cb131b045c01aefd52170b4109d73d88850258826887ac2949bd37089149"
+    },
+    {
+      "file": "阅读转换件/论文中文/P35.zh.pdf",
+      "status": 200,
+      "sha256": "5dc36d16da5631f6f40d20cbd79179235e91a8669700a34c45e8ae7c7210a5ff"
+    }
+  ],
+  "scope": "Actual existing loopback service GET bytes; no external client or VPN reachability certification"
+}

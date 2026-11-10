@@ -1,0 +1,1634 @@
+{
+  "status": "PASS",
+  "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+  "papers": [
+    {
+      "id": "P01",
+      "status": "PASS",
+      "pages": 6,
+      "sourceSHA": "2d272dbcb3ea0ee1d659ae2a81ab9abf2a0bcb17a957b97d917ab1bbf7a19fdd",
+      "translationSHA": "2677de062f1819f4ab949323aebf4c749a9fc5d1088bbbbae0da33e247c67631",
+      "expectedMathGlyphs": 536,
+      "matchedMathGlyphs": 536,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 6,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 2162,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 13997,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 95,
+        "status": "PASS",
+        "originalMathStrokesRestored": 11,
+        "sourceSHA": "2d272dbcb3ea0ee1d659ae2a81ab9abf2a0bcb17a957b97d917ab1bbf7a19fdd",
+        "translationSHA": "2677de062f1819f4ab949323aebf4c749a9fc5d1088bbbbae0da33e247c67631"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 6,
+        "pairedMathPages": [
+          4
+        ]
+      }
+    },
+    {
+      "id": "P02",
+      "status": "PASS",
+      "pages": 6,
+      "sourceSHA": "b586f6883fdc76637be0012b79f478f180312f43ce1c8d5e397ae29bd4464b76",
+      "translationSHA": "e331617293c54dbfba6395c146025e5ae45f345a8a3e16aa97945dacf82a645b",
+      "expectedMathGlyphs": 115,
+      "matchedMathGlyphs": 115,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 6,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 1161,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 12221,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 42,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "b586f6883fdc76637be0012b79f478f180312f43ce1c8d5e397ae29bd4464b76",
+        "translationSHA": "e331617293c54dbfba6395c146025e5ae45f345a8a3e16aa97945dacf82a645b"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 6,
+        "pairedMathPages": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "P03",
+      "status": "PASS",
+      "pages": 11,
+      "sourceSHA": "744d5a01e47ee76597164011170a421ff922685cf95db28012f1857f08e95737",
+      "translationSHA": "a62174a896961f7e5af8d54f99f026deb7893cc431c9e2ea550f74205607b704",
+      "expectedMathGlyphs": 112,
+      "matchedMathGlyphs": 112,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 11,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 285,
+        "scopedFormulaParagraphs": 2,
+        "validatedGlyphs": 12212,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 51,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "744d5a01e47ee76597164011170a421ff922685cf95db28012f1857f08e95737",
+        "translationSHA": "a62174a896961f7e5af8d54f99f026deb7893cc431c9e2ea550f74205607b704"
+      },
+      "resolvedTraceFontAliases": [
+        {
+          "page": 1,
+          "trace": "RVSEMT+TimesNewRomanPS-BoldItal",
+          "resource": "RVSEMT+TimesNewRomanPS-BoldItalicMT"
+        }
+      ],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 11,
+        "pairedMathPages": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "P04",
+      "status": "PASS",
+      "pages": 20,
+      "sourceSHA": "989cc2c0e4ddafc7696a8c11e17a3a008ae40e76f5a7c637047152ed71fc455f",
+      "translationSHA": "8c1075f285dc34c305a4e54365bd9a654b117f29eb164e03f79f269a92113170",
+      "expectedMathGlyphs": 2549,
+      "matchedMathGlyphs": 2549,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 20,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 12621,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 42236,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 595,
+        "status": "PASS",
+        "originalMathStrokesRestored": 1,
+        "sourceSHA": "989cc2c0e4ddafc7696a8c11e17a3a008ae40e76f5a7c637047152ed71fc455f",
+        "translationSHA": "8c1075f285dc34c305a4e54365bd9a654b117f29eb164e03f79f269a92113170"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 20,
+        "pairedMathPages": [
+          8,
+          12
+        ]
+      }
+    },
+    {
+      "id": "P05",
+      "status": "PASS",
+      "pages": 6,
+      "sourceSHA": "70ae279a5ed526ba2b773fcf37afe4dae3d750a88a63156de07afb7292be6f16",
+      "translationSHA": "0a5ee7e712877514f58467437663cad3e32246a15597ab0565563fe2490ea55f",
+      "expectedMathGlyphs": 201,
+      "matchedMathGlyphs": 201,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 6,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 1519,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 13716,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 84,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "70ae279a5ed526ba2b773fcf37afe4dae3d750a88a63156de07afb7292be6f16",
+        "translationSHA": "0a5ee7e712877514f58467437663cad3e32246a15597ab0565563fe2490ea55f"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 6,
+        "pairedMathPages": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "P06",
+      "status": "PASS",
+      "pages": 14,
+      "sourceSHA": "68eeba406efc9097b6bf0b600c340085c9714e6a4d4b820d307b0ee075966012",
+      "translationSHA": "ed1518256c5925f605f0355f3d0700980f31b3910afa8024dc47052e0e704a2f",
+      "expectedMathGlyphs": 2232,
+      "matchedMathGlyphs": 2232,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 14,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 16290,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 34824,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 379,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "68eeba406efc9097b6bf0b600c340085c9714e6a4d4b820d307b0ee075966012",
+        "translationSHA": "ed1518256c5925f605f0355f3d0700980f31b3910afa8024dc47052e0e704a2f"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 14,
+        "pairedMathPages": [
+          5
+        ]
+      }
+    },
+    {
+      "id": "P07",
+      "status": "PASS",
+      "pages": 20,
+      "sourceSHA": "849db6de600f00d90e5139842d0df2e1a5e7b355814efe24e3694ea96b7b4121",
+      "translationSHA": "738d02b5b0fa5a64a5f362d1c3aed837073e10b7d4c832b92cf0a54616e4ac04",
+      "expectedMathGlyphs": 1210,
+      "matchedMathGlyphs": 1210,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 20,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 4293,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 30604,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 403,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "849db6de600f00d90e5139842d0df2e1a5e7b355814efe24e3694ea96b7b4121",
+        "translationSHA": "738d02b5b0fa5a64a5f362d1c3aed837073e10b7d4c832b92cf0a54616e4ac04"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 20,
+        "pairedMathPages": [
+          4
+        ]
+      }
+    },
+    {
+      "id": "P08",
+      "status": "PASS",
+      "pages": 6,
+      "sourceSHA": "47c2dcd39360d6148358f8e045f42d416894d00588bec54fe074a99b20ce4dfb",
+      "translationSHA": "49598c20b13322c9e6485f56b7f42a18b6d523a98bf10b39ab3b04a0ce5a2071",
+      "expectedMathGlyphs": 979,
+      "matchedMathGlyphs": 979,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 6,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 3687,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 12994,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 291,
+        "status": "PASS",
+        "originalMathStrokesRestored": 4,
+        "sourceSHA": "47c2dcd39360d6148358f8e045f42d416894d00588bec54fe074a99b20ce4dfb",
+        "translationSHA": "49598c20b13322c9e6485f56b7f42a18b6d523a98bf10b39ab3b04a0ce5a2071"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 6,
+        "pairedMathPages": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "P09",
+      "status": "PASS",
+      "pages": 25,
+      "sourceSHA": "1576ce00b543e18036e4b222a868ece090fa6aa47799398ee0c86e0fb5558c8c",
+      "translationSHA": "51bc9ae2d92bc26dfc8d740a2f7a245218058f5649964554968e92da8902b494",
+      "expectedMathGlyphs": 3277,
+      "matchedMathGlyphs": 3277,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 25,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 22381,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 50954,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 395,
+        "status": "PASS",
+        "originalMathStrokesRestored": 2,
+        "sourceSHA": "1576ce00b543e18036e4b222a868ece090fa6aa47799398ee0c86e0fb5558c8c",
+        "translationSHA": "51bc9ae2d92bc26dfc8d740a2f7a245218058f5649964554968e92da8902b494"
+      },
+      "resolvedTraceFontAliases": [
+        {
+          "page": 5,
+          "trace": "CNRFBO+STIXMathExtensions-Regul",
+          "resource": "CNRFBO+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 5,
+          "trace": "YHOHXW+STIXMathBlackboard-Regul",
+          "resource": "YHOHXW+STIXMathBlackboard-Regular"
+        },
+        {
+          "page": 5,
+          "trace": "PJFFBO+STIXMathCalligraphy-Regu",
+          "resource": "PJFFBO+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 7,
+          "trace": "CNRFBO+STIXMathExtensions-Regul",
+          "resource": "CNRFBO+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 7,
+          "trace": "PJFFBO+STIXMathCalligraphy-Regu",
+          "resource": "PJFFBO+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 9,
+          "trace": "CNRFBO+STIXMathExtensions-Regul",
+          "resource": "CNRFBO+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 9,
+          "trace": "PJFFBO+STIXMathCalligraphy-Regu",
+          "resource": "PJFFBO+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 11,
+          "trace": "CNRFBO+STIXMathExtensions-Regul",
+          "resource": "CNRFBO+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 11,
+          "trace": "YHOHXW+STIXMathBlackboard-Regul",
+          "resource": "YHOHXW+STIXMathBlackboard-Regular"
+        },
+        {
+          "page": 11,
+          "trace": "PJFFBO+STIXMathCalligraphy-Regu",
+          "resource": "PJFFBO+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 12,
+          "trace": "CNRFBO+STIXMathExtensions-Regul",
+          "resource": "CNRFBO+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 12,
+          "trace": "PJFFBO+STIXMathCalligraphy-Regu",
+          "resource": "PJFFBO+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 14,
+          "trace": "CNRFBO+STIXMathExtensions-Regul",
+          "resource": "CNRFBO+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 14,
+          "trace": "YHOHXW+STIXMathBlackboard-Regul",
+          "resource": "YHOHXW+STIXMathBlackboard-Regular"
+        },
+        {
+          "page": 15,
+          "trace": "CNRFBO+STIXMathExtensions-Regul",
+          "resource": "CNRFBO+STIXMathExtensions-Regular"
+        }
+      ],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 25,
+        "pairedMathPages": [
+          14
+        ]
+      }
+    },
+    {
+      "id": "P10",
+      "status": "PASS",
+      "pages": 14,
+      "sourceSHA": "a2a019d15f1d4bbf1e4a71ef670de62422120a91a5cb91dd57288227c5b6c47a",
+      "translationSHA": "1c58ab73dd9f5edf87e89ed7c0bc9d52413ec3775a239dc3ffaddf57c0ef5ce9",
+      "expectedMathGlyphs": 3180,
+      "matchedMathGlyphs": 3180,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 14,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 2764,
+        "scopedFormulaParagraphs": 28,
+        "validatedGlyphs": 32708,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 481,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "a2a019d15f1d4bbf1e4a71ef670de62422120a91a5cb91dd57288227c5b6c47a",
+        "translationSHA": "1c58ab73dd9f5edf87e89ed7c0bc9d52413ec3775a239dc3ffaddf57c0ef5ce9"
+      },
+      "resolvedTraceFontAliases": [
+        {
+          "page": 1,
+          "trace": "RNLHLB+STIXMathCalligraphy-Regu",
+          "resource": "RNLHLB+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 3,
+          "trace": "RNLHLB+STIXMathCalligraphy-Regu",
+          "resource": "RNLHLB+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 5,
+          "trace": "RNLHLB+STIXMathCalligraphy-Regu",
+          "resource": "RNLHLB+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 6,
+          "trace": "VZEFSC+STIXMathExtensions-Regul",
+          "resource": "VZEFSC+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 6,
+          "trace": "RNLHLB+STIXMathCalligraphy-Regu",
+          "resource": "RNLHLB+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 7,
+          "trace": "VZEFSC+STIXMathExtensions-Regul",
+          "resource": "VZEFSC+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 7,
+          "trace": "RNLHLB+STIXMathCalligraphy-Regu",
+          "resource": "RNLHLB+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 8,
+          "trace": "VZEFSC+STIXMathExtensions-Regul",
+          "resource": "VZEFSC+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 8,
+          "trace": "RNLHLB+STIXMathCalligraphy-Regu",
+          "resource": "RNLHLB+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 9,
+          "trace": "VZEFSC+STIXMathExtensions-Regul",
+          "resource": "VZEFSC+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 9,
+          "trace": "RNLHLB+STIXMathCalligraphy-Regu",
+          "resource": "RNLHLB+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 10,
+          "trace": "VZEFSC+STIXMathExtensions-Regul",
+          "resource": "VZEFSC+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 10,
+          "trace": "RNLHLB+STIXMathCalligraphy-Regu",
+          "resource": "RNLHLB+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 13,
+          "trace": "RNLHLB+STIXMathCalligraphy-Regu",
+          "resource": "RNLHLB+STIXMathCalligraphy-Regular"
+        }
+      ],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 14,
+        "pairedMathPages": [
+          8
+        ],
+        "repair": "Body/formula border fixed; Algorithm 1 kept as original",
+        "finalMarginAndSourceAlgorithmViewed": true
+      }
+    },
+    {
+      "id": "P11",
+      "status": "PASS",
+      "pages": 6,
+      "sourceSHA": "9258c9f64d2dd68bafa9c5c9455a00275099088b83de5cac30989d15a775e786",
+      "translationSHA": "94a7d2428c47b989a373dc281eaa72c123e9439a9d6ab28aa2c8374ec84005f7",
+      "expectedMathGlyphs": 230,
+      "matchedMathGlyphs": 230,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 6,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 954,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 12922,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 96,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "9258c9f64d2dd68bafa9c5c9455a00275099088b83de5cac30989d15a775e786",
+        "translationSHA": "94a7d2428c47b989a373dc281eaa72c123e9439a9d6ab28aa2c8374ec84005f7"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 6,
+        "pairedMathPages": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "P12",
+      "status": "PASS",
+      "pages": 14,
+      "sourceSHA": "0b6a8874bebd121b417dc26cd2b64d4c454e8c1d7ce5b65aca82362ad4fcef0a",
+      "translationSHA": "9330d3b065b9f0f85ccb6cf355fcfea226ae7e0fba614a6b7bb62b1e4e7eb1ba",
+      "expectedMathGlyphs": 156,
+      "matchedMathGlyphs": 156,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 14,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 2675,
+        "scopedFormulaParagraphs": 14,
+        "validatedGlyphs": 22858,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 49,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "0b6a8874bebd121b417dc26cd2b64d4c454e8c1d7ce5b65aca82362ad4fcef0a",
+        "translationSHA": "9330d3b065b9f0f85ccb6cf355fcfea226ae7e0fba614a6b7bb62b1e4e7eb1ba"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 14,
+        "pairedMathPages": [
+          5
+        ]
+      }
+    },
+    {
+      "id": "P13",
+      "status": "PASS",
+      "pages": 5,
+      "sourceSHA": "1f2001dcc8ba3bb8fdd5fdbb6484434ac9cc4630e0843e6f4cceb335ba76b0c0",
+      "translationSHA": "372691762546ed08164aacf74346626bbd5e62178ef99b7d03e3c4e872245293",
+      "expectedMathGlyphs": 215,
+      "matchedMathGlyphs": 215,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 5,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 444,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 8969,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 76,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "1f2001dcc8ba3bb8fdd5fdbb6484434ac9cc4630e0843e6f4cceb335ba76b0c0",
+        "translationSHA": "372691762546ed08164aacf74346626bbd5e62178ef99b7d03e3c4e872245293"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 5,
+        "pairedMathPages": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "P14",
+      "status": "PASS",
+      "pages": 5,
+      "sourceSHA": "7d2dfa74d188139dfc00998e18501ddd41c1d652edf36569b87a10925a9c7f8b",
+      "translationSHA": "c436bf7ffe03d5394c8cfeb2d66a337eb165ef20c6c367ff753b463989158ba2",
+      "expectedMathGlyphs": 793,
+      "matchedMathGlyphs": 793,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 5,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 5450,
+        "scopedFormulaParagraphs": 1,
+        "validatedGlyphs": 11084,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 226,
+        "status": "PASS",
+        "originalMathStrokesRestored": 1,
+        "sourceSHA": "7d2dfa74d188139dfc00998e18501ddd41c1d652edf36569b87a10925a9c7f8b",
+        "translationSHA": "c436bf7ffe03d5394c8cfeb2d66a337eb165ef20c6c367ff753b463989158ba2"
+      },
+      "resolvedTraceFontAliases": [
+        {
+          "page": 4,
+          "trace": "BODPGM+BitstreamVeraSans-Obliqu",
+          "resource": "BODPGM+BitstreamVeraSans-Oblique"
+        },
+        {
+          "page": 5,
+          "trace": "BODPGM+BitstreamVeraSans-Obliqu",
+          "resource": "BODPGM+BitstreamVeraSans-Oblique"
+        }
+      ],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 5,
+        "pairedMathPages": [
+          2
+        ],
+        "layoutFinding": "第 2 页左栏标题与正文局部重叠；公式区域已对照，附近文字仍待精排。"
+      }
+    },
+    {
+      "id": "P15",
+      "status": "PASS",
+      "pages": 7,
+      "sourceSHA": "44c0ef64a839d3d0cbf841f41fc5e08f0c9e36269aa0d93ac23c92772466c23d",
+      "translationSHA": "57aa972ad55369e8b26908269d2e48c3589f25598a65dbfe2488fd716742ef0c",
+      "expectedMathGlyphs": 58,
+      "matchedMathGlyphs": 58,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 7,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 822,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 17257,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 21,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "44c0ef64a839d3d0cbf841f41fc5e08f0c9e36269aa0d93ac23c92772466c23d",
+        "translationSHA": "57aa972ad55369e8b26908269d2e48c3589f25598a65dbfe2488fd716742ef0c"
+      },
+      "resolvedTraceFontAliases": [
+        {
+          "page": 3,
+          "trace": "KYFMFK+DejaVuMathTeXGyre-Regula",
+          "resource": "KYFMFK+DejaVuMathTeXGyre-Regular"
+        }
+      ],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 7,
+        "pairedMathPages": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "P16",
+      "status": "PASS",
+      "pages": 6,
+      "sourceSHA": "d6ec9c04b9be3c2adf79a694090cbcec64e997d55955b113c61eb05946db0b41",
+      "translationSHA": "46957c7b4fbad89abb079e931d049618b68a38c1f3391a5eda550a266c28de92",
+      "expectedMathGlyphs": 711,
+      "matchedMathGlyphs": 711,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 6,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 3072,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 11733,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 122,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "d6ec9c04b9be3c2adf79a694090cbcec64e997d55955b113c61eb05946db0b41",
+        "translationSHA": "46957c7b4fbad89abb079e931d049618b68a38c1f3391a5eda550a266c28de92"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 6,
+        "pairedMathPages": [
+          4
+        ]
+      }
+    },
+    {
+      "id": "P17",
+      "status": "PASS",
+      "pages": 6,
+      "sourceSHA": "29344cd90297893faf49c7dac8c9abc2a6bc638282105dd3d8824642848b6e99",
+      "translationSHA": "67a468d198a5c14f6e38f21a43c703543a0a8e7546981efcfca2113f955371af",
+      "expectedMathGlyphs": 634,
+      "matchedMathGlyphs": 634,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 6,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 3591,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 12879,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 156,
+        "status": "PASS",
+        "originalMathStrokesRestored": 8,
+        "sourceSHA": "29344cd90297893faf49c7dac8c9abc2a6bc638282105dd3d8824642848b6e99",
+        "translationSHA": "67a468d198a5c14f6e38f21a43c703543a0a8e7546981efcfca2113f955371af"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 6,
+        "pairedMathPages": [
+          2
+        ],
+        "layoutFinding": "第 2 页复杂公式旁的行内变量与中文间距偏紧，仍需精排。"
+      }
+    },
+    {
+      "id": "P18",
+      "status": "PASS",
+      "pages": 4,
+      "sourceSHA": "f12518cfd4a345f05d1b1d7db3cc7902158f8f835fc5e2c42b072711ebbbfb69",
+      "translationSHA": "1c757a4d77a6313e1cf7c78707aa3e9e8e2fd4f5ae3d71725aa95ce8db49e89b",
+      "expectedMathGlyphs": 811,
+      "matchedMathGlyphs": 811,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 4,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 6065,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 9707,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 232,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "f12518cfd4a345f05d1b1d7db3cc7902158f8f835fc5e2c42b072711ebbbfb69",
+        "translationSHA": "1c757a4d77a6313e1cf7c78707aa3e9e8e2fd4f5ae3d71725aa95ce8db49e89b"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 4,
+        "pairedMathPages": [
+          2
+        ],
+        "layoutFinding": "第 2 页证明段行内变量较拥挤，不能据自动字形检查称全文版式通过。"
+      }
+    },
+    {
+      "id": "P19",
+      "status": "PASS",
+      "pages": 6,
+      "sourceSHA": "63c86d50fc2581b712a31a931efe13e7cc8b39b9e9a1679a8614d55bbe55631c",
+      "translationSHA": "1774281063990230f5982e064a2947762ad197ac5be69aa40bbe4ace0321a6bc",
+      "expectedMathGlyphs": 446,
+      "matchedMathGlyphs": 446,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 6,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 1645,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 13224,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 95,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "63c86d50fc2581b712a31a931efe13e7cc8b39b9e9a1679a8614d55bbe55631c",
+        "translationSHA": "1774281063990230f5982e064a2947762ad197ac5be69aa40bbe4ace0321a6bc"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 6,
+        "pairedMathPages": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "P20",
+      "status": "PASS",
+      "pages": 15,
+      "sourceSHA": "286c7a3ec062de36cc82f4dd2cdda270b9c7b18d936c191a69d1cb5f27caa197",
+      "translationSHA": "884c63bc6414f759145321cb4a2c732fb84c9bfe03784f36315eb4244e25a80e",
+      "expectedMathGlyphs": 3370,
+      "matchedMathGlyphs": 3370,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 15,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 14803,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 29155,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 519,
+        "status": "PASS",
+        "originalMathStrokesRestored": 4,
+        "sourceSHA": "286c7a3ec062de36cc82f4dd2cdda270b9c7b18d936c191a69d1cb5f27caa197",
+        "translationSHA": "884c63bc6414f759145321cb4a2c732fb84c9bfe03784f36315eb4244e25a80e"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 15,
+        "pairedMathPages": [
+          7
+        ]
+      }
+    },
+    {
+      "id": "P21",
+      "status": "PASS",
+      "pages": 6,
+      "sourceSHA": "4f7129bb3546ed27459316b91985badfcc90529890b9091ad1c2e00bdae5e3ef",
+      "translationSHA": "6711fae6f30d52d92415df2e9b58b6c22536120359550f8d7c0734c7fce0e926",
+      "expectedMathGlyphs": 279,
+      "matchedMathGlyphs": 279,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 6,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 1118,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 9385,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 115,
+        "status": "PASS",
+        "originalMathStrokesRestored": 1,
+        "sourceSHA": "4f7129bb3546ed27459316b91985badfcc90529890b9091ad1c2e00bdae5e3ef",
+        "translationSHA": "6711fae6f30d52d92415df2e9b58b6c22536120359550f8d7c0734c7fce0e926"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 6,
+        "pairedMathPages": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "P22",
+      "status": "PASS",
+      "pages": 14,
+      "sourceSHA": "77da26baf03c3f964b0f7f6612c21904d80e4e920dbed0cdf605308dde85dcb6",
+      "translationSHA": "d45e287cc28781d62a8161490e76dd25a04af1e9d6bfc38aa151683cdde1a746",
+      "expectedMathGlyphs": 830,
+      "matchedMathGlyphs": 830,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 14,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 3868,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 24634,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 180,
+        "status": "PASS",
+        "originalMathStrokesRestored": 2,
+        "sourceSHA": "77da26baf03c3f964b0f7f6612c21904d80e4e920dbed0cdf605308dde85dcb6",
+        "translationSHA": "d45e287cc28781d62a8161490e76dd25a04af1e9d6bfc38aa151683cdde1a746"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 14,
+        "pairedMathPages": [
+          8
+        ]
+      }
+    },
+    {
+      "id": "P23",
+      "status": "PASS",
+      "pages": 12,
+      "sourceSHA": "267ba6db8babb377bd3e7da678447484c26894e3ca8aa1726b61da079376c571",
+      "translationSHA": "3d3e467fb5e5d30cca7db580c7e0575b3df0b43ae6af886b6508eb584f58fb73",
+      "expectedMathGlyphs": 1427,
+      "matchedMathGlyphs": 1427,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 12,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 3293,
+        "scopedFormulaParagraphs": 1,
+        "validatedGlyphs": 23639,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 515,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "267ba6db8babb377bd3e7da678447484c26894e3ca8aa1726b61da079376c571",
+        "translationSHA": "3d3e467fb5e5d30cca7db580c7e0575b3df0b43ae6af886b6508eb584f58fb73"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 12,
+        "pairedMathPages": [
+          5
+        ]
+      }
+    },
+    {
+      "id": "P24",
+      "status": "PASS",
+      "pages": 15,
+      "sourceSHA": "34863ff7dbdbf48d890d8830c90cb5e8ab1c0f53fccf41c588f9ad41c687f227",
+      "translationSHA": "8f296cd296c9b963ad69c7bafe0d9be1d813df70cee8a5b59139a7bebcc13a20",
+      "expectedMathGlyphs": 74,
+      "matchedMathGlyphs": 74,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 15,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 3908,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 30707,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 22,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "34863ff7dbdbf48d890d8830c90cb5e8ab1c0f53fccf41c588f9ad41c687f227",
+        "translationSHA": "8f296cd296c9b963ad69c7bafe0d9be1d813df70cee8a5b59139a7bebcc13a20"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 15,
+        "pairedMathPages": [
+          5
+        ]
+      }
+    },
+    {
+      "id": "P25",
+      "status": "PASS",
+      "pages": 16,
+      "sourceSHA": "c8cc38b56e2ac43e5ede5b548f96c9c7df28d097dfad787446519bc0cc5dec74",
+      "translationSHA": "c1eaccfb9389ce437cc2da88c52131c656371e609c3ee9970c50debf618b3dc4",
+      "expectedMathGlyphs": 2689,
+      "matchedMathGlyphs": 2689,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 16,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 13277,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 34199,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 593,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "c8cc38b56e2ac43e5ede5b548f96c9c7df28d097dfad787446519bc0cc5dec74",
+        "translationSHA": "c1eaccfb9389ce437cc2da88c52131c656371e609c3ee9970c50debf618b3dc4"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 16,
+        "pairedMathPages": [
+          4
+        ]
+      }
+    },
+    {
+      "id": "P26",
+      "status": "PASS",
+      "pages": 18,
+      "sourceSHA": "420a28bad4b1259696fe810746f21d81d7a471788926a68a5b694b030b888052",
+      "translationSHA": "c83cfc7a177c649b0ee7e49b05610355bb8355b33001d1cf8fb2b1876c2de0cf",
+      "expectedMathGlyphs": 3029,
+      "matchedMathGlyphs": 3029,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 18,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 12275,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 40887,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 884,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "420a28bad4b1259696fe810746f21d81d7a471788926a68a5b694b030b888052",
+        "translationSHA": "c83cfc7a177c649b0ee7e49b05610355bb8355b33001d1cf8fb2b1876c2de0cf"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 18,
+        "pairedMathPages": [
+          5
+        ]
+      }
+    },
+    {
+      "id": "P27",
+      "status": "PASS",
+      "pages": 14,
+      "sourceSHA": "005cfc53e6b41e8fcd7c8c058468ad5a5ea1cf62cacf6db2890aae73375ee1b0",
+      "translationSHA": "65bee10601522a03c8357163da9c19cd293da0833636a78432477d6cd2ca7aed",
+      "expectedMathGlyphs": 590,
+      "matchedMathGlyphs": 590,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 14,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 2129,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 27462,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 209,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "005cfc53e6b41e8fcd7c8c058468ad5a5ea1cf62cacf6db2890aae73375ee1b0",
+        "translationSHA": "65bee10601522a03c8357163da9c19cd293da0833636a78432477d6cd2ca7aed"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 14,
+        "pairedMathPages": [
+          5
+        ]
+      }
+    },
+    {
+      "id": "P28",
+      "status": "PASS",
+      "pages": 21,
+      "sourceSHA": "5e20ffe5ebeca4edfb8ccdf97e057aacbcbf70004444cde1e648e51c8ce449cc",
+      "translationSHA": "2a0dc218f182cf1d9d0dbdaf4550b3f93b1ff94be1e677d863ad8104bcd7dfea",
+      "expectedMathGlyphs": 11958,
+      "matchedMathGlyphs": 11958,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 21,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 293306,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 75058,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 938,
+        "status": "PASS",
+        "originalMathStrokesRestored": 2,
+        "sourceSHA": "5e20ffe5ebeca4edfb8ccdf97e057aacbcbf70004444cde1e648e51c8ce449cc",
+        "translationSHA": "2a0dc218f182cf1d9d0dbdaf4550b3f93b1ff94be1e677d863ad8104bcd7dfea"
+      },
+      "resolvedTraceFontAliases": [
+        {
+          "page": 7,
+          "trace": "HUIQAP+STIXMathCalligraphy-Regu",
+          "resource": "HUIQAP+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 7,
+          "trace": "UZZTWO+STIXMathBlackboard-Regul",
+          "resource": "UZZTWO+STIXMathBlackboard-Regular"
+        },
+        {
+          "page": 7,
+          "trace": "LTCGLG+STIXMathExtensions-Regul",
+          "resource": "LTCGLG+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 8,
+          "trace": "HUIQAP+STIXMathCalligraphy-Regu",
+          "resource": "HUIQAP+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 8,
+          "trace": "LTCGLG+STIXMathExtensions-Regul",
+          "resource": "LTCGLG+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 9,
+          "trace": "LTCGLG+STIXMathExtensions-Regul",
+          "resource": "LTCGLG+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 10,
+          "trace": "HUIQAP+STIXMathCalligraphy-Regu",
+          "resource": "HUIQAP+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 10,
+          "trace": "LTCGLG+STIXMathExtensions-Regul",
+          "resource": "LTCGLG+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 11,
+          "trace": "HUIQAP+STIXMathCalligraphy-Regu",
+          "resource": "HUIQAP+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 11,
+          "trace": "LTCGLG+STIXMathExtensions-Regul",
+          "resource": "LTCGLG+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 12,
+          "trace": "HUIQAP+STIXMathCalligraphy-Regu",
+          "resource": "HUIQAP+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 12,
+          "trace": "UZZTWO+STIXMathBlackboard-Regul",
+          "resource": "UZZTWO+STIXMathBlackboard-Regular"
+        },
+        {
+          "page": 12,
+          "trace": "LTCGLG+STIXMathExtensions-Regul",
+          "resource": "LTCGLG+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 13,
+          "trace": "HUIQAP+STIXMathCalligraphy-Regu",
+          "resource": "HUIQAP+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 13,
+          "trace": "LTCGLG+STIXMathExtensions-Regul",
+          "resource": "LTCGLG+STIXMathExtensions-Regular"
+        },
+        {
+          "page": 14,
+          "trace": "HUIQAP+STIXMathCalligraphy-Regu",
+          "resource": "HUIQAP+STIXMathCalligraphy-Regular"
+        },
+        {
+          "page": 18,
+          "trace": "HUIQAP+STIXMathCalligraphy-Regu",
+          "resource": "HUIQAP+STIXMathCalligraphy-Regular"
+        }
+      ],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 21,
+        "pairedMathPages": [
+          8
+        ],
+        "layoutFinding": "第 8 页符号表有中英混排和局部拥挤，表项翻译待精校。"
+      }
+    },
+    {
+      "id": "P29",
+      "status": "PASS",
+      "pages": 12,
+      "sourceSHA": "b113e7cda003d4c03cc2d92fa5714502564988128f83716b3f03e020a2e67c02",
+      "translationSHA": "e4bafee59b830c3c7456a837ea939e1ef56e27decc71ec0915d1b3e820aab6d0",
+      "expectedMathGlyphs": 0,
+      "matchedMathGlyphs": 0,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 12,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 561,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 20007,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 0,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "b113e7cda003d4c03cc2d92fa5714502564988128f83716b3f03e020a2e67c02",
+        "translationSHA": "e4bafee59b830c3c7456a837ea939e1ef56e27decc71ec0915d1b3e820aab6d0"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "No instrumented mathematical font glyphs; zero is not a mathematical fidelity certificate",
+      "manualReview": {
+        "overviewPages": 12,
+        "pairedMathPages": [
+          7
+        ],
+        "originalMathPagesPreserved": [
+          6,
+          7
+        ]
+      }
+    },
+    {
+      "id": "P30",
+      "status": "PASS",
+      "pages": 23,
+      "sourceSHA": "be798ded6389c3fbad1ae2b2eb591b7de20a8f59f81a4ad6bd287bdd82889524",
+      "translationSHA": "9aa46dd7d9aea84a9ba3dc8b5ee5d2ecd0a7e40baef300c603497048855a94bc",
+      "expectedMathGlyphs": 2701,
+      "matchedMathGlyphs": 2701,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 23,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 12269,
+        "scopedFormulaParagraphs": 130,
+        "validatedGlyphs": 55719,
+        "normalizedMatrices": 11,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 590,
+        "status": "PASS",
+        "originalMathStrokesRestored": 17,
+        "sourceSHA": "be798ded6389c3fbad1ae2b2eb591b7de20a8f59f81a4ad6bd287bdd82889524",
+        "translationSHA": "9aa46dd7d9aea84a9ba3dc8b5ee5d2ecd0a7e40baef300c603497048855a94bc"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 23,
+        "pairedMathPages": [
+          20
+        ],
+        "layoutFinding": "第 20 页等伪代码段仍拥挤，须保留英文算法框对照。"
+      }
+    },
+    {
+      "id": "P31",
+      "status": "PASS",
+      "pages": 17,
+      "sourceSHA": "a504178653c544e74420bdccfe469b206febee625248e144204db60bd6004a8a",
+      "translationSHA": "1bc438d7da1164ba3f8ffe58cd25760b85dcbeca907df4934f38e3a009daa0b3",
+      "expectedMathGlyphs": 493,
+      "matchedMathGlyphs": 493,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 17,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 4984,
+        "scopedFormulaParagraphs": 1,
+        "validatedGlyphs": 39962,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 205,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "a504178653c544e74420bdccfe469b206febee625248e144204db60bd6004a8a",
+        "translationSHA": "1bc438d7da1164ba3f8ffe58cd25760b85dcbeca907df4934f38e3a009daa0b3"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 17,
+        "pairedMathPages": [
+          13
+        ]
+      }
+    },
+    {
+      "id": "P32",
+      "status": "PASS",
+      "pages": 15,
+      "sourceSHA": "9538aeb1989b92f315ed4f80ad93500bd923ab767b18feb0f83196267e8525e3",
+      "translationSHA": "6a719667203eec7791b31ff6be57118cea4c40f7399e120c63e81793a6fa85c2",
+      "expectedMathGlyphs": 0,
+      "matchedMathGlyphs": 0,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 15,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 2153,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 27443,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 0,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "9538aeb1989b92f315ed4f80ad93500bd923ab767b18feb0f83196267e8525e3",
+        "translationSHA": "6a719667203eec7791b31ff6be57118cea4c40f7399e120c63e81793a6fa85c2"
+      },
+      "resolvedTraceFontAliases": [
+        {
+          "page": 13,
+          "trace": "VXRPFF+NimbusMonL-Regu-Extend_8",
+          "resource": "VXRPFF+NimbusMonL-Regu-Extend_850"
+        },
+        {
+          "page": 14,
+          "trace": "VXRPFF+NimbusMonL-Regu-Extend_8",
+          "resource": "VXRPFF+NimbusMonL-Regu-Extend_850"
+        }
+      ],
+      "visualQA": "pending",
+      "mathCoverage": "No instrumented mathematical font glyphs; zero is not a mathematical fidelity certificate",
+      "manualReview": {
+        "overviewPages": 15,
+        "pairedMathPages": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "P33",
+      "status": "PASS",
+      "pages": 9,
+      "sourceSHA": "b101bacf1a8a478a6eae9c4ffe145cab5fae744a3b5e498219fa7aaef2cd4501",
+      "translationSHA": "de92fc75a1554892a131951d8f610a6fd902b2d9a0adaa59ddd720de9cc84b1e",
+      "expectedMathGlyphs": 193,
+      "matchedMathGlyphs": 193,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 9,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 1398,
+        "scopedFormulaParagraphs": 1,
+        "validatedGlyphs": 16560,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 82,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "b101bacf1a8a478a6eae9c4ffe145cab5fae744a3b5e498219fa7aaef2cd4501",
+        "translationSHA": "de92fc75a1554892a131951d8f610a6fd902b2d9a0adaa59ddd720de9cc84b1e"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 9,
+        "pairedMathPages": [
+          8
+        ]
+      }
+    },
+    {
+      "id": "P34",
+      "status": "PASS",
+      "pages": 7,
+      "sourceSHA": "93c316b96e0c29da7fabc772a97fac40a568d76d7ffd91a9722bc8a49b247070",
+      "translationSHA": "9886cb131b045c01aefd52170b4109d73d88850258826887ac2949bd37089149",
+      "expectedMathGlyphs": 128,
+      "matchedMathGlyphs": 128,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 7,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 1405,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 12097,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 44,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "93c316b96e0c29da7fabc772a97fac40a568d76d7ffd91a9722bc8a49b247070",
+        "translationSHA": "9886cb131b045c01aefd52170b4109d73d88850258826887ac2949bd37089149"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 7,
+        "pairedMathPages": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "P35",
+      "status": "PASS",
+      "pages": 6,
+      "sourceSHA": "78bd1fc8a4ddbf2d6e154528dbc38d86003f385764d3e45bcab845ecae4f96d0",
+      "translationSHA": "5dc36d16da5631f6f40d20cbd79179235e91a8669700a34c45e8ae7c7210a5ff",
+      "expectedMathGlyphs": 75,
+      "matchedMathGlyphs": 75,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 6,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 1015,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 13508,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 30,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "78bd1fc8a4ddbf2d6e154528dbc38d86003f385764d3e45bcab845ecae4f96d0",
+        "translationSHA": "5dc36d16da5631f6f40d20cbd79179235e91a8669700a34c45e8ae7c7210a5ff"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 6,
+        "pairedMathPages": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "P36",
+      "status": "PASS",
+      "pages": 13,
+      "sourceSHA": "e3cf64e72110864addb1efc75de6a07cf1b800f4b219dcd4c339568b7f8c6f7e",
+      "translationSHA": "c6cbdf391696744173c98ea707672ad4dfa8907fc3dde1b84eb9123a7e320832",
+      "expectedMathGlyphs": 2070,
+      "matchedMathGlyphs": 2070,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 13,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 11254,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 25224,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 271,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "e3cf64e72110864addb1efc75de6a07cf1b800f4b219dcd4c339568b7f8c6f7e",
+        "translationSHA": "c6cbdf391696744173c98ea707672ad4dfa8907fc3dde1b84eb9123a7e320832"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 13,
+        "pairedMathPages": [
+          10
+        ]
+      }
+    },
+    {
+      "id": "P37",
+      "status": "PASS",
+      "pages": 4,
+      "sourceSHA": "d04dad1e6ebcf8051212648e3531b4146c2e3969ddd18e7221279c7e1b69c137",
+      "translationSHA": "aa15c4957d41c7979f6f3e8a29734ca218985634f8d42fcea1e59629de291a8b",
+      "expectedMathGlyphs": 223,
+      "matchedMathGlyphs": 223,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 4,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 521,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 8605,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 50,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "d04dad1e6ebcf8051212648e3531b4146c2e3969ddd18e7221279c7e1b69c137",
+        "translationSHA": "aa15c4957d41c7979f6f3e8a29734ca218985634f8d42fcea1e59629de291a8b"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 4,
+        "pairedMathPages": [
+          2
+        ],
+        "layoutFinding": "第 2 页表格下方标题与正文局部重叠，仍待精排。"
+      }
+    },
+    {
+      "id": "P38",
+      "status": "PASS",
+      "pages": 16,
+      "sourceSHA": "7c23a43446b1dc58fa072b84a0c0fda79746b3d96fc3ffc3ea83c8e1b03242e1",
+      "translationSHA": "78f251ae79c2177545a227bb1cdf3896f60d56ba1499de4b70b2629fb4a220db",
+      "expectedMathGlyphs": 1500,
+      "matchedMathGlyphs": 1500,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 16,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 5908,
+        "scopedFormulaParagraphs": 0,
+        "validatedGlyphs": 29933,
+        "normalizedMatrices": 0,
+        "decodedProseLigatures": 0,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 412,
+        "status": "PASS",
+        "originalMathStrokesRestored": 0,
+        "sourceSHA": "7c23a43446b1dc58fa072b84a0c0fda79746b3d96fc3ffc3ea83c8e1b03242e1",
+        "translationSHA": "78f251ae79c2177545a227bb1cdf3896f60d56ba1499de4b70b2629fb4a220db"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 16,
+        "pairedMathPages": [
+          5
+        ]
+      }
+    },
+    {
+      "id": "P39",
+      "status": "PASS",
+      "pages": 6,
+      "sourceSHA": "1d8a88487a9589d5a04fc34b8d66d1a4afcf933a8173f015f826a1b6a094416d",
+      "translationSHA": "c30365f7adbd72d6ba5ce35120d5408d9e1787326f1149aaa33505d6d6f06953",
+      "expectedMathGlyphs": 795,
+      "matchedMathGlyphs": 795,
+      "unmatchedMathGlyphs": 0,
+      "renderedPages": 6,
+      "mathGuard": {
+        "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+        "relocatedScopedCharacters": 5923,
+        "scopedFormulaParagraphs": 92,
+        "validatedGlyphs": 11901,
+        "normalizedMatrices": 2,
+        "decodedProseLigatures": 44,
+        "unresolvedFontScopes": [],
+        "positionedMathFragments": 193,
+        "status": "PASS",
+        "originalMathStrokesRestored": 5,
+        "sourceSHA": "1d8a88487a9589d5a04fc34b8d66d1a4afcf933a8173f015f826a1b6a094416d",
+        "translationSHA": "c30365f7adbd72d6ba5ce35120d5408d9e1787326f1149aaa33505d6d6f06953"
+      },
+      "resolvedTraceFontAliases": [],
+      "visualQA": "pending",
+      "mathCoverage": "Recorded protected mathematical fragments only",
+      "manualReview": {
+        "overviewPages": 6,
+        "pairedMathPages": [
+          2,
+          3,
+          4
+        ],
+        "fullPagesViewed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Final PDF identity/geometry/physical math glyph positions, plus optional rendering; not full semantic or algebraic certification.",
+  "manualReviewScope": "All-page small overview inspection for gross layout plus selected original/translation math-page comparison; not full sentence or algebra certification",
+  "renderedPages": 446,
+  "layoutWarnings": [
+    "P14",
+    "P17",
+    "P18",
+    "P28",
+    "P30",
+    "P37"
+  ]
+}

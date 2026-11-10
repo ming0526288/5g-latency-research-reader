@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Reproduced original formula-priority grazing error",
+    "Body character center selects its actual text region",
+    "Character centered in formula remains in formula",
+    "No containing text region keeps original behavior"
+  ],
+  "scope": "Geometric document layout regression; not a full-page visual certification"
+}

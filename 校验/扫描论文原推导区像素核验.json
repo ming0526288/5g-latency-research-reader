@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "paper": "P29",
+  "pages": [
+    {
+      "page": 6,
+      "identicalPixels": true,
+      "sampleBytes": 1420848
+    },
+    {
+      "page": 7,
+      "identicalPixels": true,
+      "sampleBytes": 1418976
+    }
+  ],
+  "sourceSHA": "b113e7cda003d4c03cc2d92fa5714502564988128f83716b3f03e020a2e67c02",
+  "translationSHA": "e4bafee59b830c3c7456a837ea939e1ef56e27decc71ec0915d1b3e820aab6d0",
+  "scope": "Original algorithm/proof scans below the explicit note; no certification of OCR inline mathematics elsewhere"
+}

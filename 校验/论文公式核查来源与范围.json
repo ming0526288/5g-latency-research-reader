@@ -375,12 +375,12 @@
     }
   },
   "finalGuard": "xobject-font-scope-math-strokes-ligatures-v6",
-  "finalBatchStatus": "RUNNING session63071; physical audit watcher67783",
+  "finalBatchStatus": "Complete 39-paper engineering audit; full translation visual/semantic QA remains pending",
   "rejectedCandidates": [
     "v2 rectangular clips",
     "v3 filtered rectangular clips"
   ],
-  "note": "Final results must be updated after actual completion.",
+  "note": "Originals unchanged; all 39 generated; 446 pages rendered and overviewed; mathematical sample page per paper inspected. Layout warnings are explicitly retained, not full-page pass.",
   "initialBatchTermination": {
     "sessions": [
       68867,
@@ -397,5 +397,31 @@
     "lastComplete": "P27",
     "interrupted": "P28",
     "reason": "Intermediate method superseded; not a communication experiment failure."
-  }
+  },
+  "finalResults": {
+    "papers": 39,
+    "pages": 446,
+    "expectedPositionRecords": 50869,
+    "unmatchedPositionRecords": 0,
+    "layoutWarnings": [
+      "P14",
+      "P17",
+      "P18",
+      "P28",
+      "P30",
+      "P37"
+    ],
+    "zeroInstrumentedMath": [
+      "P29",
+      "P32"
+    ],
+    "scanProofPixelComparison": "P29 PDF6/7 below note pixel-identical to source",
+    "followups": [
+      "P02 failed paragraph retried",
+      "P10 text/formula border and original Algorithm 1",
+      "P29 scanned background and original proof pages"
+    ],
+    "browserP39Page2": "Actual Firefox screenshot viewed; E brackets visible"
+  },
+  "nativeBrowserScreenshotSHA": "cf69f3f21a24630c07ad5bc94b58e353b25e78ef29f1b63a3b649228ffa0ac6e"
 }
