@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-10",
+  "status": "PASS",
+  "editorial": {
+    "status": "PASS",
+    "source": "说明/文献导读/论文规划_工业多UE时延优化与对比实验.md",
+    "paragraphAndHeadingReplacements": 71,
+    "beforeSha256": "18d1fbbc79b19c8965b564bc174b716fc2c2aead483db217887e621ccd7e82b4",
+    "afterSha256": "39248ce58d3432e721ff92e19d7e54ec90b16e0a9e26d64e099d48ed808f614a",
+    "fencedBlocksUnchanged": 12,
+    "inlineMathUnchanged": 32,
+    "linkDestinationsUnchanged": 12,
+    "numericTokensAfterIntroductionUnchanged": true,
+    "protocolAndLiteratureSourceSectionUnchanged": true,
+    "secondPersonAndAssistantAdviceRemoved": true,
+    "scope": "Editorial report voice only; no new facts, experiments, technical formulas or performance conclusions.",
+    "additionalEditorialRefinements": 10
+  },
+  "page": {
+    "status": "PASS",
+    "source": "说明/文献导读/论文规划_工业多UE时延优化与对比实验.md",
+    "id": "r8c699f85193efdfb",
+    "sha256": "39248ce58d3432e721ff92e19d7e54ec90b16e0a9e26d64e099d48ed808f614a",
+    "reportVoiceVisible": true,
+    "oldAdviceRemoved": true,
+    "allTocTargetsExist": 35,
+    "navigationAndSearch": true,
+    "consoleErrors": [],
+    "scope": "Offline DOM and generated page integration; no screenshots or wireless experiment."
+  },
+  "live": {
+    "status": "PASS",
+    "resources": [
+      {
+        "path": "网页/catalog.js",
+        "httpStatus": 200,
+        "sha256": "f68530e6bd33d70496a3a0357bab70eb725ae47d5c3b1e3ff30007fc4754544b",
+        "equalsWorkingFile": true
+      },
+      {
+        "path": "网页/data/r8c699f85193efdfb.js",
+        "httpStatus": 200,
+        "sha256": "907e9ab4f4adacf2f95ad5f17382a30d87dfc7aa8d9d1eb8e82dfed81eb2bb61",
+        "equalsWorkingFile": true
+      },
+      {
+        "path": "说明/文献导读/论文规划_工业多UE时延优化与对比实验.md",
+        "httpStatus": 200,
+        "sha256": "39248ce58d3432e721ff92e19d7e54ec90b16e0a9e26d64e099d48ed808f614a",
+        "equalsWorkingFile": true
+      }
+    ],
+    "scope": "Actual loopback HTTP byte checks; no browser cache/VPN or communication performance certification."
+  },
+  "scope": "Editorial presentation voice; not new research findings or wireless experiment."
+}
