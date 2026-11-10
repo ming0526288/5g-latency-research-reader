@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scope": "live loopback HTTP serves current guide/catalogue/Markdown; not client browser/VPN verification",
+  "results": [
+    {
+      "path": "网页/catalog.js",
+      "status": 200,
+      "sha256": "c7129df02415f71112a0dc97e53a3468db7bda6ca3d2c38719ee782a06674437"
+    },
+    {
+      "path": "网页/data/r83828fb93495baa0.js",
+      "status": 200,
+      "sha256": "0378606292bccba93f22257660dd8e6430992e571c5699a3a88a5981feb520d4"
+    },
+    {
+      "path": "说明/文献导读/39篇文献重要性排序与方法效果简述.md",
+      "status": 200,
+      "sha256": "b62fabbde2dddc3431b3145a3f591bb57b0ece7d13f0297be1bb14f0f7c9e30a"
+    }
+  ]
+}

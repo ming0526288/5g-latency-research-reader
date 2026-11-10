@@ -32,14 +32,15 @@ def read_catalog():
 
 
 def build(kind='knowledge'):
-    if kind not in ('knowledge', 'experiments', 'algorithm-notes'):
+    if kind not in ('knowledge', 'experiments', 'algorithm-notes', 'reading-notes'):
         raise ValueError('Unknown reader-owned document kind: ' + kind)
     experiments = kind == 'experiments'
     algorithm_notes = kind == 'algorithm-notes'
-    prefix = 'a' if algorithm_notes else 'e' if experiments else 'k'
-    source_root = ROOT / ('说明' if algorithm_notes else '说明/五类时延分析' if experiments else '说明/算法知识点说明')
-    report_path = ROOT / ('校验/算法自有稿构建校验.json' if algorithm_notes else '校验/实验分析构建校验.json' if experiments else '校验/知识点构建校验.json')
-    stat_prefix = 'algorithmNote' if algorithm_notes else 'experiment' if experiments else 'knowledge'
+    reading_notes = kind == 'reading-notes'
+    prefix = 'r' if reading_notes else 'a' if algorithm_notes else 'e' if experiments else 'k'
+    source_root = ROOT / ('说明/文献导读' if reading_notes else '说明' if algorithm_notes else '说明/五类时延分析' if experiments else '说明/算法知识点说明')
+    report_path = ROOT / ('校验/文献导读构建校验.json' if reading_notes else '校验/算法自有稿构建校验.json' if algorithm_notes else '校验/实验分析构建校验.json' if experiments else '校验/知识点构建校验.json')
+    stat_prefix = 'readingNote' if reading_notes else 'algorithmNote' if algorithm_notes else 'experiment' if experiments else 'knowledge'
     catalog = read_catalog()
     manifest = json.loads((ROOT / '说明' / (kind + '.json')).read_text(encoding='utf-8'))
     previous_sources = set()
@@ -91,9 +92,9 @@ def build(kind='knowledge'):
         builder.docs[did] = {
             'id': did, 'title': re.search(r'^#\s+(.+)', text, re.M)[1],
             'source': source, 'aliases': [source],
-            'group': ('knowledge' if item['kind'] == 'knowledge' else 'algorithms') if algorithm_notes else 'research' if experiments else 'knowledge',
+            'group': 'guides' if reading_notes else ('knowledge' if item['kind'] == 'knowledge' else 'algorithms') if algorithm_notes else 'research' if experiments else 'knowledge',
             'topic': 'algorithms' if algorithm_notes else item['topic'],
-            'prerequisite': not (experiments or algorithm_notes),
+            'prerequisite': not (experiments or algorithm_notes or reading_notes),
             **({'algorithm': item['algorithm']} if algorithm_notes else {}),
             **({'experimentStage': item['topic']} if experiments else {}),
             'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
@@ -184,7 +185,9 @@ def build(kind='knowledge'):
     catalog['stats'][stat_prefix + 'Formulas'] = len(builder.math)
     catalog['stats'][stat_prefix + 'Images'] = len(builder.assets)
     catalog[stat_prefix + 'UpdatedAt'] = manifest['updated']
-    if not algorithm_notes:
+    if reading_notes:
+        catalog['readingNotes'] = [d['id'] for d in metadata]
+    elif not algorithm_notes:
         catalog['experimentStages' if experiments else 'knowledgeTopics'] = {d['topic']: d['id'] for d in metadata}
     for feature in catalog['featured']:
         if experiments and feature['title'] in ('五类研究主线', '做过的五类时延分析'):

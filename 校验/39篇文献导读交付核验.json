@@ -1,0 +1,482 @@
+{
+  "status": "PASS",
+  "scope": "Literature coverage/source identities and website delivery; no wireless experiment or independent reproduction",
+  "document": "说明/文献导读/39篇文献重要性排序与方法效果简述.md",
+  "id": "r83828fb93495baa0",
+  "sha256": "b62fabbde2dddc3431b3145a3f591bb57b0ece7d13f0297be1bb14f0f7c9e30a",
+  "rank": [
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      36
+    ],
+    [
+      3,
+      30
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      24
+    ],
+    [
+      6,
+      19
+    ],
+    [
+      7,
+      2
+    ],
+    [
+      8,
+      4
+    ],
+    [
+      9,
+      3
+    ],
+    [
+      10,
+      31
+    ],
+    [
+      11,
+      37
+    ],
+    [
+      12,
+      23
+    ],
+    [
+      13,
+      22
+    ],
+    [
+      14,
+      17
+    ],
+    [
+      15,
+      20
+    ],
+    [
+      16,
+      38
+    ],
+    [
+      17,
+      39
+    ],
+    [
+      18,
+      16
+    ],
+    [
+      19,
+      21
+    ],
+    [
+      20,
+      25
+    ],
+    [
+      21,
+      26
+    ],
+    [
+      22,
+      28
+    ],
+    [
+      23,
+      29
+    ],
+    [
+      24,
+      18
+    ],
+    [
+      25,
+      6
+    ],
+    [
+      26,
+      9
+    ],
+    [
+      27,
+      27
+    ],
+    [
+      28,
+      32
+    ],
+    [
+      29,
+      33
+    ],
+    [
+      30,
+      34
+    ],
+    [
+      31,
+      35
+    ],
+    [
+      32,
+      12
+    ],
+    [
+      33,
+      10
+    ],
+    [
+      34,
+      7
+    ],
+    [
+      35,
+      11
+    ],
+    [
+      36,
+      13
+    ],
+    [
+      37,
+      8
+    ],
+    [
+      38,
+      14
+    ],
+    [
+      39,
+      15
+    ]
+  ],
+  "paperCount": 39,
+  "tocHeadings": 11,
+  "commonNavigation": "k4f5f00700a16ad5b",
+  "paperSources": [
+    {
+      "id": "P01",
+      "file": "pdf-英文原版/1_Dissecting-5G-New-Radio-Latency.pdf",
+      "sha256": "2d272dbcb3ea0ee1d659ae2a81ab9abf2a0bcb17a957b97d917ab1bbf7a19fdd",
+      "pages": 6,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P02",
+      "file": "pdf-英文原版/2_5G New Radio Numerologies and their Impact on.pdf",
+      "sha256": "b586f6883fdc76637be0012b79f478f180312f43ce1c8d5e397ae29bd4464b76",
+      "pages": 6,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P03",
+      "file": "pdf-英文原版/3_5G Numerologies Assessment for URLLC in.pdf",
+      "sha256": "744d5a01e47ee76597164011170a421ff922685cf95db28012f1857f08e95737",
+      "pages": 11,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P04",
+      "file": "pdf-英文原版/4_retalin-queue-aware-uplink-scheduling-5g-nr-2023.pdf",
+      "sha256": "989cc2c0e4ddafc7696a8c11e17a3a008ae40e76f5a7c637047152ed71fc455f",
+      "pages": 20,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P05",
+      "file": "pdf-英文原版/5_AUGUSTE Online-Learning dApp for Predictive URLLC Scheduling.pdf",
+      "sha256": "70ae279a5ed526ba2b773fcf37afe4dae3d750a88a63156de07afb7292be6f16",
+      "pages": 6,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P06",
+      "file": "pdf-英文原版/6_An_Analytical_Latency_Model_and_Evaluation_of_the_Capacity_of_5G_NR_to_Support_V2X_Services_Using_V2N2V_Communications.pdf",
+      "sha256": "68eeba406efc9097b6bf0b600c340085c9714e6a4d4b820d307b0ee075966012",
+      "pages": 14,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P07",
+      "file": "pdf-英文原版/7_Resource_allocation_in_multi-user_cellular_networks_A_transformer-based_deep_reinforcement_learning_approach.pdf",
+      "sha256": "849db6de600f00d90e5139842d0df2e1a5e7b355814efe24e3694ea96b7b4121",
+      "pages": 20,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P08",
+      "file": "pdf-英文原版/8_Generative Resource Allocation for 6G O-RAN.pdf",
+      "sha256": "47c2dcd39360d6148358f8e045f42d416894d00588bec54fe074a99b20ce4dfb",
+      "pages": 6,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P09",
+      "file": "pdf-英文原版/9_Int J Communication - 2026 - S - Tail‐Latency‐Aware Reinforcement Learning for Dynamic Resource Allocation in 5G Network.pdf",
+      "sha256": "1576ce00b543e18036e4b222a868ece090fa6aa47799398ee0c86e0fb5558c8c",
+      "pages": 25,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P10",
+      "file": "pdf-英文原版/10_Training a Graph Neural Network to solve URLLC andeMBB coexisting in 5G.pdf",
+      "sha256": "a2a019d15f1d4bbf1e4a71ef670de62422120a91a5cb91dd57288227c5b6c47a",
+      "pages": 14,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P11",
+      "file": "pdf-英文原版/11_Transformer-Based_Wireless_Traffic_Prediction_and_Network_Optimization_in_O-RAN.pdf",
+      "sha256": "9258c9f64d2dd68bafa9c5c9455a00275099088b83de5cac30989d15a775e786",
+      "pages": 6,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P12",
+      "file": "pdf-英文原版/12_Wireless Communications and Mobile Computing - 2024 - Wang - Resource Scheduling in URLLC and eMBB Coexistence Based on.pdf",
+      "sha256": "0b6a8874bebd121b417dc26cd2b64d4c454e8c1d7ce5b65aca82362ad4fcef0a",
+      "pages": 14,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P13",
+      "file": "pdf-英文原版/13_Diffusion Model Based Resource Allocation.pdf",
+      "sha256": "1f2001dcc8ba3bb8fdd5fdbb6484434ac9cc4630e0843e6f4cceb335ba76b0c0",
+      "pages": 5,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P14",
+      "file": "pdf-英文原版/14_GRAPH SIGNAL DIFFUSION MODELSFORWIRELESSRESOURCEALLOCATION.pdf",
+      "sha256": "7d2dfa74d188139dfc00998e18501ddd41c1d652edf36569b87a10925a9c7f8b",
+      "pages": 5,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P15",
+      "file": "pdf-英文原版/15_Large Language Model (LLM)-enabled.pdf",
+      "sha256": "44c0ef64a839d3d0cbf841f41fc5e08f0c9e36269aa0d93ac23c92772466c23d",
+      "pages": 7,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P16",
+      "file": "pdf-英文原版/16_On the Ultra-Reliable and Low-Latency Communications in Flexible TDDFDD 5G Networks.pdf",
+      "sha256": "d6ec9c04b9be3c2adf79a694090cbcec64e997d55955b113c61eb05946db0b41",
+      "pages": 6,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P17",
+      "file": "pdf-英文原版/17_Semi-Static_Radio_Frame_Configuration_for_URLLC_Deployments_in_5G_Macro_TDD_Networks.pdf",
+      "sha256": "29344cd90297893faf49c7dac8c9abc2a6bc638282105dd3d8824642848b6e99",
+      "pages": 6,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P18",
+      "file": "pdf-英文原版/18_Resource Optimization with Flexible Numerology and Frame Structure for Heterogeneous Services.pdf",
+      "sha256": "f12518cfd4a345f05d1b1d7db3cc7902158f8f835fc5e2c42b072711ebbbfb69",
+      "pages": 4,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P19",
+      "file": "pdf-英文原版/19_Analysis of Outage Latency and Throughput Performance in Industrial Factory 5G TDD Deployments.pdf",
+      "sha256": "63c86d50fc2581b712a31a931efe13e7cc8b39b9e9a1679a8614d55bbe55631c",
+      "pages": 6,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P20",
+      "file": "pdf-英文原版/20_Online_Radio_Pattern_Optimization_Based_on_Dual_Reinforcement-Learning_Approach_for_5G_URLLC_Networks.pdf",
+      "sha256": "286c7a3ec062de36cc82f4dd2cdda270b9c7b18d936c191a69d1cb5f27caa197",
+      "pages": 15,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P21",
+      "file": "pdf-英文原版/21_Delay_Analysis_of_Multi-User_URLLC_Systems_Under_Finite_Block-Length_Regime.pdf",
+      "sha256": "4f7129bb3546ed27459316b91985badfcc90529890b9091ad1c2e00bdae5e3ef",
+      "pages": 6,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P22",
+      "file": "pdf-英文原版/22_Delay Analysis of 5G HARQ in the Presence of Decoding and Feedback Latencies.pdf",
+      "sha256": "77da26baf03c3f964b0f7f6612c21904d80e4e920dbed0cdf605308dde85dcb6",
+      "pages": 14,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P23",
+      "file": "pdf-英文原版/23_Delay Violation Probability Modeling for 5G Systems with HARQ Operation.pdf",
+      "sha256": "267ba6db8babb377bd3e7da678447484c26894e3ca8aa1726b61da079376c571",
+      "pages": 12,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P24",
+      "file": "pdf-英文原版/24_QUEST_User-Based_Quality_of_Service_Aware_Uplink_Resource_Scheduling.pdf",
+      "sha256": "34863ff7dbdbf48d890d8830c90cb5e8ab1c0f53fccf41c588f9ad41c687f227",
+      "pages": 15,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P25",
+      "file": "pdf-英文原版/25_Bayesian_Optimization_of_Queuing-Based_Multichannel_URLLC_Scheduling.pdf",
+      "sha256": "c8cc38b56e2ac43e5ede5b548f96c9c7df28d097dfad787446519bc0cc5dec74",
+      "pages": 16,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P26",
+      "file": "pdf-英文原版/26_WRAP-constrained-risk-sensitive-deep-reinforcement-learning-eMBB-URLLC-joint-scheduling-2024.pdf",
+      "sha256": "420a28bad4b1259696fe810746f21d81d7a471788926a68a5b694b030b888052",
+      "pages": 18,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P27",
+      "file": "pdf-英文原版/27_Probabilistic Delay Forecasting in 5G Using Recurrent and Attention-Based Architectures.pdf",
+      "sha256": "005cfc53e6b41e8fcd7c8c058468ad5a5ea1cf62cacf6db2890aae73375ee1b0",
+      "pages": 14,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P28",
+      "file": "pdf-英文原版/28_Transient deadline-aware RAN slicing for NR-V2X using finite-capacity time-varying slice queues.pdf",
+      "sha256": "5e20ffe5ebeca4edfb8ccdf97e057aacbcbf70004444cde1e648e51c8ce449cc",
+      "pages": 21,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P29",
+      "file": "pdf-英文原版/29_Efficient fair queueing using deficit round robin.pdf",
+      "sha256": "b113e7cda003d4c03cc2d92fa5714502564988128f83716b3f03e020a2e67c02",
+      "pages": 12,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P30",
+      "file": "pdf-英文原版/30_LatencyScope A System-Level.pdf",
+      "sha256": "be798ded6389c3fbad1ae2b2eb591b7de20a8f59f81a4ad6bd287bdd82889524",
+      "pages": 23,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P31",
+      "file": "pdf-英文原版/31_MAC-Gyver Open, Programmable, Scheduling.pdf",
+      "sha256": "a504178653c544e74420bdccfe469b206febee625248e144204db60bd6004a8a",
+      "pages": 17,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P32",
+      "file": "pdf-英文原版/32_An intensive vRAN deployment with OpenAirInterface.pdf",
+      "sha256": "9538aeb1989b92f315ed4f80ad93500bd923ab767b18feb0f83196267e8525e3",
+      "pages": 15,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P33",
+      "file": "pdf-英文原版/33_Enabling Real-Time AI in O-RAN Deploying and.pdf",
+      "sha256": "b101bacf1a8a478a6eae9c4ffe145cab5fae744a3b5e498219fa7aaef2cd4501",
+      "pages": 9,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P34",
+      "file": "pdf-英文原版/34_Uplink Multi-User MIMO Testbed Implementation in.pdf",
+      "sha256": "93c316b96e0c29da7fabc772a97fac40a568d76d7ffd91a9722bc8a49b247070",
+      "pages": 7,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P35",
+      "file": "pdf-英文原版/35_Exploratory_Study_of_CPUGPU_Frequency_Interactions_and_Throughput_Stability_in_GPU-Accelerated_5G_O-RAN.pdf",
+      "sha256": "78bd1fc8a4ddbf2d6e154528dbc38d86003f385764d3e45bcab845ecae4f96d0",
+      "pages": 6,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P36",
+      "file": "pdf-英文原版/36_Distributed_Control_for_Collaborative_Robotic_Systems_Using_5G_Edge_Computing.pdf",
+      "sha256": "e3cf64e72110864addb1efc75de6a07cf1b800f4b219dcd4c339568b7f8c6f7e",
+      "pages": 13,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P37",
+      "file": "pdf-英文原版/37_Implementation_of_Wireless_Synchronous_Robotic_Control_in_5G_and_Edge-Cloud_Environments.pdf",
+      "sha256": "d04dad1e6ebcf8051212648e3531b4146c2e3969ddd18e7221279c7e1b69c137",
+      "pages": 4,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P38",
+      "file": "pdf-英文原版/38_Task_Oriented Scheduling for Networked Control.pdf",
+      "sha256": "7c23a43446b1dc58fa072b84a0c0fda79746b3d96fc3ffc3ea83c8e1b03242e1",
+      "pages": 16,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    },
+    {
+      "id": "P39",
+      "file": "pdf-英文原版/39_Value_of_Information_in_Networked_Control_Systems_Subject_to_Delay.pdf",
+      "sha256": "1d8a88487a9589d5a04fc34b8d66d1a4afcf933a8173f015f826a1b6a094416d",
+      "pages": 6,
+      "pdftotext_exit": 0,
+      "pdfinfo_exit": 0
+    }
+  ]
+}
