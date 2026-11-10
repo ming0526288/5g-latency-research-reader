@@ -41,6 +41,7 @@
   ['multi-ue','♧','多 UE 时延分析'],['layers','▤','分层时延分析'],['tail','⌁','尾时延分析'],
   ['source-changes','⌘','原始源码与当前版本']
  ].map(([topic,icon,label])=>({icon,label,doc:docs.get(C.experimentStages?.[topic])})).filter(entry=>entry.doc);
+ const paperPlan=C.docs.find(d=>d.topic==='paper-plan');
  function notify(s){$('#toast').textContent=s;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),2300);}
  function header(category,title,description=''){return `<div class="library-heading"><div class="eyebrow">${category}</div><h1>${E(title)}</h1>${description?`<p>${E(description)}</p>`:''}</div>`;}
  function breadcrumbs(label){return `<nav class="breadcrumbs"><a href="#/">阅读首页</a><span>／</span><span>${E(label)}</span></nav>`;}
@@ -50,6 +51,7 @@
   if(state.doc&&familyForDoc(state.doc).length)algorithmMode=docs.get(state.doc).group==='knowledge'?'knowledge':'results';
   const nav=(url,icon,label,count)=>`<a href="${url}" class="nav-link ${route===url.slice(1)||algorithmMode&&url===algorithmIndexUrl(algorithmMode)?'active':''}"><span class="nav-icon">${icon}</span>${label}${count?`<span class="nav-count">${count}</span>`:''}</a>`;
   $('#sidebar').innerHTML=nav('#/','⌂','阅读首页')+nav('#/bookmarks','☆','我的书签',bookmarks.length)+
+   (paperPlan?'<div class="nav-heading">论文规划与研究路线</div>'+nav(docUrl(paperPlan),'↗','时延优化与算法对照'):'')+
    '<div class="nav-heading">知识点</div>'+studyDocs.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
    nav('#/browse/algorithm-knowledge','◇','算法知识点',algorithmFamilies.length)+
    '<div class="nav-heading">研究结果与分析</div>'+researchStages.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
@@ -91,7 +93,8 @@
   const kind=d.group==='knowledge'?'knowledge':'results';
   const sequence=d.experimentStage?researchStages.map(entry=>entry.doc):family?familyDocumentIds(family,kind).map(did=>docs.get(did)):outline;
   const pos=sequence.findIndex(x=>x.id===id);const prev=sequence[pos-1];const next=sequence[pos+1];
-  main.innerHTML=`<div class="doc-view">${breadcrumbs(groups[d.group]||'文档')}${algorithmContext(d)}<div class="doc-toolbar"><span class="pill">${E(groups[d.group])}</span><span class="pill warm">约 ${d.minutes} 分钟</span><button class="soft-button" id="bookmarkDoc">${bookmarks.includes(id)?'★ 已收藏':'☆ 加入书签'}</button><a class="soft-button" href="${encodeURI(d.snapshot)}" download>Markdown原稿</a><span class="source-label" title="${E(d.source)}">${E(d.source)}</span></div><article class="article">${c.html}</article>${pos>=0?`<nav class="doc-pagination">${prev?`<a href="${docUrl(prev)}"><small>← 上一篇</small>${E(prev.title)}</a>`:'<span></span>'}${next?`<a href="${docUrl(next)}"><small>下一篇 →</small>${E(next.title)}</a>`:family?`<a href="${algorithmUrl(family,kind)}"><small>返回算法目录 →</small>${E(family.name)} · ${kind==='knowledge'?'算法知识点':'实现与结果'}</a>`:`<a href="#/browse/research"><small>继续探索 →</small>研究报告与实验结果</a>`}</nav>`:''}</div>`;
+  const docGroupLabel=d.topic==='paper-plan'?'论文规划与研究路线':groups[d.group]||'文档';
+  main.innerHTML=`<div class="doc-view">${breadcrumbs(docGroupLabel)}${algorithmContext(d)}<div class="doc-toolbar"><span class="pill">${E(docGroupLabel)}</span><span class="pill warm">约 ${d.minutes} 分钟</span><button class="soft-button" id="bookmarkDoc">${bookmarks.includes(id)?'★ 已收藏':'☆ 加入书签'}</button><a class="soft-button" href="${encodeURI(d.snapshot)}" download>Markdown原稿</a><span class="source-label" title="${E(d.source)}">${E(d.source)}</span></div><article class="article">${c.html}</article>${pos>=0?`<nav class="doc-pagination">${prev?`<a href="${docUrl(prev)}"><small>← 上一篇</small>${E(prev.title)}</a>`:'<span></span>'}${next?`<a href="${docUrl(next)}"><small>下一篇 →</small>${E(next.title)}</a>`:family?`<a href="${algorithmUrl(family,kind)}"><small>返回算法目录 →</small>${E(family.name)} · ${kind==='knowledge'?'算法知识点':'实现与结果'}</a>`:`<a href="#/browse/research"><small>继续探索 →</small>研究报告与实验结果</a>`}</nav>`:''}</div>`;
   if(d.source.endsWith('算法知识点说明/00_通信与时延基础知识.md')){
    const h=Array.from(main.querySelectorAll('h2')).find(x=>x.textContent.startsWith('5.'));
    if(h)h.insertAdjacentHTML('afterend','<figure class="diagram-panel"><img src="网页/assets/闭环测量.svg" alt="同一事务的四个应用时间戳：t0、t1、t2、t3，以及UL、处理、DL三个区间"><figcaption>根据本节已有四个应用时间戳绘制。区间边界与计时条件以正文为准。</figcaption></figure>');

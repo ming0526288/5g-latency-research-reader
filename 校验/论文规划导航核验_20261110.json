@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "navHeadings": [
+    "论文规划与研究路线",
+    "知识点",
+    "研究结果与分析",
+    "研究资料",
+    "过程与依据"
+  ],
+  "planningLink": "#/doc/r8c699f85193efdfb",
+  "planningLabel": "时延优化与算法对照",
+  "source": "说明/文献导读/论文规划_工业多UE时延优化与对比实验.md",
+  "sha256": "f0fb706234f99ab1b430306075851b9ae7241382e3ba7988e4c991773051ad05",
+  "breadcrumbAndPill": true,
+  "activeLinkAndBookmarkRebuild": true,
+  "knowledgeNavigationAndSearch": true,
+  "consoleErrors": [],
+  "scope": "Actual offline DOM integration; no real-browser screenshots, layout certification or communication experiment."
+}
