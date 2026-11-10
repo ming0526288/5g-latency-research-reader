@@ -94,6 +94,14 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
     assert(d.querySelector('.article').textContent.includes('不是全部时延结果都已重测'));
     continue;
    }
+   const resultDoc=cat.docs.find(x=>x.id===id);
+   if(resultDoc.status==='not-started'){
+    assert(d.querySelector('.article').textContent.includes('尚未执行，暂无结果与分析'));
+    assert.equal(d.querySelectorAll('.article table,.article figure,.article pre,.article .katex').length,0);
+    const plan=cat.docs.find(x=>x.topic===resultDoc.planTopic);assert(plan&&plan.researchStep===resultDoc.researchStep);
+    assert(d.querySelector('.article a[href="#/doc/'+plan.id+'"]'));
+    continue;
+   }
    assert(d.querySelectorAll('.article figure').length>=2);
    assert(d.querySelector('.article a[href^="网页/images/"][target="_blank"]'));
    const backlink=[...d.querySelectorAll('.article a')].find(a=>a.getAttribute('href').startsWith('#/doc/'+cat.knowledgeTopics[topic]+'?anchor='));
@@ -101,11 +109,13 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
    await waitFor(()=>w.location.hash===target&&d.querySelector('.source-label')?.getAttribute('title')===cat.docs.find(x=>x.id===cat.knowledgeTopics[topic]).source,'knowledge backlink '+topic);
    assert(d.getElementById(new URLSearchParams(target.split('?')[1]).get('anchor')));
   }
-  d.querySelector('#searchButton').click();const query=d.querySelector('#searchInput');query.value='抓包失败';query.dispatchEvent(new w.Event('input',{bubbles:true}));
-  await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+cat.experimentStages.tdd+'"]'),'new experimental failure indexed');d.querySelector('#closeSearch').click();
+  d.querySelector('#searchButton').click();const query=d.querySelector('#searchInput');
+  const resultSearchId=cat.experimentStages.tdd||cat.experimentStages['step-1'];
+  query.value=cat.experimentStages.tdd?'抓包失败':'第一步结果与分析';query.dispatchEvent(new w.Event('input',{bubbles:true}));
+  await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+resultSearchId+'"]'),'published result indexed');d.querySelector('#closeSearch').click();
   d.querySelector('#searchButton').click();query.value='原始源码与当前研究版本';query.dispatchEvent(new w.Event('input',{bubbles:true}));
   await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+cat.experimentStages['source-changes']+'"]'),'source version review indexed');d.querySelector('#closeSearch').click();
-  steps.push('五类实验与源码版本入口、表格、搜索、结果图和知识链接仍正常');
+  steps.push('当前结果入口、源码版本、空结果状态、规划互链与搜索正常；历史页不作为新结果');
  }
  if(cat.knowledgeTopics){
   assert.equal(Object.keys(cat.knowledgeTopics).length,legacyModulesVisible?7:6);

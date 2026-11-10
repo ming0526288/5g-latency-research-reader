@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "documents": [
+    {
+      "id": "e4c1f2a8800000001",
+      "title": "TDD 时延分析：做过的实验、图片与错误案例",
+      "source": "说明/五类时延分析/TDD_已做实验与错误案例.md",
+      "files": [
+        {
+          "path": "说明/五类时延分析/TDD_已做实验与错误案例.md",
+          "sha256": "ad7e01bf7f340cd49b3435ff44b72e18cb3ee36013f675a984b8a072b469158d"
+        },
+        {
+          "path": "网页/data/e4c1f2a8800000001.js",
+          "sha256": "da38d48cfeca0b90c0817aa4515c9df31401cec72f4d86144ea7279244b2a3b7"
+        }
+      ]
+    },
+    {
+      "id": "e4c1f2a8800000002",
+      "title": "SCS 时延分析：做过的实验、图片与错误案例",
+      "source": "说明/五类时延分析/SCS_已做实验与错误案例.md",
+      "files": [
+        {
+          "path": "说明/五类时延分析/SCS_已做实验与错误案例.md",
+          "sha256": "eb89e338ecc411a356cdf98182316ee932853513d20775fc64e68b379d4ac8eb"
+        },
+        {
+          "path": "网页/data/e4c1f2a8800000002.js",
+          "sha256": "eb08b222b372dcba6e2842bca10d7aea0befdb97378f5b2cb4256444e323b97c"
+        }
+      ]
+    },
+    {
+      "id": "e4c1f2a8800000003",
+      "title": "多 UE 时延分析：做过的实验、图片与错误案例",
+      "source": "说明/五类时延分析/多UE_已做实验与错误案例.md",
+      "files": [
+        {
+          "path": "说明/五类时延分析/多UE_已做实验与错误案例.md",
+          "sha256": "379a6eb30399d8d2da20afed5bf1e77dde942e70575fd99880af057ad88fa96d"
+        },
+        {
+          "path": "网页/data/e4c1f2a8800000003.js",
+          "sha256": "a3a84105f1ef0f207e4fb5399c797f336e755444c29ae12bbfe7b2039722ed86"
+        }
+      ]
+    },
+    {
+      "id": "e4c1f2a8800000004",
+      "title": "分层时延分析：做过的实验、图片与错误案例",
+      "source": "说明/五类时延分析/分层时延_已做实验与错误案例.md",
+      "files": [
+        {
+          "path": "说明/五类时延分析/分层时延_已做实验与错误案例.md",
+          "sha256": "ba8e4fe71badeb4724b541b5073334696889871ba16bb5e95e05a6f8ecf27f5c"
+        },
+        {
+          "path": "网页/data/e4c1f2a8800000004.js",
+          "sha256": "743a00ada5b7d92dbd7a89e74ff83e996c07f7a59eb4a3f7d064f9a04f21e402"
+        }
+      ]
+    },
+    {
+      "id": "e4c1f2a8800000005",
+      "title": "尾时延分析：做过的实验、图片与错误案例",
+      "source": "说明/五类时延分析/尾时延_已做实验与错误案例.md",
+      "files": [
+        {
+          "path": "说明/五类时延分析/尾时延_已做实验与错误案例.md",
+          "sha256": "62ab382b9b3d7607b4bbd3db393109eaa605e1c1e457a7c53cf9198be1955161"
+        },
+        {
+          "path": "网页/data/e4c1f2a8800000005.js",
+          "sha256": "90838511bfd368b16da2a4a34e6003345ac9c4becdf3f548b528ff4b2d78fd56"
+        }
+      ]
+    }
+  ],
+  "newlyArchivedDocuments": 5,
+  "allArchivedDocuments": 129,
+  "backupPath": "/home/lbh/oiwireless/analysis-source-audit/step1-structure-20261110/旧五类结果页面备份.zip",
+  "backupSha256": "494f6214c384330e035304e511c604041fb7b9c9dfc06af80aace7610104a38e",
+  "backupCRC": "PASS",
+  "sourceVersionReviewPreserved": "e4c1f2a8800000006",
+  "scope": "Browser publication only; original snapshots/payloads retained, no experiment."
+}

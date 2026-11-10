@@ -1,8 +1,8 @@
 {
   "status": "PASS",
-  "archivedDocuments": 124,
+  "archivedDocuments": 129,
   "oldRoutesChecked": 10,
-  "publishedDocuments": 1071,
+  "publishedDocuments": 1069,
   "newPlan": {
     "id": "r9add2badaf2ad40d",
     "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
@@ -10,6 +10,18 @@
     "toc": 9,
     "firstPerson": true
   },
+  "stepPair": {
+    "step": "step-1",
+    "planId": "r17d0d9c36fcc691f",
+    "resultId": "ede23798813389995",
+    "resultStatus": "not-started",
+    "mutualLinks": true,
+    "emptyResults": true
+  },
+  "publishedResultTopics": [
+    "source-changes",
+    "step-1"
+  ],
   "sidebarAndHome": true,
   "searchAndBookmarkFiltering": true,
   "bookmarkStoragePreserved": true,

@@ -15,6 +15,7 @@
  }).filter(item=>publishedDocs.some(d=>d.id===item.id));
  const C={...rawCatalog,docs:publishedDocs,featured,
   knowledgeTopics:Object.fromEntries(Object.entries(rawCatalog.knowledgeTopics||{}).filter(([,id])=>!archivedIds.has(id))),
+  experimentStages:Object.fromEntries(Object.entries(rawCatalog.experimentStages||{}).filter(([,id])=>!archivedIds.has(id))),
   stats:{...rawCatalog.stats,documents:publishedDocs.length}};
  window.READER_VISIBLE_CATALOG=C;
  const $=s=>document.querySelector(s);
@@ -50,13 +51,13 @@
  }
  const algorithmKnowledge=[...knowledgeByFile.values()];
  const outline=[...studyDocs.map(entry=>entry.doc),...algorithmKnowledge];
- const researchStages=[
-  ['tdd','⇄','TDD 时延分析'],['scs','≋','SCS 时延分析'],
-  ['multi-ue','♧','多 UE 时延分析'],['layers','▤','分层时延分析'],['tail','⌁','尾时延分析'],
-  ['source-changes','⌘','原始源码与当前版本']
- ].map(([topic,icon,label])=>({icon,label,doc:docs.get(C.experimentStages?.[topic])})).filter(entry=>entry.doc);
+ const researchStages=Object.values(C.experimentStages).map(id=>docs.get(id)).filter(Boolean).map(doc=>({
+  icon:doc.experimentStage==='source-changes'?'⌘':'↗',
+  label:doc.experimentStage==='source-changes'?'原始源码与当前版本':doc.title,doc
+ }));
  const paperPlan=C.docs.find(d=>d.topic==='paper-plan');
  const experimentPlan=C.docs.find(d=>d.topic==='algorithm-experiment-plan');
+ const stepPlans=C.docs.filter(d=>d.group==='guides'&&d.researchStep).sort((a,b)=>a.researchStep.localeCompare(b.researchStep,'en',{numeric:true}));
  function notify(s){$('#toast').textContent=s;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),2300);}
  function header(category,title,description=''){return `<div class="library-heading"><div class="eyebrow">${category}</div><h1>${E(title)}</h1>${description?`<p>${E(description)}</p>`:''}</div>`;}
  function breadcrumbs(label){return `<nav class="breadcrumbs"><a href="#/">阅读首页</a><span>／</span><span>${E(label)}</span></nav>`;}
@@ -66,7 +67,7 @@
   if(state.doc&&familyForDoc(state.doc).length)algorithmMode=docs.get(state.doc).group==='knowledge'?'knowledge':'results';
   const nav=(url,icon,label,count)=>`<a href="${url}" class="nav-link ${route===url.slice(1)||algorithmMode&&url===algorithmIndexUrl(algorithmMode)?'active':''}"><span class="nav-icon">${icon}</span>${label}${count?`<span class="nav-count">${count}</span>`:''}</a>`;
   $('#sidebar').innerHTML=nav('#/','⌂','阅读首页')+nav('#/bookmarks','☆','我的书签',bookmarks.filter(id=>docs.has(id)).length)+
-   (paperPlan||experimentPlan?'<div class="nav-heading">论文规划与研究路线</div>'+(experimentPlan?nav(docUrl(experimentPlan),'↗','算法实验规划'):'')+(paperPlan?nav(docUrl(paperPlan),'↗','时延优化与算法对照'):''):'')+
+   (paperPlan||experimentPlan||stepPlans.length?'<div class="nav-heading">论文规划与研究路线</div>'+(experimentPlan?nav(docUrl(experimentPlan),'↗','算法实验规划'):'')+stepPlans.map(d=>nav(docUrl(d),'↗',d.title)).join('')+(paperPlan?nav(docUrl(paperPlan),'↗','时延优化与算法对照'):''):'')+
    '<div class="nav-heading">知识点</div>'+studyDocs.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
    (legacyModulesVisible?nav('#/browse/algorithm-knowledge','◇','算法知识点',algorithmFamilies.length):'')+
    '<div class="nav-heading">研究结果与分析</div>'+researchStages.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
@@ -76,7 +77,7 @@
    '<div class="nav-note"><strong>一份可以带走的研究资料</strong>资料快照 · '+E(C.builtAt)+'<br>历史结论请结合对应版本阅读。</div>';
  }
  function home(){
-  const descriptions=legacyModulesVisible?['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','查看五类已做实验、结果图片与错误案例。','先读概念与例子，再进入调度公式。','连接原理、代码改动、实验结果与限制。','查看最新工作点，以及尚未完成的部分。']:['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','查看五类时延分析与各批结果边界。','从通信RTT场景和PF基线开始，按阶段推进。','了解文献的方法、用途和版本边界。','查看论文主线、对比算法与研究路线。'];
+  const descriptions=legacyModulesVisible?['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','查看五类已做实验、结果图片与错误案例。','先读概念与例子，再进入调度公式。','连接原理、代码改动、实验结果与限制。','查看最新工作点，以及尚未完成的部分。']:['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','查看对应的第一步结果入口；实验尚未执行。','从通信RTT场景和PF基线开始，按阶段推进。','了解文献的方法、用途和版本边界。','查看论文主线、对比算法与研究路线。'];
   const recent=history.filter(h=>docs.has(h.id)).slice(0,3);
   const latest=legacyModulesVisible?['docs/22_ALG005不同负载验证与69代价分析.md','docs/24_ALG005同业务编号慢包配对分析.md','docs/28_上行重传RB预算指针修复与旧数据影响.md'].map(find).filter(Boolean):[experimentPlan,paperPlan].filter(Boolean);
   main.innerHTML=`<section class="hero"><div class="hero-grid"><div><div class="eyebrow">5G LATENCY · RESEARCH NOTEBOOK</div><h1>从基础开始，<br>读懂每一次改动。</h1><p>把分散的知识点、算法、实验记录和原始文献连起来。<br>沿着阅读路线学习，遇到公式与引用，随时向下追溯。</p><div class="stats"><span><b>${C.stats.documents}</b>篇研究文档</span><span><b>${C.papers.length}</b>份论文与教材</span><span><b>${C.stats.protocolSpecs}</b>个协议编号</span></div></div><img class="hero-art" src="网页/assets/阅读地图.svg" alt="从知识点到算法、实验与原文的阅读关系图"></div></section>
@@ -115,7 +116,7 @@
   const kind=d.group==='knowledge'?'knowledge':'results';
   const sequence=d.experimentStage?researchStages.map(entry=>entry.doc):family?familyDocumentIds(family,kind).map(did=>docs.get(did)):outline;
   const pos=sequence.findIndex(x=>x.id===id);const prev=sequence[pos-1];const next=sequence[pos+1];
-  const docGroupLabel=['paper-plan','algorithm-experiment-plan'].includes(d.topic)?'论文规划与研究路线':groups[d.group]||'文档';
+  const docGroupLabel=['paper-plan','algorithm-experiment-plan'].includes(d.topic)||d.researchStep&&d.group==='guides'?'论文规划与研究路线':d.experimentStage?'研究结果与分析':groups[d.group]||'文档';
   main.innerHTML=`<div class="doc-view">${breadcrumbs(docGroupLabel)}${algorithmContext(d)}<div class="doc-toolbar"><span class="pill">${E(docGroupLabel)}</span><span class="pill warm">约 ${d.minutes} 分钟</span><button class="soft-button" id="bookmarkDoc">${bookmarks.includes(id)?'★ 已收藏':'☆ 加入书签'}</button><a class="soft-button" href="${encodeURI(d.snapshot)}" download>Markdown原稿</a><span class="source-label" title="${E(d.source)}">${E(d.source)}</span></div><article class="article">${c.html}</article>${pos>=0?`<nav class="doc-pagination">${prev?`<a href="${docUrl(prev)}"><small>← 上一篇</small>${E(prev.title)}</a>`:'<span></span>'}${next?`<a href="${docUrl(next)}"><small>下一篇 →</small>${E(next.title)}</a>`:family?`<a href="${algorithmUrl(family,kind)}"><small>返回算法目录 →</small>${E(family.name)} · ${kind==='knowledge'?'算法知识点':'实现与结果'}</a>`:`<a href="#/browse/research"><small>继续探索 →</small>研究报告与实验结果</a>`}</nav>`:''}</div>`;
   if(d.source.endsWith('算法知识点说明/00_通信与时延基础知识.md')){
    const h=Array.from(main.querySelectorAll('h2')).find(x=>x.textContent.startsWith('5.'));
@@ -133,7 +134,7 @@
   else notify('未找到原链接的标题，可使用右侧目录或本页查找。');
  }
  function missing(message){main.innerHTML=header('READING NOTE','暂时无法打开')+`<div class="empty-state">${E(message)}<br><a href="#/">返回阅读首页</a></div>`;}
- function archivedView(){main.innerHTML=header('RESEARCH RESET','旧算法内容已归档','旧说明和历史结果已保留本地副本，当前阅读站暂不展示。')+`<div class="empty-state">${experimentPlan?`<a href="${docUrl(experimentPlan)}">从算法实验规划开始 →</a>`:'<a href="#/">返回阅读首页 →</a>'}</div>`;}
+ function archivedView(){main.innerHTML=header('RESEARCH RESET','历史内容已归档','旧说明和历史结果已保留本地副本，当前阅读站暂不展示。')+`<div class="empty-state">${experimentPlan?`<a href="${docUrl(experimentPlan)}">从算法实验规划开始 →</a>`:'<a href="#/">返回阅读首页 →</a>'}</div>`;}
  function row(d){return `<a class="record-row" href="${docUrl(d)}"><strong>${E(d.title)}</strong><small>${E(d.source)} · ${d.minutes} 分钟${d.aliases.length>1?' · 已合并 '+d.aliases.length+' 个相同副本':''}</small></a>`;}
  function algorithmContext(d){
   const families=familyForDoc(d.id);if(!families.length)return '';
@@ -168,13 +169,15 @@
  function browse(group){
   if(group==='algorithm-knowledge'||group==='algorithms')return algorithmIndex(group==='algorithm-knowledge'?'knowledge':'results');
   let list=group==='all'?C.docs:group==='algorithm-knowledge'?algorithmKnowledge:C.docs.filter(d=>d.group===group);
+  if(group==='research')list=researchStages.map(entry=>entry.doc);
   if(group==='bookmarks')list=bookmarks.map(id=>docs.get(id)).filter(Boolean);
   list=list.slice().sort((a,b)=>{
    if(group==='algorithm-knowledge'&&Boolean(a.prerequisite)!==Boolean(b.prerequisite))return Number(Boolean(b.prerequisite))-Number(Boolean(a.prerequisite));
    if(group==='changes'||group==='tests')return parseInt((b.source.match(/(?:CHG|TEST)-(\d+)/)||[])[1]||0)-parseInt((a.source.match(/(?:CHG|TEST)-(\d+)/)||[])[1]||0);
    const am=a.source.startsWith('oi-wireless-ran-latency-analysis/'),bm=b.source.startsWith('oi-wireless-ran-latency-analysis/');return Number(bm)-Number(am)||a.title.localeCompare(b.title,'zh-CN');
   });
-  main.innerHTML=breadcrumbs(group==='bookmarks'?'我的书签':groups[group]||'全部文档')+header('RESEARCH LIBRARY',group==='bookmarks'?'我的书签':groups[group]||'全部文档',`共 ${list.length} 篇；相同内容合并展示，保留原始来源位置。`)+`<div class="library-tools"><input id="browseFilter" class="library-input" placeholder="按标题或内容筛选…" aria-label="筛选文档"></div><div id="browseList" class="record-list"></div><div id="browseCount" class="result-limit"></div>`;
+  const browseLabel=group==='bookmarks'?'我的书签':group==='research'?'研究结果与分析':groups[group]||'全部文档';
+  main.innerHTML=breadcrumbs(browseLabel)+header('RESEARCH LIBRARY',browseLabel,`共 ${list.length} 篇；相同内容合并展示，保留原始来源位置。`)+`<div class="library-tools"><input id="browseFilter" class="library-input" placeholder="按标题或内容筛选…" aria-label="筛选文档"></div><div id="browseList" class="record-list"></div><div id="browseCount" class="result-limit"></div>`;
   function update(){const q=$('#browseFilter').value.trim().toLowerCase();let items=q?list.filter(d=>(d.title+' '+d.search).toLowerCase().includes(q)):list;$('#browseList').innerHTML=items.length?items.slice(0,120).map(row).join(''):'<div class="empty-state">'+(group==='bookmarks'?'还没有书签。阅读时点击“加入书签”即可收藏。':'没有符合筛选条件的文档。')+'</div>';$('#browseCount').textContent=items.length>120?`显示前120篇，共${items.length}篇；输入关键词缩小范围。`:`共${items.length}篇`;}update();$('#browseFilter').addEventListener('input',update);
  }
  let paperTranslationsPromise;

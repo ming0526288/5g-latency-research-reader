@@ -168,10 +168,10 @@
       "sha256": "ea6a1cea93a6cb5672b53e9d6e10dd1c243bbec6369f8f5ea4140d0752d28261"
     }
   ],
-  "manifestSHA": "7afa29275e16723035dc08ce2329857fd77afeb70f1530a669297f3aed8039dc",
+  "manifestSHA": "9904dc3246b9ca9fc0780d9648aa8498129ac57bc6de7332f8bccca99e8e51a0",
   "scope": "Reading navigation and source identities only; no protocol/model/formula change or new experiment.",
   "publication": {
     "legacyModulesVisible": false,
-    "archivedDocuments": 124
+    "archivedDocuments": 129
   }
 }

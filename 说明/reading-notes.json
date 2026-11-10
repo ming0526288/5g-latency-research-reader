@@ -12,6 +12,11 @@
     {
       "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
       "topic": "algorithm-experiment-plan"
+    },
+    {
+      "source": "说明/文献导读/第一步规划_单UE通信RTT基线.md",
+      "topic": "step-1-plan",
+      "researchStep": "step-1"
     }
   ]
 }

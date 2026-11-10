@@ -38,7 +38,7 @@ def build(kind='knowledge'):
     algorithm_notes = kind == 'algorithm-notes'
     reading_notes = kind == 'reading-notes'
     prefix = 'r' if reading_notes else 'a' if algorithm_notes else 'e' if experiments else 'k'
-    source_root = ROOT / ('说明/文献导读' if reading_notes else '说明' if algorithm_notes else '说明/五类时延分析' if experiments else '说明/算法知识点说明')
+    source_root = ROOT / ('说明/文献导读' if reading_notes else '说明' if algorithm_notes or experiments else '说明/算法知识点说明')
     report_path = ROOT / ('校验/文献导读构建校验.json' if reading_notes else '校验/算法自有稿构建校验.json' if algorithm_notes else '校验/实验分析构建校验.json' if experiments else '校验/知识点构建校验.json')
     stat_prefix = 'readingNote' if reading_notes else 'algorithmNote' if algorithm_notes else 'experiment' if experiments else 'knowledge'
     catalog = read_catalog()
@@ -76,6 +76,8 @@ def build(kind='knowledge'):
             folder = '说明/算法知识点说明' if item['kind'] == 'knowledge' else '说明/算法文档'
             if not path.is_relative_to(ROOT / folder):
                 raise ValueError('Algorithm note must be below ' + folder)
+        if experiments and not any(path.is_relative_to(ROOT / folder) for folder in ('说明/五类时延分析', '说明/研究结果与分析')):
+            raise ValueError('Experiment page must be below an approved results folder')
         if not path.is_relative_to(source_root) or path.suffix != '.md':
             raise ValueError('Reader source must be Markdown below ' + str(source_root) + ': ' + source)
         if source in sources:
@@ -97,6 +99,8 @@ def build(kind='knowledge'):
             'prerequisite': not (experiments or algorithm_notes or reading_notes),
             **({'algorithm': item['algorithm']} if algorithm_notes else {}),
             **({'experimentStage': item['topic']} if experiments else {}),
+            **({'researchStep': item['researchStep']} if item.get('researchStep') else {}),
+            **({'planTopic': item['planTopic'], 'status': item.get('status', 'not-started')} if experiments and item.get('planTopic') else {}),
             'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'snapshot': source, 'redacted': False, 'toc': [],
             '_path': path, '_text': text,
@@ -190,8 +194,12 @@ def build(kind='knowledge'):
     elif not algorithm_notes:
         catalog['experimentStages' if experiments else 'knowledgeTopics'] = {d['topic']: d['id'] for d in metadata}
     for feature in catalog['featured']:
-        if experiments and feature['title'] in ('五类研究主线', '做过的五类时延分析'):
-            feature.update(title='做过的五类时延分析', id=catalog['experimentStages']['tdd'])
+        if experiments and feature['title'] in ('五类研究主线', '做过的五类时延分析', '第一步结果与分析'):
+            first_step = next((d for d in metadata if d.get('researchStep') == 'step-1'), None)
+            if first_step:
+                feature.update(title=first_step['title'], id=first_step['id'])
+            else:
+                feature.update(title='做过的五类时延分析', id=catalog['experimentStages']['tdd'])
         elif kind == 'knowledge' and feature['title'] == '通信与时延基础':
             feature['id'] = catalog['knowledgeTopics']['basics']
         elif kind == 'knowledge' and feature['title'] == '算法知识地图':
