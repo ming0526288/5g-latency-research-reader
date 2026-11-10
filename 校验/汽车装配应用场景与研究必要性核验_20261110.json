@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "common_page": "k4f5f00700a16ad5b",
+  "source_sha256": "76c60e9baf7a8ad1c7eed9b5021dfe515e41e328236e3d68c53000d0d83c3863",
+  "heading": "汽车装配场景研究什么为什么需要时延优化",
+  "AUGUSTE_crosslink": true,
+  "math_examples": "max(1,15)=15; illustrative late fraction1/4",
+  "scope": "Concept/HTML/search/TOC/navigation/source hash, no industrial performance measurement",
+  "four_actual_protocol_anchors": [
+    "a222control-to-control-communication",
+    "a221motion-control",
+    "a224wired-to-wireless-link-replacement",
+    "c5communication-service-terminology-wrt-5g-network-and-vertical-applications"
+  ],
+  "corrected_link_failures": [
+    "Annex clause metadata empty: switched to actual supported heading anchors/text view",
+    "Custom checker initially split bare auto-generated protocol link on absent question mark; restricted to four authored anchor links, no source content change"
+  ]
+}
