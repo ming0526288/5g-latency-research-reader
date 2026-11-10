@@ -40,6 +40,12 @@
       "figures": 2,
       "knowledgeLinks": 7,
       "canonicalSourceSHA": "62ab382b9b3d7607b4bbd3db393109eaa605e1c1e457a7c53cf9198be1955161"
+    },
+    {
+      "id": "e4c1f2a8800000006",
+      "title": "原始源码与当前研究版本：修改、问题与影响",
+      "kind": "source-review",
+      "canonicalSourceSHA": "6d0109b2e883f19ca5cc6aba314e54be43730bab328d14bde15f4225326624d8"
     }
   ],
   "scope": "Portable aggregate/hash/link/identity checks; no new experiment or raw packet statistical recomputation."

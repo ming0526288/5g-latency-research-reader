@@ -27,7 +27,7 @@ def main():
     cat = json.loads((ROOT / '网页/catalog.js').read_text().split('window.READER_CATALOG=', 1)[1].rstrip(';'))
     docs = {d['id']: d for d in cat['docs']}
     manifest = read(ROOT / '说明/experiments.json')['documents']
-    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail'}
+    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'source-changes'}
     provenance = read(BASE / '数据/来源与图片核验.json')
     for item in provenance['aggregateCopies']:
         assert sha(BASE / item['file']) == item['sha256'], item['file']
@@ -80,6 +80,14 @@ def main():
         assert d['sha256'] == sha(ROOT / item['source']) and d['snapshot'] == item['source']
         assert d['experimentStage'] == item['topic'] and cat['experimentStages'][item['topic']] == d['id']
         p = payload(d['id']); html = p['html']
+        if item['topic'] == 'source-changes':
+            assert html.count('<table') >= 4 and '383aa52a' in html and '61654513d5' in html
+            assert '不是全部时延结果都已重测' in html
+            assert '原始源码与当前研究版本' in d['search'] and '私有 HOL' in d['search']
+            assert 'FORMULAHOLDER' not in html and '#/local' not in html
+            page_checks.append({'id': d['id'], 'title': d['title'], 'kind': 'source-review',
+                                'canonicalSourceSHA': d['sha256']})
+            continue
         assert html.count('<figure') >= 2 and '错误' in html
         assert 'FORMULAHOLDER' not in html and '原文路径未包含可展示图片' not in html
         assert '#/local' not in html, 'Explanations must have portable evidence, not workstation-only links'

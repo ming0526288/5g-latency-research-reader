@@ -69,10 +69,10 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  if(cat.experimentStages){
   const heading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='研究结果与分析');
   const links=[];for(let el=heading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)links.push(el);
-  const stages=links.slice(0,5).map(el=>el.getAttribute('href'));
+  const stages=links.slice(0,Object.keys(cat.experimentStages).length).map(el=>el.getAttribute('href'));
   assert(!links.some(el=>el.textContent.includes('入口与五类分析')));
   assert.deepEqual(stages,Object.values(cat.experimentStages).map(id=>'#/doc/'+id));
-  assert.equal(links.length,6);
+  assert.equal(links.length,Object.keys(cat.experimentStages).length+1);
   const materialsHeading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='研究资料');
   const materials=[];for(let el=materialsHeading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)materials.push(el);
   assert.deepEqual(materials.map(el=>el.getAttribute('href')),['#/library/papers','#/library/protocols']);
@@ -80,6 +80,13 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
   for(const [topic,id] of Object.entries(cat.experimentStages)){
    const url='#/doc/'+id;d.querySelector('#sidebar a[href="'+url+'"]').click();
    await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===cat.docs.find(x=>x.id===id).source,'experiment page '+topic);
+   if(topic==='source-changes'){
+    assert(d.querySelector('.article h1').textContent.includes('原始源码与当前研究版本'));
+    assert(d.querySelectorAll('.article table').length>=4);
+    assert(d.querySelector('.article').textContent.includes('61654513d5'));
+    assert(d.querySelector('.article').textContent.includes('不是全部时延结果都已重测'));
+    continue;
+   }
    assert(d.querySelectorAll('.article figure').length>=2);
    assert(d.querySelector('.article a[href^="网页/images/"][target="_blank"]'));
    const backlink=[...d.querySelectorAll('.article a')].find(a=>a.getAttribute('href').startsWith('#/doc/'+cat.knowledgeTopics[topic]+'?anchor='));
@@ -89,7 +96,9 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
   }
   d.querySelector('#searchButton').click();const query=d.querySelector('#searchInput');query.value='抓包失败';query.dispatchEvent(new w.Event('input',{bubbles:true}));
   await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+cat.experimentStages.tdd+'"]'),'new experimental failure indexed');d.querySelector('#closeSearch').click();
-  steps.push('研究结果与分析含五类实验及算法入口；研究资料仅含文献与材料及3GPP协议；五类实验点击加载结果图并可放大，知识链接定位标题，错误案例可检索');
+  d.querySelector('#searchButton').click();query.value='原始源码与当前研究版本';query.dispatchEvent(new w.Event('input',{bubbles:true}));
+  await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+cat.experimentStages['source-changes']+'"]'),'source version review indexed');d.querySelector('#closeSearch').click();
+  steps.push('研究结果与分析含五类实验、原始源码与当前版本及算法入口；源码页点击加载表格并可搜索；既有结果图/知识链接/错误搜索仍通过');
  }
  if(cat.knowledgeTopics){
   assert.equal(Object.keys(cat.knowledgeTopics).length,7);

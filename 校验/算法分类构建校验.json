@@ -5,7 +5,7 @@
     {
       "id": "k4f5f00700a16ad5b",
       "source": "说明/算法知识点说明/算法实验_共同前置条件.md",
-      "sha256": "a5f7a8ef2a47a3c01a4382077f1da3d580350e068afd8008434e6093779e53b7"
+      "sha256": "5b3f8a26639a3a7917138ff13e54244777ef81554eca15b3cead1552805162de"
     },
     {
       "id": "a6f6fc247929e3b43",
@@ -58,11 +58,6 @@
       "sha256": "f74e93e7c43bc1fac5019a1827cabe89c1f131d85406511561b0803c32df50b7"
     },
     {
-      "id": "ddeaba74342756c5f",
-      "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/AUGUSTE_知识点说明.md",
-      "sha256": "deaba74342756c5fc5716e8a5e4ee44e3bdf17fa587711d9517f002574ae8abf"
-    },
-    {
       "id": "dde90a88676d226d2",
       "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/服务欠账控制_候选知识点说明.md",
       "sha256": "de90a88676d226d236c6ecc5bd667d783f2193f5816a7e90a13c1b732a5be56e"
@@ -101,6 +96,11 @@
       "id": "d01bcd72243803688",
       "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/授权时机_知识点说明.md",
       "sha256": "01bcd722438036889ea6a7998917e18e891f170232d444d4c114047e39a4fa08"
+    },
+    {
+      "id": "ac7b03c5f301d78d4",
+      "source": "说明/算法知识点说明/AUGUSTE_知识点说明.md",
+      "sha256": "4ff4a2e2c11b87a75f3cca873cd2ab5ac7df6224b12d86666ad8043312d5531f"
     },
     {
       "id": "d538ae3bf6be67b67",
@@ -168,6 +168,6 @@
       "sha256": "ea6a1cea93a6cb5672b53e9d6e10dd1c243bbec6369f8f5ea4140d0752d28261"
     }
   ],
-  "manifestSHA": "4b470ff1209dcd28c492518093de57ba6b3d5b1f33d6abac8682fadf71a94b0b",
+  "manifestSHA": "ff52669fad18bdcbcfead847ab8880a3785946d91a4ce623653fca6d515cc554",
   "scope": "Reading navigation and source identities only; no protocol/model/formula change or new experiment."
 }

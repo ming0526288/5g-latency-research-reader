@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "version_page": {
+    "id": "e4c1f2a8800000006",
+    "sha256": "6d0109b2e883f19ca5cc6aba314e54be43730bab328d14bde15f4225326624d8",
+    "source_files": 41,
+    "added_lines": 1796,
+    "deleted_lines": 161,
+    "C_Git_facts": "PASS",
+    "budget_examples": "PASS",
+    "sidebar_topic": "source-changes"
+  },
+  "AUGUSTE_page": {
+    "id": "ac7b03c5f301d78d4",
+    "sha256": "4ff4a2e2c11b87a75f3cca873cd2ab5ac7df6224b12d86666ad8043312d5531f",
+    "candidate_family": "grant-timing",
+    "Poisson_1ms_at_100pps": 0.09516258196404048,
+    "results_label": "Not reproduced",
+    "common_page_crosslink": true
+  },
+  "scope": "Source/Git/math/HTML/hash/TOC/search/navigation checks, not new RAN/algorithm experiment"
+}

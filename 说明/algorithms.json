@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "commonKnowledge": {
     "source": "说明/算法知识点说明/算法实验_共同前置条件.md"
   },
@@ -70,9 +70,6 @@
           "documents": [
             {
               "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/RR_知识点说明.md"
-            },
-            {
-              "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/AUGUSTE_知识点说明.md"
             },
             {
               "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/服务欠账控制_候选知识点说明.md"
@@ -148,7 +145,10 @@
         "授权时机",
         "probe",
         "F10",
-        "F1"
+        "F1",
+        "AUGUSTE",
+        "预测",
+        "到达规律"
       ],
       "knowledge": [
         {
@@ -156,6 +156,14 @@
           "documents": [
             {
               "source": "oi-wireless-ran-latency-analysis/research/latency-analysis/算法知识点说明/授权时机_知识点说明.md"
+            }
+          ]
+        },
+        {
+          "title": "预测授权阅读候选（尚未复现）",
+          "documents": [
+            {
+              "source": "说明/算法知识点说明/AUGUSTE_知识点说明.md"
             }
           ]
         }

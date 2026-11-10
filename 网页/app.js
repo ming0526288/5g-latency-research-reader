@@ -38,7 +38,8 @@
  const outline=[...studyDocs.map(entry=>entry.doc),...algorithmKnowledge];
  const researchStages=[
   ['tdd','⇄','TDD 时延分析'],['scs','≋','SCS 时延分析'],
-  ['multi-ue','♧','多 UE 时延分析'],['layers','▤','分层时延分析'],['tail','⌁','尾时延分析']
+  ['multi-ue','♧','多 UE 时延分析'],['layers','▤','分层时延分析'],['tail','⌁','尾时延分析'],
+  ['source-changes','⌘','原始源码与当前版本']
  ].map(([topic,icon,label])=>({icon,label,doc:docs.get(C.experimentStages?.[topic])})).filter(entry=>entry.doc);
  function notify(s){$('#toast').textContent=s;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),2300);}
  function header(category,title,description=''){return `<div class="library-heading"><div class="eyebrow">${category}</div><h1>${E(title)}</h1>${description?`<p>${E(description)}</p>`:''}</div>`;}

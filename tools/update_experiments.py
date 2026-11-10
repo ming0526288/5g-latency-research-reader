@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the five curated experiment pages using bundled offline assets."""
+"""Build curated experiment pages and the source-version review with offline assets."""
 from update_knowledge import build
 
 if __name__ == '__main__':
