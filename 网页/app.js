@@ -1,8 +1,22 @@
 /* A portable reader: classic scripts deliberately support file://, without fetch. */
 (() => {
  'use strict';
- const C=window.READER_CATALOG;
  const A=window.READER_ALGORITHMS;
+ const archivedIds=new Set(A.publication?.archivedDocumentIds||[]);
+ const legacyModulesVisible=A.publication?.legacyModulesVisible!==false;
+ const rawCatalog=window.READER_CATALOG;
+ const publishedDocs=rawCatalog.docs.filter(d=>!archivedIds.has(d.id));
+ const planningByTopic=topic=>publishedDocs.find(d=>d.topic===topic);
+ const featured=rawCatalog.featured.map(item=>{
+  if(legacyModulesVisible)return item;
+  const replacements={'算法知识地图':['algorithm-experiment-plan','算法实验规划'],'算法实现与结果':['literature-priority','文献阅读指南'],'最新进度与边界':['paper-plan','论文规划与研究路线']};
+  const replacement=replacements[item.title],doc=replacement&&planningByTopic(replacement[0]);
+  return doc?{id:doc.id,title:replacement[1],group:'guides'}:item;
+ }).filter(item=>publishedDocs.some(d=>d.id===item.id));
+ const C={...rawCatalog,docs:publishedDocs,featured,
+  knowledgeTopics:Object.fromEntries(Object.entries(rawCatalog.knowledgeTopics||{}).filter(([,id])=>!archivedIds.has(id))),
+  stats:{...rawCatalog.stats,documents:publishedDocs.length}};
+ window.READER_VISIBLE_CATALOG=C;
  const $=s=>document.querySelector(s);
  const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const groups={guides:'入口与导引',knowledge:'知识点','algorithm-knowledge':'算法知识点',algorithms:'算法说明',research:'研究报告',changes:'修改记录',tests:'测试记录'};
@@ -12,7 +26,7 @@
  const find=s=>C.docs.find(d=>d.aliases.some(a=>a.endsWith(s)));
  const docUrl=d=>'#/doc/'+(typeof d==='string'?d:d.id);
  const main=$('#main');
- const algorithmFamilies=A.families;
+ const algorithmFamilies=legacyModulesVisible?A.families:[];
  const algorithmUrl=(family,kind)=>'#/algorithm/'+family.id+'/'+kind;
  const algorithmIndexUrl=kind=>kind==='knowledge'?'#/browse/algorithm-knowledge':'#/browse/algorithms';
  const familyDocumentIds=(family,kind)=>family[kind].flatMap(section=>section.documents);
@@ -42,6 +56,7 @@
   ['source-changes','⌘','原始源码与当前版本']
  ].map(([topic,icon,label])=>({icon,label,doc:docs.get(C.experimentStages?.[topic])})).filter(entry=>entry.doc);
  const paperPlan=C.docs.find(d=>d.topic==='paper-plan');
+ const experimentPlan=C.docs.find(d=>d.topic==='algorithm-experiment-plan');
  function notify(s){$('#toast').textContent=s;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),2300);}
  function header(category,title,description=''){return `<div class="library-heading"><div class="eyebrow">${category}</div><h1>${E(title)}</h1>${description?`<p>${E(description)}</p>`:''}</div>`;}
  function breadcrumbs(label){return `<nav class="breadcrumbs"><a href="#/">阅读首页</a><span>／</span><span>${E(label)}</span></nav>`;}
@@ -50,20 +65,20 @@
   let algorithmMode=route.startsWith('/algorithm/')?route.split('/')[3]:null;
   if(state.doc&&familyForDoc(state.doc).length)algorithmMode=docs.get(state.doc).group==='knowledge'?'knowledge':'results';
   const nav=(url,icon,label,count)=>`<a href="${url}" class="nav-link ${route===url.slice(1)||algorithmMode&&url===algorithmIndexUrl(algorithmMode)?'active':''}"><span class="nav-icon">${icon}</span>${label}${count?`<span class="nav-count">${count}</span>`:''}</a>`;
-  $('#sidebar').innerHTML=nav('#/','⌂','阅读首页')+nav('#/bookmarks','☆','我的书签',bookmarks.length)+
-   (paperPlan?'<div class="nav-heading">论文规划与研究路线</div>'+nav(docUrl(paperPlan),'↗','时延优化与算法对照'):'')+
+  $('#sidebar').innerHTML=nav('#/','⌂','阅读首页')+nav('#/bookmarks','☆','我的书签',bookmarks.filter(id=>docs.has(id)).length)+
+   (paperPlan||experimentPlan?'<div class="nav-heading">论文规划与研究路线</div>'+(experimentPlan?nav(docUrl(experimentPlan),'↗','算法实验规划'):'')+(paperPlan?nav(docUrl(paperPlan),'↗','时延优化与算法对照'):''):'')+
    '<div class="nav-heading">知识点</div>'+studyDocs.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
-   nav('#/browse/algorithm-knowledge','◇','算法知识点',algorithmFamilies.length)+
+   (legacyModulesVisible?nav('#/browse/algorithm-knowledge','◇','算法知识点',algorithmFamilies.length):'')+
    '<div class="nav-heading">研究结果与分析</div>'+researchStages.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
-   nav('#/browse/algorithms','<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-3px"><rect x="2.5" y="3.5" width="19" height="17" rx="3"/><path d="m9 9-3 3 3 3m6-6 3 3-3 3"/></svg>','算法实现与结果',algorithmFamilies.length)+
+   (legacyModulesVisible?nav('#/browse/algorithms','<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-3px"><rect x="2.5" y="3.5" width="19" height="17" rx="3"/><path d="m9 9-3 3 3 3m6-6 3 3-3 3"/></svg>','算法实现与结果',algorithmFamilies.length):'')+
    '<div class="nav-heading">研究资料</div>'+nav('#/library/papers','▥','文献与材料',C.papers.length)+nav('#/library/protocols','▦','3GPP 协议',C.stats.protocolSpecs)+
    '<div class="nav-heading">过程与依据</div>'+nav('#/browse/changes','↳','修改记录 CHG',C.docs.filter(d=>d.group==='changes').length)+nav('#/browse/tests','✓','测试记录 TEST',C.docs.filter(d=>d.group==='tests').length)+nav('#/browse/all','☷','全部文档',C.docs.length)+
    '<div class="nav-note"><strong>一份可以带走的研究资料</strong>资料快照 · '+E(C.builtAt)+'<br>历史结论请结合对应版本阅读。</div>';
  }
  function home(){
-  const descriptions=['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','查看五类已做实验、结果图片与错误案例。','先读概念与例子，再进入调度公式。','连接原理、代码改动、实验结果与限制。','查看最新工作点，以及尚未完成的部分。'];
+  const descriptions=legacyModulesVisible?['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','查看五类已做实验、结果图片与错误案例。','先读概念与例子，再进入调度公式。','连接原理、代码改动、实验结果与限制。','查看最新工作点，以及尚未完成的部分。']:['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','查看五类时延分析与各批结果边界。','从通信RTT场景和PF基线开始，按阶段推进。','了解文献的方法、用途和版本边界。','查看论文主线、对比算法与研究路线。'];
   const recent=history.filter(h=>docs.has(h.id)).slice(0,3);
-  const latest=['docs/22_ALG005不同负载验证与69代价分析.md','docs/24_ALG005同业务编号慢包配对分析.md','docs/28_上行重传RB预算指针修复与旧数据影响.md'].map(find).filter(Boolean);
+  const latest=legacyModulesVisible?['docs/22_ALG005不同负载验证与69代价分析.md','docs/24_ALG005同业务编号慢包配对分析.md','docs/28_上行重传RB预算指针修复与旧数据影响.md'].map(find).filter(Boolean):[experimentPlan,paperPlan].filter(Boolean);
   main.innerHTML=`<section class="hero"><div class="hero-grid"><div><div class="eyebrow">5G LATENCY · RESEARCH NOTEBOOK</div><h1>从基础开始，<br>读懂每一次改动。</h1><p>把分散的知识点、算法、实验记录和原始文献连起来。<br>沿着阅读路线学习，遇到公式与引用，随时向下追溯。</p><div class="stats"><span><b>${C.stats.documents}</b>篇研究文档</span><span><b>${C.papers.length}</b>份论文与教材</span><span><b>${C.stats.protocolSpecs}</b>个协议编号</span></div></div><img class="hero-art" src="网页/assets/阅读地图.svg" alt="从知识点到算法、实验与原文的阅读关系图"></div></section>
    ${recent.length?`<section><div class="section-title"><h2>继续上次阅读</h2><small>保存在这台电脑的浏览器中</small></div><div class="list-panel">${recent.map(h=>`<a class="list-row" href="${docUrl(h.id)}"><span>◷</span><span>${E(docs.get(h.id).title)}<small>${h.percent||0}% 已读</small></span><span>↗</span></a>`).join('')}</div></section>`:''}
    <section><div class="section-title"><h2>从头阅读的六个步骤</h2><small>按照理解顺序，而不是文件创建时间</small></div><div class="path-grid">${C.featured.map((d,i)=>`<a class="path-card" href="${d.group==='algorithms'?algorithmIndexUrl('results'):d.title==='算法知识地图'?algorithmIndexUrl('knowledge'):docUrl(d.id)}"><div class="step-no">STEP ${String(i+1).padStart(2,'0')}</div><h3>${E(d.title)}</h3><p>${descriptions[i]}</p><span class="card-arrow">↗</span></a>`).join('')}</div></section>
@@ -83,17 +98,24 @@
   main.querySelectorAll('h1[id],h2[id],h3[id]').forEach(h=>state.observer.observe(h));
  }
  function attachArticle(){
+  main.querySelectorAll('a[href^="#/doc/"],a[href^="#/algorithm/"],a[href="#/browse/algorithms"],a[href="#/browse/algorithm-knowledge"]').forEach(a=>{
+   const href=a.getAttribute('href'),id=href.startsWith('#/doc/')?href.slice(6).split('?')[0]:null;
+   if(archivedIds.has(id)||!legacyModulesVisible&&/^#\/(?:algorithm\/|browse\/algorithm)/.test(href)){
+    const span=document.createElement('span');span.textContent=a.textContent;span.title='历史内容已保留本地副本，当前不在阅读站展示。';a.replaceWith(span);
+   }
+  });
   main.querySelectorAll('pre').forEach(pre=>{const b=document.createElement('button');b.className='copy-code';b.textContent='复制';b.onclick=()=>copy(pre.querySelector('code')?.textContent||pre.textContent.replace(/复制$/,''));pre.appendChild(b);});
   main.querySelectorAll('a[href^="#/paper/"]').forEach(a=>a.addEventListener('click',()=>storage.set('returnTo',location.hash)));
  }
  async function docView(id,params,seq){
+  if(archivedIds.has(id))return archivedView();
   const d=docs.get(id);if(!d)return missing('没有找到这篇文档。');
   state.doc=id;const c=await content(id);if(seq!==state.sequence)return;
   const families=familyForDoc(id),family=families.length===1?families[0]:null;
   const kind=d.group==='knowledge'?'knowledge':'results';
   const sequence=d.experimentStage?researchStages.map(entry=>entry.doc):family?familyDocumentIds(family,kind).map(did=>docs.get(did)):outline;
   const pos=sequence.findIndex(x=>x.id===id);const prev=sequence[pos-1];const next=sequence[pos+1];
-  const docGroupLabel=d.topic==='paper-plan'?'论文规划与研究路线':groups[d.group]||'文档';
+  const docGroupLabel=['paper-plan','algorithm-experiment-plan'].includes(d.topic)?'论文规划与研究路线':groups[d.group]||'文档';
   main.innerHTML=`<div class="doc-view">${breadcrumbs(docGroupLabel)}${algorithmContext(d)}<div class="doc-toolbar"><span class="pill">${E(docGroupLabel)}</span><span class="pill warm">约 ${d.minutes} 分钟</span><button class="soft-button" id="bookmarkDoc">${bookmarks.includes(id)?'★ 已收藏':'☆ 加入书签'}</button><a class="soft-button" href="${encodeURI(d.snapshot)}" download>Markdown原稿</a><span class="source-label" title="${E(d.source)}">${E(d.source)}</span></div><article class="article">${c.html}</article>${pos>=0?`<nav class="doc-pagination">${prev?`<a href="${docUrl(prev)}"><small>← 上一篇</small>${E(prev.title)}</a>`:'<span></span>'}${next?`<a href="${docUrl(next)}"><small>下一篇 →</small>${E(next.title)}</a>`:family?`<a href="${algorithmUrl(family,kind)}"><small>返回算法目录 →</small>${E(family.name)} · ${kind==='knowledge'?'算法知识点':'实现与结果'}</a>`:`<a href="#/browse/research"><small>继续探索 →</small>研究报告与实验结果</a>`}</nav>`:''}</div>`;
   if(d.source.endsWith('算法知识点说明/00_通信与时延基础知识.md')){
    const h=Array.from(main.querySelectorAll('h2')).find(x=>x.textContent.startsWith('5.'));
@@ -111,12 +133,14 @@
   else notify('未找到原链接的标题，可使用右侧目录或本页查找。');
  }
  function missing(message){main.innerHTML=header('READING NOTE','暂时无法打开')+`<div class="empty-state">${E(message)}<br><a href="#/">返回阅读首页</a></div>`;}
+ function archivedView(){main.innerHTML=header('RESEARCH RESET','旧算法内容已归档','旧说明和历史结果已保留本地副本，当前阅读站暂不展示。')+`<div class="empty-state">${experimentPlan?`<a href="${docUrl(experimentPlan)}">从算法实验规划开始 →</a>`:'<a href="#/">返回阅读首页 →</a>'}</div>`;}
  function row(d){return `<a class="record-row" href="${docUrl(d)}"><strong>${E(d.title)}</strong><small>${E(d.source)} · ${d.minutes} 分钟${d.aliases.length>1?' · 已合并 '+d.aliases.length+' 个相同副本':''}</small></a>`;}
  function algorithmContext(d){
   const families=familyForDoc(d.id);if(!families.length)return '';
   return `<nav class="algorithm-context" aria-label="所属算法">${families.map(f=>`<span>${E(f.name)}</span><a href="${algorithmUrl(f,'knowledge')}">算法知识点</a><a href="${algorithmUrl(f,'results')}">实现与结果</a>`).join('')}</nav>`;
  }
  function algorithmIndex(kind){
+  if(!legacyModulesVisible)return archivedView();
   const label=kind==='knowledge'?'算法知识点':'算法实现与结果';
   main.innerHTML=breadcrumbs(label)+header('ALGORITHM LIBRARY',label,'先选择一个算法方向，再进入它的知识、实现说明与已有实验结果。')+
    `<div class="algorithm-common"><span>开始前先读</span><a href="${docUrl(A.commonKnowledge)}">算法实验的共同前置条件 →</a></div><div class="library-tools"><input id="algorithmFilter" class="library-input" placeholder="查找算法，例如 QUEST、SR、授权时机…" aria-label="筛选算法"></div><div id="algorithmCards" class="algorithm-grid"></div><p id="algorithmCount" class="result-limit"></p>`;
@@ -129,6 +153,7 @@
   update();$('#algorithmFilter').addEventListener('input',update);
  }
  function algorithmView(id,kind){
+  if(!legacyModulesVisible)return archivedView();
   const family=algorithmFamilies.find(f=>f.id===id);
   if(!family||!['knowledge','results'].includes(kind))return missing('没有找到这个算法分类。');
   const label=kind==='knowledge'?'算法知识点':'实现与结果';

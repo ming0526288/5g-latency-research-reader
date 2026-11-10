@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "archivedDocuments": 124,
+  "oldRoutesChecked": 10,
+  "publishedDocuments": 1071,
+  "newPlan": {
+    "id": "r9add2badaf2ad40d",
+    "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
+    "sha256": "6dacf8662af051f7442483c31f113d1aee0822af02c00f6b556893f55de67944",
+    "toc": 9,
+    "firstPerson": true
+  },
+  "sidebarAndHome": true,
+  "searchAndBookmarkFiltering": true,
+  "bookmarkStoragePreserved": true,
+  "coreKnowledgeRetained": 6,
+  "papersAndProtocolsRetained": true,
+  "consoleErrors": [],
+  "scope": "Offline DOM publication checks; no wireless experiment or screenshot/layout certification."
+}

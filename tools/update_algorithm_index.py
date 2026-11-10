@@ -76,10 +76,19 @@ def main():
     missing = {d['id'] for d in catalog['docs'] if d['group'] == 'algorithms' and not d['source'].endswith('/README.md')} - result_docs
     if missing:
         raise ValueError('Unassigned implementation notes: ' + ', '.join(sorted(missing)))
-    data = {'updated': manifest['updated'], 'commonKnowledge': common, 'families': families}
+    publication = manifest.get('publication', {'legacyModulesVisible': True, 'archivedDocumentIds': []})
+    archived = publication.get('archivedDocumentIds', [])
+    if len(archived) != len(set(archived)) or set(archived) - {d['id'] for d in catalog['docs']}:
+        raise ValueError('Archived publication IDs must be unique existing documents')
+    if not isinstance(publication.get('legacyModulesVisible', True), bool):
+        raise ValueError('legacyModulesVisible must be boolean')
+    data = {'updated': manifest['updated'], 'commonKnowledge': common, 'families': families,
+            'publication': publication}
     write_atomic(WEB / 'algorithms.js', 'window.READER_ALGORITHMS=' + json.dumps(data, ensure_ascii=False, separators=(',', ':')) + ';')
     report = {'status': 'PASS', 'families': len(families), 'sources': used,
               'manifestSHA': hashlib.sha256((ROOT / '说明/algorithms.json').read_bytes()).hexdigest(),
+              'publication': {'legacyModulesVisible': publication.get('legacyModulesVisible', True),
+                              'archivedDocuments': len(archived)},
               'scope': 'Reading navigation and source identities only; no protocol/model/formula change or new experiment.'}
     (ROOT / '校验/算法分类构建校验.json').write_text(json.dumps(report, ensure_ascii=False, indent=2))
     print(json.dumps({'status': 'PASS', 'families': len(families), 'documents': len({d['id'] for d in used})}, ensure_ascii=False))

@@ -16,12 +16,13 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  debugWindow=w;
  await waitFor(()=>d.querySelectorAll('.path-card').length===6,'home reading path');
  steps.push('file://入口加载本地catalog.js、CSS及app.js；首页六步路线完整');
- const cat=w.READER_CATALOG;
- const algorithmFamilies=w.READER_ALGORITHMS.families;
+ const cat=w.READER_VISIBLE_CATALOG||w.READER_CATALOG;
+ const legacyModulesVisible=w.READER_ALGORITHMS.publication?.legacyModulesVisible!==false;
+ const algorithmFamilies=legacyModulesVisible?w.READER_ALGORITHMS.families:[];
  const knowledgeHeading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='知识点');
  assert(knowledgeHeading);const studyLinks=[];
  for(let el=knowledgeHeading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)studyLinks.push(el);
- assert.equal(studyLinks.length,7);
+ assert.equal(studyLinks.length,legacyModulesVisible?7:6);
  assert(!d.querySelector('#sidebar details'));
  assert(studyLinks.every(el=>el.matches('a.nav-link')&&!/^\d+$/.test(el.querySelector('.nav-icon').textContent)));
  const studyUrls=studyLinks.map(el=>el.getAttribute('href'));
@@ -36,7 +37,8 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
    assert.equal(Number(d.querySelector('#sidebar a[href="'+url+'"] .nav-count').textContent),algorithmFamilies.length);
   }
  }
- steps.push('知识点七类图标入口保留；算法知识点先选方向，导航数量与算法卡片一致');
+ steps.push(legacyModulesVisible?'知识点七类图标入口保留；算法知识点先选方向':'六类基础知识入口正常；旧算法知识入口不再展示');
+ if(legacyModulesVisible){
  for(const family of algorithmFamilies){
   d.querySelector('#sidebar a[href="#/browse/algorithms"]').click();
   await waitFor(()=>w.location.hash==='#/browse/algorithms'&&d.querySelector('.library-heading h1')?.textContent==='算法实现与结果'&&d.querySelectorAll('.algorithm-card').length===algorithmFamilies.length,'implementation algorithm selection');
@@ -66,13 +68,18 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  const filter=d.querySelector('#algorithmFilter');filter.value='QUEST';filter.dispatchEvent(new w.Event('input',{bubbles:true}));
  assert.equal(d.querySelectorAll('.algorithm-card').length,1);assert(d.querySelector('.algorithm-card h2').textContent==='QUEST');
  steps.push('两个算法入口均先选方向；逐方向结果行归属准确；结果跳同算法知识页；知识正文可返回该算法结果；QUEST含自身、消融与对照知识；筛选可用');
+ }else{
+  assert(!d.querySelector('#sidebar a[href="#/browse/algorithms"]'));
+  assert(!d.querySelector('#sidebar a[href="#/browse/algorithm-knowledge"]'));
+  steps.push('旧算法知识与实现结果导航撤下，源索引保留归档身份');
+ }
  if(cat.experimentStages){
   const heading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='研究结果与分析');
   const links=[];for(let el=heading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)links.push(el);
   const stages=links.slice(0,Object.keys(cat.experimentStages).length).map(el=>el.getAttribute('href'));
   assert(!links.some(el=>el.textContent.includes('入口与五类分析')));
   assert.deepEqual(stages,Object.values(cat.experimentStages).map(id=>'#/doc/'+id));
-  assert.equal(links.length,Object.keys(cat.experimentStages).length+1);
+  assert.equal(links.length,Object.keys(cat.experimentStages).length+Number(legacyModulesVisible));
   const materialsHeading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='研究资料');
   const materials=[];for(let el=materialsHeading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)materials.push(el);
   assert.deepEqual(materials.map(el=>el.getAttribute('href')),['#/library/papers','#/library/protocols']);
@@ -98,10 +105,10 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
   await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+cat.experimentStages.tdd+'"]'),'new experimental failure indexed');d.querySelector('#closeSearch').click();
   d.querySelector('#searchButton').click();query.value='原始源码与当前研究版本';query.dispatchEvent(new w.Event('input',{bubbles:true}));
   await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+cat.experimentStages['source-changes']+'"]'),'source version review indexed');d.querySelector('#closeSearch').click();
-  steps.push('研究结果与分析含五类实验、原始源码与当前版本及算法入口；源码页点击加载表格并可搜索；既有结果图/知识链接/错误搜索仍通过');
+  steps.push('五类实验与源码版本入口、表格、搜索、结果图和知识链接仍正常');
  }
  if(cat.knowledgeTopics){
-  assert.equal(Object.keys(cat.knowledgeTopics).length,7);
+  assert.equal(Object.keys(cat.knowledgeTopics).length,legacyModulesVisible?7:6);
   const tdd=cat.knowledgeTopics.tdd;w.location.hash='#/doc/'+tdd;
   await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===cat.docs.find(x=>x.id===tdd).source,'reader-owned TDD lesson');
   assert(d.querySelector('.article .source-figure a[target="_blank"]'));
@@ -110,20 +117,27 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
   await waitFor(()=>d.querySelector('.protocol-article .section-found')?.textContent.includes('Table 11.1.1-1'),'TDD original table location');
   d.querySelector('#searchButton').click();const query=d.querySelector('#searchInput');query.value='从字段算出整周期';query.dispatchEvent(new w.Event('input',{bubbles:true}));
   await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+tdd+'"]'),'new knowledge indexed for search');d.querySelector('#closeSearch').click();
-  steps.push('自有知识稿七类已接入；TDD插图可放大；引用实际定位至38.213表11.1.1-1；新正文关键词可被全文搜索找到');
+  steps.push('已发布知识入口、TDD插图和38.213原表定位正常；新正文可搜索');
  }
  const basic=cat.docs.find(x=>x.aliases.some(a=>a.endsWith('算法知识点说明/00_通信与时延基础知识.md')));
  w.location.hash='#/doc/'+basic.id;await waitFor(()=>d.querySelector('.article .katex'),'foundation');
- assert(d.querySelectorAll('.article mfrac').length>=2);assert(d.querySelector('.diagram-panel img').getAttribute('src').includes('闭环测量'));
- steps.push('基础知识真实正文加载；分式为KaTeX/MathML；已有四时间戳示意图插入');
- await waitFor(()=>d.querySelector('.article').textContent.includes('两个 Priority = 5 的 UE'),'mixed-language spacing in actual foundation');
+ assert(d.querySelectorAll('.article mfrac').length>=2);
+ const timingDiagram=d.querySelector('.article img[alt="同一事务的上行、回复处理和下行应用边界"]')||d.querySelector('.diagram-panel img');
+ assert(timingDiagram);assert(timingDiagram.getAttribute('src').endsWith('.svg'));
+ steps.push('当前基础知识正文、KaTeX/MathML分式和同事务应用边界示意图正常');
+ await waitFor(()=>d.querySelector('.article').textContent.includes('目标应用负载 8 Mbps'),'units in current foundation');
  const original=d.createElement('article');original.innerHTML=w.READER_CONTENT[basic.id].html;
  const article=d.querySelector('.article');
  const texts=(root,selector)=>[...root.querySelectorAll(selector)].map(el=>el.textContent);
  assert.deepEqual(texts(article,'code'),texts(original,'code'));
  assert.deepEqual([...article.querySelectorAll('.katex,math')].map(el=>el.outerHTML),[...original.querySelectorAll('.katex,math')].map(el=>el.outerHTML));
  assert.deepEqual([...article.querySelectorAll('[id]')].map(el=>el.id),[...original.querySelectorAll('[id]')].map(el=>el.id));
- assert.deepEqual([...article.querySelectorAll('a')].map(el=>el.getAttribute('href')),[...original.querySelectorAll('a')].map(el=>el.getAttribute('href')));
+ const archivedIds=new Set(w.READER_ALGORITHMS.publication?.archivedDocumentIds||[]);
+ const expectedLinks=[...original.querySelectorAll('a')].map(el=>el.getAttribute('href')).filter(href=>{
+  if(href.startsWith('#/doc/')&&archivedIds.has(href.slice(6).split('?')[0]))return false;
+  return legacyModulesVisible||!/^#\/(?:algorithm\/|browse\/algorithm)/.test(href);
+ });
+ assert.deepEqual([...article.querySelectorAll('a')].map(el=>el.getAttribute('href')),expectedLinks);
  const fixture=d.createElement('section');fixture.id='spacing-fixture';
  fixture.innerHTML='<p id="mixed-prose">两个<strong>Priority=5</strong>的<code>UE</code>，每个UE的速率为8Mbps，延迟为0.5ms，另一速率为2Mbit/s。</p><p id="literal-url">网址https://example.test/page?q=5&amp;v=8</p><p id="literal-file">文件：report1.md</p><pre><code>Priority=5\npython3 foo.py --port=8765</code></pre><p id="inline-command">运行<code>python3 foo.py --port=8765</code>命令。</p><p id="inline-math">公式<math><mi>λ</mi><mo>=</mo><mn>5</mn></math>保持。</p><div class="protocol-article">原协议Priority=5和8Mbps</div>';
  const codeBefore=texts(fixture,'code');const mathBefore=fixture.querySelector('math').outerHTML;
@@ -134,13 +148,14 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  assert.deepEqual(texts(fixture,'code'),codeBefore);assert.equal(fixture.querySelector('math').outerHTML,mathBefore);
  assert.equal(fixture.querySelector('.protocol-article').textContent,'原协议Priority=5和8Mbps');
  const once=fixture.innerHTML;w.READER_TYPOGRAPHY.apply(fixture);assert.equal(fixture.innerHTML,once);fixture.remove();
- steps.push('实际Priority段落及动态粗体/内联代码边界已补间距；单位排版正常；代码、URL、文件名、公式、协议原文、链接与标题ID保持；重复处理不累加空格');
+ steps.push('当前单位段落与动态Priority排版正常；代码、公式、原文与已发布链接保持；归档引用不再可点击；重复排版不累加空格');
  d.querySelector('#bookmarkDoc').click();assert(d.querySelector('#bookmarkDoc').textContent.includes('已收藏'));
  w.location.hash='#/bookmarks';await waitFor(()=>d.querySelector('.record-row'),'bookmarks');assert(d.querySelector('.record-row').textContent.includes('通信与时延'));
  steps.push('加入书签并在书签页找到原文档');
  d.querySelector('#searchButton').click();const input=d.querySelector('#searchInput');input.value='QUEST';input.dispatchEvent(new w.Event('input',{bubbles:true}));
  await waitFor(()=>d.querySelector('.search-result')?.textContent.toLowerCase().includes('quest'),'QUEST search results refreshed');d.querySelector('#closeSearch').click();
- assert(d.querySelector('.search-result[href="#/algorithm/quest/results"]'));
+ if(legacyModulesVisible)assert(d.querySelector('.search-result[href="#/algorithm/quest/results"]'));
+ else{assert(!d.querySelector('.search-result[href^="#/algorithm/"]'));assert(d.querySelector('.search-result[href="#/paper/P24"]'));}
  steps.push('全文搜索QUEST返回实际文档与文献结果');
  w.location.hash='#/paper/P24?page=7';await waitFor(()=>d.querySelector('.pdf-frame'),'PDF route');assert(d.querySelector('.pdf-frame').getAttribute('src').includes('#page=7'));assert.equal(d.querySelector('#pdfPage').value,'7');
  d.querySelector('#pdfPage').value='9';d.querySelector('#goPdf').click();await waitFor(()=>w.location.hash.includes('page=9')&&d.querySelector('#pdfPage')?.value==='9','PDF page control');

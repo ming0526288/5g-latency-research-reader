@@ -8,6 +8,10 @@
     {
       "source": "说明/文献导读/论文规划_工业多UE时延优化与对比实验.md",
       "topic": "paper-plan"
+    },
+    {
+      "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
+      "topic": "algorithm-experiment-plan"
     }
   ]
 }
