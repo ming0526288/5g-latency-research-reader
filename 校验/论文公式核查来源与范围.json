@@ -1,0 +1,401 @@
+{
+  "scope": "Translation math fidelity engineering, no RAN/core changes or paper theorem certification",
+  "date": "2026-11-10",
+  "originals": [
+    {
+      "id": "P01",
+      "pages": 6,
+      "sourceSHA": "2d272dbcb3ea0ee1d659ae2a81ab9abf2a0bcb17a957b97d917ab1bbf7a19fdd",
+      "formFontResources": 17,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P02",
+      "pages": 6,
+      "sourceSHA": "b586f6883fdc76637be0012b79f478f180312f43ce1c8d5e397ae29bd4464b76",
+      "formFontResources": 6,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P03",
+      "pages": 11,
+      "sourceSHA": "744d5a01e47ee76597164011170a421ff922685cf95db28012f1857f08e95737",
+      "formFontResources": 4,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P04",
+      "pages": 20,
+      "sourceSHA": "989cc2c0e4ddafc7696a8c11e17a3a008ae40e76f5a7c637047152ed71fc455f",
+      "formFontResources": 58,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P05",
+      "pages": 6,
+      "sourceSHA": "70ae279a5ed526ba2b773fcf37afe4dae3d750a88a63156de07afb7292be6f16",
+      "formFontResources": 15,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P06",
+      "pages": 14,
+      "sourceSHA": "68eeba406efc9097b6bf0b600c340085c9714e6a4d4b820d307b0ee075966012",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P07",
+      "pages": 20,
+      "sourceSHA": "849db6de600f00d90e5139842d0df2e1a5e7b355814efe24e3694ea96b7b4121",
+      "formFontResources": 26,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P08",
+      "pages": 6,
+      "sourceSHA": "47c2dcd39360d6148358f8e045f42d416894d00588bec54fe074a99b20ce4dfb",
+      "formFontResources": 16,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P09",
+      "pages": 25,
+      "sourceSHA": "1576ce00b543e18036e4b222a868ece090fa6aa47799398ee0c86e0fb5558c8c",
+      "formFontResources": 24,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P10",
+      "pages": 14,
+      "sourceSHA": "a2a019d15f1d4bbf1e4a71ef670de62422120a91a5cb91dd57288227c5b6c47a",
+      "formFontResources": 27,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P11",
+      "pages": 6,
+      "sourceSHA": "9258c9f64d2dd68bafa9c5c9455a00275099088b83de5cac30989d15a775e786",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P12",
+      "pages": 14,
+      "sourceSHA": "0b6a8874bebd121b417dc26cd2b64d4c454e8c1d7ce5b65aca82362ad4fcef0a",
+      "formFontResources": 13,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P13",
+      "pages": 5,
+      "sourceSHA": "1f2001dcc8ba3bb8fdd5fdbb6484434ac9cc4630e0843e6f4cceb335ba76b0c0",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P14",
+      "pages": 5,
+      "sourceSHA": "7d2dfa74d188139dfc00998e18501ddd41c1d652edf36569b87a10925a9c7f8b",
+      "formFontResources": 23,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P15",
+      "pages": 7,
+      "sourceSHA": "44c0ef64a839d3d0cbf841f41fc5e08f0c9e36269aa0d93ac23c92772466c23d",
+      "formFontResources": 13,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P16",
+      "pages": 6,
+      "sourceSHA": "d6ec9c04b9be3c2adf79a694090cbcec64e997d55955b113c61eb05946db0b41",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P17",
+      "pages": 6,
+      "sourceSHA": "29344cd90297893faf49c7dac8c9abc2a6bc638282105dd3d8824642848b6e99",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P18",
+      "pages": 4,
+      "sourceSHA": "f12518cfd4a345f05d1b1d7db3cc7902158f8f835fc5e2c42b072711ebbbfb69",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P19",
+      "pages": 6,
+      "sourceSHA": "63c86d50fc2581b712a31a931efe13e7cc8b39b9e9a1679a8614d55bbe55631c",
+      "formFontResources": 10,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P20",
+      "pages": 15,
+      "sourceSHA": "286c7a3ec062de36cc82f4dd2cdda270b9c7b18d936c191a69d1cb5f27caa197",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P21",
+      "pages": 6,
+      "sourceSHA": "4f7129bb3546ed27459316b91985badfcc90529890b9091ad1c2e00bdae5e3ef",
+      "formFontResources": 6,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P22",
+      "pages": 14,
+      "sourceSHA": "77da26baf03c3f964b0f7f6612c21904d80e4e920dbed0cdf605308dde85dcb6",
+      "formFontResources": 9,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P23",
+      "pages": 12,
+      "sourceSHA": "267ba6db8babb377bd3e7da678447484c26894e3ca8aa1726b61da079376c571",
+      "formFontResources": 58,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P24",
+      "pages": 15,
+      "sourceSHA": "34863ff7dbdbf48d890d8830c90cb5e8ab1c0f53fccf41c588f9ad41c687f227",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P25",
+      "pages": 16,
+      "sourceSHA": "c8cc38b56e2ac43e5ede5b548f96c9c7df28d097dfad787446519bc0cc5dec74",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P26",
+      "pages": 18,
+      "sourceSHA": "420a28bad4b1259696fe810746f21d81d7a471788926a68a5b694b030b888052",
+      "formFontResources": 3,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P27",
+      "pages": 14,
+      "sourceSHA": "005cfc53e6b41e8fcd7c8c058468ad5a5ea1cf62cacf6db2890aae73375ee1b0",
+      "formFontResources": 21,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P28",
+      "pages": 21,
+      "sourceSHA": "5e20ffe5ebeca4edfb8ccdf97e057aacbcbf70004444cde1e648e51c8ce449cc",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P29",
+      "pages": 12,
+      "sourceSHA": "b113e7cda003d4c03cc2d92fa5714502564988128f83716b3f03e020a2e67c02",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P30",
+      "pages": 23,
+      "sourceSHA": "be798ded6389c3fbad1ae2b2eb591b7de20a8f59f81a4ad6bd287bdd82889524",
+      "formFontResources": 187,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P31",
+      "pages": 17,
+      "sourceSHA": "a504178653c544e74420bdccfe469b206febee625248e144204db60bd6004a8a",
+      "formFontResources": 36,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P32",
+      "pages": 15,
+      "sourceSHA": "9538aeb1989b92f315ed4f80ad93500bd923ab767b18feb0f83196267e8525e3",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P33",
+      "pages": 9,
+      "sourceSHA": "b101bacf1a8a478a6eae9c4ffe145cab5fae744a3b5e498219fa7aaef2cd4501",
+      "formFontResources": 16,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P34",
+      "pages": 7,
+      "sourceSHA": "93c316b96e0c29da7fabc772a97fac40a568d76d7ffd91a9722bc8a49b247070",
+      "formFontResources": 7,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P35",
+      "pages": 6,
+      "sourceSHA": "78bd1fc8a4ddbf2d6e154528dbc38d86003f385764d3e45bcab845ecae4f96d0",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P36",
+      "pages": 13,
+      "sourceSHA": "e3cf64e72110864addb1efc75de6a07cf1b800f4b219dcd4c339568b7f8c6f7e",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P37",
+      "pages": 4,
+      "sourceSHA": "d04dad1e6ebcf8051212648e3531b4146c2e3969ddd18e7221279c7e1b69c137",
+      "formFontResources": 0,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P38",
+      "pages": 16,
+      "sourceSHA": "7c23a43446b1dc58fa072b84a0c0fda79746b3d96fc3ffc3ea83c8e1b03242e1",
+      "formFontResources": 63,
+      "allPagesRotationZero": true
+    },
+    {
+      "id": "P39",
+      "pages": 6,
+      "sourceSHA": "1d8a88487a9589d5a04fc34b8d66d1a4afcf933a8173f015f826a1b6a094416d",
+      "formFontResources": 79,
+      "allPagesRotationZero": true
+    }
+  ],
+  "P39": {
+    "source": {
+      "pages": 6,
+      "pageSizes": [
+        [
+          0.0,
+          0.0,
+          612.0,
+          792.0
+        ],
+        [
+          0.0,
+          0.0,
+          612.0,
+          792.0
+        ],
+        [
+          0.0,
+          0.0,
+          612.0,
+          792.0
+        ],
+        [
+          0.0,
+          0.0,
+          612.0,
+          792.0
+        ],
+        [
+          0.0,
+          0.0,
+          612.0,
+          792.0
+        ],
+        [
+          0.0,
+          0.0,
+          612.0,
+          792.0
+        ]
+      ],
+      "chineseCharsPerPage": [
+        1261,
+        810,
+        559,
+        574,
+        611,
+        930
+      ],
+      "rasterImagesAndPlacementUnchanged": true,
+      "warnings": [],
+      "sourceSHA": "1d8a88487a9589d5a04fc34b8d66d1a4afcf933a8173f015f826a1b6a094416d",
+      "sha256": "c30365f7adbd72d6ba5ce35120d5408d9e1787326f1149aaa33505d6d6f06953",
+      "bytes": 1010624,
+      "scope": "Readable draft checks; image differences are warnings. Visual and semantic review remains separate.",
+      "seconds": 9.936767138002324,
+      "engine": "babel",
+      "mathGuard": "xobject-font-scope-math-strokes-ligatures-v6",
+      "status": "generated",
+      "file": "阅读转换件/论文中文/P39.zh.pdf",
+      "visualQA": "pending",
+      "mathReview": "Original-font scope, geometry and physical glyph checks passed; semantic review remains pending."
+    },
+    "physicalAudit": {
+      "status": "PASS",
+      "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+      "papers": [
+        {
+          "id": "P39",
+          "status": "PASS",
+          "pages": 6,
+          "sourceSHA": "1d8a88487a9589d5a04fc34b8d66d1a4afcf933a8173f015f826a1b6a094416d",
+          "translationSHA": "c30365f7adbd72d6ba5ce35120d5408d9e1787326f1149aaa33505d6d6f06953",
+          "expectedMathGlyphs": 795,
+          "matchedMathGlyphs": 795,
+          "unmatchedMathGlyphs": 0,
+          "renderedPages": 6,
+          "mathGuard": {
+            "guard": "xobject-font-scope-math-strokes-ligatures-v6",
+            "relocatedScopedCharacters": 5923,
+            "scopedFormulaParagraphs": 92,
+            "validatedGlyphs": 11901,
+            "normalizedMatrices": 2,
+            "decodedProseLigatures": 44,
+            "unresolvedFontScopes": [],
+            "positionedMathFragments": 193,
+            "status": "PASS",
+            "originalMathStrokesRestored": 5,
+            "sourceSHA": "1d8a88487a9589d5a04fc34b8d66d1a4afcf933a8173f015f826a1b6a094416d",
+            "translationSHA": "c30365f7adbd72d6ba5ce35120d5408d9e1787326f1149aaa33505d6d6f06953"
+          },
+          "visualQA": "pending"
+        }
+      ],
+      "errors": [],
+      "scope": "Final PDF identity/geometry/physical math glyph positions, plus optional rendering; not full semantic or algebraic certification."
+    }
+  },
+  "finalGuard": "xobject-font-scope-math-strokes-ligatures-v6",
+  "finalBatchStatus": "RUNNING session63071; physical audit watcher67783",
+  "rejectedCandidates": [
+    "v2 rectangular clips",
+    "v3 filtered rectangular clips"
+  ],
+  "note": "Final results must be updated after actual completion.",
+  "initialBatchTermination": {
+    "sessions": [
+      68867,
+      6249
+    ],
+    "pids": [
+      203049,
+      246044
+    ],
+    "exitCodes": [
+      143,
+      143
+    ],
+    "lastComplete": "P27",
+    "interrupted": "P28",
+    "reason": "Intermediate method superseded; not a communication experiment failure."
+  }
+}

@@ -100,8 +100,8 @@ def prepare():
             response.raise_for_status()
             translated = response.json()[0]['translations'][0]['text']
             # A placeholder loss would silently remove mathematics. Fail instead.
-            original_tokens = sorted(set(re.findall(r'ZXQPM\d+QXZ', chunk)))
-            actual_tokens = sorted(set(re.findall(r'ZXQPM\d+QXZ', translated)))
+            original_tokens = sorted(re.findall(r'ZXQPM\d+QXZ', chunk))
+            actual_tokens = sorted(re.findall(r'ZXQPM\d+QXZ', translated))
             if original_tokens != actual_tokens:
                 write_json(AUX/('placeholder-failure-'+str(threading.get_ident())+'.json'), {'source':chunk,'translation':translated,'expected':original_tokens,'actual':actual_tokens})
                 # The service may omit a leading superscript marker or a math
@@ -120,7 +120,7 @@ def prepare():
                     response.raise_for_status()
                     protected.append(response.json()[0]['translations'][0]['text'])
                 translated = ' '.join(protected)
-                if sorted(set(re.findall(r'ZXQPM\d+QXZ', translated))) != original_tokens:
+                if sorted(re.findall(r'ZXQPM\d+QXZ', translated)) != original_tokens:
                     raise ValueError('Formula protection fallback failed')
             if re.search(r'[A-Za-z]{4}', chunk) and not re.search(r'[\u4e00-\u9fff]', translated):
                 prose_words = re.findall(r'\b(?:the|is|are|with|that|this|we|our|to|for)\b', chunk.lower())
@@ -323,6 +323,8 @@ def restore_original_figures(paper, mono, layouts):
 
 
 def translate_with_babel(paper, model):
+    from babel_math_guard import install
+    install(AUX/'math-guards'/(paper['id']+'.json'),ROOT/paper['file'])
     from babeldoc.translation_config import TranslationConfig, WatermarkOutputMode
     from babeldoc.document_il.translator.translator import BaseTranslator
     from babeldoc.document_il.translator.cache import init_db
@@ -336,6 +338,10 @@ def translate_with_babel(paper, model):
             self.model = 'bounded-bing'
             self.inner = BingTranslator('en','zh','')
         def translate(self, text, ignore_cache=False):
+            # Normalize only proven ordinary typographic ligatures. Mathematical
+            # placeholders and mathematical Unicode symbols remain untouched.
+            for old,new in [('\ufb00','ff'),('\ufb01','fi'),('\ufb02','fl'),('\ufb03','ffi'),('\ufb04','ffl')]:
+                text=text.replace(old,new)
             corrections = AUX/'corrections'/(paper['id']+'.json')
             custom = json.loads(corrections.read_text()) if corrections.exists() else {}
             output = custom.get(hashlib.sha256(text.encode()).hexdigest())
@@ -388,7 +394,8 @@ def translate_with_babel(paper, model):
                 use_rich_pbar=False,skip_scanned_detection=True)
     config._is_temp_dir = False  # retain explicit working directory as failure evidence
     result = high_level.translate(config)
-    return Path(result.mono_pdf_path).read_bytes()
+    from babel_math_guard import restore_strokes
+    return restore_strokes(Path(result.mono_pdf_path).read_bytes(),ROOT/paper['file'])
 
 
 def run(args):
@@ -464,9 +471,11 @@ def run(args):
         sourceSHA = hashlib.sha256((ROOT/paper['file']).read_bytes()).hexdigest()
         entry = manifest['papers'].get(ident, {})
         if not args.force and target.exists() and entry.get('sourceSHA') == sourceSHA:
-            verify(paper, target)
-            print(ident + ' already generated and structurally verified.', flush=True)
-            continue
+            from babel_math_guard import GUARD_VERSION
+            if not getattr(args,'repair_math',False) or entry.get('mathGuard') == GUARD_VERSION:
+                verify(paper, target)
+                print(ident + ' already generated and structurally verified.', flush=True)
+                continue
         print('START ' + ident + ' ' + str(paper['pages']) + ' pages', flush=True)
         started = time.monotonic()
         manifest['papers'][ident] = {'status': 'processing', 'sourceSHA': sourceSHA}
@@ -495,6 +504,14 @@ def run(args):
             # The temporary is retained as generation evidence until final QA.
             proof['seconds'] = time.monotonic() - started
             proof['engine'] = args.engine
+            if args.engine == 'babel':
+                from babel_math_guard import GUARD_VERSION
+                audit = json.loads((AUX/'math-guards'/(ident+'.json')).read_text())
+                if audit['status'] != 'PASS':
+                    raise ValueError('Math font scope audit failed')
+                proof['mathGuard'] = GUARD_VERSION
+                audit.update(sourceSHA=sourceSHA,translationSHA=proof['sha256'])
+                write_json(AUX/'math-guards'/(ident+'.json'),audit)
             write_json(AUX/'checks'/(ident+'.json'), proof)
             manifest['papers'][ident] = {**proof, 'status': 'generated',
                     'file': str(target.relative_to(ROOT)), 'visualQA': 'pending'}
@@ -526,6 +543,8 @@ if __name__ == '__main__':
     parser.add_argument('--publish-existing', action='store_true',
                         help='Publish existing local candidate PDFs selected by --only, without retranslating')
     parser.add_argument('--force', action='store_true')
+    parser.add_argument('--repair-math', action='store_true',
+                        help='Regenerate existing drafts missing the reviewed math font scope guard')
     parser.add_argument('--only', help='Comma-separated local paper IDs, e.g. P01,P24')
     parser.add_argument('--engine', choices=['pdf2zh','babel'], default='babel')
     options = parser.parse_args()

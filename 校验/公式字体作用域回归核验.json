@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "negativeControl": "Unpatched relocation loses scope 9; unpatched parser misses Form-local CMSY font.",
+  "checks": [
+    "Formula bracket/dot glyph IDs and Form scope preserved at scale 0.8",
+    "Single original glyph scope preserved",
+    "Conflicting F8 in root/Form resolved per paragraph without mutating root",
+    "Generated matrix exponent converted to numerically identical decimal",
+    "Overlapping numerator/denominator fragments remain one mathematical unit",
+    "Both source stroke and filled rule preserved without copying nearby source prose",
+    "P39 actual embedded CFF Encoding resolves fi ligature"
+  ],
+  "scope": "BabelDOC 0.2.33 engineering regression; no paper theorem/translation semantics certification."
+}

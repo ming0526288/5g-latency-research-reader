@@ -57,3 +57,22 @@ python3 -B tools/build_protocol_pdfs.py --spec 22.104 --jobs 1
 TS 22.104 的 DOC 转换封面曾发生浮动文字重叠；专用脚本只重排本地 PDF 的第一页，原 DOC/ZIP 不改，其余 104 页渲染像素逐页一致。原问题件保留在目录外辅助目录，PDF 内明确标本地重排；本机缺 Arial，重排封面使用 Liberation Sans 替代，不声称嵌入 Arial。`--force` 重做转换后需再次运行封面脚本，再重新生成相应中文稿。
 
 中文协议输出在 `阅读转换件/协议中文/`，运行索引为本机 `说明/protocol-translations.json` 与 `网页/protocol-translations.js`，与论文索引分开。协议原文转换 PDF 的 SHA 是译稿的输入身份；如果原文转换件更新，旧译稿不再显示成匹配稿。协议正文精确解释仍查原 Word，机译不构成官方中文版或标准合规结论。原件、PDF、完整原文检索载荷与运行索引不新增上传 Git；源码、安全元数据、核验与 CHG/TEST 提交。
+
+
+## 公式缺字/行内分式检查
+
+用户报告P39的E[·]方括号丢失后，定位了实际安装BabelDOC0.2.33的Form字体作用域、数学片段拆分、原水平线和CFF普通连字问题。原英文不改，兼容层在 tools/babel_math_guard.py；当前受保护公式的scope不可解时阻止发布。数学字体按原件保留，不用普通文字字体猜造数学符号。新稿仍pending，字体/字形检查不等于逐句语义审定或重新证明作者定理。
+
+```bash
+cd /home/lbh/oiwireless/5g-latency-research-reader
+/home/lbh/oiwireless/analysis-source-audit/paper-zh-20261109/venv/bin/python tools/check_math_guard.py
+# 独立候选，不同时写网站运行索引：
+/home/lbh/oiwireless/analysis-source-audit/paper-zh-20261109/venv/bin/python tools/repair_paper_math.py --candidate P39
+# 先确认没有另一个论文生成器，再按篇生成/备份/限时：
+/home/lbh/oiwireless/analysis-source-audit/paper-zh-20261109/venv/bin/python tools/repair_paper_math.py
+/home/lbh/oiwireless/analysis-source-audit/paper-zh-20261109/venv/bin/python tools/audit_math_pdfs.py --render
+```
+
+最终逐篇方法既核源/译SHA与页尺寸，也核最终PDF实际的数学字形字体/位置，而非仅数全文括号。生成器源/译SHA绑定、坐标和原笔画证据在本地aux/paper-zh-20261109/math-guards，原PDF和候选/被拒稿不Git；安全逐篇汇总在校验/论文数学排版逐篇核验.json。600秒是单篇文档生成超时，不是无线时延阈值；超时/失败不能删掉冒充检查通过。数学知识说明已补“通信与时延基础”的E[·]章节，链接P39原文PDF第2页。
+
+先读 records/接续_论文公式核查.md、CHG-019/TEST-020 确定是否已有批次在运行，勿重复启动。39篇完成必须同时有最终生成PASS和逐篇物理核验PASS，不以原先14篇/中间scope批次替代。
