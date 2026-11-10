@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-10",
+  "scope": "Local material presentation and machine translation; no RAN/core/UE experiments.",
+  "papers": {
+    "P36": {
+      "pages": 13,
+      "sha256": "efc1eb17786e5854b427d1008ecac0403a028501104490b5a6e2bf38d2444ee7",
+      "sourceSHA": "e3cf64e72110864addb1efc75de6a07cf1b800f4b219dcd4c339568b7f8c6f7e",
+      "status": "generated",
+      "visualQA": "pending",
+      "seconds": 117.20534733100067,
+      "renderedPages": 13
+    },
+    "P37": {
+      "pages": 4,
+      "sha256": "34e65c34aa6f8fe6e2402c569bac3a86059ac0e3989beeca07ba0470faba4f03",
+      "sourceSHA": "d04dad1e6ebcf8051212648e3531b4146c2e3969ddd18e7221279c7e1b69c137",
+      "status": "generated",
+      "visualQA": "pending",
+      "seconds": 56.881542359005834,
+      "renderedPages": 4
+    },
+    "P38": {
+      "pages": 16,
+      "sha256": "a91884d0150e68a6d00ba570c2bc23110fbe4459c942f8ecfb65671c063ab1de",
+      "sourceSHA": "7c23a43446b1dc58fa072b84a0c0fda79746b3d96fc3ffc3ea83c8e1b03242e1",
+      "status": "generated",
+      "visualQA": "pending",
+      "seconds": 141.68949071800307,
+      "renderedPages": 16
+    },
+    "P39": {
+      "pages": 6,
+      "sha256": "fd33450a6cf7dd88c2fb3a347004805a6e3d9fa4113a535d8c610064eedf41ea",
+      "sourceSHA": "1d8a88487a9589d5a04fc34b8d66d1a4afcf933a8173f015f826a1b6a094416d",
+      "status": "generated",
+      "visualQA": "pending",
+      "seconds": 92.14135199800512,
+      "renderedPages": 6
+    }
+  },
+  "existingOriginalInputsUnchanged": 101,
+  "newProtocol": {
+    "number": "22.104",
+    "version": "19.2.0",
+    "coverDate": "2024-06",
+    "portalUploadDate": "2024-06-28",
+    "originalMember": "22104-j20.doc",
+    "zipCRC": "PASS",
+    "convertedPages": 105,
+    "sourceDownloaded": false,
+    "translatedStatus": "processing"
+  },
+  "paperVisualReview": {
+    "contactSheets": "All 39 pages rendered and contact sheets viewed for gross layout only",
+    "detailPages": {
+      "P36": [
+        1
+      ],
+      "P37": [
+        3
+      ],
+      "P38": [
+        9
+      ]
+    },
+    "semanticReview": "Not performed; pending status preserved"
+  },
+  "warnings": [
+    "PyMuPDF fontTools subset warnings for missing post font table; generated PDFs remained readable.",
+    "P38 source Turkish name glyph warning; proper names require original comparison.",
+    "P39 generator logged scientific-notation content-stream warnings; final pages rendered, not formula equivalence certified.",
+    "DOC cover floating text overlapped in initial conversion; locally reflowed with all other 104 pages pixel-identical.",
+    "Initial sandbox LibreOffice text-read exit1; required escalation retry exit0.",
+    "Initial Firefox screenshot exit1 because dedicated profile folder did not yet exist; mkdir then retry exit0."
+  ],
+  "allHistoricalPapersTranslated": false,
+  "newPaperDraftsGenerated": 4
+}

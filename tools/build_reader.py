@@ -11,6 +11,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
 from markdown_it import MarkdownIt
+from legacy_protocol import reading_docx
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB = ROOT / '网页'
@@ -283,6 +284,8 @@ class Builder:
   pages=int(re.search(r'^Pages:\s*(\d+)',info,re.M)[1]);target=ROOT/'文献'/group/p.name
   target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,target)
   self.papers[pid]={'id':pid,'title':p.stem.split('_',1)[-1] if pid!='book' else '5G移动通信系统设计与标准详解','pages':pages,'file':str(target.relative_to(ROOT)),'sha256':sha(p),'bytes':p.stat().st_size,'kind':group,'citedPages':set(),'_source':p.resolve()}
+  metadata=ROOT/'说明/materials.json'
+  if metadata.is_file():self.papers[pid].update(json.loads(metadata.read_text()).get('papers',{}).get(pid,{}))
  def omml(self,e):
   tag=e.tag.split('}')[-1];cs=list(e)
   def child(n):return next((x for x in cs if x.tag==M+n),None)
@@ -310,7 +313,8 @@ class Builder:
    return '<mover>'+rr(child('e'))+'<mo>'+esc(ch.get(M+'val','¯') if ch is not None else '¯')+'</mo></mover>'
   return '<mrow>'+''.join(rr(x) for x in cs)+'</mrow>'
  def protocol_doc(self,p,spec,pid):
-  with zipfile.ZipFile(p) as z:
+  reading_source=reading_docx(p,self.ws)
+  with zipfile.ZipFile(reading_source) as z:
    bad=z.testzip()
    if bad:raise ValueError(f'Unreadable original DOCX: {p}, {bad}')
    root=ET.fromstring(z.read('word/document.xml'));body=root.find('w:body',NS)
@@ -375,11 +379,14 @@ class Builder:
     if z.testzip():raise ValueError(f'Invalid protocol ZIP: {p}')
    dest=ROOT/'协议/原始压缩包'/p.relative_to(original);dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,dest)
    self.archives.append({'file':str(dest.relative_to(ROOT)),'source':str(p.relative_to(self.ws)),'sha256':sha(p),'bytes':p.stat().st_size})
-  for p in sorted((original/'官方解压原文').rglob('*.docx')):
+  for p in sorted(p for p in (original/'官方解压原文').rglob('*') if p.suffix.lower() in ('.doc','.docx')):
    m=re.match(r'(\d{2})(\d{3})(-\d)?',p.name)
    if not m:raise ValueError(f'Unrecognized protocol identity: {p}')
    spec=m[1]+'.'+m[2]+(m[3] or '');pid='s'+hashlib.sha256(str(p.relative_to(original)).encode()).hexdigest()[:12]
-   d=self.protocol_doc(p,spec,pid);self.protocols[pid]=d;self.specs[spec].append(pid)
+   d=self.protocol_doc(p,spec,pid)
+   metadata=ROOT/'说明/materials.json'
+   if metadata.is_file():d.update(json.loads(metadata.read_text()).get('protocols',{}).get(spec,{}))
+   self.protocols[pid]=d;self.specs[spec].append(pid)
   self.spec_clauses={s:{h['clause'] for pid in ids for h in self.protocols[pid]['toc']} for s,ids in self.specs.items()}
  def render_math(self):
   inp=ROOT/'校验/math-input.json';out=ROOT/'校验/math-output.json';dump(inp,self.math)
@@ -442,4 +449,7 @@ def main():
  if (ROOT/'说明/algorithms.json').is_file():
   from update_algorithm_index import main as update_algorithm_index
   update_algorithm_index()
+ if (ROOT/'说明/reading-notes.json').is_file():
+  from update_reading_notes import main as update_reading_notes
+  update_reading_notes()
 if __name__=='__main__':main()

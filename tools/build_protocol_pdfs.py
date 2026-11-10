@@ -17,6 +17,7 @@ import subprocess
 import tempfile
 import xml.etree.ElementTree as ET
 import zipfile
+from legacy_protocol import reading_docx
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / '阅读转换件/3GPP'
@@ -112,7 +113,7 @@ def main():
         original = original_root/Path(p['file']).relative_to('协议/官方解压原文')
         if not path.is_file() or not original.is_file() or sha(path) != p['sha256'] or sha(original) != p['sha256']:
             raise SystemExit('STOP: original missing or SHA mismatch: '+p['part'])
-        with zipfile.ZipFile(original) as z:
+        with zipfile.ZipFile(reading_docx(original, ROOT.parent)) as z:
             if z.testzip():
                 raise SystemExit('STOP: unreadable original: '+str(original))
             ET.fromstring(z.read('word/document.xml'))

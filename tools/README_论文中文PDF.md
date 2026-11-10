@@ -1,6 +1,6 @@
 # 论文中文 PDF 生成与接续
 
-这是阅读站工程，不启动通信研究/核心网/RAN/UE。3GPP/新增数学推导不适用；忠实翻译本地论文，不把作者旧标准陈述改标为新版认证。35篇论文共407页，book为中文5G教材，不处理。已生成初稿按现有网页功能立即可预览，人工页面核对状态另记，不把generated/pending改称通过。
+这是阅读站工程，不启动通信研究/核心网/RAN/UE。3GPP/新增数学推导不适用；忠实翻译本地论文，不把作者旧标准陈述改标为新版认证。最初 35 篇论文共 407 页；本次补入 P36～P39 后为 39 篇论文、446 页。book 为中文 5G 教材，不处理。已生成初稿按现有网页功能立即可预览，人工页面核对状态另记，不把generated/pending改称通过。
 
 原文在文献/论文/，从网页/catalog.js读取真实身份。译文在阅读转换件/论文中文/Pxx.zh.pdf；说明/paper-translations.json和网页/paper-translations.js为本机运行索引。PDF、运行索引、模型、字体、完整缓存、渲染及被拒稿均不上传Git。其他电脑需要原始论文与阅读转换件目录；只克隆代码不等于附带中文PDF。
 
@@ -36,3 +36,24 @@ python3 -B tools/validate_reader.py
 ```
 
 DOM检查不等于原生浏览器内嵌PDF渲染。所有内容/公式/版式修正记录CHG/TEST并保留拒绝稿。源码依据为PDFMathTranslate与BabelDOC的相应安装版本和官方代码，不以最新版README冒称当前引擎接口；实际版本见aux/environment.json。
+
+
+## 新增本地论文、旧格式协议及中文协议
+
+新文件先放工作区 `pdf-英文原版/`，编号不复用。协议原包由用户提供，先核 CRC、原文编号/封面/可读性，再把原件安全解压到 `3GPP协议原文/官方解压原文/`；不下载协议。当前 TS 22.104 的原件是二进制 DOC，不是 DOCX。辅助 DOCX 在目录外 `analysis-source-audit/protocol-word-conversion/<原件SHA>/`，不伪称官方原文。网站仍提供原 DOC 与原 ZIP。
+
+在阅读站根目录依次运行：
+
+```bash
+python3 -B tools/update_materials.py
+python3 -B tools/build_protocol_pdfs.py --spec 22.104 --jobs 1
+/home/lbh/oiwireless/analysis-source-audit/paper-zh-20261109/venv/bin/python tools/reflow_22104_cover.py
+/home/lbh/oiwireless/analysis-source-audit/paper-zh-20261109/venv/bin/python tools/translate_papers.py --only P36,P37,P38,P39 --engine babel
+/home/lbh/oiwireless/analysis-source-audit/paper-zh-20261109/venv/bin/python tools/translate_protocols.py --spec 22.104 --engine babel
+```
+
+增量登记不重新导出历史研究正文。可维护的标题/版本定位在 `说明/materials.json`，完整构建和增量登记均读取它。新材料原文/中文默认 95% 显示，其他网页字号不变。中文标题可在资料列表和全站搜索找到。
+
+TS 22.104 的 DOC 转换封面曾发生浮动文字重叠；专用脚本只重排本地 PDF 的第一页，原 DOC/ZIP 不改，其余 104 页渲染像素逐页一致。原问题件保留在目录外辅助目录，PDF 内明确标本地重排；本机缺 Arial，重排封面使用 Liberation Sans 替代，不声称嵌入 Arial。`--force` 重做转换后需再次运行封面脚本，再重新生成相应中文稿。
+
+中文协议输出在 `阅读转换件/协议中文/`，运行索引为本机 `说明/protocol-translations.json` 与 `网页/protocol-translations.js`，与论文索引分开。协议原文转换 PDF 的 SHA 是译稿的输入身份；如果原文转换件更新，旧译稿不再显示成匹配稿。协议正文精确解释仍查原 Word，机译不构成官方中文版或标准合规结论。原件、PDF、完整原文检索载荷与运行索引不新增上传 Git；源码、安全元数据、核验与 CHG/TEST 提交。

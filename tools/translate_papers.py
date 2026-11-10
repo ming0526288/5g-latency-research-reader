@@ -5,13 +5,15 @@ Use the isolated, pinned pdf2zh environment recorded in the task's CHG/TEST.
 PDFs/cache/complete extracted text stay local; only provenance enters Git.
 """
 from __future__ import annotations
-import argparse, ast, hashlib, importlib.metadata, json, os, re, threading, time
+import argparse, ast, datetime, hashlib, importlib.metadata, json, os, re, threading, time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 AUX = ROOT.parent / 'analysis-source-audit/paper-zh-20261109'
 OUTPUT = ROOT / '阅读转换件/论文中文'
 MANIFEST = ROOT / '说明/paper-translations.json'
+RUNTIME = ROOT / '网页/paper-translations.js'
+JS_GLOBAL = 'READER_PAPER_TRANSLATIONS'
 
 
 def write_json(path, value):
@@ -254,8 +256,8 @@ def publish(manifest):
             and hashlib.sha256((ROOT/value['file']).read_bytes()).hexdigest() == value.get('sha256')):
             manifest['papers'][key] = value
     write_json(MANIFEST, manifest)
-    target = ROOT/'网页/paper-translations.js'
-    text = 'window.READER_PAPER_TRANSLATIONS=' + json.dumps(
+    target = RUNTIME
+    text = 'window.' + JS_GLOBAL + '=' + json.dumps(
         manifest, ensure_ascii=False, separators=(',', ':')) + ';\n'
     tmp = target.with_suffix('.js.tmp')
     tmp.write_text(text)
@@ -392,10 +394,10 @@ def translate_with_babel(paper, model):
 def run(args):
     papers = [p for p in catalog()['papers'] if p['id'] != 'book']
     priority = {'P05':0,'P01':1,'P31':2,'P24':3}
-    papers.sort(key=lambda p: (priority.get(p['id'],4), int(p['id'][1:])))
+    papers.sort(key=lambda p: (priority.get(p['id'],4), p['id']))
     language = {v['id']: v for v in json.loads((AUX/'language-audit.json').read_text())}
     old = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else {}
-    manifest = {'version': 1, 'updated': '2026-11-09', 'papers': old.get('papers', {}),
+    manifest = {'version': 1, 'updated': datetime.date.today().isoformat(), 'papers': old.get('papers', {}),
                 'excluded': ['book'], 'translationType': 'machine',
                 'layoutScope': 'Original page size; translated text reflows. User accepts figure-placement differences for draft preview.'}
     if args.publish_existing:
@@ -447,6 +449,13 @@ def run(args):
     failures = []
     for paper in chosen:
         ident = paper['id']
+        if ident not in language:
+            # Newly registered local materials are not in the historical audit.
+            # Inspect their actual first pages instead of assuming a language.
+            import fitz
+            with fitz.open(ROOT/paper['file']) as document:
+                sample = '\n'.join(p.get_text() for p in list(document)[:3])
+            language[ident] = {'chinese_original': len(re.findall(r'[\u4e00-\u9fff]', sample)) > max(200, len(sample)*.25)}
         if language[ident]['chinese_original']:
             manifest['papers'][ident] = {'status': 'original-chinese'}
             publish(manifest)

@@ -1,0 +1,39 @@
+{
+  "papers": {
+    "P36": {
+      "title": "Distributed Control for Collaborative Robotic Systems Using 5G Edge Computing",
+      "titleZh": "利用 5G 边缘计算实现协作机器人系统的分布式控制",
+      "publication": "IEEE Access 12 (2024), 148706–148718; DOI 10.1109/ACCESS.2024.3475584",
+      "versionNote": "本地为正式排版版；首页标注发表 2024-10-07、当前版本 2024-10-21。",
+      "sourceUrl": "https://doi.org/10.1109/ACCESS.2024.3475584"
+    },
+    "P37": {
+      "title": "Implementation of Wireless Synchronous Robotic Control in 5G and Edge-Cloud Environments",
+      "titleZh": "5G 与边缘云环境下无线同步机器人控制的实现",
+      "publication": "IEEE CCNC 2025; 4 pages",
+      "versionNote": "本地为 CCNC 2025 会议版；不标为期刊扩展版。",
+      "sourceUrl": "https://vbn.aau.dk/da/publications/implementation-of-wireless-synchronous-robotic-control-in-5g-and-/"
+    },
+    "P38": {
+      "title": "Task-Oriented Scheduling for Networked Control Systems: An Age of Information-Aware Implementation on Software-Defined Radios",
+      "titleZh": "面向网络化控制系统的任务调度：基于软件无线电的信息年龄感知实现",
+      "publication": "arXiv:2202.09189v3 (2022-09-22)",
+      "versionNote": "本地首页为 v3，与本次查阅 arXiv 页面列出的 v3 一致；不改标为另一正式出版版本。",
+      "sourceUrl": "https://arxiv.org/abs/2202.09189"
+    },
+    "P39": {
+      "title": "Value of Information in Networked Control Systems Subject to Delay",
+      "titleZh": "受时延影响的网络化控制系统中的信息价值",
+      "publication": "IEEE CDC 2021, 1275–1280; DOI 10.1109/CDC45484.2021.9683717",
+      "versionNote": "本地为 CDC 2021 六页会议版；arXiv:2104.03355v2 是另一个版本身份，未将本地会议版改标为 v2，也未比较两版本全文差异。",
+      "sourceUrl": "https://portal.fis.tum.de/en/publications/value-of-information-in-networked-control-systems-subject-to-dela/"
+    }
+  },
+  "protocols": {
+    "22.104": {
+      "titleZh": "垂直行业信息物理控制应用的服务需求",
+      "versionNote": "用户原包 22104-j20.zip，原件为 DOC；封面 V19.2.0 (2024-06)，3GPP 门户当前列出的最高版本为 19.2.0，上传日期 2024-06-28（本次在线核对）。中文译稿和转换 PDF 都是本地辅助件。",
+      "sourceUrl": "https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3528"
+    }
+  }
+}

@@ -159,7 +159,19 @@
   });
   return paperTranslationsPromise;
  }
- function translatedPaper(p){return window.READER_PAPER_TRANSLATIONS?.papers?.[p.id];}
+ let protocolTranslationsPromise;
+ function loadProtocolTranslations(force=false){
+  if(force||!protocolTranslationsPromise)protocolTranslationsPromise=new Promise(resolve=>{
+   const script=document.createElement('script');script.src='网页/protocol-translations.js?v='+Date.now().toString(36);
+   script.onload=()=>resolve(window.READER_PROTOCOL_TRANSLATIONS||{papers:{}});
+   script.onerror=()=>resolve({papers:{},unavailable:true});document.head.appendChild(script);
+  });return protocolTranslationsPromise;
+ }
+ function translatedPaper(p){
+  const entry=(p.spec?window.READER_PROTOCOL_TRANSLATIONS:window.READER_PAPER_TRANSLATIONS)?.papers?.[p.id];
+  if(p.spec&&entry?.sourceSHA&&entry.sourceSHA!==window.READER_PROTOCOL_PDFS?.documents?.[p.id]?.sha256)return {status:'source-mismatch'};
+  return entry;
+ }
  function canPreviewTranslation(translated){
   return ['generated','ready'].includes(translated?.status)&&typeof translated.file==='string'&&translated.file.length>0&&Number.isInteger(translated.pages)&&translated.pages>0;
  }
@@ -171,7 +183,7 @@
   const translated=translatedPaper(p);
   if(translated?.status==='original-chinese')return '';
   if(!canPreviewTranslation(translated)){
-   const message=translated?.status==='failed'?'中文 PDF 生成失败，仍可阅读上方原文。':translated?.status==='processing'?'中文 PDF 正在生成，生成后即可预览。':'暂未生成中文 PDF，仍可阅读上方原文。';
+   const message=translated?.status==='source-mismatch'?'中文 PDF 对应的原文转换件已更新，需要重新生成译稿；仍可阅读上方原文。':translated?.status==='failed'?'中文 PDF 生成失败，仍可阅读上方原文。':translated?.status==='processing'?'中文 PDF 正在生成，生成后即可预览。':'暂未生成中文 PDF，仍可阅读上方原文。';
    return `<section class="pdf-translation" aria-labelledby="chinesePdfHeading"><h2 id="chinesePdfHeading">中文译文</h2><p class="pdf-hint">${message}</p><button id="refreshZhPdf" class="soft-button">刷新中文状态</button></section>`;
   }
   const zhPage=Math.max(1,Math.min(translated.pages,page));
@@ -180,7 +192,7 @@
   return `<section class="pdf-translation" aria-labelledby="chinesePdfHeading"><h2 id="chinesePdfHeading">中文译文</h2><p class="pdf-hint">${note}</p><div class="pdf-controls"><button id="prevZhPdf" class="soft-button" ${zhPage===1?'disabled':''}>上一页</button><label>中文 PDF 第 <input id="zhPdfPage" type="number" min="1" max="${translated.pages}" value="${zhPage}"> / ${translated.pages} 页</label><button id="goZhPdf" class="soft-button">跳转</button><button id="nextZhPdf" class="soft-button" ${zhPage===translated.pages?'disabled':''}>下一页</button><button id="syncZhPdf" class="soft-button">对齐原文第 ${page} 页</button><a id="openZhPdf" class="soft-button primary" href="${direct}" target="_blank" rel="noopener">独立打开中文 PDF ↗</a><button id="refreshZhPdf" class="soft-button">刷新中文状态</button></div><iframe id="chinesePdfFrame" class="pdf-frame" title="${E(p.title)}，中文 PDF 第 ${zhPage} 页" src="${direct}" loading="lazy"></iframe></section>`;
  }
  function bindChinesePdf(p,page){
-  if($('#refreshZhPdf'))$('#refreshZhPdf').onclick=()=>{const hash=location.hash;loadPaperTranslations(true).then(()=>{if(location.hash===hash&&$('#chinesePdfPanel')){$('#chinesePdfPanel').innerHTML=chinesePdfPanel(p,page);bindChinesePdf(p,page);}});};
+  if($('#refreshZhPdf'))$('#refreshZhPdf').onclick=()=>{const hash=location.hash;(p.spec?loadProtocolTranslations(true):loadPaperTranslations(true)).then(()=>{if(location.hash===hash&&$('#chinesePdfPanel')){$('#chinesePdfPanel').innerHTML=chinesePdfPanel(p,page);bindChinesePdf(p,page);}});};
   const frame=$('#chinesePdfFrame');if(!frame)return;
   const translated=translatedPaper(p);
   function go(n){
@@ -198,13 +210,13 @@
  }
  function paperLibrary(){
   main.innerHTML=breadcrumbs('文献与材料')+header('SOURCE LIBRARY','文献与材料','点击引用页码即可直达。页码均为本地PDF从1开始的页序。')+`<div class="library-tools"><input id="paperFilter" class="library-input" placeholder="搜索论文名称、P24、QUEST、AUGUSTE…" aria-label="筛选文献"></div><div id="paperList"></div>`;
-  function update(){const q=$('#paperFilter').value.trim().toLowerCase();const ps=C.papers.filter(p=>(p.id+' '+p.title+' '+(canPreviewTranslation(translatedPaper(p))?'中文译文 '+translationLabel(translatedPaper(p)):'' )).toLowerCase().includes(q)).sort((a,b)=>a.id==='book'?-1:b.id==='book'?1:a.id.localeCompare(b.id));$('#paperList').innerHTML=ps.map(p=>`<div class="library-card"><span class="file-icon">${p.id==='book'?'BOOK':p.id}</span><div class="card-body"><h3><a href="#/paper/${p.id}">${E(p.title)}</a></h3><p>${p.pages} 页 · ${(p.bytes/1048576).toFixed(1)} MB · ${p.kind}原文件${canPreviewTranslation(translatedPaper(p))?' · '+translationLabel(translatedPaper(p)):''}</p>${p.citedPages.length?`<div class="page-links">${p.citedPages.slice(0,18).map(n=>`<a class="page-link" href="#/paper/${p.id}?page=${n}">第${n}页</a>`).join('')}</div>`:''}</div><a class="soft-button" href="#/paper/${p.id}">阅读 ↗</a></div>`).join('')||'<div class="empty-state">没有找到匹配的文献。</div>';}update();$('#paperFilter').addEventListener('input',update);loadPaperTranslations().then(()=>{if($('#paperFilter'))update();});
+  function update(){const q=$('#paperFilter').value.trim().toLowerCase();const ps=C.papers.filter(p=>(p.id+' '+p.title+' '+(p.titleZh||'')+' '+(canPreviewTranslation(translatedPaper(p))?'中文译文 '+translationLabel(translatedPaper(p)):'' )).toLowerCase().includes(q)).sort((a,b)=>a.id==='book'?-1:b.id==='book'?1:a.id.localeCompare(b.id));$('#paperList').innerHTML=ps.map(p=>`<div class="library-card"><span class="file-icon">${p.id==='book'?'BOOK':p.id}</span><div class="card-body"><h3><a href="#/paper/${p.id}">${E(p.title)}</a></h3>${p.titleZh?`<p>${E(p.titleZh)}</p>`:''}<p>${p.pages} 页 · ${(p.bytes/1048576).toFixed(1)} MB · ${p.kind}原文件${canPreviewTranslation(translatedPaper(p))?' · '+translationLabel(translatedPaper(p)):''}</p>${p.citedPages.length?`<div class="page-links">${p.citedPages.slice(0,18).map(n=>`<a class="page-link" href="#/paper/${p.id}?page=${n}">第${n}页</a>`).join('')}</div>`:''}</div><a class="soft-button" href="#/paper/${p.id}">阅读 ↗</a></div>`).join('')||'<div class="empty-state">没有找到匹配的文献。</div>';}update();$('#paperFilter').addEventListener('input',update);loadPaperTranslations().then(()=>{if($('#paperFilter'))update();});
  }
  function paperView(id,params){
   const p=C.papers.find(p=>p.id===id);if(!p)return missing('没有找到这份文献。');
   const page=Math.max(1,Math.min(p.pages,Number(params.get('page'))||1));const direct=encodeURI(p.file)+'#page='+page+'&zoom=95';
   let back=storage.get('returnTo','#/library/papers');if(!back.startsWith('#/doc/'))back='#/library/papers';
-  main.innerHTML=`<section class="pdf-view">${breadcrumbs('文献原文')}<div class="eyebrow">${E(p.id==='book'?'TEXTBOOK':p.id)} · LOCAL PDF</div><h1>${E(p.title)}</h1><div class="pdf-controls"><a class="soft-button" href="${E(back)}">← 返回阅读文档</a><button id="prevPdf" class="soft-button" ${page===1?'disabled':''}>上一页</button><label>本地PDF第 <input id="pdfPage" type="number" min="1" max="${p.pages}" value="${page}"> / ${p.pages} 页</label><button id="goPdf" class="soft-button">跳转</button><button id="nextPdf" class="soft-button" ${page===p.pages?'disabled':''}>下一页</button><a class="soft-button primary" href="${direct}" target="_blank" rel="noopener">独立打开PDF ↗</a></div>${p.id!=='book'?'<h2>英文原文</h2>':''}<iframe class="pdf-frame" title="${E(p.title)}，本地PDF第${page}页" src="${direct}"></iframe><p class="pdf-hint">若浏览器未内嵌显示PDF，请点击“独立打开PDF”。采用PDF页序定位，可能与论文印刷页码不同。文件：${E(p.file)}</p><div id="chinesePdfPanel">${chinesePdfPanel(p,page)}</div></section>`;
+  main.innerHTML=`<section class="pdf-view">${breadcrumbs('文献原文')}<div class="eyebrow">${E(p.id==='book'?'TEXTBOOK':p.id)} · LOCAL PDF</div><h1>${E(p.title)}</h1>${p.titleZh?`<p>${E(p.titleZh)}</p><p class="pdf-hint">${E(p.publication||'')} · ${E(p.versionNote||'')}</p>`:''}<div class="pdf-controls"><a class="soft-button" href="${E(back)}">← 返回阅读文档</a><button id="prevPdf" class="soft-button" ${page===1?'disabled':''}>上一页</button><label>本地PDF第 <input id="pdfPage" type="number" min="1" max="${p.pages}" value="${page}"> / ${p.pages} 页</label><button id="goPdf" class="soft-button">跳转</button><button id="nextPdf" class="soft-button" ${page===p.pages?'disabled':''}>下一页</button><a class="soft-button primary" href="${direct}" target="_blank" rel="noopener">独立打开PDF ↗</a></div>${p.id!=='book'?'<h2>英文原文</h2>':''}<iframe class="pdf-frame" title="${E(p.title)}，本地PDF第${page}页" src="${direct}"></iframe><p class="pdf-hint">若浏览器未内嵌显示PDF，请点击“独立打开PDF”。采用PDF页序定位，可能与论文印刷页码不同。文件：${E(p.file)}</p><div id="chinesePdfPanel">${chinesePdfPanel(p,page)}</div></section>`;
   function go(n){location.hash=`#/paper/${id}?page=${Math.max(1,Math.min(p.pages,n))}`;}
   $('#goPdf').onclick=()=>go(Number($('#pdfPage').value)||1);$('#pdfPage').onkeydown=e=>{if(e.key==='Enter')$('#goPdf').click();};$('#prevPdf').onclick=()=>go(page-1);$('#nextPdf').onclick=()=>go(page+1);
   bindChinesePdf(p,page);
@@ -219,7 +231,7 @@
  function protocolLibrary(){
   const specs=Object.groupBy?Object.groupBy(C.protocols,p=>p.spec):C.protocols.reduce((a,p)=>((a[p.spec]??=[]).push(p),a),{});
   main.innerHTML=breadcrumbs('3GPP 协议')+header('STANDARDS LIBRARY','3GPP 协议库','点击即可预览 PDF；由用户提供的 Word 本地转换，原 Word、ZIP 与条款检索入口保留。')+`<div class="library-tools"><input id="protocolFilter" class="library-input" placeholder="查找协议编号，例如38.321、38.331、23.501…" aria-label="查找协议"></div><div id="protocolList"></div>`;
-  function update(){const q=$('#protocolFilter').value.trim().toLowerCase();$('#protocolList').innerHTML=Object.entries(specs).filter(([s,ps])=>(s+' '+ps[0].version).includes(q)).sort(([a],[b])=>a.localeCompare(b)).map(([spec,parts])=>`<div class="library-card"><span class="file-icon">3GPP</span><div class="card-body"><h3><a href="#/protocol/${spec}">TS ${spec}</a> <span class="pill">V${E(parts[0].version)}</span></h3><p>${parts.length} 个原文分册 · PDF 预览 · 保留原 Word 与 ZIP</p><div class="page-links">${parts.length>1?parts.map(p=>`<a class="page-link" href="#/protocol/${spec}?part=${p.id}">${E(p.part)}</a>`).join(''):['4','5','6'].filter(n=>parts[0].toc.some(t=>t.clause===n)).map(n=>`<a class="page-link" href="#/protocol/${spec}?clause=${n}">第${n}章</a>`).join('')}</div></div><a class="soft-button" href="#/protocol/${spec}">阅读 PDF ↗</a></div>`).join('')||'<div class="empty-state">没有找到匹配的协议。</div>';}update();$('#protocolFilter').addEventListener('input',update);
+  function update(){const q=$('#protocolFilter').value.trim().toLowerCase();$('#protocolList').innerHTML=Object.entries(specs).filter(([s,ps])=>(s+' '+ps[0].version+' '+(ps[0].titleZh||'')).toLowerCase().includes(q)).sort(([a],[b])=>a.localeCompare(b)).map(([spec,parts])=>`<div class="library-card"><span class="file-icon">3GPP</span><div class="card-body"><h3><a href="#/protocol/${spec}">TS ${spec}</a> <span class="pill">V${E(parts[0].version)}</span></h3>${parts[0].titleZh?`<p>${E(parts[0].titleZh)}</p>`:''}<p>${parts.length} 个原文分册 · PDF 预览 · 保留原 Word 与 ZIP</p><div class="page-links">${parts.length>1?parts.map(p=>`<a class="page-link" href="#/protocol/${spec}?part=${p.id}">${E(p.part)}</a>`).join(''):['4','5','6'].filter(n=>parts[0].toc.some(t=>t.clause===n)).map(n=>`<a class="page-link" href="#/protocol/${spec}?clause=${n}">第${n}章</a>`).join('')}</div></div><a class="soft-button" href="#/protocol/${spec}">阅读 PDF ↗</a></div>`).join('')||'<div class="empty-state">没有找到匹配的协议。</div>';}update();$('#protocolFilter').addEventListener('input',update);
  }
  let protocolPdfLoading;
  function protocolPdfs(){
@@ -236,11 +248,17 @@
   const direct=encodeURI(pdf.file)+'#page='+page+'&zoom=95';
   const clauseNotice=clause?(pdf.clausePages[clause]?`条款 ${E(clause)} 起于转换 PDF 第 ${pdf.clausePages[clause]} 页；当前显示第 ${page} 页。`:`尚未核定条款 ${E(clause)} 的转换 PDF 页序，请使用“条款网页检索”。`):'';
   let back=storage.get('returnTo','#/library/protocols');if(!back.startsWith('#/doc/'))back='#/library/protocols';
-  main.innerHTML=`<section class="pdf-view">${breadcrumbs('3GPP 协议 / TS '+spec)}<div class="eyebrow">3GPP TS ${E(spec)} · V${E(p.version)} · LOCAL PDF</div><h1>TS ${E(spec)} · V${E(p.version)}</h1><p class="pdf-hint">由用户提供的 Word 本地转换，非 3GPP 官方下载 PDF；原 Word 与 ZIP 保留。${E(p.part)} · ${pdf.pages} 页。</p>${mismatch?`<div class="source-notice"><strong>版本提示：引用为 V${E(requestedVersion)}，此原文及转换件为 V${E(p.version)}，不能视为相同版本。</strong></div>`:''}<div class="pdf-controls"><a class="soft-button" href="${E(back)}">← 返回阅读文档</a><a class="soft-button primary" href="${direct}" target="_blank" rel="noopener">独立打开 PDF ↗</a><a class="soft-button" href="${encodeURI(p.file)}" target="_blank" rel="noopener">打开 Word 原文 ↗</a>${p.archive?`<a class="soft-button" href="${encodeURI(p.archive)}" download>原始 ZIP</a>`:''}<a class="soft-button" href="${E(textUrl)}">条款网页检索</a>${parts.length>1?`<select id="protocolPart" aria-label="选择原文分册">${parts.map(x=>`<option value="${x.id}" ${x.id===p.id?'selected':''}>${E(x.part)}</option>`).join('')}</select>`:''}</div><div class="pdf-controls"><button id="prevPdf" class="soft-button" ${page===1?'disabled':''}>上一页</button><label>本地 PDF 第 <input id="pdfPage" type="number" min="1" max="${pdf.pages}" value="${page}"> / ${pdf.pages} 页</label><button id="goPdf" class="soft-button">跳转</button><button id="nextPdf" class="soft-button" ${page===pdf.pages?'disabled':''}>下一页</button><span class="pdf-hint">${clauseNotice}</span></div><iframe class="pdf-frame" title="TS ${E(spec)} V${E(p.version)}，本地转换 PDF 第 ${page} 页" src="${direct}"></iframe><p class="pdf-hint">转换页序可能与原 Word 的印刷页码不同。可放大查看图表；复杂版式需精确核对时仍以原 Word 为准。</p></section>`;
+  main.innerHTML=`<section class="pdf-view">${breadcrumbs('3GPP 协议 / TS '+spec)}<div class="eyebrow">3GPP TS ${E(spec)} · V${E(p.version)} · LOCAL PDF</div><h1>TS ${E(spec)} · V${E(p.version)}</h1>${p.titleZh?`<p>${E(p.titleZh)}</p><p class="pdf-hint">${E(p.versionNote||'')}</p>`:''}<p class="pdf-hint">由用户提供的 Word 本地转换，非 3GPP 官方下载 PDF；原 Word 与 ZIP 保留。${E(p.part)} · ${pdf.pages} 页。</p>${mismatch?`<div class="source-notice"><strong>版本提示：引用为 V${E(requestedVersion)}，此原文及转换件为 V${E(p.version)}，不能视为相同版本。</strong></div>`:''}<div class="pdf-controls"><a class="soft-button" href="${E(back)}">← 返回阅读文档</a><a class="soft-button primary" href="${direct}" target="_blank" rel="noopener">独立打开 PDF ↗</a><a class="soft-button" href="${encodeURI(p.file)}" target="_blank" rel="noopener">打开 Word 原文 ↗</a>${p.archive?`<a class="soft-button" href="${encodeURI(p.archive)}" download>原始 ZIP</a>`:''}<a class="soft-button" href="${E(textUrl)}">条款网页检索</a>${parts.length>1?`<select id="protocolPart" aria-label="选择原文分册">${parts.map(x=>`<option value="${x.id}" ${x.id===p.id?'selected':''}>${E(x.part)}</option>`).join('')}</select>`:''}</div><div class="pdf-controls"><button id="prevPdf" class="soft-button" ${page===1?'disabled':''}>上一页</button><label>本地 PDF 第 <input id="pdfPage" type="number" min="1" max="${pdf.pages}" value="${page}"> / ${pdf.pages} 页</label><button id="goPdf" class="soft-button">跳转</button><button id="nextPdf" class="soft-button" ${page===pdf.pages?'disabled':''}>下一页</button><span class="pdf-hint">${clauseNotice}</span></div><iframe class="pdf-frame" title="TS ${E(spec)} V${E(p.version)}，本地转换 PDF 第 ${page} 页" src="${direct}"></iframe><p class="pdf-hint">转换页序可能与原 Word 的印刷页码不同。可放大查看图表；复杂版式需精确核对时仍以原 Word 为准。</p><div id="chinesePdfPanel">${chinesePdfPanel(p,page)}</div></section>`;
   const go=n=>{location.hash=base+'&page='+Math.max(1,Math.min(pdf.pages,n));};
   $('#goPdf').onclick=()=>go(Number($('#pdfPage').value)||1);$('#pdfPage').onkeydown=e=>{if(e.key==='Enter')$('#goPdf').click();};$('#prevPdf').onclick=()=>go(page-1);$('#nextPdf').onclick=()=>go(page+1);
   if($('#protocolPart'))$('#protocolPart').onchange=e=>{location.hash='#/protocol/'+spec+'?part='+e.target.value;};
   setToc(c.toc,base,h=>pdf.clausePages[h.clause]?base+'&clause='+encodeURIComponent(h.clause):base+'&view=text&anchor='+encodeURIComponent(h.id));
+  bindChinesePdf(p,page);
+  const currentHash=location.hash;
+  loadProtocolTranslations().then(()=>{
+   if(location.hash!==currentHash||!$('#chinesePdfPanel'))return;
+   $('#chinesePdfPanel').innerHTML=chinesePdfPanel(p,page);bindChinesePdf(p,page);
+  });
  }
  async function protocolView(spec,params,seq){
   const parts=C.protocols.filter(p=>p.spec===spec);if(!parts.length)return missing('没有找到这个协议编号的本地原文。');
@@ -279,9 +297,9 @@
   const q=$('#searchInput').value.trim();if(!q){$('#searchResults').innerHTML='<div class="empty-state">输入关键词，从研究资料中查找。<br>例如：单向时延、HOL、SR周期、预算、38.321</div>';return;}
   const terms=q.toLowerCase().split(/\s+/);const results=[];
   for(const d of C.docs){const title=d.title.toLowerCase(),body=d.search.toLowerCase();if(!terms.every(t=>title.includes(t)||body.includes(t)))continue;let score=terms.reduce((n,t)=>n+(title.includes(t)?12:1),0)+(d.group==='knowledge'?5:0)+(d.source.startsWith('oi-wireless-ran-latency-analysis/')?3:0);const at=body.indexOf(terms[0]);const start=Math.max(0,at-35);results.push({url:docUrl(d),title:d.title,group:groups[d.group],snippet:d.search.slice(start,start+150).replace(/\s+/g,' '),score});}
-  for(const p of C.papers){if(terms.every(t=>(p.title+' '+p.id).toLowerCase().includes(t)))results.push({url:'#/paper/'+p.id,title:p.id+' · '+p.title,group:'文献原文',snippet:p.pages+'页 · 本地PDF',score:20});}
+  for(const p of C.papers){if(terms.every(t=>(p.title+' '+p.id+' '+(p.titleZh||'')).toLowerCase().includes(t)))results.push({url:'#/paper/'+p.id,title:p.id+' · '+p.title,group:'文献原文',snippet:p.pages+'页 · 本地PDF',score:20});}
   for(const f of algorithmFamilies){if(terms.every(t=>[f.name,f.code,f.subtitle,f.description,...f.keywords].join(' ').toLowerCase().includes(t)))results.push({url:algorithmUrl(f,'results'),title:f.name+' · 算法入口',group:'算法分类',snippet:f.description+' 可切换到算法知识点，查看对应知识与结果。',score:40});}
-  for(const p of C.protocols){if(terms.every(t=>(p.spec+' '+p.version+' '+p.title).toLowerCase().includes(t)))results.push({url:'#/protocol/'+p.spec+'?part='+p.id,title:p.title,group:'协议原文',snippet:p.part,score:25});}
+  for(const p of C.protocols){if(terms.every(t=>(p.spec+' '+p.version+' '+p.title+' '+(p.titleZh||'')).toLowerCase().includes(t)))results.push({url:'#/protocol/'+p.spec+'?part='+p.id,title:p.title,group:'协议原文',snippet:p.part,score:25});}
   results.sort((a,b)=>b.score-a.score);$('#searchResults').innerHTML=results.length?results.slice(0,50).map(r=>`<a class="search-result" href="${r.url}"><small>${E(r.group)}</small><strong>${highlight(r.title,q)}</strong><p>${highlight(r.snippet,q)}</p></a>`).join('')+`<div class="search-help">找到 ${results.length} 项，显示前 ${Math.min(results.length,50)} 项。</div>`:'<div class="empty-state">没有找到匹配结果，请换一个关键词。</div>';
  }
  const dialog=$('#searchDialog');function openSearch(){dialog.showModal();setTimeout(()=>$('#searchInput').focus(),20);search();}

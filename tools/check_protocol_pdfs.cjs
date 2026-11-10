@@ -50,7 +50,7 @@ class Loader extends ResourceLoader{fetch(url,options){if(options.element?.local
   const selected=multi.find(p=>p.id===d.querySelector('#protocolPart').value);assert(!selected.part.includes('cover'));
   const last=multi[multi.length-1];d.querySelector('#protocolPart').value=last.id;d.querySelector('#protocolPart').dispatchEvent(new w.Event('change'));
   await until(()=>d.querySelector('.pdf-frame')?.getAttribute('src').includes(last.part+'.pdf'),'multi-part change');
-  steps.push('All 34 source-matched PDF previews exist; multipart selection defaults to main body and switches correctly');
+  steps.push('All '+ids.length+' source-matched PDF previews exist; multipart selection defaults to main body and switches correctly');
   assert.deepEqual(errors,[]);
   const report={status:'PASS',steps,parts:ids.length,scope:'Real local reader scripts and DOM routes; PDF native viewer pixels and remote client access checked separately.'};
   fs.writeFileSync(path.join(root,'校验/协议PDF阅读交互核验.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
