@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "papers": [
+    "P36",
+    "P37",
+    "P38",
+    "P39"
+  ],
+  "protocol": "22.104 V19.2.0",
+  "steps": [
+    "Paper library finds P36 by its Chinese title",
+    "All four originals and Chinese drafts have matching SHA/page counts and independent bounded paging",
+    "TS 22.104 DOC/ZIP retained, readable original/Chinese 105-page PDFs, actual clause mapping and paging",
+    "A protocol draft from an outdated converted source is not displayed as matching"
+  ],
+  "errors": [],
+  "scope": "Actual local reader DOM/file hashes/paging/search; not translation semantic certification or native PDF pixel verification."
+}

@@ -49,7 +49,16 @@
     "zipCRC": "PASS",
     "convertedPages": 105,
     "sourceDownloaded": false,
-    "translatedStatus": "processing"
+    "translatedStatus": "generated",
+    "translationPages": 105,
+    "translationSHA": "2e9aea05ebb83f376d81645f344346065d3a18e5274e83e9825458eb327a8bcd",
+    "translationSourceSHA": "4e8b808ce2355c21acc1bb52592fc572f1010f64c84bb407a431a31891a3869c",
+    "seconds": 778.1603003479977,
+    "ChineseCharacters": 45541,
+    "visualQA": "pending",
+    "renderedPages": 105,
+    "contactSheetPagesViewed": 105,
+    "nativeFirefoxPageViewed": 10
   },
   "paperVisualReview": {
     "contactSheets": "All 39 pages rendered and contact sheets viewed for gross layout only",
@@ -75,5 +84,8 @@
     "Initial Firefox screenshot exit1 because dedicated profile folder did not yet exist; mkdir then retry exit0."
   ],
   "allHistoricalPapersTranslated": false,
-  "newPaperDraftsGenerated": 4
+  "newPaperDraftsGenerated": 4,
+  "functionalCheck": "PASS tools/check_robotics_materials.cjs",
+  "liveHTTPCheck": "PASS 15 resources including 10 original/Chinese PDFs",
+  "originalWordArchivesDownloaded": false
 }

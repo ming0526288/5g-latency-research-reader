@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "file": "网页/app.js",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "file": "网页/catalog.js",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "file": "网页/paper-translations.js",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "file": "网页/protocol-translations.js",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "file": "网页/protocol-pdfs.js",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "file": "文献/论文/36_Distributed_Control_for_Collaborative_Robotic_Systems_Using_5G_Edge_Computing.pdf",
+      "status": 200,
+      "method": "HEAD"
+    },
+    {
+      "file": "文献/论文/37_Implementation_of_Wireless_Synchronous_Robotic_Control_in_5G_and_Edge-Cloud_Environments.pdf",
+      "status": 200,
+      "method": "HEAD"
+    },
+    {
+      "file": "文献/论文/38_Task_Oriented Scheduling for Networked Control.pdf",
+      "status": 200,
+      "method": "HEAD"
+    },
+    {
+      "file": "文献/论文/39_Value_of_Information_in_Networked_Control_Systems_Subject_to_Delay.pdf",
+      "status": 200,
+      "method": "HEAD"
+    },
+    {
+      "file": "阅读转换件/论文中文/P36.zh.pdf",
+      "status": 200,
+      "method": "HEAD"
+    },
+    {
+      "file": "阅读转换件/论文中文/P37.zh.pdf",
+      "status": 200,
+      "method": "HEAD"
+    },
+    {
+      "file": "阅读转换件/论文中文/P38.zh.pdf",
+      "status": 200,
+      "method": "HEAD"
+    },
+    {
+      "file": "阅读转换件/论文中文/P39.zh.pdf",
+      "status": 200,
+      "method": "HEAD"
+    },
+    {
+      "file": "阅读转换件/3GPP/22104-j20.pdf",
+      "status": 200,
+      "method": "HEAD"
+    },
+    {
+      "file": "阅读转换件/协议中文/sa8970741f141.zh.pdf",
+      "status": 200,
+      "method": "HEAD"
+    }
+  ],
+  "scope": "Existing loopback HTTP resources only; no VPN/client verification or server restart."
+}
