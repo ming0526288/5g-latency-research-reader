@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "identities": [
+    {
+      "id": "kc3e4e8560cabef23",
+      "source": "说明/算法知识点说明/00_通信与时延基础知识.md",
+      "sha256": "7941e6613d55b5d0e4d7d424fb3b1df549e61e64f7f58456d922516bb8eec113",
+      "published": true
+    },
+    {
+      "id": "ac7b03c5f301d78d4",
+      "source": "说明/算法知识点说明/AUGUSTE_知识点说明.md",
+      "sha256": "9cef577c4dcc6a569d3ff0162b8e72ad1f2fadda7b5d254146e131f1837f622a",
+      "published": false
+    }
+  ],
+  "basicNavigation": true,
+  "newSectionInDOM": true,
+  "newSectionSearchable": true,
+  "sourceLinks": true,
+  "teachingArithmetic": true,
+  "archivedAlgorithmStatePreserved": true,
+  "consoleErrors": [],
+  "scope": "Knowledge/DOM check only; no communication experiment or latency-gain claim."
+}
