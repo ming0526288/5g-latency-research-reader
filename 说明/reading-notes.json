@@ -83,7 +83,7 @@
       "commandStep": "step-1",
       "planTopic": "step-1-plan",
       "resultTopic": "step-1",
-      "commandStatus": "pending-validation"
+      "commandStatus": "validated"
     },
     {
       "source": "说明/启动命令/第二步启动命令.md",

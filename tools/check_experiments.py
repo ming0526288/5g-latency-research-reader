@@ -107,6 +107,22 @@ def main():
             page_checks.append({'id': d['id'], 'title': d['title'], 'kind': 'not-started-placeholder',
                                 'canonicalSourceSHA': d['sha256']})
             continue
+        if item.get('status') == 'complete':
+            assert item['topic'] == 'step-1' and d['status'] == 'complete'
+            completed = json.loads((ROOT/'说明/研究结果与分析/数据/第一步_三轮基线.json').read_text())
+            assert completed['status'] == 'PASS' and completed['statistical_transactions'] == 6000
+            assert completed['complete_transactions'] == 6600 and len(completed['cases']) == 3
+            assert html.count('<figure') >= 2 and html.count('<table') >= 4
+            assert '6600' in html and '6000' in html and '尚未执行，暂无结果与分析' not in html
+            for case in completed['cases']:
+                for number in case['statistics']['RTT_ms'].values():
+                    assert f'{number:.6f}' in html
+            plan = next(x for x in docs.values() if x.get('topic') == item['planTopic'])
+            assert d['researchStep'] == plan['researchStep']
+            assert '#/doc/' + plan['id'] in html and '#/doc/' + d['id'] in payload(plan['id'])['html']
+            page_checks.append({'id': d['id'], 'kind': 'complete-new-baseline', 'canonicalSourceSHA': d['sha256'],
+                                'complete': 6600, 'statistical': 6000})
+            continue
         assert html.count('<figure') >= 2 and '错误' in html
         assert 'FORMULAHOLDER' not in html and '原文路径未包含可展示图片' not in html
         assert '#/local' not in html, 'Explanations must have portable evidence, not workstation-only links'

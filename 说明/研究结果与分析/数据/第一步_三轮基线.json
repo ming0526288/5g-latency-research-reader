@@ -1,0 +1,221 @@
+{
+  "status": "PASS",
+  "root": "/home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/main-01",
+  "method": "step1-rtt-v3",
+  "build": {
+    "commit": "55c7b2be8a2f8fb77c9decf0b44156c687f42f1a",
+    "binary_sha256": {
+      "nr-softmodem": "e56c2deaefbd2152335c9f274062b7c374c46c7f1c814541dae2d37bb4cec6af",
+      "nr-uesoftmodem": "d683c2b190aad5d11a6bf59ac094dce621bf1636cd6e0a848328f791d0d0c68f",
+      "libcoding.so": "dff866cadf6441fee38d90cd1a3d22204657179d3642b11e1321cda02e0dfdf7",
+      "libdfts.so": "dda1f9280f95e2968163713972cb9879fe034030ab572e9aae19646130fa1eae",
+      "libldpc.so": "6e11e77cc3ffd4009bde5739749e2f4fc4d41f041870e812616eb4cbafc338c1",
+      "libldpc_optim.so": "12cc3434ccfe195241c50eb653ce830d9dbdd659b0e76ce3824d75e31b8cffaa",
+      "libldpc_optim8seg.so": "854472a9555845d46f84f990d77cf0e091f64cd657b4c5694672fdd9e8e7a5eb",
+      "libldpc_orig.so": "b0df57932db7ee32bf5162d196f40093df963911ba06e2b0e71c2bcf81a643aa",
+      "libparams_libconfig.so": "b5817b1d0accb456fb04cdded988a014a9c9b3857fa8f48562673bee7f2e76dd",
+      "librfsimulator.so": "a84bcc462cc2437b7e08029082cc01422a4096a030b70f1a4d4f7d0dfd546558"
+    },
+    "build_log": "/home/lbh/oiwireless/analysis-source-audit/ping-slot-validation-20261109/build-01.log",
+    "source_base": "61654513d522610db09207ce36220c1e1ff76937",
+    "scope": "Fresh full build including retransmission RB pointer fix; no new production C change",
+    "communication_source_commit": "159208eb2f6f8ebe81ea5e4dc1fdd964250b5511",
+    "method_commit": "438e898c849467c66b3a1b5e0c6c985199b36de6",
+    "runtime_scope": "Copied hash-identical verified repaired binaries; no new build or C modification",
+    "production_source_files": 2248
+  },
+  "cases": [
+    {
+      "case": "main-r1",
+      "repeat": 1,
+      "seed": 12001,
+      "complete": 2200,
+      "statistical": 2000,
+      "sent": 2200,
+      "server_requests": 2200,
+      "responses": 2200,
+      "missing": 0,
+      "duplicate_transactions": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "mean_actual_interarrival_ms": 20.21140366166439,
+      "max_clock_difference_ms": 0.00434,
+      "send_lateness_ms": {
+        "mean": 0.054246342272727274,
+        "p50": 0.0545685,
+        "p95": 0.05607085,
+        "p99": 0.057173409999999994,
+        "max": 0.068911
+      },
+      "statistics": {
+        "UL_ms": {
+          "mean": 1.905695513,
+          "p50": 1.887581,
+          "p95": 2.7126315500000002,
+          "p99": 3.32016925,
+          "max": 4.599053
+        },
+        "reply_ms": {
+          "mean": 0.0039760295,
+          "p50": 0.003927,
+          "p95": 0.006120699999999999,
+          "p99": 0.00718903,
+          "max": 0.012329
+        },
+        "DL_ms": {
+          "mean": 0.3093473565,
+          "p50": 0.3048855,
+          "p95": 0.39486785,
+          "p99": 0.47281061999999996,
+          "max": 0.645994
+        },
+        "RTT_ms": {
+          "mean": 2.219018899,
+          "p50": 2.1984019999999997,
+          "p95": 3.0608642,
+          "p99": 3.7579105599999996,
+          "max": 5.14482
+        }
+      }
+    },
+    {
+      "case": "main-r2",
+      "repeat": 2,
+      "seed": 12002,
+      "complete": 2200,
+      "statistical": 2000,
+      "sent": 2200,
+      "server_requests": 2200,
+      "responses": 2200,
+      "missing": 0,
+      "duplicate_transactions": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "mean_actual_interarrival_ms": 20.123374496134605,
+      "max_clock_difference_ms": 0.003719,
+      "send_lateness_ms": {
+        "mean": 0.05422700772727273,
+        "p50": 0.054542,
+        "p95": 0.05606649999999999,
+        "p99": 0.05713835999999999,
+        "max": 0.065134
+      },
+      "statistics": {
+        "UL_ms": {
+          "mean": 1.976610236,
+          "p50": 1.9532915,
+          "p95": 2.80758915,
+          "p99": 3.4238758799999998,
+          "max": 4.269455
+        },
+        "reply_ms": {
+          "mean": 0.003805755,
+          "p50": 0.003768,
+          "p95": 0.00587205,
+          "p99": 0.007235640000000001,
+          "max": 0.015624
+        },
+        "DL_ms": {
+          "mean": 0.3167361885,
+          "p50": 0.31218049999999997,
+          "p95": 0.40879245000000003,
+          "p99": 0.46410091000000003,
+          "max": 0.636988
+        },
+        "RTT_ms": {
+          "mean": 2.2971521795,
+          "p50": 2.2746635,
+          "p95": 3.16828095,
+          "p99": 3.82617049,
+          "max": 4.827559
+        }
+      }
+    },
+    {
+      "case": "main-r3",
+      "repeat": 3,
+      "seed": 12003,
+      "complete": 2200,
+      "statistical": 2000,
+      "sent": 2200,
+      "server_requests": 2200,
+      "responses": 2200,
+      "missing": 0,
+      "duplicate_transactions": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "mean_actual_interarrival_ms": 19.9177033792633,
+      "max_clock_difference_ms": 0.002603,
+      "send_lateness_ms": {
+        "mean": 0.05434155727272727,
+        "p50": 0.05459,
+        "p95": 0.05627865,
+        "p99": 0.05718015,
+        "max": 0.072397
+      },
+      "statistics": {
+        "UL_ms": {
+          "mean": 1.8403109475,
+          "p50": 1.80061,
+          "p95": 2.7236235000000004,
+          "p99": 3.22056398,
+          "max": 3.727681
+        },
+        "reply_ms": {
+          "mean": 0.0039528895,
+          "p50": 0.00387,
+          "p95": 0.0059034,
+          "p99": 0.0074334200000000005,
+          "max": 0.014282
+        },
+        "DL_ms": {
+          "mean": 0.2941923245,
+          "p50": 0.2853315,
+          "p95": 0.38318510000000006,
+          "p99": 0.43529645,
+          "max": 0.675035
+        },
+        "RTT_ms": {
+          "mean": 2.1384561615,
+          "p50": 2.089417,
+          "p95": 3.08237595,
+          "p99": 3.6246849400000003,
+          "max": 4.137617
+        }
+      }
+    }
+  ],
+  "complete_transactions": 6600,
+  "statistical_transactions": 6000,
+  "frozen_inputs_checked": 2306,
+  "elapsed_s": 195.11027061601635,
+  "original_core_unchanged": true,
+  "per_round_quantiles": true,
+  "request_response_payload_bytes": 256,
+  "target_request_Mbps": 0.1024,
+  "statistics_scope": "Single-host RFsim, 3 restarts/seeds, no optimized algorithm or robot control, no P99.9 guarantee"
+}

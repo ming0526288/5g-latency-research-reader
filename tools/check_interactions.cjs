@@ -131,6 +131,13 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
     assert(d.querySelector('.article a[href="#/doc/'+plan.id+'"]'));
     continue;
    }
+   if(resultDoc.status==='complete'){
+    assert.equal(resultDoc.researchStep,'step-1');
+    assert(d.querySelector('.article').textContent.includes('6600')&&d.querySelector('.article').textContent.includes('6000'));
+    assert(d.querySelectorAll('.article figure').length>=2&&d.querySelectorAll('.article table').length>=4);
+    assert(!d.querySelector('.article').textContent.includes('尚未执行，暂无结果与分析'));
+    continue;
+   }
    assert(d.querySelectorAll('.article figure').length>=2);
    assert(d.querySelector('.article a[href^="网页/images/"][target="_blank"]'));
    const backlink=[...d.querySelectorAll('.article a')].find(a=>a.getAttribute('href').startsWith('#/doc/'+cat.knowledgeTopics[topic]+'?anchor='));

@@ -14,7 +14,7 @@
   "newPlan": {
     "id": "r9add2badaf2ad40d",
     "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
-    "sha256": "3edc49eb071e400b7b13a13db1e763d1505e52c373fd6ec38d88e4db62f31a11",
+    "sha256": "dfc61dd06d148a5385ad18c1e763cdb142f84ac254e7403b9397af349e916dd6",
     "toc": 9,
     "firstPerson": true
   },
@@ -22,9 +22,10 @@
     "step": "step-1",
     "planId": "r17d0d9c36fcc691f",
     "resultId": "ede23798813389995",
-    "resultStatus": "not-started",
+    "resultStatus": "complete",
     "mutualLinks": true,
-    "emptyResults": true
+    "completedFirstStep": true,
+    "remainingEmptyResults": 11
   },
   "publishedResultTopics": [
     "tdd",

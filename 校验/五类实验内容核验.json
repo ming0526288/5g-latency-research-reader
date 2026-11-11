@@ -49,9 +49,10 @@
     },
     {
       "id": "ede23798813389995",
-      "title": "第一步结果与分析",
-      "kind": "not-started-placeholder",
-      "canonicalSourceSHA": "994e0ba6661bff4b381e0d632e5e1048a609e0a04edf7d0dccea313a995b70b0"
+      "kind": "complete-new-baseline",
+      "canonicalSourceSHA": "e4db2981451d66aebb776dfc293b01ab4aa91ad76054a537a80503a8a575c808",
+      "complete": 6600,
+      "statistical": 6000
     },
     {
       "id": "e6e9701a5fd751eec",
