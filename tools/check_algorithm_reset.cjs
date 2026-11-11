@@ -31,7 +31,10 @@ async function waitFor(fn,label){for(let i=0;i<500;i++){if(fn())return;await tic
  const plan=published.docs.find(doc=>doc.topic==='algorithm-experiment-plan');assert(plan);
  assert.equal(plan.sha256,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,plan.source))).digest('hex'));
  const nav=[...d.querySelectorAll('#sidebar .nav-heading')];assert.equal(nav[0].textContent,'论文规划与研究路线');assert.equal(nav[1].textContent,'知识点');
- const planUrl='#/doc/'+plan.id;assert.equal(nav[0].nextElementSibling.getAttribute('href'),planUrl);
+ const planUrl='#/doc/'+plan.id,paperPlan=published.docs.find(doc=>doc.topic==='paper-plan');assert(paperPlan);
+ const planningLinks=[];for(let el=nav[0].nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)planningLinks.push(el);
+ assert.deepEqual(planningLinks.map(el=>el.getAttribute('href')),['#/doc/'+paperPlan.id,planUrl,...published.docs.filter(doc=>doc.group==='guides'&&doc.researchStep).sort((a,b)=>a.researchStep.localeCompare(b.researchStep,'en',{numeric:true})).map(doc=>'#/doc/'+doc.id)]);
+ assert.equal(planningLinks[0].textContent.replace('↗','').trim(),'时延优化与算法对照');assert.equal(planningLinks[1].textContent.replace('↗','').trim(),'算法实验规划');
  d.querySelector('#sidebar a[href="'+planUrl+'"]').click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===plan.source,'new plan');
  assert(d.querySelector('.article').textContent.includes('我的研究重点是通信时延'));
  assert(d.querySelector('.article').textContent.includes('没有启动新的通信实验'));

@@ -67,7 +67,7 @@
   if(state.doc&&familyForDoc(state.doc).length)algorithmMode=docs.get(state.doc).group==='knowledge'?'knowledge':'results';
   const nav=(url,icon,label,count)=>`<a href="${url}" class="nav-link ${route===url.slice(1)||algorithmMode&&url===algorithmIndexUrl(algorithmMode)?'active':''}"><span class="nav-icon">${icon}</span>${label}${count?`<span class="nav-count">${count}</span>`:''}</a>`;
   $('#sidebar').innerHTML=nav('#/','⌂','阅读首页')+nav('#/bookmarks','☆','我的书签',bookmarks.filter(id=>docs.has(id)).length)+
-   (paperPlan||experimentPlan||stepPlans.length?'<div class="nav-heading">论文规划与研究路线</div>'+(experimentPlan?nav(docUrl(experimentPlan),'↗','算法实验规划'):'')+stepPlans.map(d=>nav(docUrl(d),'↗',d.title)).join('')+(paperPlan?nav(docUrl(paperPlan),'↗','时延优化与算法对照'):''):'')+
+   (paperPlan||experimentPlan||stepPlans.length?'<div class="nav-heading">论文规划与研究路线</div>'+(paperPlan?nav(docUrl(paperPlan),'↗','时延优化与算法对照'):'')+(experimentPlan?nav(docUrl(experimentPlan),'↗','算法实验规划'):'')+stepPlans.map(d=>nav(docUrl(d),'↗',d.title)).join(''):'')+
    '<div class="nav-heading">知识点</div>'+studyDocs.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
    (legacyModulesVisible?nav('#/browse/algorithm-knowledge','◇','算法知识点',algorithmFamilies.length):'')+
    '<div class="nav-heading">研究结果与分析</div>'+researchStages.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
