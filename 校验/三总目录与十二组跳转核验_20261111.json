@@ -1,0 +1,138 @@
+{
+  "date": "2026-11-11",
+  "status": "PASS",
+  "scope": "Reader hubs, link structure and command placeholders only; experiments remain paused; no wireless command validation.",
+  "hubs": [
+    {
+      "id": "r9add2badaf2ad40d",
+      "topic": "algorithm-experiment-plan",
+      "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
+      "sha256": "3edc49eb071e400b7b13a13db1e763d1505e52c373fd6ec38d88e4db62f31a11"
+    },
+    {
+      "id": "r0af4f6d4c499df4c",
+      "topic": "launch-index",
+      "source": "说明/启动命令/启动命令总目录.md",
+      "sha256": "4e6bdd88470b0cfc69ae0be0f32b4537c478be9ce5226b88668052375cd12306"
+    },
+    {
+      "id": "rb5713cc3fde44187",
+      "topic": "research-results-index",
+      "source": "说明/研究结果与分析/研究结果与分析总目录.md",
+      "sha256": "1a4ce63fe8a176dc2c10d7a3e3424820495f123b9a550cae75c3db8466212ecc"
+    }
+  ],
+  "triples": [
+    {
+      "step": "step-1",
+      "plan": "r17d0d9c36fcc691f",
+      "commands": "r5dff788eedc6ae78",
+      "result": "ede23798813389995",
+      "commandStatus": "pending-validation",
+      "resultStatus": "not-started"
+    },
+    {
+      "step": "step-2",
+      "plan": "rf08a17ef96454a42",
+      "commands": "re77d9007728f223f",
+      "result": "e6e9701a5fd751eec",
+      "commandStatus": "pending-validation",
+      "resultStatus": "not-started"
+    },
+    {
+      "step": "step-3",
+      "plan": "r313f9744dd9a103c",
+      "commands": "r80c1a1f879c1c778",
+      "result": "ee6eeb2fea0f75722",
+      "commandStatus": "pending-validation",
+      "resultStatus": "not-started"
+    },
+    {
+      "step": "step-4",
+      "plan": "rd80095191213cf0e",
+      "commands": "r1df97db301a3b3a5",
+      "result": "ee2cbbe8555fb4080",
+      "commandStatus": "pending-validation",
+      "resultStatus": "not-started"
+    },
+    {
+      "step": "step-5",
+      "plan": "r01db9429db27accb",
+      "commands": "r00132ac596b0fa5c",
+      "result": "e468aafcf01fd8b7a",
+      "commandStatus": "pending-validation",
+      "resultStatus": "not-started"
+    },
+    {
+      "step": "step-6",
+      "plan": "r1d03a72f977e6227",
+      "commands": "r9801b0460bffa2b1",
+      "result": "e741d8270fb698f0d",
+      "commandStatus": "pending-validation",
+      "resultStatus": "not-started"
+    },
+    {
+      "step": "step-7",
+      "plan": "r8533b15719e02b69",
+      "commands": "rd7c47a7ef4040990",
+      "result": "e6e03a046da435224",
+      "commandStatus": "pending-validation",
+      "resultStatus": "not-started"
+    },
+    {
+      "step": "step-8",
+      "plan": "r6019f3cf9c7776d5",
+      "commands": "rb1f0f64bd9cf83ab",
+      "result": "eb784dcf87800b2b8",
+      "commandStatus": "pending-validation",
+      "resultStatus": "not-started"
+    },
+    {
+      "step": "step-9",
+      "plan": "r404d2ad14a34ceda",
+      "commands": "r90e26fe76d499fa7",
+      "result": "e177bf81c9f7d6874",
+      "commandStatus": "pending-validation",
+      "resultStatus": "not-started"
+    },
+    {
+      "step": "step-10",
+      "plan": "r3e9ae09ccfb34c25",
+      "commands": "r2b2947e33bdf69c1",
+      "result": "eb80b8a4f6e0bcc0d",
+      "commandStatus": "pending-validation",
+      "resultStatus": "not-started"
+    },
+    {
+      "step": "step-11",
+      "plan": "r2f6268e18fe889d0",
+      "commands": "r474e19da43faefe5",
+      "result": "eb4c69c9288df65a9",
+      "commandStatus": "pending-validation",
+      "resultStatus": "not-started"
+    },
+    {
+      "step": "step-12",
+      "plan": "r4b53b823afe0741f",
+      "commands": "r1291f85b61316e0f",
+      "result": "e9c0af2521418cb26",
+      "commandStatus": "pending-validation",
+      "resultStatus": "not-started"
+    }
+  ],
+  "compactSidebar": {
+    "planningItems": 2,
+    "commandItems": 1,
+    "resultItems": 1,
+    "commandHeadingImmediatelyBeforeResults": true
+  },
+  "commandPages": 12,
+  "allCommandStatus": "pending-validation",
+  "allResultStatus": "not-started",
+  "legacySourcesPreserved": 6,
+  "archivedAlgorithms": 124,
+  "httpResources": 93,
+  "consoleErrors": [],
+  "changeRecord": "CHG-390_规划命令结果三总目录与十二组互链.md",
+  "testRecord": "TEST-540_三总目录十二组跳转与命令占位状态核验.md"
+}

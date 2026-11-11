@@ -103,16 +103,18 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  if(cat.experimentStages){
   const heading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='研究结果与分析');
   const links=[];for(let el=heading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)links.push(el);
-  const stages=links.slice(0,Object.keys(cat.experimentStages).length).map(el=>el.getAttribute('href'));
-  assert(!links.some(el=>el.textContent.includes('入口与五类分析')));
-  assert.deepEqual(stages,Object.values(cat.experimentStages).map(id=>'#/doc/'+id));
-  assert.equal(links.length,Object.keys(cat.experimentStages).length+Number(legacyModulesVisible));
+  const resultHub=cat.docs.find(doc=>doc.topic==='research-results-index');assert(resultHub);
+  assert.equal(links[0].getAttribute('href'),'#/doc/'+resultHub.id);
+  assert.equal(links.length,1+Number(legacyModulesVisible));
+  const headings=[...d.querySelectorAll('#sidebar .nav-heading')];assert.equal(headings[headings.indexOf(heading)-1].textContent,'启动命令');
   const materialsHeading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='研究资料');
   const materials=[];for(let el=materialsHeading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)materials.push(el);
   assert.deepEqual(materials.map(el=>el.getAttribute('href')),['#/library/papers','#/library/protocols']);
   assert(materials[0].textContent.includes('文献与材料'));
   for(const [topic,id] of Object.entries(cat.experimentStages)){
-   const url='#/doc/'+id;d.querySelector('#sidebar a[href="'+url+'"]').click();
+   const url='#/doc/'+id;d.querySelector('#sidebar a[href="#/doc/'+resultHub.id+'"]').click();
+   await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===resultHub.source,'results hub');
+   const entryLink=d.querySelector('.article a[href="'+url+'"]');assert(entryLink);entryLink.click();
    await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===cat.docs.find(x=>x.id===id).source,'experiment page '+topic);
    if(topic==='source-changes'){
     assert(d.querySelector('.article h1').textContent.includes('原始源码与当前研究版本'));

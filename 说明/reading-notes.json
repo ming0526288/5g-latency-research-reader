@@ -76,6 +76,110 @@
       "source": "说明/文献导读/第十二步规划_论文结果整理与研究收尾.md",
       "topic": "step-12-plan",
       "researchStep": "step-12"
+    },
+    {
+      "source": "说明/启动命令/第一步启动命令.md",
+      "topic": "step-1-commands",
+      "commandStep": "step-1",
+      "planTopic": "step-1-plan",
+      "resultTopic": "step-1",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/第二步启动命令.md",
+      "topic": "step-2-commands",
+      "commandStep": "step-2",
+      "planTopic": "step-2-plan",
+      "resultTopic": "step-2",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/第三步启动命令.md",
+      "topic": "step-3-commands",
+      "commandStep": "step-3",
+      "planTopic": "step-3-plan",
+      "resultTopic": "step-3",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/第四步启动命令.md",
+      "topic": "step-4-commands",
+      "commandStep": "step-4",
+      "planTopic": "step-4-plan",
+      "resultTopic": "step-4",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/第五步启动命令.md",
+      "topic": "step-5-commands",
+      "commandStep": "step-5",
+      "planTopic": "step-5-plan",
+      "resultTopic": "step-5",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/第六步启动命令.md",
+      "topic": "step-6-commands",
+      "commandStep": "step-6",
+      "planTopic": "step-6-plan",
+      "resultTopic": "step-6",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/第七步启动命令.md",
+      "topic": "step-7-commands",
+      "commandStep": "step-7",
+      "planTopic": "step-7-plan",
+      "resultTopic": "step-7",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/第八步启动命令.md",
+      "topic": "step-8-commands",
+      "commandStep": "step-8",
+      "planTopic": "step-8-plan",
+      "resultTopic": "step-8",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/第九步启动命令.md",
+      "topic": "step-9-commands",
+      "commandStep": "step-9",
+      "planTopic": "step-9-plan",
+      "resultTopic": "step-9",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/第十步启动命令.md",
+      "topic": "step-10-commands",
+      "commandStep": "step-10",
+      "planTopic": "step-10-plan",
+      "resultTopic": "step-10",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/第十一步启动命令.md",
+      "topic": "step-11-commands",
+      "commandStep": "step-11",
+      "planTopic": "step-11-plan",
+      "resultTopic": "step-11",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/第十二步启动命令.md",
+      "topic": "step-12-commands",
+      "commandStep": "step-12",
+      "planTopic": "step-12-plan",
+      "resultTopic": "step-12",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/启动命令总目录.md",
+      "topic": "launch-index"
+    },
+    {
+      "source": "说明/研究结果与分析/研究结果与分析总目录.md",
+      "topic": "research-results-index"
     }
   ]
 }

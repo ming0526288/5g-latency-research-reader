@@ -365,7 +365,7 @@
       "researchStep": "step-1",
       "planTopic": "step-1-plan",
       "status": "not-started",
-      "sha256": "a3d661c8abe12abb0f86526ff3df4b91c97296e95e5ae109e463a38609141872",
+      "sha256": "994e0ba6661bff4b381e0d632e5e1048a609e0a04edf7d0dccea313a995b70b0",
       "snapshot": "说明/研究结果与分析/第一步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -375,9 +375,9 @@
           "level": 1
         }
       ],
-      "words": 64,
+      "words": 128,
       "minutes": 1,
-      "search": "  第一步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)。\n"
+      "search": "  第一步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)。\n\n启动与查看： 第一步启动命令 (../启动命令/第一步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
     },
     {
       "id": "e6e9701a5fd751eec",
@@ -393,7 +393,7 @@
       "researchStep": "step-2",
       "planTopic": "step-2-plan",
       "status": "not-started",
-      "sha256": "c4d2a2b1d94998021ea3ca662f3222b7e7a90f9b5457a07318e621e6838c5eb4",
+      "sha256": "ad26604731c840dd2cad534927abd1a0caac548b2867c37108e518496a5962da",
       "snapshot": "说明/研究结果与分析/第二步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -403,9 +403,9 @@
           "level": 1
         }
       ],
-      "words": 67,
+      "words": 131,
       "minutes": 1,
-      "search": "  第二步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第二步规划 (../文献导读/第二步规划_多UE_PF基线与负载竞争.md)。\n"
+      "search": "  第二步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第二步规划 (../文献导读/第二步规划_多UE_PF基线与负载竞争.md)。\n\n启动与查看： 第二步启动命令 (../启动命令/第二步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
     },
     {
       "id": "ee6eeb2fea0f75722",
@@ -421,7 +421,7 @@
       "researchStep": "step-3",
       "planTopic": "step-3-plan",
       "status": "not-started",
-      "sha256": "a7b2f4e8d17b643bfda45bbc8d23445a8f8719f8941b151ae1b95b641d725fac",
+      "sha256": "76acafdf2158173c10e815f1750bfafc1b00f5c48483911f1246eaee6e290b3b",
       "snapshot": "说明/研究结果与分析/第三步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -431,9 +431,9 @@
           "level": 1
         }
       ],
-      "words": 64,
+      "words": 128,
       "minutes": 1,
-      "search": "  第三步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第三步规划 (../文献导读/第三步规划_TDD配比与周期分析.md)。\n"
+      "search": "  第三步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第三步规划 (../文献导读/第三步规划_TDD配比与周期分析.md)。\n\n启动与查看： 第三步启动命令 (../启动命令/第三步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
     },
     {
       "id": "ee2cbbe8555fb4080",
@@ -449,7 +449,7 @@
       "researchStep": "step-4",
       "planTopic": "step-4-plan",
       "status": "not-started",
-      "sha256": "28e8a9cee00b2897f2da8fa55ead03cdd9700c922fa9fb0c88e3830fb12055c3",
+      "sha256": "f08bf0ff4c01973277ffbd927a90d1e2c0ae69c33a2c391bdf3afdf0a8768214",
       "snapshot": "说明/研究结果与分析/第四步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -459,9 +459,9 @@
           "level": 1
         }
       ],
-      "words": 64,
+      "words": 128,
       "minutes": 1,
-      "search": "  第四步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第四步规划 (../文献导读/第四步规划_SCS与资源条件分析.md)。\n"
+      "search": "  第四步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第四步规划 (../文献导读/第四步规划_SCS与资源条件分析.md)。\n\n启动与查看： 第四步启动命令 (../启动命令/第四步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
     },
     {
       "id": "e468aafcf01fd8b7a",
@@ -477,7 +477,7 @@
       "researchStep": "step-5",
       "planTopic": "step-5-plan",
       "status": "not-started",
-      "sha256": "e3f10954fb7bd540f615ed64b7a428f98351c66b4607a8a60ead1dbf1aa20b88",
+      "sha256": "b46acfbf5802b07c79b8499b00b31c415bf0e3d61380f5a02b12ce826d538bdf",
       "snapshot": "说明/研究结果与分析/第五步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -487,9 +487,9 @@
           "level": 1
         }
       ],
-      "words": 65,
+      "words": 129,
       "minutes": 1,
-      "search": "  第五步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第五步规划 (../文献导读/第五步规划_分层时延与授权等待分解.md)。\n"
+      "search": "  第五步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第五步规划 (../文献导读/第五步规划_分层时延与授权等待分解.md)。\n\n启动与查看： 第五步启动命令 (../启动命令/第五步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
     },
     {
       "id": "e741d8270fb698f0d",
@@ -505,7 +505,7 @@
       "researchStep": "step-6",
       "planTopic": "step-6-plan",
       "status": "not-started",
-      "sha256": "86fcf613bc99b6035e343fa0e3c29f53f37253b8a96f499699ea627e0c6c16d1",
+      "sha256": "27aac86536d7caf47a1e7f29bc3980d43074ca0dc724efeef1e30e5b7c85ac14",
       "snapshot": "说明/研究结果与分析/第六步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -515,9 +515,9 @@
           "level": 1
         }
       ],
-      "words": 65,
+      "words": 129,
       "minutes": 1,
-      "search": "  第六步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第六步规划 (../文献导读/第六步规划_尾时延与慢事务成因分析.md)。\n"
+      "search": "  第六步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第六步规划 (../文献导读/第六步规划_尾时延与慢事务成因分析.md)。\n\n启动与查看： 第六步启动命令 (../启动命令/第六步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
     },
     {
       "id": "e6e03a046da435224",
@@ -533,7 +533,7 @@
       "researchStep": "step-7",
       "planTopic": "step-7-plan",
       "status": "not-started",
-      "sha256": "cb74d6c5bd6b7a9e67c26d2fbbc7e873ea4650a148141ce9755dd3d632eca000",
+      "sha256": "b76642c18f431dd9c93c6a9d92883e4fdd32a0f61dfddf7d8dde6734f8a4bb63",
       "snapshot": "说明/研究结果与分析/第七步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -543,9 +543,9 @@
           "level": 1
         }
       ],
-      "words": 62,
+      "words": 126,
       "minutes": 1,
-      "search": "  第七步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第七步规划 (../文献导读/第七步规划_同程序强对照算法.md)。\n"
+      "search": "  第七步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第七步规划 (../文献导读/第七步规划_同程序强对照算法.md)。\n\n启动与查看： 第七步启动命令 (../启动命令/第七步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
     },
     {
       "id": "eb784dcf87800b2b8",
@@ -561,7 +561,7 @@
       "researchStep": "step-8",
       "planTopic": "step-8-plan",
       "status": "not-started",
-      "sha256": "8c93f90fe11381d91fa70460bee1561e5d2c3cef75fc864a5b060e7dfb7ef658",
+      "sha256": "5306ae794834e96ea4b95df5042f6270b62c5492f5020f9526d1ae0f36f5d520",
       "snapshot": "说明/研究结果与分析/第八步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -571,9 +571,9 @@
           "level": 1
         }
       ],
-      "words": 63,
+      "words": 127,
       "minutes": 1,
-      "search": "  第八步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第八步规划 (../文献导读/第八步规划_单项优化设计与实现.md)。\n"
+      "search": "  第八步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第八步规划 (../文献导读/第八步规划_单项优化设计与实现.md)。\n\n启动与查看： 第八步启动命令 (../启动命令/第八步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
     },
     {
       "id": "e177bf81c9f7d6874",
@@ -589,7 +589,7 @@
       "researchStep": "step-9",
       "planTopic": "step-9-plan",
       "status": "not-started",
-      "sha256": "e61324037164d8ddc66a24365db7b578ec3920fa7afa1ccc159dc837f59f25cd",
+      "sha256": "f610a640e87db40784bf44f50b7baa698d76f36a623cf4d0df03a7a73ba9a7d3",
       "snapshot": "说明/研究结果与分析/第九步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -599,9 +599,9 @@
           "level": 1
         }
       ],
-      "words": 61,
+      "words": 125,
       "minutes": 1,
-      "search": "  第九步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第九步规划 (../文献导读/第九步规划_新算法效果验证.md)。\n"
+      "search": "  第九步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第九步规划 (../文献导读/第九步规划_新算法效果验证.md)。\n\n启动与查看： 第九步启动命令 (../启动命令/第九步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
     },
     {
       "id": "eb80b8a4f6e0bcc0d",
@@ -617,7 +617,7 @@
       "researchStep": "step-10",
       "planTopic": "step-10-plan",
       "status": "not-started",
-      "sha256": "3e44f7aa09162b8d421bd052db0cae69c2bf9ebeb107eaef5dccc9cf089d9727",
+      "sha256": "582e42a5ed79711e27c6afc99204beed3113fd7092b56eb559d3873ac4d2b5bf",
       "snapshot": "说明/研究结果与分析/第十步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -627,9 +627,9 @@
           "level": 1
         }
       ],
-      "words": 64,
+      "words": 128,
       "minutes": 1,
-      "search": "  第十步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第十步规划 (../文献导读/第十步规划_消融资源代价与公平性.md)。\n"
+      "search": "  第十步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第十步规划 (../文献导读/第十步规划_消融资源代价与公平性.md)。\n\n启动与查看： 第十步启动命令 (../启动命令/第十步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
     },
     {
       "id": "eb4c69c9288df65a9",
@@ -645,7 +645,7 @@
       "researchStep": "step-11",
       "planTopic": "step-11-plan",
       "status": "not-started",
-      "sha256": "68e2f06cfc048b86ecb0cc532e8eeac201efe4d535b9ac8a659516602b13aefc",
+      "sha256": "3f446a516382723cfb4c725da8902b76a62bae36274666cc4f63b9265f6183bc",
       "snapshot": "说明/研究结果与分析/第十一步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -655,9 +655,9 @@
           "level": 1
         }
       ],
-      "words": 65,
+      "words": 131,
       "minutes": 1,
-      "search": "  第十一步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第十一步规划 (../文献导读/第十一步规划_跨场景稳健性验证.md)。\n"
+      "search": "  第十一步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第十一步规划 (../文献导读/第十一步规划_跨场景稳健性验证.md)。\n\n启动与查看： 第十一步启动命令 (../启动命令/第十一步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
     },
     {
       "id": "e9c0af2521418cb26",
@@ -673,7 +673,7 @@
       "researchStep": "step-12",
       "planTopic": "step-12-plan",
       "status": "not-started",
-      "sha256": "8bf8124440ee6301172324c596b3bdbb68d278aef72d7c9e85116b35eca24aff",
+      "sha256": "de4ce791cec738b4395726bbcdfcaf4e0cd2c882b4ab12682bbeb5f10d17895c",
       "snapshot": "说明/研究结果与分析/第十二步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -683,9 +683,9 @@
           "level": 1
         }
       ],
-      "words": 68,
+      "words": 134,
       "minutes": 1,
-      "search": "  第十二步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第十二步规划 (../文献导读/第十二步规划_论文结果整理与研究收尾.md)。\n"
+      "search": "  第十二步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第十二步规划 (../文献导读/第十二步规划_论文结果整理与研究收尾.md)。\n\n启动与查看： 第十二步启动命令 (../启动命令/第十二步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
     }
   ],
   "formulas": 48,

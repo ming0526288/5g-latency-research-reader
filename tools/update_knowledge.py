@@ -38,7 +38,7 @@ def build(kind='knowledge'):
     algorithm_notes = kind == 'algorithm-notes'
     reading_notes = kind == 'reading-notes'
     prefix = 'r' if reading_notes else 'a' if algorithm_notes else 'e' if experiments else 'k'
-    source_root = ROOT / ('说明/文献导读' if reading_notes else '说明' if algorithm_notes or experiments else '说明/算法知识点说明')
+    source_root = ROOT / ('说明' if reading_notes or algorithm_notes or experiments else '说明/算法知识点说明')
     report_path = ROOT / ('校验/文献导读构建校验.json' if reading_notes else '校验/算法自有稿构建校验.json' if algorithm_notes else '校验/实验分析构建校验.json' if experiments else '校验/知识点构建校验.json')
     stat_prefix = 'readingNote' if reading_notes else 'algorithmNote' if algorithm_notes else 'experiment' if experiments else 'knowledge'
     catalog = read_catalog()
@@ -78,6 +78,10 @@ def build(kind='knowledge'):
                 raise ValueError('Algorithm note must be below ' + folder)
         if experiments and not any(path.is_relative_to(ROOT / folder) for folder in ('说明/五类时延分析', '说明/研究结果与分析')):
             raise ValueError('Experiment page must be below an approved results folder')
+        if reading_notes and not (any(path.is_relative_to(ROOT / folder) for folder in ('说明/文献导读', '说明/启动命令')) or path == ROOT / '说明/研究结果与分析/研究结果与分析总目录.md'):
+            raise ValueError('Reading note must be below an approved guide/command folder or the results hub')
+        if item.get('commandStep') and (not reading_notes or not re.fullmatch(r'step-[1-9][0-9]*', item['commandStep']) or item.get('commandStatus') not in ('pending-validation', 'partial', 'validated')):
+            raise ValueError('Command page requires a valid step and explicit validation status')
         if not path.is_relative_to(source_root) or path.suffix != '.md':
             raise ValueError('Reader source must be Markdown below ' + str(source_root) + ': ' + source)
         if source in sources:
@@ -100,6 +104,7 @@ def build(kind='knowledge'):
             **({'algorithm': item['algorithm']} if algorithm_notes else {}),
             **({'experimentStage': item['topic']} if experiments else {}),
             **({'researchStep': item['researchStep']} if item.get('researchStep') else {}),
+            **({key: item[key] for key in ('commandStep', 'planTopic', 'resultTopic', 'commandStatus')} if item.get('commandStep') else {}),
             **({'planTopic': item['planTopic'], 'status': item.get('status', 'not-started')} if experiments and item.get('planTopic') else {}),
             'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'snapshot': source, 'redacted': False, 'toc': [],
