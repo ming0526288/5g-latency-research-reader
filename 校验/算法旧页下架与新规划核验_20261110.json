@@ -1,8 +1,16 @@
 {
   "status": "PASS",
-  "archivedDocuments": 129,
+  "archivedDocuments": 124,
+  "restoredAnalyses": [
+    "e4c1f2a8800000001",
+    "e4c1f2a8800000002",
+    "e4c1f2a8800000003",
+    "e4c1f2a8800000004",
+    "e4c1f2a8800000005"
+  ],
+  "restoredSourceAndPayloadHashes": true,
   "oldRoutesChecked": 10,
-  "publishedDocuments": 1069,
+  "publishedDocuments": 1074,
   "newPlan": {
     "id": "r9add2badaf2ad40d",
     "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
@@ -19,6 +27,11 @@
     "emptyResults": true
   },
   "publishedResultTopics": [
+    "tdd",
+    "scs",
+    "multi-ue",
+    "layers",
+    "tail",
     "source-changes",
     "step-1"
   ],
@@ -28,5 +41,5 @@
   "coreKnowledgeRetained": 6,
   "papersAndProtocolsRetained": true,
   "consoleErrors": [],
-  "scope": "Offline DOM publication checks; no wireless experiment or screenshot/layout certification."
+  "scope": "Offline DOM publication checks; five original analyses restored without editing data; no wireless experiment or screenshot/layout certification."
 }
