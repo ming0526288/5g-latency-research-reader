@@ -22,7 +22,7 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  const knowledgeHeading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='知识点');
  assert(knowledgeHeading);const studyLinks=[];
  for(let el=knowledgeHeading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)studyLinks.push(el);
- assert.equal(studyLinks.length,legacyModulesVisible?7:6);
+ assert.equal(studyLinks.length,(legacyModulesVisible?7:6)+Number(Boolean(cat.knowledgeTopics['scheduling-basics'])));
  assert(!d.querySelector('#sidebar details'));
  assert(studyLinks.every(el=>el.matches('a.nav-link')&&!/^\d+$/.test(el.querySelector('.nav-icon').textContent)));
  const studyUrls=studyLinks.map(el=>el.getAttribute('href'));
@@ -37,7 +37,34 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
    assert.equal(Number(d.querySelector('#sidebar a[href="'+url+'"] .nav-count').textContent),algorithmFamilies.length);
   }
  }
- steps.push(legacyModulesVisible?'知识点七类图标入口保留；算法知识点先选方向':'六类基础知识入口正常；旧算法知识入口不再展示');
+ steps.push('基础知识入口保留；旧算法分类按归档状态控制');
+ if(cat.knowledgeTopics['scheduling-basics']){
+  const intro=cat.docs.find(x=>x.id===cat.knowledgeTopics['scheduling-basics']);
+  w.location.hash='#/doc/'+intro.id;
+  await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===intro.source,'new scheduling overview');
+  assert.equal(d.querySelector('.article table').querySelectorAll('tbody tr').length,7);
+  assert(d.querySelector('.article .katex'));
+  const names=['RR','MT','PF','PB','EDF','M-LWDF','QUEST'];
+  for(const name of names){
+   const target=cat.docs.find(x=>x.source==='说明/算法知识点说明/调度算法入门/'+name+'_知识点说明.md');assert(target);
+   const overviewLink=d.querySelector('.article a[href="#/doc/'+target.id+'"]');assert(overviewLink);overviewLink.click();
+   await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===target.source,'new algorithm intro '+name);
+   const article=d.querySelector('.article');assert(article.querySelector('table'));assert(article.querySelector('.katex'));
+   assert(article.textContent.includes('两个 UE 的例子'));assert(article.textContent.includes('对时延有什么用'));
+   for(const heading of target.toc)assert(d.getElementById(heading.id));
+   if(name==='PF')assert(article.textContent.includes('20 / 10 = 2')&&article.textContent.includes('12 / 3 = 4'));
+   if(name==='M-LWDF')assert(article.textContent.includes('超时概率目标不等于标准 PER'));
+   const back=article.querySelector('a[href="#/doc/'+intro.id+'"]');assert(back);back.click();
+   await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===intro.source,'back to overview '+name);
+  }
+  d.querySelector('#searchButton').click();const input=d.querySelector('#searchInput');
+  for(const name of names){
+   input.value=name;input.dispatchEvent(new w.Event('input',{bubbles:true}));await tick(220);
+   const target=cat.docs.find(x=>x.source==='说明/算法知识点说明/调度算法入门/'+name+'_知识点说明.md');
+   assert(d.querySelector('.search-result[href="#/doc/'+target.id+'"]'),'New note searchable: '+name);
+  }
+  d.querySelector('#closeSearch').click();steps.push('新版七算法速览、逐篇公式/例子/目录/回链与搜索通过；旧算法归档保持');
+ }
  if(legacyModulesVisible){
  for(const family of algorithmFamilies){
   d.querySelector('#sidebar a[href="#/browse/algorithms"]').click();
@@ -118,7 +145,7 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
   steps.push('当前结果入口、源码版本、空结果状态、规划互链与搜索正常；历史页不作为新结果');
  }
  if(cat.knowledgeTopics){
-  assert.equal(Object.keys(cat.knowledgeTopics).length,legacyModulesVisible?7:6);
+  assert.equal(Object.keys(cat.knowledgeTopics).length,(legacyModulesVisible?7:6)+(cat.knowledgeTopics['scheduling-basics']?8:0));
   const tdd=cat.knowledgeTopics.tdd;w.location.hash='#/doc/'+tdd;
   await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===cat.docs.find(x=>x.id===tdd).source,'reader-owned TDD lesson');
   assert(d.querySelector('.article .source-figure a[target="_blank"]'));

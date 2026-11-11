@@ -10,7 +10,7 @@
   ],
   "restoredSourceAndPayloadHashes": true,
   "oldRoutesChecked": 10,
-  "publishedDocuments": 1074,
+  "publishedDocuments": 1082,
   "newPlan": {
     "id": "r9add2badaf2ad40d",
     "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
@@ -38,7 +38,7 @@
   "sidebarAndHome": true,
   "searchAndBookmarkFiltering": true,
   "bookmarkStoragePreserved": true,
-  "coreKnowledgeRetained": 6,
+  "coreKnowledgeRetained": 14,
   "papersAndProtocolsRetained": true,
   "consoleErrors": [],
   "scope": "Offline DOM publication checks; five original analyses restored without editing data; no wireless experiment or screenshot/layout certification."

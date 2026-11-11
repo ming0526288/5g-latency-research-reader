@@ -18,7 +18,10 @@ def main():
     catalog = json.loads((ROOT/'网页/catalog.js').read_text().split('window.READER_CATALOG=',1)[1].rstrip(';'))
     sources = json.loads((ROOT/'校验/知识点协议与文献核验.json').read_text())
     metadata = {doc['id']: doc for doc in catalog['docs']}
-    assert set(catalog['knowledgeTopics']) == {'basics','tdd','scs','multi-ue','layers','tail','algorithms'}
+    core_topics = {'basics','tdd','scs','multi-ue','layers','tail','algorithms'}
+    registered = json.loads((ROOT/'说明/knowledge.json').read_text())['documents']
+    assert set(catalog['knowledgeTopics']) == {d['topic'] for d in registered}
+    assert core_topics <= set(catalog['knowledgeTopics'])
     originals = {}
     for record in sources['protocols']:
         protocol = next(p for p in catalog['protocols'] if p['spec']==record['spec'])
@@ -70,6 +73,10 @@ def main():
     assert quantile([0,10],Fraction(99,100))+quantile([10,0],Fraction(99,100))!=quantile([10,10],Fraction(99,100))
     lessons=[]
     for topic,did in catalog['knowledgeTopics'].items():
+        # This original suite verifies the seven illustrated prerequisite lessons;
+        # additional algorithm intros have separate DOM/example checks.
+        if topic not in core_topics:
+            continue
         doc=metadata[did];source=ROOT/doc['source']
         assert source.is_relative_to(ROOT/'说明/算法知识点说明')
         assert source==ROOT/doc['snapshot'] and source.is_file()

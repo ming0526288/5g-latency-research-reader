@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-11",
   "documents": [
     {
       "id": "kc3e4e8560cabef23",
@@ -35,6 +35,38 @@
       "id": "k4f5f00700a16ad5b",
       "topic": "algorithms",
       "source": "说明/算法知识点说明/算法实验_共同前置条件.md"
+    },
+    {
+      "topic": "scheduling-basics",
+      "source": "说明/算法知识点说明/调度算法入门/00_调度算法速览.md"
+    },
+    {
+      "topic": "rr-intro",
+      "source": "说明/算法知识点说明/调度算法入门/RR_知识点说明.md"
+    },
+    {
+      "topic": "mt-intro",
+      "source": "说明/算法知识点说明/调度算法入门/MT_知识点说明.md"
+    },
+    {
+      "topic": "pf-intro",
+      "source": "说明/算法知识点说明/调度算法入门/PF_知识点说明.md"
+    },
+    {
+      "topic": "pb-intro",
+      "source": "说明/算法知识点说明/调度算法入门/PB_知识点说明.md"
+    },
+    {
+      "topic": "edf-intro",
+      "source": "说明/算法知识点说明/调度算法入门/EDF_知识点说明.md"
+    },
+    {
+      "topic": "mlwdf-intro",
+      "source": "说明/算法知识点说明/调度算法入门/M-LWDF_知识点说明.md"
+    },
+    {
+      "topic": "quest-intro",
+      "source": "说明/算法知识点说明/调度算法入门/QUEST_知识点说明.md"
     }
   ]
 }
