@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "documents": [
     {
       "id": "e4c1f2a8800000001",
@@ -36,6 +36,83 @@
       "topic": "step-1",
       "researchStep": "step-1",
       "planTopic": "step-1-plan",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第二步结果与分析.md",
+      "topic": "step-2",
+      "researchStep": "step-2",
+      "planTopic": "step-2-plan",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第三步结果与分析.md",
+      "topic": "step-3",
+      "researchStep": "step-3",
+      "planTopic": "step-3-plan",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第四步结果与分析.md",
+      "topic": "step-4",
+      "researchStep": "step-4",
+      "planTopic": "step-4-plan",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第五步结果与分析.md",
+      "topic": "step-5",
+      "researchStep": "step-5",
+      "planTopic": "step-5-plan",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第六步结果与分析.md",
+      "topic": "step-6",
+      "researchStep": "step-6",
+      "planTopic": "step-6-plan",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第七步结果与分析.md",
+      "topic": "step-7",
+      "researchStep": "step-7",
+      "planTopic": "step-7-plan",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第八步结果与分析.md",
+      "topic": "step-8",
+      "researchStep": "step-8",
+      "planTopic": "step-8-plan",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第九步结果与分析.md",
+      "topic": "step-9",
+      "researchStep": "step-9",
+      "planTopic": "step-9-plan",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第十步结果与分析.md",
+      "topic": "step-10",
+      "researchStep": "step-10",
+      "planTopic": "step-10-plan",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第十一步结果与分析.md",
+      "topic": "step-11",
+      "researchStep": "step-11",
+      "planTopic": "step-11-plan",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第十二步结果与分析.md",
+      "topic": "step-12",
+      "researchStep": "step-12",
+      "planTopic": "step-12-plan",
       "status": "not-started"
     }
   ]

@@ -11,7 +11,7 @@
       "group": "guides",
       "topic": "literature-priority",
       "prerequisite": false,
-      "sha256": "dd779475e25ba74eea6672911d77fb5e816082cc058d6b1f7a9535fe9aaabca3",
+      "sha256": "b596b5bb4ede36444667d89ca1c3f05c7eb2b2117e55036aba4ab77701689660",
       "snapshot": "说明/文献导读/39篇文献重要性排序与方法效果简述.md",
       "redacted": false,
       "toc": [
@@ -71,9 +71,9 @@
           "level": 2
         }
       ],
-      "words": 19915,
+      "words": 19972,
       "minutes": 31,
-      "search": "  39 篇文献：重要性排序、做法与效果简述\n\n整理日期：2026-11-10。范围是用户  pdf-英文原版/  中原编号 1～39 的全部论文；新补充的 36～39 也在其中。TS 22.104 单独作为工业场景和需求依据，不与算法论文混排名。\n\n  这里的“重要性”指对你当前课题的帮助：OAI 仿真、TDD／SCS、多 UE 上行与尾时延分析，以及后续工业闭环场景。不是期刊档次或论文质量排名。   如果以后把主要目标改为控制误差而非通信时延，P38、P39 的顺位应上调。\n\n每篇已查看本地摘要、方法相关段落、实验或结论；P36～P39 还结合前轮正文阅读。本文是简要导读，未逐式审查全部证明、未复现全部作者代码。下表效果均为  论文在自身条件下报告的结果，不是我们本机的新测量  ；没有统一收益数字的论文就说明定性结果，不凭图估算百分比。\n\n   先读哪几篇\n\n第一轮优先：  P01 → P36 → P30 → P05 → P24 → P19 → P02 → P04 → P03 → P31  。\n\n它们依次帮助你解决：测量怎么做、工业闭环怎么讲、时延怎么算、请求授权怎么少等、多 UE 怎么排、TDD 怎么影响等待，以及 SCS 为什么不一定越大越快、算法怎样接入 OAI。\n\n如果只来得及读五篇，先看   P01、P36、P30、P05、P24  ；做 TDD 对照时把 P19 提前加入。阅读顺序是建议，不能替代修改前的协议核验。\n\n   第一组：最直接支撑当前研究，顺位 1～10\n\n 顺位／原编号与简称 做了什么 论文中的效果与边界 对你的用途、原文定位 \n --- --- --- --- \n   1｜P01：Dissecting 5G New-Radio Latency   在 OAI 用户面各层放探针，关联同一个包及其分段，拆解上行 RAN 时延。 定位到 UE 侧 RLC／MAC 等待、分段、接收侧重组和 PDCP 重排序等机制；  属于测量诊断，没有一个“新算法降时延 X%”的结论  。测量边界是 UE–基站的 RAN。 你全部分层、慢包归因工作的基础。§III～IV、VI，本地 PDF 2～4、6 页。 \n   2｜P36：5G 边缘计算下的协作机器人分布式控制   相机图像上传边缘做视觉处理，检测结果返回机器人；本地运行高层和低层控制，并测推物体、手势遥操作。 真实推物实验中，目标事件对应的通信＋计算时延为   38.4～222 ms  ，计算时延中位数   10.6 ms  ；这组是现象测量，不是优化前后收益。作者指出边缘少省的几毫秒，可能抵不过图像上传开销。 最适合支撑你的工业背景、闭环边界和瓶颈占比；不要求现在改视频算法。§V～VI，本地 PDF 8～11 页。 \n   3｜P30：LatencyScope   建立 UL／DL 单向 RAN 时延模型，联合考虑协议处理、无线接口、TDD、调度及参数依赖，再搜索可行配置。 在两套开源 5G 测试床和商用网络数据上，较好重现时延分布及上下界；主要贡献是  预测与配置分析准确性  ，不应硬写成通用的降时延百分比。 数学分析和仿真对照的主参考，尤其适合解释“时隙短了却没更快”。§VI，本地 PDF 8～12 页；本地为 v3。 \n   4｜P05：AUGUSTE   在线学习业务到达规律，在预计来包前发上行授权；以学习、置信和空闲等状态调节预测与资源开销。 OAI 测试床三类业务中，典型 RTT 中位数从约   20 ms 降到 10 ms  ，约减半；报告约   7%～10%   的调度开销。其口径是所调度 UL 时隙的比例，不能直接叫空授权浪费率。周期上报例中单向时延也有改善。  不是所有网络都能减半  。 你的“授权时机”方向最直接的算法参考；先确认业务可预测性。§V 及结论，本地 PDF 5～6 页。 \n   5｜P24：QUEST   结合 5G QoS、时延预算、HOL 和用户／网络状态，为多 UE 上行计算优先级、分配资源。 对严格 QoS 用户，作者实测报告成功传输包数增加   13%  ，  50% 传输的时延降低 6.2%  ，相对其最优表现的对照；还评估满意度、能效和服务时间。不是直接最小化全体 UE 的 P99。 多 UE、异质 QoS 和已有实现的核心参照。摘要、§VII、IX，本地 PDF 1、9～14 页；正式期刊版本。 \n   6｜P19：工业工厂 5G TDD 的中断时延与吞吐量   在工业工厂多业务仿真中，联合分析 TDD 方向选择、HOL 感知调度、功率控制和小区间干扰。 在论文的混合业务条件下，QoS 感知 TDD 相对不感知方案，URLLC   outage latency 降约 68%  ；该指标是特定低违约概率处的尾部时延，不是平均时延或本机 P99。 最贴近“工业＋TDD＋多 UE”的对照思路。§IV，图 4，本地 PDF 5 页。 \n   7｜P02：不同 NR Numerology 对端到端时延的影响   用 ns-3 分析 SCS、处理／解码时间、包长和到达间隔，比较 TCP 与 UDP。 发现 SCS 增大通常有助 TCP，但   UL UDP 时延可能增加  ，与清空缓存后重新触发 SR、已有授权能否带上新包有关。没有一个适用所有负载的降幅。 解释你已有 30／120 kHz 结果为什么不按时隙长度同比例缩放。§IV～结论，本地 PDF 4～6 页。 \n   8｜P04：RETALIN   两阶段、队列感知的 UL 调度；根据 SR 概率和积压状态分配资源，减少清空队列后频繁重新请求资源。 本地稿结论报告：对应 numerology 1、2，链路时延分别降约   22%、25%  ，并提高交付率、减少 SR；结果来自 ns-3／SUMO 车辆场景。不能理解为任意保留积压都能改善时延。 连接 SCS、SR 和队列机制，比直接上复杂学习模型更容易分析。§VIII，本地 PDF 18～19 页；本地是带占位符的草稿。 \n   9｜P03：工业 URLLC 的 Numerology 评估   在模拟工厂信道中比较不同 SCS、包长及 LOS／NLOS，专门观察异常慢包。 小包常能从短时隙受益；包变大、NLOS 或负载变化时，更大 SCS 可能因跨槽传输使时延恶化；部分配置有   超过 10 ms   的异常值。属于配置评估，不是新调度算法收益。 支撑 SCS 分析中必须控制包长、信道和负载。§4～5，本地 PDF 6～10 页。 \n   10｜P31：MAC-Gyver   提供 OAI 内部调度应用接口和不运行 PHY 的 mac-emu，用同一 L2 栈评估调度器，并给出提前授权、频率选择示例。 作者报告单宿主 mac-emu 可扩到   90 用户  ；提前调度示例 RTT 中位数约减半，频率选择示例吞吐量最高增约   7%  。  mac-emu 不是完整 RFsim，90 用户不代表你当前电脑能跑 90 个完整 UE。   最有价值的是接入点、受控对照和多用户扩展方法。摘要、示例与结论，本地 PDF 1、10～16 页。 \n\n   第二组：补强机理、TDD、尾时延与闭环，顺位 11～24\n\n 顺位／原编号与简称 做了什么 论文中的效果与边界 对你的用途、原文定位 \n --- --- --- --- \n   11｜P37：5G／边缘云中的双机械臂同步控制   两台 UR5e 通过 MQTT 与边缘软 PLC 交互；用 NTP 同步时钟，并约定命令下发后   20 ms   执行动作。 报告约   77%   的动作时间不一致改善，覆盖约   99.98%   动作；是  同步效果，不是网络时延降低 77%  。等待约定时间会增加响应等待，少数超晚包仍存在。 多机器人协作的工业例子和抖动评价；不要照搬 20 ms 为标准要求。§IV～VI，本地 PDF 2～4 页。 \n   12｜P23：HARQ 下的时延违约概率建模   把排队、传输、解码、反馈、控制信令占用及并行 HARQ 纳入时隙化模型，推导 DVP 上界。 与分组级仿真对照显示，模型可较好匹配所评估系统；省略时序和信令可能明显低估尾风险。  这是风险估计改善，不是让实网时延直接降低。   给尾时延／超时率分析增加理论依据。§IV～V，本地 PDF 7～10 页；2026 v1。 \n   13｜P22：考虑解码与反馈时延的 5G HARQ 分析   建立多服务台排队模型，分析并行 ARQ／HARQ、译码开销、反馈时间及 MCS／资源分配。 数值分析表明，忽略反馈和译码可能产生数量级的 DVP 偏差；并行进程数和 RTT 的关系会改变性能。不是统一的降时延算法。 分层时延中解释重传与处理等待；与 P23 对照看建模演进。§V～VI，本地 PDF 9～12 页；2025 v2。 \n   14｜P17：半静态 TDD 帧配置   利用跨小区较慢变化的业务统计，选择公共帧结构，平衡方向匹配、跨链路干扰和协调开销。 相对理想静态 TDD，作者报告约   40% outage latency 降低  ，同时比快速动态协调需要更低信令开销；来自宏小区仿真。 说明并非 TDD 切换越频繁越好；本机单小区 RFsim 不会自动复现其干扰收益。§V～VI，本地 PDF 4～6 页。 \n   15｜P20：双层强化学习优化无线图样   第一层学习需要多少 DL／UL 符号，第二层学习这些符号怎样排列，以减小最坏方向尾时延。 轻载示例相对 Semi-sTDD，约   2.7 ms → 1.06 ms  ，在文中   10⁻⁵   概率处约降   60%  ；重载时优势及干扰制约不同。是系统级仿真。 提示“D／U 总比例”和“机会排列”是两项变量；不能只换比例后宣称复现该算法。§VII～VIII，本地 PDF 9～14 页。 \n   16｜P38：面向控制任务的 pMEF 调度   用信息年龄和控制系统模型计算估计误差，结合链路成功率轮询；引入归一化误差，避免不同任务量纲影响排序。 在其 SDR 网络中，相对 WiFresh，报告控制代价最高约降   21%  、估计均方误差最高约降   18%  ；  不是包时延改善率  。控制对象由模型进程模拟，包含倒立摆案例。 以后从通信指标走向“任务重要性”调度时很有用；当前尚不应省略控制模型直接套公式。§IV、VI，本地 PDF 9～15 页。 \n   17｜P39：存在网络时延的信息价值 VoI   在 LQG 条件下联合考虑控制代价和发送成本；用延迟相关 VoI 决定是否发送，并提出简化代理。 固定延迟   τ＝2 步  、1000 次蒙特卡洛例中，同发送率下估计误差优于周期／AoI 触发；没有直接报告 OAI 的毫秒时延收益。 提供“这个包现在发是否值得”的理论；不是机械臂非线性稳定性的直接保证。§III～IV，本地 PDF 3～6 页。 \n   18｜P16：灵活 TDD／FDD 的 URLLC 分析   分析 TDD 方向等待、业务负载、SCS、TTI 与跨小区交叉链路干扰，并讨论灵活 FDD。 发现即使无干扰也存在方向切换等待；加入 CLI 会显著放大尾时延。不同负载下合适 SCS 不同，不给可直接搬到本机的统一降幅。 作为 TDD 机理背景；其中灵活 FDD 是论文方案，不能当现有 OAI 或最新协议强制配置。结论、本地 PDF 6 页及前文图表。 \n   19｜P21：有限码长下多用户 URLLC 时延   比较下行 RR、Max CQI、最长队列 LQ，在有限码长及无限缓存假设下分析违约概率。 作者评估的稳定队列场景中，LQ 的系统 DVP 最低；优势随到达率等条件变化，不能外推为所有 QoS／用户都最好。 多 UE 竞争的轻量对照与队列建模。§III～V，本地 PDF 3～5 页。 \n   20｜P25：贝叶斯优化多信道排队调度   给 URLLC 设置有限等待的调度队列，在时延要求内换取更好的 eMBB 吞吐与 URLLC 不丢包概率；贝叶斯优化搜索黑盒策略。 相对不排队／即时调度等对照，提高论文中的吞吐与不丢包效用；没有一个通用的“P99 降 X%”。等待一点也可能改善总体资源使用。 适合作为较轻量的参数搜索思路；先明确目标和期限。§V～VI，本地 PDF 10～15 页。 \n   21｜P26：风险敏感约束 DRL 联合调度   用分布式价值预测和 CVaR 考虑坏结果，约束 URLLC 失败概率，分配 eMBB／URLLC 共享资源。 相对风险中性 DRL，可在相近平均回报下减少  回报分布的坏尾部  ；不能直接等同于降低包时延 P99。主要是数值验证。 风险约束思想可参考，必须重新定义本机时延目标和代价。摘要及 §VI～VII，本地 PDF 2、13～16 页。 \n   22｜P28：瞬态、截止期限感知 RAN 切片   建立时变有限容量队列，结合资源调整、预计无法按期完成的包丢弃及服务方差控制。 代表性模型中 URLLC P99 约   0.85～0.92 ms  ，及时完成率   99.37%  ，有效队列损失   0.63%  ；降低完成包 P99 的同时必须计入丢弃和未完成。非 OAI 实测。 非常适合学习如何报告期限、丢弃、积压和尾分位；不能只引用亚毫秒结果。§7～10，本地 PDF 13～19 页。 \n   23｜P29：DRR，欠额轮询   为每条流维护额度和欠额，按字节公平服务不同长度的包。 在相应额度条件下，以摊销   O(1)   的逐包成本实现接近公平排队的吞吐隔离；原始 DRR 不是闭环截止期限算法。 低复杂度公平性、积压服务和防长期未服务的基础对照；不自动保证无线资源可行或 P99。摘要、§8，本地 PDF 1、11 页。 \n   24｜P18：灵活 Numerology 与帧结构资源优化   将时频资源划为不同形状的块，用线性规划和拉格朗日对偶分配异质业务。 所评估情形中 LP＋LD 的最优性差距整体低于   10%  ；这是目标函数相对最优值的差距，  不是时延降低 10%  。 帮助构建资源分配优化问题；需另核当前协议及 OAI 支持的资源形状。§V～VI，本地 PDF 3～4 页。 \n\n   第三组：按瓶颈选读的方法与平台论文，顺位 25～35\n\n 顺位／原编号与简称 做了什么 论文中的效果与边界 对你的用途、原文定位 \n --- --- --- --- \n   25｜P06：V2N2V 的 NR 无线时延模型   分析不同 SCS、完整槽／mini-slot、动态／半静态调度、重传和单播／广播的无线时延与容量。 展示某些配置可满足部分 V2X 需求，但密度和可靠性目标提高后存在容量边界；是模型分析，不是机械臂实测或单一算法降幅。 可借鉴等待、传输和重传的分解方法；不能把两段无线链路的 V2N2V 值当作 UE–UPF 单向时延。§V～VI，本地 PDF 7～14 页。 \n   26｜P09：尾时延感知 PPO 切片   先用轨迹做行为克隆，再用 PPO、P95 惩罚和资源保护层优化多切片分配。 详细 ns-3 高移动性验证：所选策略 P95   11.70 ms  ，均分基线   42.0 ms  ；该验证中 URLLC SLA 仅   45.0%  。不能拿摘要中其他条件的总体 SLA＞92% 冒称该条件的 URLLC 可靠性。 尾部奖励和仿真迁移案例；资源决策间隔为   2 s  ，不是 120 kHz 的逐槽算法。§6，表 7～9，本地 PDF 22～23 页。 \n   27｜P27：5G 概率时延预测   用历史网络状态、LSTM／Transformer 和混合密度输出，预测未来多个时间步的时延分布。 在 OAI 测试床数据的较难条件下，Transformer 的负对数似然和平均绝对误差优于部分基线；  预测更准不等于时延已经降低  。 适合未来剩余时间估计和风险预测；需另接决策器并验证在线开销。§IV～VI，本地 PDF 7～13 页。 \n   28｜P32：OAI 的大规模 vRAN 部署   改造编码／解码、预编码和任务并行，结合通用 CPU 与硬件加速扩展多个 vRAN 实例。 特定 8 工作线程、100 MHz 例中，预编码＋资源映射处理时间最多降约   67%  ；是局部处理时间，不是应用时延降低 67%。 当证据表明主机处理或并行度是瓶颈时再深入；不能直接归因本机慢包。源码改进和结论，本地 PDF 5～6、12 页。 \n   29｜P33：Near-RT RIC 中的实时 AI   将逻辑回归和浅层 MLP 导出为 C 推理模块，嵌入 OAI／FlexRIC xApp，测执行可行性。 推理约   1～5 μs／10～25 μs  ；论文相关服务链测量小于   4 ms  。训练数据为合成代理状态，部分闭环结果为投影评估，不能当作真实业务时延优化。 学习把算法运行时间计入预算；Near-RT xApp 与每槽 MAC 调度须区分。§IV、VII，本地 PDF 6～9 页。 \n   30｜P34：OAI 上行 MU-MIMO 实现   改造 gNB，用 SRS 信道估计计算合并器，使两个 UE 在重叠时频资源上发送并被分离译码。 实现了   2×2 上行 MU-MIMO   的原型验证；不是只开多个 RFsim UE，也没有给出通用 P99 降低率。 若将来研究空间复用、资源竞争可参考；当前两台射频和仿真能力需独立核验。§VII～VIII，本地 PDF 6 页。 \n   31｜P35：CPU–GPU 频率与吞吐稳定性   在 NVIDIA Aerial＋OAI 平台改变 CPU／GPU 频率，观察吞吐抖动、能耗和运行间差异。 重复验证发现频率与稳定性非单调：特定 GPU 配置下，CPU   2.4 GHz   的平均变异系数约   0.2%  ，  3.0 GHz   约   18.1%  。是吞吐稳定性，不是本机尾时延根因证明。 提醒不要把“CPU 更快”当作必然更稳；仅当平台匹配时借鉴。§IV，本地 PDF 3～5 页。 \n   32｜P12：动态选择 Numerology 的混合业务调度   在下行 eMBB／URLLC 复用中结合 DRL 选择 Numerology、mini-slot 和穿孔分配。 仿真相对固定 Numerology 可改善吞吐、可靠性和 URLLC 时延；不同负载／对照收益不同，本导读不填统一降幅。 后续确需动态 SCS 再读；论文仿真中可切换，不证明当前 n261 OAI 可逐槽切换。§6～7，本地 PDF 8～13 页。 \n   33｜P10：GNN 处理 URLLC／eMBB 共存   先分配 eMBB，再用 GNN 决定 URLLC 穿孔位置，兼顾 eMBB 速率、公平和 URLLC 中断。 仿真表明性能优于所选随机／优化对照，提出线性复杂度的实现；主要指标是速率、公平与中断概率，没有已验证的本机闭环时延降幅。 图结构学习和穿孔基线参考；与当前 UL 授权方向存在差异。摘要、§6～7，本地 PDF 1、9～13 页。 \n   34｜P07：Transformer＋DRL 多用户资源分配   把多槽、多用户分配拆成双序列决策，使用 PPO 和 Transformer。 改善所评估下行系统的频谱效率、公平、训练收敛及泛化；  核心目标不是包时延／P99  。 以后需要学习复杂用户排列时再考虑；目前先用可解释轻量调度。摘要、§V～VI，本地 PDF 1、11～18 页。 \n   35｜P11：Transformer 预测流量并启停 RAN 应用   预测短时业务后，按需启用业务引流 xApp 或小区休眠 rApp。 作者结论报告相对其常开应用对照，平均能效增约   39.7%  、吞吐增约   10.1%  ；不是时延分别降低这些比例。 可借鉴“预测业务→控制动作”，但不是逐 UE 预计来包前的动态授权。§V～VI，本地 PDF 4～6 页。 \n\n   第四组：保留作扩展背景，顺位 36～39\n\n 顺位／原编号与简称 做了什么 论文中的效果与边界 对你的用途、原文定位 \n --- --- --- --- \n   36｜P13：扩散模型优化网络化控制资源   联合采样周期、码长和错误概率，先用优化器生成样本，再用条件 DDPM 输出码长。 总功耗接近优化解；本地预印本摘要报告关键约束违反次数相对 DRL 最多改善约   18 倍  。  不是时延降低 18 倍  ，主要目标是功耗。 控制约束和学习可行解的扩展参考，当前不必优先实施。摘要、§IV～V，本地 PDF 1、4～5 页。 \n   37｜P08：Diffusion-QL 的 O-RAN 资源分配   用 Q 引导的扩散策略联合选择功率和 PRB，处理 eMBB／URLLC／mMTC 的多种可行分配。 仿真中对比 DQN、SS-VAE 等改善约束满足和吞吐；尚需加速多步去噪以适应严苛在线周期。本导读不从图估算统一时延降幅。 资源动作多解和生成式策略的背景；落地成本高于现阶段轻量方法。§IV～V，本地 PDF 4～6 页。 \n   38｜P14：图信号扩散资源分配   把用户干扰关系建图，从原始—对偶专家策略学习条件分配分布，以图 U-Net 生成动作。 功率控制案例中接近最优长期总速率和最低速率约束，并可跨规模泛化；  没有直接验证工业闭环 P99  。 大规模干扰图、功率优化的前沿参考，与本机当前 UL 慢包主线较远。§3～4，本地 PDF 3～5 页。 \n   39｜P15：LLM 增强强化学习的网络优化   讨论 LLM 提取状态、设计奖励、解释策略等角色，并用服务迁移等案例说明 LLM＋多智能体 RL。 案例报告约   25% 的决策性能改善  ，对应文中服务迁移目标；不能写成 MAC 时延下降 25%。论文中的部分其他百分比来自所综述工作。 用于展望和方法背景，不建议现在据此把 LLM 放进逐槽调度。案例与结论，本地 PDF 5～7 页。 \n\n   TS 22.104 在这套阅读中的位置\n\n实际读取：  TS 22.104 V19.2.0（2024-06，Release 19）  ，用户原包  22104-j20.zip ，原 Word 成员  22104-j20.doc 。本次核对原包和已解压文件一致；这不是独立认证官网最高版本。\n\n 原文位置 能为论文提供什么依据 不能由它直接推出什么 \n --- --- --- \n §5.2、表 5.2-1；附录 A.2.2.1 运动控制有不同消息长度和传输间隔组合，例如 50 byte／0.5 ms、40 byte／1 ms、20 byte／2 ms 不能直接规定你所有视觉包、1200 byte UDP 包或完整装配闭环都必须小于 1 ms \n 附录 A.2.2.2 装配线上控制器之间协调工件交接的场景 不是现有每个 UE 都承担机器人关节控制的证明 \n 表 5.2-1、附录 A.2.4.1 原文明确举“装配机器人”作为移动控制面板远程控制的例子，40～250 byte、4～8 ms 目标传输间隔 不是所有自主视觉装配通用的业务模型，也不是 TDD 3∶1 的强制来源 \n 附录 C.3、C.5 区分连续失效容忍、通信服务边界和完整应用计时 不能把 ping RTT 直接当成网络单向时延或感知到执行的工业闭环 \n\n第 5 章是规范性需求正文；附录 A、C 是资料性说明。表 5.2-1 注 12a 的相关量默认分别适用于 UL 和 DL；注 2／9 等还区分一条或两条无线链路。选用需求要连同业务类别、方向及链路数一起说明，不只摘一个毫秒数。\n\n原文所在目录： /home/lbh/oiwireless/3GPP协议原文/官方解压原文/22104-j20/ 。不上传协议全文。\n\n   版本与后续论文：这些不能混写\n\n 论文 本地身份及已知版本情况 \n --- --- \n P04 RETALIN 本地 20 页稿的 DOI／日期仍为占位符，不能当正式出版页。作者后续材料引用正式 IEEE Access   2024、卷 12、16632～16651  ；作者网页的 2023 标签与正式书目存在差别。本表收益取实际读到的本地稿，不冒充已逐节对照正式全文。 作者原稿 (https://newslab.iith.ac.in/files/journals/Retalin_IEEE_Access-2.pdf)、 作者后续引用 (https://newslab.iith.ac.in/files/conference/VTC_2024_BSR_PPT.pdf)。 \n P13 扩散控制资源 本地是 arXiv   2407.15784v1，2024-07-22  ；另已查到正式发表书目 IEEE Communications Letters 2025，29 卷，85～89 页，DOI   10.1109/LCOMM.2024.3499745  。本轮未读正式全文作差异核验；数值仍标为本地预印本结果。 arXiv (https://arxiv.org/abs/2407.15784)、 IEEE 通信学会目录 (https://minisite-demo-1.comsoc.org/system/files/2025-01/Publications_Contents_Digest_2025_Jan.pdf)。 \n P22 与 P23 分别是   2502.08789v2（2025-09-15）   和   2607.06169v1（2026-07-07）  。同一研究方向中有作者重叠，P23 又考虑控制信令等细节，但  不是把 P22 的版本号改为 v3  。两篇须分别引用。 P22 (https://arxiv.org/abs/2502.08789)、 P23 (https://arxiv.org/abs/2607.06169)。 \n P24 QUEST 本地是 TNSM   2026，卷 23   的正式排版，封面给出 2026-04-20 发表、2026-04-28 当前版本；不能把本地代码的所有工程细节都说成作者原实现。 \n P26 风险 DRL 本地文件来自 WRAP，带仓储封面，正文是 2024 作者接受稿，DOI   10.1109/TWC.2024.3373722  ；本地 PDF 第 2 页才是正文首页。不是仓储封面也算一页论文证明。 \n P38 任务感知调度 本地是   2202.09189v3（2022-09-22），16 页  ；另查到同作者正式期刊题名《Semantics- and Task-Oriented Scheduling for Networked Control Systems in Practice》，IEEE Access 2022，18 页，DOI   10.1109/ACCESS.2022.3218410  。本轮未逐节审查两版差异，21% 等仍引用本地 v3。 预印本 (https://arxiv.org/abs/2202.09189)、 作者机构书目 (https://portal.fis.tum.de/en/publications/semantics-and-task-oriented-scheduling-for-networked-control-syst/)。 \n P39 VoI 本地是   CDC 2021 正式 6 页会议版  ，DOI   10.1109/CDC45484.2021.9683717  ；对应 arXiv 登记更新至   2104.03355v2（2021-12-29）  。本轮结果按本地会议版，不冒称两个 PDF 逐字相同。 arXiv 记录 (https://arxiv.org/abs/2104.03355)。 \n\n下列 arXiv 记录已在线核对其展示版本，与本地页眉版本一致；这是各自登记记录的检查，不代表已经穷尽所有期刊扩展版：\n\n 原编号 本地版本与修订日期 登记入口 \n --- --- --- \n P05 2606.03664v1，2026-06-02  AUGUSTE (https://arxiv.org/abs/2606.03664) \n P08 2506.07880v2，2025-10-13  Diffusion-QL (https://arxiv.org/abs/2506.07880) \n P14 2604.05175v2，2026-07-28  图信号扩散 (https://arxiv.org/abs/2604.05175) \n P15 2602.13210v1，登记与本地均显示 2026-01-15  LLM＋RL (https://arxiv.org/abs/2602.13210) \n P18 1801.02066v2，2018-08-10  灵活时频资源 (https://arxiv.org/abs/1801.02066) \n P19 2012.05507v1，2020-12-10  工业 TDD (https://arxiv.org/abs/2012.05507) \n P27 2503.15297v1，2025-03-19  概率时延预测 (https://arxiv.org/abs/2503.15297) \n P30 2511.21277v3，2026-05-14  LatencyScope (https://arxiv.org/abs/2511.21277) \n P31 2607.26012v3，2026-08-08  MAC-Gyver (https://arxiv.org/abs/2607.26012) \n P32 2605.22638v1，2026-05-21  vRAN 部署 (https://arxiv.org/abs/2605.22638) \n P33 2607.01583v2，2026-07-07  RIC 内 AI (https://arxiv.org/abs/2607.01583) \n P34 2601.09384v2，2026-04-23  MU-MIMO (https://arxiv.org/abs/2601.09384) \n\nP34 本地题名含 Testbed，在线摘要页题名略有不同；P32 本地 15 页与在线 comments 所列页数不同。均保留本地文件身份，不凭题名或页数差异自行替换内容。P01、P02、P03、P06、P07、P09～P12、P16、P17、P20、P21、P25、P28、P29、P35～P37 的结果按实际本地文件；本轮没有宣称已完成它们全部后续版本／勘误的穷尽检索。\n\n   怎样把这些论文用进你的课题\n\n 要回答的问题 优先搭配 \n --- --- \n 每段时延从哪里来，慢包为什么慢 P01＋P30；重传／超时再加 P22、P23 \n 不同 TDD 配比和机会排列为什么影响 UL／DL P19＋P17＋P20；P16 补方向切换与干扰背景 \n 为什么 120 kHz 不一定比 30 kHz 的应用时延低 P02＋P03＋P04；P30 补参数关联 \n 多 UE 时先服务谁、怎样避免服务间隔过长 P24＋P21＋P29；已有结果仍应做每 UE、公平性和资源代价核对 \n 怎样减少首包等请求／授权 P05；P31 看 OAI 接口与评估方式，P04 看缓存机制 \n 怎样说明通信对工业任务有意义 P36＋P37＋TS 22.104；若真正优化控制效果，再加 P38、P39 \n\n论文效果分成四种来读：  通信时延、控制／同步效果、吞吐／能耗、模型／预测准确性  。它们可以共同支持研究，但数值不能互相替换，也不能跨硬件、包长和计时边界比较谁更好。\n\n本导读没有新增通信公式、配置或算法实现，新增数学推导不适用。标准只用于上面的需求边界核对；指定 5G 教材 §13.1.1.4／§13.1.1.5、本地 PDF 537～539 页用于复核 SR／BSR 背景，不作为任何论文收益数值的来源。复现或改 OAI 前，仍须按具体方法核对所需最新授权本地协议、变量、约束与实现限制。\n\n   按原编号打开本地论文\n\n以下链接对应本次实际读取的原文件；PDF 页码均从各文件第 1 页起算。\n\n- P01： Dissecting-5G-New-Radio-Latency (../../文献/论文/1_Dissecting-5G-New-Radio-Latency.pdf)（本地 6 页）\n- P02： 5G New Radio Numerologies and their Impact on (../../文献/论文/2_5G%20New%20Radio%20Numerologies%20and%20their%20Impact%20on.pdf)（本地 6 页）\n- P03： 5G Numerologies Assessment for URLLC in (../../文献/论文/3_5G%20Numerologies%20Assessment%20for%20URLLC%20in.pdf)（本地 11 页）\n- P04： retalin-queue-aware-uplink-scheduling-5g-nr-2023 (../../文献/论文/4_retalin-queue-aware-uplink-scheduling-5g-nr-2023.pdf)（本地 20 页）\n- P05： AUGUSTE Online-Learning dApp for Predictive URLLC Scheduling (../../文献/论文/5_AUGUSTE%20Online-Learning%20dApp%20for%20Predictive%20URLLC%20Scheduling.pdf)（本地 6 页）\n- P06： An_Analytical_Latency_Model_and_Evaluation_of_the_Capacity_of_5G_NR_to_Support_V2X_Services_Using_V2N2V_Communications (../../文献/论文/6_An_Analytical_Latency_Model_and_Evaluation_of_the_Capacity_of_5G_NR_to_Support_V2X_Services_Using_V2N2V_Communications.pdf)（本地 14 页）\n- P07： Resource_allocation_in_multi-user_cellular_networks_A_transformer-based_deep_reinforcement_learning_approach (../../文献/论文/7_Resource_allocation_in_multi-user_cellular_networks_A_transformer-based_deep_reinforcement_learning_approach.pdf)（本地 20 页）\n- P08： Generative Resource Allocation for 6G O-RAN (../../文献/论文/8_Generative%20Resource%20Allocation%20for%206G%20O-RAN.pdf)（本地 6 页）\n- P09： Int J Communication - 2026 - S - Tail‐Latency‐Aware Reinforcement Learning for Dynamic Resource Allocation in 5G Network (../../文献/论文/9_Int%20J%20Communication%20-%202026%20-%20S%20-%20Tail%E2%80%90Latency%E2%80%90Aware%20Reinforcement%20Learning%20for%20Dynamic%20Resource%20Allocation%20in%205G%20Network.pdf)（本地 25 页）\n- P10： Training a Graph Neural Network to solve URLLC andeMBB coexisting in 5G (../../文献/论文/10_Training%20a%20Graph%20Neural%20Network%20to%20solve%20URLLC%20andeMBB%20coexisting%20in%205G.pdf)（本地 14 页）\n- P11： Transformer-Based_Wireless_Traffic_Prediction_and_Network_Optimization_in_O-RAN (../../文献/论文/11_Transformer-Based_Wireless_Traffic_Prediction_and_Network_Optimization_in_O-RAN.pdf)（本地 6 页）\n- P12： Wireless Communications and Mobile Computing - 2024 - Wang - Resource Scheduling in URLLC and eMBB Coexistence Based on (../../文献/论文/12_Wireless%20Communications%20and%20Mobile%20Computing%20-%202024%20-%20Wang%20-%20Resource%20Scheduling%20in%20URLLC%20and%20eMBB%20Coexistence%20Based%20on.pdf)（本地 14 页）\n- P13： Diffusion Model Based Resource Allocation (../../文献/论文/13_Diffusion%20Model%20Based%20Resource%20Allocation.pdf)（本地 5 页）\n- P14： GRAPH SIGNAL DIFFUSION MODELSFORWIRELESSRESOURCEALLOCATION (../../文献/论文/14_GRAPH%20SIGNAL%20DIFFUSION%20MODELSFORWIRELESSRESOURCEALLOCATION.pdf)（本地 5 页）\n- P15： Large Language Model (LLM)-enabled (../../文献/论文/15_Large%20Language%20Model%20%28LLM%29-enabled.pdf)（本地 7 页）\n- P16： On the Ultra-Reliable and Low-Latency Communications in Flexible TDDFDD 5G Networks (../../文献/论文/16_On%20the%20Ultra-Reliable%20and%20Low-Latency%20Communications%20in%20Flexible%20TDDFDD%205G%20Networks.pdf)（本地 6 页）\n- P17： Semi-Static_Radio_Frame_Configuration_for_URLLC_Deployments_in_5G_Macro_TDD_Networks (../../文献/论文/17_Semi-Static_Radio_Frame_Configuration_for_URLLC_Deployments_in_5G_Macro_TDD_Networks.pdf)（本地 6 页）\n- P18： Resource Optimization with Flexible Numerology and Frame Structure for Heterogeneous Services (../../文献/论文/18_Resource%20Optimization%20with%20Flexible%20Numerology%20and%20Frame%20Structure%20for%20Heterogeneous%20Services.pdf)（本地 4 页）\n- P19： Analysis of Outage Latency and Throughput Performance in Industrial Factory 5G TDD Deployments (../../文献/论文/19_Analysis%20of%20Outage%20Latency%20and%20Throughput%20Performance%20in%20Industrial%20Factory%205G%20TDD%20Deployments.pdf)（本地 6 页）\n- P20： Online_Radio_Pattern_Optimization_Based_on_Dual_Reinforcement-Learning_Approach_for_5G_URLLC_Networks (../../文献/论文/20_Online_Radio_Pattern_Optimization_Based_on_Dual_Reinforcement-Learning_Approach_for_5G_URLLC_Networks.pdf)（本地 15 页）\n- P21： Delay_Analysis_of_Multi-User_URLLC_Systems_Under_Finite_Block-Length_Regime (../../文献/论文/21_Delay_Analysis_of_Multi-User_URLLC_Systems_Under_Finite_Block-Length_Regime.pdf)（本地 6 页）\n- P22： Delay Analysis of 5G HARQ in the Presence of Decoding and Feedback Latencies (../../文献/论文/22_Delay%20Analysis%20of%205G%20HARQ%20in%20the%20Presence%20of%20Decoding%20and%20Feedback%20Latencies.pdf)（本地 14 页）\n- P23： Delay Violation Probability Modeling for 5G Systems with HARQ Operation (../../文献/论文/23_Delay%20Violation%20Probability%20Modeling%20for%205G%20Systems%20with%20HARQ%20Operation.pdf)（本地 12 页）\n- P24： QUEST_User-Based_Quality_of_Service_Aware_Uplink_Resource_Scheduling (../../文献/论文/24_QUEST_User-Based_Quality_of_Service_Aware_Uplink_Resource_Scheduling.pdf)（本地 15 页）\n- P25： Bayesian_Optimization_of_Queuing-Based_Multichannel_URLLC_Scheduling (../../文献/论文/25_Bayesian_Optimization_of_Queuing-Based_Multichannel_URLLC_Scheduling.pdf)（本地 16 页）\n- P26： WRAP-constrained-risk-sensitive-deep-reinforcement-learning-eMBB-URLLC-joint-scheduling-2024 (../../文献/论文/26_WRAP-constrained-risk-sensitive-deep-reinforcement-learning-eMBB-URLLC-joint-scheduling-2024.pdf)（本地 18 页）\n- P27： Probabilistic Delay Forecasting in 5G Using Recurrent and Attention-Based Architectures (../../文献/论文/27_Probabilistic%20Delay%20Forecasting%20in%205G%20Using%20Recurrent%20and%20Attention-Based%20Architectures.pdf)（本地 14 页）\n- P28： Transient deadline-aware RAN slicing for NR-V2X using finite-capacity time-varying slice queues (../../文献/论文/28_Transient%20deadline-aware%20RAN%20slicing%20for%20NR-V2X%20using%20finite-capacity%20time-varying%20slice%20queues.pdf)（本地 21 页）\n- P29： Efficient fair queueing using deficit round robin (../../文献/论文/29_Efficient%20fair%20queueing%20using%20deficit%20round%20robin.pdf)（本地 12 页）\n- P30： LatencyScope A System-Level (../../文献/论文/30_LatencyScope%20A%20System-Level.pdf)（本地 23 页）\n- P31： MAC-Gyver Open, Programmable, Scheduling (../../文献/论文/31_MAC-Gyver%20Open%2C%20Programmable%2C%20Scheduling.pdf)（本地 17 页）\n- P32： An intensive vRAN deployment with OpenAirInterface (../../文献/论文/32_An%20intensive%20vRAN%20deployment%20with%20OpenAirInterface.pdf)（本地 15 页）\n- P33： Enabling Real-Time AI in O-RAN Deploying and (../../文献/论文/33_Enabling%20Real-Time%20AI%20in%20O-RAN%20Deploying%20and.pdf)（本地 9 页）\n- P34： Uplink Multi-User MIMO Testbed Implementation in (../../文献/论文/34_Uplink%20Multi-User%20MIMO%20Testbed%20Implementation%20in.pdf)（本地 7 页）\n- P35： Exploratory_Study_of_CPUGPU_Frequency_Interactions_and_Throughput_Stability_in_GPU-Accelerated_5G_O-RAN (../../文献/论文/35_Exploratory_Study_of_CPUGPU_Frequency_Interactions_and_Throughput_Stability_in_GPU-Accelerated_5G_O-RAN.pdf)（本地 6 页）\n- P36： Distributed_Control_for_Collaborative_Robotic_Systems_Using_5G_Edge_Computing (../../文献/论文/36_Distributed_Control_for_Collaborative_Robotic_Systems_Using_5G_Edge_Computing.pdf)（本地 13 页）\n- P37： Implementation_of_Wireless_Synchronous_Robotic_Control_in_5G_and_Edge-Cloud_Environments (../../文献/论文/37_Implementation_of_Wireless_Synchronous_Robotic_Control_in_5G_and_Edge-Cloud_Environments.pdf)（本地 4 页）\n- P38： Task_Oriented Scheduling for Networked Control (../../文献/论文/38_Task_Oriented%20Scheduling%20for%20Networked%20Control.pdf)（本地 16 页）\n- P39： Value_of_Information_in_Networked_Control_Systems_Subject_to_Delay (../../文献/论文/39_Value_of_Information_in_Networked_Control_Systems_Subject_to_Delay.pdf)（本地 6 页）\n\n后续研究规划： 论文规划：工业多 UE 时延优化、对比算法与实验路线 (论文规划_工业多UE时延优化与对比实验.md)。这里把文献启发与本平台已有证据结合，列出待验证方法和实验顺序，不把文献收益当成本机结果。\n\n   文件与网页更新方式\n\n本文件是唯一说明正文，位于阅读站  说明/文献导读/ 。阅读站可从“算法知识点 → 共同前置条件”进入，也可搜索“39 篇文献”。站内标题、正文和目录由  说明/reading-notes.json  登记生成。\n\n维护者在阅读站根目录运行：\n\n   bash\npython3 -B tools/update_reading_notes.py\npython3 -B tools/update_knowledge.py\npython3 -B tools/validate_reader.py\n   \n\n第一条生成导读与搜索，第二条更新共同页的导航链接。站内显示新内容后再交付；这三条是文档构建和检查，不是通信实验。\n"
+      "search": "  39 篇文献：重要性排序、做法与效果简述\n\n中文辅助稿的公式缺字、修复情况与逐篇对照页序见 39 篇论文译稿公式核查说明 (论文译稿公式核查与修复说明.md)。\n\n整理日期：2026-11-10。范围是用户  pdf-英文原版/  中原编号 1～39 的全部论文；新补充的 36～39 也在其中。TS 22.104 单独作为工业场景和需求依据，不与算法论文混排名。\n\n  这里的“重要性”指对你当前课题的帮助：OAI 仿真、TDD／SCS、多 UE 上行与尾时延分析，以及后续工业闭环场景。不是期刊档次或论文质量排名。   如果以后把主要目标改为控制误差而非通信时延，P38、P39 的顺位应上调。\n\n每篇已查看本地摘要、方法相关段落、实验或结论；P36～P39 还结合前轮正文阅读。本文是简要导读，未逐式审查全部证明、未复现全部作者代码。下表效果均为  论文在自身条件下报告的结果，不是我们本机的新测量  ；没有统一收益数字的论文就说明定性结果，不凭图估算百分比。\n\n   先读哪几篇\n\n第一轮优先：  P01 → P36 → P30 → P05 → P24 → P19 → P02 → P04 → P03 → P31  。\n\n它们依次帮助你解决：测量怎么做、工业闭环怎么讲、时延怎么算、请求授权怎么少等、多 UE 怎么排、TDD 怎么影响等待，以及 SCS 为什么不一定越大越快、算法怎样接入 OAI。\n\n如果只来得及读五篇，先看   P01、P36、P30、P05、P24  ；做 TDD 对照时把 P19 提前加入。阅读顺序是建议，不能替代修改前的协议核验。\n\n   第一组：最直接支撑当前研究，顺位 1～10\n\n 顺位／原编号与简称 做了什么 论文中的效果与边界 对你的用途、原文定位 \n --- --- --- --- \n   1｜P01：Dissecting 5G New-Radio Latency   在 OAI 用户面各层放探针，关联同一个包及其分段，拆解上行 RAN 时延。 定位到 UE 侧 RLC／MAC 等待、分段、接收侧重组和 PDCP 重排序等机制；  属于测量诊断，没有一个“新算法降时延 X%”的结论  。测量边界是 UE–基站的 RAN。 你全部分层、慢包归因工作的基础。§III～IV、VI，本地 PDF 2～4、6 页。 \n   2｜P36：5G 边缘计算下的协作机器人分布式控制   相机图像上传边缘做视觉处理，检测结果返回机器人；本地运行高层和低层控制，并测推物体、手势遥操作。 真实推物实验中，目标事件对应的通信＋计算时延为   38.4～222 ms  ，计算时延中位数   10.6 ms  ；这组是现象测量，不是优化前后收益。作者指出边缘少省的几毫秒，可能抵不过图像上传开销。 最适合支撑你的工业背景、闭环边界和瓶颈占比；不要求现在改视频算法。§V～VI，本地 PDF 8～11 页。 \n   3｜P30：LatencyScope   建立 UL／DL 单向 RAN 时延模型，联合考虑协议处理、无线接口、TDD、调度及参数依赖，再搜索可行配置。 在两套开源 5G 测试床和商用网络数据上，较好重现时延分布及上下界；主要贡献是  预测与配置分析准确性  ，不应硬写成通用的降时延百分比。 数学分析和仿真对照的主参考，尤其适合解释“时隙短了却没更快”。§VI，本地 PDF 8～12 页；本地为 v3。 \n   4｜P05：AUGUSTE   在线学习业务到达规律，在预计来包前发上行授权；以学习、置信和空闲等状态调节预测与资源开销。 OAI 测试床三类业务中，典型 RTT 中位数从约   20 ms 降到 10 ms  ，约减半；报告约   7%～10%   的调度开销。其口径是所调度 UL 时隙的比例，不能直接叫空授权浪费率。周期上报例中单向时延也有改善。  不是所有网络都能减半  。 你的“授权时机”方向最直接的算法参考；先确认业务可预测性。§V 及结论，本地 PDF 5～6 页。 \n   5｜P24：QUEST   结合 5G QoS、时延预算、HOL 和用户／网络状态，为多 UE 上行计算优先级、分配资源。 对严格 QoS 用户，作者实测报告成功传输包数增加   13%  ，  50% 传输的时延降低 6.2%  ，相对其最优表现的对照；还评估满意度、能效和服务时间。不是直接最小化全体 UE 的 P99。 多 UE、异质 QoS 和已有实现的核心参照。摘要、§VII、IX，本地 PDF 1、9～14 页；正式期刊版本。 \n   6｜P19：工业工厂 5G TDD 的中断时延与吞吐量   在工业工厂多业务仿真中，联合分析 TDD 方向选择、HOL 感知调度、功率控制和小区间干扰。 在论文的混合业务条件下，QoS 感知 TDD 相对不感知方案，URLLC   outage latency 降约 68%  ；该指标是特定低违约概率处的尾部时延，不是平均时延或本机 P99。 最贴近“工业＋TDD＋多 UE”的对照思路。§IV，图 4，本地 PDF 5 页。 \n   7｜P02：不同 NR Numerology 对端到端时延的影响   用 ns-3 分析 SCS、处理／解码时间、包长和到达间隔，比较 TCP 与 UDP。 发现 SCS 增大通常有助 TCP，但   UL UDP 时延可能增加  ，与清空缓存后重新触发 SR、已有授权能否带上新包有关。没有一个适用所有负载的降幅。 解释你已有 30／120 kHz 结果为什么不按时隙长度同比例缩放。§IV～结论，本地 PDF 4～6 页。 \n   8｜P04：RETALIN   两阶段、队列感知的 UL 调度；根据 SR 概率和积压状态分配资源，减少清空队列后频繁重新请求资源。 本地稿结论报告：对应 numerology 1、2，链路时延分别降约   22%、25%  ，并提高交付率、减少 SR；结果来自 ns-3／SUMO 车辆场景。不能理解为任意保留积压都能改善时延。 连接 SCS、SR 和队列机制，比直接上复杂学习模型更容易分析。§VIII，本地 PDF 18～19 页；本地是带占位符的草稿。 \n   9｜P03：工业 URLLC 的 Numerology 评估   在模拟工厂信道中比较不同 SCS、包长及 LOS／NLOS，专门观察异常慢包。 小包常能从短时隙受益；包变大、NLOS 或负载变化时，更大 SCS 可能因跨槽传输使时延恶化；部分配置有   超过 10 ms   的异常值。属于配置评估，不是新调度算法收益。 支撑 SCS 分析中必须控制包长、信道和负载。§4～5，本地 PDF 6～10 页。 \n   10｜P31：MAC-Gyver   提供 OAI 内部调度应用接口和不运行 PHY 的 mac-emu，用同一 L2 栈评估调度器，并给出提前授权、频率选择示例。 作者报告单宿主 mac-emu 可扩到   90 用户  ；提前调度示例 RTT 中位数约减半，频率选择示例吞吐量最高增约   7%  。  mac-emu 不是完整 RFsim，90 用户不代表你当前电脑能跑 90 个完整 UE。   最有价值的是接入点、受控对照和多用户扩展方法。摘要、示例与结论，本地 PDF 1、10～16 页。 \n\n   第二组：补强机理、TDD、尾时延与闭环，顺位 11～24\n\n 顺位／原编号与简称 做了什么 论文中的效果与边界 对你的用途、原文定位 \n --- --- --- --- \n   11｜P37：5G／边缘云中的双机械臂同步控制   两台 UR5e 通过 MQTT 与边缘软 PLC 交互；用 NTP 同步时钟，并约定命令下发后   20 ms   执行动作。 报告约   77%   的动作时间不一致改善，覆盖约   99.98%   动作；是  同步效果，不是网络时延降低 77%  。等待约定时间会增加响应等待，少数超晚包仍存在。 多机器人协作的工业例子和抖动评价；不要照搬 20 ms 为标准要求。§IV～VI，本地 PDF 2～4 页。 \n   12｜P23：HARQ 下的时延违约概率建模   把排队、传输、解码、反馈、控制信令占用及并行 HARQ 纳入时隙化模型，推导 DVP 上界。 与分组级仿真对照显示，模型可较好匹配所评估系统；省略时序和信令可能明显低估尾风险。  这是风险估计改善，不是让实网时延直接降低。   给尾时延／超时率分析增加理论依据。§IV～V，本地 PDF 7～10 页；2026 v1。 \n   13｜P22：考虑解码与反馈时延的 5G HARQ 分析   建立多服务台排队模型，分析并行 ARQ／HARQ、译码开销、反馈时间及 MCS／资源分配。 数值分析表明，忽略反馈和译码可能产生数量级的 DVP 偏差；并行进程数和 RTT 的关系会改变性能。不是统一的降时延算法。 分层时延中解释重传与处理等待；与 P23 对照看建模演进。§V～VI，本地 PDF 9～12 页；2025 v2。 \n   14｜P17：半静态 TDD 帧配置   利用跨小区较慢变化的业务统计，选择公共帧结构，平衡方向匹配、跨链路干扰和协调开销。 相对理想静态 TDD，作者报告约   40% outage latency 降低  ，同时比快速动态协调需要更低信令开销；来自宏小区仿真。 说明并非 TDD 切换越频繁越好；本机单小区 RFsim 不会自动复现其干扰收益。§V～VI，本地 PDF 4～6 页。 \n   15｜P20：双层强化学习优化无线图样   第一层学习需要多少 DL／UL 符号，第二层学习这些符号怎样排列，以减小最坏方向尾时延。 轻载示例相对 Semi-sTDD，约   2.7 ms → 1.06 ms  ，在文中   10⁻⁵   概率处约降   60%  ；重载时优势及干扰制约不同。是系统级仿真。 提示“D／U 总比例”和“机会排列”是两项变量；不能只换比例后宣称复现该算法。§VII～VIII，本地 PDF 9～14 页。 \n   16｜P38：面向控制任务的 pMEF 调度   用信息年龄和控制系统模型计算估计误差，结合链路成功率轮询；引入归一化误差，避免不同任务量纲影响排序。 在其 SDR 网络中，相对 WiFresh，报告控制代价最高约降   21%  、估计均方误差最高约降   18%  ；  不是包时延改善率  。控制对象由模型进程模拟，包含倒立摆案例。 以后从通信指标走向“任务重要性”调度时很有用；当前尚不应省略控制模型直接套公式。§IV、VI，本地 PDF 9～15 页。 \n   17｜P39：存在网络时延的信息价值 VoI   在 LQG 条件下联合考虑控制代价和发送成本；用延迟相关 VoI 决定是否发送，并提出简化代理。 固定延迟   τ＝2 步  、1000 次蒙特卡洛例中，同发送率下估计误差优于周期／AoI 触发；没有直接报告 OAI 的毫秒时延收益。 提供“这个包现在发是否值得”的理论；不是机械臂非线性稳定性的直接保证。§III～IV，本地 PDF 3～6 页。 \n   18｜P16：灵活 TDD／FDD 的 URLLC 分析   分析 TDD 方向等待、业务负载、SCS、TTI 与跨小区交叉链路干扰，并讨论灵活 FDD。 发现即使无干扰也存在方向切换等待；加入 CLI 会显著放大尾时延。不同负载下合适 SCS 不同，不给可直接搬到本机的统一降幅。 作为 TDD 机理背景；其中灵活 FDD 是论文方案，不能当现有 OAI 或最新协议强制配置。结论、本地 PDF 6 页及前文图表。 \n   19｜P21：有限码长下多用户 URLLC 时延   比较下行 RR、Max CQI、最长队列 LQ，在有限码长及无限缓存假设下分析违约概率。 作者评估的稳定队列场景中，LQ 的系统 DVP 最低；优势随到达率等条件变化，不能外推为所有 QoS／用户都最好。 多 UE 竞争的轻量对照与队列建模。§III～V，本地 PDF 3～5 页。 \n   20｜P25：贝叶斯优化多信道排队调度   给 URLLC 设置有限等待的调度队列，在时延要求内换取更好的 eMBB 吞吐与 URLLC 不丢包概率；贝叶斯优化搜索黑盒策略。 相对不排队／即时调度等对照，提高论文中的吞吐与不丢包效用；没有一个通用的“P99 降 X%”。等待一点也可能改善总体资源使用。 适合作为较轻量的参数搜索思路；先明确目标和期限。§V～VI，本地 PDF 10～15 页。 \n   21｜P26：风险敏感约束 DRL 联合调度   用分布式价值预测和 CVaR 考虑坏结果，约束 URLLC 失败概率，分配 eMBB／URLLC 共享资源。 相对风险中性 DRL，可在相近平均回报下减少  回报分布的坏尾部  ；不能直接等同于降低包时延 P99。主要是数值验证。 风险约束思想可参考，必须重新定义本机时延目标和代价。摘要及 §VI～VII，本地 PDF 2、13～16 页。 \n   22｜P28：瞬态、截止期限感知 RAN 切片   建立时变有限容量队列，结合资源调整、预计无法按期完成的包丢弃及服务方差控制。 代表性模型中 URLLC P99 约   0.85～0.92 ms  ，及时完成率   99.37%  ，有效队列损失   0.63%  ；降低完成包 P99 的同时必须计入丢弃和未完成。非 OAI 实测。 非常适合学习如何报告期限、丢弃、积压和尾分位；不能只引用亚毫秒结果。§7～10，本地 PDF 13～19 页。 \n   23｜P29：DRR，欠额轮询   为每条流维护额度和欠额，按字节公平服务不同长度的包。 在相应额度条件下，以摊销   O(1)   的逐包成本实现接近公平排队的吞吐隔离；原始 DRR 不是闭环截止期限算法。 低复杂度公平性、积压服务和防长期未服务的基础对照；不自动保证无线资源可行或 P99。摘要、§8，本地 PDF 1、11 页。 \n   24｜P18：灵活 Numerology 与帧结构资源优化   将时频资源划为不同形状的块，用线性规划和拉格朗日对偶分配异质业务。 所评估情形中 LP＋LD 的最优性差距整体低于   10%  ；这是目标函数相对最优值的差距，  不是时延降低 10%  。 帮助构建资源分配优化问题；需另核当前协议及 OAI 支持的资源形状。§V～VI，本地 PDF 3～4 页。 \n\n   第三组：按瓶颈选读的方法与平台论文，顺位 25～35\n\n 顺位／原编号与简称 做了什么 论文中的效果与边界 对你的用途、原文定位 \n --- --- --- --- \n   25｜P06：V2N2V 的 NR 无线时延模型   分析不同 SCS、完整槽／mini-slot、动态／半静态调度、重传和单播／广播的无线时延与容量。 展示某些配置可满足部分 V2X 需求，但密度和可靠性目标提高后存在容量边界；是模型分析，不是机械臂实测或单一算法降幅。 可借鉴等待、传输和重传的分解方法；不能把两段无线链路的 V2N2V 值当作 UE–UPF 单向时延。§V～VI，本地 PDF 7～14 页。 \n   26｜P09：尾时延感知 PPO 切片   先用轨迹做行为克隆，再用 PPO、P95 惩罚和资源保护层优化多切片分配。 详细 ns-3 高移动性验证：所选策略 P95   11.70 ms  ，均分基线   42.0 ms  ；该验证中 URLLC SLA 仅   45.0%  。不能拿摘要中其他条件的总体 SLA＞92% 冒称该条件的 URLLC 可靠性。 尾部奖励和仿真迁移案例；资源决策间隔为   2 s  ，不是 120 kHz 的逐槽算法。§6，表 7～9，本地 PDF 22～23 页。 \n   27｜P27：5G 概率时延预测   用历史网络状态、LSTM／Transformer 和混合密度输出，预测未来多个时间步的时延分布。 在 OAI 测试床数据的较难条件下，Transformer 的负对数似然和平均绝对误差优于部分基线；  预测更准不等于时延已经降低  。 适合未来剩余时间估计和风险预测；需另接决策器并验证在线开销。§IV～VI，本地 PDF 7～13 页。 \n   28｜P32：OAI 的大规模 vRAN 部署   改造编码／解码、预编码和任务并行，结合通用 CPU 与硬件加速扩展多个 vRAN 实例。 特定 8 工作线程、100 MHz 例中，预编码＋资源映射处理时间最多降约   67%  ；是局部处理时间，不是应用时延降低 67%。 当证据表明主机处理或并行度是瓶颈时再深入；不能直接归因本机慢包。源码改进和结论，本地 PDF 5～6、12 页。 \n   29｜P33：Near-RT RIC 中的实时 AI   将逻辑回归和浅层 MLP 导出为 C 推理模块，嵌入 OAI／FlexRIC xApp，测执行可行性。 推理约   1～5 μs／10～25 μs  ；论文相关服务链测量小于   4 ms  。训练数据为合成代理状态，部分闭环结果为投影评估，不能当作真实业务时延优化。 学习把算法运行时间计入预算；Near-RT xApp 与每槽 MAC 调度须区分。§IV、VII，本地 PDF 6～9 页。 \n   30｜P34：OAI 上行 MU-MIMO 实现   改造 gNB，用 SRS 信道估计计算合并器，使两个 UE 在重叠时频资源上发送并被分离译码。 实现了   2×2 上行 MU-MIMO   的原型验证；不是只开多个 RFsim UE，也没有给出通用 P99 降低率。 若将来研究空间复用、资源竞争可参考；当前两台射频和仿真能力需独立核验。§VII～VIII，本地 PDF 6 页。 \n   31｜P35：CPU–GPU 频率与吞吐稳定性   在 NVIDIA Aerial＋OAI 平台改变 CPU／GPU 频率，观察吞吐抖动、能耗和运行间差异。 重复验证发现频率与稳定性非单调：特定 GPU 配置下，CPU   2.4 GHz   的平均变异系数约   0.2%  ，  3.0 GHz   约   18.1%  。是吞吐稳定性，不是本机尾时延根因证明。 提醒不要把“CPU 更快”当作必然更稳；仅当平台匹配时借鉴。§IV，本地 PDF 3～5 页。 \n   32｜P12：动态选择 Numerology 的混合业务调度   在下行 eMBB／URLLC 复用中结合 DRL 选择 Numerology、mini-slot 和穿孔分配。 仿真相对固定 Numerology 可改善吞吐、可靠性和 URLLC 时延；不同负载／对照收益不同，本导读不填统一降幅。 后续确需动态 SCS 再读；论文仿真中可切换，不证明当前 n261 OAI 可逐槽切换。§6～7，本地 PDF 8～13 页。 \n   33｜P10：GNN 处理 URLLC／eMBB 共存   先分配 eMBB，再用 GNN 决定 URLLC 穿孔位置，兼顾 eMBB 速率、公平和 URLLC 中断。 仿真表明性能优于所选随机／优化对照，提出线性复杂度的实现；主要指标是速率、公平与中断概率，没有已验证的本机闭环时延降幅。 图结构学习和穿孔基线参考；与当前 UL 授权方向存在差异。摘要、§6～7，本地 PDF 1、9～13 页。 \n   34｜P07：Transformer＋DRL 多用户资源分配   把多槽、多用户分配拆成双序列决策，使用 PPO 和 Transformer。 改善所评估下行系统的频谱效率、公平、训练收敛及泛化；  核心目标不是包时延／P99  。 以后需要学习复杂用户排列时再考虑；目前先用可解释轻量调度。摘要、§V～VI，本地 PDF 1、11～18 页。 \n   35｜P11：Transformer 预测流量并启停 RAN 应用   预测短时业务后，按需启用业务引流 xApp 或小区休眠 rApp。 作者结论报告相对其常开应用对照，平均能效增约   39.7%  、吞吐增约   10.1%  ；不是时延分别降低这些比例。 可借鉴“预测业务→控制动作”，但不是逐 UE 预计来包前的动态授权。§V～VI，本地 PDF 4～6 页。 \n\n   第四组：保留作扩展背景，顺位 36～39\n\n 顺位／原编号与简称 做了什么 论文中的效果与边界 对你的用途、原文定位 \n --- --- --- --- \n   36｜P13：扩散模型优化网络化控制资源   联合采样周期、码长和错误概率，先用优化器生成样本，再用条件 DDPM 输出码长。 总功耗接近优化解；本地预印本摘要报告关键约束违反次数相对 DRL 最多改善约   18 倍  。  不是时延降低 18 倍  ，主要目标是功耗。 控制约束和学习可行解的扩展参考，当前不必优先实施。摘要、§IV～V，本地 PDF 1、4～5 页。 \n   37｜P08：Diffusion-QL 的 O-RAN 资源分配   用 Q 引导的扩散策略联合选择功率和 PRB，处理 eMBB／URLLC／mMTC 的多种可行分配。 仿真中对比 DQN、SS-VAE 等改善约束满足和吞吐；尚需加速多步去噪以适应严苛在线周期。本导读不从图估算统一时延降幅。 资源动作多解和生成式策略的背景；落地成本高于现阶段轻量方法。§IV～V，本地 PDF 4～6 页。 \n   38｜P14：图信号扩散资源分配   把用户干扰关系建图，从原始—对偶专家策略学习条件分配分布，以图 U-Net 生成动作。 功率控制案例中接近最优长期总速率和最低速率约束，并可跨规模泛化；  没有直接验证工业闭环 P99  。 大规模干扰图、功率优化的前沿参考，与本机当前 UL 慢包主线较远。§3～4，本地 PDF 3～5 页。 \n   39｜P15：LLM 增强强化学习的网络优化   讨论 LLM 提取状态、设计奖励、解释策略等角色，并用服务迁移等案例说明 LLM＋多智能体 RL。 案例报告约   25% 的决策性能改善  ，对应文中服务迁移目标；不能写成 MAC 时延下降 25%。论文中的部分其他百分比来自所综述工作。 用于展望和方法背景，不建议现在据此把 LLM 放进逐槽调度。案例与结论，本地 PDF 5～7 页。 \n\n   TS 22.104 在这套阅读中的位置\n\n实际读取：  TS 22.104 V19.2.0（2024-06，Release 19）  ，用户原包  22104-j20.zip ，原 Word 成员  22104-j20.doc 。本次核对原包和已解压文件一致；这不是独立认证官网最高版本。\n\n 原文位置 能为论文提供什么依据 不能由它直接推出什么 \n --- --- --- \n §5.2、表 5.2-1；附录 A.2.2.1 运动控制有不同消息长度和传输间隔组合，例如 50 byte／0.5 ms、40 byte／1 ms、20 byte／2 ms 不能直接规定你所有视觉包、1200 byte UDP 包或完整装配闭环都必须小于 1 ms \n 附录 A.2.2.2 装配线上控制器之间协调工件交接的场景 不是现有每个 UE 都承担机器人关节控制的证明 \n 表 5.2-1、附录 A.2.4.1 原文明确举“装配机器人”作为移动控制面板远程控制的例子，40～250 byte、4～8 ms 目标传输间隔 不是所有自主视觉装配通用的业务模型，也不是 TDD 3∶1 的强制来源 \n 附录 C.3、C.5 区分连续失效容忍、通信服务边界和完整应用计时 不能把 ping RTT 直接当成网络单向时延或感知到执行的工业闭环 \n\n第 5 章是规范性需求正文；附录 A、C 是资料性说明。表 5.2-1 注 12a 的相关量默认分别适用于 UL 和 DL；注 2／9 等还区分一条或两条无线链路。选用需求要连同业务类别、方向及链路数一起说明，不只摘一个毫秒数。\n\n原文所在目录： /home/lbh/oiwireless/3GPP协议原文/官方解压原文/22104-j20/ 。不上传协议全文。\n\n   版本与后续论文：这些不能混写\n\n 论文 本地身份及已知版本情况 \n --- --- \n P04 RETALIN 本地 20 页稿的 DOI／日期仍为占位符，不能当正式出版页。作者后续材料引用正式 IEEE Access   2024、卷 12、16632～16651  ；作者网页的 2023 标签与正式书目存在差别。本表收益取实际读到的本地稿，不冒充已逐节对照正式全文。 作者原稿 (https://newslab.iith.ac.in/files/journals/Retalin_IEEE_Access-2.pdf)、 作者后续引用 (https://newslab.iith.ac.in/files/conference/VTC_2024_BSR_PPT.pdf)。 \n P13 扩散控制资源 本地是 arXiv   2407.15784v1，2024-07-22  ；另已查到正式发表书目 IEEE Communications Letters 2025，29 卷，85～89 页，DOI   10.1109/LCOMM.2024.3499745  。本轮未读正式全文作差异核验；数值仍标为本地预印本结果。 arXiv (https://arxiv.org/abs/2407.15784)、 IEEE 通信学会目录 (https://minisite-demo-1.comsoc.org/system/files/2025-01/Publications_Contents_Digest_2025_Jan.pdf)。 \n P22 与 P23 分别是   2502.08789v2（2025-09-15）   和   2607.06169v1（2026-07-07）  。同一研究方向中有作者重叠，P23 又考虑控制信令等细节，但  不是把 P22 的版本号改为 v3  。两篇须分别引用。 P22 (https://arxiv.org/abs/2502.08789)、 P23 (https://arxiv.org/abs/2607.06169)。 \n P24 QUEST 本地是 TNSM   2026，卷 23   的正式排版，封面给出 2026-04-20 发表、2026-04-28 当前版本；不能把本地代码的所有工程细节都说成作者原实现。 \n P26 风险 DRL 本地文件来自 WRAP，带仓储封面，正文是 2024 作者接受稿，DOI   10.1109/TWC.2024.3373722  ；本地 PDF 第 2 页才是正文首页。不是仓储封面也算一页论文证明。 \n P38 任务感知调度 本地是   2202.09189v3（2022-09-22），16 页  ；另查到同作者正式期刊题名《Semantics- and Task-Oriented Scheduling for Networked Control Systems in Practice》，IEEE Access 2022，18 页，DOI   10.1109/ACCESS.2022.3218410  。本轮未逐节审查两版差异，21% 等仍引用本地 v3。 预印本 (https://arxiv.org/abs/2202.09189)、 作者机构书目 (https://portal.fis.tum.de/en/publications/semantics-and-task-oriented-scheduling-for-networked-control-syst/)。 \n P39 VoI 本地是   CDC 2021 正式 6 页会议版  ，DOI   10.1109/CDC45484.2021.9683717  ；对应 arXiv 登记更新至   2104.03355v2（2021-12-29）  。本轮结果按本地会议版，不冒称两个 PDF 逐字相同。 arXiv 记录 (https://arxiv.org/abs/2104.03355)。 \n\n下列 arXiv 记录已在线核对其展示版本，与本地页眉版本一致；这是各自登记记录的检查，不代表已经穷尽所有期刊扩展版：\n\n 原编号 本地版本与修订日期 登记入口 \n --- --- --- \n P05 2606.03664v1，2026-06-02  AUGUSTE (https://arxiv.org/abs/2606.03664) \n P08 2506.07880v2，2025-10-13  Diffusion-QL (https://arxiv.org/abs/2506.07880) \n P14 2604.05175v2，2026-07-28  图信号扩散 (https://arxiv.org/abs/2604.05175) \n P15 2602.13210v1，登记与本地均显示 2026-01-15  LLM＋RL (https://arxiv.org/abs/2602.13210) \n P18 1801.02066v2，2018-08-10  灵活时频资源 (https://arxiv.org/abs/1801.02066) \n P19 2012.05507v1，2020-12-10  工业 TDD (https://arxiv.org/abs/2012.05507) \n P27 2503.15297v1，2025-03-19  概率时延预测 (https://arxiv.org/abs/2503.15297) \n P30 2511.21277v3，2026-05-14  LatencyScope (https://arxiv.org/abs/2511.21277) \n P31 2607.26012v3，2026-08-08  MAC-Gyver (https://arxiv.org/abs/2607.26012) \n P32 2605.22638v1，2026-05-21  vRAN 部署 (https://arxiv.org/abs/2605.22638) \n P33 2607.01583v2，2026-07-07  RIC 内 AI (https://arxiv.org/abs/2607.01583) \n P34 2601.09384v2，2026-04-23  MU-MIMO (https://arxiv.org/abs/2601.09384) \n\nP34 本地题名含 Testbed，在线摘要页题名略有不同；P32 本地 15 页与在线 comments 所列页数不同。均保留本地文件身份，不凭题名或页数差异自行替换内容。P01、P02、P03、P06、P07、P09～P12、P16、P17、P20、P21、P25、P28、P29、P35～P37 的结果按实际本地文件；本轮没有宣称已完成它们全部后续版本／勘误的穷尽检索。\n\n   怎样把这些论文用进你的课题\n\n 要回答的问题 优先搭配 \n --- --- \n 每段时延从哪里来，慢包为什么慢 P01＋P30；重传／超时再加 P22、P23 \n 不同 TDD 配比和机会排列为什么影响 UL／DL P19＋P17＋P20；P16 补方向切换与干扰背景 \n 为什么 120 kHz 不一定比 30 kHz 的应用时延低 P02＋P03＋P04；P30 补参数关联 \n 多 UE 时先服务谁、怎样避免服务间隔过长 P24＋P21＋P29；已有结果仍应做每 UE、公平性和资源代价核对 \n 怎样减少首包等请求／授权 P05；P31 看 OAI 接口与评估方式，P04 看缓存机制 \n 怎样说明通信对工业任务有意义 P36＋P37＋TS 22.104；若真正优化控制效果，再加 P38、P39 \n\n论文效果分成四种来读：  通信时延、控制／同步效果、吞吐／能耗、模型／预测准确性  。它们可以共同支持研究，但数值不能互相替换，也不能跨硬件、包长和计时边界比较谁更好。\n\n本导读没有新增通信公式、配置或算法实现，新增数学推导不适用。标准只用于上面的需求边界核对；指定 5G 教材 §13.1.1.4／§13.1.1.5、本地 PDF 537～539 页用于复核 SR／BSR 背景，不作为任何论文收益数值的来源。复现或改 OAI 前，仍须按具体方法核对所需最新授权本地协议、变量、约束与实现限制。\n\n   按原编号打开本地论文\n\n以下链接对应本次实际读取的原文件；PDF 页码均从各文件第 1 页起算。\n\n- P01： Dissecting-5G-New-Radio-Latency (../../文献/论文/1_Dissecting-5G-New-Radio-Latency.pdf)（本地 6 页）\n- P02： 5G New Radio Numerologies and their Impact on (../../文献/论文/2_5G%20New%20Radio%20Numerologies%20and%20their%20Impact%20on.pdf)（本地 6 页）\n- P03： 5G Numerologies Assessment for URLLC in (../../文献/论文/3_5G%20Numerologies%20Assessment%20for%20URLLC%20in.pdf)（本地 11 页）\n- P04： retalin-queue-aware-uplink-scheduling-5g-nr-2023 (../../文献/论文/4_retalin-queue-aware-uplink-scheduling-5g-nr-2023.pdf)（本地 20 页）\n- P05： AUGUSTE Online-Learning dApp for Predictive URLLC Scheduling (../../文献/论文/5_AUGUSTE%20Online-Learning%20dApp%20for%20Predictive%20URLLC%20Scheduling.pdf)（本地 6 页）\n- P06： An_Analytical_Latency_Model_and_Evaluation_of_the_Capacity_of_5G_NR_to_Support_V2X_Services_Using_V2N2V_Communications (../../文献/论文/6_An_Analytical_Latency_Model_and_Evaluation_of_the_Capacity_of_5G_NR_to_Support_V2X_Services_Using_V2N2V_Communications.pdf)（本地 14 页）\n- P07： Resource_allocation_in_multi-user_cellular_networks_A_transformer-based_deep_reinforcement_learning_approach (../../文献/论文/7_Resource_allocation_in_multi-user_cellular_networks_A_transformer-based_deep_reinforcement_learning_approach.pdf)（本地 20 页）\n- P08： Generative Resource Allocation for 6G O-RAN (../../文献/论文/8_Generative%20Resource%20Allocation%20for%206G%20O-RAN.pdf)（本地 6 页）\n- P09： Int J Communication - 2026 - S - Tail‐Latency‐Aware Reinforcement Learning for Dynamic Resource Allocation in 5G Network (../../文献/论文/9_Int%20J%20Communication%20-%202026%20-%20S%20-%20Tail%E2%80%90Latency%E2%80%90Aware%20Reinforcement%20Learning%20for%20Dynamic%20Resource%20Allocation%20in%205G%20Network.pdf)（本地 25 页）\n- P10： Training a Graph Neural Network to solve URLLC andeMBB coexisting in 5G (../../文献/论文/10_Training%20a%20Graph%20Neural%20Network%20to%20solve%20URLLC%20andeMBB%20coexisting%20in%205G.pdf)（本地 14 页）\n- P11： Transformer-Based_Wireless_Traffic_Prediction_and_Network_Optimization_in_O-RAN (../../文献/论文/11_Transformer-Based_Wireless_Traffic_Prediction_and_Network_Optimization_in_O-RAN.pdf)（本地 6 页）\n- P12： Wireless Communications and Mobile Computing - 2024 - Wang - Resource Scheduling in URLLC and eMBB Coexistence Based on (../../文献/论文/12_Wireless%20Communications%20and%20Mobile%20Computing%20-%202024%20-%20Wang%20-%20Resource%20Scheduling%20in%20URLLC%20and%20eMBB%20Coexistence%20Based%20on.pdf)（本地 14 页）\n- P13： Diffusion Model Based Resource Allocation (../../文献/论文/13_Diffusion%20Model%20Based%20Resource%20Allocation.pdf)（本地 5 页）\n- P14： GRAPH SIGNAL DIFFUSION MODELSFORWIRELESSRESOURCEALLOCATION (../../文献/论文/14_GRAPH%20SIGNAL%20DIFFUSION%20MODELSFORWIRELESSRESOURCEALLOCATION.pdf)（本地 5 页）\n- P15： Large Language Model (LLM)-enabled (../../文献/论文/15_Large%20Language%20Model%20%28LLM%29-enabled.pdf)（本地 7 页）\n- P16： On the Ultra-Reliable and Low-Latency Communications in Flexible TDDFDD 5G Networks (../../文献/论文/16_On%20the%20Ultra-Reliable%20and%20Low-Latency%20Communications%20in%20Flexible%20TDDFDD%205G%20Networks.pdf)（本地 6 页）\n- P17： Semi-Static_Radio_Frame_Configuration_for_URLLC_Deployments_in_5G_Macro_TDD_Networks (../../文献/论文/17_Semi-Static_Radio_Frame_Configuration_for_URLLC_Deployments_in_5G_Macro_TDD_Networks.pdf)（本地 6 页）\n- P18： Resource Optimization with Flexible Numerology and Frame Structure for Heterogeneous Services (../../文献/论文/18_Resource%20Optimization%20with%20Flexible%20Numerology%20and%20Frame%20Structure%20for%20Heterogeneous%20Services.pdf)（本地 4 页）\n- P19： Analysis of Outage Latency and Throughput Performance in Industrial Factory 5G TDD Deployments (../../文献/论文/19_Analysis%20of%20Outage%20Latency%20and%20Throughput%20Performance%20in%20Industrial%20Factory%205G%20TDD%20Deployments.pdf)（本地 6 页）\n- P20： Online_Radio_Pattern_Optimization_Based_on_Dual_Reinforcement-Learning_Approach_for_5G_URLLC_Networks (../../文献/论文/20_Online_Radio_Pattern_Optimization_Based_on_Dual_Reinforcement-Learning_Approach_for_5G_URLLC_Networks.pdf)（本地 15 页）\n- P21： Delay_Analysis_of_Multi-User_URLLC_Systems_Under_Finite_Block-Length_Regime (../../文献/论文/21_Delay_Analysis_of_Multi-User_URLLC_Systems_Under_Finite_Block-Length_Regime.pdf)（本地 6 页）\n- P22： Delay Analysis of 5G HARQ in the Presence of Decoding and Feedback Latencies (../../文献/论文/22_Delay%20Analysis%20of%205G%20HARQ%20in%20the%20Presence%20of%20Decoding%20and%20Feedback%20Latencies.pdf)（本地 14 页）\n- P23： Delay Violation Probability Modeling for 5G Systems with HARQ Operation (../../文献/论文/23_Delay%20Violation%20Probability%20Modeling%20for%205G%20Systems%20with%20HARQ%20Operation.pdf)（本地 12 页）\n- P24： QUEST_User-Based_Quality_of_Service_Aware_Uplink_Resource_Scheduling (../../文献/论文/24_QUEST_User-Based_Quality_of_Service_Aware_Uplink_Resource_Scheduling.pdf)（本地 15 页）\n- P25： Bayesian_Optimization_of_Queuing-Based_Multichannel_URLLC_Scheduling (../../文献/论文/25_Bayesian_Optimization_of_Queuing-Based_Multichannel_URLLC_Scheduling.pdf)（本地 16 页）\n- P26： WRAP-constrained-risk-sensitive-deep-reinforcement-learning-eMBB-URLLC-joint-scheduling-2024 (../../文献/论文/26_WRAP-constrained-risk-sensitive-deep-reinforcement-learning-eMBB-URLLC-joint-scheduling-2024.pdf)（本地 18 页）\n- P27： Probabilistic Delay Forecasting in 5G Using Recurrent and Attention-Based Architectures (../../文献/论文/27_Probabilistic%20Delay%20Forecasting%20in%205G%20Using%20Recurrent%20and%20Attention-Based%20Architectures.pdf)（本地 14 页）\n- P28： Transient deadline-aware RAN slicing for NR-V2X using finite-capacity time-varying slice queues (../../文献/论文/28_Transient%20deadline-aware%20RAN%20slicing%20for%20NR-V2X%20using%20finite-capacity%20time-varying%20slice%20queues.pdf)（本地 21 页）\n- P29： Efficient fair queueing using deficit round robin (../../文献/论文/29_Efficient%20fair%20queueing%20using%20deficit%20round%20robin.pdf)（本地 12 页）\n- P30： LatencyScope A System-Level (../../文献/论文/30_LatencyScope%20A%20System-Level.pdf)（本地 23 页）\n- P31： MAC-Gyver Open, Programmable, Scheduling (../../文献/论文/31_MAC-Gyver%20Open%2C%20Programmable%2C%20Scheduling.pdf)（本地 17 页）\n- P32： An intensive vRAN deployment with OpenAirInterface (../../文献/论文/32_An%20intensive%20vRAN%20deployment%20with%20OpenAirInterface.pdf)（本地 15 页）\n- P33： Enabling Real-Time AI in O-RAN Deploying and (../../文献/论文/33_Enabling%20Real-Time%20AI%20in%20O-RAN%20Deploying%20and.pdf)（本地 9 页）\n- P34： Uplink Multi-User MIMO Testbed Implementation in (../../文献/论文/34_Uplink%20Multi-User%20MIMO%20Testbed%20Implementation%20in.pdf)（本地 7 页）\n- P35： Exploratory_Study_of_CPUGPU_Frequency_Interactions_and_Throughput_Stability_in_GPU-Accelerated_5G_O-RAN (../../文献/论文/35_Exploratory_Study_of_CPUGPU_Frequency_Interactions_and_Throughput_Stability_in_GPU-Accelerated_5G_O-RAN.pdf)（本地 6 页）\n- P36： Distributed_Control_for_Collaborative_Robotic_Systems_Using_5G_Edge_Computing (../../文献/论文/36_Distributed_Control_for_Collaborative_Robotic_Systems_Using_5G_Edge_Computing.pdf)（本地 13 页）\n- P37： Implementation_of_Wireless_Synchronous_Robotic_Control_in_5G_and_Edge-Cloud_Environments (../../文献/论文/37_Implementation_of_Wireless_Synchronous_Robotic_Control_in_5G_and_Edge-Cloud_Environments.pdf)（本地 4 页）\n- P38： Task_Oriented Scheduling for Networked Control (../../文献/论文/38_Task_Oriented%20Scheduling%20for%20Networked%20Control.pdf)（本地 16 页）\n- P39： Value_of_Information_in_Networked_Control_Systems_Subject_to_Delay (../../文献/论文/39_Value_of_Information_in_Networked_Control_Systems_Subject_to_Delay.pdf)（本地 6 页）\n\n后续研究规划： 论文规划：工业多 UE 时延优化、对比算法与实验路线 (论文规划_工业多UE时延优化与对比实验.md)。这里把文献启发与本平台已有证据结合，列出待验证方法和实验顺序，不把文献收益当成本机结果。\n\n   文件与网页更新方式\n\n本文件是唯一说明正文，位于阅读站  说明/文献导读/ 。阅读站可从“算法知识点 → 共同前置条件”进入，也可搜索“39 篇文献”。站内标题、正文和目录由  说明/reading-notes.json  登记生成。\n\n维护者在阅读站根目录运行：\n\n   bash\npython3 -B tools/update_reading_notes.py\npython3 -B tools/update_knowledge.py\npython3 -B tools/validate_reader.py\n   \n\n第一条生成导读与搜索，第二条更新共同页的导航链接。站内显示新内容后再交付；这三条是文档构建和检查，不是通信实验。\n"
     },
     {
       "id": "r8c699f85193efdfb",
@@ -279,7 +279,7 @@
       "group": "guides",
       "topic": "algorithm-experiment-plan",
       "prerequisite": false,
-      "sha256": "6dacf8662af051f7442483c31f113d1aee0822af02c00f6b556893f55de67944",
+      "sha256": "d5f2e3e1c42161afc550d00ce9e1cd248aee74156f162caf9dd0f38e4ce91970",
       "snapshot": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
       "redacted": false,
       "toc": [
@@ -299,8 +299,8 @@
           "level": 2
         },
         {
-          "id": "3-我的推进顺序",
-          "title": "3. 我的推进顺序",
+          "id": "3-我的全部规划与对应结果",
+          "title": "3. 我的全部规划与对应结果",
           "level": 2
         },
         {
@@ -329,9 +329,9 @@
           "level": 2
         }
       ],
-      "words": 3768,
-      "minutes": 6,
-      "search": "  算法实验规划\n\n更新：2026-11-10。这是我重新整理后的实验路线。我的研究重点是通信时延；以下内容是待执行的规划，不代表新算法或新实验已经完成。\n\n   1. 我的研究目标与计时范围\n\n我的应用背景是汽车零部件装配工作站中的多终端通信，实验室机械臂组装小车提供缩比背景。我主要研究多个 UE 竞争资源时，怎样降低通信往返时延 RTT，尤其是 P99，同时检查上行、下行、丢包和资源开销。\n\n我先搭建可重复的通信业务场景，沿用现有 OAI 核心网、gNB、UE 和 RFsim。机械臂动作、视觉识别和控制算法不纳入这轮优化范围。\n\n   text\nUE 发出带事务编号的请求\n    → gNB → 核心网/UPF → 服务端收到\n    → 服务端生成对应响应\n    → 核心网/UPF → gNB → UE 收到响应\n   \n\n我将“闭环”限定为这一次请求—响应的通信往返，在论文和结果页中统一称为“应用层通信往返时延 RTT”。我不把它称为已经验证的机械臂控制闭环。\n\n   math\nT_{\\mathrm{RTT},k}=t_{\\mathrm{UE,recv},k}-t_{\\mathrm{UE,send},k}\n=T_{\\mathrm{UL},k}+T_{\\mathrm{reply},k}+T_{\\mathrm{DL},k}.\n   \n\n各量对应同一事务，时间单位统一为 ms。RTT 包含实际经过的协议栈、网络、主机和响应处理。我会直接统计每轮总 RTT 的 P99，不将各段 P99 相加。响应处理单独记录，不假定为 0。RTT 起止由同一 UE 时钟记录；上下行分段还要核对两端时钟及包关联。\n\n   2. 我先搭建什么通信场景\n\n 项目 我的安排 \n --- --- \n 第一步 先让 1 个 UE 完成请求—响应，确认路径、事务编号和计时正确。 \n 第二步 增加至 2、3 个 UE；先采用相同 QoS，再考虑异质 QoS。 \n 业务输入 明确请求与响应的包长、到达规律、每 UE 与总负载；应用载荷和 UDP/IP 等头部开销分开记。 \n 竞争条件 先比较同总负载、再比较同每 UE 负载；两种口径分别分析。 \n 计时与可靠性 记录发送、服务端接收、响应发出、UE 接收四个时刻；统计生成请求、及时响应、丢失及未完成事务。 \n 场景依据 我会将工业业务含义与实验参数对应起来。现有随机 UDP 是可控测试输入，不冒称汽车装配实采流量。 \n\n我会先编写一页场景参数表，再实现或复用探针。包长、负载、业务期限等具体值将在表中标明依据和工程假设，不预先把某个值称为工业标准。已有 ping/回显可作为功能起点，不直接替代新版本多 UE 的统一对照。\n\n   3. 我的推进顺序\n\n 顺序 我准备做什么 我需要得到什么证据 \n --- --- --- \n 1. 场景与口径 确定请求—响应、包长、到达、QoS、计时与统计方式 能够明确说明“传什么、怎么传、测哪里”。 \n 2. PF 基线 冻结修正后的 OAI 源码、编译产物与配置，先单 UE 再多 UE 完整业务确实经过 OAI 链路，路由无同机旁路，数据和重复运行可信。 \n 3. 五类分析 完成不同 TDD、不同 SCS、多 UE、分层时延、尾时延分析 找到主要等待来源和配置适用范围，而不只是列总时延。 \n 4. 强对照 固定工作点，比较 PF、EDF、M-LWDF、QUEST；授权方式另行控制 区别排序规则、授权时机、信息输入和资源增加带来的影响。 \n 5. 单项优化 根据新基线瓶颈，先实现并验证一种候选机制 直接测量 RTT 收益、适用条件、其他 UE 影响和资源代价。 \n 6. 消融与扩展 去掉关键机制做对照，再扩展配置和负载 确认收益来源，保留恶化、失败和无收益条件。 \n\nPF 决定候选服务顺序，授权机制也会影响结果。我会把二者分别记录；旧 ALG005 若作为授权对照，将保留其原有身份，不换名当作新方法。新对照采用同一修正版本；旧数据保留为历史证据，不拼接成新实验表。\n\n   4. 五类分析我都保留\n\n 分析 我要回答的问题 \n --- --- \n TDD 配比和周期 UL 机会增加后，上行是否更快，返回响应是否反而等待更久？ \n SCS 槽更短后，RTT 是否降低，还是被处理、资源量、分段和重传抵消？ \n 多 UE 竞争使哪些 UE 的 RTT 恶化，原因是资源、队列还是主机推进？ \n 分层时延 同一事务在上行等待、传输/重组、响应处理和下行分别停留多久？未测部分明确标记。 \n 尾时延 P99 慢事务由什么事件触发，优化后是否只是将等待转移给其他事务？ \n\nTDD 的 3:1、2:2、1:3 等简称要配完整周期、D/U 槽、其余符号、TDA/K2 和控制/反馈配置；它们是按标准字段构造的实验方案，不是协议逐项列举的强制配比。\n\n我先在 n261 的合法可运行工作点比较 60/120 kHz；30 kHz 使用支持它的 FR1 配置。240 kHz 单列频段/实现支持边界或模型分析，不直接作为 n261 数据配置。跨频段的差异不全部归因于 SCS。RFsim 墙钟时间与无线槽标签分别记录，不假定其始终实时推进。\n\n   5. 我怎样选择优化算法\n\n我先定位瓶颈，再决定完整算法，不预先承诺时延下降比例。\n\n 观察到的主要等待 我的候选方向 依据和边界 \n --- --- --- \n 有积压的 UE 长时间得不到有效服务，或一包跨多次授权才发完 积压与有效服务间隔感知调度 结合新版本慢包证据设计；QUEST 提供 QoS/等待信息的调度对照，但这不是某篇已读论文的完整现成算法。 \n 首包主要等待请求和授权 资源预算约束的提前授权 参考 AUGUSTE 的授权时机思想；只有存在可利用的到达规律或可见触发时，才研究预测器，并保留随机负对照。 \n\n旧数据提示积压服务值得优先核验，我会先用新基线确认。PF 是通用参照，EDF、M-LWDF、QUEST 是时延/QoS 强对照；它们不是 3GPP 指定的唯一调度方案。使用 HOL 等额外报告时，我会让所有对照具有相同信息路径和开销，明确私有扩展的身份。\n\n   6. 我怎样判断“通信时延变小了”\n\n我在相同场景、输入计划、程序版本、探针和统计口径下做配对重复，报告每 UE 的 RTT 中位数/P95/P99、上行/下行分项、响应完成与丢失情况，以及无线资源和调度代价。\n\n“比基线更小”和“满足业务期限”是两个问题。我会在声明业务期限后，按全部生成请求计算期限内完成比例；丢失、超时和未完成事务不从分母中删去。仅已收到响应的 RTT P99 改善，不足以单独证明整体收益。\n\n我先在一个可靠工作点验证机制，再扩展 TDD、SCS、UE 数和负载。调参与正式评估输入分开；独立种子、运行顺序、预热和样本量预先记录。真实射频、机械臂动作和产线效率仍属于后续验证边界。\n\n   7. 我的新版知识页和结果页怎样写\n\n我先维护一页研究总览，只展示当前目标、实际完成内容、最新结论和下一步。每个算法独立写知识页与结果页，不再把多个版本混在同一篇长文里。\n\n 算法知识页 算法结果页 \n --- --- \n 解决什么问题；一句话规则；简单例子；必要公式；来源与局限 验证问题；代码版本与参数；对照；实际命令；结果与代价；失败位置；适用范围 \n\n我先上架 PF 及实际完成的基线，其他知识和结果随阶段加入。旧算法页面已从当前展示撤下，源稿、历史数据和副本继续保留；“尚未实现/未测”不会写成“已经完成”。\n\n  我的第一项实际工作：确定一页通信场景与测量参数表，然后建立同一修正版本的单 UE 请求—响应 PF 基线。   本页只建立规划，没有启动新的通信实验。\n\n   8. 我的依据与核验要求\n\n 用途 已读来源定位 \n --- --- \n 测量路径与边界 TS 38.300 V19.4.0 §4.3.1.1、§10.3；P01《Dissecting 5G New-Radio Latency》§III–IV，本地 PDF 第 2–4 页。请求—响应四时刻是本项目测量定义。 \n TDD TS 38.213 V19.5.0 §11.1；TS 38.331 V19.4.0 §6.3.2 的 TDD-UL-DL-ConfigCommon/Pattern。 \n SCS 与资源支持 TS 38.211 V19.5.0 §4.2、§4.3.2；TS 38.104 V20.1.0 §5.3.2、§5.3.5。 \n 授权、SR/BSR 与准备时序 TS 38.321 V19.4.0 §5.4.1、§5.4.4、§5.4.5；TS 38.214 V19.5.0 §6.1.2.1、§6.4。 \n QoS 与工业背景 TS 23.501 V20.3.0 §5.7.3.3、§5.7.3.4；TS 22.104 V19.2.0 §5.2/表 5.2-1、资料性附录 A.2.2.2/C.5。PDB 不直接等于本项目 RTT 期限，工业背景不强制本文拓扑与业务参数。 \n 排序与预测授权 P24 QUEST 公式 (10)、(12)–(16)，本地 PDF 第 7–9 页；P05 AUGUSTE v1 §III–V，本地 PDF 第 3–6 页。候选扩展尚需新颖性检索和实验验证。 \n 辅助理解 指定《5G 移动通信系统设计与标准详解》第 2 章，本地 PDF 第 49–55 页；§6.4.3 第 211–213 页；§13.1.1.4/5 第 537–539 页。 \n\n以上使用已获授权、实际读取的本地版本，不据此声明为官网最高版本或本机已实现全部功能。每步实验前我会核对所需原文；缺件、损坏或无法核实时立即停止并明确报告，不自行下载。每次修改和测试写 CHG/TEST，记录依据、命令、结果或失败，再提交并核验 Git。源码、数据和 Office 的保护规则继续执行。\n"
+      "words": 5347,
+      "minutes": 8,
+      "search": "  算法实验规划\n\n更新：2026-11-11。这是我重新整理后的实验路线。我的研究重点是通信时延；以下内容是待执行的规划，不代表新算法或新实验已经完成。\n\n   1. 我的研究目标与计时范围\n\n我的应用背景是汽车零部件装配工作站中的多终端通信，实验室机械臂组装小车提供缩比背景。我主要研究多个 UE 竞争资源时，怎样降低通信往返时延 RTT，尤其是 P99，同时检查上行、下行、丢包和资源开销。\n\n我先搭建可重复的通信业务场景，沿用现有 OAI 核心网、gNB、UE 和 RFsim。机械臂动作、视觉识别和控制算法不纳入这轮优化范围。\n\n   text\nUE 发出带事务编号的请求\n    → gNB → 核心网/UPF → 服务端收到\n    → 服务端生成对应响应\n    → 核心网/UPF → gNB → UE 收到响应\n   \n\n我将“闭环”限定为这一次请求—响应的通信往返，在论文和结果页中统一称为“应用层通信往返时延 RTT”。我不把它称为已经验证的机械臂控制闭环。\n\n   math\nT_{\\mathrm{RTT},k}=t_{\\mathrm{UE,recv},k}-t_{\\mathrm{UE,send},k}\n=T_{\\mathrm{UL},k}+T_{\\mathrm{reply},k}+T_{\\mathrm{DL},k}.\n   \n\n各量对应同一事务，时间单位统一为 ms。RTT 包含实际经过的协议栈、网络、主机和响应处理。我会直接统计每轮总 RTT 的 P99，不将各段 P99 相加。响应处理单独记录，不假定为 0。RTT 起止由同一 UE 时钟记录；上下行分段还要核对两端时钟及包关联。\n\n   2. 我先搭建什么通信场景\n\n 项目 我的安排 \n --- --- \n 第一步 先让 1 个 UE 完成请求—响应，确认路径、事务编号和计时正确。 \n 第二步 增加至 2、3 个 UE；先采用相同 QoS，再考虑异质 QoS。 \n 业务输入 明确请求与响应的包长、到达规律、每 UE 与总负载；应用载荷和 UDP/IP 等头部开销分开记。 \n 竞争条件 先比较同总负载、再比较同每 UE 负载；两种口径分别分析。 \n 计时与可靠性 记录发送、服务端接收、响应发出、UE 接收四个时刻；统计生成请求、及时响应、丢失及未完成事务。 \n 场景依据 我会将工业业务含义与实验参数对应起来。现有随机 UDP 是可控测试输入，不冒称汽车装配实采流量。 \n\n我会先编写一页场景参数表，再实现或复用探针。包长、负载、业务期限等具体值将在表中标明依据和工程假设，不预先把某个值称为工业标准。已有 ping/回显可作为功能起点，不直接替代新版本多 UE 的统一对照。\n\n   3. 我的全部规划与对应结果\n\n我把现有路线拆成   12 步  ，每步各有规划和同编号结果页，按顺序推进。前六步建立基线并完成五类分析，第七步做强对照，第八至十一步设计和验证优化，第十二步整理论文。具体优化机制仍由瓶颈决定，不因列出规划就认定算法或收益已经完成。\n\n 步骤 我要做什么 规划 对应结果与分析 当前状态 \n --- --- --- --- --- \n 1 单 UE 场景与 PF 通信 RTT 基线  第一步规划 (第一步规划_单UE通信RTT基线.md)  第一步结果与分析 (../研究结果与分析/第一步结果与分析.md) 尚未执行 \n 2 多 UE PF 基线与负载竞争  第二步规划 (第二步规划_多UE_PF基线与负载竞争.md)  第二步结果与分析 (../研究结果与分析/第二步结果与分析.md) 尚未执行 \n 3 不同 TDD 配比与周期的时延分析  第三步规划 (第三步规划_TDD配比与周期分析.md)  第三步结果与分析 (../研究结果与分析/第三步结果与分析.md) 尚未执行 \n 4 不同 SCS 与资源条件的时延分析  第四步规划 (第四步规划_SCS与资源条件分析.md)  第四步结果与分析 (../研究结果与分析/第四步结果与分析.md) 尚未执行 \n 5 分层时延与请求—授权等待分解  第五步规划 (第五步规划_分层时延与授权等待分解.md)  第五步结果与分析 (../研究结果与分析/第五步结果与分析.md) 尚未执行 \n 6 尾时延与多 UE 慢事务成因分析  第六步规划 (第六步规划_尾时延与慢事务成因分析.md)  第六步结果与分析 (../研究结果与分析/第六步结果与分析.md) 尚未执行 \n 7 PF、EDF、M-LWDF、QUEST 的同程序强对照  第七步规划 (第七步规划_同程序强对照算法.md)  第七步结果与分析 (../研究结果与分析/第七步结果与分析.md) 尚未执行 \n 8 瓶颈驱动的单项优化设计与实现  第八步规划 (第八步规划_单项优化设计与实现.md)  第八步结果与分析 (../研究结果与分析/第八步结果与分析.md) 尚未执行 \n 9 新算法的配对重复效果验证  第九步规划 (第九步规划_新算法效果验证.md)  第九步结果与分析 (../研究结果与分析/第九步结果与分析.md) 尚未执行 \n 10 消融、资源代价与服务公平性  第十步规划 (第十步规划_消融资源代价与公平性.md)  第十步结果与分析 (../研究结果与分析/第十步结果与分析.md) 尚未执行 \n 11 跨配置、负载和 UE 数的稳健性验证  第十一步规划 (第十一步规划_跨场景稳健性验证.md)  第十一步结果与分析 (../研究结果与分析/第十一步结果与分析.md) 尚未执行 \n 12 论文证据、图表与可复现交付  第十二步规划 (第十二步规划_论文结果整理与研究收尾.md)  第十二步结果与分析 (../研究结果与分析/第十二步结果与分析.md) 尚未执行 \n\n我保留原有 TDD、SCS、多 UE、分层和尾时延五类分析作为历史证据；它们不会自动填进这套新版结果页。新版结果暂时只显示“尚未执行”，不填 0、旧值或预先结论。\n\nPF 决定候选服务顺序，授权机制也会影响结果。我会把二者分别记录；旧 ALG005 若作为授权对照，将保留其原有身份，不换名当作新方法。新对照采用同一修正版本；旧数据不拼接成新实验表。\n\n   4. 五类分析我都保留\n\n 分析 我要回答的问题 \n --- --- \n TDD 配比和周期 UL 机会增加后，上行是否更快，返回响应是否反而等待更久？ \n SCS 槽更短后，RTT 是否降低，还是被处理、资源量、分段和重传抵消？ \n 多 UE 竞争使哪些 UE 的 RTT 恶化，原因是资源、队列还是主机推进？ \n 分层时延 同一事务在上行等待、传输/重组、响应处理和下行分别停留多久？未测部分明确标记。 \n 尾时延 P99 慢事务由什么事件触发，优化后是否只是将等待转移给其他事务？ \n\nTDD 的 3:1、2:2、1:3 等简称要配完整周期、D/U 槽、其余符号、TDA/K2 和控制/反馈配置；它们是按标准字段构造的实验方案，不是协议逐项列举的强制配比。\n\n我先在 n261 的合法可运行工作点比较 60/120 kHz；30 kHz 使用支持它的 FR1 配置。240 kHz 单列频段/实现支持边界或模型分析，不直接作为 n261 数据配置。跨频段的差异不全部归因于 SCS。RFsim 墙钟时间与无线槽标签分别记录，不假定其始终实时推进。\n\n   5. 我怎样选择优化算法\n\n我先定位瓶颈，再决定完整算法，不预先承诺时延下降比例。\n\n 观察到的主要等待 我的候选方向 依据和边界 \n --- --- --- \n 有积压的 UE 长时间得不到有效服务，或一包跨多次授权才发完 积压与有效服务间隔感知调度 结合新版本慢包证据设计；QUEST 提供 QoS/等待信息的调度对照，但这不是某篇已读论文的完整现成算法。 \n 首包主要等待请求和授权 资源预算约束的提前授权 参考 AUGUSTE 的授权时机思想；只有存在可利用的到达规律或可见触发时，才研究预测器，并保留随机负对照。 \n\n旧数据提示积压服务值得优先核验，我会先用新基线确认。PF 是通用参照，EDF、M-LWDF、QUEST 是时延/QoS 强对照；它们不是 3GPP 指定的唯一调度方案。使用 HOL 等额外报告时，我会让所有对照具有相同信息路径和开销，明确私有扩展的身份。\n\n   6. 我怎样判断“通信时延变小了”\n\n我在相同场景、输入计划、程序版本、探针和统计口径下做配对重复，报告每 UE 的 RTT 中位数/P95/P99、上行/下行分项、响应完成与丢失情况，以及无线资源和调度代价。\n\n“比基线更小”和“满足业务期限”是两个问题。我会在声明业务期限后，按全部生成请求计算期限内完成比例；丢失、超时和未完成事务不从分母中删去。仅已收到响应的 RTT P99 改善，不足以单独证明整体收益。\n\n我先在一个可靠工作点验证机制，再扩展 TDD、SCS、UE 数和负载。调参与正式评估输入分开；独立种子、运行顺序、预热和样本量预先记录。真实射频、机械臂动作和产线效率仍属于后续验证边界。\n\n   7. 我的新版知识页和结果页怎样写\n\n我先维护一页研究总览，只展示当前目标、实际完成内容、最新结论和下一步。每个算法独立写知识页与结果页，不再把多个版本混在同一篇长文里。\n\n 算法知识页 算法结果页 \n --- --- \n 解决什么问题；一句话规则；简单例子；必要公式；来源与局限 验证问题；代码版本与参数；对照；实际命令；结果与代价；失败位置；适用范围 \n\n算法知识可以先供我阅读，结果正文只在实际完成并核验后写入。本轮已建立全部 12 个空结果入口；旧算法分类继续归档，源稿、历史数据和副本保留，原有五类分析也保留展示。“尚未实现/未测”不会写成“已经完成”。\n\n  我的第一项实际工作：确定一页通信场景与测量参数表，然后建立同一修正版本的单 UE 请求—响应 PF 基线。   本页只建立规划，没有启动新的通信实验。\n\n   8. 我的依据与核验要求\n\n 用途 已读来源定位 \n --- --- \n 测量路径与边界 TS 38.300 V19.4.0 §4.3.1.1、§10.3；P01《Dissecting 5G New-Radio Latency》§III–IV，本地 PDF 第 2–4 页。请求—响应四时刻是本项目测量定义。 \n TDD TS 38.213 V19.5.0 §11.1；TS 38.331 V19.4.0 §6.3.2 的 TDD-UL-DL-ConfigCommon/Pattern。 \n SCS 与资源支持 TS 38.211 V19.5.0 §4.2、§4.3.2；TS 38.104 V20.1.0 §5.3.2、§5.3.5。 \n 授权、SR/BSR 与准备时序 TS 38.321 V19.4.0 §5.4.1、§5.4.4、§5.4.5；TS 38.214 V19.5.0 §6.1.2.1、§6.4。 \n QoS 与工业背景 TS 23.501 V20.3.0 §5.7.3.3、§5.7.3.4；TS 22.104 V19.2.0 §5.2/表 5.2-1、资料性附录 A.2.2.2/C.5。PDB 不直接等于本项目 RTT 期限，工业背景不强制本文拓扑与业务参数。 \n 排序与预测授权 P24 QUEST 公式 (10)、(12)–(16)，本地 PDF 第 7–9 页；P05 AUGUSTE v1 §III–V，本地 PDF 第 3–6 页。候选扩展尚需新颖性检索和实验验证。 \n 辅助理解 指定《5G 移动通信系统设计与标准详解》第 2 章，本地 PDF 第 49–55 页；§6.4.3 第 211–213 页；§13.1.1.4/5 第 537–539 页。 \n\n逐步规划引用的论文身份统一如下，各步列出的章节与本地 PDF 页序须结合这一身份阅读：\n\n 编号 本轮采用的本地身份 本轮引用范围 \n --- --- --- \n P01 IFIP Networking 2025，本地 6 页会议版本 §III–IV，第 2–4 页； 原文 ( /paper/P01?page=2) \n P02 本地 6 页，题名为 5G New Radio Numerologies and their Impact on the End-To-End Latency；本地封面未标预印本 v 号，不补造版本 §II–IV，第 2–6 页； 原文 ( /paper/P02?page=2) \n P19 arXiv 2012.05507v1，2020-12-10，本地 6 页，保留预印本身份 §II–IV，第 2–5 页； 原文 ( /paper/P19?page=2) \n P24 IEEE TNSM Vol. 23，2026，本地 15 页期刊版本 §V–VI 及公式 (10)、(12)–(16)，第 6–10 页； 原文 ( /paper/P24?page=7) \n P30 arXiv 2511.21277v3，2026-05-14，本地 23 页 §VI，第 8–12 页； 原文 ( /paper/P30?page=8) \n P05 arXiv 2606.03664v1，2026-06-02，本地 6 页 §III–V，第 3–6 页； 原文 ( /paper/P05?page=3) \n\n以上使用已获授权、实际读取的本地版本，不据此声明为官网最高版本或本机已实现全部功能。本次是已有路线的细化，不宣称完成全部论文后续版本的穷尽检索；后续发现更新必须核查全文差异，不能给旧内容换标签。每步实验前我会核对所需原文；缺件、损坏或无法核实时立即停止并明确报告，不自行下载。每次修改和测试写 CHG/TEST，记录依据、命令、结果或失败，再提交并核验 Git。源码、数据和 Office 的保护规则继续执行。\n"
     },
     {
       "id": "r17d0d9c36fcc691f",
@@ -382,9 +382,608 @@
       "words": 1332,
       "minutes": 2,
       "search": "  第一步规划\n\n状态：规划已建立，实验尚未执行。\n\n   我的第一步目标\n\n我先建立“单 UE、固定无线配置、PF 调度”的通信 RTT 基线，获得后续对照的参照结果。这一步只验证通信场景和测量方法，暂不实现新的优化算法。\n\n我的应用背景是汽车零部件装配中的状态信息交互。我先用可控请求—响应业务表示这类通信，不接入机械臂动作或视觉识别算法。\n\n   text\nUE 发出带事务编号的 UDP 请求\n    → gNB → 核心网/UPF → 服务端收到\n    → 服务端返回同一事务的响应\n    → 核心网/UPF → gNB → UE 收到响应\n   \n\n   我会先确定哪些条件\n\n 项目 我的安排 \n --- --- \n 网络和版本 沿用 OAI 核心网、gNB、UE、RFsim；执行前冻结修正后的源码、二进制与配置。 \n UE 数量 先用 1 个 UE。 \n 无线工作点 先核对并固定已验证的 120 kHz 工作点，完整记录频段、带宽、TDD、TDA/K2、SR 等配置。 \n 调度与授权 使用 PF，既有授权机制固定并单独记录，不把“PF”当作全部运行条件。 \n 业务输入 确定请求和响应包长、发包规律、低负载起点及 QoS；具体值写入场景表，当前尚未选定。 \n 统计规则 执行前声明预热、统计事务数、重复方式、超时及未完成事务处理。 \n\n这些是我的实验设计安排，不是 3GPP 强制的一套业务参数。我先完成一页场景参数表，再按该表运行。\n\n   我怎样计时和验收\n\n我为同一事务关联 UE 发出、服务端收到、服务端发出响应、UE 收到四个时刻。RTT 从 UE 发请求计到 UE 收到对应响应；服务端响应处理单独记录，不默认等于 0。\n\n   math\nT_{\\mathrm{RTT},k}=t_{\\mathrm{UE,recv},k}-t_{\\mathrm{UE,send},k}.\n   \n\n我会核验业务确实经过 OAI 网络，排除同机旁路；核验包编号、时钟和计时边界；重复运行后统计 RTT 中位数、P95、P99，以及响应完成、丢失和未完成情况。上下行分段需另核两端时钟，不用 RTT 冒充单向时延，也不把分段 P99 相加。\n\n我将以路径正确、数据关联正确、统计可复现作为这一步的完成条件，不预先承诺某个毫秒值或优化收益。\n\n   我完成后提交什么\n\n我会提交场景参数表、实际运行命令、基线结果和适用边界，并记录每次修改和测试的 CHG/TEST 及 Git。若失败，我会说明最后成功位置、业务是否开始、失败原因是否已经确定。\n\n对应页面： 第一步结果与分析 (../研究结果与分析/第一步结果与分析.md)。该页目前只预留结构；实验完成后再填写结果和分析。\n\n   我的依据\n\n测量边界参考 P01《Dissecting 5G New-Radio Latency》§III–IV，本地 PDF 第 2–4 页；本页 RTT 为我声明的应用层测量定义。协议约束沿用已读 TS 38.300 V19.4.0 §4.3.1.1、TS 38.321 V19.4.0 §5.4.1/5.4.4/5.4.5、TS 38.214 V19.5.0 §6.1.2.1/§6.4，以及 TS 38.104 V20.1.0 §5.3.2/§5.3.5；具体配置仍需在执行前逐项核对。完整路线及教材定位见 算法实验规划 (算法实验规划_通信RTT与时延优化.md)。缺少必要原文时我会立即停止并报告。本次仅建立规划和页面结构，不运行通信实验。\n"
+    },
+    {
+      "id": "re403499a7e0b4ec7",
+      "title": "39 篇论文译稿公式核查与修复说明",
+      "source": "说明/文献导读/论文译稿公式核查与修复说明.md",
+      "aliases": [
+        "说明/文献导读/论文译稿公式核查与修复说明.md"
+      ],
+      "group": "guides",
+      "topic": "translation-check",
+      "prerequisite": false,
+      "sha256": "0cc090ec4bab64fbdc7950f0f7ae063b42ca773415aa5c2c5e338344eb757997",
+      "snapshot": "说明/文献导读/论文译稿公式核查与修复说明.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "39-篇论文译稿公式核查与修复说明",
+          "title": "39 篇论文译稿公式核查与修复说明",
+          "level": 1
+        },
+        {
+          "id": "已经修复什么",
+          "title": "已经修复什么",
+          "level": 2
+        },
+        {
+          "id": "这次怎么检查",
+          "title": "这次怎么检查",
+          "level": 2
+        },
+        {
+          "id": "仍然需要注意的版式",
+          "title": "仍然需要注意的版式",
+          "level": 2
+        },
+        {
+          "id": "逐篇核查位置",
+          "title": "逐篇核查位置",
+          "level": 2
+        },
+        {
+          "id": "记录与阅读入口",
+          "title": "记录与阅读入口",
+          "level": 2
+        }
+      ],
+      "words": 6215,
+      "minutes": 10,
+      "search": "  39 篇论文译稿公式核查与修复说明\n\n本轮按你的要求检查了全部   39 篇论文，共 446 页  。英文原文保持原样，修正对象是网站下方的中文辅助 PDF。此次没有启动核心网、gNB、UE 或无线实验；3GPP 与新的通信数学推导不适用。\n\n   已经修复什么\n\n-   P39 的期望括号和行内分式  ：对照 CDC 2021 会议版 §II 的符号说明（本地 PDF 第 2 页）、第 3 页式 (8)～(14) 与矩阵条件、第 4 页式 (15)～(27)，恢复  E ·  、条件期望的方括号与竖线、上下标、转置和上标  1/2  的结构。该篇全部 6 页已查看。 打开 P39 第 2 页 ( /paper/P39?page=2)。\n-   整批共用的字符丢失风险  ：保留原数学字符的 PDF 字体作用域，检查公式片段几何，恢复原有分数线；普通 fi/fl 连字按原嵌入字体的真实编码处理。不会给所有字母 E 强行补括号。\n-   P02 的失败段落  ：首次批次遇到连接中断，摘要保留了英文；已重新生成。本轮也补了逐段失败拦截，避免将“程序返回了 PDF”直接写成翻译成功。\n-   P10 的重叠  ：修正文字符擦到公式框边缘后被留在原位的问题，第 8 页 Algorithm 1 保留原始算法框，防止变量和行号被中文重排挤乱。\n-   P29 的扫描重影  ：原文件是整页扫描图加 OCR 文字层。中文稿清除匹配的扫描底图后恢复原图表；算法与证明所在的 PDF 第 6、7 页保留原文并在页顶说明。除说明栏外，两页与原文渲染像素完全相同。其余正文为辅助译文，OCR 行内数学仍需对照原图。\n\n   这次怎么检查\n\n原文件身份、页数和尺寸逐篇核对，446 页全部渲染；查看了各篇的页面总览，并对照下面列出的原文／译文数学样页。自动检查核验了   50,869 项受保护片段的字体、坐标与字号记录  ，没有未匹配项。这是明确范围内的显示检查，不能外推成全文逐字符语义校对或作者全部定理已复证。\n\nP09/P10 一度被核验器误报缺字，原因是长 STIX 字体名在 MuPDF 字符轨迹中截短。现在仅使用本页唯一对应的完整 PDF 资源名解析别名，遇到歧义仍报错；坐标容差未放宽。P29 与 P32 的可仪表化数学字形记录为 0，  0 不代表它们的数学内容已自动认证  。P29 用原推导页保留与像素对照补充；P32 的本次样页主要为部署说明。\n\n网站所有中文稿仍保留“尚未完成逐页校对”的状态。这个状态还包含专业术语、句子、复杂表格与伪代码的人工精校；不会因为本轮自动检查通过就改成“全文完成”。\n\n   仍然需要注意的版式\n\n下面是实际目视发现，已经记录，不能把这些地方写成全部修好：\n\n-  P14 ( /paper/P14?page=2)：第 2 页左栏标题与正文局部重叠；公式区域已对照，附近文字仍待精排。\n-  P17 ( /paper/P17?page=2)：第 2 页复杂公式旁的行内变量与中文间距偏紧，仍需精排。\n-  P18 ( /paper/P18?page=2)：第 2 页证明段行内变量较拥挤，不能据自动字形检查称全文版式通过。\n-  P28 ( /paper/P28?page=8)：第 8 页符号表有中英混排和局部拥挤，表项翻译待精校。\n-  P30 ( /paper/P30?page=20)：第 20 页等伪代码段仍拥挤，须保留英文算法框对照。\n-  P37 ( /paper/P37?page=2)：第 2 页表格下方标题与正文局部重叠，仍待精排。\n\n这些是辅助译稿的局部版式问题；引用公式或实现算法时，继续使用同页英文原文核对。原论文公式未据机译改写。中文稿按你此前要求继续展示。\n\n   逐篇核查位置\n\n页数均为本地 PDF 页序。记录数仅对应本次受保护片段的自动字体／坐标检查；表中的样页另做原／译目视对照。\n\n 论文 总页数 原／译对照样页 位置记录数 本轮说明 \n --- ---: --- ---: --- \n  P01：Dissecting-5G-New-Radio-Latency ( /paper/P01?page=4) 6 4 536 样页已对照；全文精校待完成 \n  P02：5G New Radio Numerologies and their Impact on ( /paper/P02?page=2) 6 2 115 失败段落已重做 \n  P03：5G Numerologies Assessment for URLLC in ( /paper/P03?page=3) 11 3 112 样页已对照；全文精校待完成 \n  P04：retalin-queue-aware-uplink-scheduling-5g-nr-2023 ( /paper/P04?page=8) 20 8、12 2549 样页已对照；全文精校待完成 \n  P05：AUGUSTE Online-Learning dApp for Predictive URLLC Scheduling ( /paper/P05?page=2) 6 2 201 样页已对照；全文精校待完成 \n  P06：An_Analytical_Latency_Model_and_Evaluation_of_the_Capacity_of_5G_NR_to_Support_V2X_Services_Using_V2N2V_Communications ( /paper/P06?page=5) 14 5 2232 样页已对照；全文精校待完成 \n  P07：Resource_allocation_in_multi-user_cellular_networks_A_transformer-based_deep_reinforcement_learning_approach ( /paper/P07?page=4) 20 4 1210 样页已对照；全文精校待完成 \n  P08：Generative Resource Allocation for 6G O-RAN ( /paper/P08?page=2) 6 2 979 样页已对照；全文精校待完成 \n  P09：Int J Communication - 2026 - S - Tail‐Latency‐Aware Reinforcement Learning for Dynamic Resource Allocation in 5G Network ( /paper/P09?page=14) 25 14 3277 样页已对照；全文精校待完成 \n  P10：Training a Graph Neural Network to solve URLLC andeMBB coexisting in 5G ( /paper/P10?page=8) 14 8 3180 边界重叠已修；Algorithm 1 保留原文 \n  P11：Transformer-Based_Wireless_Traffic_Prediction_and_Network_Optimization_in_O-RAN ( /paper/P11?page=3) 6 3 230 样页已对照；全文精校待完成 \n  P12：Wireless Communications and Mobile Computing - 2024 - Wang - Resource Scheduling in URLLC and eMBB Coexistence Based on ( /paper/P12?page=5) 14 5 156 样页已对照；全文精校待完成 \n  P13：Diffusion Model Based Resource Allocation ( /paper/P13?page=2) 5 2 215 样页已对照；全文精校待完成 \n  P14：GRAPH SIGNAL DIFFUSION MODELSFORWIRELESSRESOURCEALLOCATION ( /paper/P14?page=2) 5 2 793 有局部版式待精排，见上方 \n  P15：Large Language Model (LLM)-enabled ( /paper/P15?page=3) 7 3 58 样页已对照；全文精校待完成 \n  P16：On the Ultra-Reliable and Low-Latency Communications in Flexible TDDFDD 5G Networks ( /paper/P16?page=4) 6 4 711 样页已对照；全文精校待完成 \n  P17：Semi-Static_Radio_Frame_Configuration_for_URLLC_Deployments_in_5G_Macro_TDD_Networks ( /paper/P17?page=2) 6 2 634 有局部版式待精排，见上方 \n  P18：Resource Optimization with Flexible Numerology and Frame Structure for Heterogeneous Services ( /paper/P18?page=2) 4 2 811 有局部版式待精排，见上方 \n  P19：Analysis of Outage Latency and Throughput Performance in Industrial Factory 5G TDD Deployments ( /paper/P19?page=3) 6 3 446 样页已对照；全文精校待完成 \n  P20：Online_Radio_Pattern_Optimization_Based_on_Dual_Reinforcement-Learning_Approach_for_5G_URLLC_Networks ( /paper/P20?page=7) 15 7 3370 样页已对照；全文精校待完成 \n  P21：Delay_Analysis_of_Multi-User_URLLC_Systems_Under_Finite_Block-Length_Regime ( /paper/P21?page=3) 6 3 279 样页已对照；全文精校待完成 \n  P22：Delay Analysis of 5G HARQ in the Presence of Decoding and Feedback Latencies ( /paper/P22?page=8) 14 8 830 样页已对照；全文精校待完成 \n  P23：Delay Violation Probability Modeling for 5G Systems with HARQ Operation ( /paper/P23?page=5) 12 5 1427 样页已对照；全文精校待完成 \n  P24：QUEST_User-Based_Quality_of_Service_Aware_Uplink_Resource_Scheduling ( /paper/P24?page=5) 15 5 74 样页已对照；全文精校待完成 \n  P25：Bayesian_Optimization_of_Queuing-Based_Multichannel_URLLC_Scheduling ( /paper/P25?page=4) 16 4 2689 样页已对照；全文精校待完成 \n  P26：WRAP-constrained-risk-sensitive-deep-reinforcement-learning-eMBB-URLLC-joint-scheduling-2024 ( /paper/P26?page=5) 18 5 3029 样页已对照；全文精校待完成 \n  P27：Probabilistic Delay Forecasting in 5G Using Recurrent and Attention-Based Architectures ( /paper/P27?page=5) 14 5 590 样页已对照；全文精校待完成 \n  P28：Transient deadline-aware RAN slicing for NR-V2X using finite-capacity time-varying slice queues ( /paper/P28?page=8) 21 8 11958 有局部版式待精排，见上方 \n  P29：Efficient fair queueing using deficit round robin ( /paper/P29?page=7) 12 7 0 扫描版；推导页 6、7 保留原文；OCR 数学不自动认证 \n  P30：LatencyScope A System-Level ( /paper/P30?page=20) 23 20 2701 有局部版式待精排，见上方 \n  P31：MAC-Gyver Open, Programmable, Scheduling ( /paper/P31?page=13) 17 13 493 样页已对照；全文精校待完成 \n  P32：An intensive vRAN deployment with OpenAirInterface ( /paper/P32?page=1) 15 1 0 无可仪表化数学字形；主要为部署说明 \n  P33：Enabling Real-Time AI in O-RAN Deploying and ( /paper/P33?page=8) 9 8 193 样页已对照；全文精校待完成 \n  P34：Uplink Multi-User MIMO Testbed Implementation in ( /paper/P34?page=2) 7 2 128 样页已对照；全文精校待完成 \n  P35：Exploratory_Study_of_CPUGPU_Frequency_Interactions_and_Throughput_Stability_in_GPU-Accelerated_5G_O-RAN ( /paper/P35?page=2) 6 2 75 样页已对照；全文精校待完成 \n  P36：利用 5G 边缘计算实现协作机器人系统的分布式控制 ( /paper/P36?page=10) 13 10 2070 样页已对照；全文精校待完成 \n  P37：5G 与边缘云环境下无线同步机器人控制的实现 ( /paper/P37?page=2) 4 2 223 有局部版式待精排，见上方 \n  P38：面向网络化控制系统的任务调度：基于软件无线电的信息年龄感知实现 ( /paper/P38?page=5) 16 5 1500 样页已对照；全文精校待完成 \n  P39：受时延影响的网络化控制系统中的信息价值 ( /paper/P39?page=2) 6 2、3、4 795 括号／分式已修；全部 6 页已查看 \n\n   记录与阅读入口\n\n期望符号的入门解释见 通信与时延基础：E 的括号与条件期望 (../算法知识点说明/00_通信与时延基础知识.md)。论文页面继续采用英文在上、中文在下，可独立翻页或对齐页序。\n\n本轮工程修改与实际测试在阅读站  records/changes/CHG-019_论文公式缺字与行内分式保护修复.md 、 records/tests/TEST-020_论文公式保留与原文对照核验.md ；安全汇总在  校验/论文数学排版逐篇核验.json 。旧稿、失败候选、解析全文和渲染证据仅本地保留。当前版本身份按网站已登记的本地原件，不把会议版、预印本和期刊版混换标签。\n"
+    },
+    {
+      "id": "rf08a17ef96454a42",
+      "title": "第二步规划",
+      "source": "说明/文献导读/第二步规划_多UE_PF基线与负载竞争.md",
+      "aliases": [
+        "说明/文献导读/第二步规划_多UE_PF基线与负载竞争.md"
+      ],
+      "group": "guides",
+      "topic": "step-2-plan",
+      "prerequisite": false,
+      "researchStep": "step-2",
+      "sha256": "6346a27829ff5bedd507e5a55367624f90134c520bf4a675310a16779a36960a",
+      "snapshot": "说明/文献导读/第二步规划_多UE_PF基线与负载竞争.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第二步规划",
+          "title": "第二步规划",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我需要的前提与数据",
+          "title": "我需要的前提与数据",
+          "level": 2
+        },
+        {
+          "id": "我准备怎么做",
+          "title": "我准备怎么做",
+          "level": 2
+        },
+        {
+          "id": "我完成后交付什么",
+          "title": "我完成后交付什么",
+          "level": 2
+        },
+        {
+          "id": "我的依据与执行边界",
+          "title": "我的依据与执行边界",
+          "level": 2
+        }
+      ],
+      "words": 907,
+      "minutes": 1,
+      "search": "  第二步规划\n\n状态：规划已建立，实验尚未执行。\n\n本步主题：  多 UE PF 基线与负载竞争  。\n\n   我的目标\n\n我在第一步可复现的请求—响应链路上增加 UE，建立后续算法共同使用的多 UE PF 基线，先区分无线资源竞争和主机处理压力。\n\n   我需要的前提与数据\n\n第一步的路径、事务关联和时钟已核验。我需要同版本源码、二进制、完整配置，以及每个 UE 的真实 QoS 身份、业务计划、收发记录和 CPU/线程运行记录。\n\n   我准备怎么做\n\n- 我先从 1、2、3 个 UE 做同程序对照；是否扩展更多 UE，以本机能否稳定完成业务为依据，不预先承诺上限。\n- 我先固定同一 QoS，分别做“总负载相同”和“每 UE 负载相同”的实验，包长与到达分布保持一致。混合 QoS 另做身份生效先导，不把两类条件混成一个结果。\n- 我检查每 UE 的 UL、DL、RTT、完成率和资源服务，同时记录主机推进、线程压力与异常。排队、丢失或崩溃均保留证据。\n\n   我完成后交付什么\n\n我提交 UE 数/负载对照表、每 UE 统计及路径/QoS 核验。只有能稳定复现、失败能定位的工作点，才用于后续对照；某条件失败不等于整个多 UE 方案不成立。\n\n   我的依据与执行边界\n\n- TS 38.300 V19.4.0 §10.2/10.3：上下行调度背景；TS 23.501 V20.3.0 §5.7.3.3/5.7.3.4：QoS 优先级与 PDB，PDB 不直接充当 RTT 期限。\n- P24 QUEST §V–VI，本地 PDF 第 6–10 页：多 UE/QoS 调度对照背景；P01 §III–IV，第 2–4 页：数据关联与计时。教材 §13.1.1.2，第 530–532 页。\n\n论文版本与本地页序须结合 总览的依据表 (算法实验规划_通信RTT与时延优化.md 8-我的依据与核验要求)阅读。这是既有路线的细化，使用已核本地版本，不宣称官网最高。执行前我先核本步直接所需原文，缺件立即停止并告知；每次修改和测试写 CHG/TEST、记录命令与失败，再按规则 Git。当前没有执行本步。\n\n对应页面： 第二步结果与分析 (../研究结果与分析/第二步结果与分析.md)。\n\n 上一步规划 (第一步规划_单UE通信RTT基线.md) ·  返回全部规划 (算法实验规划_通信RTT与时延优化.md)。\n"
+    },
+    {
+      "id": "r313f9744dd9a103c",
+      "title": "第三步规划",
+      "source": "说明/文献导读/第三步规划_TDD配比与周期分析.md",
+      "aliases": [
+        "说明/文献导读/第三步规划_TDD配比与周期分析.md"
+      ],
+      "group": "guides",
+      "topic": "step-3-plan",
+      "prerequisite": false,
+      "researchStep": "step-3",
+      "sha256": "163099427ceb2b4d8b38f89b8eadf6ddd768014123a2950594de4d87af78d7e6",
+      "snapshot": "说明/文献导读/第三步规划_TDD配比与周期分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第三步规划",
+          "title": "第三步规划",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我需要的前提与数据",
+          "title": "我需要的前提与数据",
+          "level": 2
+        },
+        {
+          "id": "我准备怎么做",
+          "title": "我准备怎么做",
+          "level": 2
+        },
+        {
+          "id": "我完成后交付什么",
+          "title": "我完成后交付什么",
+          "level": 2
+        },
+        {
+          "id": "我的依据与执行边界",
+          "title": "我的依据与执行边界",
+          "level": 2
+        }
+      ],
+      "words": 908,
+      "minutes": 1,
+      "search": "  第三步规划\n\n状态：规划已建立，实验尚未执行。\n\n本步主题：  不同 TDD 配比与周期的时延分析  。\n\n   我的目标\n\n我比较 TDD 配比和周期如何改变上下行可用机会，并检验上行改善时，下行返回与总 RTT 是否同时改善。\n\n   我需要的前提与数据\n\n我使用第二步得到的稳定 PF 工作点，准备完整配置与业务记录。每种方案都要列出周期、完整 D/U 槽、部分槽 D/U/F 符号、参考/数据 SCS、TDA/K2、SR 和反馈相关配置。\n\n   我准备怎么做\n\n- 我先列合法性和实现支持表，再确定候选配比；3:1、2:2、1:3 只是目标简称，不能只改一个比例字符串，也不把它们称为 3GPP 逐项强制方案。\n- 我固定 UE、负载、包长、调度和统计规则，对候选图样做完整接入及请求—响应验证；只启动 gNB 不算业务条件通过。\n- 我对比 UL、DL、RTT 和完成情况，分析方向等待与控制/反馈机会。若配置未通过接入或业务，我记录最后成功位置，不填造时延。\n\n   我完成后交付什么\n\n我提交每种配置的字段/方向图、可行性表、配对结果和等待解释；数学机会模型明确假设，不能直接当应用总时延。新结果独立于保留的旧 TDD 页面。\n\n   我的依据与执行边界\n\n- TS 38.213 V19.5.0 §11.1；TS 38.331 V19.4.0 §6.3.2 的 TDD-UL-DL-ConfigCommon/Pattern；TS 38.214 V19.5.0 §6.1.2.1、§6.4。\n- P19 §II–IV，本地 PDF 第 2–5 页：工业 TDD 的时延/业务权衡；教材 §4.3.1，第 79–80 页；§6.4.3，第 211–213 页。\n\n论文版本与本地页序须结合 总览的依据表 (算法实验规划_通信RTT与时延优化.md 8-我的依据与核验要求)阅读。这是既有路线的细化，使用已核本地版本，不宣称官网最高。执行前我先核本步直接所需原文，缺件立即停止并告知；每次修改和测试写 CHG/TEST、记录命令与失败，再按规则 Git。当前没有执行本步。\n\n对应页面： 第三步结果与分析 (../研究结果与分析/第三步结果与分析.md)。\n\n 上一步规划 (第二步规划_多UE_PF基线与负载竞争.md) ·  返回全部规划 (算法实验规划_通信RTT与时延优化.md)。\n"
+    },
+    {
+      "id": "rd80095191213cf0e",
+      "title": "第四步规划",
+      "source": "说明/文献导读/第四步规划_SCS与资源条件分析.md",
+      "aliases": [
+        "说明/文献导读/第四步规划_SCS与资源条件分析.md"
+      ],
+      "group": "guides",
+      "topic": "step-4-plan",
+      "prerequisite": false,
+      "researchStep": "step-4",
+      "sha256": "54786879db4d29f495ca411ad1b83e3b9c2eef83758e23a645865a5bac7ce2ac",
+      "snapshot": "说明/文献导读/第四步规划_SCS与资源条件分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第四步规划",
+          "title": "第四步规划",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我需要的前提与数据",
+          "title": "我需要的前提与数据",
+          "level": 2
+        },
+        {
+          "id": "我准备怎么做",
+          "title": "我准备怎么做",
+          "level": 2
+        },
+        {
+          "id": "我完成后交付什么",
+          "title": "我完成后交付什么",
+          "level": 2
+        },
+        {
+          "id": "我的依据与执行边界",
+          "title": "我的依据与执行边界",
+          "level": 2
+        }
+      ],
+      "words": 922,
+      "minutes": 1,
+      "search": "  第四步规划\n\n状态：规划已建立，实验尚未执行。\n\n本步主题：  不同 SCS 与资源条件的时延分析  。\n\n   我的目标\n\n我检验时隙缩短后，应用 RTT 能否下降，以及处理、资源量、分段和重传是否抵消这一收益。\n\n   我需要的前提与数据\n\n我需要前面可靠的业务与统计方法，以及频段、带宽、PRB、CP、TDD 机会分布、TDA/K2、SR 等支持表。改变 SCS 时，不能默认为其他条件天然相同。\n\n   我准备怎么做\n\n- 我先在 n261 的支持范围内核验 60/120 kHz；30 kHz 采用支持它的 FR1 配置，跨频段差异单独披露，不全部归因于 SCS。\n- 我单列 240 kHz 的频段、数据传输和本实现支持边界。只有核验可运行后才做业务；模型分析与未测项分别报告，不把网格或 SSB 参数当成业务支持证明。\n- 我说明固定带宽、固定 PRB 或固定机会分布分别能控制什么；测 UL、DL、RTT、有效吞吐/完成情况，并分开记录无线槽标签与主机墙钟。\n\n   我完成后交付什么\n\n我提交支持矩阵、实际配置、时隙/机会解释和同口径结果。未支持和失败条件给出原文或实现证据，不能用 0 代替未测，也不宣称 120 kHz 必定比 30 kHz 的总时延小。\n\n   我的依据与执行边界\n\n- TS 38.211 V19.5.0 §4.2、§4.3.2；TS 38.104 V20.1.0 §5.3.2/§5.3.5，特别是 FR2 表 5.3.2-2、5.3.5-2；TS 38.214 V19.5.0 §6.4。\n- P02 §II–IV，本地 PDF 第 2–3 页：参数集与处理/时延关系；P30 LatencyScope §VI，第 8–12 页：配置依赖。教材第 77–80、211–213 页。\n\n论文版本与本地页序须结合 总览的依据表 (算法实验规划_通信RTT与时延优化.md 8-我的依据与核验要求)阅读。这是既有路线的细化，使用已核本地版本，不宣称官网最高。执行前我先核本步直接所需原文，缺件立即停止并告知；每次修改和测试写 CHG/TEST、记录命令与失败，再按规则 Git。当前没有执行本步。\n\n对应页面： 第四步结果与分析 (../研究结果与分析/第四步结果与分析.md)。\n\n 上一步规划 (第三步规划_TDD配比与周期分析.md) ·  返回全部规划 (算法实验规划_通信RTT与时延优化.md)。\n"
+    },
+    {
+      "id": "r01db9429db27accb",
+      "title": "第五步规划",
+      "source": "说明/文献导读/第五步规划_分层时延与授权等待分解.md",
+      "aliases": [
+        "说明/文献导读/第五步规划_分层时延与授权等待分解.md"
+      ],
+      "group": "guides",
+      "topic": "step-5-plan",
+      "prerequisite": false,
+      "researchStep": "step-5",
+      "sha256": "5643a9a455277ad05669116ec1d03721852c9015ab7257e322adfd45484fadff",
+      "snapshot": "说明/文献导读/第五步规划_分层时延与授权等待分解.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第五步规划",
+          "title": "第五步规划",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我需要的前提与数据",
+          "title": "我需要的前提与数据",
+          "level": 2
+        },
+        {
+          "id": "我准备怎么做",
+          "title": "我准备怎么做",
+          "level": 2
+        },
+        {
+          "id": "我完成后交付什么",
+          "title": "我完成后交付什么",
+          "level": 2
+        },
+        {
+          "id": "我的依据与执行边界",
+          "title": "我的依据与执行边界",
+          "level": 2
+        }
+      ],
+      "words": 887,
+      "minutes": 1,
+      "search": "  第五步规划\n\n状态：规划已建立，实验尚未执行。\n\n本步主题：  分层时延与请求—授权等待分解  。\n\n   我的目标\n\n我把同一事务的总 RTT 拆到能实际观察的环节，定位上行请求/授权、目标发送机会、交付重组、响应处理和下行等待。\n\n   我需要的前提与数据\n\n我需要稳定工作点、同一事务编号、可比较的时钟、已有四个应用时间戳，以及探针位置/包到分段或 TB 的关联设计。新增层内测量前先核对所需协议原文与 C 函数。\n\n   我准备怎么做\n\n- 我先审计现有探针能观察什么，再为缺少的关键切点设计探针；每个时间戳写清函数、入队/出队、单位及关联键。\n- 我优先区分正 SR 之后的授权准备、控制信息交付、等待目标 UL 机会和主机处理推进；不能仅凭两个无线槽编号就断言墙钟耗时。\n- 我核对同事务分段闭合，先检查探针开关的成本。未测区间标为未测，不给各协议层虚构固定耗时，不把 RTT 除二冒充单向时延。\n\n   我完成后交付什么\n\n我提交测量路径图、探针/函数表、时钟与关联核验、分段结果和残差。均值仅在同口径闭合条件下求和，各段 P99 不直接相加。\n\n   我的依据与执行边界\n\n- TS 38.300 V19.4.0 §4.3.1.1、§6、§10.2/10.3；TS 38.321 V19.4.0 §5.4.1/5.4.4/5.4.5；TS 38.214 V19.5.0 §6.1.2.1、§6.4。\n- P01 §III–IV，本地 PDF 第 2–4 页：测量边界、数据包关联与分层方法；教材第 49–55、211–213、537–539 页。精确到更深层字段时，执行前另核其直接协议。\n\n论文版本与本地页序须结合 总览的依据表 (算法实验规划_通信RTT与时延优化.md 8-我的依据与核验要求)阅读。这是既有路线的细化，使用已核本地版本，不宣称官网最高。执行前我先核本步直接所需原文，缺件立即停止并告知；每次修改和测试写 CHG/TEST、记录命令与失败，再按规则 Git。当前没有执行本步。\n\n对应页面： 第五步结果与分析 (../研究结果与分析/第五步结果与分析.md)。\n\n 上一步规划 (第四步规划_SCS与资源条件分析.md) ·  返回全部规划 (算法实验规划_通信RTT与时延优化.md)。\n"
+    },
+    {
+      "id": "r1d03a72f977e6227",
+      "title": "第六步规划",
+      "source": "说明/文献导读/第六步规划_尾时延与慢事务成因分析.md",
+      "aliases": [
+        "说明/文献导读/第六步规划_尾时延与慢事务成因分析.md"
+      ],
+      "group": "guides",
+      "topic": "step-6-plan",
+      "prerequisite": false,
+      "researchStep": "step-6",
+      "sha256": "c57d723b58d289a7628dba09a9dca150413ce0ea2c59505728439e07b3015277",
+      "snapshot": "说明/文献导读/第六步规划_尾时延与慢事务成因分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第六步规划",
+          "title": "第六步规划",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我需要的前提与数据",
+          "title": "我需要的前提与数据",
+          "level": 2
+        },
+        {
+          "id": "我准备怎么做",
+          "title": "我准备怎么做",
+          "level": 2
+        },
+        {
+          "id": "我完成后交付什么",
+          "title": "我完成后交付什么",
+          "level": 2
+        },
+        {
+          "id": "我的依据与执行边界",
+          "title": "我的依据与执行边界",
+          "level": 2
+        }
+      ],
+      "words": 895,
+      "minutes": 1,
+      "search": "  第六步规划\n\n状态：规划已建立，实验尚未执行。\n\n本步主题：  尾时延与多 UE 慢事务成因分析  。\n\n   我的目标\n\n我根据同一批慢事务的实际事件，判断 P99/P99.9 和超时主要由积压、服务间隔、授权等待、重传或主机推进中的哪些机制关联产生。\n\n   我需要的前提与数据\n\n我需要第五步可用的关联记录、完整逐事务数据及足够的统计样本，包括丢失、超时和未完成请求。数据版本必须一致，旧缺陷版本结果只作历史线索。\n\n   我准备怎么做\n\n- 我先固定慢事务选择和分位数算法，再在相同事务集合内回看分段、前方队列、授权/有效服务间隔及主机事件，避免把各段各自的最慢包拼起来。\n- 我按已有证据提出单因素或成对验证实验，区分无线竞争与 CPU/处理压力；观察到共现先写关联，不直接当作因果贡献。\n- 我检查统计包数、重复间波动、期限内完成率和连续超时；P99.9 样本不足时明确限制，不把丢失请求删掉后宣称尾时延改善。\n\n   我完成后交付什么\n\n我提交慢事务关联表、机制证据和有边界的瓶颈判断，说明哪些已验证、哪些仍待验证，为第八步选机制；失败和无效先导同样保留。\n\n   我的依据与执行边界\n\n- P01 §III–IV，本地 PDF 第 2–4 页：关联测量方法；P30 §VI，第 8–12 页：配置依赖。TS 38.321 V19.4.0 §5.4.1/5.4.4/5.4.5 与 TS 38.214 V19.5.0 §6.1.2.1 仅提供机制背景，不规定本项目分位数估计器。\n- 统计样本数、慢集合选择、配对与主机实验属于我的实验设计，执行前记录假设和判据；不冒称 3GPP 固定处理时延。\n\n论文版本与本地页序须结合 总览的依据表 (算法实验规划_通信RTT与时延优化.md 8-我的依据与核验要求)阅读。这是既有路线的细化，使用已核本地版本，不宣称官网最高。执行前我先核本步直接所需原文，缺件立即停止并告知；每次修改和测试写 CHG/TEST、记录命令与失败，再按规则 Git。当前没有执行本步。\n\n对应页面： 第六步结果与分析 (../研究结果与分析/第六步结果与分析.md)。\n\n 上一步规划 (第五步规划_分层时延与授权等待分解.md) ·  返回全部规划 (算法实验规划_通信RTT与时延优化.md)。\n"
+    },
+    {
+      "id": "r8533b15719e02b69",
+      "title": "第七步规划",
+      "source": "说明/文献导读/第七步规划_同程序强对照算法.md",
+      "aliases": [
+        "说明/文献导读/第七步规划_同程序强对照算法.md"
+      ],
+      "group": "guides",
+      "topic": "step-7-plan",
+      "prerequisite": false,
+      "researchStep": "step-7",
+      "sha256": "671b6a79a7f6034896d5590d854c464a28106fccae45a3f02978e617e20173e2",
+      "snapshot": "说明/文献导读/第七步规划_同程序强对照算法.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第七步规划",
+          "title": "第七步规划",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我需要的前提与数据",
+          "title": "我需要的前提与数据",
+          "level": 2
+        },
+        {
+          "id": "我准备怎么做",
+          "title": "我准备怎么做",
+          "level": 2
+        },
+        {
+          "id": "我完成后交付什么",
+          "title": "我完成后交付什么",
+          "level": 2
+        },
+        {
+          "id": "我的依据与执行边界",
+          "title": "我的依据与执行边界",
+          "level": 2
+        }
+      ],
+      "words": 914,
+      "minutes": 1,
+      "search": "  第七步规划\n\n状态：规划已建立，实验尚未执行。\n\n本步主题：  PF、EDF、M-LWDF、QUEST 的同程序强对照  。\n\n   我的目标\n\n我在同一修正版本和稳定工作点上建立可信的排序算法对照，分清排序规则、额外信息和授权机制各自的作用。\n\n   我需要的前提与数据\n\n我需要前六步确认的工作点、真实每 UE QoS、同一业务输入、调度/授权配置以及各算法的信息输入表。混合 QoS 必须先证明配置实际生效。\n\n   我准备怎么做\n\n- 我以 PF 为基线，比较 EDF、M-LWDF、QUEST；逐个核对公式、量纲、信息可得性及代码位置，局部时延预算不冒称真实应用绝对截止期限。\n- 我固定授权机制和报告路径；若使用 HOL 私有报告，则各组保持相同报告开销，明确私有扩展不等于普通标准 BSR 或已实现标准 DSR。\n- 我先做同 QoS，再在可运行条件下做混合 QoS，配对输入、重复及运行顺序；报告每 UE RTT、UL/DL、完成率、公平性和开销。\n\n   我完成后交付什么\n\n我提交算法/信息/授权三张对应表、实际 C 实现核验及重复结果。论文借鉴、机制复现和原论文性能复现分别表述，不把不同旧版本拼成强对照。\n\n   我的依据与执行边界\n\n- P24 QUEST 公式 (10)、(12)–(16)，本地 PDF 第 7–9 页；其比较算法定义与适用假设执行时逐式核验。TS 23.501 V20.3.0 §5.7.3.3/5.7.3.4：QoS 语义。\n- TS 38.321 V19.4.0 §5.4.4/5.4.5/5.4.9：SR/BSR/DSR 背景；不要求使用上述某一种排序公式。算法知识详见当前七算法速览，教材第 530–532 页。\n\n论文版本与本地页序须结合 总览的依据表 (算法实验规划_通信RTT与时延优化.md 8-我的依据与核验要求)阅读。这是既有路线的细化，使用已核本地版本，不宣称官网最高。执行前我先核本步直接所需原文，缺件立即停止并告知；每次修改和测试写 CHG/TEST、记录命令与失败，再按规则 Git。当前没有执行本步。\n\n对应页面： 第七步结果与分析 (../研究结果与分析/第七步结果与分析.md)。\n\n 上一步规划 (第六步规划_尾时延与慢事务成因分析.md) ·  返回全部规划 (算法实验规划_通信RTT与时延优化.md)。\n"
+    },
+    {
+      "id": "r6019f3cf9c7776d5",
+      "title": "第八步规划",
+      "source": "说明/文献导读/第八步规划_单项优化设计与实现.md",
+      "aliases": [
+        "说明/文献导读/第八步规划_单项优化设计与实现.md"
+      ],
+      "group": "guides",
+      "topic": "step-8-plan",
+      "prerequisite": false,
+      "researchStep": "step-8",
+      "sha256": "54725990b19f41b44d39fcd4e2e8cc44270711094ed8f63992b90831feb2a8a4",
+      "snapshot": "说明/文献导读/第八步规划_单项优化设计与实现.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第八步规划",
+          "title": "第八步规划",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我需要的前提与数据",
+          "title": "我需要的前提与数据",
+          "level": 2
+        },
+        {
+          "id": "我准备怎么做",
+          "title": "我准备怎么做",
+          "level": 2
+        },
+        {
+          "id": "我完成后交付什么",
+          "title": "我完成后交付什么",
+          "level": 2
+        },
+        {
+          "id": "我的依据与执行边界",
+          "title": "我的依据与执行边界",
+          "level": 2
+        }
+      ],
+      "words": 1013,
+      "minutes": 2,
+      "search": "  第八步规划\n\n状态：规划已建立，实验尚未执行。\n\n本步主题：  瓶颈驱动的单项优化设计与实现  。\n\n   我的目标\n\n我根据第六步瓶颈和第七步强对照，先设计并实现一种有针对性的轻量机制，不提前承诺必须同时完成多个算法或达到某个收益。\n\n   我需要的前提与数据\n\n我需要同版本慢事务证据、可获得的队列/服务/授权信息、无线与主机资源预算、直接修改函数及其协议依据；实现前明确变量、单位、假设和评价指标。\n\n   我准备怎么做\n\n- 若已有积压和长服务间隔占主导，我优先研究积压与有效服务间隔感知调度，检查一包跨多次授权才能发完的等待；这是待设计扩展，不冒称已读论文的现成完整算法。\n- 若突发首包主要卡在请求/授权，我研究预算约束提前授权；只有业务具有可利用规律或可见触发时才引入 AUGUSTE 式预测，并保留独立随机负对照。AUGUSTE 优化 UL 授权，不自动成为 DL 算法。\n- 我先写目标与约束、公式/伪代码和成本，再修改研究分支 C 实现，保留可关闭开关与固定基线。若下行证据才是主瓶颈，我据其另立具体机制和直接来源，不把 UL 方法硬套到 DL。\n\n   我完成后交付什么\n\n我提交“为何选这个机制”的证据、算法独立说明、来源定位、C 函数差异、功能/边界检查和失败记录。是否有 RTT 收益留到第九步验证；原始 OAI 不修改。\n\n   我的依据与执行边界\n\n- P24 QUEST 公式 (10)、(12)–(16)，本地 PDF 第 7–9 页；P05 AUGUSTE v1 §III–V，第 3–6 页：借鉴思路与直接对照，不代表本平台已复现。\n- TS 38.300 V19.4.0 §10.2/10.3；TS 38.321 V19.4.0 §5.4.1/5.4.4/5.4.5；TS 38.214 V19.5.0 §6.1.2.1、§6.4；教材第 211–213、530–532、537–539 页。新增机制未被这些来源直接规定，须标作研究设计。\n\n论文版本与本地页序须结合 总览的依据表 (算法实验规划_通信RTT与时延优化.md 8-我的依据与核验要求)阅读。这是既有路线的细化，使用已核本地版本，不宣称官网最高。执行前我先核本步直接所需原文，缺件立即停止并告知；每次修改和测试写 CHG/TEST、记录命令与失败，再按规则 Git。当前没有执行本步。\n\n对应页面： 第八步结果与分析 (../研究结果与分析/第八步结果与分析.md)。\n\n 上一步规划 (第七步规划_同程序强对照算法.md) ·  返回全部规划 (算法实验规划_通信RTT与时延优化.md)。\n"
+    },
+    {
+      "id": "r404d2ad14a34ceda",
+      "title": "第九步规划",
+      "source": "说明/文献导读/第九步规划_新算法效果验证.md",
+      "aliases": [
+        "说明/文献导读/第九步规划_新算法效果验证.md"
+      ],
+      "group": "guides",
+      "topic": "step-9-plan",
+      "prerequisite": false,
+      "researchStep": "step-9",
+      "sha256": "6beedcb7f8cdc27df866f7bedf5371a2e0c099aaf000d5ebe39776b867060e0d",
+      "snapshot": "说明/文献导读/第九步规划_新算法效果验证.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第九步规划",
+          "title": "第九步规划",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我需要的前提与数据",
+          "title": "我需要的前提与数据",
+          "level": 2
+        },
+        {
+          "id": "我准备怎么做",
+          "title": "我准备怎么做",
+          "level": 2
+        },
+        {
+          "id": "我完成后交付什么",
+          "title": "我完成后交付什么",
+          "level": 2
+        },
+        {
+          "id": "我的依据与执行边界",
+          "title": "我的依据与执行边界",
+          "level": 2
+        }
+      ],
+      "words": 859,
+      "minutes": 1,
+      "search": "  第九步规划\n\n状态：规划已建立，实验尚未执行。\n\n本步主题：  新算法的配对重复效果验证  。\n\n   我的目标\n\n我在固定工作点上验证新机制相对 PF 和强对照是否降低通信 RTT，特别是尾部等待，并检查是否把代价转移给其他 UE。\n\n   我需要的前提与数据\n\n第八步功能与边界检查通过，算法/基线共享同一修正版本、探针、输入与报告路径。我需要在运行前固定正式输入、统计窗口、重复和超时规则。\n\n   我准备怎么做\n\n- 我分开调参与正式评估输入，使用配对计划和重复、交替运行顺序，避免用挑出的最好一次当结论。\n- 我报告每 UE 和整体的 RTT 中位数/P95/P99、UL/DL、响应处理、期限内完成率、丢失/未完成、资源和 CPU 开销。\n- 我直接统计同事务 RTT；上行改善但下行或其他 UE 恶化时如实展示，未测不填 0，样本不足不扩大尾分位结论。\n\n   我完成后交付什么\n\n我提交同口径对照表、逐重复结果和不确定性/局限说明，明确改善、无收益和恶化条件。比基线小与满足声明的业务期限分别评价，不能只保留成功快包。\n\n   我的依据与执行边界\n\n- P01 §III–IV，本地 PDF 第 2–4 页：测量边界；P24 §VI，第 8–10 页与 P05 §V，第 5–6 页：比较/代价的阅读参考，作者收益不当作本机目标值。\n- TS 23.501 V20.3.0 §5.7.3.4、TS 22.104 V19.2.0 §5.2/表 5.2-1 仅帮助核需求边界，不能将 PDB 或工业示例直接换成本项目 RTT 期限；统计设计由本项目声明。\n\n论文版本与本地页序须结合 总览的依据表 (算法实验规划_通信RTT与时延优化.md 8-我的依据与核验要求)阅读。这是既有路线的细化，使用已核本地版本，不宣称官网最高。执行前我先核本步直接所需原文，缺件立即停止并告知；每次修改和测试写 CHG/TEST、记录命令与失败，再按规则 Git。当前没有执行本步。\n\n对应页面： 第九步结果与分析 (../研究结果与分析/第九步结果与分析.md)。\n\n 上一步规划 (第八步规划_单项优化设计与实现.md) ·  返回全部规划 (算法实验规划_通信RTT与时延优化.md)。\n"
+    },
+    {
+      "id": "r3e9ae09ccfb34c25",
+      "title": "第十步规划",
+      "source": "说明/文献导读/第十步规划_消融资源代价与公平性.md",
+      "aliases": [
+        "说明/文献导读/第十步规划_消融资源代价与公平性.md"
+      ],
+      "group": "guides",
+      "topic": "step-10-plan",
+      "prerequisite": false,
+      "researchStep": "step-10",
+      "sha256": "e4dc28ce47e441457b78ed8b6c7a8bbaec6cb8a486c65d87617561f8f8ecf445",
+      "snapshot": "说明/文献导读/第十步规划_消融资源代价与公平性.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第十步规划",
+          "title": "第十步规划",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我需要的前提与数据",
+          "title": "我需要的前提与数据",
+          "level": 2
+        },
+        {
+          "id": "我准备怎么做",
+          "title": "我准备怎么做",
+          "level": 2
+        },
+        {
+          "id": "我完成后交付什么",
+          "title": "我完成后交付什么",
+          "level": 2
+        },
+        {
+          "id": "我的依据与执行边界",
+          "title": "我的依据与执行边界",
+          "level": 2
+        }
+      ],
+      "words": 853,
+      "minutes": 1,
+      "search": "  第十步规划\n\n状态：规划已建立，实验尚未执行。\n\n本步主题：  消融、资源代价与服务公平性  。\n\n   我的目标\n\n我通过去掉关键机制的对照，判断收益来自哪里，并检查更低 RTT 是否依赖更多空授权、资源占用或其他 UE 的长时间未服务。\n\n   我需要的前提与数据\n\n我需要第九步可复现结果和实际采用的机制清单；所有消融保持同一程序、输入、报告格式和基础资源配置。只为已经实现的模块设计消融。\n\n   我准备怎么做\n\n- 若用了 HOL 或队列信息，我保留同样报告而从评分移除对应信息；若用了预测，我区分预测、非预测主动授权和原基线，避免把额外授权误当预测准确收益。\n- 若用了服务间隔保护或预算约束，我分别关闭对应机制，检查服务间隔分布、有效载荷、空用资源、其他 UE RTT 和调度执行成本。\n- 我保留导致恶化的消融；公平性、长时间未服务与程序死锁分开定义，不把一次大时延直接称为死锁。\n\n   我完成后交付什么\n\n我提交每个开关对应的假设、结果与成本，说明哪些模块必要、哪些可简化。消融不是重新调一套有利参数，也不依靠丢弃慢包改善分位数。\n\n   我的依据与执行边界\n\n- P24 QUEST 第 7–9 页的信息/评分定义、P05 AUGUSTE §III/§V 第 3–6 页的预测/授权与资源开销，为机制拆分提供参考。\n- TS 38.300 V19.4.0 §10.2/10.3、TS 38.321 V19.4.0 §5.4.1 提供调度背景；上述消融、资源预算与公平判据是本项目实验设计，并非 3GPP 强制算法。\n\n论文版本与本地页序须结合 总览的依据表 (算法实验规划_通信RTT与时延优化.md 8-我的依据与核验要求)阅读。这是既有路线的细化，使用已核本地版本，不宣称官网最高。执行前我先核本步直接所需原文，缺件立即停止并告知；每次修改和测试写 CHG/TEST、记录命令与失败，再按规则 Git。当前没有执行本步。\n\n对应页面： 第十步结果与分析 (../研究结果与分析/第十步结果与分析.md)。\n\n 上一步规划 (第九步规划_新算法效果验证.md) ·  返回全部规划 (算法实验规划_通信RTT与时延优化.md)。\n"
+    },
+    {
+      "id": "r2f6268e18fe889d0",
+      "title": "第十一步规划",
+      "source": "说明/文献导读/第十一步规划_跨场景稳健性验证.md",
+      "aliases": [
+        "说明/文献导读/第十一步规划_跨场景稳健性验证.md"
+      ],
+      "group": "guides",
+      "topic": "step-11-plan",
+      "prerequisite": false,
+      "researchStep": "step-11",
+      "sha256": "276f1a0c3d2ba508ccd5c6f0489fdf4dc1adb736ab2befcde1ded62e3e039620",
+      "snapshot": "说明/文献导读/第十一步规划_跨场景稳健性验证.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第十一步规划",
+          "title": "第十一步规划",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我需要的前提与数据",
+          "title": "我需要的前提与数据",
+          "level": 2
+        },
+        {
+          "id": "我准备怎么做",
+          "title": "我准备怎么做",
+          "level": 2
+        },
+        {
+          "id": "我完成后交付什么",
+          "title": "我完成后交付什么",
+          "level": 2
+        },
+        {
+          "id": "我的依据与执行边界",
+          "title": "我的依据与执行边界",
+          "level": 2
+        }
+      ],
+      "words": 918,
+      "minutes": 1,
+      "search": "  第十一步规划\n\n状态：规划已建立，实验尚未执行。\n\n本步主题：  跨配置、负载和 UE 数的稳健性验证  。\n\n   我的目标\n\n我检验已经验证的机制是否只在一个工作点有效，给出不同 TDD、SCS、多 UE、负载和业务到达条件下的适用范围。\n\n   我需要的前提与数据\n\n第九、十步的机制和参数来源已固定；第三、四步已有可行配置表，第二步已有本机多 UE 可运行范围。新矩阵规模由稳定性和必要性决定，不无限扩展。\n\n   我准备怎么做\n\n- 我先扩展对瓶颈最敏感的变量，再做必要交叉；各条件内算法和基线使用同一配置，不把 TDD 或 SCS 改善混成算法收益。\n- 我覆盖低负载、积压与可行高负载，分别说明同总/同每 UE 负载；若预测是机制组成，再加近周期/触发型和独立随机负对照。\n- 我检查主机资源、输入漂移、混合 QoS 和异常恢复边界，报告失败/过载/不支持，保持 UL、DL、RTT 与可靠性联合评价。\n\n   我完成后交付什么\n\n我提交适用矩阵、稳健与失效条件、运行成本和未覆盖项。这里是对第三至六步基线分析的算法后扩展，不以旧测量值填新版本结果。\n\n   我的依据与执行边界\n\n- TS 38.213 V19.5.0 §11.1、TS 38.331 V19.4.0 §6.3.2 的 TDD IE；TS 38.211 V19.5.0 §4.2/4.3.2、TS 38.104 V20.1.0 §5.3.2/5.3.5；TS 23.501 V20.3.0 §5.7.3.3/5.7.3.4。\n- P19 第 2–5 页、P30 §VI 第 8–12 页、P24 第 7–10 页、P05 第 3–6 页分别作为 TDD、配置依赖、调度和预测边界参考；不借其他平台结果证明本机稳健性。\n\n论文版本与本地页序须结合 总览的依据表 (算法实验规划_通信RTT与时延优化.md 8-我的依据与核验要求)阅读。这是既有路线的细化，使用已核本地版本，不宣称官网最高。执行前我先核本步直接所需原文，缺件立即停止并告知；每次修改和测试写 CHG/TEST、记录命令与失败，再按规则 Git。当前没有执行本步。\n\n对应页面： 第十一步结果与分析 (../研究结果与分析/第十一步结果与分析.md)。\n\n 上一步规划 (第十步规划_消融资源代价与公平性.md) ·  返回全部规划 (算法实验规划_通信RTT与时延优化.md)。\n"
+    },
+    {
+      "id": "r4b53b823afe0741f",
+      "title": "第十二步规划",
+      "source": "说明/文献导读/第十二步规划_论文结果整理与研究收尾.md",
+      "aliases": [
+        "说明/文献导读/第十二步规划_论文结果整理与研究收尾.md"
+      ],
+      "group": "guides",
+      "topic": "step-12-plan",
+      "prerequisite": false,
+      "researchStep": "step-12",
+      "sha256": "94ed4fba1aed5bae0fe674ba2e3aa1c6f7d81195a5ce38a907bbbd3c61407555",
+      "snapshot": "说明/文献导读/第十二步规划_论文结果整理与研究收尾.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第十二步规划",
+          "title": "第十二步规划",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我需要的前提与数据",
+          "title": "我需要的前提与数据",
+          "level": 2
+        },
+        {
+          "id": "我准备怎么做",
+          "title": "我准备怎么做",
+          "level": 2
+        },
+        {
+          "id": "我完成后交付什么",
+          "title": "我完成后交付什么",
+          "level": 2
+        },
+        {
+          "id": "我的依据与执行边界",
+          "title": "我的依据与执行边界",
+          "level": 2
+        }
+      ],
+      "words": 876,
+      "minutes": 1,
+      "search": "  第十二步规划\n\n状态：规划已建立，实验尚未执行。\n\n本步主题：  论文证据、图表与可复现交付  。\n\n   我的目标\n\n我把已经完成且可追溯的证据整理成论文主线，明确问题、方法、收益来源、代价和局限，而不是把规划写成成果。\n\n   我需要的前提与数据\n\n我需要各步真实结果、代码/配置身份、CHG/TEST、来源定位和原始数据索引；未完成项必须明确，不能为了论文表格补猜测。\n\n   我准备怎么做\n\n- 我核对每张表图的版本、数据根、单位、方向、包长、负载、样本量、统计口径和生成命令；不拼接不同版本，也不把历史结果标成新重测。\n- 我以一个主要机制写清问题与证据、数学假设、算法、强对照、消融和适用范围，核对与已读论文的差异，创新性不以命名代替证据。\n- 我同步修订当前阅读站、总结 Word/PPT 和复现说明；Office 先备份再按相应技能核验，错误直接改正，历史失败证据保留。机械臂动作/产量/真实射频效果未测就不宣称。\n\n   我完成后交付什么\n\n我提交可追溯的论文图表与结论、复现命令/安全索引和未完成清单。代码与简要记录按规则 Git；协议全文、凭据、完整日志、pcap 与 Office 及大结果只本地保存。\n\n   我的依据与执行边界\n\n- 各实验实际使用的 3GPP 版本/条款、论文版本/本地页序和教材位置，按该次 CHG/TEST 逐项复核，不只更换版本号。\n- 本步为研究写作与工程交付；3GPP 不规定本文目录、文件布局和 Git 工作流。没有新增模型或测量值时，新增数学推导不适用；论文采用的公式须回到对应实验核验。\n\n论文版本与本地页序须结合 总览的依据表 (算法实验规划_通信RTT与时延优化.md 8-我的依据与核验要求)阅读。这是既有路线的细化，使用已核本地版本，不宣称官网最高。执行前我先核本步直接所需原文，缺件立即停止并告知；每次修改和测试写 CHG/TEST、记录命令与失败，再按规则 Git。当前没有执行本步。\n\n对应页面： 第十二步结果与分析 (../研究结果与分析/第十二步结果与分析.md)。\n\n 上一步规划 (第十一步规划_跨场景稳健性验证.md) ·  返回全部规划 (算法实验规划_通信RTT与时延优化.md)。\n"
     }
   ],
-  "formulas": 51,
+  "formulas": 75,
   "mathErrors": [],
   "imageCount": 0,
   "warnings": [],

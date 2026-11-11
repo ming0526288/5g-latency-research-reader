@@ -1,0 +1,152 @@
+{
+  "date": "2026-11-11",
+  "status": "PASS",
+  "scope": "Documentation structure only; no communication experiment, implementation, new measurement or Office edit.",
+  "planResultPairs": [
+    {
+      "step": "step-1",
+      "planId": "r17d0d9c36fcc691f",
+      "planSource": "说明/文献导读/第一步规划_单UE通信RTT基线.md",
+      "planSHA256": "cd39d769743cb5e634ebab9c5fd5d06fd3057ea70c483ebb40e8f0aed2d67ae4",
+      "resultId": "ede23798813389995",
+      "resultSource": "说明/研究结果与分析/第一步结果与分析.md",
+      "resultSHA256": "a3d661c8abe12abb0f86526ff3df4b91c97296e95e5ae109e463a38609141872",
+      "status": "not-started",
+      "subject": "单 UE 场景与 PF 通信 RTT 基线"
+    },
+    {
+      "step": "step-2",
+      "planId": "rf08a17ef96454a42",
+      "planSource": "说明/文献导读/第二步规划_多UE_PF基线与负载竞争.md",
+      "planSHA256": "6346a27829ff5bedd507e5a55367624f90134c520bf4a675310a16779a36960a",
+      "resultId": "e6e9701a5fd751eec",
+      "resultSource": "说明/研究结果与分析/第二步结果与分析.md",
+      "resultSHA256": "c4d2a2b1d94998021ea3ca662f3222b7e7a90f9b5457a07318e621e6838c5eb4",
+      "status": "not-started",
+      "subject": "多 UE PF 基线与负载竞争"
+    },
+    {
+      "step": "step-3",
+      "planId": "r313f9744dd9a103c",
+      "planSource": "说明/文献导读/第三步规划_TDD配比与周期分析.md",
+      "planSHA256": "163099427ceb2b4d8b38f89b8eadf6ddd768014123a2950594de4d87af78d7e6",
+      "resultId": "ee6eeb2fea0f75722",
+      "resultSource": "说明/研究结果与分析/第三步结果与分析.md",
+      "resultSHA256": "a7b2f4e8d17b643bfda45bbc8d23445a8f8719f8941b151ae1b95b641d725fac",
+      "status": "not-started",
+      "subject": "不同 TDD 配比与周期的时延分析"
+    },
+    {
+      "step": "step-4",
+      "planId": "rd80095191213cf0e",
+      "planSource": "说明/文献导读/第四步规划_SCS与资源条件分析.md",
+      "planSHA256": "54786879db4d29f495ca411ad1b83e3b9c2eef83758e23a645865a5bac7ce2ac",
+      "resultId": "ee2cbbe8555fb4080",
+      "resultSource": "说明/研究结果与分析/第四步结果与分析.md",
+      "resultSHA256": "28e8a9cee00b2897f2da8fa55ead03cdd9700c922fa9fb0c88e3830fb12055c3",
+      "status": "not-started",
+      "subject": "不同 SCS 与资源条件的时延分析"
+    },
+    {
+      "step": "step-5",
+      "planId": "r01db9429db27accb",
+      "planSource": "说明/文献导读/第五步规划_分层时延与授权等待分解.md",
+      "planSHA256": "5643a9a455277ad05669116ec1d03721852c9015ab7257e322adfd45484fadff",
+      "resultId": "e468aafcf01fd8b7a",
+      "resultSource": "说明/研究结果与分析/第五步结果与分析.md",
+      "resultSHA256": "e3f10954fb7bd540f615ed64b7a428f98351c66b4607a8a60ead1dbf1aa20b88",
+      "status": "not-started",
+      "subject": "分层时延与请求—授权等待分解"
+    },
+    {
+      "step": "step-6",
+      "planId": "r1d03a72f977e6227",
+      "planSource": "说明/文献导读/第六步规划_尾时延与慢事务成因分析.md",
+      "planSHA256": "c57d723b58d289a7628dba09a9dca150413ce0ea2c59505728439e07b3015277",
+      "resultId": "e741d8270fb698f0d",
+      "resultSource": "说明/研究结果与分析/第六步结果与分析.md",
+      "resultSHA256": "86fcf613bc99b6035e343fa0e3c29f53f37253b8a96f499699ea627e0c6c16d1",
+      "status": "not-started",
+      "subject": "尾时延与多 UE 慢事务成因分析"
+    },
+    {
+      "step": "step-7",
+      "planId": "r8533b15719e02b69",
+      "planSource": "说明/文献导读/第七步规划_同程序强对照算法.md",
+      "planSHA256": "671b6a79a7f6034896d5590d854c464a28106fccae45a3f02978e617e20173e2",
+      "resultId": "e6e03a046da435224",
+      "resultSource": "说明/研究结果与分析/第七步结果与分析.md",
+      "resultSHA256": "cb74d6c5bd6b7a9e67c26d2fbbc7e873ea4650a148141ce9755dd3d632eca000",
+      "status": "not-started",
+      "subject": "PF、EDF、M-LWDF、QUEST 的同程序强对照"
+    },
+    {
+      "step": "step-8",
+      "planId": "r6019f3cf9c7776d5",
+      "planSource": "说明/文献导读/第八步规划_单项优化设计与实现.md",
+      "planSHA256": "54725990b19f41b44d39fcd4e2e8cc44270711094ed8f63992b90831feb2a8a4",
+      "resultId": "eb784dcf87800b2b8",
+      "resultSource": "说明/研究结果与分析/第八步结果与分析.md",
+      "resultSHA256": "8c93f90fe11381d91fa70460bee1561e5d2c3cef75fc864a5b060e7dfb7ef658",
+      "status": "not-started",
+      "subject": "瓶颈驱动的单项优化设计与实现"
+    },
+    {
+      "step": "step-9",
+      "planId": "r404d2ad14a34ceda",
+      "planSource": "说明/文献导读/第九步规划_新算法效果验证.md",
+      "planSHA256": "6beedcb7f8cdc27df866f7bedf5371a2e0c099aaf000d5ebe39776b867060e0d",
+      "resultId": "e177bf81c9f7d6874",
+      "resultSource": "说明/研究结果与分析/第九步结果与分析.md",
+      "resultSHA256": "e61324037164d8ddc66a24365db7b578ec3920fa7afa1ccc159dc837f59f25cd",
+      "status": "not-started",
+      "subject": "新算法的配对重复效果验证"
+    },
+    {
+      "step": "step-10",
+      "planId": "r3e9ae09ccfb34c25",
+      "planSource": "说明/文献导读/第十步规划_消融资源代价与公平性.md",
+      "planSHA256": "e4dc28ce47e441457b78ed8b6c7a8bbaec6cb8a486c65d87617561f8f8ecf445",
+      "resultId": "eb80b8a4f6e0bcc0d",
+      "resultSource": "说明/研究结果与分析/第十步结果与分析.md",
+      "resultSHA256": "3e44f7aa09162b8d421bd052db0cae69c2bf9ebeb107eaef5dccc9cf089d9727",
+      "status": "not-started",
+      "subject": "消融、资源代价与服务公平性"
+    },
+    {
+      "step": "step-11",
+      "planId": "r2f6268e18fe889d0",
+      "planSource": "说明/文献导读/第十一步规划_跨场景稳健性验证.md",
+      "planSHA256": "276f1a0c3d2ba508ccd5c6f0489fdf4dc1adb736ab2befcde1ded62e3e039620",
+      "resultId": "eb4c69c9288df65a9",
+      "resultSource": "说明/研究结果与分析/第十一步结果与分析.md",
+      "resultSHA256": "68e2f06cfc048b86ecb0cc532e8eeac201efe4d535b9ac8a659516602b13aefc",
+      "status": "not-started",
+      "subject": "跨配置、负载和 UE 数的稳健性验证"
+    },
+    {
+      "step": "step-12",
+      "planId": "r4b53b823afe0741f",
+      "planSource": "说明/文献导读/第十二步规划_论文结果整理与研究收尾.md",
+      "planSHA256": "94ed4fba1aed5bae0fe674ba2e3aa1c6f7d81195a5ce38a907bbbd3c61407555",
+      "resultId": "e9c0af2521418cb26",
+      "resultSource": "说明/研究结果与分析/第十二步结果与分析.md",
+      "resultSHA256": "8bf8124440ee6301172324c596b3bdbb68d278aef72d7c9e85116b35eca24aff",
+      "status": "not-started",
+      "subject": "论文证据、图表与可复现交付"
+    }
+  ],
+  "pairCount": 12,
+  "legacyAnalysesRetained": 5,
+  "resultEntries": 18,
+  "archivedAlgorithmDocuments": 124,
+  "allResultStatus": "not-started",
+  "overviewId": "r9add2badaf2ad40d",
+  "overviewSourceSHA256": "d5f2e3e1c42161afc550d00ce9e1cd248aee74156f162caf9dd0f38e4ce91970",
+  "numericNavigationOrder": true,
+  "mutualLinksAndSearch": true,
+  "emptyResults": true,
+  "oldAnalysisHashesPreserved": true,
+  "httpResources": 53,
+  "consoleErrors": []
+}

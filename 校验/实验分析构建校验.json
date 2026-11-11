@@ -378,9 +378,317 @@
       "words": 64,
       "minutes": 1,
       "search": "  第一步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)。\n"
+    },
+    {
+      "id": "e6e9701a5fd751eec",
+      "title": "第二步结果与分析",
+      "source": "说明/研究结果与分析/第二步结果与分析.md",
+      "aliases": [
+        "说明/研究结果与分析/第二步结果与分析.md"
+      ],
+      "group": "research",
+      "topic": "step-2",
+      "prerequisite": false,
+      "experimentStage": "step-2",
+      "researchStep": "step-2",
+      "planTopic": "step-2-plan",
+      "status": "not-started",
+      "sha256": "c4d2a2b1d94998021ea3ca662f3222b7e7a90f9b5457a07318e621e6838c5eb4",
+      "snapshot": "说明/研究结果与分析/第二步结果与分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第二步结果与分析",
+          "title": "第二步结果与分析",
+          "level": 1
+        }
+      ],
+      "words": 67,
+      "minutes": 1,
+      "search": "  第二步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第二步规划 (../文献导读/第二步规划_多UE_PF基线与负载竞争.md)。\n"
+    },
+    {
+      "id": "ee6eeb2fea0f75722",
+      "title": "第三步结果与分析",
+      "source": "说明/研究结果与分析/第三步结果与分析.md",
+      "aliases": [
+        "说明/研究结果与分析/第三步结果与分析.md"
+      ],
+      "group": "research",
+      "topic": "step-3",
+      "prerequisite": false,
+      "experimentStage": "step-3",
+      "researchStep": "step-3",
+      "planTopic": "step-3-plan",
+      "status": "not-started",
+      "sha256": "a7b2f4e8d17b643bfda45bbc8d23445a8f8719f8941b151ae1b95b641d725fac",
+      "snapshot": "说明/研究结果与分析/第三步结果与分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第三步结果与分析",
+          "title": "第三步结果与分析",
+          "level": 1
+        }
+      ],
+      "words": 64,
+      "minutes": 1,
+      "search": "  第三步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第三步规划 (../文献导读/第三步规划_TDD配比与周期分析.md)。\n"
+    },
+    {
+      "id": "ee2cbbe8555fb4080",
+      "title": "第四步结果与分析",
+      "source": "说明/研究结果与分析/第四步结果与分析.md",
+      "aliases": [
+        "说明/研究结果与分析/第四步结果与分析.md"
+      ],
+      "group": "research",
+      "topic": "step-4",
+      "prerequisite": false,
+      "experimentStage": "step-4",
+      "researchStep": "step-4",
+      "planTopic": "step-4-plan",
+      "status": "not-started",
+      "sha256": "28e8a9cee00b2897f2da8fa55ead03cdd9700c922fa9fb0c88e3830fb12055c3",
+      "snapshot": "说明/研究结果与分析/第四步结果与分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第四步结果与分析",
+          "title": "第四步结果与分析",
+          "level": 1
+        }
+      ],
+      "words": 64,
+      "minutes": 1,
+      "search": "  第四步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第四步规划 (../文献导读/第四步规划_SCS与资源条件分析.md)。\n"
+    },
+    {
+      "id": "e468aafcf01fd8b7a",
+      "title": "第五步结果与分析",
+      "source": "说明/研究结果与分析/第五步结果与分析.md",
+      "aliases": [
+        "说明/研究结果与分析/第五步结果与分析.md"
+      ],
+      "group": "research",
+      "topic": "step-5",
+      "prerequisite": false,
+      "experimentStage": "step-5",
+      "researchStep": "step-5",
+      "planTopic": "step-5-plan",
+      "status": "not-started",
+      "sha256": "e3f10954fb7bd540f615ed64b7a428f98351c66b4607a8a60ead1dbf1aa20b88",
+      "snapshot": "说明/研究结果与分析/第五步结果与分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第五步结果与分析",
+          "title": "第五步结果与分析",
+          "level": 1
+        }
+      ],
+      "words": 65,
+      "minutes": 1,
+      "search": "  第五步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第五步规划 (../文献导读/第五步规划_分层时延与授权等待分解.md)。\n"
+    },
+    {
+      "id": "e741d8270fb698f0d",
+      "title": "第六步结果与分析",
+      "source": "说明/研究结果与分析/第六步结果与分析.md",
+      "aliases": [
+        "说明/研究结果与分析/第六步结果与分析.md"
+      ],
+      "group": "research",
+      "topic": "step-6",
+      "prerequisite": false,
+      "experimentStage": "step-6",
+      "researchStep": "step-6",
+      "planTopic": "step-6-plan",
+      "status": "not-started",
+      "sha256": "86fcf613bc99b6035e343fa0e3c29f53f37253b8a96f499699ea627e0c6c16d1",
+      "snapshot": "说明/研究结果与分析/第六步结果与分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第六步结果与分析",
+          "title": "第六步结果与分析",
+          "level": 1
+        }
+      ],
+      "words": 65,
+      "minutes": 1,
+      "search": "  第六步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第六步规划 (../文献导读/第六步规划_尾时延与慢事务成因分析.md)。\n"
+    },
+    {
+      "id": "e6e03a046da435224",
+      "title": "第七步结果与分析",
+      "source": "说明/研究结果与分析/第七步结果与分析.md",
+      "aliases": [
+        "说明/研究结果与分析/第七步结果与分析.md"
+      ],
+      "group": "research",
+      "topic": "step-7",
+      "prerequisite": false,
+      "experimentStage": "step-7",
+      "researchStep": "step-7",
+      "planTopic": "step-7-plan",
+      "status": "not-started",
+      "sha256": "cb74d6c5bd6b7a9e67c26d2fbbc7e873ea4650a148141ce9755dd3d632eca000",
+      "snapshot": "说明/研究结果与分析/第七步结果与分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第七步结果与分析",
+          "title": "第七步结果与分析",
+          "level": 1
+        }
+      ],
+      "words": 62,
+      "minutes": 1,
+      "search": "  第七步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第七步规划 (../文献导读/第七步规划_同程序强对照算法.md)。\n"
+    },
+    {
+      "id": "eb784dcf87800b2b8",
+      "title": "第八步结果与分析",
+      "source": "说明/研究结果与分析/第八步结果与分析.md",
+      "aliases": [
+        "说明/研究结果与分析/第八步结果与分析.md"
+      ],
+      "group": "research",
+      "topic": "step-8",
+      "prerequisite": false,
+      "experimentStage": "step-8",
+      "researchStep": "step-8",
+      "planTopic": "step-8-plan",
+      "status": "not-started",
+      "sha256": "8c93f90fe11381d91fa70460bee1561e5d2c3cef75fc864a5b060e7dfb7ef658",
+      "snapshot": "说明/研究结果与分析/第八步结果与分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第八步结果与分析",
+          "title": "第八步结果与分析",
+          "level": 1
+        }
+      ],
+      "words": 63,
+      "minutes": 1,
+      "search": "  第八步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第八步规划 (../文献导读/第八步规划_单项优化设计与实现.md)。\n"
+    },
+    {
+      "id": "e177bf81c9f7d6874",
+      "title": "第九步结果与分析",
+      "source": "说明/研究结果与分析/第九步结果与分析.md",
+      "aliases": [
+        "说明/研究结果与分析/第九步结果与分析.md"
+      ],
+      "group": "research",
+      "topic": "step-9",
+      "prerequisite": false,
+      "experimentStage": "step-9",
+      "researchStep": "step-9",
+      "planTopic": "step-9-plan",
+      "status": "not-started",
+      "sha256": "e61324037164d8ddc66a24365db7b578ec3920fa7afa1ccc159dc837f59f25cd",
+      "snapshot": "说明/研究结果与分析/第九步结果与分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第九步结果与分析",
+          "title": "第九步结果与分析",
+          "level": 1
+        }
+      ],
+      "words": 61,
+      "minutes": 1,
+      "search": "  第九步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第九步规划 (../文献导读/第九步规划_新算法效果验证.md)。\n"
+    },
+    {
+      "id": "eb80b8a4f6e0bcc0d",
+      "title": "第十步结果与分析",
+      "source": "说明/研究结果与分析/第十步结果与分析.md",
+      "aliases": [
+        "说明/研究结果与分析/第十步结果与分析.md"
+      ],
+      "group": "research",
+      "topic": "step-10",
+      "prerequisite": false,
+      "experimentStage": "step-10",
+      "researchStep": "step-10",
+      "planTopic": "step-10-plan",
+      "status": "not-started",
+      "sha256": "3e44f7aa09162b8d421bd052db0cae69c2bf9ebeb107eaef5dccc9cf089d9727",
+      "snapshot": "说明/研究结果与分析/第十步结果与分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第十步结果与分析",
+          "title": "第十步结果与分析",
+          "level": 1
+        }
+      ],
+      "words": 64,
+      "minutes": 1,
+      "search": "  第十步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第十步规划 (../文献导读/第十步规划_消融资源代价与公平性.md)。\n"
+    },
+    {
+      "id": "eb4c69c9288df65a9",
+      "title": "第十一步结果与分析",
+      "source": "说明/研究结果与分析/第十一步结果与分析.md",
+      "aliases": [
+        "说明/研究结果与分析/第十一步结果与分析.md"
+      ],
+      "group": "research",
+      "topic": "step-11",
+      "prerequisite": false,
+      "experimentStage": "step-11",
+      "researchStep": "step-11",
+      "planTopic": "step-11-plan",
+      "status": "not-started",
+      "sha256": "68e2f06cfc048b86ecb0cc532e8eeac201efe4d535b9ac8a659516602b13aefc",
+      "snapshot": "说明/研究结果与分析/第十一步结果与分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第十一步结果与分析",
+          "title": "第十一步结果与分析",
+          "level": 1
+        }
+      ],
+      "words": 65,
+      "minutes": 1,
+      "search": "  第十一步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第十一步规划 (../文献导读/第十一步规划_跨场景稳健性验证.md)。\n"
+    },
+    {
+      "id": "e9c0af2521418cb26",
+      "title": "第十二步结果与分析",
+      "source": "说明/研究结果与分析/第十二步结果与分析.md",
+      "aliases": [
+        "说明/研究结果与分析/第十二步结果与分析.md"
+      ],
+      "group": "research",
+      "topic": "step-12",
+      "prerequisite": false,
+      "experimentStage": "step-12",
+      "researchStep": "step-12",
+      "planTopic": "step-12-plan",
+      "status": "not-started",
+      "sha256": "8bf8124440ee6301172324c596b3bdbb68d278aef72d7c9e85116b35eca24aff",
+      "snapshot": "说明/研究结果与分析/第十二步结果与分析.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "第十二步结果与分析",
+          "title": "第十二步结果与分析",
+          "level": 1
+        }
+      ],
+      "words": 68,
+      "minutes": 1,
+      "search": "  第十二步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第十二步规划 (../文献导读/第十二步规划_论文结果整理与研究收尾.md)。\n"
     }
   ],
-  "formulas": 26,
+  "formulas": 48,
   "mathErrors": [],
   "imageCount": 13,
   "warnings": [],

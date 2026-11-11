@@ -10,11 +10,11 @@
   ],
   "restoredSourceAndPayloadHashes": true,
   "oldRoutesChecked": 10,
-  "publishedDocuments": 1082,
+  "publishedDocuments": 1104,
   "newPlan": {
     "id": "r9add2badaf2ad40d",
     "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
-    "sha256": "6dacf8662af051f7442483c31f113d1aee0822af02c00f6b556893f55de67944",
+    "sha256": "d5f2e3e1c42161afc550d00ce9e1cd248aee74156f162caf9dd0f38e4ce91970",
     "toc": 9,
     "firstPerson": true
   },
@@ -33,7 +33,18 @@
     "layers",
     "tail",
     "source-changes",
-    "step-1"
+    "step-1",
+    "step-2",
+    "step-3",
+    "step-4",
+    "step-5",
+    "step-6",
+    "step-7",
+    "step-8",
+    "step-9",
+    "step-10",
+    "step-11",
+    "step-12"
   ],
   "sidebarAndHome": true,
   "searchAndBookmarkFiltering": true,

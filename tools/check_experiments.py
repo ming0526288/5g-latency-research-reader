@@ -27,7 +27,14 @@ def main():
     cat = json.loads((ROOT / '网页/catalog.js').read_text().split('window.READER_CATALOG=', 1)[1].rstrip(';'))
     docs = {d['id']: d for d in cat['docs']}
     manifest = read(ROOT / '说明/experiments.json')['documents']
-    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'source-changes', 'step-1'}
+    plans = [d for d in read(ROOT / '说明/reading-notes.json')['documents'] if d.get('researchStep')]
+    step_numbers = sorted(int(p['researchStep'].removeprefix('step-')) for p in plans)
+    assert step_numbers == list(range(1, len(plans) + 1)), 'Plan steps must be unique and contiguous'
+    assert len(manifest) == len({d['topic'] for d in manifest}), 'Duplicate result topic'
+    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'source-changes'} | {p['researchStep'] for p in plans}
+    for plan in plans:
+        matches = [d for d in manifest if d.get('researchStep') == plan['researchStep']]
+        assert len(matches) == 1 and matches[0]['planTopic'] == plan['topic'], plan['source']
     provenance = read(BASE / '数据/来源与图片核验.json')
     for item in provenance['aggregateCopies']:
         assert sha(BASE / item['file']) == item['sha256'], item['file']
@@ -89,10 +96,12 @@ def main():
                                 'canonicalSourceSHA': d['sha256']})
             continue
         if item.get('status') == 'not-started':
+            assert d['status'] == 'not-started'
             assert '尚未执行，暂无结果与分析' in html
             assert not any(tag in html for tag in ('<table', '<figure', '<pre', 'katex'))
             plan = next(x for x in docs.values() if x.get('topic') == item['planTopic'])
             assert d['researchStep'] == plan['researchStep'] == item['researchStep']
+            assert d['title'] == plan['title'].replace('规划', '结果与分析')
             assert '#/doc/' + plan['id'] in html
             assert '#/doc/' + d['id'] in payload(plan['id'])['html']
             page_checks.append({'id': d['id'], 'title': d['title'], 'kind': 'not-started-placeholder',

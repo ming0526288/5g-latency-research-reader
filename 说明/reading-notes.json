@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "documents": [
     {
       "source": "说明/文献导读/39篇文献重要性排序与方法效果简述.md",
@@ -21,6 +21,61 @@
     {
       "source": "说明/文献导读/论文译稿公式核查与修复说明.md",
       "topic": "translation-check"
+    },
+    {
+      "source": "说明/文献导读/第二步规划_多UE_PF基线与负载竞争.md",
+      "topic": "step-2-plan",
+      "researchStep": "step-2"
+    },
+    {
+      "source": "说明/文献导读/第三步规划_TDD配比与周期分析.md",
+      "topic": "step-3-plan",
+      "researchStep": "step-3"
+    },
+    {
+      "source": "说明/文献导读/第四步规划_SCS与资源条件分析.md",
+      "topic": "step-4-plan",
+      "researchStep": "step-4"
+    },
+    {
+      "source": "说明/文献导读/第五步规划_分层时延与授权等待分解.md",
+      "topic": "step-5-plan",
+      "researchStep": "step-5"
+    },
+    {
+      "source": "说明/文献导读/第六步规划_尾时延与慢事务成因分析.md",
+      "topic": "step-6-plan",
+      "researchStep": "step-6"
+    },
+    {
+      "source": "说明/文献导读/第七步规划_同程序强对照算法.md",
+      "topic": "step-7-plan",
+      "researchStep": "step-7"
+    },
+    {
+      "source": "说明/文献导读/第八步规划_单项优化设计与实现.md",
+      "topic": "step-8-plan",
+      "researchStep": "step-8"
+    },
+    {
+      "source": "说明/文献导读/第九步规划_新算法效果验证.md",
+      "topic": "step-9-plan",
+      "researchStep": "step-9"
+    },
+    {
+      "source": "说明/文献导读/第十步规划_消融资源代价与公平性.md",
+      "topic": "step-10-plan",
+      "researchStep": "step-10"
+    },
+    {
+      "source": "说明/文献导读/第十一步规划_跨场景稳健性验证.md",
+      "topic": "step-11-plan",
+      "researchStep": "step-11"
+    },
+    {
+      "source": "说明/文献导读/第十二步规划_论文结果整理与研究收尾.md",
+      "topic": "step-12-plan",
+      "researchStep": "step-12"
     }
   ]
 }
