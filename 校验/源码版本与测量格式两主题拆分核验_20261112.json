@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "scope": "Two separate document/experiment themes; source reclassification only, no communication code/config/model or new simulation changes.",
+  "protocolOriginalsReadable": 15,
+  "protectedFilesUnchanged": 43,
+  "protectedSHA256": {
+    "说明/插图/分层测量概念.svg": "9b79a2f800d1aca87b84fd67c2c7cdfebaa8f27cdd25e5e064facca6f21b87b1",
+    "说明/插图/3GPP时隙格式摘录.svg": "2c9a4cad660f3e31d1be52be69f525eeb26e5e9030ea7b947660ac050c4c70aa",
+    "说明/插图/教材_图2-2_5G系统架构.png": "6d5224c47a2c258cada85c940ca17129018b58fb952150c5e638a384157c8fa4",
+    "说明/插图/第一步_RTT三轮分位数.svg": "09c415e1eed2dbca3fa1819f9238e6d9a35e5131a758a752d8772c73f9a63926",
+    "说明/插图/算法实验共同条件.svg": "3be7cdf2d3a3d1f63e560ffd94767b83071b1eed7246cb463589307a2b56bcc5",
+    "说明/插图/SCS与标称时隙.svg": "1f84897eb6cd51ef94d0e1410c638ead7c38dda9f31de4ec2198a801648a3740",
+    "说明/插图/第一步_六条件工具RTT_P99.svg": "7221363422edf3034a9da12bcfc5aa02ee9e2f5c9b0f845ffbf77cced6de716a",
+    "说明/插图/5G架构与N3_N6端点.svg": "306e0b960a3333b71fa888af85845678ed73e8de7cf8a05bfa8b65c3458c2102",
+    "说明/插图/第一步_六条件TUN_P99.svg": "36435c551dc8f956be468ef01120ab98945a9eeb12b31b9f7b5d43ca2ebdda5f",
+    "说明/插图/应用负载与UDP_IP头部.svg": "65ad51bb5283520028b890abf7402de72155e90d70c4babaa45d4e4b4abab083",
+    "说明/插图/TDD实验配置.svg": "7ee626799a05bbbca974e9d55ecaee276cf39e12c3754d47ad6f2cd41f9fdbe8",
+    "说明/插图/多UE负载口径.svg": "fc5235dd589a4886a94b89f700829f3479cac1c05b125b685fb75881fe0590b3",
+    "说明/插图/第一步_通信事务与计时边界.svg": "b23b972d2f38e56bf675e5c8a210762e8b087893112e9e232bf31cff1fe89108",
+    "说明/插图/尾时延教学样本.svg": "535fd571ddef3999c0f8a4aee5736f29c74709a879273096824f74ed259bb7d1",
+    "说明/插图/应用测量边界.svg": "ed357470821c5cb39b3c6d64100db75c0966ce4b2535af16d9125f5b517d6aa7",
+    "说明/五类时延分析/TDD_已做实验与错误案例.md": "ad7e01bf7f340cd49b3435ff44b72e18cb3ee36013f675a984b8a072b469158d",
+    "说明/五类时延分析/多UE_已做实验与错误案例.md": "379a6eb30399d8d2da20afed5bf1e77dde942e70575fd99880af057ad88fa96d",
+    "说明/五类时延分析/SCS_已做实验与错误案例.md": "eb89e338ecc411a356cdf98182316ee932853513d20775fc64e68b379d4ac8eb",
+    "说明/五类时延分析/分层时延_已做实验与错误案例.md": "ba8e4fe71badeb4724b541b5073334696889871ba16bb5e95e05a6f8ecf27f5c",
+    "说明/五类时延分析/尾时延_已做实验与错误案例.md": "62ab382b9b3d7607b4bbd3db393109eaa605e1c1e457a7c53cf9198be1955161",
+    "说明/五类时延分析/原始源码与当前研究版本_修改问题与影响.md": "6d0109b2e883f19ca5cc6aba314e54be43730bab328d14bde15f4225326624d8",
+    "说明/五类时延分析/图片/尾时延_短长流对照.png": "919a73fcba26d273e9d507d059313b5e4bffe34a8261f09016350bd5ea6bedcf",
+    "说明/五类时延分析/图片/分层_同包均值与慢包.png": "619e0e01f535221bcecaec6d55c311e9acd73e8667a6da23aceb3209bf790c5f",
+    "说明/五类时延分析/图片/多UE_TDD共同规则结果.png": "fd9f054891039a38cb2ec55fd9895eba4bf47023799c24bf4f0a790242f6b353",
+    "说明/五类时延分析/图片/SCS_共同规则交叉结果.png": "36f4ed90b368f6d4a29276a068030e7ffc861a7820e106facd5734954b98a222",
+    "说明/五类时延分析/图片/历史_SCS旧程序结果.png": "d9bad1e6f4278843e9c2e1b46bd99e17a341dc42e66293c9a3e3e481002027fd",
+    "说明/五类时延分析/图片/历史_分层旧程序结果.png": "a12f30bbb3d480f078f1a5edf053299668bd08eb7c030081b9ce1b3898389d25",
+    "说明/五类时延分析/图片/TDD_固定CPU长流.png": "774dd3ba816d0caf5782838e2b80a3edd3c3b3b41496d1945d1699affd324304",
+    "说明/五类时延分析/图片/TDD_固定CPU短流.png": "7a86c71c1405d9cd1196c9349822d64b3d25e94ccb983bff9b883e7130f2d524",
+    "说明/五类时延分析/图片/TDD_共同规则周期结果.png": "c9e8209b396c9e91413f340f324c6c64e77f10a7f62e67c70d14b94faa8e0642",
+    "说明/五类时延分析/图片/尾时延_CCDF与顺序窗口.png": "8fe60f736bfa94210261264bc2fa54702752302680302e0de42692f74aadfb44",
+    "说明/五类时延分析/图片/分层_探针条件结果.png": "fbe0c1bc7f728f4cf4be63d1560d395ebe01bf650c33d27d9c26d198f058dda0",
+    "说明/五类时延分析/图片/历史_多UE旧程序结果.png": "34e54a3e9432fbe6f77f757131f9e2e850c0ebd84adaf681095e95379bf064d2",
+    "说明/五类时延分析/图片/多UE_共同规则负载对照.png": "de81f81086bb8797bbe014e3063b066ba3f4245fb429f54be97d4125bbf842b3",
+    "说明/五类时延分析/数据/共同规则短流汇总.json": "8d942b01b328396d3df4d9b017ff658c17574980b1e2372427e42671d8fe81ae",
+    "说明/五类时延分析/数据/来源与图片核验.json": "a52ef7f6bbc2ffa865f39e51c8b523096456487d3662587f3c76c9299500df32",
+    "说明/五类时延分析/数据/重绘图片核验.json": "83b30bc93b462efc0e924f87c62f993e9725571255d0395822a97400f45daacc",
+    "说明/五类时延分析/数据/固定负载长流汇总.json": "b718fe803b944eb5f46b82fdc14578b71e5f76599fbf864fa50cd40993da1f0c",
+    "说明/五类时延分析/数据/共同规则长流汇总.json": "e75bc1670c5de0f129ee6193124cb50662aaa99571e418bf2863423f8dd95809",
+    "说明/五类时延分析/数据/固定CPU_TDD汇总.json": "892ae08d6c51c8bdfb8f33056ee5148087bca136e0f33893ffa6471d164626b7",
+    "说明/研究结果与分析/数据/第一步_六条件正式对照.json": "6eaa50081edabac809c44bae226100a843455b6ea818b6b2d73b8fa07c36445c",
+    "说明/研究结果与分析/数据/第一步_当前UDP256B基线.json": "99aca8a32b9a4d5210b263c6fb0a4bd7a287a7cd4ea3ef96bf6e64ae2b08446f",
+    "说明/研究结果与分析/数据/第一步_三轮基线.json": "48e33f1199cea53f3576b3afc543854a18845bd344c0cc0a8d3c623119069a7e"
+  },
+  "pairs": [
+    {
+      "experiment": "E-SRC-01",
+      "knowledge": {
+        "id": "kc49170b2fb2e7df4",
+        "title": "原始源码与当前版本：知识点分析",
+        "source": "说明/算法知识点说明/原始源码与当前版本_知识点分析.md",
+        "sha256": "06d8d77934e1b89f3d45991c19de8fb29814ffbb7d4b9618c81c92ecf9903057"
+      },
+      "results": {
+        "id": "e9eb3f4e896afc1bd",
+        "title": "独立实验：原始源码与当前版本对比",
+        "source": "说明/研究结果与分析/独立实验_原始源码与当前版本对比.md",
+        "sha256": "2f9fdd6b562472a26caeb9d0deb5f002d9f56c2842400f761c0989d71f715d6d",
+        "status": "partial"
+      }
+    },
+    {
+      "experiment": "E-MEAS-01",
+      "knowledge": {
+        "id": "k51a2cb226724c7ad",
+        "title": "80 B 与 16 B 测量格式对比：知识点分析",
+        "source": "说明/算法知识点说明/80B与16B测量格式对比_知识点分析.md",
+        "sha256": "a0016512ee57ed236bb27677454a207451f626b6b6894ccac99883356d243d26"
+      },
+      "results": {
+        "id": "ef0a33e120c19cc7f",
+        "title": "独立实验：80 B 与 16 B 测量格式对比",
+        "source": "说明/研究结果与分析/独立实验_80B与16B测量格式对比.md",
+        "sha256": "629450466a8d71e6422fffa9ca4afc4a4fd69446c6b16269b6df8419b47f0f8c",
+        "status": "partial"
+      }
+    }
+  ],
+  "oldCombinedRoutesRetainedForHeaderTopic": [
+    "k51a2cb226724c7ad",
+    "ef0a33e120c19cc7f"
+  ],
+  "mainStepPairsUnchanged": 12,
+  "newRuns": 0,
+  "sourceVersionComparisonComplete": false,
+  "controlledHeaderABComplete": false
+}

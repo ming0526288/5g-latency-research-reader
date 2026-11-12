@@ -31,7 +31,7 @@ def main():
     step_numbers = sorted(int(p['researchStep'].removeprefix('step-')) for p in plans)
     assert step_numbers == list(range(1, len(plans) + 1)), 'Plan steps must be unique and contiguous'
     assert len(manifest) == len({d['topic'] for d in manifest}), 'Duplicate result topic'
-    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'source-changes', 'measurement-tools'} | {p['researchStep'] for p in plans}
+    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'source-changes', 'source-version-retest', 'measurement-tools'} | {p['researchStep'] for p in plans}
     for plan in plans:
         matches = [d for d in manifest if d.get('researchStep') == plan['researchStep']]
         assert len(matches) == 1 and matches[0]['planTopic'] == plan['topic'], plan['source']
@@ -107,6 +107,20 @@ def main():
             page_checks.append({'id': d['id'], 'title': d['title'], 'kind': 'not-started-placeholder',
                                 'canonicalSourceSHA': d['sha256']})
             continue
+        if item.get('independentExperiment') == 'E-SRC-01':
+            assert d['independentExperiment'] == 'E-SRC-01' and d['status'] == 'partial'
+            assert not d.get('researchStep') and not d.get('planTopic')
+            assert '未进入业务' in html and '中断' in html and '根因未确定' in html
+            assert 'original-ping-v1' in html and '80 B / 16 B 字段与功能' not in html
+            assert '#/doc/' + cat['knowledgeTopics']['source-version-basics'] in html
+            formal = read(ROOT/'说明/研究结果与分析/数据/第一步_六条件正式对照.json')
+            for case in formal['cases']:
+                if case['tool']=='ping' and case['size']==56:
+                    assert all(f'{v:.6f}' in html for v in case['native_RTT_ms'].values())
+            page_checks.append({'id':d['id'], 'kind':'independent-source-version-retest',
+                                'originalPingRTTAvailable':False, 'currentPingRunsReferenced':3,
+                                'additionalRuns':0, 'canonicalSourceSHA':d['sha256']})
+            continue
         if item.get('independentExperiment'):
             assert d['independentExperiment'] == item['independentExperiment'] == 'E-MEAS-01'
             assert d['status'] == 'partial' and not d.get('researchStep') and not d.get('planTopic')
@@ -124,11 +138,11 @@ def main():
                 assert f"{case['native_RTT_ms']['p99']:.3f}" in html
                 assert case['complete'] == 2200 and case['statistical'] == 2000
             assert html.count('<figure') >= 4 and '39600' in html and '36000' in html
-            assert '尚未完成' in html and '未进入业务' in html and '中断' in html
+            assert '尚未完成' in html and 'original-ping-v1' not in html
             assert '#/doc/' + cat['knowledgeTopics']['measurement-methods'] in html
-            page_checks.append({'id': d['id'], 'kind': 'independent-measurement-partial-original-ping',
+            page_checks.append({'id': d['id'], 'kind': 'independent-header-format-with-pending-controlled-AB',
                                 'completeFormalTransactions': 39600, 'statisticalFormalTransactions': 36000,
-                                'originalPingRTTAvailable': False, 'controlledHeaderABComplete': False,
+                                'controlledHeaderABComplete': False,
                                 'canonicalSourceSHA': d['sha256']})
             continue
         if item.get('status') == 'complete':

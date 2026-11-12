@@ -10,11 +10,11 @@
   ],
   "restoredSourceAndPayloadHashes": true,
   "oldRoutesChecked": 10,
-  "publishedDocuments": 1120,
+  "publishedDocuments": 1122,
   "newPlan": {
     "id": "r9add2badaf2ad40d",
     "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
-    "sha256": "18eed56aa1d328f6891944f114c4f929fd0550ac6297c0c901de9475a97afacc",
+    "sha256": "0430d13ff6b96dcd4457a67d33b0d246b48ded4c92d7c8f99c2fe05aa8981247",
     "toc": 9,
     "firstPerson": true
   },
@@ -36,6 +36,7 @@
     "layers",
     "tail",
     "source-changes",
+    "source-version-retest",
     "measurement-tools",
     "step-1",
     "step-2",
@@ -53,7 +54,7 @@
   "sidebarAndHome": true,
   "searchAndBookmarkFiltering": true,
   "bookmarkStoragePreserved": true,
-  "coreKnowledgeRetained": 15,
+  "coreKnowledgeRetained": 16,
   "papersAndProtocolsRetained": true,
   "consoleErrors": [],
   "scope": "Offline DOM publication checks; five original analyses restored without editing data; no wireless experiment or screenshot/layout certification."

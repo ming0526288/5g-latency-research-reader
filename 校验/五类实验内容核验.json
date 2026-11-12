@@ -48,18 +48,25 @@
       "canonicalSourceSHA": "6d0109b2e883f19ca5cc6aba314e54be43730bab328d14bde15f4225326624d8"
     },
     {
+      "id": "e9eb3f4e896afc1bd",
+      "kind": "independent-source-version-retest",
+      "originalPingRTTAvailable": false,
+      "currentPingRunsReferenced": 3,
+      "additionalRuns": 0,
+      "canonicalSourceSHA": "2f9fdd6b562472a26caeb9d0deb5f002d9f56c2842400f761c0989d71f715d6d"
+    },
+    {
       "id": "ef0a33e120c19cc7f",
-      "kind": "independent-measurement-partial-original-ping",
+      "kind": "independent-header-format-with-pending-controlled-AB",
       "completeFormalTransactions": 39600,
       "statisticalFormalTransactions": 36000,
-      "originalPingRTTAvailable": false,
       "controlledHeaderABComplete": false,
-      "canonicalSourceSHA": "4def704ca57c6f1ae10bfc991a4013eebaed82457022681287a22ba7e7e191ad"
+      "canonicalSourceSHA": "629450466a8d71e6422fffa9ca4afc4a4fd69446c6b16269b6df8419b47f0f8c"
     },
     {
       "id": "ede23798813389995",
       "kind": "current-UDP256-baseline-existing-cohort-reuse",
-      "canonicalSourceSHA": "85c79f0649101fc58f2b012f72719ba2767b166be5aad4fd2857e0d8b5a7929a",
+      "canonicalSourceSHA": "b9b4f98d8f4860721180da8aef93230d90836fe70625a6b5b7cce24dffff0ff6",
       "complete": 6600,
       "statistical": 6000,
       "additionalRuns": 0

@@ -50,7 +50,7 @@ async function waitFor(fn,label){for(let i=0;i<500;i++){if(fn())return;await tic
  assert.equal(hubHeadings[2].nextElementSibling.getAttribute('href'),'#/doc/'+launchIndex.id);assert(hubHeadings[2].nextElementSibling.nextElementSibling.classList.contains('nav-heading'));
  async function fromHub(hub,target){d.querySelector('#sidebar a[href="#/doc/'+hub.id+'"]').click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===hub.source,'hub '+hub.topic);const link=d.querySelector('.article a[href="#/doc/'+target.id+'"]');assert(link,'Missing hub link '+target.id);link.click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===target.source,'hub target '+target.id);}
  assert.deepEqual(allStepPlans.map(p=>p.researchStep),Array.from({length:allStepPlans.length},(_,i)=>'step-'+(i+1)));
- assert.deepEqual(Object.keys(published.experimentStages),['tdd','scs','multi-ue','layers','tail','source-changes','measurement-tools',...allStepPlans.map(p=>p.researchStep)]);
+ assert.deepEqual(Object.keys(published.experimentStages),['tdd','scs','multi-ue','layers','tail','source-changes','source-version-retest','measurement-tools',...allStepPlans.map(p=>p.researchStep)]);
  const resultHeading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='研究结果与分析'),resultLinks=[];
  for(let el=resultHeading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)resultLinks.push(el);
  assert.deepEqual(resultLinks.map(el=>{const copy=el.cloneNode(true);copy.querySelector('.nav-icon')?.remove();return copy.textContent.trim();}),['结果与分析总目录']);assert.equal(resultLinks[0].getAttribute('href'),'#/doc/'+resultsIndex.id);
@@ -72,7 +72,7 @@ async function waitFor(fn,label){for(let i=0;i<500;i++){if(fn())return;await tic
  }
  // Restored analyses must be real articles, reachable in navigation and search.
  for(const item of restored){const doc=published.docs.find(x=>x.id===item.id);assert(doc);assert.equal(doc.source,item.source);assert.equal(doc.sha256,item.files.find(f=>f.path===item.source).sha256);await fromHub(resultsIndex,doc);assert.equal(d.querySelector('.article h1').textContent,doc.title);assert(d.querySelectorAll('.article figure').length>=2);}
- w.location.hash='#/browse/research';await waitFor(()=>d.querySelector('.library-heading h1')?.textContent==='研究结果与分析','results catalogue');assert.equal(d.querySelectorAll('.record-row').length,7+allStepPlans.length);
+ w.location.hash='#/browse/research';await waitFor(()=>d.querySelector('.library-heading h1')?.textContent==='研究结果与分析','results catalogue');assert.equal(d.querySelectorAll('.record-row').length,8+allStepPlans.length);
  // Every old document and all former family routes must stop before loading an article.
  for(const id of archived){w.location.hash='#/doc/'+id;await waitFor(()=>d.querySelector('.library-heading h1')?.textContent==='历史内容已归档'&&w.location.hash==='#/doc/'+id,'archived '+id);assert(!d.querySelector('.article'));}
  const oldRoutes=['#/browse/algorithms','#/browse/algorithm-knowledge',...w.READER_ALGORITHMS.families.flatMap(f=>['#/algorithm/'+f.id+'/knowledge','#/algorithm/'+f.id+'/results'])];

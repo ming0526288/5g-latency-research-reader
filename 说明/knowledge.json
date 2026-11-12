@@ -7,8 +7,13 @@
       "source": "说明/算法知识点说明/00_通信与时延基础知识.md"
     },
     {
+      "topic": "source-version-basics",
+      "source": "说明/算法知识点说明/原始源码与当前版本_知识点分析.md"
+    },
+    {
       "topic": "measurement-methods",
-      "source": "说明/算法知识点说明/测量方法与包头对比_知识点分析.md"
+      "source": "说明/算法知识点说明/80B与16B测量格式对比_知识点分析.md",
+      "id": "k51a2cb226724c7ad"
     },
     {
       "id": "k7be2718894117a09",
