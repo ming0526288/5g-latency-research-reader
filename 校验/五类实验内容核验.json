@@ -48,11 +48,21 @@
       "canonicalSourceSHA": "6d0109b2e883f19ca5cc6aba314e54be43730bab328d14bde15f4225326624d8"
     },
     {
+      "id": "ef0a33e120c19cc7f",
+      "kind": "independent-measurement-partial-original-ping",
+      "completeFormalTransactions": 39600,
+      "statisticalFormalTransactions": 36000,
+      "originalPingRTTAvailable": false,
+      "controlledHeaderABComplete": false,
+      "canonicalSourceSHA": "4def704ca57c6f1ae10bfc991a4013eebaed82457022681287a22ba7e7e191ad"
+    },
+    {
       "id": "ede23798813389995",
-      "kind": "complete-formal-18-with-retained-legacy",
-      "canonicalSourceSHA": "6d1fe9a097ee2bb113de25daf1fdcfd34aba1f828b16275fefa4f40845f0d866",
-      "complete": 39600,
-      "statistical": 36000
+      "kind": "current-UDP256-baseline-existing-cohort-reuse",
+      "canonicalSourceSHA": "85c79f0649101fc58f2b012f72719ba2767b166be5aad4fd2857e0d8b5a7929a",
+      "complete": 6600,
+      "statistical": 6000,
+      "additionalRuns": 0
     },
     {
       "id": "e6e9701a5fd751eec",

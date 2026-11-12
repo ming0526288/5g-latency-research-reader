@@ -32,6 +32,12 @@
       "source": "说明/五类时延分析/原始源码与当前研究版本_修改问题与影响.md"
     },
     {
+      "topic": "measurement-tools",
+      "source": "说明/研究结果与分析/独立实验_原始版本ping与包头对照.md",
+      "independentExperiment": "E-MEAS-01",
+      "status": "partial"
+    },
+    {
       "source": "说明/研究结果与分析/第一步结果与分析.md",
       "topic": "step-1",
       "researchStep": "step-1",

@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "knowledgePage": {
+    "id": "k51a2cb226724c7ad",
+    "source": "说明/算法知识点说明/测量方法与包头对比_知识点分析.md",
+    "title": "原始版本、当前研究版本与测量方法对比",
+    "sha256": "611c60041a574924c97c274fe915b9b3aa4c0e0596da593899827b2db0dcdbb0"
+  },
+  "independentResult": {
+    "id": "ef0a33e120c19cc7f",
+    "experiment": "E-MEAS-01",
+    "status": "partial",
+    "source": "说明/研究结果与分析/独立实验_原始版本ping与包头对照.md",
+    "sha256": "4def704ca57c6f1ae10bfc991a4013eebaed82457022681287a22ba7e7e191ad",
+    "researchStep": null
+  },
+  "mainBaseline": {
+    "id": "ede23798813389995",
+    "existingRunsReused": 3,
+    "additionalRuns": 0,
+    "completeTransactions": 6600,
+    "statisticalTransactions": 6000
+  },
+  "originalPing": {
+    "newRTTAvailable": false,
+    "firstPilot": "RFsim connected; UE did not complete access/TUN; no business",
+    "secondAttempt": "prepared; launch interrupted; no execution/runtime record"
+  },
+  "protectedOldFilesUnchanged": 42,
+  "stepPairsRetained": 12,
+  "newPagesNavigableAndSearchable": true,
+  "stagedEntryAppCatalogDOM": "PASS using existing local read-only assets, not fresh clone",
+  "staticValidation": "PASS 1244 docs; no errors/warnings",
+  "scope": "Document relocation, exact cohort reuse and publication validation; no new radio measurements after interrupted second launch."
+}

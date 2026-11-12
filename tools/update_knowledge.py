@@ -106,6 +106,7 @@ def build(kind='knowledge'):
             **({'researchStep': item['researchStep']} if item.get('researchStep') else {}),
             **({key: item[key] for key in ('commandStep', 'planTopic', 'resultTopic', 'commandStatus')} if item.get('commandStep') else {}),
             **({'planTopic': item['planTopic'], 'status': item.get('status', 'not-started')} if experiments and item.get('planTopic') else {}),
+            **({'independentExperiment': item['independentExperiment'], 'status': item.get('status', 'partial')} if experiments and item.get('independentExperiment') else {}),
             'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'snapshot': source, 'redacted': False, 'toc': [],
             '_path': path, '_text': text,

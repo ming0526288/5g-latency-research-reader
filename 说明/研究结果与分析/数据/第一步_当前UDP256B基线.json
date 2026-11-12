@@ -1,0 +1,304 @@
+{
+  "status": "PASS_EXISTING_COHORT_REUSE",
+  "complete_transactions": 6600,
+  "statistical_transactions": 6000,
+  "cases": [
+    {
+      "status": "PASS",
+      "case": "main-r1-udp-256",
+      "tool": "udp",
+      "size": 256,
+      "repeat": 1,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 4
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.2695552045,
+        "p50": 2.259683,
+        "p95": 2.97051405,
+        "p99": 3.5254263299999997,
+        "max": 4.547459
+      },
+      "TUN_interarrival_ms": {
+        "mean": 19.999984436107322,
+        "p50": 20.000016,
+        "p95": 20.0027066,
+        "p99": 20.00385348,
+        "max": 20.054938
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "Client application MONOTONIC",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.281552862,
+        "p50": 2.271306,
+        "p95": 2.98260435,
+        "p99": 3.54049646,
+        "max": 4.565029
+      },
+      "application_segments_ms": {
+        "UL_ms": {
+          "mean": 1.9772173045,
+          "p50": 1.9709850000000002,
+          "p95": 2.6644840500000004,
+          "p99": 3.14927491,
+          "max": 4.043491
+        },
+        "reply_ms": {
+          "mean": 0.0036942715,
+          "p50": 0.0035564999999999998,
+          "p95": 0.005094099999999999,
+          "p99": 0.006112580000000001,
+          "max": 0.009268
+        },
+        "DL_ms": {
+          "mean": 0.300641286,
+          "p50": 0.321125,
+          "p95": 0.35642429999999997,
+          "p99": 0.42353233,
+          "max": 0.560376
+        },
+        "RTT_ms": {
+          "mean": 2.281552862,
+          "p50": 2.271306,
+          "p95": 2.98260435,
+          "p99": 3.54049646,
+          "max": 4.565029
+        }
+      },
+      "application_interarrival_ms": {
+        "mean": 19.99999265075034,
+        "p50": 20.000005,
+        "p95": 20.0015161,
+        "p99": 20.0025053,
+        "max": 20.054134
+      },
+      "send_lateness_ms": {
+        "mean": 0.05511498818181818,
+        "p50": 0.0549815,
+        "p95": 0.0564541,
+        "p99": 0.05739608,
+        "max": 0.108269
+      },
+      "max_local_clock_duration_difference_ms": 0.00256,
+      "capture_SHA256": {
+        "traffic/tun.pcap": "00a1c741a0ea4f1b32e71d61f081118699ff0b8fc49a26875c321b68f96b1778",
+        "traffic/n3.pcap": "cf07c6aebf48d0fad8bc60b48aafe01c5edf18092270798668045c976efd638b",
+        "control.pcap": "8a6eb37d8f26d1aabe6d18b60b72f0ad90d5d163fb5ba7e6ed065c7c535ca230"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r2-udp-256",
+      "tool": "udp",
+      "size": 256,
+      "repeat": 2,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 4
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.279438546,
+        "p50": 2.2646034999999998,
+        "p95": 2.953867,
+        "p99": 3.5801342099999998,
+        "max": 4.644124
+      },
+      "TUN_interarrival_ms": {
+        "mean": 19.999983864029105,
+        "p50": 19.999941,
+        "p95": 20.0028786,
+        "p99": 20.00460404,
+        "max": 20.053318
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "Client application MONOTONIC",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.2901655635,
+        "p50": 2.2748205,
+        "p95": 2.96632855,
+        "p99": 3.5929564999999997,
+        "max": 4.660129
+      },
+      "application_segments_ms": {
+        "UL_ms": {
+          "mean": 1.974429099,
+          "p50": 1.9646245,
+          "p95": 2.6498720500000004,
+          "p99": 3.18679479,
+          "max": 4.226009
+        },
+        "reply_ms": {
+          "mean": 0.0036966765,
+          "p50": 0.0035495,
+          "p95": 0.005113250000000001,
+          "p99": 0.00609521,
+          "max": 0.012112
+        },
+        "DL_ms": {
+          "mean": 0.312039788,
+          "p50": 0.3091125,
+          "p95": 0.3264208,
+          "p99": 0.40822597,
+          "max": 0.555474
+        },
+        "RTT_ms": {
+          "mean": 2.2901655635,
+          "p50": 2.2748205,
+          "p95": 2.96632855,
+          "p99": 3.5929564999999997,
+          "max": 4.660129
+        }
+      },
+      "application_interarrival_ms": {
+        "mean": 19.99999188449295,
+        "p50": 19.999983,
+        "p95": 20.0017186,
+        "p99": 20.002746759999997,
+        "max": 20.051364
+      },
+      "send_lateness_ms": {
+        "mean": 0.055233995,
+        "p50": 0.055109,
+        "p95": 0.0566134,
+        "p99": 0.05763517,
+        "max": 0.1056
+      },
+      "max_local_clock_duration_difference_ms": 0.003694,
+      "capture_SHA256": {
+        "traffic/tun.pcap": "86c38ba1dca9536005fff44e92c82973228a77c471c08709b5ab71f3b361f50d",
+        "traffic/n3.pcap": "5125191ec0f5af8de92586210d5f3a1568cc72fdcfca4b0a9f19f1dc2c1ea4e9",
+        "control.pcap": "31584481dc9c70a75b4b8bca94e62f115c4742a375aada95a32cd32f95f4d9c6"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r3-udp-256",
+      "tool": "udp",
+      "size": 256,
+      "repeat": 3,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 3
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.279359424,
+        "p50": 2.2541915,
+        "p95": 3.1319306499999997,
+        "p99": 3.6586904200000006,
+        "max": 4.620217
+      },
+      "TUN_interarrival_ms": {
+        "mean": 19.999982569349704,
+        "p50": 19.999992,
+        "p95": 20.002808400000003,
+        "p99": 20.004468380000002,
+        "max": 20.019458
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "Client application MONOTONIC",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.2907419595,
+        "p50": 2.2654635,
+        "p95": 3.1470833,
+        "p99": 3.6706146399999993,
+        "max": 4.636764
+      },
+      "application_segments_ms": {
+        "UL_ms": {
+          "mean": 1.965575521,
+          "p50": 1.9469305000000001,
+          "p95": 2.75235175,
+          "p99": 3.27400598,
+          "max": 4.141992
+        },
+        "reply_ms": {
+          "mean": 0.0036597915,
+          "p50": 0.003491,
+          "p95": 0.00508315,
+          "p99": 0.00641554,
+          "max": 0.013868
+        },
+        "DL_ms": {
+          "mean": 0.321506647,
+          "p50": 0.311486,
+          "p95": 0.3976659,
+          "p99": 0.41422249,
+          "max": 0.531575
+        },
+        "RTT_ms": {
+          "mean": 2.2907419595,
+          "p50": 2.2654635,
+          "p95": 3.1470833,
+          "p99": 3.6706146399999993,
+          "max": 4.636764
+        }
+      },
+      "application_interarrival_ms": {
+        "mean": 19.999991095043203,
+        "p50": 19.999999,
+        "p95": 20.001862199999998,
+        "p99": 20.00361116,
+        "max": 20.017715
+      },
+      "send_lateness_ms": {
+        "mean": 0.05533264227272727,
+        "p50": 0.0550765,
+        "p95": 0.05772245000000001,
+        "p99": 0.05906613,
+        "max": 0.074847
+      },
+      "max_local_clock_duration_difference_ms": 0.002694,
+      "capture_SHA256": {
+        "traffic/tun.pcap": "be4cf652689e361c8ade8e7e0e222e4c4726ef63e00b8fb7f96fd173383698cd",
+        "traffic/n3.pcap": "5c575ce13a8c03a93c6cc67f21e5d6d432d20ae6a5d803010e56e18a722d8a9d",
+        "control.pcap": "11136de855ef9464ca2efa879a11ef84107a6e4d545ea59fbf9017ac5062f1b5"
+      }
+    }
+  ],
+  "parentSummary": "第一步_六条件正式对照.json",
+  "parent_sha256": "6eaa50081edabac809c44bae226100a843455b6ea818b6b2d73b8fa07c36445c",
+  "scope": "Existing same-version compact UDP256B three runs selected from E-MEAS-01; no additional experiment or old80B substitution."
+}

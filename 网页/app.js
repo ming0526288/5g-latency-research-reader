@@ -36,6 +36,7 @@
  let bookmarks=storage.get('bookmarks',[]),history=storage.get('history',[]);
  const studyDocs=[
   ['basics','⌘','通信与时延基础','算法知识点说明/00_通信与时延基础知识.md'],
+  ['measurement-methods','◈','测量方法与源码版本','算法知识点说明/测量方法与包头对比_知识点分析.md'],
   ['scheduling-basics','◇','算法知识点','算法知识点说明/调度算法入门/00_调度算法速览.md'],
   ['tdd','⇄','不同 TDD 知识点','docs/03_TDD配比与周期分析.md'],
   ['scs','≋','不同 SCS 知识点','docs/04_SCS分析与支持边界.md'],

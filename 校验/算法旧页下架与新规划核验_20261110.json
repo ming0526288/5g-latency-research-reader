@@ -10,11 +10,11 @@
   ],
   "restoredSourceAndPayloadHashes": true,
   "oldRoutesChecked": 10,
-  "publishedDocuments": 1118,
+  "publishedDocuments": 1120,
   "newPlan": {
     "id": "r9add2badaf2ad40d",
     "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
-    "sha256": "4aa829877d61c1a937ef09f56d500237b5458849602aaad20469db36688d3216",
+    "sha256": "18eed56aa1d328f6891944f114c4f929fd0550ac6297c0c901de9475a97afacc",
     "toc": 9,
     "firstPerson": true
   },
@@ -24,9 +24,9 @@
     "resultId": "ede23798813389995",
     "resultStatus": "complete",
     "mutualLinks": true,
-    "retainedFirstBaseline": true,
-    "pendingSixConditionComparison": false,
-    "completedFormalRuns": 18,
+    "baselineReusesThreeExistingCompactRuns": true,
+    "additionalRuns": 0,
+    "independentMeasurementExperiment": true,
     "remainingEmptyResults": 11
   },
   "publishedResultTopics": [
@@ -36,6 +36,7 @@
     "layers",
     "tail",
     "source-changes",
+    "measurement-tools",
     "step-1",
     "step-2",
     "step-3",
@@ -52,7 +53,7 @@
   "sidebarAndHome": true,
   "searchAndBookmarkFiltering": true,
   "bookmarkStoragePreserved": true,
-  "coreKnowledgeRetained": 14,
+  "coreKnowledgeRetained": 15,
   "papersAndProtocolsRetained": true,
   "consoleErrors": [],
   "scope": "Offline DOM publication checks; five original analyses restored without editing data; no wireless experiment or screenshot/layout certification."

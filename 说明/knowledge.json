@@ -1,10 +1,14 @@
 {
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "documents": [
     {
       "id": "kc3e4e8560cabef23",
       "topic": "basics",
       "source": "说明/算法知识点说明/00_通信与时延基础知识.md"
+    },
+    {
+      "topic": "measurement-methods",
+      "source": "说明/算法知识点说明/测量方法与包头对比_知识点分析.md"
     },
     {
       "id": "k7be2718894117a09",

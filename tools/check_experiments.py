@@ -31,7 +31,7 @@ def main():
     step_numbers = sorted(int(p['researchStep'].removeprefix('step-')) for p in plans)
     assert step_numbers == list(range(1, len(plans) + 1)), 'Plan steps must be unique and contiguous'
     assert len(manifest) == len({d['topic'] for d in manifest}), 'Duplicate result topic'
-    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'source-changes'} | {p['researchStep'] for p in plans}
+    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'source-changes', 'measurement-tools'} | {p['researchStep'] for p in plans}
     for plan in plans:
         matches = [d for d in manifest if d.get('researchStep') == plan['researchStep']]
         assert len(matches) == 1 and matches[0]['planTopic'] == plan['topic'], plan['source']
@@ -107,36 +107,51 @@ def main():
             page_checks.append({'id': d['id'], 'title': d['title'], 'kind': 'not-started-placeholder',
                                 'canonicalSourceSHA': d['sha256']})
             continue
-        if item.get('status') in ('complete', 'partial'):
-            assert item['topic'] == 'step-1' and d['status'] == item['status']
-            if item['status'] == 'partial':
-                assert '六条件正式对照尚未执行' in html
-                assert '56' in html and '256' in html and '1200' in html
-            completed = json.loads((ROOT/'说明/研究结果与分析/数据/第一步_三轮基线.json').read_text())
-            assert completed['status'] == 'PASS' and completed['statistical_transactions'] == 6000
-            assert completed['complete_transactions'] == 6600 and len(completed['cases']) == 3
-            assert html.count('<figure') >= 2 and html.count('<table') >= 4
-            assert '6600' in html and '6000' in html and '尚未执行，暂无结果与分析' not in html
+        if item.get('independentExperiment'):
+            assert d['independentExperiment'] == item['independentExperiment'] == 'E-MEAS-01'
+            assert d['status'] == 'partial' and not d.get('researchStep') and not d.get('planTopic')
+            legacy = read(ROOT/'说明/研究结果与分析/数据/第一步_三轮基线.json')
+            assert legacy['complete_transactions'] == 6600 and legacy['statistical_transactions'] == 6000
+            for case in legacy['cases']:
+                assert all(f'{v:.6f}' in html for v in case['statistics']['RTT_ms'].values())
+            formal = read(ROOT/'说明/研究结果与分析/数据/第一步_六条件正式对照.json')
+            assert formal['status'] == 'PASS' and formal['kind'] == 'formal-18'
+            assert formal['complete_transactions'] == 39600 and formal['statistical_transactions'] == 36000
+            assert len(formal['cases']) == 18 and formal['frozen_inputs_verified'] == 2308
+            assert {(c['tool'],c['size'],c['repeat']) for c in formal['cases']} == {
+                (t,z,r) for t in ['ping','udp'] for z in [56,256,1200] for r in [1,2,3]}
+            for case in formal['cases']:
+                assert f"{case['native_RTT_ms']['p99']:.3f}" in html
+                assert case['complete'] == 2200 and case['statistical'] == 2000
+            assert html.count('<figure') >= 4 and '39600' in html and '36000' in html
+            assert '尚未完成' in html and '未进入业务' in html and '中断' in html
+            assert '#/doc/' + cat['knowledgeTopics']['measurement-methods'] in html
+            page_checks.append({'id': d['id'], 'kind': 'independent-measurement-partial-original-ping',
+                                'completeFormalTransactions': 39600, 'statisticalFormalTransactions': 36000,
+                                'originalPingRTTAvailable': False, 'controlledHeaderABComplete': False,
+                                'canonicalSourceSHA': d['sha256']})
+            continue
+        if item.get('status') == 'complete':
+            assert item['topic'] == 'step-1' and d['status'] == 'complete'
+            completed = read(ROOT/'说明/研究结果与分析/数据/第一步_当前UDP256B基线.json')
+            parent = ROOT/'说明/研究结果与分析/数据'/completed['parentSummary']
+            assert completed['parent_sha256'] == sha(parent)
+            expected = [c for c in read(parent)['cases'] if c['tool']=='udp' and c['size']==256]
+            assert completed['cases'] == expected, 'Baseline must reuse exact parent cases, not relabel old80B runs'
+            assert completed['status'] == 'PASS_EXISTING_COHORT_REUSE'
+            assert completed['complete_transactions'] == 6600 and completed['statistical_transactions'] == 6000
+            assert len(completed['cases']) == 3 and html.count('<table') >= 1
             for case in completed['cases']:
-                for number in case['statistics']['RTT_ms'].values():
-                    assert f'{number:.6f}' in html
+                assert all(f'{v:.6f}' in html for v in case['native_RTT_ms'].values())
+            assert '6600' in html and '6000' in html and '不是额外重测' in html
+            assert '尚未执行，暂无结果与分析' not in html and '39600' not in html
             plan = next(x for x in docs.values() if x.get('topic') == item['planTopic'])
             assert d['researchStep'] == plan['researchStep']
             assert '#/doc/' + plan['id'] in html and '#/doc/' + d['id'] in payload(plan['id'])['html']
-            if item['status'] == 'complete':
-                formal = read(ROOT/'说明/研究结果与分析/数据/第一步_六条件正式对照.json')
-                assert formal['status'] == 'PASS' and formal['kind'] == 'formal-18'
-                assert formal['complete_transactions'] == 39600 and formal['statistical_transactions'] == 36000
-                assert len(formal['cases']) == 18 and formal['frozen_inputs_verified'] == 2308
-                assert '39600' in html and '36000' in html and html.count('<figure') >= 4
-                for case in formal['cases']:
-                    assert f"{case['native_RTT_ms']['p99']:.3f}" in html
-                    assert case['complete'] == 2200 and case['statistical'] == 2000
-                assert {(c['tool'],c['size'],c['repeat']) for c in formal['cases']} == {
-                    (t,z,r) for t in ['ping','udp'] for z in [56,256,1200] for r in [1,2,3]}
-            page_checks.append({'id': d['id'], 'kind': 'retained-baseline-with-pending-matrix' if item['status'] == 'partial' else 'complete-formal-18-with-retained-legacy', 'canonicalSourceSHA': d['sha256'],
-                                'complete': 39600 if item['status'] == 'complete' else 6600,
-                                'statistical': 36000 if item['status'] == 'complete' else 6000})
+            assert '#/doc/' + cat['experimentStages']['measurement-tools'] in html
+            page_checks.append({'id': d['id'], 'kind': 'current-UDP256-baseline-existing-cohort-reuse',
+                                'canonicalSourceSHA': d['sha256'], 'complete': 6600, 'statistical': 6000,
+                                'additionalRuns': 0})
             continue
         assert html.count('<figure') >= 2 and '错误' in html
         assert 'FORMULAHOLDER' not in html and '原文路径未包含可展示图片' not in html
