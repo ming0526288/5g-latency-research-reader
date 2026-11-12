@@ -134,6 +134,7 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
    if(['complete','partial'].includes(resultDoc.status)){
     assert.equal(resultDoc.researchStep,'step-1');
     if(resultDoc.status==='partial')assert(d.querySelector('.article').textContent.includes('六条件正式对照尚未执行'));
+    else{assert(d.querySelector('.article').textContent.includes('39600')&&d.querySelector('.article').textContent.includes('36000'));assert(d.querySelectorAll('.article figure').length>=4);}
     assert(d.querySelector('.article').textContent.includes('6600')&&d.querySelector('.article').textContent.includes('6000'));
     assert(d.querySelectorAll('.article figure').length>=2&&d.querySelectorAll('.article table').length>=4);
     assert(!d.querySelector('.article').textContent.includes('尚未执行，暂无结果与分析'));

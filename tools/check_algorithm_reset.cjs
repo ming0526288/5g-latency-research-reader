@@ -37,7 +37,7 @@ async function waitFor(fn,label){for(let i=0;i<500;i++){if(fn())return;await tic
  assert.equal(planningLinks[0].textContent.replace('↗','').trim(),'时延优化与算法对照');assert.equal(planningLinks[1].textContent.replace('↗','').trim(),'算法实验规划');
  d.querySelector('#sidebar a[href="'+planUrl+'"]').click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===plan.source,'new plan');
  assert(d.querySelector('.article').textContent.includes('我的研究重点是通信时延'));
- assert(d.querySelector('.article').textContent.includes('六条件正式对照待执行'));
+ assert(d.querySelector('.article').textContent.includes('第一步六条件正式对照已完成'));
  for(const item of plan.toc)assert(d.getElementById(item.id),'Missing plan heading '+item.title);
  const stepPlan=published.docs.find(doc=>doc.topic==='step-1-plan');
  const stepResult=published.docs.find(doc=>doc.experimentStage==='step-1');
@@ -57,17 +57,17 @@ async function waitFor(fn,label){for(let i=0;i<500;i++){if(fn())return;await tic
  const stepPlanUrl='#/doc/'+stepPlan.id,stepResultUrl='#/doc/'+stepResult.id;
  await fromHub(plan,stepPlan);
  assert(d.querySelector('.article').textContent.includes('我的第一步目标'));d.querySelector('.article a[href="'+stepResultUrl+'"]').click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===stepResult.source,'empty step result');
- assert.equal(d.querySelector('.article h1').textContent,'第一步结果与分析');assert.equal(stepResult.status,'partial');assert(d.querySelector('.article').textContent.includes('六条件正式对照尚未执行'));assert(d.querySelector('.article').textContent.includes('6000'));assert(d.querySelectorAll('.article table').length>=4);assert(d.querySelectorAll('.article figure').length>=2);
+ assert.equal(d.querySelector('.article h1').textContent,'第一步结果与分析');assert.equal(stepResult.status,'complete');assert(d.querySelector('.article').textContent.includes('39600')&&d.querySelector('.article').textContent.includes('36000'));assert(d.querySelector('.article').textContent.includes('6000'));assert(d.querySelectorAll('.article table').length>=4);assert(d.querySelectorAll('.article figure').length>=2);
  d.querySelector('.article a[href="'+stepPlanUrl+'"]').click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===stepPlan.source,'paired return');
  for(const [i,p] of allStepPlans.entries()){
-  const result=allStepResults[i],purl='#/doc/'+p.id,rurl='#/doc/'+result.id;assert.equal(result.status,i===0?'partial':'not-started');assert.equal(result.title,p.title.replace('规划','结果与分析'));
+  const result=allStepResults[i],purl='#/doc/'+p.id,rurl='#/doc/'+result.id;assert.equal(result.status,i===0?'complete':'not-started');assert.equal(result.title,p.title.replace('规划','结果与分析'));
   await fromHub(plan,p);
   assert(d.querySelector('.article').textContent.includes('我'));assert(d.querySelector('.article a[href="'+rurl+'"]'));
   d.querySelector('.article a[href="'+rurl+'"]').click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===result.source,'result '+p.researchStep);
   if(i===0){assert(d.querySelector('.article').textContent.includes('6600'));assert(d.querySelectorAll('.article table').length>=4);}else{assert(d.querySelector('.article').textContent.includes('尚未执行，暂无结果与分析'));assert.equal(d.querySelectorAll('.article table,.article figure,.article pre,.article .katex').length,0);}
   d.querySelector('.article a[href="'+purl+'"]').click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===p.source,'back to '+p.researchStep);
   const command=allStepCommands[i],curl='#/doc/'+command.id;assert(d.querySelector('.article a[href="'+curl+'"]'));
-  await fromHub(launchIndex,command);assert.equal(command.commandStatus,i===0?'partial':'pending-validation');assert(d.querySelector('.article').textContent.includes(i===0?'已实际运行并核验':'实际启动命令待核验'));assert(d.querySelector('.article a[href="'+purl+'"]'));assert(d.querySelector('.article a[href="'+rurl+'"]'));assert(d.querySelector('.breadcrumbs').textContent.includes('启动命令'));
+  await fromHub(launchIndex,command);assert.equal(command.commandStatus,i===0?'validated':'pending-validation');assert(d.querySelector('.article').textContent.includes(i===0?'已实际运行并核验':'实际启动命令待核验'));assert(d.querySelector('.article a[href="'+purl+'"]'));assert(d.querySelector('.article a[href="'+rurl+'"]'));assert(d.querySelector('.breadcrumbs').textContent.includes('启动命令'));
   await fromHub(resultsIndex,result);assert(d.querySelector('.article a[href="'+curl+'"]'));assert(d.querySelector('#sidebar a.active[href="#/doc/'+resultsIndex.id+'"]'));
  }
  // Restored analyses must be real articles, reachable in navigation and search.
@@ -90,6 +90,6 @@ async function waitFor(fn,label){for(let i=0;i<500;i++){if(fn())return;await tic
  assert.equal(d.querySelectorAll('.record-row').length,2);assert(d.querySelector('.record-row[href="#/doc/'+restored[0].id+'"]'));assert.deepEqual(JSON.parse(values.get('latency-reader:bookmarks')),retainedBookmarks);
  for(const id of Object.values(published.knowledgeTopics)){w.location.hash='#/doc/'+id;await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===published.docs.find(x=>x.id===id).source,'retained knowledge '+id);for(const a of d.querySelectorAll('.article a[href^="#/doc/"]'))assert(!archived.has(a.getAttribute('href').slice(6).split('?')[0]));}
  assert.deepEqual(errors,[]);
- const report={status:'PASS',archivedDocuments:archived.size,restoredAnalyses:restored.map(doc=>doc.id),restoredSourceAndPayloadHashes:true,oldRoutesChecked:oldRoutes.length,publishedDocuments:published.docs.length,newPlan:{id:plan.id,source:plan.source,sha256:plan.sha256,toc:plan.toc.length,firstPerson:true},stepPair:{step:stepPlan.researchStep,planId:stepPlan.id,resultId:stepResult.id,resultStatus:stepResult.status,mutualLinks:true,retainedFirstBaseline:true,pendingSixConditionComparison:true,remainingEmptyResults:allStepResults.length-1},publishedResultTopics:Object.keys(published.experimentStages),sidebarAndHome:true,searchAndBookmarkFiltering:true,bookmarkStoragePreserved:true,coreKnowledgeRetained:Object.keys(published.knowledgeTopics).length,papersAndProtocolsRetained:true,consoleErrors:errors,scope:'Offline DOM publication checks; five original analyses restored without editing data; no wireless experiment or screenshot/layout certification.'};
+ const report={status:'PASS',archivedDocuments:archived.size,restoredAnalyses:restored.map(doc=>doc.id),restoredSourceAndPayloadHashes:true,oldRoutesChecked:oldRoutes.length,publishedDocuments:published.docs.length,newPlan:{id:plan.id,source:plan.source,sha256:plan.sha256,toc:plan.toc.length,firstPerson:true},stepPair:{step:stepPlan.researchStep,planId:stepPlan.id,resultId:stepResult.id,resultStatus:stepResult.status,mutualLinks:true,retainedFirstBaseline:true,pendingSixConditionComparison:false,completedFormalRuns:18,remainingEmptyResults:allStepResults.length-1},publishedResultTopics:Object.keys(published.experimentStages),sidebarAndHome:true,searchAndBookmarkFiltering:true,bookmarkStoragePreserved:true,coreKnowledgeRetained:Object.keys(published.knowledgeTopics).length,papersAndProtocolsRetained:true,consoleErrors:errors,scope:'Offline DOM publication checks; five original analyses restored without editing data; no wireless experiment or screenshot/layout certification.'};
  fs.writeFileSync(path.join(root,'校验/算法旧页下架与新规划核验_20261110.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));dom.window.close();
 })().catch(error=>{console.error(error.stack);process.exitCode=1;});

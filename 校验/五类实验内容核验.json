@@ -49,10 +49,10 @@
     },
     {
       "id": "ede23798813389995",
-      "kind": "retained-baseline-with-pending-matrix",
-      "canonicalSourceSHA": "d6eb06167fd341c7f61834e3749c4465c9ba426312a4892a8a00f8da2a15308c",
-      "complete": 6600,
-      "statistical": 6000
+      "kind": "complete-formal-18-with-retained-legacy",
+      "canonicalSourceSHA": "6d1fe9a097ee2bb113de25daf1fdcfd34aba1f828b16275fefa4f40845f0d866",
+      "complete": 39600,
+      "statistical": 36000
     },
     {
       "id": "e6e9701a5fd751eec",

@@ -123,8 +123,20 @@ def main():
             plan = next(x for x in docs.values() if x.get('topic') == item['planTopic'])
             assert d['researchStep'] == plan['researchStep']
             assert '#/doc/' + plan['id'] in html and '#/doc/' + d['id'] in payload(plan['id'])['html']
-            page_checks.append({'id': d['id'], 'kind': 'retained-baseline-with-pending-matrix' if item['status'] == 'partial' else 'complete-new-baseline', 'canonicalSourceSHA': d['sha256'],
-                                'complete': 6600, 'statistical': 6000})
+            if item['status'] == 'complete':
+                formal = read(ROOT/'说明/研究结果与分析/数据/第一步_六条件正式对照.json')
+                assert formal['status'] == 'PASS' and formal['kind'] == 'formal-18'
+                assert formal['complete_transactions'] == 39600 and formal['statistical_transactions'] == 36000
+                assert len(formal['cases']) == 18 and formal['frozen_inputs_verified'] == 2308
+                assert '39600' in html and '36000' in html and html.count('<figure') >= 4
+                for case in formal['cases']:
+                    assert f"{case['native_RTT_ms']['p99']:.3f}" in html
+                    assert case['complete'] == 2200 and case['statistical'] == 2000
+                assert {(c['tool'],c['size'],c['repeat']) for c in formal['cases']} == {
+                    (t,z,r) for t in ['ping','udp'] for z in [56,256,1200] for r in [1,2,3]}
+            page_checks.append({'id': d['id'], 'kind': 'retained-baseline-with-pending-matrix' if item['status'] == 'partial' else 'complete-formal-18-with-retained-legacy', 'canonicalSourceSHA': d['sha256'],
+                                'complete': 39600 if item['status'] == 'complete' else 6600,
+                                'statistical': 36000 if item['status'] == 'complete' else 6000})
             continue
         assert html.count('<figure') >= 2 and '错误' in html
         assert 'FORMULAHOLDER' not in html and '原文路径未包含可展示图片' not in html

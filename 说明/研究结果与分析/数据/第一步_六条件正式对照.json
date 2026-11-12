@@ -1,0 +1,1407 @@
+{
+  "status": "PASS",
+  "kind": "formal-18",
+  "complete_transactions": 39600,
+  "statistical_transactions": 36000,
+  "per_run_complete": 2200,
+  "per_run_statistical": 2000,
+  "repeats": 3,
+  "cases": [
+    {
+      "status": "PASS",
+      "case": "main-r1-ping-56",
+      "tool": "ping",
+      "size": 56,
+      "repeat": 1,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 4
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 1.69927085,
+        "p50": 1.6415600000000001,
+        "p95": 2.26811705,
+        "p99": 2.4379107099999997,
+        "max": 3.986378
+      },
+      "TUN_interarrival_ms": {
+        "mean": 20.625281752614825,
+        "p50": 20.647313,
+        "p95": 20.938178000000004,
+        "p99": 21.01895354,
+        "max": 28.308526
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "ICMP tool output",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 1.701862,
+        "p50": 1.64,
+        "p95": 2.27,
+        "p99": 2.44,
+        "max": 3.99
+      },
+      "native_precision": "Rounded per-reply iputils output; capture interval kept separately",
+      "capture_SHA256": {
+        "traffic/tun.pcap": "51867f8b141be05662e0fd85ad7f7eac1a9c2283b9e0ffcecc50d1b4c0106c84",
+        "traffic/n3.pcap": "b001e0aca7bf3b50007bae925833347bdc0b7192ff99ce91da69777e062eb114",
+        "control.pcap": "9ed6270cd166f77774fd2081e29e33662a2e8ad9d2a86b29a41e898548a727c0"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r1-udp-56",
+      "tool": "udp",
+      "size": 56,
+      "repeat": 1,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 4
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 1.859639316,
+        "p50": 1.8637834999999998,
+        "p95": 2.5177471,
+        "p99": 2.8840406,
+        "max": 3.352134
+      },
+      "TUN_interarrival_ms": {
+        "mean": 19.99998269622556,
+        "p50": 19.999965,
+        "p95": 20.002194399999997,
+        "p99": 20.00347424,
+        "max": 20.059744
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "Client application MONOTONIC",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 1.8706410845,
+        "p50": 1.8745924999999999,
+        "p95": 2.52947005,
+        "p99": 2.8966397399999995,
+        "max": 3.364233
+      },
+      "application_segments_ms": {
+        "UL_ms": {
+          "mean": 1.576472423,
+          "p50": 1.5805475,
+          "p95": 2.2320145,
+          "p99": 2.5342519,
+          "max": 2.988958
+        },
+        "reply_ms": {
+          "mean": 0.003152315,
+          "p50": 0.003041,
+          "p95": 0.004554,
+          "p99": 0.005630189999999999,
+          "max": 0.012811
+        },
+        "DL_ms": {
+          "mean": 0.2910163465,
+          "p50": 0.28836700000000004,
+          "p95": 0.3091351,
+          "p99": 0.3723736,
+          "max": 0.483122
+        },
+        "RTT_ms": {
+          "mean": 1.8706410845,
+          "p50": 1.8745924999999999,
+          "p95": 2.52947005,
+          "p99": 2.8966397399999995,
+          "max": 3.364233
+        }
+      },
+      "application_interarrival_ms": {
+        "mean": 19.999990484765803,
+        "p50": 20.000014,
+        "p95": 20.001582900000002,
+        "p99": 20.00243674,
+        "max": 20.056562
+      },
+      "send_lateness_ms": {
+        "mean": 0.05518419590909091,
+        "p50": 0.0550275,
+        "p95": 0.05652625000000001,
+        "p99": 0.05766825,
+        "max": 0.110927
+      },
+      "max_local_clock_duration_difference_ms": 0.00356,
+      "capture_SHA256": {
+        "traffic/tun.pcap": "84d7905e1df75a2d6af5e9550cae4b23b7e8b6a2f06f88e7c55a13677ffe9e16",
+        "traffic/n3.pcap": "1baf9e7f85f351339a5c4b5a800c53f7422a8f57c2d2564da041c1e9a37a5f68",
+        "control.pcap": "c4faaeca63445f094845dfe7d4b3c6bef004493f2d3ffe33bb34aade756cb9c2"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r1-ping-256",
+      "tool": "ping",
+      "size": 256,
+      "repeat": 1,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 4
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.3596118145,
+        "p50": 2.3769435,
+        "p95": 2.72830275,
+        "p99": 3.4918615,
+        "max": 4.640335
+      },
+      "TUN_interarrival_ms": {
+        "mean": 20.504360749886313,
+        "p50": 20.484004,
+        "p95": 20.938250399999998,
+        "p99": 21.027812679999997,
+        "max": 21.050436
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "ICMP tool output",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.36239,
+        "p50": 2.38,
+        "p95": 2.73,
+        "p99": 3.5,
+        "max": 4.64
+      },
+      "native_precision": "Rounded per-reply iputils output; capture interval kept separately",
+      "capture_SHA256": {
+        "traffic/tun.pcap": "a9305ba70ee67a09ccc94c3a0f08f57af6c5b802eaf8a767c7adc9fe2c1a5698",
+        "traffic/n3.pcap": "de3830f27302257291839b43f9de159dfd7b2b53ed13013dd7d6b46a62e21d92",
+        "control.pcap": "fe0cd6dbc46bd0f72d5568ec7f79e0a120d4d6d7df7f0b16340c2c2e21bd02f2"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r1-udp-256",
+      "tool": "udp",
+      "size": 256,
+      "repeat": 1,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 4
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.2695552045,
+        "p50": 2.259683,
+        "p95": 2.97051405,
+        "p99": 3.5254263299999997,
+        "max": 4.547459
+      },
+      "TUN_interarrival_ms": {
+        "mean": 19.999984436107322,
+        "p50": 20.000016,
+        "p95": 20.0027066,
+        "p99": 20.00385348,
+        "max": 20.054938
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "Client application MONOTONIC",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.281552862,
+        "p50": 2.271306,
+        "p95": 2.98260435,
+        "p99": 3.54049646,
+        "max": 4.565029
+      },
+      "application_segments_ms": {
+        "UL_ms": {
+          "mean": 1.9772173045,
+          "p50": 1.9709850000000002,
+          "p95": 2.6644840500000004,
+          "p99": 3.14927491,
+          "max": 4.043491
+        },
+        "reply_ms": {
+          "mean": 0.0036942715,
+          "p50": 0.0035564999999999998,
+          "p95": 0.005094099999999999,
+          "p99": 0.006112580000000001,
+          "max": 0.009268
+        },
+        "DL_ms": {
+          "mean": 0.300641286,
+          "p50": 0.321125,
+          "p95": 0.35642429999999997,
+          "p99": 0.42353233,
+          "max": 0.560376
+        },
+        "RTT_ms": {
+          "mean": 2.281552862,
+          "p50": 2.271306,
+          "p95": 2.98260435,
+          "p99": 3.54049646,
+          "max": 4.565029
+        }
+      },
+      "application_interarrival_ms": {
+        "mean": 19.99999265075034,
+        "p50": 20.000005,
+        "p95": 20.0015161,
+        "p99": 20.0025053,
+        "max": 20.054134
+      },
+      "send_lateness_ms": {
+        "mean": 0.05511498818181818,
+        "p50": 0.0549815,
+        "p95": 0.0564541,
+        "p99": 0.05739608,
+        "max": 0.108269
+      },
+      "max_local_clock_duration_difference_ms": 0.00256,
+      "capture_SHA256": {
+        "traffic/tun.pcap": "00a1c741a0ea4f1b32e71d61f081118699ff0b8fc49a26875c321b68f96b1778",
+        "traffic/n3.pcap": "cf07c6aebf48d0fad8bc60b48aafe01c5edf18092270798668045c976efd638b",
+        "control.pcap": "8a6eb37d8f26d1aabe6d18b60b72f0ad90d5d163fb5ba7e6ed065c7c535ca230"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r1-ping-1200",
+      "tool": "ping",
+      "size": 1200,
+      "repeat": 1,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 4
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.7785564535,
+        "p50": 2.8217685,
+        "p95": 3.2234782,
+        "p99": 3.69801178,
+        "max": 5.378983
+      },
+      "TUN_interarrival_ms": {
+        "mean": 20.57097426148249,
+        "p50": 20.635884,
+        "p95": 21.004091900000002,
+        "p99": 21.04186882,
+        "max": 21.051432
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "ICMP tool output",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.781115,
+        "p50": 2.82,
+        "p95": 3.23,
+        "p99": 3.7001,
+        "max": 5.38
+      },
+      "native_precision": "Rounded per-reply iputils output; capture interval kept separately",
+      "capture_SHA256": {
+        "traffic/tun.pcap": "3088d60d62c5f84dde912613cfa54e988bbc83bbcef5317cb77802f31ac6512b",
+        "traffic/n3.pcap": "81086aaf6a74631924c1c760e14b62f0970a88c752dc7bede3c561f99a892e4b",
+        "control.pcap": "3aaf013f55cea035d701fde0b022b378af663ce6ac308d64106bf25c9f176b77"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r1-udp-1200",
+      "tool": "udp",
+      "size": 1200,
+      "repeat": 1,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 4
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.7332348115,
+        "p50": 2.7327385,
+        "p95": 3.411338,
+        "p99": 3.57152036,
+        "max": 4.437957
+      },
+      "TUN_interarrival_ms": {
+        "mean": 19.999982988631196,
+        "p50": 20.000002,
+        "p95": 20.0022903,
+        "p99": 20.00368986,
+        "max": 20.056
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "Client application MONOTONIC",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.7447955095,
+        "p50": 2.743769,
+        "p95": 3.4229032999999998,
+        "p99": 3.5849288599999998,
+        "max": 4.453141
+      },
+      "application_segments_ms": {
+        "UL_ms": {
+          "mean": 2.295028153,
+          "p50": 2.2953885,
+          "p95": 2.9692641,
+          "p99": 3.0882563200000006,
+          "max": 3.90019
+        },
+        "reply_ms": {
+          "mean": 0.005883632,
+          "p50": 0.0057175,
+          "p95": 0.0073846,
+          "p99": 0.00854311,
+          "max": 0.016855
+        },
+        "DL_ms": {
+          "mean": 0.4438837245,
+          "p50": 0.441252,
+          "p95": 0.45864115,
+          "p99": 0.54750231,
+          "max": 0.774153
+        },
+        "RTT_ms": {
+          "mean": 2.7447955095,
+          "p50": 2.743769,
+          "p95": 3.4229032999999998,
+          "p99": 3.5849288599999998,
+          "max": 4.453141
+        }
+      },
+      "application_interarrival_ms": {
+        "mean": 19.999991689404276,
+        "p50": 19.999998,
+        "p95": 20.0015309,
+        "p99": 20.002701059999996,
+        "max": 20.052657
+      },
+      "send_lateness_ms": {
+        "mean": 0.05498271181818182,
+        "p50": 0.0548795,
+        "p95": 0.05628635,
+        "p99": 0.05741403,
+        "max": 0.107118
+      },
+      "max_local_clock_duration_difference_ms": 0.003419,
+      "capture_SHA256": {
+        "traffic/tun.pcap": "7f6eb0c6c9573612f2fa771043aa2f30aa7766dbdeed9a8ead039605edbda2c1",
+        "traffic/n3.pcap": "b9a751e0b60acd40b0551c8786110b3e216b5dfc9b3b53bfe3228775322596b5",
+        "control.pcap": "652997445a1705bf20cb4404edc9c7e4d74c760f78353b1d88482994e9d0f92b"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r2-udp-1200",
+      "tool": "udp",
+      "size": 1200,
+      "repeat": 2,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 3
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.6801012545,
+        "p50": 2.6658215,
+        "p95": 3.3419494,
+        "p99": 4.138633800000001,
+        "max": 5.270579
+      },
+      "TUN_interarrival_ms": {
+        "mean": 19.99998197953615,
+        "p50": 20.000002,
+        "p95": 20.002447099999998,
+        "p99": 20.00362188,
+        "max": 20.057298
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "Client application MONOTONIC",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.6921230725,
+        "p50": 2.6774560000000003,
+        "p95": 3.3547864999999994,
+        "p99": 4.15359062,
+        "max": 5.286725
+      },
+      "application_segments_ms": {
+        "UL_ms": {
+          "mean": 2.237289576,
+          "p50": 2.229075,
+          "p95": 2.89835865,
+          "p99": 3.58872431,
+          "max": 4.519705
+        },
+        "reply_ms": {
+          "mean": 0.005956074,
+          "p50": 0.0057835000000000004,
+          "p95": 0.007494299999999999,
+          "p99": 0.008587059999999999,
+          "max": 0.012942
+        },
+        "DL_ms": {
+          "mean": 0.4488774225,
+          "p50": 0.44197,
+          "p95": 0.5376796500000001,
+          "p99": 0.55571964,
+          "max": 0.771905
+        },
+        "RTT_ms": {
+          "mean": 2.6921230725,
+          "p50": 2.6774560000000003,
+          "p95": 3.3547864999999994,
+          "p99": 4.15359062,
+          "max": 5.286725
+        }
+      },
+      "application_interarrival_ms": {
+        "mean": 19.99999403319691,
+        "p50": 19.999992,
+        "p95": 20.001601,
+        "p99": 20.00289922,
+        "max": 20.055383
+      },
+      "send_lateness_ms": {
+        "mean": 0.05527141590909091,
+        "p50": 0.055127,
+        "p95": 0.056783549999999995,
+        "p99": 0.058013510000000004,
+        "max": 0.109728
+      },
+      "max_local_clock_duration_difference_ms": 0.005105,
+      "capture_SHA256": {
+        "traffic/tun.pcap": "89cec317601a05359a12cecc380023eb7b933247c13f3ebc4287ae4d8eeef897",
+        "traffic/n3.pcap": "633a704fa55f11521fabee0de0a734769e1915612c0484ab7ad4c2e32d5a7f4a",
+        "control.pcap": "de2a4536c6dd1ca25730477b55320e8aa434d4adf44adcaf1f2db384dae6d241"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r2-ping-1200",
+      "tool": "ping",
+      "size": 1200,
+      "repeat": 2,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 3
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.710323075,
+        "p50": 2.7939,
+        "p95": 3.1839711000000004,
+        "p99": 3.7322061599999996,
+        "max": 4.882949
+      },
+      "TUN_interarrival_ms": {
+        "mean": 20.737709939517963,
+        "p50": 20.850671,
+        "p95": 21.0151471,
+        "p99": 21.0437847,
+        "max": 21.05183
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "ICMP tool output",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.71325,
+        "p50": 2.8,
+        "p95": 3.19,
+        "p99": 3.7400000000000007,
+        "max": 4.89
+      },
+      "native_precision": "Rounded per-reply iputils output; capture interval kept separately",
+      "capture_SHA256": {
+        "traffic/tun.pcap": "8f7f638e8e0081394da8a2087f781bd127d794dc42bc8f964f123aa6fe13aaf2",
+        "traffic/n3.pcap": "a1e900cc6ffde6213b55d86df0c0da3dd56ec982490c84d8336f4c65f234f23c",
+        "control.pcap": "3ec105120bfac929b3e5fe6e3e7cd1af81687bcfc2a2be1f189dfe36ce807812"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r2-udp-256",
+      "tool": "udp",
+      "size": 256,
+      "repeat": 2,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 4
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.279438546,
+        "p50": 2.2646034999999998,
+        "p95": 2.953867,
+        "p99": 3.5801342099999998,
+        "max": 4.644124
+      },
+      "TUN_interarrival_ms": {
+        "mean": 19.999983864029105,
+        "p50": 19.999941,
+        "p95": 20.0028786,
+        "p99": 20.00460404,
+        "max": 20.053318
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "Client application MONOTONIC",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.2901655635,
+        "p50": 2.2748205,
+        "p95": 2.96632855,
+        "p99": 3.5929564999999997,
+        "max": 4.660129
+      },
+      "application_segments_ms": {
+        "UL_ms": {
+          "mean": 1.974429099,
+          "p50": 1.9646245,
+          "p95": 2.6498720500000004,
+          "p99": 3.18679479,
+          "max": 4.226009
+        },
+        "reply_ms": {
+          "mean": 0.0036966765,
+          "p50": 0.0035495,
+          "p95": 0.005113250000000001,
+          "p99": 0.00609521,
+          "max": 0.012112
+        },
+        "DL_ms": {
+          "mean": 0.312039788,
+          "p50": 0.3091125,
+          "p95": 0.3264208,
+          "p99": 0.40822597,
+          "max": 0.555474
+        },
+        "RTT_ms": {
+          "mean": 2.2901655635,
+          "p50": 2.2748205,
+          "p95": 2.96632855,
+          "p99": 3.5929564999999997,
+          "max": 4.660129
+        }
+      },
+      "application_interarrival_ms": {
+        "mean": 19.99999188449295,
+        "p50": 19.999983,
+        "p95": 20.0017186,
+        "p99": 20.002746759999997,
+        "max": 20.051364
+      },
+      "send_lateness_ms": {
+        "mean": 0.055233995,
+        "p50": 0.055109,
+        "p95": 0.0566134,
+        "p99": 0.05763517,
+        "max": 0.1056
+      },
+      "max_local_clock_duration_difference_ms": 0.003694,
+      "capture_SHA256": {
+        "traffic/tun.pcap": "86c38ba1dca9536005fff44e92c82973228a77c471c08709b5ab71f3b361f50d",
+        "traffic/n3.pcap": "5125191ec0f5af8de92586210d5f3a1568cc72fdcfca4b0a9f19f1dc2c1ea4e9",
+        "control.pcap": "31584481dc9c70a75b4b8bca94e62f115c4742a375aada95a32cd32f95f4d9c6"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r2-ping-256",
+      "tool": "ping",
+      "size": 256,
+      "repeat": 2,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 3
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.277620031,
+        "p50": 2.1310260000000003,
+        "p95": 2.9845124000000003,
+        "p99": 3.6990254599999997,
+        "max": 4.197338
+      },
+      "TUN_interarrival_ms": {
+        "mean": 20.7326564420191,
+        "p50": 20.818759,
+        "p95": 21.0006356,
+        "p99": 21.03625486,
+        "max": 21.050981
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "ICMP tool output",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.280265,
+        "p50": 2.13,
+        "p95": 2.99,
+        "p99": 3.7003000000000004,
+        "max": 4.2
+      },
+      "native_precision": "Rounded per-reply iputils output; capture interval kept separately",
+      "capture_SHA256": {
+        "traffic/tun.pcap": "d26c9dded0f325e12311c570787f697802e06fc1aa12541af0a80ed71acaddce",
+        "traffic/n3.pcap": "a5a5196914f9a9868d1e9d1d8cdc9038296db35765668926c48e80a7ea477bfc",
+        "control.pcap": "93e9af538fa61d54e62b162e1e369696c72354d4dda329a34c54631ce1e9667c"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r2-udp-56",
+      "tool": "udp",
+      "size": 56,
+      "repeat": 2,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 3
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 1.922465657,
+        "p50": 1.9065664999999998,
+        "p95": 2.68315925,
+        "p99": 3.17160985,
+        "max": 3.807163
+      },
+      "TUN_interarrival_ms": {
+        "mean": 19.999991362892224,
+        "p50": 20.000004,
+        "p95": 20.0021879,
+        "p99": 20.00331718,
+        "max": 20.085807
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "Client application MONOTONIC",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 1.9347391,
+        "p50": 1.9180095,
+        "p95": 2.6950147,
+        "p99": 3.1861194999999998,
+        "max": 3.823536
+      },
+      "application_segments_ms": {
+        "UL_ms": {
+          "mean": 1.649835336,
+          "p50": 1.6351485000000001,
+          "p95": 2.36272515,
+          "p99": 2.83392725,
+          "max": 3.470948
+        },
+        "reply_ms": {
+          "mean": 0.0031108215,
+          "p50": 0.0029755,
+          "p95": 0.0044766499999999996,
+          "p99": 0.00591105,
+          "max": 0.016842
+        },
+        "DL_ms": {
+          "mean": 0.2817929425,
+          "p50": 0.271899,
+          "p95": 0.34414110000000003,
+          "p99": 0.36080594,
+          "max": 0.496799
+        },
+        "RTT_ms": {
+          "mean": 1.9347391,
+          "p50": 1.9180095,
+          "p95": 2.6950147,
+          "p99": 3.1861194999999998,
+          "max": 3.823536
+        }
+      },
+      "application_interarrival_ms": {
+        "mean": 19.999998957253297,
+        "p50": 20.0,
+        "p95": 20.0012932,
+        "p99": 20.00211936,
+        "max": 20.082491
+      },
+      "send_lateness_ms": {
+        "mean": 0.021800260454545455,
+        "p50": 0.021636,
+        "p95": 0.023111149999999997,
+        "p99": 0.02413948,
+        "max": 0.108748
+      },
+      "max_local_clock_duration_difference_ms": 0.003322,
+      "capture_SHA256": {
+        "traffic/tun.pcap": "1885e9f53a4a4557a431a28506c8173354439702171fed3b8f027a0dc9921fa2",
+        "traffic/n3.pcap": "5fab68090a179d7227f74d3435c58dc148564fba3daa1a546af9821d271d3332",
+        "control.pcap": "82f480df8f66891249054ad077b70cfc91ff0da7b10b2a98db4c853c5b42728f"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r2-ping-56",
+      "tool": "ping",
+      "size": 56,
+      "repeat": 2,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 4
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 1.8099921945,
+        "p50": 1.6811025,
+        "p95": 2.5441487,
+        "p99": 2.89651458,
+        "max": 4.130476
+      },
+      "TUN_interarrival_ms": {
+        "mean": 20.593221995452478,
+        "p50": 20.626921,
+        "p95": 20.938691200000004,
+        "p99": 21.03176612,
+        "max": 28.825731
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "ICMP tool output",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 1.8128015,
+        "p50": 1.68,
+        "p95": 2.5505,
+        "p99": 2.9001,
+        "max": 4.13
+      },
+      "native_precision": "Rounded per-reply iputils output; capture interval kept separately",
+      "capture_SHA256": {
+        "traffic/tun.pcap": "e92408fe6e77af1a2a280fe2e43b490b8943145b1fc0f4266aae68cfa3ae24a8",
+        "traffic/n3.pcap": "2a920bf168795f05790edb7387e89b50bc9c9a661bd1c87d9e9c9165f73a1593",
+        "control.pcap": "df00d67a4475f73348d9711a05fdd0828be4187a296305e890d6aeffcd09d2e7"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r3-ping-256",
+      "tool": "ping",
+      "size": 256,
+      "repeat": 3,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 3
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.414582856,
+        "p50": 2.5306045,
+        "p95": 2.9562884,
+        "p99": 3.6092431599999997,
+        "max": 4.052181
+      },
+      "TUN_interarrival_ms": {
+        "mean": 20.64450991723511,
+        "p50": 20.647758,
+        "p95": 20.9704204,
+        "p99": 21.032829220000004,
+        "max": 21.05105
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "ICMP tool output",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.417525,
+        "p50": 2.53,
+        "p95": 2.96,
+        "p99": 3.61,
+        "max": 4.06
+      },
+      "native_precision": "Rounded per-reply iputils output; capture interval kept separately",
+      "capture_SHA256": {
+        "traffic/tun.pcap": "c930996e13e6f4fb8df2a5d2ddaebd5509cc7e27a1a4132c03eb44f52c705fef",
+        "traffic/n3.pcap": "59fdded0f78aba651ccd443932f6cd8af5014a2b3e5a412b25ebe6625a54aad0",
+        "control.pcap": "6799d8ed7a34bcb731b8d97da4f8a48204c6f695f638f30af53393dd11f46f46"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r3-udp-256",
+      "tool": "udp",
+      "size": 256,
+      "repeat": 3,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 3
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.279359424,
+        "p50": 2.2541915,
+        "p95": 3.1319306499999997,
+        "p99": 3.6586904200000006,
+        "max": 4.620217
+      },
+      "TUN_interarrival_ms": {
+        "mean": 19.999982569349704,
+        "p50": 19.999992,
+        "p95": 20.002808400000003,
+        "p99": 20.004468380000002,
+        "max": 20.019458
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "Client application MONOTONIC",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.2907419595,
+        "p50": 2.2654635,
+        "p95": 3.1470833,
+        "p99": 3.6706146399999993,
+        "max": 4.636764
+      },
+      "application_segments_ms": {
+        "UL_ms": {
+          "mean": 1.965575521,
+          "p50": 1.9469305000000001,
+          "p95": 2.75235175,
+          "p99": 3.27400598,
+          "max": 4.141992
+        },
+        "reply_ms": {
+          "mean": 0.0036597915,
+          "p50": 0.003491,
+          "p95": 0.00508315,
+          "p99": 0.00641554,
+          "max": 0.013868
+        },
+        "DL_ms": {
+          "mean": 0.321506647,
+          "p50": 0.311486,
+          "p95": 0.3976659,
+          "p99": 0.41422249,
+          "max": 0.531575
+        },
+        "RTT_ms": {
+          "mean": 2.2907419595,
+          "p50": 2.2654635,
+          "p95": 3.1470833,
+          "p99": 3.6706146399999993,
+          "max": 4.636764
+        }
+      },
+      "application_interarrival_ms": {
+        "mean": 19.999991095043203,
+        "p50": 19.999999,
+        "p95": 20.001862199999998,
+        "p99": 20.00361116,
+        "max": 20.017715
+      },
+      "send_lateness_ms": {
+        "mean": 0.05533264227272727,
+        "p50": 0.0550765,
+        "p95": 0.05772245000000001,
+        "p99": 0.05906613,
+        "max": 0.074847
+      },
+      "max_local_clock_duration_difference_ms": 0.002694,
+      "capture_SHA256": {
+        "traffic/tun.pcap": "be4cf652689e361c8ade8e7e0e222e4c4726ef63e00b8fb7f96fd173383698cd",
+        "traffic/n3.pcap": "5c575ce13a8c03a93c6cc67f21e5d6d432d20ae6a5d803010e56e18a722d8a9d",
+        "control.pcap": "11136de855ef9464ca2efa879a11ef84107a6e4d545ea59fbf9017ac5062f1b5"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r3-ping-1200",
+      "tool": "ping",
+      "size": 1200,
+      "repeat": 3,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 4
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.636833754,
+        "p50": 2.677129,
+        "p95": 3.2890233,
+        "p99": 3.8933706,
+        "max": 4.50809
+      },
+      "TUN_interarrival_ms": {
+        "mean": 20.55895357253297,
+        "p50": 20.582278,
+        "p95": 20.951844700000002,
+        "p99": 21.021369319999998,
+        "max": 21.051843
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "ICMP tool output",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.63966,
+        "p50": 2.68,
+        "p95": 3.29,
+        "p99": 3.8999999999999995,
+        "max": 4.51
+      },
+      "native_precision": "Rounded per-reply iputils output; capture interval kept separately",
+      "capture_SHA256": {
+        "traffic/tun.pcap": "06e92ac493222e846e6f8b0dfe746f0264b1bd0fd398fd6070c95b99c1d36c09",
+        "traffic/n3.pcap": "017fce6a574baea8b68c330a766fd266c1ad09bddaf803125564b19e87cca3f2",
+        "control.pcap": "d248cfa4c5e2ee327d4cfc43ecb8af70c355577a292f8c1b74b190eb10fe9ef1"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r3-udp-1200",
+      "tool": "udp",
+      "size": 1200,
+      "repeat": 3,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 3
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 2.684350445,
+        "p50": 2.666903,
+        "p95": 3.3837722,
+        "p99": 4.198350759999999,
+        "max": 4.581091
+      },
+      "TUN_interarrival_ms": {
+        "mean": 19.9999840836744,
+        "p50": 19.999978,
+        "p95": 20.0024593,
+        "p99": 20.003874720000002,
+        "max": 20.052586
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "Client application MONOTONIC",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 2.697560426,
+        "p50": 2.680421,
+        "p95": 3.4015748,
+        "p99": 4.2139666899999995,
+        "max": 4.601694
+      },
+      "application_segments_ms": {
+        "UL_ms": {
+          "mean": 2.2428183245,
+          "p50": 2.2300495,
+          "p95": 2.9145605,
+          "p99": 3.66143031,
+          "max": 3.979077
+        },
+        "reply_ms": {
+          "mean": 0.005883348,
+          "p50": 0.005708,
+          "p95": 0.007481799999999999,
+          "p99": 0.0085326,
+          "max": 0.015045
+        },
+        "DL_ms": {
+          "mean": 0.4488587535,
+          "p50": 0.438117,
+          "p95": 0.5410283499999999,
+          "p99": 0.55868254,
+          "max": 0.741176
+        },
+        "RTT_ms": {
+          "mean": 2.697560426,
+          "p50": 2.680421,
+          "p95": 3.4015748,
+          "p99": 4.2139666899999995,
+          "max": 4.601694
+        }
+      },
+      "application_interarrival_ms": {
+        "mean": 19.999993211005002,
+        "p50": 19.999993,
+        "p95": 20.0015933,
+        "p99": 20.00265588,
+        "max": 20.052729
+      },
+      "send_lateness_ms": {
+        "mean": 0.055208478181818184,
+        "p50": 0.0550545,
+        "p95": 0.0566362,
+        "p99": 0.05774521999999999,
+        "max": 0.107373
+      },
+      "max_local_clock_duration_difference_ms": 0.003242,
+      "capture_SHA256": {
+        "traffic/tun.pcap": "be7e8c84415bcee3b46888dcf09010901671cc26b6db4624b5c71eeed6f366fe",
+        "traffic/n3.pcap": "9c6165688a988529f931548717cc92a6c46908e7704519b6b899abcd919764ad",
+        "control.pcap": "c4fb68939a878fe8292c014f313a4bf05b2c75c4fbc0a71028e003f5ff0c3141"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r3-ping-56",
+      "tool": "ping",
+      "size": 56,
+      "repeat": 3,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 3
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 1.840084184,
+        "p50": 1.795623,
+        "p95": 2.77084635,
+        "p99": 3.3014480699999997,
+        "max": 4.396664
+      },
+      "TUN_interarrival_ms": {
+        "mean": 20.615940335607092,
+        "p50": 20.64942,
+        "p95": 21.0042501,
+        "p99": 21.04690188,
+        "max": 26.292987
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "ICMP tool output",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 1.842844,
+        "p50": 1.8,
+        "p95": 2.77,
+        "p99": 3.3001,
+        "max": 4.4
+      },
+      "native_precision": "Rounded per-reply iputils output; capture interval kept separately",
+      "capture_SHA256": {
+        "traffic/tun.pcap": "4fa41eccffe543705a999d081bf8e9385f7741527f3624fed90bd05bebd1733f",
+        "traffic/n3.pcap": "d47054d18da9357ab299cf46d27f48b36ac64fd448cf887ba6bedfc94be09890",
+        "control.pcap": "9a892ae3f006361aa7c7816da15cf751eba6fd72e4f0b2eeae307474e42a9f0f"
+      }
+    },
+    {
+      "status": "PASS",
+      "case": "main-r3-udp-56",
+      "tool": "udp",
+      "size": 56,
+      "repeat": 3,
+      "complete": 2200,
+      "statistical": 2000,
+      "missing": 0,
+      "actual_NAS": [
+        {
+          "actual_fiveqi": 9,
+          "qfi": 9
+        }
+      ],
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "unselected_capture_packets": {
+        "unselected_inner_version6": 4
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 1.728334168,
+        "p50": 1.711861,
+        "p95": 2.51687405,
+        "p99": 2.9526689399999997,
+        "max": 3.558404
+      },
+      "TUN_interarrival_ms": {
+        "mean": 19.999981468394726,
+        "p50": 19.999996,
+        "p95": 20.0024914,
+        "p99": 20.003923580000002,
+        "max": 20.056254
+      },
+      "target_interval_ms": 20,
+      "statistics_scope": "Per-run descriptive inclusive quantiles; P99 not additive, not reliability certification",
+      "native_RTT_boundary": "Client application MONOTONIC",
+      "common_boundary": "Single UE TUN request-to-corresponding-reply REALTIME capture interval, not pure air latency",
+      "native_RTT_ms": {
+        "mean": 1.739676177,
+        "p50": 1.7222415,
+        "p95": 2.5297595999999998,
+        "p99": 2.96647149,
+        "max": 3.570796
+      },
+      "application_segments_ms": {
+        "UL_ms": {
+          "mean": 1.4642627595,
+          "p50": 1.4408940000000001,
+          "p95": 2.2210721,
+          "p99": 2.6055216799999994,
+          "max": 3.164245
+        },
+        "reply_ms": {
+          "mean": 0.0033304325,
+          "p50": 0.0032135,
+          "p95": 0.0047401000000000006,
+          "p99": 0.00601008,
+          "max": 0.012304
+        },
+        "DL_ms": {
+          "mean": 0.272082985,
+          "p50": 0.254988,
+          "p95": 0.337223,
+          "p99": 0.39145076,
+          "max": 0.481791
+        },
+        "RTT_ms": {
+          "mean": 1.739676177,
+          "p50": 1.7222415,
+          "p95": 2.5297595999999998,
+          "p99": 2.96647149,
+          "max": 3.570796
+        }
+      },
+      "application_interarrival_ms": {
+        "mean": 19.999990396543883,
+        "p50": 19.999998,
+        "p95": 20.0016268,
+        "p99": 20.00291784,
+        "max": 20.054766
+      },
+      "send_lateness_ms": {
+        "mean": 0.05524809,
+        "p50": 0.055088,
+        "p95": 0.0567722,
+        "p99": 0.05794718000000001,
+        "max": 0.109162
+      },
+      "max_local_clock_duration_difference_ms": 0.004143,
+      "capture_SHA256": {
+        "traffic/tun.pcap": "e5b57b062650c4a27262f2f2c091875f97a45be501db8379f086a2a89c40136c",
+        "traffic/n3.pcap": "67a01c9942ae33211ceb26cc827a045ad2fe6f688dacf89067fbddce812f30c3",
+        "control.pcap": "215bece7f7ccde73ba84dbd2843677287a4c152331f83e0cd737695ec796279d"
+      }
+    }
+  ],
+  "frozen_inputs_verified": 2308,
+  "original_core_unchanged": true,
+  "elapsed_s": 1163.4077730240242,
+  "raw_log_statistics_independently_recomputed": true,
+  "independent_pcap_decoder": false,
+  "communication_source": {
+    "commit": "55c7b2be8a2f8fb77c9decf0b44156c687f42f1a",
+    "binary_sha256": {
+      "nr-softmodem": "e56c2deaefbd2152335c9f274062b7c374c46c7f1c814541dae2d37bb4cec6af",
+      "nr-uesoftmodem": "d683c2b190aad5d11a6bf59ac094dce621bf1636cd6e0a848328f791d0d0c68f",
+      "libcoding.so": "dff866cadf6441fee38d90cd1a3d22204657179d3642b11e1321cda02e0dfdf7",
+      "libdfts.so": "dda1f9280f95e2968163713972cb9879fe034030ab572e9aae19646130fa1eae",
+      "libldpc.so": "6e11e77cc3ffd4009bde5739749e2f4fc4d41f041870e812616eb4cbafc338c1",
+      "libldpc_optim.so": "12cc3434ccfe195241c50eb653ce830d9dbdd659b0e76ce3824d75e31b8cffaa",
+      "libldpc_optim8seg.so": "854472a9555845d46f84f990d77cf0e091f64cd657b4c5694672fdd9e8e7a5eb",
+      "libldpc_orig.so": "b0df57932db7ee32bf5162d196f40093df963911ba06e2b0e71c2bcf81a643aa",
+      "libparams_libconfig.so": "b5817b1d0accb456fb04cdded988a014a9c9b3857fa8f48562673bee7f2e76dd",
+      "librfsimulator.so": "a84bcc462cc2437b7e08029082cc01422a4096a030b70f1a4d4f7d0dfd546558"
+    },
+    "build_log": "/home/lbh/oiwireless/analysis-source-audit/ping-slot-validation-20261109/build-01.log",
+    "source_base": "61654513d522610db09207ce36220c1e1ff76937",
+    "scope": "Fresh full build including retransmission RB pointer fix; no new production C change",
+    "communication_source_commit": "159208eb2f6f8ebe81ea5e4dc1fdd964250b5511",
+    "method_commit": "d2ccf26b08dcb68b1beb717d874a3860137c9f1a",
+    "runtime_scope": "Copied hash-identical verified repaired binaries; no new build or C modification",
+    "production_source_files": 2248
+  },
+  "scope": "One UE RFsim, not real RF or an optimization result; per-run quantiles, no pooling or P99 addition; native and TUN boundaries differ"
+}
