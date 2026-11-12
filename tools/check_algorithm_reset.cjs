@@ -37,7 +37,7 @@ async function waitFor(fn,label){for(let i=0;i<500;i++){if(fn())return;await tic
  assert.equal(planningLinks[0].textContent.replace('↗','').trim(),'时延优化与算法对照');assert.equal(planningLinks[1].textContent.replace('↗','').trim(),'算法实验规划');
  d.querySelector('#sidebar a[href="'+planUrl+'"]').click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===plan.source,'new plan');
  assert(d.querySelector('.article').textContent.includes('我的研究重点是通信时延'));
- assert(d.querySelector('.article').textContent.includes('六条件对照待执行'));
+ assert(d.querySelector('.article').textContent.includes('六条件正式对照待执行'));
  for(const item of plan.toc)assert(d.getElementById(item.id),'Missing plan heading '+item.title);
  const stepPlan=published.docs.find(doc=>doc.topic==='step-1-plan');
  const stepResult=published.docs.find(doc=>doc.experimentStage==='step-1');
@@ -57,7 +57,7 @@ async function waitFor(fn,label){for(let i=0;i<500;i++){if(fn())return;await tic
  const stepPlanUrl='#/doc/'+stepPlan.id,stepResultUrl='#/doc/'+stepResult.id;
  await fromHub(plan,stepPlan);
  assert(d.querySelector('.article').textContent.includes('我的第一步目标'));d.querySelector('.article a[href="'+stepResultUrl+'"]').click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===stepResult.source,'empty step result');
- assert.equal(d.querySelector('.article h1').textContent,'第一步结果与分析');assert.equal(stepResult.status,'partial');assert(d.querySelector('.article').textContent.includes('六条件对照尚未执行'));assert(d.querySelector('.article').textContent.includes('6000'));assert(d.querySelectorAll('.article table').length>=4);assert(d.querySelectorAll('.article figure').length>=2);
+ assert.equal(d.querySelector('.article h1').textContent,'第一步结果与分析');assert.equal(stepResult.status,'partial');assert(d.querySelector('.article').textContent.includes('六条件正式对照尚未执行'));assert(d.querySelector('.article').textContent.includes('6000'));assert(d.querySelectorAll('.article table').length>=4);assert(d.querySelectorAll('.article figure').length>=2);
  d.querySelector('.article a[href="'+stepPlanUrl+'"]').click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===stepPlan.source,'paired return');
  for(const [i,p] of allStepPlans.entries()){
   const result=allStepResults[i],purl='#/doc/'+p.id,rurl='#/doc/'+result.id;assert.equal(result.status,i===0?'partial':'not-started');assert.equal(result.title,p.title.replace('规划','结果与分析'));

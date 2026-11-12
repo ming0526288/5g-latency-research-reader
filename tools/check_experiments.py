@@ -110,7 +110,7 @@ def main():
         if item.get('status') in ('complete', 'partial'):
             assert item['topic'] == 'step-1' and d['status'] == item['status']
             if item['status'] == 'partial':
-                assert '六条件对照尚未执行' in html
+                assert '六条件正式对照尚未执行' in html
                 assert '56' in html and '256' in html and '1200' in html
             completed = json.loads((ROOT/'说明/研究结果与分析/数据/第一步_三轮基线.json').read_text())
             assert completed['status'] == 'PASS' and completed['statistical_transactions'] == 6000
