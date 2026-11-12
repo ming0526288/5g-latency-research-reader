@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "documents": [
     {
       "id": "e4c1f2a8800000001",
@@ -36,7 +36,7 @@
       "topic": "step-1",
       "researchStep": "step-1",
       "planTopic": "step-1-plan",
-      "status": "complete"
+      "status": "partial"
     },
     {
       "source": "说明/研究结果与分析/第二步结果与分析.md",

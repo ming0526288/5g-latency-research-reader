@@ -131,8 +131,9 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
     assert(d.querySelector('.article a[href="#/doc/'+plan.id+'"]'));
     continue;
    }
-   if(resultDoc.status==='complete'){
+   if(['complete','partial'].includes(resultDoc.status)){
     assert.equal(resultDoc.researchStep,'step-1');
+    if(resultDoc.status==='partial')assert(d.querySelector('.article').textContent.includes('六条件对照尚未执行'));
     assert(d.querySelector('.article').textContent.includes('6600')&&d.querySelector('.article').textContent.includes('6000'));
     assert(d.querySelectorAll('.article figure').length>=2&&d.querySelectorAll('.article table').length>=4);
     assert(!d.querySelector('.article').textContent.includes('尚未执行，暂无结果与分析'));

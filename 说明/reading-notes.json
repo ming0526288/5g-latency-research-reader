@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "documents": [
     {
       "source": "说明/文献导读/39篇文献重要性排序与方法效果简述.md",
@@ -83,7 +83,7 @@
       "commandStep": "step-1",
       "planTopic": "step-1-plan",
       "resultTopic": "step-1",
-      "commandStatus": "validated"
+      "commandStatus": "partial"
     },
     {
       "source": "说明/启动命令/第二步启动命令.md",

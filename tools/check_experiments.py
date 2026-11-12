@@ -107,8 +107,11 @@ def main():
             page_checks.append({'id': d['id'], 'title': d['title'], 'kind': 'not-started-placeholder',
                                 'canonicalSourceSHA': d['sha256']})
             continue
-        if item.get('status') == 'complete':
-            assert item['topic'] == 'step-1' and d['status'] == 'complete'
+        if item.get('status') in ('complete', 'partial'):
+            assert item['topic'] == 'step-1' and d['status'] == item['status']
+            if item['status'] == 'partial':
+                assert '六条件对照尚未执行' in html
+                assert '56' in html and '256' in html and '1200' in html
             completed = json.loads((ROOT/'说明/研究结果与分析/数据/第一步_三轮基线.json').read_text())
             assert completed['status'] == 'PASS' and completed['statistical_transactions'] == 6000
             assert completed['complete_transactions'] == 6600 and len(completed['cases']) == 3
@@ -120,7 +123,7 @@ def main():
             plan = next(x for x in docs.values() if x.get('topic') == item['planTopic'])
             assert d['researchStep'] == plan['researchStep']
             assert '#/doc/' + plan['id'] in html and '#/doc/' + d['id'] in payload(plan['id'])['html']
-            page_checks.append({'id': d['id'], 'kind': 'complete-new-baseline', 'canonicalSourceSHA': d['sha256'],
+            page_checks.append({'id': d['id'], 'kind': 'retained-baseline-with-pending-matrix' if item['status'] == 'partial' else 'complete-new-baseline', 'canonicalSourceSHA': d['sha256'],
                                 'complete': 6600, 'statistical': 6000})
             continue
         assert html.count('<figure') >= 2 and '错误' in html
