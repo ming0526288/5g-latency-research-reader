@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "scope": "Existing 256B cohorts juxtaposed, not causal header-size A/B or new experiment.",
+  "sources": {
+    "old": {
+      "file": "说明/研究结果与分析/数据/第一步_三轮基线.json",
+      "sha256": "48e33f1199cea53f3576b3afc543854a18845bd344c0cc0a8d3c623119069a7e"
+    },
+    "compact": {
+      "file": "说明/研究结果与分析/数据/第一步_六条件正式对照.json",
+      "sha256": "6eaa50081edabac809c44bae226100a843455b6ea818b6b2d73b8fa07c36445c"
+    }
+  },
+  "ranBinarySHAIdentical": true,
+  "oldCases": [
+    {
+      "case": "main-r1",
+      "statistics": {
+        "mean": 2.219018899,
+        "p50": 2.1984019999999997,
+        "p95": 3.0608642,
+        "p99": 3.7579105599999996,
+        "max": 5.14482
+      }
+    },
+    {
+      "case": "main-r2",
+      "statistics": {
+        "mean": 2.2971521795,
+        "p50": 2.2746635,
+        "p95": 3.16828095,
+        "p99": 3.82617049,
+        "max": 4.827559
+      }
+    },
+    {
+      "case": "main-r3",
+      "statistics": {
+        "mean": 2.1384561615,
+        "p50": 2.089417,
+        "p95": 3.08237595,
+        "p99": 3.6246849400000003,
+        "max": 4.137617
+      }
+    }
+  ],
+  "compactCases": [
+    {
+      "case": "main-r1-udp-256",
+      "statistics": {
+        "mean": 2.281552862,
+        "p50": 2.271306,
+        "p95": 2.98260435,
+        "p99": 3.54049646,
+        "max": 4.565029
+      }
+    },
+    {
+      "case": "main-r2-udp-256",
+      "statistics": {
+        "mean": 2.2901655635,
+        "p50": 2.2748205,
+        "p95": 2.96632855,
+        "p99": 3.5929564999999997,
+        "max": 4.660129
+      }
+    },
+    {
+      "case": "main-r3-udp-256",
+      "statistics": {
+        "mean": 2.2907419595,
+        "p50": 2.2654635,
+        "p95": 3.1470833,
+        "p99": 3.6706146399999993,
+        "max": 4.636764
+      }
+    }
+  ],
+  "controlledABComplete": false,
+  "newRuns": 0,
+  "plainLanguageLabelsRemoved": true,
+  "documentOrderVerified": true,
+  "allowedResultsRewrite": [
+    "说明/研究结果与分析/独立实验_80B与16B测量格式对比.md"
+  ],
+  "otherProtectedFilesUnchanged": 57,
+  "knowledgeSHA256": "15d9d6598c4e7a50eec08f6c81f6098f8e50e17a44db8512bd5084c70dcb01e9"
+}
