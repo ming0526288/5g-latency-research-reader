@@ -160,8 +160,9 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
   const resultSearchId=cat.experimentStages.tdd||cat.experimentStages['step-1'];
   query.value=cat.experimentStages.tdd?'抓包失败':'第一步结果与分析';query.dispatchEvent(new w.Event('input',{bubbles:true}));
   await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+resultSearchId+'"]'),'published result indexed');d.querySelector('#closeSearch').click();
-  d.querySelector('#searchButton').click();query.value='原始源码与当前研究版本';query.dispatchEvent(new w.Event('input',{bubbles:true}));
-  await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+cat.experimentStages['source-changes']+'"]'),'source version review indexed');d.querySelector('#closeSearch').click();
+  const sourceKnowledge=cat.docs.find(x=>x.documentRole==='knowledge'&&x.stepExperiment===1);
+  d.querySelector('#searchButton').click();query.value='原始源码与当前代码';query.dispatchEvent(new w.Event('input',{bubbles:true}));
+  await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+sourceKnowledge.id+'"]'),'inline source review indexed');d.querySelector('#closeSearch').click();
   for(const [term,id] of [['十二步知识点',cat.knowledgeTopics['twelve-step-knowledge']],['第一步知识点',cat.knowledgeTopics['step-1-knowledge']],['第一步结果与分析',cat.experimentStages['step-1']]]){
    d.querySelector('#searchButton').click();query.value=term;query.dispatchEvent(new w.Event('input',{bubbles:true}));
    await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+id+'"]'),'numbered learning/result page searchable '+term);

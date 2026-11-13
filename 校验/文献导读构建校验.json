@@ -344,7 +344,7 @@
       "topic": "step-1-plan",
       "prerequisite": false,
       "researchStep": "step-1",
-      "sha256": "b0e733cae5f91f289058ff4dd29c5c847a44a98e0cbe3bd8eb08ed49b8533ab3",
+      "sha256": "4fee9efaa1e50c9fe29cddce185aa96ff32b98544e88b0e74c95fdc2347a05ce",
       "snapshot": "说明/文献导读/第一步规划_单UE通信RTT基线.md",
       "redacted": false,
       "toc": [
@@ -369,9 +369,9 @@
           "level": 2
         }
       ],
-      "words": 1067,
-      "minutes": 2,
-      "search": "  第一步规划\n\n  我的第一步是按下面五项梳理通信测量方法与实验基线。   第 4、5 项已有数据，第 1、2 项尚未完成严格对照；第 3 项明确 16 B 的含义后引用对应工具记录，不冒称测过 16 B 数据包。此次只重排已有工作，没有新增实验。\n\n   我的第一步目标\n\n用相同编号把知识、命令、结果接起来，确认代码、包内容、工具、包长与计时边界各自怎样影响比较。机械臂和汽车装配作为业务背景，本步只分析通信，不处理视觉或机械动作。\n\n 实验 内容 验收与当前边界 \n --- --- --- \n 1 原始源码与当前代码：统一用 ping 对照 两版本均用同一种 ping；原始 UE 接入失败，原始 RTT 仍待补 \n 2 80 B 与 16 B 的 UDP 对比 总数据固定 256 B，分别用 80/16 B 测量头；现有输入不同，受控 A/B 待补 \n 3 16 B 测量字段的 ping 与 UDP 对比 暂以两工具各 16 B 测量字段、总数据 256 B 整理；不是 16 B 包实测 \n 4 各包长的 ping 与 UDP 对比 ping / UDP 各 56/256/1200 B，三轮，共18条件；报告原生与共同TUN边界 \n 5 实验基线 选第4项UDP256三轮作后续参照，不新增运行/计数 \n\n   本步固定的测量要求\n\n先核原文/版本/配置，排除路由旁路，核同一事务编号和时钟，再逐轮计算 RTT、分段和分位数。P99不相加，不把不同输入的两批差值解释成单变量收益。第3/4/5项共享的当前版本工作点为120 kHz/n261/66 PRB、PF、实际5QI9/QFI9、单UE RFsim；第1项原始程序配置单独记身份，不自动套同一启动参数。完整取值见结果第4/5项。\n\n   我的依据\n\nTS38.211 V19.5.0 §4.2/4.3.2、TS38.213 V19.5.0 §11.1/9.2.4、TS38.331 V19.4.0 §6.3.2、TS38.214 V19.5.0 §6.1.2.1/6.4、TS38.321 V19.4.0 §5.4.1/5.4.4/5.4.5、TS38.104 V20.1.0 §5.3.2/5.3.5只约束相关过程/字段，不指定本项目五项实验或测量头尺寸。P01本地PDF2–4页§III–IV、教材第2章PDF49–55页沿路径/测量背景引用。缺所需原文立即停止，现有版本不冒称官网最高。\n\n 第一步知识点 (../算法知识点说明/十二步知识点/第一步知识点.md) ·  第一步启动命令 (../启动命令/第一步启动命令.md) ·  第一步结果与分析 (../研究结果与分析/第一步结果与分析.md) ·  返回总规划 (算法实验规划_通信RTT与时延优化.md)。\n"
+      "words": 1910,
+      "minutes": 3,
+      "search": "  第一步规划\n\n  我的第一步是按下面五项梳理通信测量方法与实验基线。   第 4、5 项已有数据，第 1、2 项尚未完成严格对照；第 3 项明确 16 B 的含义后引用对应工具记录，不冒称测过 16 B 数据包。此次只重排已有工作，没有新增实验。\n\n   我的第一步目标\n\n用相同编号把知识、命令、结果接起来，确认代码、包内容、工具、包长与计时边界各自怎样影响比较。机械臂和汽车装配作为业务背景，本步只分析通信，不处理视觉或机械动作。\n\n 实验 子规划（点击标题） 知识点 启动命令 结果与分析 当前边界 \n --- --- --- --- --- --- \n  1 (第一步/1_源码与当前代码.md)  原始源码与当前代码：统一用 ping 对照 (第一步/1_源码与当前代码.md)  知识点 (../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md)  命令 (../启动命令/第一步/1_源码与当前代码.md)  结果 (../研究结果与分析/第一步/1_源码与当前代码.md) 两版本均用同一种 ping；原始 UE 接入失败，原始 RTT 仍待补 \n  2 (第一步/2_80B与16B的UDP.md)  80 B 与 16 B 的 UDP 对比 (第一步/2_80B与16B的UDP.md)  知识点 (../算法知识点说明/十二步知识点/第一步/2_80B与16B的UDP.md)  命令 (../启动命令/第一步/2_80B与16B的UDP.md)  结果 (../研究结果与分析/第一步/2_80B与16B的UDP.md) 总数据固定 256 B，分别用 80/16 B 测量头；现有输入不同，受控 A/B 待补 \n  3 (第一步/3_16B测量字段的ping与UDP.md)  16 B 测量字段的 ping 与 UDP 对比 (第一步/3_16B测量字段的ping与UDP.md)  知识点 (../算法知识点说明/十二步知识点/第一步/3_16B测量字段的ping与UDP.md)  命令 (../启动命令/第一步/3_16B测量字段的ping与UDP.md)  结果 (../研究结果与分析/第一步/3_16B测量字段的ping与UDP.md) 暂以两工具各 16 B 测量字段、总数据 256 B 整理；不是 16 B 数据包实测 \n  4 (第一步/4_各包长的ping与UDP.md)  各包长的 ping 与 UDP 对比 (第一步/4_各包长的ping与UDP.md)  知识点 (../算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md)  命令 (../启动命令/第一步/4_各包长的ping与UDP.md)  结果 (../研究结果与分析/第一步/4_各包长的ping与UDP.md) ping / UDP 各 56/256/1200 B，三轮，共18条件；报告原生与共同TUN边界 \n  5 (第一步/5_实验基线.md)  实验基线 (第一步/5_实验基线.md)  知识点 (../算法知识点说明/十二步知识点/第一步/5_实验基线.md)  命令 (../启动命令/第一步/5_实验基线.md)  结果 (../研究结果与分析/第一步/5_实验基线.md) 选第4项UDP256三轮作后续参照，不新增运行/计数 \n\n   本步固定的测量要求\n\n先核原文/版本/配置，排除路由旁路，核同一事务编号和时钟，再逐轮计算 RTT、分段和分位数。P99不相加，不把不同输入的两批差值解释成单变量收益。第3/4/5项共享的当前版本工作点为120 kHz/n261/66 PRB、PF、实际5QI9/QFI9、单UE RFsim；第1项原始程序配置单独记身份，不自动套同一启动参数。完整取值见结果第4/5项。\n\n   我的依据\n\nTS38.211 V19.5.0 §4.2/4.3.2、TS38.213 V19.5.0 §11.1/9.2.4、TS38.331 V19.4.0 §6.3.2、TS38.214 V19.5.0 §6.1.2.1/6.4、TS38.321 V19.4.0 §5.4.1/5.4.4/5.4.5、TS38.104 V20.1.0 §5.3.2/5.3.5只约束相关过程/字段，不指定本项目五项实验或测量头尺寸。P01本地PDF2–4页§III–IV、教材第2章PDF49–55页沿路径/测量背景引用。缺所需原文立即停止，现有版本不冒称官网最高。\n\n 第一步知识点 (../算法知识点说明/十二步知识点/第一步知识点.md) ·  第一步启动命令 (../启动命令/第一步启动命令.md) ·  第一步结果与分析 (../研究结果与分析/第一步结果与分析.md) ·  返回总规划 (算法实验规划_通信RTT与时延优化.md)。\n"
     },
     {
       "id": "re403499a7e0b4ec7",
@@ -986,7 +986,7 @@
       "planTopic": "step-1-plan",
       "resultTopic": "step-1",
       "commandStatus": "partial",
-      "sha256": "126c009ed2106739a19c54300d11cb4c8b49dcc3b027d980c2444724b1776040",
+      "sha256": "cd38e5e939c09a59a9cd973ee2d1822ca2483f1502fded36925b652e6e9bb672",
       "snapshot": "说明/启动命令/第一步启动命令.md",
       "redacted": false,
       "toc": [
@@ -996,9 +996,9 @@
           "level": 1
         }
       ],
-      "words": 927,
-      "minutes": 1,
-      "search": "  第一步启动命令\n\n本步部分命令已实际运行并核验，整体仍为部分完成；每项单独列真实命令、运行状态与未完成项，不把历史失败写成通过。\n\n 实验 内容 知识点 启动命令 结果与分析 \n --- --- --- --- --- \n 1 原始源码与当前代码：统一用 ping 对照  进入 (../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md)  进入 (第一步/1_源码与当前代码.md)  进入 (../研究结果与分析/第一步/1_源码与当前代码.md) \n 2 80 B 与 16 B 的 UDP 对比  进入 (../算法知识点说明/十二步知识点/第一步/2_80B与16B的UDP.md)  进入 (第一步/2_80B与16B的UDP.md)  进入 (../研究结果与分析/第一步/2_80B与16B的UDP.md) \n 3 16 B 测量字段的 ping 与 UDP 对比  进入 (../算法知识点说明/十二步知识点/第一步/3_16B测量字段的ping与UDP.md)  进入 (第一步/3_16B测量字段的ping与UDP.md)  进入 (../研究结果与分析/第一步/3_16B测量字段的ping与UDP.md) \n 4 各包长的 ping 与 UDP 对比  进入 (../算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md)  进入 (第一步/4_各包长的ping与UDP.md)  进入 (../研究结果与分析/第一步/4_各包长的ping与UDP.md) \n 5 实验基线  进入 (../算法知识点说明/十二步知识点/第一步/5_实验基线.md)  进入 (第一步/5_实验基线.md)  进入 (../研究结果与分析/第一步/5_实验基线.md) \n\n第 3 项暂按“测量字段各 16 B、两工具数据总长均 256 B”整理，不是 16 B 数据包的实测。第 3、5 项引用第 4 项子集，不重复累计运行次数。\n\n 第一步知识点 (../算法知识点说明/十二步知识点/第一步知识点.md) ·  第一步启动命令 (第一步启动命令.md) ·  第一步结果与分析 (../研究结果与分析/第一步结果与分析.md) ·  第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)。\n"
+      "words": 1345,
+      "minutes": 2,
+      "search": "  第一步启动命令\n\n本步部分命令已实际运行并核验，整体仍为部分完成；每项单独列真实命令、运行状态与未完成项，不把历史失败写成通过。\n\n 实验 内容（点击标题） 规划 知识点 启动命令 结果与分析 \n --- --- --- --- --- --- \n  1 (第一步/1_源码与当前代码.md)  原始源码与当前代码：统一用 ping 对照 (第一步/1_源码与当前代码.md)  规划 (../文献导读/第一步/1_源码与当前代码.md)  知识点 (../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md)  命令 (第一步/1_源码与当前代码.md)  结果 (../研究结果与分析/第一步/1_源码与当前代码.md) \n  2 (第一步/2_80B与16B的UDP.md)  80 B 与 16 B 的 UDP 对比 (第一步/2_80B与16B的UDP.md)  规划 (../文献导读/第一步/2_80B与16B的UDP.md)  知识点 (../算法知识点说明/十二步知识点/第一步/2_80B与16B的UDP.md)  命令 (第一步/2_80B与16B的UDP.md)  结果 (../研究结果与分析/第一步/2_80B与16B的UDP.md) \n  3 (第一步/3_16B测量字段的ping与UDP.md)  16 B 测量字段的 ping 与 UDP 对比 (第一步/3_16B测量字段的ping与UDP.md)  规划 (../文献导读/第一步/3_16B测量字段的ping与UDP.md)  知识点 (../算法知识点说明/十二步知识点/第一步/3_16B测量字段的ping与UDP.md)  命令 (第一步/3_16B测量字段的ping与UDP.md)  结果 (../研究结果与分析/第一步/3_16B测量字段的ping与UDP.md) \n  4 (第一步/4_各包长的ping与UDP.md)  各包长的 ping 与 UDP 对比 (第一步/4_各包长的ping与UDP.md)  规划 (../文献导读/第一步/4_各包长的ping与UDP.md)  知识点 (../算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md)  命令 (第一步/4_各包长的ping与UDP.md)  结果 (../研究结果与分析/第一步/4_各包长的ping与UDP.md) \n  5 (第一步/5_实验基线.md)  实验基线 (第一步/5_实验基线.md)  规划 (../文献导读/第一步/5_实验基线.md)  知识点 (../算法知识点说明/十二步知识点/第一步/5_实验基线.md)  命令 (第一步/5_实验基线.md)  结果 (../研究结果与分析/第一步/5_实验基线.md) \n\n第 3 项暂按“测量字段各 16 B、两工具数据总长均 256 B”整理，不是 16 B 数据包的实测。第 3、5 项引用第 4 项子集，不重复累计运行次数。\n\n 第一步知识点 (../算法知识点说明/十二步知识点/第一步知识点.md) ·  第一步启动命令 (第一步启动命令.md) ·  第一步结果与分析 (../研究结果与分析/第一步结果与分析.md) ·  第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)。\n"
     },
     {
       "id": "re77d9007728f223f",
@@ -1428,7 +1428,7 @@
       "group": "guides",
       "topic": "launch-index",
       "prerequisite": false,
-      "sha256": "ea7fcfaf4fc709ecc39e5b28eab26fefefdab38e39c38ada9837591ab70ff1a9",
+      "sha256": "02e25b9b1bf9b01ca55edd5ae2a56b88287729a4ccdd7be4b2a49188d852bac9",
       "snapshot": "说明/启动命令/启动命令总目录.md",
       "redacted": false,
       "toc": [
@@ -1438,14 +1438,19 @@
           "level": 1
         },
         {
+          "id": "第一步五个分项入口",
+          "title": "第一步：五个分项入口",
+          "level": 2
+        },
+        {
           "id": "我怎样查看当前工程",
           "title": "我怎样查看当前工程",
           "level": 2
         }
       ],
-      "words": 1812,
+      "words": 2045,
       "minutes": 3,
-      "search": "  启动命令总目录\n\n我从这里进入每一步的启动与查看说明；每条都对应同编号规划和结果。这里集中管理入口，侧栏不再展开十二条。\n\n  第一步命令按五项实验对应，部分已有实际运行记录，原始接入和头部受控对照仍有未完成项；第二至十二步命令保持待核验。  \n\n 步骤 本步主题 启动与查看 规划 结果 \n --- --- --- --- --- \n 1 单 UE 场景与 PF 通信 RTT 基线  第一步启动命令 (第一步启动命令.md)  第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)  第一步结果与分析 (../研究结果与分析/第一步结果与分析.md) \n 2 多 UE PF 基线与负载竞争  第二步启动命令 (第二步启动命令.md)  第二步规划 (../文献导读/第二步规划_多UE_PF基线与负载竞争.md)  第二步结果与分析 (../研究结果与分析/第二步结果与分析.md) \n 3 不同 TDD 配比与周期的时延分析  第三步启动命令 (第三步启动命令.md)  第三步规划 (../文献导读/第三步规划_TDD配比与周期分析.md)  第三步结果与分析 (../研究结果与分析/第三步结果与分析.md) \n 4 不同 SCS 与资源条件的时延分析  第四步启动命令 (第四步启动命令.md)  第四步规划 (../文献导读/第四步规划_SCS与资源条件分析.md)  第四步结果与分析 (../研究结果与分析/第四步结果与分析.md) \n 5 分层时延与请求—授权等待分解  第五步启动命令 (第五步启动命令.md)  第五步规划 (../文献导读/第五步规划_分层时延与授权等待分解.md)  第五步结果与分析 (../研究结果与分析/第五步结果与分析.md) \n 6 尾时延与多 UE 慢事务成因分析  第六步启动命令 (第六步启动命令.md)  第六步规划 (../文献导读/第六步规划_尾时延与慢事务成因分析.md)  第六步结果与分析 (../研究结果与分析/第六步结果与分析.md) \n 7 PF、EDF、M-LWDF、QUEST 的同程序强对照  第七步启动命令 (第七步启动命令.md)  第七步规划 (../文献导读/第七步规划_同程序强对照算法.md)  第七步结果与分析 (../研究结果与分析/第七步结果与分析.md) \n 8 瓶颈驱动的单项优化设计与实现  第八步启动命令 (第八步启动命令.md)  第八步规划 (../文献导读/第八步规划_单项优化设计与实现.md)  第八步结果与分析 (../研究结果与分析/第八步结果与分析.md) \n 9 新算法的配对重复效果验证  第九步启动命令 (第九步启动命令.md)  第九步规划 (../文献导读/第九步规划_新算法效果验证.md)  第九步结果与分析 (../研究结果与分析/第九步结果与分析.md) \n 10 消融、资源代价与服务公平性  第十步启动命令 (第十步启动命令.md)  第十步规划 (../文献导读/第十步规划_消融资源代价与公平性.md)  第十步结果与分析 (../研究结果与分析/第十步结果与分析.md) \n 11 跨配置、负载和 UE 数的稳健性验证  第十一步启动命令 (第十一步启动命令.md)  第十一步规划 (../文献导读/第十一步规划_跨场景稳健性验证.md)  第十一步结果与分析 (../研究结果与分析/第十一步结果与分析.md) \n 12 论文证据、图表与可复现交付  第十二步启动命令 (第十二步启动命令.md)  第十二步规划 (../文献导读/第十二步规划_论文结果整理与研究收尾.md)  第十二步结果与分析 (../研究结果与分析/第十二步结果与分析.md) \n\n   我怎样查看当前工程\n\n以下是只读查看命令，不会启动核心网或无线实验；工作目录指研究记录主树，不能据此假定正式运行二进制已经选定。\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\ngit status --short --branch\ngit log -1 --oneline\n   \n\n具体实验工作树、配置及命令会在每步准备并核验后写进对应命令页。\n\n 返回十二步规划总目录 (../文献导读/算法实验规划_通信RTT与时延优化.md) ·  查看结果与分析总目录 (../研究结果与分析/研究结果与分析总目录.md)。\n"
+      "search": "  启动命令总目录\n\n我从这里进入每一步的启动与查看说明；每条都对应同编号规划和结果。这里集中管理入口，侧栏不再展开十二条。\n\n  第一步命令按五项实验对应，部分已有实际运行记录，原始接入和头部受控对照仍有未完成项；第二至十二步命令保持待核验。  \n\n 步骤 本步主题 启动与查看 规划 结果 \n --- --- --- --- --- \n  1 (第一步启动命令.md)  单 UE 场景与 PF 通信 RTT 基线 (第一步启动命令.md)  第一步启动命令 (第一步启动命令.md)  第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)  第一步结果与分析 (../研究结果与分析/第一步结果与分析.md) \n 2 多 UE PF 基线与负载竞争  第二步启动命令 (第二步启动命令.md)  第二步规划 (../文献导读/第二步规划_多UE_PF基线与负载竞争.md)  第二步结果与分析 (../研究结果与分析/第二步结果与分析.md) \n 3 不同 TDD 配比与周期的时延分析  第三步启动命令 (第三步启动命令.md)  第三步规划 (../文献导读/第三步规划_TDD配比与周期分析.md)  第三步结果与分析 (../研究结果与分析/第三步结果与分析.md) \n 4 不同 SCS 与资源条件的时延分析  第四步启动命令 (第四步启动命令.md)  第四步规划 (../文献导读/第四步规划_SCS与资源条件分析.md)  第四步结果与分析 (../研究结果与分析/第四步结果与分析.md) \n 5 分层时延与请求—授权等待分解  第五步启动命令 (第五步启动命令.md)  第五步规划 (../文献导读/第五步规划_分层时延与授权等待分解.md)  第五步结果与分析 (../研究结果与分析/第五步结果与分析.md) \n 6 尾时延与多 UE 慢事务成因分析  第六步启动命令 (第六步启动命令.md)  第六步规划 (../文献导读/第六步规划_尾时延与慢事务成因分析.md)  第六步结果与分析 (../研究结果与分析/第六步结果与分析.md) \n 7 PF、EDF、M-LWDF、QUEST 的同程序强对照  第七步启动命令 (第七步启动命令.md)  第七步规划 (../文献导读/第七步规划_同程序强对照算法.md)  第七步结果与分析 (../研究结果与分析/第七步结果与分析.md) \n 8 瓶颈驱动的单项优化设计与实现  第八步启动命令 (第八步启动命令.md)  第八步规划 (../文献导读/第八步规划_单项优化设计与实现.md)  第八步结果与分析 (../研究结果与分析/第八步结果与分析.md) \n 9 新算法的配对重复效果验证  第九步启动命令 (第九步启动命令.md)  第九步规划 (../文献导读/第九步规划_新算法效果验证.md)  第九步结果与分析 (../研究结果与分析/第九步结果与分析.md) \n 10 消融、资源代价与服务公平性  第十步启动命令 (第十步启动命令.md)  第十步规划 (../文献导读/第十步规划_消融资源代价与公平性.md)  第十步结果与分析 (../研究结果与分析/第十步结果与分析.md) \n 11 跨配置、负载和 UE 数的稳健性验证  第十一步启动命令 (第十一步启动命令.md)  第十一步规划 (../文献导读/第十一步规划_跨场景稳健性验证.md)  第十一步结果与分析 (../研究结果与分析/第十一步结果与分析.md) \n 12 论文证据、图表与可复现交付  第十二步启动命令 (第十二步启动命令.md)  第十二步规划 (../文献导读/第十二步规划_论文结果整理与研究收尾.md)  第十二步结果与分析 (../研究结果与分析/第十二步结果与分析.md) \n\n   第一步：五个分项入口\n\n1.  原始源码与当前代码：统一用 ping 对照 (第一步/1_源码与当前代码.md)\n2.  80 B 与 16 B 的 UDP 对比 (第一步/2_80B与16B的UDP.md)\n3.  16 B 测量字段的 ping 与 UDP 对比 (第一步/3_16B测量字段的ping与UDP.md)\n4.  各包长的 ping 与 UDP 对比 (第一步/4_各包长的ping与UDP.md)\n5.  实验基线 (第一步/5_实验基线.md)\n\n   我怎样查看当前工程\n\n以下是只读查看命令，不会启动核心网或无线实验；工作目录指研究记录主树，不能据此假定正式运行二进制已经选定。\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\ngit status --short --branch\ngit log -1 --oneline\n   \n\n具体实验工作树、配置及命令会在每步准备并核验后写进对应命令页。\n\n 返回十二步规划总目录 (../文献导读/算法实验规划_通信RTT与时延优化.md) ·  查看结果与分析总目录 (../研究结果与分析/研究结果与分析总目录.md)。\n"
     },
     {
       "id": "rb5713cc3fde44187",
@@ -1457,7 +1462,7 @@
       "group": "guides",
       "topic": "research-results-index",
       "prerequisite": false,
-      "sha256": "786bac2c851ac58df0570ba4c38223814219708b0853cc25df4d075d3be16e6c",
+      "sha256": "f1f1bd7eba8720a4322561bfe3a3978105e1523e216f87f41d1e171d0b35e369",
       "snapshot": "说明/研究结果与分析/研究结果与分析总目录.md",
       "redacted": false,
       "toc": [
@@ -1472,8 +1477,8 @@
           "level": 2
         },
         {
-          "id": "第一步的五项实验",
-          "title": "第一步的五项实验",
+          "id": "第一步五个分项入口",
+          "title": "第一步：五个分项入口",
           "level": 2
         },
         {
@@ -1482,9 +1487,9 @@
           "level": 2
         }
       ],
-      "words": 2163,
+      "words": 2076,
       "minutes": 3,
-      "search": "  研究结果与分析总目录\n\n我从这里进入十二步结果。第一步按五项实验汇总，逐项说明已测和未完成状态；第二至十二步仍未执行。原有五类历史分析和逐文件源码审计保留。\n\n   十二步结果与分析\n\n 步骤 本步主题 结果与分析 规划 启动命令 \n --- --- --- --- --- \n 1 单 UE 场景与 PF 通信 RTT 基线  第一步结果与分析 (第一步结果与分析.md)  第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)  第一步启动命令 (../启动命令/第一步启动命令.md) \n 2 多 UE PF 基线与负载竞争  第二步结果与分析 (第二步结果与分析.md)  第二步规划 (../文献导读/第二步规划_多UE_PF基线与负载竞争.md)  第二步启动命令 (../启动命令/第二步启动命令.md) \n 3 不同 TDD 配比与周期的时延分析  第三步结果与分析 (第三步结果与分析.md)  第三步规划 (../文献导读/第三步规划_TDD配比与周期分析.md)  第三步启动命令 (../启动命令/第三步启动命令.md) \n 4 不同 SCS 与资源条件的时延分析  第四步结果与分析 (第四步结果与分析.md)  第四步规划 (../文献导读/第四步规划_SCS与资源条件分析.md)  第四步启动命令 (../启动命令/第四步启动命令.md) \n 5 分层时延与请求—授权等待分解  第五步结果与分析 (第五步结果与分析.md)  第五步规划 (../文献导读/第五步规划_分层时延与授权等待分解.md)  第五步启动命令 (../启动命令/第五步启动命令.md) \n 6 尾时延与多 UE 慢事务成因分析  第六步结果与分析 (第六步结果与分析.md)  第六步规划 (../文献导读/第六步规划_尾时延与慢事务成因分析.md)  第六步启动命令 (../启动命令/第六步启动命令.md) \n 7 PF、EDF、M-LWDF、QUEST 的同程序强对照  第七步结果与分析 (第七步结果与分析.md)  第七步规划 (../文献导读/第七步规划_同程序强对照算法.md)  第七步启动命令 (../启动命令/第七步启动命令.md) \n 8 瓶颈驱动的单项优化设计与实现  第八步结果与分析 (第八步结果与分析.md)  第八步规划 (../文献导读/第八步规划_单项优化设计与实现.md)  第八步启动命令 (../启动命令/第八步启动命令.md) \n 9 新算法的配对重复效果验证  第九步结果与分析 (第九步结果与分析.md)  第九步规划 (../文献导读/第九步规划_新算法效果验证.md)  第九步启动命令 (../启动命令/第九步启动命令.md) \n 10 消融、资源代价与服务公平性  第十步结果与分析 (第十步结果与分析.md)  第十步规划 (../文献导读/第十步规划_消融资源代价与公平性.md)  第十步启动命令 (../启动命令/第十步启动命令.md) \n 11 跨配置、负载和 UE 数的稳健性验证  第十一步结果与分析 (第十一步结果与分析.md)  第十一步规划 (../文献导读/第十一步规划_跨场景稳健性验证.md)  第十一步启动命令 (../启动命令/第十一步启动命令.md) \n 12 论文证据、图表与可复现交付  第十二步结果与分析 (第十二步结果与分析.md)  第十二步规划 (../文献导读/第十二步规划_论文结果整理与研究收尾.md)  第十二步启动命令 (../启动命令/第十二步启动命令.md) \n\n   第一步的五项实验\n\n 实验 内容 对应入口 \n --- --- --- \n 1 原始源码与当前代码：统一用 ping 对照  进入实验 1 (第一步/1_源码与当前代码.md) \n 2 80 B 与 16 B 的 UDP 对比  进入实验 2 (第一步/2_80B与16B的UDP.md) \n 3 16 B 测量字段的 ping 与 UDP 对比  进入实验 3 (第一步/3_16B测量字段的ping与UDP.md) \n 4 各包长的 ping 与 UDP 对比  进入实验 4 (第一步/4_各包长的ping与UDP.md) \n 5 实验基线  进入实验 5 (第一步/5_实验基线.md) \n\n 第一步知识点 (../算法知识点说明/十二步知识点/第一步知识点.md) ·  第一步启动命令 (../启动命令/第一步启动命令.md)。\n\n   保留的原有分析与源码版本\n\n这些仍可阅读，保留原版本、失败案例和适用边界，不自动作为新版十二步的结果。\n\n-  原有 TDD 分析 (../五类时延分析/TDD_已做实验与错误案例.md)\n-  原有 SCS 分析 (../五类时延分析/SCS_已做实验与错误案例.md)\n-  原有多 UE 分析 (../五类时延分析/多UE_已做实验与错误案例.md)\n-  原有分层时延分析 (../五类时延分析/分层时延_已做实验与错误案例.md)\n-  原有尾时延分析 (../五类时延分析/尾时延_已做实验与错误案例.md)\n-  原始源码与当前版本 (../五类时延分析/原始源码与当前研究版本_修改问题与影响.md)\n\n 返回十二步规划总目录 (../文献导读/算法实验规划_通信RTT与时延优化.md) ·  查看启动命令总目录 (../启动命令/启动命令总目录.md)。\n"
+      "search": "  研究结果与分析总目录\n\n我从这里进入十二步结果。第一步按五项实验汇总，逐项说明已测和未完成状态；第二至十二步仍未执行。原有五类历史分析和逐文件源码审计保留。\n\n   十二步结果与分析\n\n 步骤 本步主题 结果与分析 规划 启动命令 \n --- --- --- --- --- \n  1 (第一步结果与分析.md)  单 UE 场景与 PF 通信 RTT 基线 (第一步结果与分析.md)  第一步结果与分析 (第一步结果与分析.md)  第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)  第一步启动命令 (../启动命令/第一步启动命令.md) \n 2 多 UE PF 基线与负载竞争  第二步结果与分析 (第二步结果与分析.md)  第二步规划 (../文献导读/第二步规划_多UE_PF基线与负载竞争.md)  第二步启动命令 (../启动命令/第二步启动命令.md) \n 3 不同 TDD 配比与周期的时延分析  第三步结果与分析 (第三步结果与分析.md)  第三步规划 (../文献导读/第三步规划_TDD配比与周期分析.md)  第三步启动命令 (../启动命令/第三步启动命令.md) \n 4 不同 SCS 与资源条件的时延分析  第四步结果与分析 (第四步结果与分析.md)  第四步规划 (../文献导读/第四步规划_SCS与资源条件分析.md)  第四步启动命令 (../启动命令/第四步启动命令.md) \n 5 分层时延与请求—授权等待分解  第五步结果与分析 (第五步结果与分析.md)  第五步规划 (../文献导读/第五步规划_分层时延与授权等待分解.md)  第五步启动命令 (../启动命令/第五步启动命令.md) \n 6 尾时延与多 UE 慢事务成因分析  第六步结果与分析 (第六步结果与分析.md)  第六步规划 (../文献导读/第六步规划_尾时延与慢事务成因分析.md)  第六步启动命令 (../启动命令/第六步启动命令.md) \n 7 PF、EDF、M-LWDF、QUEST 的同程序强对照  第七步结果与分析 (第七步结果与分析.md)  第七步规划 (../文献导读/第七步规划_同程序强对照算法.md)  第七步启动命令 (../启动命令/第七步启动命令.md) \n 8 瓶颈驱动的单项优化设计与实现  第八步结果与分析 (第八步结果与分析.md)  第八步规划 (../文献导读/第八步规划_单项优化设计与实现.md)  第八步启动命令 (../启动命令/第八步启动命令.md) \n 9 新算法的配对重复效果验证  第九步结果与分析 (第九步结果与分析.md)  第九步规划 (../文献导读/第九步规划_新算法效果验证.md)  第九步启动命令 (../启动命令/第九步启动命令.md) \n 10 消融、资源代价与服务公平性  第十步结果与分析 (第十步结果与分析.md)  第十步规划 (../文献导读/第十步规划_消融资源代价与公平性.md)  第十步启动命令 (../启动命令/第十步启动命令.md) \n 11 跨配置、负载和 UE 数的稳健性验证  第十一步结果与分析 (第十一步结果与分析.md)  第十一步规划 (../文献导读/第十一步规划_跨场景稳健性验证.md)  第十一步启动命令 (../启动命令/第十一步启动命令.md) \n 12 论文证据、图表与可复现交付  第十二步结果与分析 (第十二步结果与分析.md)  第十二步规划 (../文献导读/第十二步规划_论文结果整理与研究收尾.md)  第十二步启动命令 (../启动命令/第十二步启动命令.md) \n\n   第一步：五个分项入口\n\n1.  原始源码与当前代码：统一用 ping 对照 (第一步/1_源码与当前代码.md)\n2.  80 B 与 16 B 的 UDP 对比 (第一步/2_80B与16B的UDP.md)\n3.  16 B 测量字段的 ping 与 UDP 对比 (第一步/3_16B测量字段的ping与UDP.md)\n4.  各包长的 ping 与 UDP 对比 (第一步/4_各包长的ping与UDP.md)\n5.  实验基线 (第一步/5_实验基线.md)\n\n   保留的原有分析与源码版本\n\n这些仍可阅读，保留原版本、失败案例和适用边界，不自动作为新版十二步的结果。\n\n-  原有 TDD 分析 (../五类时延分析/TDD_已做实验与错误案例.md)\n-  原有 SCS 分析 (../五类时延分析/SCS_已做实验与错误案例.md)\n-  原有多 UE 分析 (../五类时延分析/多UE_已做实验与错误案例.md)\n-  原有分层时延分析 (../五类时延分析/分层时延_已做实验与错误案例.md)\n-  原有尾时延分析 (../五类时延分析/尾时延_已做实验与错误案例.md)\n-  源码的完整差异与依据：直接进入实验1知识页 (../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md)\n\n 返回十二步规划总目录 (../文献导读/算法实验规划_通信RTT与时延优化.md) ·  查看启动命令总目录 (../启动命令/启动命令总目录.md)。\n"
     },
     {
       "id": "rf653ec47ec5d76fb",
@@ -1500,7 +1505,7 @@
       "parentTopic": "step-1-commands",
       "stepExperiment": 1,
       "commandStatus": "partial",
-      "sha256": "a582c85ed989f404109b0253283293866165ebdb87d1aa8af4c9f0d9e18bbc0c",
+      "sha256": "8a4c75365e3e6679562c931df0aea2d632bf14677530fd083d7dda090eef6ad2",
       "snapshot": "说明/启动命令/第一步/1_源码与当前代码.md",
       "redacted": false,
       "toc": [
@@ -1510,14 +1515,24 @@
           "level": 1
         },
         {
-          "id": "原始目录复测的命令与未完成项",
-          "title": "原始目录复测的命令与未完成项",
-          "level": 3
+          "id": "我原先使用的启动命令",
+          "title": "我原先使用的启动命令",
+          "level": 2
+        },
+        {
+          "id": "前一次实际执行的内容与原命令有什么区别",
+          "title": "前一次实际执行的内容与原命令有什么区别",
+          "level": 2
+        },
+        {
+          "id": "前一次失败记录怎么找",
+          "title": "前一次失败记录怎么找",
+          "level": 2
         }
       ],
-      "words": 797,
-      "minutes": 1,
-      "search": "  1. 原始源码与当前代码：统一用 ping 对照\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md) ·  启动命令 (1_源码与当前代码.md) ·  结果与分析 (../../研究结果与分析/第一步/1_源码与当前代码.md) ·  返回第一步启动命令 (../第一步启动命令.md)\n\n    原始目录复测的命令与未完成项\n\n实际执行并失败的是：\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\n/usr/bin/python3 -B research/latency-analysis/original-ping-v1/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/original-ping-20261112/pilot-01\nsudo -n /usr/bin/python3 -B research/latency-analysis/original-ping-v1/run.py /home/lbh/oiwireless/analysis-source-audit/original-ping-20261112/pilot-01\n   \n\n第二根  original-ping-v2/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/original-ping-20261112/pilot-02  已准备；启动请求被中断，无执行记录。收尾只读环境确认无活动 RAN / 实验资源，不把它写成已测。源目录的 12 个现有运行文件和两个配置已记录 SHA；两旧日志删除状态保留。复测结果与主要原因仍待后续实际运行和核验，不能拿历史五包均值替代。\n"
+      "words": 2243,
+      "minutes": 3,
+      "search": "  1. 原始源码与当前代码：统一用 ping 对照\n\n 规划 (../../文献导读/第一步/1_源码与当前代码.md) ·  知识点 (../../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md) ·  启动命令 (1_源码与当前代码.md) ·  结果与分析 (../../研究结果与分析/第一步/1_源码与当前代码.md) ·  返回第一步启动命令 (../第一步启动命令.md)\n\n   我原先使用的启动命令\n\n下面保留我提供的原命令，作为后续复测的参照。  这套原环境、原命令形态还没有在本轮重新跑通；不能把前面的隔离复测写成已经原样执行过这些命令。   现在先整理网页，不启动测试。\n\n先启动核心网：\n\n   bash\ncd ~/oiwireless/oiwireless-5gc-deploy\n./run-5gc.sh\n   \n\n启动基站：\n\n   bash\ncd ~/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build\nsudo ./nr-softmodem -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb1.sa.band261.fr2.66PRB.5slot.dpdk.conf --sa --rfsim --rfsimulator.serveraddr server\n   \n\n新开终端，进入同一构建目录后启动 UE：\n\n   bash\ncd ~/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build\nsudo ./nr-uesoftmodem --band 261 -C 27547560000 -r 66 --numerology 3 --ssb 301 --sa -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 192.168.10.1\n   \n\nUE 完成接入、用户面可用后，新开终端启动业务：\n\n   bash\nping 172.11.200.25 -I oaitun_ue1\n   \n\n这里的  192.168.10.1  是原命令中的 RFsim 服务端地址， 172.11.200.25  是原 ping 目标。两者用途不同，不能为了让命令看起来一致就相互替换；实际可达性仍待恢复测试时确认。\n\n   前一次实际执行的内容与原命令有什么区别\n\n 项目 我原先提供的命令 前一次隔离复测实际执行 \n --- --- --- \n 核心网 原部署目录的核心网 独立核心网副本，部署网段有重映射；不是没有核心网 \n gNB 参数 原程序、原配置； --sa --rfsim --rfsimulator.serveraddr server  复制原目录程序，读取复制后改部署 IP 的配置；上述三个参数相同 \n UE 无线参数 band 261、27547560000 Hz、66 PRB、numerology 3、SSB 301、增益 0/20、频偏补偿 这些参数相同，UE 配置文件直接复制 \n RFsim 连接  192.168.10.1  隔离网络中的  10.205.1.1 ；当时 TCP 已连接 \n 启动环境 原构建目录、原网络环境 复制运行文件到独立目录，指定模块加载目录，在网络命名空间内运行 \n ping  172.11.200.25 ，绑定  oaitun_ue1  计划用副本 UPF 的 TUN 地址、20 ms 间隔；因未接入，实际未执行业务 ping \n 等待接入 人工查看接入状态 脚本等待 TUN 配置完成，25 s 超时即停止 \n\n因此，前一次不是完整照搬我的原命令和原环境。现有日志不能证明无线参数抄错，也不能排除副本、网络隔离、启动节奏或运行环境造成失败。\n\n   前一次失败记录怎么找\n\n当时实际运行的编排命令为：\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\n/usr/bin/python3 -B research/latency-analysis/original-ping-v1/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/original-ping-20261112/pilot-01\nsudo -n /usr/bin/python3 -B research/latency-analysis/original-ping-v1/run.py /home/lbh/oiwireless/analysis-source-audit/original-ping-20261112/pilot-01\n   \n\n这两条用于追溯已经发生的失败，本页没有重新执行。完整子命令见本地该目录的  pilot-r1/traffic/commands.json ，阶段和超时见  status.json ，gNB/UE 输出见同目录日志。\n\n第二次只准备了增加  --continuous-tx  的诊断选项，启动请求被中断，无执行记录，不是已验证的解决办法。原始目录保持不变；后续是否照原环境复测，以恢复测试的指令为准。\n\n命令和配置身份核对属于工程记录，3GPP/新增数学推导不适用；没有据此修改 NR 字段或声称协议不合规。\n"
     },
     {
       "id": "r6c24398dc8adef7a",
@@ -1533,7 +1548,7 @@
       "parentTopic": "step-1-commands",
       "stepExperiment": 2,
       "commandStatus": "partial",
-      "sha256": "fcc1c45b91cc4c3d264196383cfbfa7183eb03ea4a4b45cc358b7b90c507383f",
+      "sha256": "750aba8c00dcd8ff7778c3b44af0cd853c4dd71139a3946d6c2983f4da14e71e",
       "snapshot": "说明/启动命令/第一步/2_80B与16B的UDP.md",
       "redacted": false,
       "toc": [
@@ -1548,9 +1563,9 @@
           "level": 4
         }
       ],
-      "words": 1234,
+      "words": 1272,
       "minutes": 2,
-      "search": "  2. 80 B 与 16 B 的 UDP 对比\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/2_80B与16B的UDP.md) ·  启动命令 (2_80B与16B的UDP.md) ·  结果与分析 (../../研究结果与分析/第一步/2_80B与16B的UDP.md) ·  返回第一步启动命令 (../第一步启动命令.md)\n\n旧 80 B 三轮的真实准备/运行命令如下。新 16 B 三轮来自第 4 项完整编排，按 case 选择 udp-256；不能把已创建命名空间的内部子命令当成可独立运行的新实验。严格只改变测量格式的受控对照尚无已执行命令。\n\n     已实际执行的检查与完整启动命令\n\n以下是本次历史命令，  现有实验根禁止重新运行或覆盖  。下次重测必须另选不存在的输出根，并重新核协议、资源与冻结输入；不能只修改旧根的数据。\n\n   bash\n  本机探针/反例自测，exit 0\n/usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/selftest.py\n  准备先导并冻结输入，随后完整启动：均已执行\n/usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/pilot-03\nsudo -n /usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/run.py /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/pilot-03\n  准备正式三轮并完整启动：均已执行\n/usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/prepare.py --kind main --output /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/main-01\nsudo -n /usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/run.py /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/main-01\n   \n\n成功标志： CASE_PASS main-r1 、 CASE_PASS main-r2 、 CASE_PASS main-r3 ，进程 exit 0，根  runtime.json  中  complete_plan = true 、 original_core_unchanged = true 。不能仅凭 gNB 的  RF started  当作业务通过。\n"
+      "search": "  2. 80 B 与 16 B 的 UDP 对比\n\n 规划 (../../文献导读/第一步/2_80B与16B的UDP.md) ·  知识点 (../../算法知识点说明/十二步知识点/第一步/2_80B与16B的UDP.md) ·  启动命令 (2_80B与16B的UDP.md) ·  结果与分析 (../../研究结果与分析/第一步/2_80B与16B的UDP.md) ·  返回第一步启动命令 (../第一步启动命令.md)\n\n旧 80 B 三轮的真实准备/运行命令如下。新 16 B 三轮来自第 4 项完整编排，按 case 选择 udp-256；不能把已创建命名空间的内部子命令当成可独立运行的新实验。严格只改变测量格式的受控对照尚无已执行命令。\n\n     已实际执行的检查与完整启动命令\n\n以下是本次历史命令，  现有实验根禁止重新运行或覆盖  。下次重测必须另选不存在的输出根，并重新核协议、资源与冻结输入；不能只修改旧根的数据。\n\n   bash\n  本机探针/反例自测，exit 0\n/usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/selftest.py\n  准备先导并冻结输入，随后完整启动：均已执行\n/usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/pilot-03\nsudo -n /usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/run.py /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/pilot-03\n  准备正式三轮并完整启动：均已执行\n/usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/prepare.py --kind main --output /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/main-01\nsudo -n /usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/run.py /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/main-01\n   \n\n成功标志： CASE_PASS main-r1 、 CASE_PASS main-r2 、 CASE_PASS main-r3 ，进程 exit 0，根  runtime.json  中  complete_plan = true 、 original_core_unchanged = true 。不能仅凭 gNB 的  RF started  当作业务通过。\n"
     },
     {
       "id": "r500ca0e1a471a51d",
@@ -1566,7 +1581,7 @@
       "parentTopic": "step-1-commands",
       "stepExperiment": 3,
       "commandStatus": "partial",
-      "sha256": "21782e1ba5a79dc5f086e2db39c6442534d2264bef36ec332f556357d1e0891a",
+      "sha256": "43d14b4afaff0ad35649e1027460c8b7976bf8d7c34dbeda9a31bc5560c2fa44",
       "snapshot": "说明/启动命令/第一步/3_16B测量字段的ping与UDP.md",
       "redacted": false,
       "toc": [
@@ -1576,9 +1591,9 @@
           "level": 1
         }
       ],
-      "words": 263,
+      "words": 306,
       "minutes": 1,
-      "search": "  3. 16 B 测量字段的 ping 与 UDP 对比\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/3_16B测量字段的ping与UDP.md) ·  启动命令 (3_16B测量字段的ping与UDP.md) ·  结果与分析 (../../研究结果与分析/第一步/3_16B测量字段的ping与UDP.md) ·  返回第一步启动命令 (../第一步启动命令.md)\n\n既有 256 B ping/UDP 六轮由第 4 项同一完整矩阵运行，未额外执行。本机各自 16 B 测量字段不等于数据总长 16 B；如后者才是目标，则没有可冒称已验证的启动命令或结果。\n"
+      "search": "  3. 16 B 测量字段的 ping 与 UDP 对比\n\n 规划 (../../文献导读/第一步/3_16B测量字段的ping与UDP.md) ·  知识点 (../../算法知识点说明/十二步知识点/第一步/3_16B测量字段的ping与UDP.md) ·  启动命令 (3_16B测量字段的ping与UDP.md) ·  结果与分析 (../../研究结果与分析/第一步/3_16B测量字段的ping与UDP.md) ·  返回第一步启动命令 (../第一步启动命令.md)\n\n既有 256 B ping/UDP 六轮由第 4 项同一完整矩阵运行，未额外执行。本机各自 16 B 测量字段不等于数据总长 16 B；如后者才是目标，则没有可冒称已验证的启动命令或结果。\n"
     },
     {
       "id": "rf8ac5c7891d35660",
@@ -1594,7 +1609,7 @@
       "parentTopic": "step-1-commands",
       "stepExperiment": 4,
       "commandStatus": "validated",
-      "sha256": "40de97f524cc593001ee8bde78f82bb37dcf5eb29b660364e948a1e67d660032",
+      "sha256": "38fecabe6be4cd4f17d74896884806e62422040789980a78e6291cba570ba360",
       "snapshot": "说明/启动命令/第一步/4_各包长的ping与UDP.md",
       "redacted": false,
       "toc": [
@@ -1614,9 +1629,9 @@
           "level": 4
         }
       ],
-      "words": 1696,
+      "words": 1735,
       "minutes": 3,
-      "search": "  4. 各包长的 ping 与 UDP 对比\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md) ·  启动命令 (4_各包长的ping与UDP.md) ·  结果与分析 (../../研究结果与分析/第一步/4_各包长的ping与UDP.md) ·  返回第一步启动命令 (../第一步启动命令.md)\n\n     新六条件：已执行的准备与短测命令\n\n在研究仓库根执行以下命令，v2 先导 exit 0、六条件全部通过；输出根已经存在，禁止重新 prepare 或覆盖。v1 首次先导失败记录保留在  pilot-01 ，不能与本轮混用。固定周期与抓包关联已实现；正式三轮也已全部执行并通过独立统计复核。\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\n/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/selftest.py\n/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/pilot-02\nsudo -n /usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/run.py /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/pilot-02\n   \n\n     新六条件：已执行的正式三轮与复核命令\n\n以下命令已实际执行、exit 0； main-01  已结束，不能重复运行或覆盖。下次重测需全新根，并重新核对协议、环境与冻结输入。\n\n   bash\n/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/prepare.py --kind main --output /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01\nsudo -n /usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/run.py /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01\n/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-results/aggregate.py /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01 --output /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01-checked\n   \n\n18 条件、39600 完整 / 36000 统计事务与 2308 冻结输入均核验通过，耗时 1163.408 s（包括全部编排与回收）。结果见 第一步结果与分析 (../../研究结果与分析/第一步结果与分析.md)，规则和条件见 第一步规划 (../../文献导读/第一步规划_单UE通信RTT基线.md)。图表生成与发布脚本在研究树  step1-ping-udp-results/ ，不得反复覆盖已发布数据根。\n"
+      "search": "  4. 各包长的 ping 与 UDP 对比\n\n 规划 (../../文献导读/第一步/4_各包长的ping与UDP.md) ·  知识点 (../../算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md) ·  启动命令 (4_各包长的ping与UDP.md) ·  结果与分析 (../../研究结果与分析/第一步/4_各包长的ping与UDP.md) ·  返回第一步启动命令 (../第一步启动命令.md)\n\n     新六条件：已执行的准备与短测命令\n\n在研究仓库根执行以下命令，v2 先导 exit 0、六条件全部通过；输出根已经存在，禁止重新 prepare 或覆盖。v1 首次先导失败记录保留在  pilot-01 ，不能与本轮混用。固定周期与抓包关联已实现；正式三轮也已全部执行并通过独立统计复核。\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\n/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/selftest.py\n/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/pilot-02\nsudo -n /usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/run.py /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/pilot-02\n   \n\n     新六条件：已执行的正式三轮与复核命令\n\n以下命令已实际执行、exit 0； main-01  已结束，不能重复运行或覆盖。下次重测需全新根，并重新核对协议、环境与冻结输入。\n\n   bash\n/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/prepare.py --kind main --output /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01\nsudo -n /usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/run.py /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01\n/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-results/aggregate.py /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01 --output /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01-checked\n   \n\n18 条件、39600 完整 / 36000 统计事务与 2308 冻结输入均核验通过，耗时 1163.408 s（包括全部编排与回收）。结果见 第一步结果与分析 (../../研究结果与分析/第一步结果与分析.md)，规则和条件见 第一步规划 (../../文献导读/第一步规划_单UE通信RTT基线.md)。图表生成与发布脚本在研究树  step1-ping-udp-results/ ，不得反复覆盖已发布数据根。\n"
     },
     {
       "id": "r30567e028cc2d6df",
@@ -1632,7 +1647,7 @@
       "parentTopic": "step-1-commands",
       "stepExperiment": 5,
       "commandStatus": "validated",
-      "sha256": "def4b6969b09355b372ce8adeecc81be336a54eee24f9f2a354cb3eaf7b8a37c",
+      "sha256": "cd0eb0784fdaecbf464eeb5e3d8a76a219c1735e0b39e200cf7f6311c13ff706",
       "snapshot": "说明/启动命令/第一步/5_实验基线.md",
       "redacted": false,
       "toc": [
@@ -1642,12 +1657,222 @@
           "level": 1
         }
       ],
-      "words": 429,
+      "words": 460,
       "minutes": 1,
-      "search": "  5. 实验基线\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/5_实验基线.md) ·  启动命令 (5_实验基线.md) ·  结果与分析 (../../研究结果与分析/第一步/5_实验基线.md) ·  返回第一步启动命令 (../第一步启动命令.md)\n\n基线为第 4 项三个 udp-256 条件的既有子集，不再启动一套重复实验。在阅读站根只读查看：\n\n   bash\ncd /home/lbh/oiwireless/5g-latency-research-reader\npython3 -m json.tool 说明/研究结果与分析/数据/第一步_当前UDP256B基线.json\n   \n\n 第一步知识点 (../../算法知识点说明/十二步知识点/第一步知识点.md) ·  第一步规划 (../../文献导读/第一步规划_单UE通信RTT基线.md) ·  第一步结果与分析 (../../研究结果与分析/第一步结果与分析.md) ·  返回命令总目录 (../启动命令总目录.md)。\n"
+      "search": "  5. 实验基线\n\n 规划 (../../文献导读/第一步/5_实验基线.md) ·  知识点 (../../算法知识点说明/十二步知识点/第一步/5_实验基线.md) ·  启动命令 (5_实验基线.md) ·  结果与分析 (../../研究结果与分析/第一步/5_实验基线.md) ·  返回第一步启动命令 (../第一步启动命令.md)\n\n基线为第 4 项三个 udp-256 条件的既有子集，不再启动一套重复实验。在阅读站根只读查看：\n\n   bash\ncd /home/lbh/oiwireless/5g-latency-research-reader\npython3 -m json.tool 说明/研究结果与分析/数据/第一步_当前UDP256B基线.json\n   \n\n 第一步知识点 (../../算法知识点说明/十二步知识点/第一步知识点.md) ·  第一步规划 (../../文献导读/第一步规划_单UE通信RTT基线.md) ·  第一步结果与分析 (../../研究结果与分析/第一步结果与分析.md) ·  返回命令总目录 (../启动命令总目录.md)。\n"
+    },
+    {
+      "id": "rb8ae22ec167ca8ca",
+      "title": "1. 原始源码与当前代码：统一用 ping 对照",
+      "source": "说明/文献导读/第一步/1_源码与当前代码.md",
+      "aliases": [
+        "说明/文献导读/第一步/1_源码与当前代码.md"
+      ],
+      "group": "guides",
+      "topic": "step-1-experiment-1-plans",
+      "prerequisite": false,
+      "documentRole": "plans",
+      "parentTopic": "step-1-plan",
+      "stepExperiment": 1,
+      "sha256": "6435a6170088d03d8244bfc05cc8ac45e218f0e35b82a943b77a71f3acf5cbf6",
+      "snapshot": "说明/文献导读/第一步/1_源码与当前代码.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "1-原始源码与当前代码统一用-ping-对照",
+          "title": "1. 原始源码与当前代码：统一用 ping 对照",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我要做的工作",
+          "title": "我要做的工作",
+          "level": 2
+        },
+        {
+          "id": "当前进度与验收边界",
+          "title": "当前进度与验收边界",
+          "level": 2
+        }
+      ],
+      "words": 460,
+      "minutes": 1,
+      "search": "  1. 原始源码与当前代码：统一用 ping 对照\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md) ·  启动命令 (../../启动命令/第一步/1_源码与当前代码.md) ·  结果与分析 (../../研究结果与分析/第一步/1_源码与当前代码.md) ·  返回第一步规划 (../第一步规划_单UE通信RTT基线.md)\n\n   我的目标\n\n我用同一种 ping 工具比较原始和当前 RAN，分清代码/二进制身份、启动配置与测量条件，避免同时更换工具后把差异都算给源码。\n\n   我要做的工作\n\n- 先恢复并验证原始版本UE接入，保留当前失败位置和根因未确定状态。\n- 固定工具、目标地址、包长、发包规律、时钟与统计口径，再比较两个版本。\n- 记录源码、运行二进制和配置身份；不把历史五包均值与新大样本P99直接比较。\n\n   当前进度与验收边界\n\n两版本均用同一种 ping；原始 UE 接入失败，原始 RTT 仍待补。本页是已有工作安排的拆分，未在本次启动或重做实验。具体数据、失败和来源由上方同号结果/知识页保留，不能把计划写成已经完成。\n"
+    },
+    {
+      "id": "r3058d26016f0835b",
+      "title": "2. 80 B 与 16 B 的 UDP 对比",
+      "source": "说明/文献导读/第一步/2_80B与16B的UDP.md",
+      "aliases": [
+        "说明/文献导读/第一步/2_80B与16B的UDP.md"
+      ],
+      "group": "guides",
+      "topic": "step-1-experiment-2-plans",
+      "prerequisite": false,
+      "documentRole": "plans",
+      "parentTopic": "step-1-plan",
+      "stepExperiment": 2,
+      "sha256": "853e005a85d5dfcae3e47bc9d5e98b5501c7389320a105fa411c566c109b6ae6",
+      "snapshot": "说明/文献导读/第一步/2_80B与16B的UDP.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "2-80-b-与-16-b-的-udp-对比",
+          "title": "2. 80 B 与 16 B 的 UDP 对比",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我要做的工作",
+          "title": "我要做的工作",
+          "level": 2
+        },
+        {
+          "id": "当前进度与验收边界",
+          "title": "当前进度与验收边界",
+          "level": 2
+        }
+      ],
+      "words": 483,
+      "minutes": 1,
+      "search": "  2. 80 B 与 16 B 的 UDP 对比\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/2_80B与16B的UDP.md) ·  启动命令 (../../启动命令/第一步/2_80B与16B的UDP.md) ·  结果与分析 (../../研究结果与分析/第一步/2_80B与16B的UDP.md) ·  返回第一步规划 (../第一步规划_单UE通信RTT基线.md)\n\n   我的目标\n\n我在总 UDP 数据长度相同的条件下，比较 80 B 与 16 B 测量格式的字段、日志能力和已有时延记录；只有控制其他条件后才讨论头部本身的作用。\n\n   我要做的工作\n\n- 核对固定256 B时80+176和16+240的字节构成，保留时间戳/序号范围差别。\n- 已有指数到达与周期到达两批分别展示，不以差值冒充单变量收益。\n- 受控A/B需相同发包时刻、总数据长度和观察口径，仅改变测量格式；尚未完成。\n\n   当前进度与验收边界\n\n总数据固定 256 B，分别用 80/16 B 测量头；现有输入不同，受控 A/B 待补。本页是已有工作安排的拆分，未在本次启动或重做实验。具体数据、失败和来源由上方同号结果/知识页保留，不能把计划写成已经完成。\n"
+    },
+    {
+      "id": "rb789e32114a812e9",
+      "title": "3. 16 B 测量字段的 ping 与 UDP 对比",
+      "source": "说明/文献导读/第一步/3_16B测量字段的ping与UDP.md",
+      "aliases": [
+        "说明/文献导读/第一步/3_16B测量字段的ping与UDP.md"
+      ],
+      "group": "guides",
+      "topic": "step-1-experiment-3-plans",
+      "prerequisite": false,
+      "documentRole": "plans",
+      "parentTopic": "step-1-plan",
+      "stepExperiment": 3,
+      "sha256": "8a507f67e33e67f00e15237989f87f82bdd095ad011405265fbe44da5eed07eb",
+      "snapshot": "说明/文献导读/第一步/3_16B测量字段的ping与UDP.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "3-16-b-测量字段的-ping-与-udp-对比",
+          "title": "3. 16 B 测量字段的 ping 与 UDP 对比",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我要做的工作",
+          "title": "我要做的工作",
+          "level": 2
+        },
+        {
+          "id": "当前进度与验收边界",
+          "title": "当前进度与验收边界",
+          "level": 2
+        }
+      ],
+      "words": 489,
+      "minutes": 1,
+      "search": "  3. 16 B 测量字段的 ping 与 UDP 对比\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/3_16B测量字段的ping与UDP.md) ·  启动命令 (../../启动命令/第一步/3_16B测量字段的ping与UDP.md) ·  结果与分析 (../../研究结果与分析/第一步/3_16B测量字段的ping与UDP.md) ·  返回第一步规划 (../第一步规划_单UE通信RTT基线.md)\n\n   我的目标\n\n我先写清 16 B 的含义，再比较两工具的回复处理和计时边界。当前暂按16 B测量字段、256 B数据区整理；不能拿现有记录称为16 B数据包实验。\n\n   我要做的工作\n\n- 明确是测量字段还是数据总长；两者不能混写。\n- 当前按相同256 B数据区读取各工具RTT，并用共同TUN边界辅助对照。\n- 记录实际间隔和内核/应用回显差异；如要16 B数据区，另行准备新条件，当前未测。\n\n   当前进度与验收边界\n\n暂以两工具各 16 B 测量字段、总数据 256 B 整理；不是 16 B 数据包实测。本页是已有工作安排的拆分，未在本次启动或重做实验。具体数据、失败和来源由上方同号结果/知识页保留，不能把计划写成已经完成。\n"
+    },
+    {
+      "id": "rac275cfd2ab5bc23",
+      "title": "4. 各包长的 ping 与 UDP 对比",
+      "source": "说明/文献导读/第一步/4_各包长的ping与UDP.md",
+      "aliases": [
+        "说明/文献导读/第一步/4_各包长的ping与UDP.md"
+      ],
+      "group": "guides",
+      "topic": "step-1-experiment-4-plans",
+      "prerequisite": false,
+      "documentRole": "plans",
+      "parentTopic": "step-1-plan",
+      "stepExperiment": 4,
+      "sha256": "5097aa5b8102a7571e5b5313184b6d45cfc5332e334d487a848b793ae70583f6",
+      "snapshot": "说明/文献导读/第一步/4_各包长的ping与UDP.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "4-各包长的-ping-与-udp-对比",
+          "title": "4. 各包长的 ping 与 UDP 对比",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我要做的工作",
+          "title": "我要做的工作",
+          "level": 2
+        },
+        {
+          "id": "当前进度与验收边界",
+          "title": "当前进度与验收边界",
+          "level": 2
+        }
+      ],
+      "words": 467,
+      "minutes": 1,
+      "search": "  4. 各包长的 ping 与 UDP 对比\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md) ·  启动命令 (../../启动命令/第一步/4_各包长的ping与UDP.md) ·  结果与分析 (../../研究结果与分析/第一步/4_各包长的ping与UDP.md) ·  返回第一步规划 (../第一步规划_单UE通信RTT基线.md)\n\n   我的目标\n\n我把工具选择和包长影响分开看：先比相同包长的ping/UDP，再比同一种工具下的56、256、1200 B。\n\n   我要做的工作\n\n- 保留现有六种工具/包长组合，每组合三轮，共18条件。\n- 核对预热、事务关联、TUN/N3路径和真实QoS，再逐轮报告分位数。\n- 展示实际发送间隔；固定包率下大包也提高字节负载，不宣称排除了负载影响。\n\n   当前进度与验收边界\n\nping / UDP 各 56/256/1200 B，三轮，共18条件；报告原生与共同TUN边界。本页是已有工作安排的拆分，未在本次启动或重做实验。具体数据、失败和来源由上方同号结果/知识页保留，不能把计划写成已经完成。\n"
+    },
+    {
+      "id": "ra666202722368c68",
+      "title": "5. 实验基线",
+      "source": "说明/文献导读/第一步/5_实验基线.md",
+      "aliases": [
+        "说明/文献导读/第一步/5_实验基线.md"
+      ],
+      "group": "guides",
+      "topic": "step-1-experiment-5-plans",
+      "prerequisite": false,
+      "documentRole": "plans",
+      "parentTopic": "step-1-plan",
+      "stepExperiment": 5,
+      "sha256": "a796398f4313e18e301adca8efe3bf0d8b00db52e04fce38e92bac7153a1baad",
+      "snapshot": "说明/文献导读/第一步/5_实验基线.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "5-实验基线",
+          "title": "5. 实验基线",
+          "level": 1
+        },
+        {
+          "id": "我的目标",
+          "title": "我的目标",
+          "level": 2
+        },
+        {
+          "id": "我要做的工作",
+          "title": "我要做的工作",
+          "level": 2
+        },
+        {
+          "id": "当前进度与验收边界",
+          "title": "当前进度与验收边界",
+          "level": 2
+        }
+      ],
+      "words": 427,
+      "minutes": 1,
+      "search": "  5. 实验基线\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/5_实验基线.md) ·  启动命令 (../../启动命令/第一步/5_实验基线.md) ·  结果与分析 (../../研究结果与分析/第一步/5_实验基线.md) ·  返回第一步规划 (../第一步规划_单UE通信RTT基线.md)\n\n   我的目标\n\n我选择一套后续能够保持一致的基线，记录参数、业务、版本和测量边界；基线是参照，不是新优化收益。\n\n   我要做的工作\n\n- 沿用第4项中UDP256的三轮既有样本，不重复启动或累计运行次数。\n- 固定参数、业务与验收要求详见本项知识页，实际记录和只读查看命令见同号页面。\n- 后续多UE、TDD、SCS等比较保持统一口径；新增改变继续写CHG/TEST和来源。\n\n   当前进度与验收边界\n\n选第4项UDP256三轮作后续参照，不新增运行/计数。本页是已有工作安排的拆分，未在本次启动或重做实验。具体数据、失败和来源由上方同号结果/知识页保留，不能把计划写成已经完成。\n"
     }
   ],
-  "formulas": 112,
+  "formulas": 122,
   "mathErrors": [],
   "imageCount": 0,
   "warnings": [],

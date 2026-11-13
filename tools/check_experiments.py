@@ -31,7 +31,7 @@ def main():
     step_numbers = sorted(int(p['researchStep'].removeprefix('step-')) for p in plans)
     assert step_numbers == list(range(1, len(plans) + 1)), 'Plan steps must be unique and contiguous'
     assert len(manifest) == len({d['topic'] for d in manifest}), 'Duplicate result topic'
-    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'source-changes'} | {p['researchStep'] for p in plans} | {f'step-1-experiment-{i}-results' for i in range(1,6)}
+    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail'} | {p['researchStep'] for p in plans} | {f'step-1-experiment-{i}-results' for i in range(1,6)}
     for plan in plans:
         matches = [d for d in manifest if d.get('researchStep') == plan['researchStep']]
         assert len(matches) == 1 and matches[0]['planTopic'] == plan['topic'], plan['source']
@@ -87,14 +87,6 @@ def main():
         assert d['sha256'] == sha(ROOT / item['source']) and d['snapshot'] == item['source']
         assert d['experimentStage'] == item['topic'] and cat['experimentStages'][item['topic']] == d['id']
         p = payload(d['id']); html = p['html']
-        if item['topic'] == 'source-changes':
-            assert html.count('<table') >= 4 and '383aa52a' in html and '61654513d5' in html
-            assert '不是全部时延结果都已重测' in html
-            assert '原始源码与当前研究版本' in d['search'] and '私有 HOL' in d['search']
-            assert 'FORMULAHOLDER' not in html and '#/local' not in html
-            page_checks.append({'id': d['id'], 'title': d['title'], 'kind': 'source-review',
-                                'canonicalSourceSHA': d['sha256']})
-            continue
         if item.get('status') == 'not-started':
             assert d['status'] == 'not-started'
             assert '尚未执行，暂无结果与分析' in html
@@ -120,6 +112,12 @@ def main():
         if item.get('researchStep') == 'step-1':
             assert d['status'] == item['status'] == 'partial'
             assert d['subexperiments'] == [1,2,3,4,5]
+            source_knowledge=next(x for x in docs.values() if x.get('documentRole')=='knowledge' and x.get('stepExperiment')==1)
+            source_html=payload(source_knowledge['id'])['html']
+            tables=re.findall(r'<table>.*?</table>',source_html,re.S)
+            source_table=next(t for t in tables if '源码文件（相对研究树）' in t)
+            assert source_table.count('<tr>')==42
+            assert '1796' in source_html and '161' in source_html and '不是全部时延结果都已重测' in source_html
             children=sorted([x for x in docs.values() if x.get('parentTopic')=='step-1' and x.get('documentRole')=='results'],key=lambda x:x['stepExperiment'])
             assert [x['stepExperiment'] for x in children]==[1,2,3,4,5]
             assert all('#/doc/'+x['id'] in html for x in children)

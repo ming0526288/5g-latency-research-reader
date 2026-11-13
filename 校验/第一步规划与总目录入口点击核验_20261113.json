@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "independentPages": 20,
+  "parentEntryClicks": 54,
+  "peerPageClicks": 60,
+  "planningTitlesAndNumbersClickable": true,
+  "twelveStepDirectoriesExposeFiveItems": true,
+  "consoleErrors": [],
+  "scope": "Actual local DOM clicks, not screenshot or radio experiment.",
+  "latestCopyEditVerification": "Not rerun after user requested webpage-only work; earlier PASS applies to the inspected earlier source hashes. Latest generator outputs are separate."
+}

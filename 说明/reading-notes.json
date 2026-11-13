@@ -220,6 +220,41 @@
       "parentTopic": "step-1-commands",
       "stepExperiment": 5,
       "commandStatus": "validated"
+    },
+    {
+      "source": "说明/文献导读/第一步/1_源码与当前代码.md",
+      "topic": "step-1-experiment-1-plans",
+      "documentRole": "plans",
+      "parentTopic": "step-1-plan",
+      "stepExperiment": 1
+    },
+    {
+      "source": "说明/文献导读/第一步/2_80B与16B的UDP.md",
+      "topic": "step-1-experiment-2-plans",
+      "documentRole": "plans",
+      "parentTopic": "step-1-plan",
+      "stepExperiment": 2
+    },
+    {
+      "source": "说明/文献导读/第一步/3_16B测量字段的ping与UDP.md",
+      "topic": "step-1-experiment-3-plans",
+      "documentRole": "plans",
+      "parentTopic": "step-1-plan",
+      "stepExperiment": 3
+    },
+    {
+      "source": "说明/文献导读/第一步/4_各包长的ping与UDP.md",
+      "topic": "step-1-experiment-4-plans",
+      "documentRole": "plans",
+      "parentTopic": "step-1-plan",
+      "stepExperiment": 4
+    },
+    {
+      "source": "说明/文献导读/第一步/5_实验基线.md",
+      "topic": "step-1-experiment-5-plans",
+      "documentRole": "plans",
+      "parentTopic": "step-1-plan",
+      "stepExperiment": 5
     }
   ]
 }

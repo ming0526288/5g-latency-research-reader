@@ -42,12 +42,6 @@
       "canonicalSourceSHA": "62ab382b9b3d7607b4bbd3db393109eaa605e1c1e457a7c53cf9198be1955161"
     },
     {
-      "id": "e4c1f2a8800000006",
-      "title": "原始源码与当前研究版本：修改、问题与影响",
-      "kind": "source-review",
-      "canonicalSourceSHA": "6d0109b2e883f19ca5cc6aba314e54be43730bab328d14bde15f4225326624d8"
-    },
-    {
       "id": "ede23798813389995",
       "kind": "first-step-five-numbered-experiments",
       "status": "partial",
@@ -64,7 +58,7 @@
       "additionalRuns": 0,
       "originalPingRTTAvailable": false,
       "controlledHeaderABComplete": false,
-      "canonicalSourceSHA": "3fefa83c9722c9d7ba995a617ca8d1f3723672235defe3dd27733b5bdcdab126"
+      "canonicalSourceSHA": "eafb0c98f234e8642d38420c4212b0b1b8f52bc16249ed595e06f22c27a5aa8a"
     },
     {
       "id": "e6e9701a5fd751eec",
@@ -137,36 +131,37 @@
       "kind": "numbered-result-interface",
       "experiment": 1,
       "status": "partial",
-      "canonicalSourceSHA": "8e4b6eab2e1d606000e19713edcf549f35cba741aff06874d63df1e576d30ff2"
+      "canonicalSourceSHA": "4823ae51f3bd481569451bcb6c608776ab347da07376fd538e2e0828871aa999"
     },
     {
       "id": "ee1f9e357eb51f364",
       "kind": "numbered-result-interface",
       "experiment": 2,
       "status": "partial",
-      "canonicalSourceSHA": "8c3f19837fc0760b93c4abdaf60303d741444f0a10699825cb56ae47812e7549"
+      "canonicalSourceSHA": "5322dfdf11fe8ac9f7fa1aaaef37dce288d26707a108737bbd461af697a9d951"
     },
     {
       "id": "e14543603b9f4fd10",
       "kind": "numbered-result-interface",
       "experiment": 3,
       "status": "partial",
-      "canonicalSourceSHA": "8c27527a65fdac4d9c8b2f6faa4cc59750ea67e00a98aa3a50d4d5f41d6a9f92"
+      "canonicalSourceSHA": "ab81c51ca6ba2d2de9f89faba0ccb2f3829621356cece200f28dc59d068f9660"
     },
     {
       "id": "ef1a4c35417d53e6e",
       "kind": "numbered-result-interface",
       "experiment": 4,
       "status": "complete",
-      "canonicalSourceSHA": "be91ba9bfcf63a95a14634a5c35fc1c03eceea6b8b5bb4e6a4edcb3c54415dda"
+      "canonicalSourceSHA": "7a1619bbe4b83035c56087a68968f418c00516f56e56741a4cc06f5e793eb71a"
     },
     {
       "id": "e9b27ab61d49c9e38",
       "kind": "numbered-result-interface",
       "experiment": 5,
       "status": "complete",
-      "canonicalSourceSHA": "1fae934a4d3ff94b765b35a921f1b77928744d3408836c9eb5c06f460d45ad40"
+      "canonicalSourceSHA": "251d161c48bbd35f987b792af06cc01aa046c83bd4800d9b06f65796595df4ec"
     }
   ],
-  "scope": "Portable aggregate/hash/link/identity checks; no new experiment or raw packet statistical recomputation."
+  "scope": "Portable aggregate/hash/link/identity checks; no new experiment or raw packet statistical recomputation.",
+  "latestCopyEditVerification": "Not rerun after user requested webpage-only work; earlier PASS applies to the inspected earlier source hashes. Latest generator outputs are separate."
 }

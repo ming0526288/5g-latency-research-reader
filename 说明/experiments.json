@@ -27,11 +27,6 @@
       "source": "说明/五类时延分析/尾时延_已做实验与错误案例.md"
     },
     {
-      "id": "e4c1f2a8800000006",
-      "topic": "source-changes",
-      "source": "说明/五类时延分析/原始源码与当前研究版本_修改问题与影响.md"
-    },
-    {
       "source": "说明/研究结果与分析/第一步结果与分析.md",
       "topic": "step-1",
       "researchStep": "step-1",
@@ -165,6 +160,7 @@
   ],
   "redirects": {
     "e9eb3f4e896afc1bd": "step-1",
-    "ef0a33e120c19cc7f": "step-1"
+    "ef0a33e120c19cc7f": "step-1",
+    "e4c1f2a8800000006": "step-1-experiment-1-knowledge"
   }
 }
