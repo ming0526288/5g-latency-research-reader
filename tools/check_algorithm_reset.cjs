@@ -53,7 +53,9 @@ async function waitFor(fn,label){for(let i=0;i<500;i++){if(fn())return;await tic
  assert.deepEqual(Object.keys(published.experimentStages).filter(topic=>!published.docs.find(x=>x.id===published.experimentStages[topic]).parentTopic),['tdd','scs','multi-ue','layers','tail',...allStepPlans.map(p=>p.researchStep),'original-startup-diagnosis']);
  const resultHeading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='研究结果与分析'),resultLinks=[];
  for(let el=resultHeading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)resultLinks.push(el);
- assert.deepEqual(resultLinks.map(el=>{const copy=el.cloneNode(true);copy.querySelector('.nav-icon')?.remove();return copy.textContent.trim();}),['结果与分析总目录']);assert.equal(resultLinks[0].getAttribute('href'),'#/doc/'+resultsIndex.id);
+ assert.deepEqual(resultLinks.map(el=>{const copy=el.cloneNode(true);copy.querySelector('.nav-icon')?.remove();return copy.textContent.trim();}),['结果与分析总目录','启动失败原因与排查过程']);assert.equal(resultLinks[0].getAttribute('href'),'#/doc/'+resultsIndex.id);
+ const diagnosis=published.docs.find(doc=>doc.topic==='original-startup-diagnosis');assert(diagnosis);assert.equal(resultLinks[1].getAttribute('href'),'#/doc/'+diagnosis.id);assert.equal(resultLinks[0].parentElement,resultLinks[1].parentElement);
+ resultLinks[1].click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===diagnosis.source,'sidebar peer diagnosis');assert(d.querySelector('#sidebar a.active[href="#/doc/'+diagnosis.id+'"]'));assert(!d.querySelector('#sidebar a.active[href="#/doc/'+resultsIndex.id+'"]'));
  const stepPlanUrl='#/doc/'+stepPlan.id,stepResultUrl='#/doc/'+stepResult.id;
  await fromHub(plan,stepPlan);
  assert(d.querySelector('.article').textContent.includes('我的第一步目标'));d.querySelector('.article a[href="'+stepResultUrl+'"]').click();await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===stepResult.source,'empty step result');

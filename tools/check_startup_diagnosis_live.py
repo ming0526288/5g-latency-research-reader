@@ -35,7 +35,9 @@ def main():
         get('打开阅读站.html')
         if '网页/bootstrap.js' in index:
             get('网页/bootstrap.js')
-        get('网页/app.js')
+        app = get('网页/app.js')
+        assert "planningByTopic('original-startup-diagnosis')" in app or "d.topic==='original-startup-diagnosis'" in app
+        assert "nav(docUrl(startupDiagnosis),'↗','启动失败原因与排查过程')" in app
         raw = get('网页/catalog.js')
         catalog = json.loads(raw.split('window.READER_CATALOG=', 1)[1].strip().rstrip(';'))
         topic = {doc.get('topic'): doc for doc in catalog['docs'] if doc.get('topic')}
@@ -52,7 +54,8 @@ def main():
             assert term in pages[detail['id']]['html'], term
         report.update(status='PASS', hub_id=hub['id'], detail_id=detail['id'],
                       detail_title=detail['title'], direct_route='#/doc/' + detail['id'],
-                      hub_contains_link=True, first_result_contains_link=True)
+                      hub_contains_link=True, first_result_contains_link=True,
+                      sidebar_peer_entry_code_served=True)
     except Exception as error:
         report.update(status='FAIL', error_type=type(error).__name__, error=str(error))
     args.output.parent.mkdir(parents=True, exist_ok=True)

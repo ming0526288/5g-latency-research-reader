@@ -24,6 +24,12 @@
     "id": "efe8187b2c435dc86",
     "hubAndFirstResultClicks": 4,
     "searchable": true,
-    "visibleCommitHashesRemoved": true
+    "visibleCommitHashesRemoved": true,
+    "sidebarSiblingEntry": {
+      "belowResultsIndex": true,
+      "sameParentAndLevel": true,
+      "clickOpensIndependentPage": true,
+      "onlyOwnEntryActive": true
+    }
   }
 }
