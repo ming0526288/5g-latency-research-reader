@@ -156,6 +156,12 @@
       "parentTopic": "step-1",
       "stepExperiment": 5,
       "status": "complete"
+    },
+    {
+      "source": "说明/研究结果与分析/原始程序启动失败_原因定位与控制变量全过程.md",
+      "topic": "original-startup-diagnosis",
+      "independentExperiment": "original-startup-diagnosis",
+      "status": "completed-with-scope"
     }
   ],
   "redirects": {

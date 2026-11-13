@@ -31,7 +31,7 @@ def main():
     step_numbers = sorted(int(p['researchStep'].removeprefix('step-')) for p in plans)
     assert step_numbers == list(range(1, len(plans) + 1)), 'Plan steps must be unique and contiguous'
     assert len(manifest) == len({d['topic'] for d in manifest}), 'Duplicate result topic'
-    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail'} | {p['researchStep'] for p in plans} | {f'step-1-experiment-{i}-results' for i in range(1,6)}
+    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'original-startup-diagnosis'} | {p['researchStep'] for p in plans} | {f'step-1-experiment-{i}-results' for i in range(1,6)}
     for plan in plans:
         matches = [d for d in manifest if d.get('researchStep') == plan['researchStep']]
         assert len(matches) == 1 and matches[0]['planTopic'] == plan['topic'], plan['source']
@@ -87,6 +87,34 @@ def main():
         assert d['sha256'] == sha(ROOT / item['source']) and d['snapshot'] == item['source']
         assert d['experimentStage'] == item['topic'] and cat['experimentStages'][item['topic']] == d['id']
         p = payload(d['id']); html = p['html']
+        if item['topic'] == 'original-startup-diagnosis':
+            controls = read(ROOT/'说明/研究结果与分析/数据/第一步_原始程序启动控制变量.json')
+            trials = controls['formal_trials']
+            assert len(trials) == controls['formal_count'] == 12
+            assert controls['older_retained'] == 19
+            assert d['group'] == 'research' and d['status'] == 'completed-with-scope'
+            assert 'researchStep' not in d and 'stepExperiment' not in d
+            assert len(d['toc']) >= 15 and html.count('<table') >= 10
+            for phrase in ['固定', '第三次是关键反例', '19 份现场记录', '4/4',
+                           '原 C 代码本次没有修改', '17.023', '0.820673',
+                           '自然启动失败率', '没有重新启动核心网']:
+                assert phrase in html, phrase
+            example = next(t for t in trials if t['outcome'] == 'PRE_SYNC_WAIT')
+            for side in ['gnb', 'ue']:
+                s = example['waiting_samples'][side]
+                assert s['next_rx'] + s['requested_samples'] - s['last_received'] == s['shortfall']
+                assert all(str(v) in html for v in s.values())
+            assert '#/local' not in html and not re.search(r'\b[0-9a-f]{40,64}\b', H.unescape(re.sub('<[^>]*>', '', html)))
+            hub = next(x for x in docs.values() if x.get('topic') == 'research-results-index')
+            first = next(x for x in docs.values() if x.get('topic') == 'step-1-experiment-1-results')
+            assert all('#/doc/' + d['id'] in payload(x['id'])['html'] for x in [hub, first])
+            assert all('#/doc/' + x['id'] in html for x in [hub, first])
+            assert all(term in d['search'] for term in ['采样', '核心网', '控制变量', '原因'])
+            page_checks.append({'id': d['id'], 'kind': 'controlled-startup-diagnosis',
+                                'formalTrials': 12, 'olderRetained': 19,
+                                'hubAndFirstResultMutualLinks': True, 'newRadioExperiments': 0,
+                                'canonicalSourceSHA': d['sha256']})
+            continue
         if item.get('status') == 'not-started':
             assert d['status'] == 'not-started'
             assert '尚未执行，暂无结果与分析' in html

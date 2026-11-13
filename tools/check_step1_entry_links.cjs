@@ -55,7 +55,21 @@ async function until(fn,label){for(let i=0;i<300;i++){if(fn())return;await delay
  const resultText=d.querySelector('.article').textContent;
  for(const value of ['1.701862','1.812801','1.842844','0.820673','0.817807','17.000000','未进入业务','8703','启动相位'])assert(resultText.includes(value));
  assert(!/383aa52a|61654513|159208eb/.test(resultText));
+ const diagnosis=byTopic('original-startup-diagnosis'),hub=byTopic('research-results-index');assert(diagnosis&&hub);
+ let diagnosisClicks=0;
+ for(const origin of [hub,sourceResult]){
+  await open(origin);const a=d.querySelector('.article a[href="'+url(diagnosis)+'"]');assert(a,'Missing detailed diagnosis entry');a.click();
+  await until(()=>d.querySelector('.source-label')?.getAttribute('title')===diagnosis.source,'detailed diagnosis');diagnosisClicks++;
+  const body=d.querySelector('.article').textContent;
+  for(const term of ['第三次是关键反例','19 份现场记录','506928','522207','8703','连续供样','没有重新启动核心网'])assert(body.includes(term));
+  assert(!/\b[0-9a-f]{40,64}\b/.test(body));assert(d.querySelectorAll('.article table').length>=10);
+  const back=d.querySelector('.article a[href="'+url(origin)+'"]');assert(back);back.click();
+  await until(()=>d.querySelector('.source-label')?.getAttribute('title')===origin.source,'diagnosis return');diagnosisClicks++;
+ }
+ d.querySelector('#searchButton').click();const query=d.querySelector('#searchInput');query.value='原因定位与控制变量全过程';query.dispatchEvent(new w.Event('input',{bubbles:true}));
+ await until(()=>d.querySelector('.search-result[href="'+url(diagnosis)+'"]'),'diagnosis search');d.querySelector('#closeSearch').click();
  assert.deepEqual(errors,[]);
  const report={status:'PASS',independentPages:20,parentEntryClicks:entryClicks,peerPageClicks:peerClicks,planningTitlesAndNumbersClickable:true,twelveStepDirectoriesExposeFiveItems:true,fullSourceRows:41,oldStandaloneSourceRedirects:true,visibleCommitHashesRemoved:true,controlledStartupFormalTrials:12,controlledPhaseMatrixValidated:true,originalPingValidated:true,originalPingCompleteTransactions:13320,originalPingStatisticalTransactions:12110,currentPingThreeRepeatMeans:[1.701862,1.812801,1.842844],consoleErrors:errors,scope:'Actual local DOM clicks, not screenshot or radio experiment.'};
+ report.detailedDiagnosis={id:diagnosis.id,hubAndFirstResultClicks:diagnosisClicks,searchable:true,visibleCommitHashesRemoved:true};
  fs.writeFileSync(path.join(root,'校验/第一步规划与总目录入口点击核验_20261113.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));w.close();
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});

@@ -136,7 +136,7 @@
       "kind": "numbered-result-interface",
       "experiment": 1,
       "status": "partial",
-      "canonicalSourceSHA": "3c69f0849f3d5c13b7a97be86a00221a3addcbfff6469d0d2c69e6f29001fd42"
+      "canonicalSourceSHA": "c5f6ce2c2ac5be21f87e583b02effda198ce93c23d078dfb064fdc2fe76602a6"
     },
     {
       "id": "ee1f9e357eb51f364",
@@ -165,6 +165,15 @@
       "experiment": 5,
       "status": "complete",
       "canonicalSourceSHA": "251d161c48bbd35f987b792af06cc01aa046c83bd4800d9b06f65796595df4ec"
+    },
+    {
+      "id": "efe8187b2c435dc86",
+      "kind": "controlled-startup-diagnosis",
+      "formalTrials": 12,
+      "olderRetained": 19,
+      "hubAndFirstResultMutualLinks": true,
+      "newRadioExperiments": 0,
+      "canonicalSourceSHA": "0948bb907b2bd5267e01de8c0f8a35450d2013d8d79d18526a5e9fd0db076465"
     }
   ],
   "scope": "Portable aggregate/hash/link/identity checks; no new experiment or raw packet statistical recomputation."

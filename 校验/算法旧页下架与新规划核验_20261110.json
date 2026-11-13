@@ -10,7 +10,7 @@
   ],
   "restoredSourceAndPayloadHashes": true,
   "oldRoutesChecked": 10,
-  "publishedDocuments": 1150,
+  "publishedDocuments": 1151,
   "newPlan": {
     "id": "r9add2badaf2ad40d",
     "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
@@ -57,7 +57,8 @@
     "step-1-experiment-2-results",
     "step-1-experiment-3-results",
     "step-1-experiment-4-results",
-    "step-1-experiment-5-results"
+    "step-1-experiment-5-results",
+    "original-startup-diagnosis"
   ],
   "sidebarAndHome": true,
   "searchAndBookmarkFiltering": true,
@@ -65,6 +66,5 @@
   "coreKnowledgeRetained": 32,
   "papersAndProtocolsRetained": true,
   "consoleErrors": [],
-  "scope": "Offline DOM publication checks; five original analyses restored without editing data; no wireless experiment or screenshot/layout certification.",
-  "latestCopyEditVerification": "Not rerun after user requested webpage-only work; earlier PASS applies to the inspected earlier source hashes. Latest generator outputs are separate."
+  "scope": "Offline DOM publication checks; five original analyses restored without editing data; no wireless experiment or screenshot/layout certification."
 }

@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "page": {
+    "id": "efe8187b2c435dc86",
+    "title": "原始程序为什么有时启动失败：原因定位与控制变量全过程",
+    "source": "说明/研究结果与分析/原始程序启动失败_原因定位与控制变量全过程.md",
+    "sha256": "0948bb907b2bd5267e01de8c0f8a35450d2013d8d79d18526a5e9fd0db076465",
+    "status": "completed-with-scope"
+  },
+  "newRadioExperiments": 0,
+  "priorFormalTrials": 12,
+  "priorOlderRetained": 19,
+  "static": {
+    "algorithm_document_links": 32,
+    "algorithm_families": 4,
+    "document_routes": 10535,
+    "paper_routes": 10571,
+    "documents": 1275,
+    "protocol_routes": 7279,
+    "page_routes": 3641,
+    "offline_resources": 252,
+    "protocol_clause_requires_keyword_fallback": 23,
+    "legacy_heading_links_with_fallback": 573,
+    "pdf_originals": 40,
+    "protocol_parts": 35,
+    "protocol_archives": 27,
+    "total_files": 3247,
+    "total_bytes": 708978003
+  },
+  "clicks": {
+    "status": "PASS",
+    "independentPages": 20,
+    "parentEntryClicks": 54,
+    "peerPageClicks": 60,
+    "planningTitlesAndNumbersClickable": true,
+    "twelveStepDirectoriesExposeFiveItems": true,
+    "fullSourceRows": 41,
+    "oldStandaloneSourceRedirects": true,
+    "visibleCommitHashesRemoved": true,
+    "controlledStartupFormalTrials": 12,
+    "controlledPhaseMatrixValidated": true,
+    "originalPingValidated": true,
+    "originalPingCompleteTransactions": 13320,
+    "originalPingStatisticalTransactions": 12110,
+    "currentPingThreeRepeatMeans": [
+      1.701862,
+      1.812801,
+      1.842844
+    ],
+    "consoleErrors": [],
+    "scope": "Actual local DOM clicks, not screenshot or radio experiment.",
+    "detailedDiagnosis": {
+      "id": "efe8187b2c435dc86",
+      "hubAndFirstResultClicks": 4,
+      "searchable": true,
+      "visibleCommitHashesRemoved": true
+    }
+  },
+  "scope": "New detailed result page, links, search, aggregates and publication checks. No new radio test or screenshot."
+}
