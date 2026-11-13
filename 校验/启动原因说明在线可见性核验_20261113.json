@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "base_url": "http://127.0.0.1:8765/",
+  "resources": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "sha256": "de46afe7532282964041a889fe714fdcf02baba3770cb31532302d341f66f3b8",
+      "matches_checkout": true,
+      "cache_control": "no-cache, max-age=0, must-revalidate"
+    },
+    {
+      "path": "打开阅读站.html",
+      "status": 200,
+      "sha256": "de46afe7532282964041a889fe714fdcf02baba3770cb31532302d341f66f3b8",
+      "matches_checkout": true,
+      "cache_control": "no-cache, max-age=0, must-revalidate"
+    },
+    {
+      "path": "网页/bootstrap.js",
+      "status": 200,
+      "sha256": "11fece98bf0582bc08923e0f3d7efd8f088f12e65275af502d6bf53038a34713",
+      "matches_checkout": true,
+      "cache_control": "no-cache, max-age=0, must-revalidate"
+    },
+    {
+      "path": "网页/app.js",
+      "status": 200,
+      "sha256": "d533f3a8478972ca457949c41bb45d07a7b327aaec495309f703baa4eaf253f8",
+      "matches_checkout": true,
+      "cache_control": "no-cache, max-age=0, must-revalidate"
+    },
+    {
+      "path": "网页/catalog.js",
+      "status": 200,
+      "sha256": "e0ed12b3347ef2a8c8291f395c302b656008c5d92feb3ab3e95066fa5d0b5feb",
+      "matches_checkout": true,
+      "cache_control": "no-cache, max-age=0, must-revalidate"
+    },
+    {
+      "path": "网页/data/rb5713cc3fde44187.js",
+      "status": 200,
+      "sha256": "7e6343a0c6be668e04c4015c10f134f5c017dddcc9bfa07730755e6a8f8df218",
+      "matches_checkout": true,
+      "cache_control": "no-cache, max-age=0, must-revalidate"
+    },
+    {
+      "path": "网页/data/efe8187b2c435dc86.js",
+      "status": 200,
+      "sha256": "4beb74eab79e5191eb317bd01f9a682eae9366f42ff2cf1b647414aa7c124153",
+      "matches_checkout": true,
+      "cache_control": "no-cache, max-age=0, must-revalidate"
+    },
+    {
+      "path": "网页/data/eb7cf5197fc52463c.js",
+      "status": 200,
+      "sha256": "bc9d6ebd2a9633e926e3e691772fd3d802874f58c755c3998459fc452ebef0e5",
+      "matches_checkout": true,
+      "cache_control": "no-cache, max-age=0, must-revalidate"
+    }
+  ],
+  "scope": "Live server bytes and routes; does not identify the user browser or diagnose its cache.",
+  "hub_id": "rb5713cc3fde44187",
+  "detail_id": "efe8187b2c435dc86",
+  "detail_title": "原始程序为什么有时启动失败：原因定位与控制变量全过程",
+  "direct_route": "#/doc/efe8187b2c435dc86",
+  "hub_contains_link": true,
+  "first_result_contains_link": true
+}
