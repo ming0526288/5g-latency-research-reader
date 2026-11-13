@@ -8,6 +8,8 @@
   "fullSourceRows": 41,
   "oldStandaloneSourceRedirects": true,
   "visibleCommitHashesRemoved": true,
+  "controlledStartupFormalTrials": 12,
+  "controlledPhaseMatrixValidated": true,
   "originalPingValidated": true,
   "originalPingCompleteTransactions": 13320,
   "originalPingStatisticalTransactions": 12110,

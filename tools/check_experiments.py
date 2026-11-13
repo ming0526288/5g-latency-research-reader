@@ -164,6 +164,15 @@ def main():
                 for case in record['cases'][1:]:
                     assert all(f'{v:.6f}' in html for k,v in case['tool_RTT_ms'].items() if k in ['mean','p99','max'])
             assert original['original_default']['cases'][-1]['tool_RTT_ms']['max']==17.0
+            controls=read(ROOT/'说明/研究结果与分析/数据/第一步_原始程序启动控制变量.json')
+            assert controls['formal_count']==12 and len(controls['formal_trials'])==12
+            assert [(x['phase'],x['continuous'],x['valid_trials'],x['pre_sync_wait'],x['attached_ping_ok']) for x in controls['matrix']]==[
+                ('d0_end',False,4,4,0),('mixed_dl_end',False,4,0,4),('d0_end',True,4,0,4)]
+            assert all(x['valid_control'] and x['children_stopped'] and x['original_files_unchanged'] for x in controls['formal_trials'])
+            for x in controls['formal_trials']:
+                if x['outcome']=='PRE_SYNC_WAIT':
+                    assert x['waiting_samples']['gnb']['shortfall']==65 and x['waiting_samples']['ue']['shortfall']==8703
+            assert '8703' in html and '65' in html and '启动相位' in html
             page_checks.append({'id':d['id'], 'kind':'first-step-five-numbered-experiments',
                 'status':'partial','subexperiments':[1,2,3,4,5], 'formal18Transactions':39600,
                 'formal18Statistical':36000,'baselineRunsReused':3,'additionalRuns':0,

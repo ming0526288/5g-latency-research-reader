@@ -1,0 +1,709 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "matrix": [
+    {
+      "phase": "d0_end",
+      "continuous": false,
+      "valid_trials": 4,
+      "pre_sync_wait": 4,
+      "attached_ping_ok": 0
+    },
+    {
+      "phase": "mixed_dl_end",
+      "continuous": false,
+      "valid_trials": 4,
+      "pre_sync_wait": 0,
+      "attached_ping_ok": 4
+    },
+    {
+      "phase": "d0_end",
+      "continuous": true,
+      "valid_trials": 4,
+      "pre_sync_wait": 0,
+      "attached_ping_ok": 4
+    }
+  ],
+  "formal_trials": [
+    {
+      "batch": "phase-main-03",
+      "case": "case-01",
+      "phase": "d0_end",
+      "continuous": false,
+      "outcome": "PRE_SYNC_WAIT",
+      "actual_frame_sample": 476176,
+      "read_frame_completed": false,
+      "attached": false,
+      "original_files_unchanged": true,
+      "valid_control": true,
+      "children_stopped": true,
+      "waiting_samples": {
+        "gnb": {
+          "next_rx": 491520,
+          "requested_samples": 15408,
+          "last_received": 506863,
+          "shortfall": 65
+        },
+        "ue": {
+          "next_rx": 506863,
+          "requested_samples": 15344,
+          "last_received": 513504,
+          "shortfall": 8703
+        }
+      },
+      "affinity": {
+        "gnb": {
+          "ru_thread": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "ue": {
+          "UEthread_0": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "batch": "phase-main-03",
+      "case": "case-02",
+      "phase": "mixed_dl_end",
+      "continuous": false,
+      "outcome": "ATTACHED_PING_OK",
+      "actual_frame_sample": 436720,
+      "read_frame_completed": true,
+      "attached": true,
+      "original_files_unchanged": true,
+      "valid_control": true,
+      "children_stopped": true,
+      "ping_replies": 5,
+      "N3_QFI": {
+        "type1_qfi0": 5,
+        "type0_qfi9": 5
+      },
+      "affinity": {
+        "gnb": {
+          "ru_thread": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "ue": {
+          "UEthread_0": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "batch": "phase-main-03",
+      "case": "case-03",
+      "phase": "mixed_dl_end",
+      "continuous": false,
+      "outcome": "ATTACHED_PING_OK",
+      "actual_frame_sample": 667072,
+      "read_frame_completed": true,
+      "attached": true,
+      "original_files_unchanged": true,
+      "valid_control": true,
+      "children_stopped": true,
+      "ping_replies": 5,
+      "N3_QFI": {
+        "type1_qfi0": 5,
+        "type0_qfi9": 5
+      },
+      "affinity": {
+        "gnb": {
+          "ru_thread": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "ue": {
+          "UEthread_0": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "batch": "phase-main-03",
+      "case": "case-04",
+      "phase": "d0_end",
+      "continuous": false,
+      "outcome": "PRE_SYNC_WAIT",
+      "actual_frame_sample": 552960,
+      "read_frame_completed": false,
+      "attached": false,
+      "original_files_unchanged": true,
+      "valid_control": true,
+      "children_stopped": true,
+      "waiting_samples": {
+        "gnb": {
+          "next_rx": 568368,
+          "requested_samples": 15344,
+          "last_received": 583647,
+          "shortfall": 65
+        },
+        "ue": {
+          "next_rx": 583647,
+          "requested_samples": 15344,
+          "last_received": 590288,
+          "shortfall": 8703
+        }
+      },
+      "affinity": {
+        "gnb": {
+          "ru_thread": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "ue": {
+          "UEthread_0": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "batch": "phase-main-03",
+      "case": "case-05",
+      "phase": "mixed_dl_end",
+      "continuous": false,
+      "outcome": "ATTACHED_PING_OK",
+      "actual_frame_sample": 436720,
+      "read_frame_completed": true,
+      "attached": true,
+      "original_files_unchanged": true,
+      "valid_control": true,
+      "children_stopped": true,
+      "ping_replies": 5,
+      "N3_QFI": {
+        "type1_qfi0": 5,
+        "type0_qfi9": 5
+      },
+      "affinity": {
+        "gnb": {
+          "ru_thread": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "ue": {
+          "UEthread_0": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "batch": "phase-main-03",
+      "case": "case-06",
+      "phase": "d0_end",
+      "continuous": false,
+      "outcome": "PRE_SYNC_WAIT",
+      "actual_frame_sample": 476176,
+      "read_frame_completed": false,
+      "attached": false,
+      "original_files_unchanged": true,
+      "valid_control": true,
+      "children_stopped": true,
+      "waiting_samples": {
+        "gnb": {
+          "next_rx": 491520,
+          "requested_samples": 15408,
+          "last_received": 506863,
+          "shortfall": 65
+        },
+        "ue": {
+          "next_rx": 506863,
+          "requested_samples": 15344,
+          "last_received": 513504,
+          "shortfall": 8703
+        }
+      },
+      "affinity": {
+        "gnb": {
+          "ru_thread": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "ue": {
+          "UEthread_0": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "batch": "phase-main-03",
+      "case": "case-07",
+      "phase": "d0_end",
+      "continuous": false,
+      "outcome": "PRE_SYNC_WAIT",
+      "actual_frame_sample": 476176,
+      "read_frame_completed": false,
+      "attached": false,
+      "original_files_unchanged": true,
+      "valid_control": true,
+      "children_stopped": true,
+      "waiting_samples": {
+        "gnb": {
+          "next_rx": 491520,
+          "requested_samples": 15408,
+          "last_received": 506863,
+          "shortfall": 65
+        },
+        "ue": {
+          "next_rx": 506863,
+          "requested_samples": 15344,
+          "last_received": 513504,
+          "shortfall": 8703
+        }
+      },
+      "affinity": {
+        "gnb": {
+          "ru_thread": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "ue": {
+          "UEthread_0": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "batch": "phase-main-03",
+      "case": "case-08",
+      "phase": "mixed_dl_end",
+      "continuous": false,
+      "outcome": "ATTACHED_PING_OK",
+      "actual_frame_sample": 436720,
+      "read_frame_completed": true,
+      "attached": true,
+      "original_files_unchanged": true,
+      "valid_control": true,
+      "children_stopped": true,
+      "ping_replies": 5,
+      "N3_QFI": {
+        "type1_qfi0": 5,
+        "type0_qfi9": 5
+      },
+      "affinity": {
+        "gnb": {
+          "ru_thread": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "ue": {
+          "UEthread_0": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "batch": "continuous-main-02",
+      "case": "case-01",
+      "phase": "d0_end",
+      "continuous": true,
+      "outcome": "ATTACHED_PING_OK",
+      "actual_frame_sample": 476176,
+      "read_frame_completed": true,
+      "attached": true,
+      "original_files_unchanged": true,
+      "valid_control": true,
+      "children_stopped": true,
+      "ping_replies": 5,
+      "N3_QFI": {
+        "type1_qfi0": 5,
+        "type0_qfi9": 5
+      },
+      "affinity": {
+        "gnb": {
+          "ru_thread": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "ue": {
+          "UEthread_0": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "batch": "continuous-main-02",
+      "case": "case-02",
+      "phase": "d0_end",
+      "continuous": true,
+      "outcome": "ATTACHED_PING_OK",
+      "actual_frame_sample": 706592,
+      "read_frame_completed": true,
+      "attached": true,
+      "original_files_unchanged": true,
+      "valid_control": true,
+      "children_stopped": true,
+      "ping_replies": 5,
+      "N3_QFI": {
+        "type1_qfi0": 5,
+        "type0_qfi9": 5
+      },
+      "affinity": {
+        "gnb": {
+          "ru_thread": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "ue": {
+          "UEthread_0": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "batch": "continuous-main-02",
+      "case": "case-03",
+      "phase": "d0_end",
+      "continuous": true,
+      "outcome": "ATTACHED_PING_OK",
+      "actual_frame_sample": 552960,
+      "read_frame_completed": true,
+      "attached": true,
+      "original_files_unchanged": true,
+      "valid_control": true,
+      "children_stopped": true,
+      "ping_replies": 5,
+      "N3_QFI": {
+        "type1_qfi0": 5,
+        "type0_qfi9": 5
+      },
+      "affinity": {
+        "gnb": {
+          "ru_thread": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "ue": {
+          "UEthread_0": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "batch": "continuous-main-02",
+      "case": "case-04",
+      "phase": "d0_end",
+      "continuous": true,
+      "outcome": "ATTACHED_PING_OK",
+      "actual_frame_sample": 937008,
+      "read_frame_completed": true,
+      "attached": true,
+      "original_files_unchanged": true,
+      "valid_control": true,
+      "children_stopped": true,
+      "ping_replies": 5,
+      "N3_QFI": {
+        "type1_qfi0": 5,
+        "type0_qfi9": 5
+      },
+      "affinity": {
+        "gnb": {
+          "ru_thread": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "ue": {
+          "UEthread_0": [
+            4
+          ]
+        }
+      }
+    }
+  ],
+  "formal_count": 12,
+  "older_retained": 19,
+  "fixed": {
+    "core": "same original AMF/SMF/UPF containers, images and start time",
+    "RAN": "same original binaries/config",
+    "PRB": 66,
+    "SCS_kHz": 120,
+    "TDD": "0.625ms, 3D + mixed6D4F4U + 1U",
+    "rfsim": "127.0.0.1",
+    "affinity": {
+      "gnb": {
+        "ru_thread": [
+          0,
+          1,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ]
+      },
+      "ue": {
+        "UEthread_0": [
+          4
+        ]
+      }
+    }
+  },
+  "endpoint": "startup read/synchronization/access; 5-ping probes not latency optimization trials",
+  "scope": "Controlled original-core single-UE 120kHz RFsim startup. GDB pause/step intervention is common to formal groups; 5-ping probes are not formal latency improvement data. No original C/config/data changes.",
+  "inference": "Phase-dependent circular sample wait under original segmented supply, supported by controlled phase/continuous comparisons. Does not establish all historical failures or guarantee every phase/platform."
+}
