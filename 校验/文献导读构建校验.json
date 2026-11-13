@@ -344,7 +344,7 @@
       "topic": "step-1-plan",
       "prerequisite": false,
       "researchStep": "step-1",
-      "sha256": "4fee9efaa1e50c9fe29cddce185aa96ff32b98544e88b0e74c95fdc2347a05ce",
+      "sha256": "70b1d68b3c6f3b5733ad48164f600fcc88d61622fdd9f657f567c79e8f4e54a2",
       "snapshot": "说明/文献导读/第一步规划_单UE通信RTT基线.md",
       "redacted": false,
       "toc": [
@@ -369,9 +369,9 @@
           "level": 2
         }
       ],
-      "words": 1910,
+      "words": 1906,
       "minutes": 3,
-      "search": "  第一步规划\n\n  我的第一步是按下面五项梳理通信测量方法与实验基线。   第 4、5 项已有数据，第 1、2 项尚未完成严格对照；第 3 项明确 16 B 的含义后引用对应工具记录，不冒称测过 16 B 数据包。此次只重排已有工作，没有新增实验。\n\n   我的第一步目标\n\n用相同编号把知识、命令、结果接起来，确认代码、包内容、工具、包长与计时边界各自怎样影响比较。机械臂和汽车装配作为业务背景，本步只分析通信，不处理视觉或机械动作。\n\n 实验 子规划（点击标题） 知识点 启动命令 结果与分析 当前边界 \n --- --- --- --- --- --- \n  1 (第一步/1_源码与当前代码.md)  原始源码与当前代码：统一用 ping 对照 (第一步/1_源码与当前代码.md)  知识点 (../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md)  命令 (../启动命令/第一步/1_源码与当前代码.md)  结果 (../研究结果与分析/第一步/1_源码与当前代码.md) 两版本均用同一种 ping；原始 UE 接入失败，原始 RTT 仍待补 \n  2 (第一步/2_80B与16B的UDP.md)  80 B 与 16 B 的 UDP 对比 (第一步/2_80B与16B的UDP.md)  知识点 (../算法知识点说明/十二步知识点/第一步/2_80B与16B的UDP.md)  命令 (../启动命令/第一步/2_80B与16B的UDP.md)  结果 (../研究结果与分析/第一步/2_80B与16B的UDP.md) 总数据固定 256 B，分别用 80/16 B 测量头；现有输入不同，受控 A/B 待补 \n  3 (第一步/3_16B测量字段的ping与UDP.md)  16 B 测量字段的 ping 与 UDP 对比 (第一步/3_16B测量字段的ping与UDP.md)  知识点 (../算法知识点说明/十二步知识点/第一步/3_16B测量字段的ping与UDP.md)  命令 (../启动命令/第一步/3_16B测量字段的ping与UDP.md)  结果 (../研究结果与分析/第一步/3_16B测量字段的ping与UDP.md) 暂以两工具各 16 B 测量字段、总数据 256 B 整理；不是 16 B 数据包实测 \n  4 (第一步/4_各包长的ping与UDP.md)  各包长的 ping 与 UDP 对比 (第一步/4_各包长的ping与UDP.md)  知识点 (../算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md)  命令 (../启动命令/第一步/4_各包长的ping与UDP.md)  结果 (../研究结果与分析/第一步/4_各包长的ping与UDP.md) ping / UDP 各 56/256/1200 B，三轮，共18条件；报告原生与共同TUN边界 \n  5 (第一步/5_实验基线.md)  实验基线 (第一步/5_实验基线.md)  知识点 (../算法知识点说明/十二步知识点/第一步/5_实验基线.md)  命令 (../启动命令/第一步/5_实验基线.md)  结果 (../研究结果与分析/第一步/5_实验基线.md) 选第4项UDP256三轮作后续参照，不新增运行/计数 \n\n   本步固定的测量要求\n\n先核原文/版本/配置，排除路由旁路，核同一事务编号和时钟，再逐轮计算 RTT、分段和分位数。P99不相加，不把不同输入的两批差值解释成单变量收益。第3/4/5项共享的当前版本工作点为120 kHz/n261/66 PRB、PF、实际5QI9/QFI9、单UE RFsim；第1项原始程序配置单独记身份，不自动套同一启动参数。完整取值见结果第4/5项。\n\n   我的依据\n\nTS38.211 V19.5.0 §4.2/4.3.2、TS38.213 V19.5.0 §11.1/9.2.4、TS38.331 V19.4.0 §6.3.2、TS38.214 V19.5.0 §6.1.2.1/6.4、TS38.321 V19.4.0 §5.4.1/5.4.4/5.4.5、TS38.104 V20.1.0 §5.3.2/5.3.5只约束相关过程/字段，不指定本项目五项实验或测量头尺寸。P01本地PDF2–4页§III–IV、教材第2章PDF49–55页沿路径/测量背景引用。缺所需原文立即停止，现有版本不冒称官网最高。\n\n 第一步知识点 (../算法知识点说明/十二步知识点/第一步知识点.md) ·  第一步启动命令 (../启动命令/第一步启动命令.md) ·  第一步结果与分析 (../研究结果与分析/第一步结果与分析.md) ·  返回总规划 (算法实验规划_通信RTT与时延优化.md)。\n"
+      "search": "  第一步规划\n\n  我的第一步是按下面五项梳理通信测量方法与实验基线。   第 4、5 项已有数据，第 1、2 项尚未完成严格对照；第 3 项明确 16 B 的含义后引用对应工具记录，不冒称测过 16 B 数据包。此次只重排已有工作，没有新增实验。\n\n   我的第一步目标\n\n用相同编号把知识、命令、结果接起来，确认代码、包内容、工具、包长与计时边界各自怎样影响比较。机械臂和汽车装配作为业务背景，本步只分析通信，不处理视觉或机械动作。\n\n 实验 子规划（点击标题） 知识点 启动命令 结果与分析 当前边界 \n --- --- --- --- --- --- \n  1 (第一步/1_源码与当前代码.md)  原始源码与当前代码：统一用 ping 对照 (第一步/1_源码与当前代码.md)  知识点 (../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md)  命令 (../启动命令/第一步/1_源码与当前代码.md)  结果 (../研究结果与分析/第一步/1_源码与当前代码.md) 原始程序已在原核心网测通；严格版本 A/B 仍需对齐条件 \n  2 (第一步/2_80B与16B的UDP.md)  80 B 与 16 B 的 UDP 对比 (第一步/2_80B与16B的UDP.md)  知识点 (../算法知识点说明/十二步知识点/第一步/2_80B与16B的UDP.md)  命令 (../启动命令/第一步/2_80B与16B的UDP.md)  结果 (../研究结果与分析/第一步/2_80B与16B的UDP.md) 总数据固定 256 B，分别用 80/16 B 测量头；现有输入不同，受控 A/B 待补 \n  3 (第一步/3_16B测量字段的ping与UDP.md)  16 B 测量字段的 ping 与 UDP 对比 (第一步/3_16B测量字段的ping与UDP.md)  知识点 (../算法知识点说明/十二步知识点/第一步/3_16B测量字段的ping与UDP.md)  命令 (../启动命令/第一步/3_16B测量字段的ping与UDP.md)  结果 (../研究结果与分析/第一步/3_16B测量字段的ping与UDP.md) 暂以两工具各 16 B 测量字段、总数据 256 B 整理；不是 16 B 数据包实测 \n  4 (第一步/4_各包长的ping与UDP.md)  各包长的 ping 与 UDP 对比 (第一步/4_各包长的ping与UDP.md)  知识点 (../算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md)  命令 (../启动命令/第一步/4_各包长的ping与UDP.md)  结果 (../研究结果与分析/第一步/4_各包长的ping与UDP.md) ping / UDP 各 56/256/1200 B，三轮，共18条件；报告原生与共同TUN边界 \n  5 (第一步/5_实验基线.md)  实验基线 (第一步/5_实验基线.md)  知识点 (../算法知识点说明/十二步知识点/第一步/5_实验基线.md)  命令 (../启动命令/第一步/5_实验基线.md)  结果 (../研究结果与分析/第一步/5_实验基线.md) 选第4项UDP256三轮作后续参照，不新增运行/计数 \n\n   本步固定的测量要求\n\n先核原文/版本/配置，排除路由旁路，核同一事务编号和时钟，再逐轮计算 RTT、分段和分位数。P99不相加，不把不同输入的两批差值解释成单变量收益。第3/4/5项共享的当前版本工作点为120 kHz/n261/66 PRB、PF、实际5QI9/QFI9、单UE RFsim；第1项原始程序配置单独记身份，不自动套同一启动参数。完整取值见结果第4/5项。\n\n   我的依据\n\nTS38.211 V19.5.0 §4.2/4.3.2、TS38.213 V19.5.0 §11.1/9.2.4、TS38.331 V19.4.0 §6.3.2、TS38.214 V19.5.0 §6.1.2.1/6.4、TS38.321 V19.4.0 §5.4.1/5.4.4/5.4.5、TS38.104 V20.1.0 §5.3.2/5.3.5只约束相关过程/字段，不指定本项目五项实验或测量头尺寸。P01本地PDF2–4页§III–IV、教材第2章PDF49–55页沿路径/测量背景引用。缺所需原文立即停止，现有版本不冒称官网最高。\n\n 第一步知识点 (../算法知识点说明/十二步知识点/第一步知识点.md) ·  第一步启动命令 (../启动命令/第一步启动命令.md) ·  第一步结果与分析 (../研究结果与分析/第一步结果与分析.md) ·  返回总规划 (算法实验规划_通信RTT与时延优化.md)。\n"
     },
     {
       "id": "re403499a7e0b4ec7",
@@ -1505,7 +1505,7 @@
       "parentTopic": "step-1-commands",
       "stepExperiment": 1,
       "commandStatus": "partial",
-      "sha256": "ffc2f057077866d33e7257c2ee3d2075cf99e6b3e884716d3daa1b15f999f533",
+      "sha256": "1c8777fc17fc999c65e2d3d277556b947e83e6c57347138c6730c7463e539f32",
       "snapshot": "说明/启动命令/第一步/1_源码与当前代码.md",
       "redacted": false,
       "toc": [
@@ -1528,11 +1528,16 @@
           "id": "前一次失败记录怎么找",
           "title": "前一次失败记录怎么找",
           "level": 2
+        },
+        {
+          "id": "这次原程序复测实际怎么运行",
+          "title": "这次原程序复测实际怎么运行",
+          "level": 2
         }
       ],
-      "words": 2252,
-      "minutes": 3,
-      "search": "  1. 原始源码与当前代码：统一用 ping 对照\n\n 规划 (../../文献导读/第一步/1_源码与当前代码.md) ·  知识点 (../../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md) ·  启动命令 (1_源码与当前代码.md) ·  结果与分析 (../../研究结果与分析/第一步/1_源码与当前代码.md) ·  返回第一步启动命令 (../第一步启动命令.md)\n\n   我原先使用的启动命令\n\n下面保留我提供的原命令，作为后续复测的参照。  这套原环境、原命令形态还没有在本轮重新跑通；不能把前面的隔离复测写成已经原样执行过这些命令。   现在先整理网页，不启动测试。\n\n先启动核心网：\n\n   bash\ncd ~/oiwireless/oiwireless-5gc-deploy\n./run-5gc.sh\n   \n\n启动基站：\n\n   bash\ncd ~/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build\nsudo ./nr-softmodem -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb1.sa.band261.fr2.66PRB.5slot.dpdk.conf --sa --rfsim --rfsimulator.serveraddr server\n   \n\n新开终端，进入同一构建目录后启动 UE：\n\n   bash\ncd ~/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build\nsudo ./nr-uesoftmodem --band 261 -C 27547560000 -r 66 --numerology 3 --ssb 301 --sa -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 192.168.10.1\n   \n\nUE 完成接入、用户面可用后，新开终端启动业务：\n\n   bash\nping 172.11.200.25 -I oaitun_ue1\n   \n\n这里的  192.168.10.1  是原命令中的 RFsim 服务端地址， 172.11.200.25  是原 ping 目标。两者用途不同，不能为了让命令看起来一致就相互替换；实际可达性仍待恢复测试时确认。\n\n   前一次实际执行的内容与原命令有什么区别\n\n 项目 我原先提供的命令 前一次隔离复测实际执行 \n --- --- --- \n 核心网 原部署目录的核心网 独立核心网副本，网段重映射，且 SMF 带研究修复；不是完全原始核心网 \n gNB 参数 原程序、原配置； --sa --rfsim --rfsimulator.serveraddr server  复制原目录程序，读取复制后改部署 IP 的配置；上述三个参数相同 \n UE 无线参数 band 261、27547560000 Hz、66 PRB、numerology 3、SSB 301、增益 0/20、频偏补偿 这些参数相同，UE 配置文件直接复制 \n RFsim 连接  192.168.10.1  隔离网络中的  10.205.1.1 ；当时 TCP 已连接 \n 启动环境 原构建目录、原网络环境 复制运行文件到独立目录，指定模块加载目录，在网络命名空间内运行 \n ping  172.11.200.25 ，绑定  oaitun_ue1  计划用副本 UPF 的 TUN 地址、20 ms 间隔；因未接入，实际未执行业务 ping \n 等待接入 人工查看接入状态 脚本等待 TUN 配置完成，25 s 超时即停止 \n\n因此，前一次不是完整照搬我的原命令和原环境。现有日志不能证明无线参数抄错，也不能排除副本、网络隔离、启动节奏或运行环境造成失败。\n\n   前一次失败记录怎么找\n\n当时实际运行的编排命令为：\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\n/usr/bin/python3 -B research/latency-analysis/original-ping-v1/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/original-ping-20261112/pilot-01\nsudo -n /usr/bin/python3 -B research/latency-analysis/original-ping-v1/run.py /home/lbh/oiwireless/analysis-source-audit/original-ping-20261112/pilot-01\n   \n\n这两条用于追溯已经发生的失败，本页没有重新执行。完整子命令见本地该目录的  pilot-r1/traffic/commands.json ，阶段和超时见  status.json ，gNB/UE 输出见同目录日志。\n\n第二次只准备了增加  --continuous-tx  的诊断选项，启动请求被中断，无执行记录，不是已验证的解决办法。原始目录保持不变；后续是否照原环境复测，以恢复测试的指令为准。\n\n命令和配置身份核对属于工程记录，3GPP/新增数学推导不适用；没有据此修改 NR 字段或声称协议不合规。\n"
+      "words": 4035,
+      "minutes": 6,
+      "search": "  1. 原始源码与当前代码：统一用 ping 对照\n\n 规划 (../../文献导读/第一步/1_源码与当前代码.md) ·  知识点 (../../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md) ·  启动命令 (1_源码与当前代码.md) ·  结果与分析 (../../研究结果与分析/第一步/1_源码与当前代码.md) ·  返回第一步启动命令 (../第一步启动命令.md)\n\n   我原先使用的启动命令\n\n下面保留我提供的原命令，作为后续复测的参照。  这次已直接用原程序、原配置和原核心网测通。   由于当前主机没有  192.168.10.1 ，本次单机 UE 实际使用  127.0.0.1 ；原命令仍在下面保留，不能声称当前网络完全等同历史部署。\n\n先启动核心网：\n\n   bash\ncd ~/oiwireless/oiwireless-5gc-deploy\n./run-5gc.sh\n   \n\n启动基站：\n\n   bash\ncd ~/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build\nsudo ./nr-softmodem -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb1.sa.band261.fr2.66PRB.5slot.dpdk.conf --sa --rfsim --rfsimulator.serveraddr server\n   \n\n新开终端，进入同一构建目录后启动 UE：\n\n   bash\ncd ~/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build\nsudo ./nr-uesoftmodem --band 261 -C 27547560000 -r 66 --numerology 3 --ssb 301 --sa -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 192.168.10.1\n   \n\nUE 完成接入、用户面可用后，新开终端启动业务：\n\n   bash\nping 172.11.200.25 -I oaitun_ue1\n   \n\n这里的  192.168.10.1  是原命令中的 RFsim 服务端地址， 172.11.200.25  是原 ping 目标。两者用途不同，不能为了让命令看起来一致就相互替换；实际可达性仍待恢复测试时确认。\n\n   前一次实际执行的内容与原命令有什么区别\n\n 项目 我原先提供的命令 前一次隔离复测实际执行 \n --- --- --- \n 核心网 原部署目录的核心网 独立核心网副本，网段重映射，且 SMF 带研究修复；不是完全原始核心网 \n gNB 参数 原程序、原配置； --sa --rfsim --rfsimulator.serveraddr server  复制原目录程序，读取复制后改部署 IP 的配置；上述三个参数相同 \n UE 无线参数 band 261、27547560000 Hz、66 PRB、numerology 3、SSB 301、增益 0/20、频偏补偿 这些参数相同，UE 配置文件直接复制 \n RFsim 连接  192.168.10.1  隔离网络中的  10.205.1.1 ；当时 TCP 已连接 \n 启动环境 原构建目录、原网络环境 复制运行文件到独立目录，指定模块加载目录，在网络命名空间内运行 \n ping  172.11.200.25 ，绑定  oaitun_ue1  计划用副本 UPF 的 TUN 地址、20 ms 间隔；因未接入，实际未执行业务 ping \n 等待接入 人工查看接入状态 脚本等待 TUN 配置完成，25 s 超时即停止 \n\n因此，前一次不是完整照搬我的原命令和原环境。现有日志不能证明无线参数抄错，也不能排除副本、网络隔离、启动节奏或运行环境造成失败。\n\n   前一次失败记录怎么找\n\n当时实际运行的编排命令为：\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\n/usr/bin/python3 -B research/latency-analysis/original-ping-v1/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/original-ping-20261112/pilot-01\nsudo -n /usr/bin/python3 -B research/latency-analysis/original-ping-v1/run.py /home/lbh/oiwireless/analysis-source-audit/original-ping-20261112/pilot-01\n   \n\n这两条用于追溯已经发生的失败，本页没有重新执行。完整子命令见本地该目录的  pilot-r1/traffic/commands.json ，阶段和超时见  status.json ，gNB/UE 输出见同目录日志。\n\n第二次只准备了增加  --continuous-tx  的诊断选项，启动请求被中断，无执行记录，不是已验证的解决办法。原始目录保持不变；下节记录用户明确恢复后实际完成的新复测。\n\n命令和配置身份核对属于工程记录，3GPP/新增数学推导不适用；没有据此修改 NR 字段或声称协议不合规。\n\n   这次原程序复测实际怎么运行\n\n核心网直接执行上面的原  run-5gc.sh ，没有使用研究核心副本或 SMF 修复。实际直接读取原二进制/配置，进程工作目录与日志单独保存，以免统计文件写回原目录；原模块加载路径在现场已核。\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\nsudo -n /usr/bin/python3 -B research/latency-analysis/original-native-ping-v1/environment.py --output /home/lbh/oiwireless/analysis-source-audit/original-native-ping-20261113/attempt-01/environment-before.json\nsudo -n /usr/bin/python3 -B research/latency-analysis/original-native-ping-v1/run.py --output /home/lbh/oiwireless/analysis-source-audit/original-native-ping-20261113/attempt-01\n   \n\n以上是已发生的失败轮，证据目录不能覆盖重跑。之后另外创建  attempt-02 ，同一运行器加  --gnb-continuous-tx ，只给 gNB 加已有  --continuous-tx ；完成业务后，又创建  attempt-03  去掉该选项。后两轮均成功，不能把有选项成功写成必需条件。\n\n   bash\nsudo -n /usr/bin/python3 -B research/latency-analysis/original-native-ping-v1/run.py --output /home/lbh/oiwireless/analysis-source-audit/original-native-ping-20261113/attempt-02 --gnb-continuous-tx\nsudo -n /usr/bin/python3 -B research/latency-analysis/original-native-ping-v1/run.py --output /home/lbh/oiwireless/analysis-source-audit/original-native-ping-20261113/attempt-03\npython3 -B research/latency-analysis/original-native-ping-v1/analyze.py --output /home/lbh/oiwireless/analysis-source-audit/original-native-ping-20261113/attempt-02\npython3 -B research/latency-analysis/original-native-ping-v1/analyze.py --output /home/lbh/oiwireless/analysis-source-audit/original-native-ping-20261113/attempt-03\n   \n\n每个新根都先核协议和环境，不是只替换目录就可跳过准备。运行器会启动真实 RAN/抓包和业务，不是只读分析脚本；已有根禁止重复执行。\n\n两次成功轮的业务命令都是：\n\n   bash\nping -D -n -I oaitun_ue1 -c 60 -W 2 172.11.200.25\nping -D -n -I oaitun_ue1 -c 2200 -W 2 -i 0.02 172.11.200.25\n   \n\n第二条每轮执行 3 次，分别保存；数据默认 56 B。第一组去掉前 5 包，后三组各去掉前 200 包作为预热。实际间隔从抓包统计，约 1.024 s 和 25 ms，不能只看命令参数。\n\n本次三次 RAN 和抓包均已回收，TUN 已消失；原核心网保持运行。新增失败栈、原文件保护、来源和完整结果见 CHG410/TEST560 及本项结果页。早期  original-ping-v2  的启动中断仍是历史事实，不改写为本轮已执行。\n"
     },
     {
       "id": "r6c24398dc8adef7a",
@@ -1674,7 +1679,7 @@
       "documentRole": "plans",
       "parentTopic": "step-1-plan",
       "stepExperiment": 1,
-      "sha256": "6435a6170088d03d8244bfc05cc8ac45e218f0e35b82a943b77a71f3acf5cbf6",
+      "sha256": "9c2bba5880bceb5a7050cb0220b3bd94d02e76c5d3acee29322a711242e1c086",
       "snapshot": "说明/文献导读/第一步/1_源码与当前代码.md",
       "redacted": false,
       "toc": [
@@ -1699,9 +1704,9 @@
           "level": 2
         }
       ],
-      "words": 460,
+      "words": 504,
       "minutes": 1,
-      "search": "  1. 原始源码与当前代码：统一用 ping 对照\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md) ·  启动命令 (../../启动命令/第一步/1_源码与当前代码.md) ·  结果与分析 (../../研究结果与分析/第一步/1_源码与当前代码.md) ·  返回第一步规划 (../第一步规划_单UE通信RTT基线.md)\n\n   我的目标\n\n我用同一种 ping 工具比较原始和当前 RAN，分清代码/二进制身份、启动配置与测量条件，避免同时更换工具后把差异都算给源码。\n\n   我要做的工作\n\n- 先恢复并验证原始版本UE接入，保留当前失败位置和根因未确定状态。\n- 固定工具、目标地址、包长、发包规律、时钟与统计口径，再比较两个版本。\n- 记录源码、运行二进制和配置身份；不把历史五包均值与新大样本P99直接比较。\n\n   当前进度与验收边界\n\n两版本均用同一种 ping；原始 UE 接入失败，原始 RTT 仍待补。本页是已有工作安排的拆分，未在本次启动或重做实验。具体数据、失败和来源由上方同号结果/知识页保留，不能把计划写成已经完成。\n"
+      "search": "  1. 原始源码与当前代码：统一用 ping 对照\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md) ·  启动命令 (../../启动命令/第一步/1_源码与当前代码.md) ·  结果与分析 (../../研究结果与分析/第一步/1_源码与当前代码.md) ·  返回第一步规划 (../第一步规划_单UE通信RTT基线.md)\n\n   我的目标\n\n我用同一种 ping 工具比较原始和当前 RAN，分清代码/二进制身份、启动配置与测量条件，避免同时更换工具后把差异都算给源码。\n\n   我要做的工作\n\n- 已在原核心网测通原始版本 UE 和 ping；保留首次采样等待失败与后续默认选项成功的反例，继续定位启动触发条件。\n- 固定工具、目标地址、包长、发包规律、时钟与统计口径，再比较两个版本。\n- 记录源码、运行二进制和配置身份；不把历史五包均值与新大样本P99直接比较。\n\n   当前进度与验收边界\n\n两版本均用 ping。原始程序这次已测通默认间隔及三轮短间隔，且完成有/无 gNB 连续供样选项的启动对照；严格同条件版本比较仍需对齐核心网、目标与实际到达节奏。具体数据、失败和来源由上方同号结果/知识页保留，不能把计划写成已经完成。\n"
     },
     {
       "id": "r3058d26016f0835b",

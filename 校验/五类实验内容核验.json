@@ -56,7 +56,12 @@
       "formal18Statistical": 36000,
       "baselineRunsReused": 3,
       "additionalRuns": 0,
-      "originalPingRTTAvailable": false,
+      "originalPingRTTAvailable": true,
+      "newOriginalPingRuns": 8,
+      "newOriginalStartupAttempts": 3,
+      "newOriginalCompleteTransactions": 13320,
+      "newOriginalStatisticalTransactions": 12110,
+      "strictVersionABComplete": false,
       "controlledHeaderABComplete": false,
       "canonicalSourceSHA": "eafb0c98f234e8642d38420c4212b0b1b8f52bc16249ed595e06f22c27a5aa8a"
     },
@@ -131,14 +136,14 @@
       "kind": "numbered-result-interface",
       "experiment": 1,
       "status": "partial",
-      "canonicalSourceSHA": "4823ae51f3bd481569451bcb6c608776ab347da07376fd538e2e0828871aa999"
+      "canonicalSourceSHA": "6f45ba5f19a298642fad68869a857ec2c919731fca18d57d8bf6da1de8baa659"
     },
     {
       "id": "ee1f9e357eb51f364",
       "kind": "numbered-result-interface",
       "experiment": 2,
       "status": "partial",
-      "canonicalSourceSHA": "5322dfdf11fe8ac9f7fa1aaaef37dce288d26707a108737bbd461af697a9d951"
+      "canonicalSourceSHA": "178b052a37292bca2e6935b15b350c657faea1cf637af4372e27117c71e3463b"
     },
     {
       "id": "e14543603b9f4fd10",
@@ -152,7 +157,7 @@
       "kind": "numbered-result-interface",
       "experiment": 4,
       "status": "complete",
-      "canonicalSourceSHA": "7a1619bbe4b83035c56087a68968f418c00516f56e56741a4cc06f5e793eb71a"
+      "canonicalSourceSHA": "7f82fc86005c17c6657ec397c4e642473ca63b8af1d31b34b518b262f82d5dda"
     },
     {
       "id": "e9b27ab61d49c9e38",
@@ -162,6 +167,5 @@
       "canonicalSourceSHA": "251d161c48bbd35f987b792af06cc01aa046c83bd4800d9b06f65796595df4ec"
     }
   ],
-  "scope": "Portable aggregate/hash/link/identity checks; no new experiment or raw packet statistical recomputation.",
-  "latestCopyEditVerification": "Not rerun after user requested webpage-only work; earlier PASS applies to the inspected earlier source hashes. Latest generator outputs are separate."
+  "scope": "Portable aggregate/hash/link/identity checks; no new experiment or raw packet statistical recomputation."
 }

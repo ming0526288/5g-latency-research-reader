@@ -150,10 +150,24 @@ def main():
             assert '#/doc/'+knowledge['id'] in html
             plan=next(x for x in docs.values() if x.get('topic')==item['planTopic'])
             assert '#/doc/'+plan['id'] in html and '#/doc/'+d['id'] in payload(plan['id'])['html']
+            original = read(ROOT/'说明/研究结果与分析/数据/第一步_原始程序原核心网复测.json')
+            assert original['new_complete_transactions']==13320 and original['new_statistical_transactions']==12110
+            assert original['same_input_version_AB_complete'] is False
+            assert [a['completed'] for a in original['startup_attempts']]==[False,True,True]
+            assert [a['gnb_continuous_tx'] for a in original['startup_attempts']]==[False,True,False]
+            for group in ['original_default','original_gnb_continuous']:
+                record=original[group]
+                assert record['status']=='PASS' and record['complete']==6660 and record['statistical']==6055
+                assert len(record['cases'])==4 and record['capture_correlated_packets']==13320
+                assert record['N3_observed_QFI_counts']=={'type1_qfi0':6660,'type0_qfi9':6660}
+                assert all(case['missing']==0 for case in record['cases'])
+                for case in record['cases'][1:]:
+                    assert all(f'{v:.6f}' in html for k,v in case['tool_RTT_ms'].items() if k in ['mean','p99','max'])
+            assert original['original_default']['cases'][-1]['tool_RTT_ms']['max']==17.0
             page_checks.append({'id':d['id'], 'kind':'first-step-five-numbered-experiments',
                 'status':'partial','subexperiments':[1,2,3,4,5], 'formal18Transactions':39600,
                 'formal18Statistical':36000,'baselineRunsReused':3,'additionalRuns':0,
-                'originalPingRTTAvailable':False,'controlledHeaderABComplete':False,
+                'originalPingRTTAvailable':True,'newOriginalPingRuns':8,'newOriginalStartupAttempts':3,'newOriginalCompleteTransactions':13320,'newOriginalStatisticalTransactions':12110,'strictVersionABComplete':False,'controlledHeaderABComplete':False,
                 'canonicalSourceSHA':d['sha256']})
             continue
         assert html.count('<figure') >= 2 and '错误' in html

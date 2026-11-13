@@ -1,0 +1,369 @@
+{
+  "status": "PASS_WITH_LIMITS",
+  "original_default": {
+    "status": "PASS",
+    "scope": "Original program/config/core, gNB continuous-tx off; same host loopback RFsim. No original source rebuild or radio-field change. ICMP round trip only.",
+    "gnb_continuous_tx": false,
+    "cases": [
+      {
+        "case": "native-default",
+        "complete": 60,
+        "statistical": 55,
+        "warmup": 5,
+        "target_interval_s": 1,
+        "tool_RTT_all_ms": {
+          "mean": 0.8202333333333334,
+          "p50": 0.819,
+          "p95": 0.9380499999999999,
+          "p99": 0.9458699999999999,
+          "max": 0.95
+        },
+        "tool_RTT_ms": {
+          "mean": 0.8206727272727272,
+          "p50": 0.82,
+          "p95": 0.9383,
+          "p99": 0.9462199999999998,
+          "max": 0.95
+        },
+        "TUN_RTT_ms": {
+          "mean": 0.8060727272727273,
+          "p50": 0.805,
+          "p95": 0.9236,
+          "p99": 0.93376,
+          "max": 0.937
+        },
+        "TUN_interval_ms": {
+          "mean": 1023.8498813559322,
+          "p50": 1024.0,
+          "p95": 1028.0001,
+          "p99": 1028.0134,
+          "max": 1028.025
+        },
+        "missing": 0
+      },
+      {
+        "case": "same-input-r1",
+        "complete": 2200,
+        "statistical": 2000,
+        "warmup": 200,
+        "target_interval_s": 0.02,
+        "tool_RTT_all_ms": {
+          "mean": 0.8186031818181818,
+          "p50": 0.804,
+          "p95": 0.986,
+          "p99": 1.48,
+          "max": 1.63
+        },
+        "tool_RTT_ms": {
+          "mean": 0.817807,
+          "p50": 0.805,
+          "p95": 0.985,
+          "p99": 1.4701,
+          "max": 1.63
+        },
+        "TUN_RTT_ms": {
+          "mean": 0.8065235,
+          "p50": 0.793,
+          "p95": 0.97405,
+          "p99": 1.462,
+          "max": 1.621
+        },
+        "TUN_interval_ms": {
+          "mean": 24.987101864483858,
+          "p50": 24.002,
+          "p95": 28.005,
+          "p99": 28.014020000000002,
+          "max": 28.04
+        },
+        "missing": 0
+      },
+      {
+        "case": "same-input-r2",
+        "complete": 2200,
+        "statistical": 2000,
+        "warmup": 200,
+        "target_interval_s": 0.02,
+        "tool_RTT_all_ms": {
+          "mean": 0.8176363636363636,
+          "p50": 0.8055000000000001,
+          "p95": 0.98205,
+          "p99": 1.46,
+          "max": 1.75
+        },
+        "tool_RTT_ms": {
+          "mean": 0.8131655,
+          "p50": 0.805,
+          "p95": 0.973,
+          "p99": 1.3800999999999997,
+          "max": 1.75
+        },
+        "TUN_RTT_ms": {
+          "mean": 0.801991,
+          "p50": 0.793,
+          "p95": 0.9620000000000001,
+          "p99": 1.36901,
+          "max": 1.735
+        },
+        "TUN_interval_ms": {
+          "mean": 24.915473851750797,
+          "p50": 24.002,
+          "p95": 28.004100000000005,
+          "p99": 28.015000000000004,
+          "max": 28.058
+        },
+        "missing": 0
+      },
+      {
+        "case": "same-input-r3",
+        "complete": 2200,
+        "statistical": 2000,
+        "warmup": 200,
+        "target_interval_s": 0.02,
+        "tool_RTT_all_ms": {
+          "mean": 0.8426436363636364,
+          "p50": 0.813,
+          "p95": 1.09,
+          "p99": 1.5,
+          "max": 17.0
+        },
+        "tool_RTT_ms": {
+          "mean": 0.8456315,
+          "p50": 0.813,
+          "p95": 1.1105,
+          "p99": 1.5,
+          "max": 17.0
+        },
+        "TUN_RTT_ms": {
+          "mean": 0.8340845,
+          "p50": 0.802,
+          "p95": 1.1011,
+          "p99": 1.49401,
+          "max": 17.023
+        },
+        "TUN_interval_ms": {
+          "mean": 24.717291041382445,
+          "p50": 24.001,
+          "p95": 28.004,
+          "p99": 28.012019999999996,
+          "max": 28.063
+        },
+        "missing": 0
+      }
+    ],
+    "complete": 6660,
+    "statistical": 6055,
+    "N3_observed_QFI_counts": {
+      "type1_qfi0": 6660,
+      "type0_qfi9": 6660
+    },
+    "unselected_capture_packets": {
+      "unselected_inner_v6": 6
+    },
+    "actual_NAS_5QI": "not independently decoded in this ICMP verifier",
+    "packet_bytes": {
+      "icmp_data": 56,
+      "icmp_header": 8,
+      "inner_IP": 84
+    },
+    "clocks": "Native ping own RTT; captures single-host REALTIME. No cross-clock subtraction.",
+    "quantiles": "Per-case inclusive descriptive quantiles, no P99 addition; native output rounded, pcap microsecond precision. Default sample55 not robust tail certification.",
+    "capture_correlated_packets": 13320,
+    "boundaries": "TUN request -> N3 request -> N3 reply -> TUN reply, exact id/seq/data/checksum; not pure air latency."
+  },
+  "original_gnb_continuous": {
+    "status": "PASS",
+    "scope": "Original program/config/core plus gNB continuous-tx on; same host loopback RFsim. No original source rebuild or radio-field change. ICMP round trip only.",
+    "cases": [
+      {
+        "case": "native-default",
+        "complete": 60,
+        "statistical": 55,
+        "warmup": 5,
+        "target_interval_s": 1,
+        "tool_RTT_all_ms": {
+          "mean": 0.8153333333333334,
+          "p50": 0.808,
+          "p95": 0.9561999999999999,
+          "p99": 1.0223,
+          "max": 1.04
+        },
+        "tool_RTT_ms": {
+          "mean": 0.8172727272727273,
+          "p50": 0.817,
+          "p95": 0.9621999999999999,
+          "p99": 1.0238,
+          "max": 1.04
+        },
+        "TUN_RTT_ms": {
+          "mean": 0.8029818181818181,
+          "p50": 0.804,
+          "p95": 0.9504999999999998,
+          "p99": 1.00726,
+          "max": 1.024
+        },
+        "TUN_interval_ms": {
+          "mean": 1023.4270338983051,
+          "p50": 1023.999,
+          "p95": 1028.0013,
+          "p99": 1028.01194,
+          "max": 1028.016
+        },
+        "missing": 0
+      },
+      {
+        "case": "same-input-r1",
+        "complete": 2200,
+        "statistical": 2000,
+        "warmup": 200,
+        "target_interval_s": 0.02,
+        "tool_RTT_all_ms": {
+          "mean": 0.7908709090909091,
+          "p50": 0.785,
+          "p95": 0.92405,
+          "p99": 1.01,
+          "max": 3.43
+        },
+        "tool_RTT_ms": {
+          "mean": 0.789258,
+          "p50": 0.784,
+          "p95": 0.922,
+          "p99": 0.997,
+          "max": 3.43
+        },
+        "TUN_RTT_ms": {
+          "mean": 0.777086,
+          "p50": 0.772,
+          "p95": 0.90905,
+          "p99": 0.9760199999999999,
+          "max": 3.414
+        },
+        "TUN_interval_ms": {
+          "mean": 25.16482219190541,
+          "p50": 24.003,
+          "p95": 28.004,
+          "p99": 28.013999999999996,
+          "max": 28.303
+        },
+        "missing": 0
+      },
+      {
+        "case": "same-input-r2",
+        "complete": 2200,
+        "statistical": 2000,
+        "warmup": 200,
+        "target_interval_s": 0.02,
+        "tool_RTT_all_ms": {
+          "mean": 0.7975890909090909,
+          "p50": 0.794,
+          "p95": 0.9469999999999998,
+          "p99": 1.11,
+          "max": 1.69
+        },
+        "tool_RTT_ms": {
+          "mean": 0.797943,
+          "p50": 0.794,
+          "p95": 0.9490500000000001,
+          "p99": 1.11,
+          "max": 1.69
+        },
+        "TUN_RTT_ms": {
+          "mean": 0.785985,
+          "p50": 0.782,
+          "p95": 0.9370999999999999,
+          "p99": 1.0970199999999999,
+          "max": 1.671
+        },
+        "TUN_interval_ms": {
+          "mean": 25.1776389267849,
+          "p50": 24.003,
+          "p95": 28.005,
+          "p99": 28.015020000000003,
+          "max": 28.046
+        },
+        "missing": 0
+      },
+      {
+        "case": "same-input-r3",
+        "complete": 2200,
+        "statistical": 2000,
+        "warmup": 200,
+        "target_interval_s": 0.02,
+        "tool_RTT_all_ms": {
+          "mean": 0.7900845454545454,
+          "p50": 0.776,
+          "p95": 0.916,
+          "p99": 1.0301,
+          "max": 16.5
+        },
+        "tool_RTT_ms": {
+          "mean": 0.792132,
+          "p50": 0.777,
+          "p95": 0.916,
+          "p99": 1.0301,
+          "max": 16.5
+        },
+        "TUN_RTT_ms": {
+          "mean": 0.780252,
+          "p50": 0.766,
+          "p95": 0.90405,
+          "p99": 1.01117,
+          "max": 16.51
+        },
+        "TUN_interval_ms": {
+          "mean": 25.331197817189633,
+          "p50": 24.004,
+          "p95": 28.005,
+          "p99": 28.016019999999997,
+          "max": 28.054
+        },
+        "missing": 0
+      }
+    ],
+    "complete": 6660,
+    "statistical": 6055,
+    "N3_observed_QFI_counts": {
+      "type1_qfi0": 6660,
+      "type0_qfi9": 6660
+    },
+    "unselected_capture_packets": {
+      "unselected_inner_v6": 6
+    },
+    "actual_NAS_5QI": "not independently decoded in this ICMP verifier",
+    "packet_bytes": {
+      "icmp_data": 56,
+      "icmp_header": 8,
+      "inner_IP": 84
+    },
+    "clocks": "Native ping own RTT; captures single-host REALTIME. No cross-clock subtraction.",
+    "quantiles": "Per-case inclusive descriptive quantiles, no P99 addition; native output rounded, pcap microsecond precision. Default sample55 not robust tail certification.",
+    "capture_correlated_packets": 13320,
+    "boundaries": "TUN request -> N3 request -> N3 reply -> TUN reply, exact id/seq/data/checksum; not pure air latency."
+  },
+  "startup_attempts": [
+    {
+      "attempt": "attempt-01",
+      "gnb_continuous_tx": false,
+      "completed": false,
+      "business_started": false,
+      "error": "RuntimeError: ue did not reach Interface oaitun_ue1 successfully configured in 35s; captured diagnostics"
+    },
+    {
+      "attempt": "attempt-02",
+      "gnb_continuous_tx": true,
+      "completed": true,
+      "business_started": true,
+      "error": null
+    },
+    {
+      "attempt": "attempt-03",
+      "gnb_continuous_tx": false,
+      "completed": true,
+      "business_started": true,
+      "error": null
+    }
+  ],
+  "new_complete_transactions": 13320,
+  "new_statistical_transactions": 12110,
+  "same_input_version_AB_complete": false,
+  "scope": "Original executable/config/core, 127.0.0.1 RFsim; gNB option off failure, on success, off success. New original-default figures are separate from earlier modified-code runs."
+}

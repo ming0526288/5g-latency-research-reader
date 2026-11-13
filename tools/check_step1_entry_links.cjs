@@ -53,9 +53,9 @@ async function until(fn,label){for(let i=0;i<300;i++){if(fn())return;await delay
  w.location.hash='#/doc/e4c1f2a8800000006';await until(()=>w.location.hash===url(sourceKnowledge)&&d.querySelector('.source-label')?.getAttribute('title')===sourceKnowledge.source,'old full-source route redirects');
  const sourceResult=children.find(x=>x.documentRole==='results'&&x.stepExperiment===1);await open(sourceResult);
  const resultText=d.querySelector('.article').textContent;
- for(const value of ['1.701862','1.812801','1.842844','未进入业务'])assert(resultText.includes(value));
+ for(const value of ['1.701862','1.812801','1.842844','0.820673','0.817807','17.000000','未进入业务'])assert(resultText.includes(value));
  assert(!/383aa52a|61654513|159208eb/.test(resultText));
  assert.deepEqual(errors,[]);
- const report={status:'PASS',independentPages:20,parentEntryClicks:entryClicks,peerPageClicks:peerClicks,planningTitlesAndNumbersClickable:true,twelveStepDirectoriesExposeFiveItems:true,fullSourceRows:41,oldStandaloneSourceRedirects:true,visibleCommitHashesRemoved:true,originalPingHasNoNewRTT:true,currentPingThreeRepeatMeans:[1.701862,1.812801,1.842844],consoleErrors:errors,scope:'Actual local DOM clicks, not screenshot or radio experiment.'};
+ const report={status:'PASS',independentPages:20,parentEntryClicks:entryClicks,peerPageClicks:peerClicks,planningTitlesAndNumbersClickable:true,twelveStepDirectoriesExposeFiveItems:true,fullSourceRows:41,oldStandaloneSourceRedirects:true,visibleCommitHashesRemoved:true,originalPingValidated:true,originalPingCompleteTransactions:13320,originalPingStatisticalTransactions:12110,currentPingThreeRepeatMeans:[1.701862,1.812801,1.842844],consoleErrors:errors,scope:'Actual local DOM clicks, not screenshot or radio experiment.'};
  fs.writeFileSync(path.join(root,'校验/第一步规划与总目录入口点击核验_20261113.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));w.close();
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});

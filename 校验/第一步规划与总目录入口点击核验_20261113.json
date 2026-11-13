@@ -5,7 +5,17 @@
   "peerPageClicks": 60,
   "planningTitlesAndNumbersClickable": true,
   "twelveStepDirectoriesExposeFiveItems": true,
+  "fullSourceRows": 41,
+  "oldStandaloneSourceRedirects": true,
+  "visibleCommitHashesRemoved": true,
+  "originalPingValidated": true,
+  "originalPingCompleteTransactions": 13320,
+  "originalPingStatisticalTransactions": 12110,
+  "currentPingThreeRepeatMeans": [
+    1.701862,
+    1.812801,
+    1.842844
+  ],
   "consoleErrors": [],
-  "scope": "Actual local DOM clicks, not screenshot or radio experiment.",
-  "latestCopyEditVerification": "Not rerun after user requested webpage-only work; earlier PASS applies to the inspected earlier source hashes. Latest generator outputs are separate."
+  "scope": "Actual local DOM clicks, not screenshot or radio experiment."
 }
