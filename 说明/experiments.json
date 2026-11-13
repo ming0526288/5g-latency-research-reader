@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "documents": [
     {
       "id": "e4c1f2a8800000001",
@@ -32,24 +32,18 @@
       "source": "说明/五类时延分析/原始源码与当前研究版本_修改问题与影响.md"
     },
     {
-      "topic": "source-version-retest",
-      "source": "说明/研究结果与分析/独立实验_原始源码与当前版本对比.md",
-      "independentExperiment": "E-SRC-01",
-      "status": "partial"
-    },
-    {
-      "topic": "measurement-tools",
-      "source": "说明/研究结果与分析/独立实验_80B与16B测量格式对比.md",
-      "independentExperiment": "E-MEAS-01",
-      "status": "partial",
-      "id": "ef0a33e120c19cc7f"
-    },
-    {
       "source": "说明/研究结果与分析/第一步结果与分析.md",
       "topic": "step-1",
       "researchStep": "step-1",
       "planTopic": "step-1-plan",
-      "status": "complete"
+      "status": "partial",
+      "subexperiments": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
     },
     {
       "source": "说明/研究结果与分析/第二步结果与分析.md",
@@ -127,6 +121,50 @@
       "researchStep": "step-12",
       "planTopic": "step-12-plan",
       "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第一步/1_源码与当前代码.md",
+      "topic": "step-1-experiment-1-results",
+      "documentRole": "results",
+      "parentTopic": "step-1",
+      "stepExperiment": 1,
+      "status": "partial"
+    },
+    {
+      "source": "说明/研究结果与分析/第一步/2_80B与16B的UDP.md",
+      "topic": "step-1-experiment-2-results",
+      "documentRole": "results",
+      "parentTopic": "step-1",
+      "stepExperiment": 2,
+      "status": "partial"
+    },
+    {
+      "source": "说明/研究结果与分析/第一步/3_16B测量字段的ping与UDP.md",
+      "topic": "step-1-experiment-3-results",
+      "documentRole": "results",
+      "parentTopic": "step-1",
+      "stepExperiment": 3,
+      "status": "partial"
+    },
+    {
+      "source": "说明/研究结果与分析/第一步/4_各包长的ping与UDP.md",
+      "topic": "step-1-experiment-4-results",
+      "documentRole": "results",
+      "parentTopic": "step-1",
+      "stepExperiment": 4,
+      "status": "complete"
+    },
+    {
+      "source": "说明/研究结果与分析/第一步/5_实验基线.md",
+      "topic": "step-1-experiment-5-results",
+      "documentRole": "results",
+      "parentTopic": "step-1",
+      "stepExperiment": 5,
+      "status": "complete"
     }
-  ]
+  ],
+  "redirects": {
+    "e9eb3f4e896afc1bd": "step-1",
+    "ef0a33e120c19cc7f": "step-1"
+  }
 }

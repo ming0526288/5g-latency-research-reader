@@ -48,28 +48,23 @@
       "canonicalSourceSHA": "6d0109b2e883f19ca5cc6aba314e54be43730bab328d14bde15f4225326624d8"
     },
     {
-      "id": "e9eb3f4e896afc1bd",
-      "kind": "independent-source-version-retest",
-      "originalPingRTTAvailable": false,
-      "currentPingRunsReferenced": 3,
-      "additionalRuns": 0,
-      "canonicalSourceSHA": "2f9fdd6b562472a26caeb9d0deb5f002d9f56c2842400f761c0989d71f715d6d"
-    },
-    {
-      "id": "ef0a33e120c19cc7f",
-      "kind": "independent-header-format-with-pending-controlled-AB",
-      "completeFormalTransactions": 39600,
-      "statisticalFormalTransactions": 36000,
-      "controlledHeaderABComplete": false,
-      "canonicalSourceSHA": "b314a1d92d74a72f3f5a725bf1df5533094c09e65af83ee398db67aeb085bb76"
-    },
-    {
       "id": "ede23798813389995",
-      "kind": "current-UDP256-baseline-existing-cohort-reuse",
-      "canonicalSourceSHA": "b9b4f98d8f4860721180da8aef93230d90836fe70625a6b5b7cce24dffff0ff6",
-      "complete": 6600,
-      "statistical": 6000,
-      "additionalRuns": 0
+      "kind": "first-step-five-numbered-experiments",
+      "status": "partial",
+      "subexperiments": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "formal18Transactions": 39600,
+      "formal18Statistical": 36000,
+      "baselineRunsReused": 3,
+      "additionalRuns": 0,
+      "originalPingRTTAvailable": false,
+      "controlledHeaderABComplete": false,
+      "canonicalSourceSHA": "3fefa83c9722c9d7ba995a617ca8d1f3723672235defe3dd27733b5bdcdab126"
     },
     {
       "id": "e6e9701a5fd751eec",
@@ -136,6 +131,41 @@
       "title": "第十二步结果与分析",
       "kind": "not-started-placeholder",
       "canonicalSourceSHA": "de4ce791cec738b4395726bbcdfcaf4e0cd2c882b4ab12682bbeb5f10d17895c"
+    },
+    {
+      "id": "eb7cf5197fc52463c",
+      "kind": "numbered-result-interface",
+      "experiment": 1,
+      "status": "partial",
+      "canonicalSourceSHA": "8e4b6eab2e1d606000e19713edcf549f35cba741aff06874d63df1e576d30ff2"
+    },
+    {
+      "id": "ee1f9e357eb51f364",
+      "kind": "numbered-result-interface",
+      "experiment": 2,
+      "status": "partial",
+      "canonicalSourceSHA": "8c3f19837fc0760b93c4abdaf60303d741444f0a10699825cb56ae47812e7549"
+    },
+    {
+      "id": "e14543603b9f4fd10",
+      "kind": "numbered-result-interface",
+      "experiment": 3,
+      "status": "partial",
+      "canonicalSourceSHA": "8c27527a65fdac4d9c8b2f6faa4cc59750ea67e00a98aa3a50d4d5f41d6a9f92"
+    },
+    {
+      "id": "ef1a4c35417d53e6e",
+      "kind": "numbered-result-interface",
+      "experiment": 4,
+      "status": "complete",
+      "canonicalSourceSHA": "be91ba9bfcf63a95a14634a5c35fc1c03eceea6b8b5bb4e6a4edcb3c54415dda"
+    },
+    {
+      "id": "e9b27ab61d49c9e38",
+      "kind": "numbered-result-interface",
+      "experiment": 5,
+      "status": "complete",
+      "canonicalSourceSHA": "1fae934a4d3ff94b765b35a921f1b77928744d3408836c9eb5c06f460d45ad40"
     }
   ],
   "scope": "Portable aggregate/hash/link/identity checks; no new experiment or raw packet statistical recomputation."

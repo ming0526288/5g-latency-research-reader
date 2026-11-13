@@ -352,230 +352,6 @@
       "search": "  原始源码与当前研究版本：修改、问题与影响\n\n这页回答三个问题：  最开始的  oi-wireless-ran  有没有问题；研究版本具体改了什么；这些修改对时延结论意味着什么。   本页不做新旧 ping 数值对比，也不把所有研究改动称作原源码错误。\n\n  先说结论：120 kHz 的参数集和 0.125 ms 的标称槽长没有被判错；原 fork 确有已核实的实现缺陷和特定配置冲突。当前程序已经包含相应修正，也增加了测量和算法试验能力，但不是全部时延结果都已重测。   能接入、能 ping，只能证明当时那条路径运行过，不能证明整个源码、所有协议配置和所有业务时延都没有问题。\n\n本次整理只读原源码、历史 Git、原文和已完成实验；  没有修改原始 RAN，没有新启动核心网或通信实验，没有产生新的性能收益。  \n\n   1. 这里的“原始”和“当前”分别是哪一版\n\n 名称 路径或身份 这页如何使用 \n --- --- --- \n 实验室最开始的源码  /home/lbh/oiwireless/oi-wireless-ran ，提交  383aa52a3120610cea4df59855ed73691e12deca  这是实验室已有修改的 OAI fork，不等于未经修改的官方 OAI 上游；本页以此为起点 \n 研究协调仓库  oi-wireless-ran-latency-analysis ，分支  latency-standards-audit  集中放记录、来源和接续；不能只看它的文件夹名，就认为它是所有实验最新运行程序 \n 最近一次完整栈 ping 的研究树  oi-wireless-ran-ping-slot-validation ，分支  latency-ping-slot-validation  本页“当前测试程序”的具体参照，不泛指任意研究分支 \n 上述程序实际构建源基  61654513d522610db09207ce36220c1e1ff76937  包含上行重传预算修复的累计 C 源码；新编译 gNB、UE 和 8 个运行模块 \n 这次 ping 的方法/结果提交  159208eb2f  后续 Python 运行、解析、汇总与记录提交，不应将它误写成 ELF 的编译时源码版本 \n QUEST、SR、授权时机、预算探测等历史树 各自分支、各自冻结方法与原始根 某功能已经写进当前 C，不代表每次运行都启用，也不代表过去全部数据都来自当前程序 \n\n当前测试程序与最开始提交在通信生产目录中有   41 个 C/H 文件新增或修改，增加 1796 行、删除 161 行  ；这只是明确目录范围内的 Git 差异，不包括研究 Python、文档、私密运行配置或所有其他历史分支。很多增加行是观察器和算法选择开关，不能理解成“修了 1796 个错误”。完整逐文件表在本页末尾。\n\n   2. 哪些是已确认的问题，后来怎样修正\n\n下面的“影响”说明机制和适用条件，  不等于已经证明它解释了旧 ping 的数值或全部慢包  。\n\n 问题与性质 原始状态及具体位置 研究版本如何处理 对时延研究的意义与边界 \n --- --- --- --- \n 上行重传 RB 预算指针错误：C 实现缺陷  gNB_scheduler_ulsch.c::allocate_ul_retransmission  对  int  n_rb_sched  写  n_rb_sched -= rbSize  改成   n_rb_sched -= rbSize ，扣调用方预算而非移动局部指针 避免重传已占资源未从该预算变量扣减；不代表旧每个业务包都走过此分支，更不代表已证明它导致普遍慢包 \n 短 MAC 子头固定用长格式：与已核标准字段规则冲突  nr_ue_scheduler.c::fill_mac_sdu  固定长子头、 F=1  按 RLC 实际返回的 MAC SDU 长度选择 2/3 B 子头，并同步修正剩余字节预算；新增  nr_mac_sdu.h  改变封装开销与边界预算，旧数据不能改标签冒充修复版；这里的长度是 MAC SDU 长度，不是直接拿应用的 56 B/1200 B 判断 \n N3 上行 QFI 写死 0：控制配置与隧道标记不一致  cucp_cuup_handler.c::e1_bearer_context_setup  使用占位  qfi=0 ，而已核测试会话分配的流为其他 QFI 从控制面已接收的  req_drb- qosFlows 0 .qfi  取值，增加当前实现只支持每 DRB 单 QoS 流的检查 使隧道标记对应所配置业务流；没有把值写死为 9，也没有把 QFI 与 5QI 混为一个字段。多 QoS 流限制来自本补丁，非标准禁止 \n FR2 SSB 索引重复累加：C 状态构造缺陷  nr_ue_procedures.c::nr_ue_decode_mib  在共享的  mib_ssb  上用  +=  叠加高位 从低 3 位构造局部索引，用 OR 组合高位后一次赋值 避免重复解析后高位再次累加、产生越界索引；不是删除断言或强制某个 SSB。历史断言现场不足以排除所有其他并发问题 \n SearchSpace 对象过早发布和配置同步窗口：实现缺陷  config_ue.c::configure_ss_coreset  先把未完成对象放入共享列表，再填字段；RRC 配置更新与正常读者缺少共同保护 初始化完整后发布，相关 RRC 更新使用既有  mac_IF_mutex  降低读到中间态、空监测周期字段的风险；标准规定配置语义，不规定必须用这把 C 锁。历史崩溃与该窗口一致，不能宣称所有崩溃原因都唯一定位 \n 默认 DRB 与 SDAP 头配置冲突：特定配置问题  rrc_gNB_radio_bearers.c  设  defaultDRB=true ，但  enable_sdap  关闭时把 UL 头设为 absent；早期运行确用过关闭配置 研究运行配置启用  enable_sdap=1 ；复用现有代码路径，不另发明 SDAP 字节格式 默认 DRB 的 UL 头要求需要满足；该 fork 同时启用 DL 头是实现联动选择，不能称标准强制 DL 也必须如此 \n\n逐项原记录： 重传预算 ( /doc/d456ff00c4053c14f)、 MAC 子头 ( /doc/d4827f9f60196805d)、 QFI ( /doc/da5341ebc5e4c2664)、 SSB 索引 ( /doc/d8c1ed173b960694b)、 SearchSpace 同步 ( /doc/df6733b125d3152bd)、 SDAP 配置 ( /doc/de8a54e562bc7a11f)。这些历史 CHG 有的记录写作时仍在准备；最终验证状态要结合下文和对应 TEST，不能把“计划测试”当“已经通过”。\n\n    为什么指针错误需要那个星号\n\n n_rb_sched  指向调用方的“剩余 RB 数”。若调度前预算为 $B$，本次重传占用 $r$ 个 RB，调用方应该得到：\n\n   math\nB_{\\mathrm{after}}=B_{\\mathrm{before}}-r.\n   \n\n n_rb_sched -= r  改的是局部地址；  n_rb_sched -= r  才改该地址指向的数值。例如预算 66、已占 5，本变量应该变为 61。这是 C 调用语义和本实现的预算不变量，不是 3GPP 规定只能有 66 个 RB。频域资源位图仍有其他检查，不能从这个错误直接推出“每轮必然重复分配了资源”。\n\n    为什么 MAC 子头也会影响资源预算\n\n限定普通六位 LCID、非 UL CCCH 等本次使用分支，设 MAC SDU 长度为 $L$ B，可用剩余空间为 $A$ B：\n\n   math\nh(L)=\\begin{cases}2,&1\\le L 256,\\\\3,&256\\le L\\le65535,\\end{cases}\n\\qquad L+h(L)\\le A.\n   \n\n子头也占 TB 空间，所以不能始终扣 3 B，也不能只修改 F 位而不修正缓冲指针和可请求字节数。例如 $A=258$ B 时最大正载荷为 255 B，$A=259$ B 时可以装 256 B。这里的 TB/MAC 开销不能与 N3 外层 IP/UDP/GTP-U 头混在一起计算。\n\n   3. 哪些改变是研究选择，而不是原源码违规\n\n 研究变化 原始情况 当前代码/配置如何使用 应该怎样描述 \n --- --- --- --- \n 首 UE 调度与 MCS 特例  pf_ul  对遍历首 UE 强制  do_sched=true ；外部 MCS 控制未启用时把首 UE 的 MCS 上限置为 9 研究副本去掉按列表位置区分的两处例外，使用共同资格和配置上限规则 建立多 UE 共同基线的工程选择。3GPP 未要求首 UE 获特殊照顾，也不能反过来认定一切主动授权都违规；“上限 9”不等于每个 TB 实际 MCS 恒为 9 \n FR2 控制配置与 TDD 方向联合修正 原配置的 SSB bitmap 含 SSB 1/33，原默认 SIB1 TDA 在受测图样下可能落入非 D 符号 新测试配置取  ssb_PositionsInBurst_Bitmap=0x2L 、 sib1_tda=13 ，并核实际控制/PDSCH 符号方向 SSB 1 和零起索引 13（标准表第 14 行）是本项目选择，不是标准强制唯一组合；控制开销变化会影响对照解释 \n 软件 UE 主线程可配置 原  nr-ue.c  把 UE 主线程绑在 CPU 4 增加  --ue-main-thread-core ，允许明确设置并核实际线程亲和性；最新 ping 仍用 CPU 4 支持区分资源竞争和主机争用，属于主机运行工程控制，不是新无线协议或已证明的算法收益 \n 标准 SR 配置的研究控制 原代码按已有逻辑构造 SR 配置 增加统一 10/20/40 槽和每 UE 配置的可选构造路径，并限制已核工作点 字段来自标准，具体周期分配策略是研究选择。最新 ping 用 40 槽，没有启用按 QoS 改每 UE 周期的策略 \n 调度/授权试验开关 原 fork 有自己的 PF 和主动调度实现 增加 PF/MT/PB/EDF/M-LWDF/QUEST 等评分选择、WAIT 历史原型和残余预算探测路径 代码里有某分支，不代表本次运行启用了它；最新 ping 为 PF、legacy 探测，不是 QUEST 或 residual 性能试验 \n 私有 HOL 报告 原源码没有该研究报告 UE 记录队首等待时间，在配对实验格式中增加 2 B，gNB 配对解析 这是研究私有扩展；不是标准 BSR/DSR 的现成功能。最近 ping 仍显式开启它，因此不能称为与原版字节格式完全相同的干净对照 \n\n首 UE 改动原记录见 CHG-095 ( /doc/deb922c13fd18e1e4)；控制图样原记录见 CHG-103 ( /doc/ddde1d9aaf1deabf2)。算法与试验开关可从 算法实现与结果 ( /browse/algorithms)进入，HOL、授权和探针含义见 通信与时延基础 ( /doc/kc3e4e8560cabef23)。\n\n   4. 新增 C 探针和 Python 脚本各做什么\n\n 部分 主要位置 用途 会不会直接证明算法降低时延 \n --- --- --- --- \n 分层、RLC、UL 服务和状态观察器  common/utils/ trace.h  及 SDAP/PDCP/RLC/MAC/PHY 插入点 记录同包标识、入队/片段/授权/CRC/编码时刻与状态，定位等待区间 不会。它们提供证据，观察本身有开销，需要观察 ON/OFF 对照 \n RFsim 阶段观察  ran_diagnosis.h 、 radio/rfsimulator/simulator.c  记录样本推进、等待和混合执行区间 不会。RFsim 的样本时钟与主机时间未必 1∶1，不是真实天线测量 \n Python 运行器  research/latency-analysis/ /prepare.py 、 run.py  准备配置、启动/回收 gNB/UE/独立核心网、发业务、抓包、冻结输入 不是用 Python 替换 OAI 的 C 协议栈 \n Python 分析与核验  analyze.py 、 collect.py 、独立  verify .py  关联原始事务、统计时延、核校验和/字节/时间戳及生成安全汇总 只有完整实验和验证通过，才可支持明确边界内的结论 \n\nC 仍在执行真实的 OAI 编码、协议处理和调度；Python 负责组织与分析。模型脚本另有明确理想化假设，不能当作完整 gNB＋UE 实验。探针默认关闭的路径与运行器显式开启的条件要分别看，不能只凭代码注释称“本次无观察开销”。\n\n   5. 最近 ping 实际用了什么，哪些原参数保留\n\n 项目 最近完成批次的实际情况 \n --- --- \n 运行根 本地  analysis-source-audit/ping-slot-validation-20261109/main-01 ，新的独立根 \n 时间与频域工作点 120 kHz、正常 CP、n261、66 PRB；周期 0.625 ms、3D/S6D4F4U/1U；这些基本网格沿用原工作点 \n 控制和协议配置 启用 SDAP、单 SSB 1 与 SIB1 TDA 13；不等于原配置所有字段保持不变 \n 运行开关 PF、legacy 探测、F=10 帧、SR=40 槽、上下行 MCS 上限 9、私有 HOL 开启；每 UE SR 分配策略未启用 \n 测试条件 单 UE；56/1200 B ICMP 数据；观察 OFF/ON；3 重复，共 12 条件 \n 路径与边界 UE 内 ping → UE 用户面 → RFsim → gNB → N3 → UPF 容器内核回显，再按下行返回；RTT，不是单向/纯空口/真实工业执行时间 \n 实际完成范围 12/12、3600 完整请求与回复、3360 统计事务；双向包关联及独立 ICMP 校验和/冻结输入复核通过 \n QoS 身份边界 沿既有 internet 身份配置；本批直接核 N3 QFI 9，没有新抓 NAS 独立验证 5QI，不将两者等同 \n\n上述值从新运行器、冻结配置和完成状态读取，不是凭“都叫 120 kHz”推断。  当前 ping 包括累计修正及研究附加功能，不能把它与原版早期 5 包记录的差直接说成某个修复使时延变好或变坏。   本页按用户要求不再列旧三配比 RTT 对比。\n\n摄像头/机械臂仍是应用场景，未修改视频内容。原有外部 MCS 控制接口没有因去首 UE 特例而删除；实际是否使用相应外部上限，还要看控制是否启用及每个 TB 日志，不能仅凭“看见/没看见”给全部测试贴 MCS 14/25 标签。\n\n   6. 修复验证到了哪里，哪些结论还不能说\n\n 事项 已有证据 仍须保留的边界 \n --- --- --- \n 指针预算修复 生产 C 提取夹具、真实编译单元检查；修复源基之后又完成完整新构建和 gNB＋UE ping 这次最新完整栈为单 UE 固定图样，不是所有多 UE/TDD/SCS 结果重新验证 \n SearchSpace/SSB 修正 各自旧反例、真实 C 检查、编译与后续完整栈回归记录 修正能解释的机制不等于全部并发风险被排除 \n MAC 子头修正 生产 helper 的格式/长度边界检查与后续完整栈服务观察 修复前数据保持历史身份，不能改一个版本标签继续当修复后数据 \n QFI/SDAP 修正 原文与原代码/配置冲突记录、后续双向路径/字段测试 本实现单 QoS 流限制、核心网冷下行条件等仍要写明，不能称整个系统全面认证 \n 旧重传预算对慢包的影响 已检查的旧 72 条件共同业务窗口内没有 HARQ 重传授权；已发现的有关重传轮在业务前 现有证据不能把普遍慢包归因这个错误；也不能据此保证新程序时延完全不变 \n 早期短 ping 旧日志仍是当时程序/配置下的回包记录 没有证明日志伪造或必然测错；5 包不足以证明稳定尾时延、标准配置正确或代表视频/控制业务 \n\n  “修复已存在并被一些测试验证”与“所有历史研究已在同一最终版本重测”是两件事。   当前不是全部时延结果都已重测。旧数据、旧程序、失败和慢包继续保留，正文按批次明确身份；需要最终论文同程序对照时，必须选清楚版本、开关和控制条件，再按必要范围设计新实验，不能拼接不同程序的数据。\n\n详细旧修复/测试入口在上一节所列 CHG 及对应 TEST；最新完整构建、首次本机 ping  -e  不支持的失败、新兼容先导与 12 条件分别见  latency-ping-slot-validation  分支 CHG-367～369、TEST-514～519。 该分支的运行命令与安全结果入口 (https://github.com/ming0526288/oiwireless-latency-analysis/blob/159208eb2f/research/latency-analysis/ping-slot-results/README.md)。本页没有重新运行这些测试。\n\n   7. 每类修改具体依据哪一处协议\n\n本次先核本地 34 份来源 SHA/可读性，再读下列相关原文与所需字段。采用用户提供、已获授权的封面版本；没有独立声称它们是官网最高版本，也不构成 OAI 对这些 Release 的全面认证。\n\n 用途 实际原文定位 原文与工程选择的分界 \n --- --- --- \n 120 kHz/槽长  TS 38.211 V19.5.0 §4.2、§4.3.2，表 4.3.2-1 ( /protocol/38.211?clause=4.3.2&version=19.5.0) 正常 CP 的网格定义；不直接给本机 CPU 或完整 RTT \n 授权/重传与调度背景  TS 38.321 V19.4.0 §5.4.1、§5.4.2.1 ( /protocol/38.321?clause=5.4.1&version=19.4.0)； 38.300 V19.4.0 §10.3 ( /protocol/38.300?clause=10.3&version=19.4.0) 规定授权/流程；C 指针解引用、PF 或首 UE 共同资格是实现/研究选择 \n MAC 子头  TS 38.321 V19.4.0 §6.1.2、§6.2.1 ( /protocol/38.321?clause=6.2.1&version=19.4.0) F/L 长度规则；缓冲搬移和 helper 是 C 实现 \n N3 QFI  TS 38.415 V19.1.0 §5.4.2.1、§5.5.3.3 ( /protocol/38.415?clause=5.5.3.3&version=19.1.0) QFI 标记报文所属流；本补丁的单流限制不能当标准限制 \n 默认 DRB/SDAP 头  TS 38.331 V19.4.0 §6.3.2 SDAP-Config 字段说明 ( /protocol/38.331?q=SDAP-Config&version=19.4.0)； 37.324 V19.0.0 §5.2.1 NOTE 2 ( /protocol/37.324?clause=5.2.1&version=19.0.0) defaultDRB=true 的 UL 头要求；enable_sdap 开关和 DL 联动是该 fork 的实现 \n 搜索空间配置  TS 38.331 V19.4.0 §6.3.2 SearchSpace ( /protocol/38.331?q=SearchSpace&version=19.4.0)； 38.213 V19.5.0 §10.1 ( /protocol/38.213?clause=10.1&version=19.5.0) 字段与监测语义；初始化后发布/互斥锁不是协议指定 C 写法 \n SSB 高低位组合  TS 38.212 V19.4.0 §7.1.1 ( /protocol/38.212?clause=7.1.1&version=19.4.0)； 38.213 V19.5.0 §4.1 ( /protocol/38.213?clause=4.1&version=19.5.0) 组合的位来源；本地局部变量/OR 是满足语义的实现 \n TDD 及 SIB1 联合配置  TS 38.213 V19.5.0 §11.1、§13、表 13-8/13-12 ( /protocol/38.213?clause=13&version=19.5.0)； 38.214 V19.5.0 §5.1.2.1.1、表 5.1.2.1.1-2 ( /protocol/38.214?clause=5.1.2.1.1&version=19.5.0)；38.331 §6.3.2 复用 CHG-103 已核表项，本次只复核现存配置与历史依据，不声称新做全部表格/方向认证 \n\n论文测量背景：P01《Dissecting 5G New Radio Latency》，本地 IFIP Networking 2025 版 §III/IV，PDF 页序 2～4，本次复读。教材：指定《5G移动通信系统设计与标准详解》第 2 章链路层及图 2-9/10，PDF 页序 49～55；§6.4.1，PDF 205～206；§13.1.1.2，PDF 530～532，本次复读。论文/教材辅助理解分层、资源预算与测量方法，不替代上述标准原文，也不替 C 锁/私有扩展背书。算法公式、版本身份和原文页序继续在各算法独立说明维护，本页不重新冒称完成论文全部性能复现。\n\n网页、导航、Git、文件哈希和 Python 编排属于工程整理，  3GPP/新增通信数学推导不适用  ；上面的两处预算公式只是对应修复的语义核验，没有新增时延模型或预测性能。\n\n   8. 逐文件差异清单：查看 C 到底改在哪里\n\n范围固定为原提交  383aa52a…  → 构建源基  61654513d5…  的  common/ 、 executables/ 、 openair1/ 、 openair2/ 、 openair3/ 、 radio/  和原 gNB 配置目录。新增/删除是 Git 行数，不是问题个数；原 gNB 配置文件在这个已跟踪源码差异内没有变，实际实验修改的是另外复制的运行配置。文件可能同时包含修复、观测和算法路径，表中列主要用途而非每行完整审计。\n\n 源码文件（相对研究树） 新增/删除行 主要修改用途 \n --- ---: --- \n  common/utils/layer_trace.h  +77/−0 分层包指纹/时间戳观察 \n  common/utils/probe_policy.h  +39/−0 legacy/residual 探测选择与剩余 PRB 检查 \n  common/utils/quest_config.h  +41/−0 算法/私有 HOL 开关；默认值与合法组合检查 \n  common/utils/quest_decision_trace.h  +79/−0 调度候选/评分/拒绝原因观察 \n  common/utils/ran_diagnosis.h  +115/−0 RFsim 和 MAC 执行阶段观察 \n  common/utils/rlc_tx_trace.h  +86/−0 RLC 初传/重传片段观察 \n  common/utils/ul_service_trace.h  +167/−0 包/片段/TB/授权/DCI/编码的关联观察 \n  common/utils/ul_state_trace.h  +104/−0 UE/gNB 队列、SR 与候选前状态观察 \n  common/utils/ul_wait_trace.h  +77/−0 WAIT 原型的轮次/选择观察 \n  executables/nr-ue.c  +3/−1 UE 主线程核心从固定值改为受校验参数 \n  executables/nr-uesoftmodem.c  +1/−1 新增 UE 主线程绑核命令行选项 \n  executables/nr-uesoftmodem.h  +2/−0 保存 UE 主线程核心参数 \n  openair1/PHY/NR_UE_TRANSPORT/nr_ulsch_ue.c  +26/−1 上行编码阶段与 TB 字节指纹观察 \n  openair2/LAYER2/NR_MAC_COMMON/nr_mac_sdu.h  +48/−0 按 SDU 长度写 MAC 子头并计算载荷容量 \n  openair2/LAYER2/NR_MAC_COMMON/nr_quest_hol.h  +41/−0 私有 2 B HOL 编解码 \n  openair2/LAYER2/NR_MAC_UE/config_ue.c  +21/−4 SearchSpace/CORESET 完整发布与 RRC 更新加锁 \n  openair2/LAYER2/NR_MAC_UE/mac_proto.h  +2/−1 私有 HOL 写 CE 函数参数声明 \n  openair2/LAYER2/NR_MAC_UE/nr_ra_procedures.c  +1/−1 适配扩展后的 CE 写入调用签名 \n  openair2/LAYER2/NR_MAC_UE/nr_ue_procedures.c  +87/−8 SSB 幂等修正；DCI/SR 状态观察；私有 HOL CE 写入 \n  openair2/LAYER2/NR_MAC_UE/nr_ue_scheduler.c  +117/−23 短子头/字节预算修正；私有 HOL 上报；SR/TB 观察 \n  openair2/LAYER2/NR_MAC_gNB/gNB_scheduler_uci.c  +11/−1 gNB 正/负 SR 接收状态观察 \n  openair2/LAYER2/NR_MAC_gNB/gNB_scheduler_ulsch.c  +308/−119 重传预算/首 UE 例外修正；候选评分/主动探测/私有 HOL 解析及观察 \n  openair2/LAYER2/NR_MAC_gNB/mac_rrc_dl_handler.c  +98/−0 已接收 QoS 的参数保存/日志与可选每 UE SR 配置 \n  openair2/LAYER2/NR_MAC_gNB/nr_mac_gNB.h  +5/−0 QoS、HOL 和等待状态存储字段 \n  openair2/LAYER2/NR_MAC_gNB/nr_quest_metric.h  +49/−0 QoS 参数与各调度评分实现 \n  openair2/LAYER2/NR_MAC_gNB/nr_ul_wait_policy.h  +31/−0 WAIT 历史研究策略函数 \n  openair2/LAYER2/nr_pdcp/cucp_cuup_handler.c  +10/−1 N3 QFI 使用所配置流及单流范围保护 \n  openair2/LAYER2/nr_pdcp/nr_pdcp_oai_api.c  +16/−0 PDCP 入口/出口与包指纹观察 \n  openair2/LAYER2/nr_rlc/nr_rlc_entity.c  +21/−0 按真实 RLC 队首和到达戳计算 HOL \n  openair2/LAYER2/nr_rlc/nr_rlc_entity.h  +2/−0 RLC HOL 查询声明 \n  openair2/LAYER2/nr_rlc/nr_rlc_entity_am.c  +13/−0 AM 初传/重传片段输出观察 \n  openair2/LAYER2/nr_rlc/nr_rlc_oai_api.c  +15/−0 RLC 层界观察与持锁 HOL 查询接口 \n  openair2/LAYER2/nr_rlc/nr_rlc_oai_api.h  +3/−0 上述接口声明 \n  openair2/LAYER2/nr_rlc/nr_rlc_sdu.c  +2/−0 记录启用私有模式时的 SDU 到达时间 \n  openair2/LAYER2/nr_rlc/nr_rlc_sdu.h  +1/−0 保存 SDU 到达时间字段 \n  openair2/NR_PHY_INTERFACE/NR_IF_Module.c  +12/−0 gNB CRC/TB 指纹观察 \n  openair2/NR_UE_PHY_INTERFACE/NR_IF_Module.h  +4/−0 UE 解码侧层界指纹观察 \n  openair2/RRC/NR/nr_rrc_config.c  +31/−0 受限工作点的可选标准 SR 周期构造 \n  openair2/SDAP/nr_sdap/nr_sdap.c  +3/−0 SDAP 层界观察 \n  openair2/SDAP/nr_sdap/nr_sdap_entity.c  +4/−0 SDAP 实体交付层界观察 \n  radio/rfsimulator/simulator.c  +23/−0 RFsim read 的样本/主机执行时间观察 \n\n可在共享 Git 仓库执行以下  只读  命令复核，不需要启动核心网：\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-ping-slot-validation\ngit diff --stat 383aa52a3120610cea4df59855ed73691e12deca 61654513d522610db09207ce36220c1e1ff76937 -- common executables openair1 openair2 openair3 radio targets/PROJECTS/GENERIC-NR-5GC/CONF\ngit diff 383aa52a3120610cea4df59855ed73691e12deca 61654513d522610db09207ce36220c1e1ff76937 -- openair2/LAYER2/NR_MAC_gNB/gNB_scheduler_ulsch.c\n   \n\n本页的版本/差异核对证据由研究仓库本次 CHG/TEST 和安全来源索引保存；完整日志、ELF、PCAP、身份配置和标准原文只在本地。本页是后续理解版本的入口，不覆盖各步骤的失败记录，也不自动修改旧 Word/PPT。\n"
     },
     {
-      "id": "e9eb3f4e896afc1bd",
-      "title": "独立实验：原始源码与当前版本对比",
-      "source": "说明/研究结果与分析/独立实验_原始源码与当前版本对比.md",
-      "aliases": [
-        "说明/研究结果与分析/独立实验_原始源码与当前版本对比.md"
-      ],
-      "group": "research",
-      "topic": "source-version-retest",
-      "prerequisite": false,
-      "experimentStage": "source-version-retest",
-      "independentExperiment": "E-SRC-01",
-      "status": "partial",
-      "sha256": "2f9fdd6b562472a26caeb9d0deb5f002d9f56c2842400f761c0989d71f715d6d",
-      "snapshot": "说明/研究结果与分析/独立实验_原始源码与当前版本对比.md",
-      "redacted": false,
-      "toc": [
-        {
-          "id": "独立实验原始源码与当前版本对比",
-          "title": "独立实验：原始源码与当前版本对比",
-          "level": 1
-        },
-        {
-          "id": "先看版本对照是否已经成立",
-          "title": "先看版本对照是否已经成立",
-          "level": 2
-        },
-        {
-          "id": "原目录二进制复测做到了哪里",
-          "title": "原目录二进制复测：做到了哪里",
-          "level": 2
-        },
-        {
-          "id": "当前研究版本的已有-ping-参照",
-          "title": "当前研究版本的已有 ping 参照",
-          "level": 2
-        },
-        {
-          "id": "原始目录复测的命令与未完成项",
-          "title": "原始目录复测的命令与未完成项",
-          "level": 2
-        },
-        {
-          "id": "依据结论与下一步",
-          "title": "依据、结论与下一步",
-          "level": 2
-        }
-      ],
-      "words": 2460,
-      "minutes": 4,
-      "search": "  独立实验：原始源码与当前版本对比\n\n实验编号   E-SRC-01  ，状态：  原始版本复测尚未完成  。我在这里比较 RAN 源码/运行版本及原始 ping 复测状态，独立于主线十二步。配套 源码版本知识页 (../算法知识点说明/原始源码与当前版本_知识点分析.md)。\n\n   先看版本对照是否已经成立\n\n 对象 实际进度 可报告的结果 \n --- --- --- \n 原目录现有二进制 首次 RFsim TCP 已连，但 UE 未接入到 TUN 未进入业务，无本轮 RTT；根因未确定 \n 第二次原始先导 已准备，启动请求中断 无 execution/runtime，不算已运行 \n 当前研究版本 已有 56 B ping 三轮正式数据 下表引用现有数据，不算新测 \n 严格原始/当前版本时延 A/B 尚未完成 原始无新业务数据，不能宣称哪个版本更快 \n\n   原目录二进制复测：做到了哪里\n\n原目录  /home/lbh/oiwireless/oi-wireless-ran  源 HEAD  383aa52a31 。已复制其现有 12 个二进制/库，记录 SHA；原源码/二进制/配置没有改写，也没有重新构建。源码与二进制的完整历史构建对应尚未重新证明，因此准确身份是“原目录现有二进制”。为保留原核心状态，测试使用独立核心副本，部署 IP 重映射；不声称完整重建当时全部 5GC 环境。\n\n首次  original-ping-v1 / pilot-01  实际运行 44.421 s：独立核心完成，gNB RF 启动，UE 与 RFsim TCP 已连接；25 s 内未出现 TUN 配置完成标志而停止，未进入业务ping与测量抓包。日志还有 Tx 时间次序提示，但根因尚未唯一定位，不能据此断言原始源码永久不可用。原核心状态保持，子进程和本轮资源已回收。\n\n第二根  original-ping-v2 / pilot-02  仅增加原程序支持的  --continuous-tx  运行选项作供样诊断，原二进制/NR字段不改。该启动操作被用户中断；检查无 execution/runtime，无活动RAN/遗留实验资源，不能说已经执行或通过。该标志是实现运行选项，不是 3GPP 规定的调参方法。\n\n后续复测计划独立保存：原命令形态/1 s 间隔、同目标1 s、同目标20 ms分别记录，不以平均值对比另一组P99。当前尚无新原始版本RTT值；历史约0.737 ms的5包均值只能按下文历史身份阅读。\n\n\n   当前研究版本的已有 ping 参照\n\n固定本轮 56 B ICMP 数据、20 ms 目标间隔，当前运行源 159208eb2f，单 UE RFsim。三轮引用 E-MEAS-01 已完成条件的工具 RTT，不新增运行次数。原始版本尚无同条件结果，以下仅作当前版本参照，不构成版本收益；实际 ping 间隔及端点/配置差异沿原记录核对。\n\n 轮次 完整/统计 平均 / ms P50 / ms P95 / ms P99 / ms 最大 / ms \n --- ---: ---: ---: ---: ---: ---: \n 1 2200/2000 1.701862 1.640000 2.270000 2.440000 3.990000 \n 2 2200/2000 1.812801 1.680000 2.550500 2.900100 4.130000 \n 3 2200/2000 1.842844 1.800000 2.770000 3.300100 4.400000 \n\n数值沿父数据原样引用；显示小数位不增加 ping 工具精度。父证据为  数据/第一步_六条件正式对照.json ，完整工具结果保留在独立测量格式实验。旧 0.737 ms 五包均值仅按知识页中的历史身份阅读，不能与本表 P99 直接比较。\n\n   原始目录复测的命令与未完成项\n\n实际执行并失败的是：\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\n/usr/bin/python3 -B research/latency-analysis/original-ping-v1/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/original-ping-20261112/pilot-01\nsudo -n /usr/bin/python3 -B research/latency-analysis/original-ping-v1/run.py /home/lbh/oiwireless/analysis-source-audit/original-ping-20261112/pilot-01\n   \n\n第二根  original-ping-v2/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/original-ping-20261112/pilot-02  已准备；启动请求被中断，无执行记录。收尾只读环境确认无活动 RAN / 实验资源，不把它写成已测。源目录的 12 个现有运行文件和两个配置已记录 SHA；两旧日志删除状态保留。复测结果与主要原因仍待后续实际运行和核验，不能拿历史五包均值替代。\n\n\n   依据、结论与下一步\n\n源码变更及协议依据见配套知识页和 既有逐文件审计 (../五类时延分析/原始源码与当前研究版本_修改问题与影响.md)。首次先导的失败位置和根因未定状态保持，不用失败证明原始实现永久不可用。需要先完成原始接入，再做同工具/同输入的版本对照；本次只拆页，没有恢复或新增实验。\n\n记录 CHG404 / TEST554；原实际失败及启动中断见 CHG403 / TEST553，安全证据  source_audit/original_ping_and_measurement_separation_20261112.json 。本实验不研究应用测量字段缩短的收益；该主题单独见 80 B / 16 B 测量格式实验 (独立实验_80B与16B测量格式对比.md)。\n"
-    },
-    {
-      "id": "ef0a33e120c19cc7f",
-      "title": "独立实验：80 B 与 16 B 测量格式对比",
-      "source": "说明/研究结果与分析/独立实验_80B与16B测量格式对比.md",
-      "aliases": [
-        "说明/研究结果与分析/独立实验_80B与16B测量格式对比.md"
-      ],
-      "group": "research",
-      "topic": "measurement-tools",
-      "prerequisite": false,
-      "experimentStage": "measurement-tools",
-      "independentExperiment": "E-MEAS-01",
-      "status": "partial",
-      "sha256": "b314a1d92d74a72f3f5a725bf1df5533094c09e65af83ee398db67aeb085bb76",
-      "snapshot": "说明/研究结果与分析/独立实验_80B与16B测量格式对比.md",
-      "redacted": false,
-      "toc": [
-        {
-          "id": "独立实验80-b-与-16-b-测量格式对比",
-          "title": "独立实验：80 B 与 16 B 测量格式对比",
-          "level": 1
-        },
-        {
-          "id": "本实验状态",
-          "title": "本实验状态",
-          "level": 2
-        },
-        {
-          "id": "先比较同为-256-b-的两组-udp-记录",
-          "title": "先比较同为 256 B 的两组 UDP 记录",
-          "level": 2
-        },
-        {
-          "id": "精简-udp--ping-的正式对照既有数据",
-          "title": "精简 UDP / ping 的正式对照（既有数据）",
-          "level": 2
-        },
-        {
-          "id": "我实际测了什么",
-          "title": "我实际测了什么",
-          "level": 3
-        },
-        {
-          "id": "六条件的三轮-p99-范围",
-          "title": "六条件的三轮 P99 范围",
-          "level": 3
-        },
-        {
-          "id": "各轮结果不挑快轮",
-          "title": "各轮结果，不挑快轮",
-          "level": 3
-        },
-        {
-          "id": "icmp-ping",
-          "title": "ICMP ping",
-          "level": 4
-        },
-        {
-          "id": "精简-udp",
-          "title": "精简 UDP",
-          "level": 4
-        },
-        {
-          "id": "实际间隔与比较限制",
-          "title": "实际间隔与比较限制",
-          "level": 3
-        },
-        {
-          "id": "udp-四应用时刻的平均分解",
-          "title": "UDP 四应用时刻的平均分解",
-          "level": 3
-        },
-        {
-          "id": "主线可以引用哪些已核条件",
-          "title": "主线可以引用哪些已核条件",
-          "level": 3
-        },
-        {
-          "id": "失败先导与可复核证据",
-          "title": "失败、先导与可复核证据",
-          "level": 3
-        },
-        {
-          "id": "80-b-组的完整记录与来源既有三轮",
-          "title": "80 B 组的完整记录与来源（既有三轮）",
-          "level": 2
-        },
-        {
-          "id": "先看三轮-rtt-结果",
-          "title": "先看三轮 RTT 结果",
-          "level": 3
-        },
-        {
-          "id": "这些时延分别经过哪里",
-          "title": "这些时延分别经过哪里",
-          "level": 3
-        },
-        {
-          "id": "我的场景参数与固定条件",
-          "title": "我的场景参数与固定条件",
-          "level": 3
-        },
-        {
-          "id": "我验证了什么",
-          "title": "我验证了什么",
-          "level": 3
-        },
-        {
-          "id": "失败先导和修正",
-          "title": "失败先导和修正",
-          "level": 3
-        },
-        {
-          "id": "原-256-b-基线当时的结论",
-          "title": "原 256 B 基线当时的结论",
-          "level": 3
-        },
-        {
-          "id": "协议论文与证据入口",
-          "title": "协议、论文与证据入口",
-          "level": 3
-        },
-        {
-          "id": "独立实验的执行命令与历史运行说明",
-          "title": "独立实验的执行命令与历史运行说明",
-          "level": 2
-        },
-        {
-          "id": "新六条件已执行的准备与短测命令",
-          "title": "新六条件：已执行的准备与短测命令",
-          "level": 3
-        },
-        {
-          "id": "新六条件已执行的正式三轮与复核命令",
-          "title": "新六条件：已执行的正式三轮与复核命令",
-          "level": 3
-        },
-        {
-          "id": "我采用的启动方式",
-          "title": "我采用的启动方式",
-          "level": 3
-        },
-        {
-          "id": "已实际执行的检查与完整启动命令",
-          "title": "已实际执行的检查与完整启动命令",
-          "level": 3
-        },
-        {
-          "id": "基站ue-和业务具体在哪里启动",
-          "title": "基站、UE 和业务具体在哪里启动",
-          "level": 3
-        },
-        {
-          "id": "只读查看与独立复核",
-          "title": "只读查看与独立复核",
-          "level": 3
-        },
-        {
-          "id": "失败和停止时看哪里",
-          "title": "失败和停止时看哪里",
-          "level": 3
-        },
-        {
-          "id": "依据与对应页面",
-          "title": "依据与对应页面",
-          "level": 3
-        }
-      ],
-      "words": 15685,
-      "minutes": 24,
-      "search": "  独立实验：80 B 与 16 B 测量格式对比\n\n实验编号   E-MEAS-01  。我在这里集中记录测量格式、ping / UDP、包长与计时方法的证据，独立于主线十二步。对应 测量格式知识页 (../算法知识点说明/80B与16B测量格式对比_知识点分析.md)。\n\n   本实验状态\n\n 子项 状态 边界 \n --- --- --- \n 80 B / 16 B 字段与功能 已核实现 记录字段、事务关联、两端日志和时钟条件 \n 精简 UDP / ping 三包长 18 次正式运行已完成 39600 完整 / 36000 统计；沿已有数据，不新增计数 \n 原 80 B 三轮 历史数据保留 256 B、指数输入、6600 完整 / 6000 统计 \n 严格同条件 80 / 16 B 性能 A/B 尚未完成 不能用两批到达过程不同的数据证明头压缩收益 \n\n   先比较同为 256 B 的两组 UDP 记录\n\n两组请求/响应的 UDP 应用数据均为 256 B。80 B 组是 80 B 测量字段 + 176 B 填充，16 B 组是 16 B 字段 + 240 B 填充；无选项、无分片的内层 IPv4 包均为 284 B。两组各三轮、各 6600 完整 / 6000 统计，下面沿原始记录逐轮列出。\n\n 格式 本组轮次 完整/统计 平均 RTT / ms P50 / ms P95 / ms P99 / ms 最大 / ms \n --- ---: ---: ---: ---: ---: ---: ---: \n 80 B 1 2200/2000 2.219019 2.198402 3.060864 3.757911 5.144820 \n 80 B 2 2200/2000 2.297152 2.274663 3.168281 3.826170 4.827559 \n 80 B 3 2200/2000 2.138456 2.089417 3.082376 3.624685 4.137617 \n 16 B 1 2200/2000 2.281553 2.271306 2.982604 3.540496 4.565029 \n 16 B 2 2200/2000 2.290166 2.274821 2.966329 3.592956 4.660129 \n 16 B 3 2200/2000 2.290742 2.265464 3.147083 3.670615 4.636764 \n\n  表中的同一个轮次数字不表示两种格式做过配对 A/B。   80 B 组使用指数随机间隔，16 B 组使用周期目标间隔；程序记录方式不同。10 个 RAN 二进制/模块 SHA 相同只能排除这一项差异，不能把两批变成仅头部不同的实验。当前不能给出“精简头部本身降低多少时延”的因果收益。\n\n 知识页的包内容、功能与范围对照 (../算法知识点说明/80B与16B测量格式对比_知识点分析.md)。下方保留原图、全量工具结果和历史证据；这六轮已包含在既有两批数据中，不另算实验次数。\n\n   精简 UDP / ping 的正式对照（既有数据）\n\n  状态：已完成本轮单 UE 六条件基线。18 次正式运行全部通过，39600 次完整请求—响应，去预热后统计 36000 次；每轮独立复算并保留先导、旧基线与失败身份。  \n\n我完成的是通信请求—响应 RTT 基线，不是机械臂动作闭环、真实射频或算法优化收益。ping 与 UDP 各测 56、256、1200 B，每条件三轮；下文先给这轮新结果，再保留原 256 B / 80 B 头 / 指数输入结果，两批不混池。\n\n    我实际测了什么\n\n 项目 本轮实际条件 \n --- --- \n 平台 同主机独立 5GC 副本 + gNB + 软件 UE，RFsim，无真实射频 \n 版本 通信源基 61654513d5，运行源提交 159208eb2f；10 个哈希一致 ELF/模块；测量方法 step1-ping-udp-v2 / d2ccf26b08，无本轮无线 C 修改 \n 无线 n261、100 MHz、66 PRB、120 kHz、正常 CP、MCS 上限 9 \n TDD 0.625 ms：3 完整 D + 混合槽 6D4F4U + 1 完整 U；完整槽 D:U = 3:1，混合槽不省略 \n 调度/授权 PF、legacy 探测 F = 10 帧、SR = 40 槽 / offset = 3、业务 K2 = 4；保留配对私有 HOL 报告，关闭层内观察器 \n QoS 与路径 实际 NAS 5QI 9 / QFI 9，双向 N3 / TUN 和路由核验；UPF 侧回复端，无外部 DN 物理链路 \n 业务 两工具数据各 56 / 256 / 1200 B；UDP 含 16 B 标记、请求响应等长；普通无选项 IPv4 内层分别 84 / 284 / 1228 B \n 到达与统计 目标间隔 20 ms；每条件 3 轮，每轮 2200 次、前 200 次预热、后 2000 次统计；正序、逆序、循环移位，单工具顺序运行 \n 主机 沿冻结绑核，UE 主线程 CPU 4、gNB RU CPU 6、UDP 服务端 CPU 2、客户端/原生 ping CPU 3；线程和 RFsim 模块核验 \n\n以上具体配比、包长、业务频率、绑核与样本数都是工程安排，不是 3GPP 强制工业方案。5QI 9 不等于已经验证工业关键控制业务。\n\n    六条件的三轮 P99 范围\n\n这里的范围是三轮各自 P99 的最小值至最大值，不是合并三轮后重新计算的 P99。\n\n 工具 数据长度 / B 工具/应用 RTT P99 范围 / ms 共同 UE TUN 区间 P99 范围 / ms \n --- ---: ---: ---: \n ping 56 2.440–3.300 2.438–3.301 \n ping 256 3.500–3.700 3.492–3.699 \n ping 1200 3.700–3.900 3.698–3.893 \n udp 56 2.897–3.186 2.884–3.172 \n udp 256 3.540–3.671 3.525–3.659 \n udp 1200 3.585–4.214 3.572–4.198 \n\n本组两种工具的三轮曲线都随 56 → 256 → 1200 B 非递减；这是当前配置与固定目标包率下的观察，不证明任意负载、相位或 SCS 下都单调。\n同包长对应轮次的描述性对照中，ping / UDP 的高低会反转，所以没有证据支持某个工具在所有条件都更低。工具处理路径、实际节奏和相位尚未独立控制。\n\n! 各轮工具或应用 RTT P99 (../插图/第一步_六条件工具RTT_P99.svg)\n\n! 各轮共同 UE TUN 区间 P99 (../插图/第一步_六条件TUN_P99.svg)\n\n每个点对应一轮 2000 个统计事务，连线仅便于阅读，不是连续包长模型。ping 的自身 RTT 来自原生每回复输出，存在工具舍入；UDP 来自客户端单调时钟整数戳。显示位数不增加仪器精度。共同 TUN 区间仍含网络与回复端处理，不是纯空口。\n\n    各轮结果，不挑快轮\n\n     ICMP ping\n\n 数据 / B 轮次 平均 RTT / ms P50 / ms P95 / ms P99 / ms 最大 / ms TUN P99 / ms \n ---: ---: ---: ---: ---: ---: ---: ---: \n 56 1 1.702 1.640 2.270 2.440 3.990 2.438 \n 56 2 1.813 1.680 2.550 2.900 4.130 2.897 \n 56 3 1.843 1.800 2.770 3.300 4.400 3.301 \n 256 1 2.362 2.380 2.730 3.500 4.640 3.492 \n 256 2 2.280 2.130 2.990 3.700 4.200 3.699 \n 256 3 2.418 2.530 2.960 3.610 4.060 3.609 \n 1200 1 2.781 2.820 3.230 3.700 5.380 3.698 \n 1200 2 2.713 2.800 3.190 3.740 4.890 3.732 \n 1200 3 2.640 2.680 3.290 3.900 4.510 3.893 \n\n     精简 UDP\n\n 数据 / B 轮次 平均 RTT / ms P50 / ms P95 / ms P99 / ms 最大 / ms TUN P99 / ms \n ---: ---: ---: ---: ---: ---: ---: ---: \n 56 1 1.871 1.875 2.529 2.897 3.364 2.884 \n 56 2 1.935 1.918 2.695 3.186 3.824 3.172 \n 56 3 1.740 1.722 2.530 2.966 3.571 2.953 \n 256 1 2.282 2.271 2.983 3.540 4.565 3.525 \n 256 2 2.290 2.275 2.966 3.593 4.660 3.580 \n 256 3 2.291 2.265 3.147 3.671 4.637 3.659 \n 1200 1 2.745 2.744 3.423 3.585 4.453 3.572 \n 1200 2 2.692 2.677 3.355 4.154 5.287 4.139 \n 1200 3 2.698 2.680 3.402 4.214 4.602 4.198 \n\n    实际间隔与比较限制\n\n 工具 数据 / B 三轮实际 TUN 平均间隔范围 / ms \n --- ---: ---: \n ping 56 20.593222–20.625282 \n ping 256 20.504361–20.732656 \n ping 1200 20.558954–20.737710 \n udp 56 19.999981–19.999991 \n udp 256 19.999983–19.999984 \n udp 1200 19.999982–19.999984 \n\n两工具的参数目标都是 20 ms，但实际发送节奏可能不同；TUN 还包含本地协议推进。跨工具结果同时受内核/应用回显、计时、到达节奏及无线相位影响，不能用差值单独证明“UDP 协议比 ICMP 多耗多少空口时间”。固定包率时，大包的 Mbps 也提高，本轮没有隔离负载因素。\n\n    UDP 四应用时刻的平均分解\n\n 数据 / B 轮次 上行应用区间均值 / ms 回复区间均值 / ms 下行应用区间均值 / ms 应用 RTT 均值 / ms \n ---: ---: ---: ---: ---: ---: \n 56 1 1.576472 0.003152 0.291016 1.870641 \n 56 2 1.649835 0.003111 0.281793 1.934739 \n 56 3 1.464263 0.003330 0.272083 1.739676 \n 256 1 1.977217 0.003694 0.300641 2.281553 \n 256 2 1.974429 0.003697 0.312040 2.290166 \n 256 3 1.965576 0.003660 0.321507 2.290742 \n 1200 1 2.295028 0.005884 0.443884 2.744796 \n 1200 2 2.237290 0.005956 0.448877 2.692123 \n 1200 3 2.242818 0.005883 0.448859 2.697560 \n\n四个时刻在 UE / 服务端日志中按事务编号关联。逐事务整数恒等式、两端时钟域与抓包辅助边界已核；同一批事务的分段均值相加等于 RTT 均值，分段 P99 不能相加。t2 在构造回复前记录，所以回复区间不包含此后编码/发送的全部工作；这些按本定义进入下行区间。没有开启协议层探针，不把本表称为 PDCP/RLC/MAC/PHY 逐层耗时。\n\n    主线可以引用哪些已核条件\n\n1. 六条件全栈路径与统计方法已跑通，可以支撑后续同程序对照；本轮仍只有 1 UE，不能从编号字段推断多 UE 已测。\n2. 后续优先用精简 UDP 作为可控应用探针，原生 ping 保留为连接和 RTT 参照。理由是 UDP 支持我需要的事务身份、到达计划和四应用时刻，不因为某个工具测得更小就选择它。\n3. 我先固定 256 B 请求/响应、20 ms 目标周期作为后续低负载起点；56 / 1200 B 保留为包长敏感性条件。这是便于隔离后续 UE 数与无线变量的工程基准，不是本轮证明的工业最佳包长。多 UE 竞争阶段再明确总负载/每 UE 负载矩阵。\n4. 新旧 256 B 的总包长相同，但测量格式与到达过程不同；不能把差异当成“测量头少 64 B 带来的 RTT 收益”。本轮没有优化算法收益结论。\n5. 每轮 2000 样本、三轮重复只用于描述性 P99；最大值不是绝对最坏界，不认证 P99.9 或长期工业可靠性。\n\n    失败、先导与可复核证据\n\nv1 pilot-01 的 56 B ping 200/200 已交付，因额外 1 个内层 version6 背景 PDU 被误当 IPv4 解析而核验失败；旧根与 v1 代码保留。v2 对背景单独计数，目标 IPv4 的长度、身份、QFI、数据与完整性门禁不变。新 pilot-02 六条件 1200 完整/1080 统计全部通过，再执行本正式根；先导和失败样本都不并入正式统计。\n本正式根运行总耗时 1163.408 s（含每次副本、接入、业务、核验和回收），核 2308 冻结输入。18 次完整日志、pcap 与两端 CSV 保留在本机；独立从原日志复算工具/应用 RTT、共同 TUN 和 UDP 分段，未另造第二套 pcap 解析器。结束核验原核心身份/运行状态不变，每轮子进程与本轮资源回收。\n\n安全数据： 正式 summary.json (https://github.com/ming0526288/oiwireless-latency-analysis/blob/latency-standards-audit/research/latency-analysis/step1-ping-udp-results/evidence/main-01/summary.json)；运行与方法见 第一步启动命令 (../启动命令/第一步启动命令.md)、CHG402 / TEST552。原文与精确条款沿下方来源区；具体业务参数是工程安排，不是标准强制。\n\n原 256 B 三轮的结果、参数表与图仍保留在下面，仅代表当时旧输入；不与本轮混用。\n\n   80 B 组的完整记录与来源（既有三轮）\n\n我建立了单 UE、固定 120 kHz、PF 与既有授权机制下的通信 RTT 基线。6600 次请求和响应全部交付；去除每轮预热后，共统计 6000 次事务。这里测的是通信应用请求—响应，不是机械臂完整控制周期。\n\n    先看三轮 RTT 结果\n\n 轮次 / seed 完整 / 统计事务 平均 / ms P50 / ms P95 / ms P99 / ms 最大 / ms \n --- ---: ---: ---: ---: ---: ---: \n 1 / 12001 2200 / 2000 2.219019 2.198402 3.060864 3.757911 5.144820 \n 2 / 12002 2200 / 2000 2.297152 2.274663 3.168281 3.826170 4.827559 \n 3 / 12003 2200 / 2000 2.138456 2.089417 3.082376 3.624685 4.137617 \n\n! 三轮通信 RTT 的 P50、P95、P99 (../插图/第一步_RTT三轮分位数.svg)\n\nP50 是中位数。每轮 P99 由该轮 2000 个统计事务直接计算；三轮分别报告，没有用分段 P99 相加，也没有把先导样本拼入正式结果。此样本量与三次重启不足以认证长期可靠性或 P99.9。\n\n    这些时延分别经过哪里\n\n! 实际请求响应路径与四个应用时间戳 (../插图/第一步_通信事务与计时边界.svg)\n\n 轮次 上行平均 / ms 服务端回复处理平均 / ms 下行平均 / ms 总 RTT 平均 / ms \n --- ---: ---: ---: ---: \n 1 1.905696 0.003976 0.309347 2.219019 \n 2 1.976610 0.003806 0.316736 2.297152 \n 3 1.840311 0.003953 0.294192 2.138456 \n\n同一事务用同一时钟域的四个时刻：$t_0$ 为 UE 构造请求前，$t_1$ 为服务端  recvfrom  返回后，$t_2$ 为服务端构造响应前，$t_3$ 为 UE  recvfrom  返回后。\n\n   math\n\\begin{aligned}T_{\\mathrm{UL}}&=t_1-t_0,\\\\T_{\\mathrm{reply}}&=t_2-t_1,\\\\T_{\\mathrm{DL}}&=t_3-t_2,\\\\T_{\\mathrm{RTT}}&=t_3-t_0=T_{\\mathrm{UL}}+T_{\\mathrm{reply}}+T_{\\mathrm{DL}}.\\end{aligned}\n   \n\n逐事务用整数 ns 核对恒等式，再换算 ms。上行包含请求封包、系统调用和接收应用唤醒等；下行包含回复封包、系统调用及 UE 接收唤醒等。reply 不是完整的边缘计算或机器人决策耗时。抓包 REALTIME 另外校验，没有混入主指标 MONOTONIC。\n\n    我的场景参数与固定条件\n\n 项目 实际采用的条件 \n --- --- \n 应用背景 汽车零部件装配中的状态信息交互；合成测试，不处理视频或机械臂动作 \n 平台 同一主机，独立 5GC 副本 + OAI gNB + OAI UE，RFsim，无真实射频 \n 版本 通信源基  61654513d5 ，可追溯提交  159208eb2f ；复用其已构建、哈希一致的 10 个 ELF/模块；本轮无生产 C 修改或新构建 \n 频段 / 资源 n261，载频 27.54756 GHz，100 MHz，66 PRB，120 kHz，正常 CP；MCS 上限 9，不是每 TB 固定 MCS 9 \n TDD 周期 0.625 ms = 5 个槽；3 个完整 D、1 个混合槽、1 个完整 U；混合槽 6D + 4F + 4U，F 在此配置用作保护 \n TDA / K2 沿原实现： min_rxtxtime = 4 ，业务 TDA0 为 start 0 / length 13，TDA1 为 0 / 12，混合 TDA2 为 10 / 3，K2 = 4；不是逐 TB 资源实测 \n PF 与授权 上行日志确认  scheduler = 0 ；下行沿原  pf_dl  路径；legacy 探测、F = 10 帧保持；SR = 40 槽、offset = 3，日志已确认 \n QoS 每轮新 NAS 确认 5QI 9、QFI 9；N3 请求为 type 1 / QFI 9，响应为 type 0 / QFI 9 \n 报告 / 观察 保留配对私有 HOL 报告；它不是普通标准 BSR/DSR。关闭额外 C 观察器；保留应用记录和被动抓包 \n 请求 / 响应 各 256 B 应用数据，包含 80 B 测量头和 176 B 填充；不含 UDP/IP 头 \n 发包 指数目标间隔，均值 20 ms，目标请求 0.1024 Mbps；不等待上一条响应才发送下一条 \n 重复 / 预热 三轮 seed 12001 / 12002 / 12003，每轮 2200 次事务，前 200 次预热，后 2000 次统计 \n 终端 / CPU 1 UE；主线程 CPU 4，gNB RU CPU 6，其余公共核 0,1,7,12–23；服务端 CPU 2、客户端 CPU 3 \n 服务端位置 UPF 网络命名空间的 tun0 侧应用；没有外部 DN 物理链路；原核心网停止/运行状态保持 \n\n  上述业务参数、具体 TDD 图样、绑核与重复次数是工程设计，不是 3GPP 强制的一套方案。   单 UE 基线不能证明 PF 优于其他排序算法。\n\n单位换算如下；它不证明无线容量或稳定负载条件：\n\n   math\n\\lambda=\\frac{0.1024\\times10^6}{8\\times256}=50\\ \\mathrm{packet/s},\\qquad E \\Delta t =20\\ \\mathrm{ms}.\n   \n\n普通 IPv4、无选项且无 IP 分片的记账长度为 256 + 8 + 20 = 284 B；每方向 IP 层名义速率约 0.1136 Mbps，不是空口总开销。实测三轮平均发包间隔为 19.918–20.211 ms；不能把随机间隔说成每次都固定 20 ms。\n\n    我验证了什么\n\n- 6600 个唯一事务关联客户端发送、服务端接收/响应和客户端接收，没有缺失或重复事务。每轮 TUN/N3 各有 4400 个已编号方向包，双向 QFI 正确，抓包 kernel drop 为 0。\n- UE 出口路由为  oaitun_ue1 ，服务端回复经  tun0 ；两端网络命名空间不同，四个抓包切点逐事务关联，排除应用同机旁路。\n- 两端 boot ID 与时间命名空间一致。单事务 wall/monotonic 时长差的三轮最大值分别为 4.340 / 3.719 / 2.603 μs；主 RTT 始终只用单调时钟。\n- 用原客户端整数时间戳和  statistics.quantiles(method=\"inclusive\")  独立复算 6000 个统计事务，核对 18 个原始文件 SHA 和 2306 个冻结输入。逐包 GTP 解析没有在独立复核中重写，不冒称两套独立解析器。\n- 正式脚本总耗时约 195.110 s，包含副本启动、接入、业务、校验与回收；测试结束无本次活动 RAN、容器或命名空间，原 MySQL 运行、原 AMF/SMF/UPF 停止状态保持。\n\n    失败先导和修正\n\n 记录 实际做到哪里 原因与处理 \n --- --- --- \n v1 / pilot-01 Python 导入阶段；未启动核心副本、RAN 或业务 未使用的旧 gate 文件导入在主研究树不存在；v2 移除该导入，旧失败根保留 \n v2 / pilot-02 核心副本与 PFCP 抓包已启动；未启动 RAN/业务 PFCP 解析器仍写死旧 213 子网，无法匹配新 214 端点；v3 更正两个端点，真实捕获回放确认 Cause/sequence/FTUP 门禁通过，没有放宽协议判据 \n v3 / pilot-03 完整 200 次请求响应及校验通过 只作先导，不计入主结果 \n v3 / main-01 三轮正式全栈与复核通过 本文结果来自该根，未拼接旧测量或失败样本 \n\n还纠正了方法引用：TS 38.213 的 SR 过程是 §9.2.4；§9.2.3 是 HARQ-ACK。冻结方法的早期说明引用编号错误，当前正文按已读原文更正；无线配置和程序未因此改变。\n\n    原 256 B 基线当时的结论\n\n1. 我的单 UE 通信场景、请求响应关联与计时方法已跑通，可作为下一步同程序多 UE 对照的参照。\n2. 三轮 RTT 中位数为 2.089–2.275 ms，P99 为 3.625–3.826 ms；这是当前 RFsim、合成业务和主机配置下的基线，不是算法优化收益或真实射频保证。\n3. 按同一批统计事务的平均值，上行约占 RTT 的 86%。这只能定位到“上行应用区间较大”，尚未证明是 SR、TDD、CPU、重传或哪个协议层造成，需要后续分层与慢事务分析。\n4. 不能把 0.125 ms 槽长当作应用 RTT 上限，也不能与旧 56 B ICMP ping、1200 B 多 UE 业务或另一版本程序直接作收益对比。当时计划先完成六条件工具 / 包长对照；该对照现见本页前部，后续增加 UE 仍需保持统一程序与输入。\n\n    协议、论文与证据入口\n\n- TS 38.211 V19.5.0 §4.2/4.3.2 表 4.3.2-1；TS 38.104 V20.1.0 §5.3.2/5.3.5：时间网格、频段与资源边界。\n- TS 38.213 V19.5.0 §11.1、 §9.2.4 SR 原文 ( /protocol/38.213?clause=9.2.4&view=text)；TS 38.331 V19.4.0 §6.3.2 的 TDD/SR IE：配置字段，不强制本项目具体图样。\n- TS 38.214 V19.5.0 §6.1.2.1/6.4；TS 38.321 V19.4.0 §5.4.1/5.4.4/5.4.5；TS 38.300 V19.4.0 §4.3.1.1/10.3：授权、准备与用户面背景。\n- TS 23.501 V20.3.0 §5.7.3.3/5.7.3.4、表 5.7.4-1；TS 24.501 V20.1.0 §8.3.2.1/9.11.4.12/9.11.4.13：QoS 字段；单向 PDB 不能直接当本次 RTT 期限。\n- TS 29.281 V19.2.0 §5.1/5.2.2.7、TS 38.415 V19.1.0 §5.5.2/5.5.3.3、TS 29.244 V20.1.0 §5.8.1/6.2.6.2/6.2.6.3：N3 容器和独立核心关联。\n- P01《Dissecting 5G New-Radio Latency》，IFIP Networking 2025，§III–IV，本地 PDF 第 2–4 页；P24 QUEST，TNSM Vol. 23 / 2026 本地期刊版，§VI-B/C，第 8–9 页；指定教材 §13.1.1.2，本地 PDF 第 530–532 页。借用测量与调度背景，不移植论文绝对数值。\n- 原文是用户本地可读版本；15 个协议 Word 分册及补充条款已核，不声明为官网最高版。\n-  安全结果 CSV (https://github.com/ming0526288/oiwireless-latency-analysis/blob/latency-standards-audit/research/latency-analysis/step1-rtt-results/evidence/main-01/conditions.csv) ·  安全结果 JSON (https://github.com/ming0526288/oiwireless-latency-analysis/blob/latency-standards-audit/research/latency-analysis/step1-rtt-results/evidence/main-01/summary.json)。完整日志、pcap 和凭据只在本机。\n\n主线仅引用当前基线子集；本独立实验的历史命令与复核在下方集中保留。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n\n\n   独立实验的执行命令与历史运行说明\n\n以下内容从原第一步命令页移入，属于 E-MEAS-01，不占十二步编号。已存在的根不得重新 prepare 或覆盖。\n\n    新六条件：已执行的准备与短测命令\n\n在研究仓库根执行以下命令，v2 先导 exit 0、六条件全部通过；输出根已经存在，禁止重新 prepare 或覆盖。v1 首次先导失败记录保留在  pilot-01 ，不能与本轮混用。固定周期与抓包关联已实现；正式三轮也已全部执行并通过独立统计复核。\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\n/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/selftest.py\n/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/pilot-02\nsudo -n /usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/run.py /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/pilot-02\n   \n\n    新六条件：已执行的正式三轮与复核命令\n\n以下命令已实际执行、exit 0； main-01  已结束，不能重复运行或覆盖。下次重测需全新根，并重新核对协议、环境与冻结输入。\n\n   bash\n/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/prepare.py --kind main --output /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01\nsudo -n /usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/run.py /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01\n/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-results/aggregate.py /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01 --output /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01-checked\n   \n\n18 条件、39600 完整 / 36000 统计事务与 2308 冻结输入均核验通过，耗时 1163.408 s（包括全部编排与回收）。结果见 第一步结果与分析 (../研究结果与分析/第一步结果与分析.md)，规则和条件见 第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)。图表生成与发布脚本在研究树  step1-ping-udp-results/ ，不得反复覆盖已发布数据根。\n\n\n以下保留原 256 B / 80 B 头 / 指数输入的历史实际命令，不能冒称新矩阵命令。\n\n    我采用的启动方式\n\n  本轮已实际启动并运行独立核心网副本。   其中 AMF、SMF、UPF 和数据库副本在测试期间运行，与 gNB、UE 一起完成请求响应；测试结束后，本轮副本已停止并回收。\n\n编排顺序是：只读原数据库快照 → 启动本轮核心网副本 → 核验 PFCP → 启动 gNB → UE 接入 → 三个连通准备 ping → UDP 请求响应 → 抓包/统计核验 → 回收本轮资源。\n\n run-5gc.sh  是原部署的启动入口，本轮编排器直接按独立配置启动核心网容器，所以无需调用它。原部署的 AMF/SMF/UPF 停止状态保持；这与本轮副本是否运行是两件事。实际副本 ID、启动日志与成功 PFCP 关联记录均已保存。\n\n工作目录：\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\n   \n\n    已实际执行的检查与完整启动命令\n\n以下是本次历史命令，  现有实验根禁止重新运行或覆盖  。下次重测必须另选不存在的输出根，并重新核协议、资源与冻结输入；不能只修改旧根的数据。\n\n   bash\n  本机探针/反例自测，exit 0\n/usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/selftest.py\n  准备先导并冻结输入，随后完整启动：均已执行\n/usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/pilot-03\nsudo -n /usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/run.py /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/pilot-03\n  准备正式三轮并完整启动：均已执行\n/usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/prepare.py --kind main --output /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/main-01\nsudo -n /usr/bin/python3 -B research/latency-analysis/step1-rtt-v3/run.py /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/main-01\n   \n\n成功标志： CASE_PASS main-r1 、 CASE_PASS main-r2 、 CASE_PASS main-r3 ，进程 exit 0，根  runtime.json  中  complete_plan = true 、 original_core_unchanged = true 。不能仅凭 gNB 的  RF started  当作业务通过。\n\n    基站、UE 和业务具体在哪里启动\n\n 环节 实际程序与参数 记录位置，均在 main-01 下 \n --- --- --- \n 核心网副本  core_control.py::start_core ，独立  latency-step1-   四容器，214 子网；先核配对 PFCP/Cause/FTUP 各轮  core-identity.json 、 association-ready.json  与私有日志 \n gNB 冻结的  runtime/nr-softmodem ，配置  configs/gnb.conf ， --sa --rfsim --rfsimulator.serveraddr server --continuous-tx --thread-pool N ；DL/UL MCS 上限 9、F10、RU6 各轮  traffic/commands.json  的 gnb 项与  gnb.log  \n UE 冻结的  runtime/nr-uesoftmodem ， configs/ue0.conf ， --sa --rfsim --rfsimulator.serveraddr 10.205.1.1 --continuous-tx --thread-pool N --band 261 -C 27547560000 -r 66 --numerology 3 --ssb 301 --ue-txgain 0 --ue-rxgain 20 --ue-main-thread-core 4  各轮  traffic/commands.json  的 ue 项与  ue.log  \n 请求响应  probe.py server/client ，服务端端口 49100、客户端 49200，256 B、 .1024 Mbps 、2200 次、各轮 seed 不同；同一事务携带原发送时刻 各轮  traffic/commands.json  的 server/client 项、 flow0/  三个应用 CSV \n 抓包 UE 的  oaitun_ue1  与 gNB N3，另抓取核心控制信令 各轮  traffic/tun.pcap 、 traffic/n3.pcap 、 control.pcap ，仅本地 \n\n完整实参以本地  commands.json  为准，表中是说明，  不是可脱离编排器直接重启的独立命令  ；这些命令依赖编排器创建的命名空间、配置和副本。核心凭据和 UE 身份不写入网页或 Git。\n\n    只读查看与独立复核\n\n   bash\n  查看安全结果表，不需要 sudo，也不会启动通信实验\ncat research/latency-analysis/step1-rtt-results/evidence/main-01/conditions.csv\ncat research/latency-analysis/step1-rtt-results/evidence/main-01/summary.json\n  重新从原应用时间戳复算，输出路径必须不存在；这一命令模板需换成自己的新路径\n/usr/bin/python3 -B research/latency-analysis/step1-rtt-results/collect.py /home/lbh/oiwireless/analysis-source-audit/step1-rtt-20261111/main-01 --output /tmp/step1-rtt-review-NEW\n   \n\n collect.py  已用于生成仓库的  evidence/main-01 ，核验 6000 统计事务、18 原始文件 SHA 和 2306 冻结输入。上面的  /tmp/...-NEW  是新输出路径示意，尚未以该示例路径运行，不能当作已生成的结果。\n\n    失败和停止时看哪里\n\nv1/pilot-01 在导入阶段失败，无通信启动；v2/pilot-02 的 PFCP 比对地址未迁移，未启动 RAN；v3/pilot-03 才是完整先导。旧根不覆盖。查看新根  failure.json 、 execution.json 、各轮  traffic/status.json  和应用 result 文件，可判断停在接入还是业务。\n\n本次已经自动停止。若需提前中断，应只针对本轮编排器，并逐项核验回收；本次没有新测中断清理路径。不要使用全局  pkill 、停止原部署或全量 Docker 清理。是否清理成功要核  runtime.json  和资源状态，不能只凭终端返回。\n\n    依据与对应页面\n\n通信参数/计时依据见本页“协议、论文与证据入口”及 配套知识页 (../算法知识点说明/80B与16B测量格式对比_知识点分析.md)的来源定位；SR 使用 TS 38.213 V19.5.0 §9.2.4，初期方法引用的 §9.2.3 是 HARQ-ACK，当前已更正。脚本、网络地址、CPU、输出路径和 Git 是工程安排，不是协议强制命令；工程整理的新增 3GPP/数学推导不适用。\n\n-  第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)\n-  第一步结果与分析 (../研究结果与分析/第一步结果与分析.md)\n-  返回十二步启动命令总目录 (../启动命令/启动命令总目录.md)\n-  返回全部规划 (../文献导读/算法实验规划_通信RTT与时延优化.md)\n-  返回结果与分析总目录 (../研究结果与分析/研究结果与分析总目录.md)\n\n\n\n本页不包含原目录接入复测。该项独立放在 源码版本对照结果 (独立实验_原始源码与当前版本对比.md)，实验编号 E-SRC-01。此次拆页没有新增无线实验，数据和图片保持原身份；记录 CHG404 / TEST554，历史方法见 CHG393–403 / TEST543–553。\n"
-    },
-    {
       "id": "ede23798813389995",
       "title": "第一步结果与分析",
       "source": "说明/研究结果与分析/第一步结果与分析.md",
@@ -587,9 +363,16 @@
       "prerequisite": false,
       "experimentStage": "step-1",
       "researchStep": "step-1",
+      "subexperiments": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
       "planTopic": "step-1-plan",
-      "status": "complete",
-      "sha256": "b9b4f98d8f4860721180da8aef93230d90836fe70625a6b5b7cce24dffff0ff6",
+      "status": "partial",
+      "sha256": "3fefa83c9722c9d7ba995a617ca8d1f3723672235defe3dd27733b5bdcdab126",
       "snapshot": "说明/研究结果与分析/第一步结果与分析.md",
       "redacted": false,
       "toc": [
@@ -597,21 +380,11 @@
           "id": "第一步结果与分析",
           "title": "第一步结果与分析",
           "level": 1
-        },
-        {
-          "id": "当前主线基线",
-          "title": "当前主线基线",
-          "level": 2
-        },
-        {
-          "id": "条件结论与下一步",
-          "title": "条件、结论与下一步",
-          "level": 2
         }
       ],
-      "words": 941,
+      "words": 972,
       "minutes": 1,
-      "search": "  第一步结果与分析\n\n  状态：当前单 UE 应用 RTT 基线已建立。   我使用固定研究版本下的精简 UDP、256 B 请求/响应、20 ms 目标周期，三轮共 6600 完整/6000统计事务。\n\n这三轮选自独立测量实验 E-MEAS-01 的已完成正式数据，不是额外重测，也不是原 80 B 指数输入三轮。原始版本复测见 源码版本独立结果 (独立实验_原始源码与当前版本对比.md)；ping、各包长对照与原 80 B 历史在 独立测量实验结果 (独立实验_80B与16B测量格式对比.md)，本页不再展开。\n\n   当前主线基线\n\n 轮次 完整/统计 平均 RTT / ms P50 / ms P95 / ms P99 / ms 最大 / ms \n --- ---: ---: ---: ---: ---: ---: \n 1 2200/2000 2.281553 2.271306 2.982604 3.540496 4.565029 \n 2 2200/2000 2.290166 2.274821 2.966329 3.592956 4.660129 \n 3 2200/2000 2.290742 2.265464 3.147083 3.670615 4.636764 \n\n   条件、结论与下一步\n\n单 UE、120 kHz/n261/100 MHz/66 PRB，0.625 ms周期3D+混合6D4F4U+1U；PF/legacy/F10、SR40/offset3、K2=4、MCS配置上限9；实际NAS5QI9/QFI9。独立5GC+gNB+UE/RFsim，无真实射频。具体配比、包长、周期和样本数为工程安排，不是标准强制工业最优值。\n\n计时为客户端MONOTONIC的请求发送边界至对应响应接收边界，含真实经过的网络与端点处理，不是纯空口；四应用时刻与N3/TUN路径已核。三轮分别报告P99，不相加分段分位数。源版本、命令、失败、图和完整来源统一在独立实验页，证据保留原身份。\n\n我据此固定后续同程序/同输入的起点，再进入多 UE 与负载竞争。这里只确认当前基线，不声称已有新调度算法收益。\n\n 第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md) ·  第一步启动命令 (../启动命令/第一步启动命令.md) ·  返回结果总目录 (研究结果与分析总目录.md)。\n"
+      "search": "  第一步结果与分析\n\n本步按五项实验分别展示结果。原始版本和头部受控对照仍有未完成项，工具/包长18条件与基线已有数据；此次重排没有新增运行。\n\n 实验 内容 知识点 启动命令 结果与分析 \n --- --- --- --- --- \n 1 原始源码与当前代码：统一用 ping 对照  进入 (../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md)  进入 (../启动命令/第一步/1_源码与当前代码.md)  进入 (第一步/1_源码与当前代码.md) \n 2 80 B 与 16 B 的 UDP 对比  进入 (../算法知识点说明/十二步知识点/第一步/2_80B与16B的UDP.md)  进入 (../启动命令/第一步/2_80B与16B的UDP.md)  进入 (第一步/2_80B与16B的UDP.md) \n 3 16 B 测量字段的 ping 与 UDP 对比  进入 (../算法知识点说明/十二步知识点/第一步/3_16B测量字段的ping与UDP.md)  进入 (../启动命令/第一步/3_16B测量字段的ping与UDP.md)  进入 (第一步/3_16B测量字段的ping与UDP.md) \n 4 各包长的 ping 与 UDP 对比  进入 (../算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md)  进入 (../启动命令/第一步/4_各包长的ping与UDP.md)  进入 (第一步/4_各包长的ping与UDP.md) \n 5 实验基线  进入 (../算法知识点说明/十二步知识点/第一步/5_实验基线.md)  进入 (../启动命令/第一步/5_实验基线.md)  进入 (第一步/5_实验基线.md) \n\n第 3 项暂按“测量字段各 16 B、两工具数据总长均 256 B”整理，不是 16 B 数据包的实测。第 3、5 项引用第 4 项子集，不重复累计运行次数。\n\n第 4 项正式18条件为39600完整/36000统计；第 5 项基线选其中UDP256三轮，6600完整/6000统计。\n\n 第一步知识点 (../算法知识点说明/十二步知识点/第一步知识点.md) ·  第一步启动命令 (../启动命令/第一步启动命令.md) ·  第一步结果与分析 (第一步结果与分析.md) ·  第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)。\n"
     },
     {
       "id": "e6e9701a5fd751eec",
@@ -920,9 +693,264 @@
       "words": 134,
       "minutes": 1,
       "search": "  第十二步结果与分析\n\n尚未执行，暂无结果与分析。\n\n对应规划： 第十二步规划 (../文献导读/第十二步规划_论文结果整理与研究收尾.md)。\n\n启动与查看： 第十二步启动命令 (../启动命令/第十二步启动命令.md)。\n\n 返回结果与分析总目录 (研究结果与分析总目录.md)。\n"
+    },
+    {
+      "id": "eb7cf5197fc52463c",
+      "title": "1. 原始源码与当前代码：统一用 ping 对照",
+      "source": "说明/研究结果与分析/第一步/1_源码与当前代码.md",
+      "aliases": [
+        "说明/研究结果与分析/第一步/1_源码与当前代码.md"
+      ],
+      "group": "research",
+      "topic": "step-1-experiment-1-results",
+      "prerequisite": false,
+      "experimentStage": "step-1-experiment-1-results",
+      "documentRole": "results",
+      "parentTopic": "step-1",
+      "stepExperiment": 1,
+      "status": "partial",
+      "sha256": "8e4b6eab2e1d606000e19713edcf549f35cba741aff06874d63df1e576d30ff2",
+      "snapshot": "说明/研究结果与分析/第一步/1_源码与当前代码.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "1-原始源码与当前代码统一用-ping-对照",
+          "title": "1. 原始源码与当前代码：统一用 ping 对照",
+          "level": 1
+        },
+        {
+          "id": "先看版本对照是否已经成立",
+          "title": "先看版本对照是否已经成立",
+          "level": 3
+        },
+        {
+          "id": "原目录二进制复测做到了哪里",
+          "title": "原目录二进制复测：做到了哪里",
+          "level": 3
+        },
+        {
+          "id": "当前研究版本的已有-ping-参照",
+          "title": "当前研究版本的已有 ping 参照",
+          "level": 3
+        }
+      ],
+      "words": 1509,
+      "minutes": 2,
+      "search": "  1. 原始源码与当前代码：统一用 ping 对照\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md) ·  启动命令 (../../启动命令/第一步/1_源码与当前代码.md) ·  结果与分析 (1_源码与当前代码.md) ·  返回第一步结果与分析 (../第一步结果与分析.md)\n\n    先看版本对照是否已经成立\n\n 对象 实际进度 可报告的结果 \n --- --- --- \n 原目录现有二进制 首次 RFsim TCP 已连，但 UE 未接入到 TUN 未进入业务，无本轮 RTT；根因未确定 \n 第二次原始先导 已准备，启动请求中断 无 execution/runtime，不算已运行 \n 当前研究版本 已有 56 B ping 三轮正式数据 下表引用现有数据，不算新测 \n 严格原始/当前版本时延 A/B 尚未完成 原始无新业务数据，不能宣称哪个版本更快 \n\n    原目录二进制复测：做到了哪里\n\n原目录  /home/lbh/oiwireless/oi-wireless-ran  源 HEAD  383aa52a31 。已复制其现有 12 个二进制/库，记录 SHA；原源码/二进制/配置没有改写，也没有重新构建。源码与二进制的完整历史构建对应尚未重新证明，因此准确身份是“原目录现有二进制”。为保留原核心状态，测试使用独立核心副本，部署 IP 重映射；不声称完整重建当时全部 5GC 环境。\n\n首次  original-ping-v1 / pilot-01  实际运行 44.421 s：独立核心完成，gNB RF 启动，UE 与 RFsim TCP 已连接；25 s 内未出现 TUN 配置完成标志而停止，未进入业务ping与测量抓包。日志还有 Tx 时间次序提示，但根因尚未唯一定位，不能据此断言原始源码永久不可用。原核心状态保持，子进程和本轮资源已回收。\n\n第二根  original-ping-v2 / pilot-02  仅增加原程序支持的  --continuous-tx  运行选项作供样诊断，原二进制/NR字段不改。该启动操作被用户中断；检查无 execution/runtime，无活动RAN/遗留实验资源，不能说已经执行或通过。该标志是实现运行选项，不是 3GPP 规定的调参方法。\n\n后续复测计划独立保存：原命令形态/1 s 间隔、同目标1 s、同目标20 ms分别记录，不以平均值对比另一组P99。当前尚无新原始版本RTT值；历史约0.737 ms的5包均值只能按下文历史身份阅读。\n\n\n    当前研究版本的已有 ping 参照\n\n固定本轮 56 B ICMP 数据、20 ms 目标间隔，当前运行源 159208eb2f，单 UE RFsim。三轮引用 实验 2 已完成条件的工具 RTT，不新增运行次数。原始版本尚无同条件结果，以下仅作当前版本参照，不构成版本收益；实际 ping 间隔及端点/配置差异沿原记录核对。\n\n 轮次 完整/统计 平均 / ms P50 / ms P95 / ms P99 / ms 最大 / ms \n --- ---: ---: ---: ---: ---: ---: \n 1 2200/2000 1.701862 1.640000 2.270000 2.440000 3.990000 \n 2 2200/2000 1.812801 1.680000 2.550500 2.900100 4.130000 \n 3 2200/2000 1.842844 1.800000 2.770000 3.300100 4.400000 \n\n数值沿父数据原样引用；显示小数位不增加 ping 工具精度。父证据为  数据/第一步_六条件正式对照.json ，完整工具结果保留在独立测量格式实验。旧 0.737 ms 五包均值仅按知识页中的历史身份阅读，不能与本表 P99 直接比较。\n"
+    },
+    {
+      "id": "ee1f9e357eb51f364",
+      "title": "2. 80 B 与 16 B 的 UDP 对比",
+      "source": "说明/研究结果与分析/第一步/2_80B与16B的UDP.md",
+      "aliases": [
+        "说明/研究结果与分析/第一步/2_80B与16B的UDP.md"
+      ],
+      "group": "research",
+      "topic": "step-1-experiment-2-results",
+      "prerequisite": false,
+      "experimentStage": "step-1-experiment-2-results",
+      "documentRole": "results",
+      "parentTopic": "step-1",
+      "stepExperiment": 2,
+      "status": "partial",
+      "sha256": "8c3f19837fc0760b93c4abdaf60303d741444f0a10699825cb56ae47812e7549",
+      "snapshot": "说明/研究结果与分析/第一步/2_80B与16B的UDP.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "2-80-b-与-16-b-的-udp-对比",
+          "title": "2. 80 B 与 16 B 的 UDP 对比",
+          "level": 1
+        },
+        {
+          "id": "先比较同为-256-b-的两组-udp-记录",
+          "title": "先比较同为 256 B 的两组 UDP 记录",
+          "level": 3
+        },
+        {
+          "id": "80-b-组的完整记录与来源既有三轮",
+          "title": "80 B 组的完整记录与来源（既有三轮）",
+          "level": 3
+        },
+        {
+          "id": "先看三轮-rtt-结果",
+          "title": "先看三轮 RTT 结果",
+          "level": 4
+        },
+        {
+          "id": "这些时延分别经过哪里",
+          "title": "这些时延分别经过哪里",
+          "level": 4
+        },
+        {
+          "id": "我的场景参数与固定条件",
+          "title": "我的场景参数与固定条件",
+          "level": 4
+        },
+        {
+          "id": "我验证了什么",
+          "title": "我验证了什么",
+          "level": 4
+        },
+        {
+          "id": "失败先导和修正",
+          "title": "失败先导和修正",
+          "level": 4
+        },
+        {
+          "id": "原-256-b-基线当时的结论",
+          "title": "原 256 B 基线当时的结论",
+          "level": 4
+        },
+        {
+          "id": "协议论文与证据入口",
+          "title": "协议、论文与证据入口",
+          "level": 4
+        }
+      ],
+      "words": 5731,
+      "minutes": 9,
+      "search": "  2. 80 B 与 16 B 的 UDP 对比\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/2_80B与16B的UDP.md) ·  启动命令 (../../启动命令/第一步/2_80B与16B的UDP.md) ·  结果与分析 (2_80B与16B的UDP.md) ·  返回第一步结果与分析 (../第一步结果与分析.md)\n\n  状态：已有两批历史记录，严格同条件 A/B 尚未完成。   80 B 组采用指数随机间隔，16 B 组采用周期目标间隔，不能把现有差值全部归因于头部精简。\n\n    先比较同为 256 B 的两组 UDP 记录\n\n两组请求/响应的 UDP 应用数据均为 256 B。80 B 组是 80 B 测量字段 + 176 B 填充，16 B 组是 16 B 字段 + 240 B 填充；无选项、无分片的内层 IPv4 包均为 284 B。两组各三轮、各 6600 完整 / 6000 统计，下面沿原始记录逐轮列出。\n\n 格式 本组轮次 完整/统计 平均 RTT / ms P50 / ms P95 / ms P99 / ms 最大 / ms \n --- ---: ---: ---: ---: ---: ---: ---: \n 80 B 1 2200/2000 2.219019 2.198402 3.060864 3.757911 5.144820 \n 80 B 2 2200/2000 2.297152 2.274663 3.168281 3.826170 4.827559 \n 80 B 3 2200/2000 2.138456 2.089417 3.082376 3.624685 4.137617 \n 16 B 1 2200/2000 2.281553 2.271306 2.982604 3.540496 4.565029 \n 16 B 2 2200/2000 2.290166 2.274821 2.966329 3.592956 4.660129 \n 16 B 3 2200/2000 2.290742 2.265464 3.147083 3.670615 4.636764 \n\n  表中的同一个轮次数字不表示两种格式做过配对 A/B。   80 B 组使用指数随机间隔，16 B 组使用周期目标间隔；程序记录方式不同。10 个 RAN 二进制/模块 SHA 相同只能排除这一项差异，不能把两批变成仅头部不同的实验。当前不能给出“精简头部本身降低多少时延”的因果收益。\n\n 知识页的包内容、功能与范围对照 (../../算法知识点说明/十二步知识点/第一步知识点.md)。下方保留原图、全量工具结果和历史证据；这六轮已包含在既有两批数据中，不另算实验次数。\n\n    80 B 组的完整记录与来源（既有三轮）\n\n我建立了单 UE、固定 120 kHz、PF 与既有授权机制下的通信 RTT 基线。6600 次请求和响应全部交付；去除每轮预热后，共统计 6000 次事务。这里测的是通信应用请求—响应，不是机械臂完整控制周期。\n\n     先看三轮 RTT 结果\n\n 轮次 / seed 完整 / 统计事务 平均 / ms P50 / ms P95 / ms P99 / ms 最大 / ms \n --- ---: ---: ---: ---: ---: ---: \n 1 / 12001 2200 / 2000 2.219019 2.198402 3.060864 3.757911 5.144820 \n 2 / 12002 2200 / 2000 2.297152 2.274663 3.168281 3.826170 4.827559 \n 3 / 12003 2200 / 2000 2.138456 2.089417 3.082376 3.624685 4.137617 \n\n! 三轮通信 RTT 的 P50、P95、P99 (../../插图/第一步_RTT三轮分位数.svg)\n\nP50 是中位数。每轮 P99 由该轮 2000 个统计事务直接计算；三轮分别报告，没有用分段 P99 相加，也没有把先导样本拼入正式结果。此样本量与三次重启不足以认证长期可靠性或 P99.9。\n\n     这些时延分别经过哪里\n\n! 实际请求响应路径与四个应用时间戳 (../../插图/第一步_通信事务与计时边界.svg)\n\n 轮次 上行平均 / ms 服务端回复处理平均 / ms 下行平均 / ms 总 RTT 平均 / ms \n --- ---: ---: ---: ---: \n 1 1.905696 0.003976 0.309347 2.219019 \n 2 1.976610 0.003806 0.316736 2.297152 \n 3 1.840311 0.003953 0.294192 2.138456 \n\n同一事务用同一时钟域的四个时刻：$t_0$ 为 UE 构造请求前，$t_1$ 为服务端  recvfrom  返回后，$t_2$ 为服务端构造响应前，$t_3$ 为 UE  recvfrom  返回后。\n\n   math\n\\begin{aligned}T_{\\mathrm{UL}}&=t_1-t_0,\\\\T_{\\mathrm{reply}}&=t_2-t_1,\\\\T_{\\mathrm{DL}}&=t_3-t_2,\\\\T_{\\mathrm{RTT}}&=t_3-t_0=T_{\\mathrm{UL}}+T_{\\mathrm{reply}}+T_{\\mathrm{DL}}.\\end{aligned}\n   \n\n逐事务用整数 ns 核对恒等式，再换算 ms。上行包含请求封包、系统调用和接收应用唤醒等；下行包含回复封包、系统调用及 UE 接收唤醒等。reply 不是完整的边缘计算或机器人决策耗时。抓包 REALTIME 另外校验，没有混入主指标 MONOTONIC。\n\n     我的场景参数与固定条件\n\n 项目 实际采用的条件 \n --- --- \n 应用背景 汽车零部件装配中的状态信息交互；合成测试，不处理视频或机械臂动作 \n 平台 同一主机，独立 5GC 副本 + OAI gNB + OAI UE，RFsim，无真实射频 \n 版本 通信源基  61654513d5 ，可追溯提交  159208eb2f ；复用其已构建、哈希一致的 10 个 ELF/模块；本轮无生产 C 修改或新构建 \n 频段 / 资源 n261，载频 27.54756 GHz，100 MHz，66 PRB，120 kHz，正常 CP；MCS 上限 9，不是每 TB 固定 MCS 9 \n TDD 周期 0.625 ms = 5 个槽；3 个完整 D、1 个混合槽、1 个完整 U；混合槽 6D + 4F + 4U，F 在此配置用作保护 \n TDA / K2 沿原实现： min_rxtxtime = 4 ，业务 TDA0 为 start 0 / length 13，TDA1 为 0 / 12，混合 TDA2 为 10 / 3，K2 = 4；不是逐 TB 资源实测 \n PF 与授权 上行日志确认  scheduler = 0 ；下行沿原  pf_dl  路径；legacy 探测、F = 10 帧保持；SR = 40 槽、offset = 3，日志已确认 \n QoS 每轮新 NAS 确认 5QI 9、QFI 9；N3 请求为 type 1 / QFI 9，响应为 type 0 / QFI 9 \n 报告 / 观察 保留配对私有 HOL 报告；它不是普通标准 BSR/DSR。关闭额外 C 观察器；保留应用记录和被动抓包 \n 请求 / 响应 各 256 B 应用数据，包含 80 B 测量头和 176 B 填充；不含 UDP/IP 头 \n 发包 指数目标间隔，均值 20 ms，目标请求 0.1024 Mbps；不等待上一条响应才发送下一条 \n 重复 / 预热 三轮 seed 12001 / 12002 / 12003，每轮 2200 次事务，前 200 次预热，后 2000 次统计 \n 终端 / CPU 1 UE；主线程 CPU 4，gNB RU CPU 6，其余公共核 0,1,7,12–23；服务端 CPU 2、客户端 CPU 3 \n 服务端位置 UPF 网络命名空间的 tun0 侧应用；没有外部 DN 物理链路；原核心网停止/运行状态保持 \n\n  上述业务参数、具体 TDD 图样、绑核与重复次数是工程设计，不是 3GPP 强制的一套方案。   单 UE 基线不能证明 PF 优于其他排序算法。\n\n单位换算如下；它不证明无线容量或稳定负载条件：\n\n   math\n\\lambda=\\frac{0.1024\\times10^6}{8\\times256}=50\\ \\mathrm{packet/s},\\qquad E \\Delta t =20\\ \\mathrm{ms}.\n   \n\n普通 IPv4、无选项且无 IP 分片的记账长度为 256 + 8 + 20 = 284 B；每方向 IP 层名义速率约 0.1136 Mbps，不是空口总开销。实测三轮平均发包间隔为 19.918–20.211 ms；不能把随机间隔说成每次都固定 20 ms。\n\n     我验证了什么\n\n- 6600 个唯一事务关联客户端发送、服务端接收/响应和客户端接收，没有缺失或重复事务。每轮 TUN/N3 各有 4400 个已编号方向包，双向 QFI 正确，抓包 kernel drop 为 0。\n- UE 出口路由为  oaitun_ue1 ，服务端回复经  tun0 ；两端网络命名空间不同，四个抓包切点逐事务关联，排除应用同机旁路。\n- 两端 boot ID 与时间命名空间一致。单事务 wall/monotonic 时长差的三轮最大值分别为 4.340 / 3.719 / 2.603 μs；主 RTT 始终只用单调时钟。\n- 用原客户端整数时间戳和  statistics.quantiles(method=\"inclusive\")  独立复算 6000 个统计事务，核对 18 个原始文件 SHA 和 2306 个冻结输入。逐包 GTP 解析没有在独立复核中重写，不冒称两套独立解析器。\n- 正式脚本总耗时约 195.110 s，包含副本启动、接入、业务、校验与回收；测试结束无本次活动 RAN、容器或命名空间，原 MySQL 运行、原 AMF/SMF/UPF 停止状态保持。\n\n     失败先导和修正\n\n 记录 实际做到哪里 原因与处理 \n --- --- --- \n v1 / pilot-01 Python 导入阶段；未启动核心副本、RAN 或业务 未使用的旧 gate 文件导入在主研究树不存在；v2 移除该导入，旧失败根保留 \n v2 / pilot-02 核心副本与 PFCP 抓包已启动；未启动 RAN/业务 PFCP 解析器仍写死旧 213 子网，无法匹配新 214 端点；v3 更正两个端点，真实捕获回放确认 Cause/sequence/FTUP 门禁通过，没有放宽协议判据 \n v3 / pilot-03 完整 200 次请求响应及校验通过 只作先导，不计入主结果 \n v3 / main-01 三轮正式全栈与复核通过 本文结果来自该根，未拼接旧测量或失败样本 \n\n还纠正了方法引用：TS 38.213 的 SR 过程是 §9.2.4；§9.2.3 是 HARQ-ACK。冻结方法的早期说明引用编号错误，当前正文按已读原文更正；无线配置和程序未因此改变。\n\n     原 256 B 基线当时的结论\n\n1. 我的单 UE 通信场景、请求响应关联与计时方法已跑通，可作为下一步同程序多 UE 对照的参照。\n2. 三轮 RTT 中位数为 2.089–2.275 ms，P99 为 3.625–3.826 ms；这是当前 RFsim、合成业务和主机配置下的基线，不是算法优化收益或真实射频保证。\n3. 按同一批统计事务的平均值，上行约占 RTT 的 86%。这只能定位到“上行应用区间较大”，尚未证明是 SR、TDD、CPU、重传或哪个协议层造成，需要后续分层与慢事务分析。\n4. 不能把 0.125 ms 槽长当作应用 RTT 上限，也不能与旧 56 B ICMP ping、1200 B 多 UE 业务或另一版本程序直接作收益对比。当时计划先完成六条件工具 / 包长对照；该对照现见本页前部，后续增加 UE 仍需保持统一程序与输入。\n\n     协议、论文与证据入口\n\n- TS 38.211 V19.5.0 §4.2/4.3.2 表 4.3.2-1；TS 38.104 V20.1.0 §5.3.2/5.3.5：时间网格、频段与资源边界。\n- TS 38.213 V19.5.0 §11.1、 §9.2.4 SR 原文 ( /protocol/38.213?clause=9.2.4&view=text)；TS 38.331 V19.4.0 §6.3.2 的 TDD/SR IE：配置字段，不强制本项目具体图样。\n- TS 38.214 V19.5.0 §6.1.2.1/6.4；TS 38.321 V19.4.0 §5.4.1/5.4.4/5.4.5；TS 38.300 V19.4.0 §4.3.1.1/10.3：授权、准备与用户面背景。\n- TS 23.501 V20.3.0 §5.7.3.3/5.7.3.4、表 5.7.4-1；TS 24.501 V20.1.0 §8.3.2.1/9.11.4.12/9.11.4.13：QoS 字段；单向 PDB 不能直接当本次 RTT 期限。\n- TS 29.281 V19.2.0 §5.1/5.2.2.7、TS 38.415 V19.1.0 §5.5.2/5.5.3.3、TS 29.244 V20.1.0 §5.8.1/6.2.6.2/6.2.6.3：N3 容器和独立核心关联。\n- P01《Dissecting 5G New-Radio Latency》，IFIP Networking 2025，§III–IV，本地 PDF 第 2–4 页；P24 QUEST，TNSM Vol. 23 / 2026 本地期刊版，§VI-B/C，第 8–9 页；指定教材 §13.1.1.2，本地 PDF 第 530–532 页。借用测量与调度背景，不移植论文绝对数值。\n- 原文是用户本地可读版本；15 个协议 Word 分册及补充条款已核，不声明为官网最高版。\n-  安全结果 CSV (https://github.com/ming0526288/oiwireless-latency-analysis/blob/latency-standards-audit/research/latency-analysis/step1-rtt-results/evidence/main-01/conditions.csv) ·  安全结果 JSON (https://github.com/ming0526288/oiwireless-latency-analysis/blob/latency-standards-audit/research/latency-analysis/step1-rtt-results/evidence/main-01/summary.json)。完整日志、pcap 和凭据只在本机。\n"
+    },
+    {
+      "id": "e14543603b9f4fd10",
+      "title": "3. 16 B 测量字段的 ping 与 UDP 对比",
+      "source": "说明/研究结果与分析/第一步/3_16B测量字段的ping与UDP.md",
+      "aliases": [
+        "说明/研究结果与分析/第一步/3_16B测量字段的ping与UDP.md"
+      ],
+      "group": "research",
+      "topic": "step-1-experiment-3-results",
+      "prerequisite": false,
+      "experimentStage": "step-1-experiment-3-results",
+      "documentRole": "results",
+      "parentTopic": "step-1",
+      "stepExperiment": 3,
+      "status": "partial",
+      "sha256": "8c27527a65fdac4d9c8b2f6faa4cc59750ea67e00a98aa3a50d4d5f41d6a9f92",
+      "snapshot": "说明/研究结果与分析/第一步/3_16B测量字段的ping与UDP.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "3-16-b-测量字段的-ping-与-udp-对比",
+          "title": "3. 16 B 测量字段的 ping 与 UDP 对比",
+          "level": 1
+        }
+      ],
+      "words": 805,
+      "minutes": 1,
+      "search": "  3. 16 B 测量字段的 ping 与 UDP 对比\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/3_16B测量字段的ping与UDP.md) ·  启动命令 (../../启动命令/第一步/3_16B测量字段的ping与UDP.md) ·  结果与分析 (3_16B测量字段的ping与UDP.md) ·  返回第一步结果与分析 (../第一步结果与分析.md)\n\n本项暂以 16 B 为测量字段长度、256 B 为两种工具的数据总长。ping 的本机 timeval 和 UDP 的事务标记恰好都为 16 B，功能不同；下面不是 ping -s 16 或 16 B UDP 数据的实测。若需要数据总长 16 B，当前仍属未测项。\n\n 工具 轮次 完整/统计 工具 RTT 平均 / ms 工具 P99 / ms 共同 TUN RTT 平均 / ms 共同 TUN P99 / ms \n --- ---: ---: ---: ---: ---: ---: \n ping 1 2200/2000 2.362390 3.500000 2.359612 3.491862 \n udp 1 2200/2000 2.281553 3.540496 2.269555 3.525426 \n udp 2 2200/2000 2.290166 3.592956 2.279439 3.580134 \n ping 2 2200/2000 2.280265 3.700300 2.277620 3.699025 \n ping 3 2200/2000 2.417525 3.610000 2.414583 3.609243 \n udp 3 2200/2000 2.290742 3.670615 2.279359 3.658690 \n\n两种工具的原生计时切点和回复处理不同；共同 TUN 边界用于辅助比较。实际间隔也不完全相同，不能把差值全解释成 UDP 或 ping 的协议优势。完整条件和包长敏感性见第 4 项；这些六轮均已包含在第 4 项，不另计次数。\n"
+    },
+    {
+      "id": "ef1a4c35417d53e6e",
+      "title": "4. 各包长的 ping 与 UDP 对比",
+      "source": "说明/研究结果与分析/第一步/4_各包长的ping与UDP.md",
+      "aliases": [
+        "说明/研究结果与分析/第一步/4_各包长的ping与UDP.md"
+      ],
+      "group": "research",
+      "topic": "step-1-experiment-4-results",
+      "prerequisite": false,
+      "experimentStage": "step-1-experiment-4-results",
+      "documentRole": "results",
+      "parentTopic": "step-1",
+      "stepExperiment": 4,
+      "status": "complete",
+      "sha256": "be91ba9bfcf63a95a14634a5c35fc1c03eceea6b8b5bb4e6a4edcb3c54415dda",
+      "snapshot": "说明/研究结果与分析/第一步/4_各包长的ping与UDP.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "4-各包长的-ping-与-udp-对比",
+          "title": "4. 各包长的 ping 与 UDP 对比",
+          "level": 1
+        },
+        {
+          "id": "我实际测了什么",
+          "title": "我实际测了什么",
+          "level": 3
+        },
+        {
+          "id": "六条件的三轮-p99-范围",
+          "title": "六条件的三轮 P99 范围",
+          "level": 3
+        },
+        {
+          "id": "各轮结果不挑快轮",
+          "title": "各轮结果，不挑快轮",
+          "level": 3
+        },
+        {
+          "id": "icmp-ping",
+          "title": "ICMP ping",
+          "level": 4
+        },
+        {
+          "id": "精简-udp",
+          "title": "精简 UDP",
+          "level": 4
+        },
+        {
+          "id": "实际间隔与比较限制",
+          "title": "实际间隔与比较限制",
+          "level": 3
+        },
+        {
+          "id": "udp-四应用时刻的平均分解",
+          "title": "UDP 四应用时刻的平均分解",
+          "level": 3
+        },
+        {
+          "id": "失败先导与可复核证据",
+          "title": "失败、先导与可复核证据",
+          "level": 3
+        }
+      ],
+      "words": 4175,
+      "minutes": 6,
+      "search": "  4. 各包长的 ping 与 UDP 对比\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md) ·  启动命令 (../../启动命令/第一步/4_各包长的ping与UDP.md) ·  结果与分析 (4_各包长的ping与UDP.md) ·  返回第一步结果与分析 (../第一步结果与分析.md)\n\n18 个正式条件各 2200 完整 / 2000 统计，合计 39600 / 36000。以下保留工具/三包长范围、18 轮表、两图、实际间隔与 UDP 平均分解。\n\n    我实际测了什么\n\n 项目 本轮实际条件 \n --- --- \n 平台 同主机独立 5GC 副本 + gNB + 软件 UE，RFsim，无真实射频 \n 版本 通信源基 61654513d5，运行源提交 159208eb2f；10 个哈希一致 ELF/模块；测量方法 step1-ping-udp-v2 / d2ccf26b08，无本轮无线 C 修改 \n 无线 n261、100 MHz、66 PRB、120 kHz、正常 CP、MCS 上限 9 \n TDD 0.625 ms：3 完整 D + 混合槽 6D4F4U + 1 完整 U；完整槽 D:U = 3:1，混合槽不省略 \n 调度/授权 PF、legacy 探测 F = 10 帧、SR = 40 槽 / offset = 3、业务 K2 = 4；保留配对私有 HOL 报告，关闭层内观察器 \n QoS 与路径 实际 NAS 5QI 9 / QFI 9，双向 N3 / TUN 和路由核验；UPF 侧回复端，无外部 DN 物理链路 \n 业务 两工具数据各 56 / 256 / 1200 B；UDP 含 16 B 标记、请求响应等长；普通无选项 IPv4 内层分别 84 / 284 / 1228 B \n 到达与统计 目标间隔 20 ms；每条件 3 轮，每轮 2200 次、前 200 次预热、后 2000 次统计；正序、逆序、循环移位，单工具顺序运行 \n 主机 沿冻结绑核，UE 主线程 CPU 4、gNB RU CPU 6、UDP 服务端 CPU 2、客户端/原生 ping CPU 3；线程和 RFsim 模块核验 \n\n以上具体配比、包长、业务频率、绑核与样本数都是工程安排，不是 3GPP 强制工业方案。5QI 9 不等于已经验证工业关键控制业务。\n\n    六条件的三轮 P99 范围\n\n这里的范围是三轮各自 P99 的最小值至最大值，不是合并三轮后重新计算的 P99。\n\n 工具 数据长度 / B 工具/应用 RTT P99 范围 / ms 共同 UE TUN 区间 P99 范围 / ms \n --- ---: ---: ---: \n ping 56 2.440–3.300 2.438–3.301 \n ping 256 3.500–3.700 3.492–3.699 \n ping 1200 3.700–3.900 3.698–3.893 \n udp 56 2.897–3.186 2.884–3.172 \n udp 256 3.540–3.671 3.525–3.659 \n udp 1200 3.585–4.214 3.572–4.198 \n\n本组两种工具的三轮曲线都随 56 → 256 → 1200 B 非递减；这是当前配置与固定目标包率下的观察，不证明任意负载、相位或 SCS 下都单调。\n同包长对应轮次的描述性对照中，ping / UDP 的高低会反转，所以没有证据支持某个工具在所有条件都更低。工具处理路径、实际节奏和相位尚未独立控制。\n\n! 各轮工具或应用 RTT P99 (../../插图/第一步_六条件工具RTT_P99.svg)\n\n! 各轮共同 UE TUN 区间 P99 (../../插图/第一步_六条件TUN_P99.svg)\n\n每个点对应一轮 2000 个统计事务，连线仅便于阅读，不是连续包长模型。ping 的自身 RTT 来自原生每回复输出，存在工具舍入；UDP 来自客户端单调时钟整数戳。显示位数不增加仪器精度。共同 TUN 区间仍含网络与回复端处理，不是纯空口。\n\n    各轮结果，不挑快轮\n\n     ICMP ping\n\n 数据 / B 轮次 平均 RTT / ms P50 / ms P95 / ms P99 / ms 最大 / ms TUN P99 / ms \n ---: ---: ---: ---: ---: ---: ---: ---: \n 56 1 1.702 1.640 2.270 2.440 3.990 2.438 \n 56 2 1.813 1.680 2.550 2.900 4.130 2.897 \n 56 3 1.843 1.800 2.770 3.300 4.400 3.301 \n 256 1 2.362 2.380 2.730 3.500 4.640 3.492 \n 256 2 2.280 2.130 2.990 3.700 4.200 3.699 \n 256 3 2.418 2.530 2.960 3.610 4.060 3.609 \n 1200 1 2.781 2.820 3.230 3.700 5.380 3.698 \n 1200 2 2.713 2.800 3.190 3.740 4.890 3.732 \n 1200 3 2.640 2.680 3.290 3.900 4.510 3.893 \n\n     精简 UDP\n\n 数据 / B 轮次 平均 RTT / ms P50 / ms P95 / ms P99 / ms 最大 / ms TUN P99 / ms \n ---: ---: ---: ---: ---: ---: ---: ---: \n 56 1 1.871 1.875 2.529 2.897 3.364 2.884 \n 56 2 1.935 1.918 2.695 3.186 3.824 3.172 \n 56 3 1.740 1.722 2.530 2.966 3.571 2.953 \n 256 1 2.282 2.271 2.983 3.540 4.565 3.525 \n 256 2 2.290 2.275 2.966 3.593 4.660 3.580 \n 256 3 2.291 2.265 3.147 3.671 4.637 3.659 \n 1200 1 2.745 2.744 3.423 3.585 4.453 3.572 \n 1200 2 2.692 2.677 3.355 4.154 5.287 4.139 \n 1200 3 2.698 2.680 3.402 4.214 4.602 4.198 \n\n    实际间隔与比较限制\n\n 工具 数据 / B 三轮实际 TUN 平均间隔范围 / ms \n --- ---: ---: \n ping 56 20.593222–20.625282 \n ping 256 20.504361–20.732656 \n ping 1200 20.558954–20.737710 \n udp 56 19.999981–19.999991 \n udp 256 19.999983–19.999984 \n udp 1200 19.999982–19.999984 \n\n两工具的参数目标都是 20 ms，但实际发送节奏可能不同；TUN 还包含本地协议推进。跨工具结果同时受内核/应用回显、计时、到达节奏及无线相位影响，不能用差值单独证明“UDP 协议比 ICMP 多耗多少空口时间”。固定包率时，大包的 Mbps 也提高，本轮没有隔离负载因素。\n\n    UDP 四应用时刻的平均分解\n\n 数据 / B 轮次 上行应用区间均值 / ms 回复区间均值 / ms 下行应用区间均值 / ms 应用 RTT 均值 / ms \n ---: ---: ---: ---: ---: ---: \n 56 1 1.576472 0.003152 0.291016 1.870641 \n 56 2 1.649835 0.003111 0.281793 1.934739 \n 56 3 1.464263 0.003330 0.272083 1.739676 \n 256 1 1.977217 0.003694 0.300641 2.281553 \n 256 2 1.974429 0.003697 0.312040 2.290166 \n 256 3 1.965576 0.003660 0.321507 2.290742 \n 1200 1 2.295028 0.005884 0.443884 2.744796 \n 1200 2 2.237290 0.005956 0.448877 2.692123 \n 1200 3 2.242818 0.005883 0.448859 2.697560 \n\n四个时刻在 UE / 服务端日志中按事务编号关联。逐事务整数恒等式、两端时钟域与抓包辅助边界已核；同一批事务的分段均值相加等于 RTT 均值，分段 P99 不能相加。t2 在构造回复前记录，所以回复区间不包含此后编码/发送的全部工作；这些按本定义进入下行区间。没有开启协议层探针，不把本表称为 PDCP/RLC/MAC/PHY 逐层耗时。\n\n    失败、先导与可复核证据\n\nv1 pilot-01 的 56 B ping 200/200 已交付，因额外 1 个内层 version6 背景 PDU 被误当 IPv4 解析而核验失败；旧根与 v1 代码保留。v2 对背景单独计数，目标 IPv4 的长度、身份、QFI、数据与完整性门禁不变。新 pilot-02 六条件 1200 完整/1080 统计全部通过，再执行本正式根；先导和失败样本都不并入正式统计。\n本正式根运行总耗时 1163.408 s（含每次副本、接入、业务、核验和回收），核 2308 冻结输入。18 次完整日志、pcap 与两端 CSV 保留在本机；独立从原日志复算工具/应用 RTT、共同 TUN 和 UDP 分段，未另造第二套 pcap 解析器。结束核验原核心身份/运行状态不变，每轮子进程与本轮资源回收。\n\n安全数据： 正式 summary.json (https://github.com/ming0526288/oiwireless-latency-analysis/blob/latency-standards-audit/research/latency-analysis/step1-ping-udp-results/evidence/main-01/summary.json)；运行与方法见 第一步启动命令 (../../启动命令/第一步启动命令.md)、CHG402 / TEST552。原文与精确条款沿下方来源区；具体业务参数是工程安排，不是标准强制。\n\n原 256 B 三轮的结果、参数表与图仍保留在下面，仅代表当时旧输入；不与本轮混用。\n"
+    },
+    {
+      "id": "e9b27ab61d49c9e38",
+      "title": "5. 实验基线",
+      "source": "说明/研究结果与分析/第一步/5_实验基线.md",
+      "aliases": [
+        "说明/研究结果与分析/第一步/5_实验基线.md"
+      ],
+      "group": "research",
+      "topic": "step-1-experiment-5-results",
+      "prerequisite": false,
+      "experimentStage": "step-1-experiment-5-results",
+      "documentRole": "results",
+      "parentTopic": "step-1",
+      "stepExperiment": 5,
+      "status": "complete",
+      "sha256": "1fae934a4d3ff94b765b35a921f1b77928744d3408836c9eb5c06f460d45ad40",
+      "snapshot": "说明/研究结果与分析/第一步/5_实验基线.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "5-实验基线",
+          "title": "5. 实验基线",
+          "level": 1
+        },
+        {
+          "id": "当前主线基线",
+          "title": "当前主线基线",
+          "level": 3
+        },
+        {
+          "id": "条件结论与下一步",
+          "title": "条件、结论与下一步",
+          "level": 3
+        }
+      ],
+      "words": 884,
+      "minutes": 1,
+      "search": "  5. 实验基线\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/5_实验基线.md) ·  启动命令 (../../启动命令/第一步/5_实验基线.md) ·  结果与分析 (5_实验基线.md) ·  返回第一步结果与分析 (../第一步结果与分析.md)\n\n本项选择第 4 项的精简 UDP256 三轮作为后续统一参照，不增加运行或样本计数。\n\n    当前主线基线\n\n 轮次 完整/统计 平均 RTT / ms P50 / ms P95 / ms P99 / ms 最大 / ms \n --- ---: ---: ---: ---: ---: ---: \n 1 2200/2000 2.281553 2.271306 2.982604 3.540496 4.565029 \n 2 2200/2000 2.290166 2.274821 2.966329 3.592956 4.660129 \n 3 2200/2000 2.290742 2.265464 3.147083 3.670615 4.636764 \n\n    条件、结论与下一步\n\n单 UE、120 kHz/n261/100 MHz/66 PRB，0.625 ms周期3D+混合6D4F4U+1U；PF/legacy/F10、SR40/offset3、K2=4、MCS配置上限9；实际NAS5QI9/QFI9。独立5GC+gNB+UE/RFsim，无真实射频。具体配比、包长、周期和样本数为工程安排，不是标准强制工业最优值。\n\n计时为客户端MONOTONIC的请求发送边界至对应响应接收边界，含真实经过的网络与端点处理，不是纯空口；四应用时刻与N3/TUN路径已核。三轮分别报告P99，不相加分段分位数。源版本、命令、失败、图和完整来源统一在独立实验页，证据保留原身份。\n\n我据此固定后续同程序/同输入的起点，再进入多 UE 与负载竞争。这里只确认当前基线，不声称已有新调度算法收益。\n\n 第一步规划 (../../文献导读/第一步规划_单UE通信RTT基线.md) ·  第一步启动命令 (../../启动命令/第一步启动命令.md) ·  返回结果总目录 (../研究结果与分析总目录.md)。\n"
     }
   ],
-  "formulas": 58,
+  "formulas": 64,
   "mathErrors": [],
   "imageCount": 17,
   "warnings": [],

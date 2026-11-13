@@ -10,11 +10,11 @@
   ],
   "restoredSourceAndPayloadHashes": true,
   "oldRoutesChecked": 10,
-  "publishedDocuments": 1122,
+  "publishedDocuments": 1146,
   "newPlan": {
     "id": "r9add2badaf2ad40d",
     "source": "说明/文献导读/算法实验规划_通信RTT与时延优化.md",
-    "sha256": "0430d13ff6b96dcd4457a67d33b0d246b48ded4c92d7c8f99c2fe05aa8981247",
+    "sha256": "72278c11ab9d3b11e05c7362ce5fa3aa98cff5826badca6e53534b857291907a",
     "toc": 9,
     "firstPerson": true
   },
@@ -22,11 +22,17 @@
     "step": "step-1",
     "planId": "r17d0d9c36fcc691f",
     "resultId": "ede23798813389995",
-    "resultStatus": "complete",
+    "resultStatus": "partial",
     "mutualLinks": true,
     "baselineReusesThreeExistingCompactRuns": true,
     "additionalRuns": 0,
-    "independentMeasurementExperiment": true,
+    "fiveNumberedExperiments": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
     "remainingEmptyResults": 11
   },
   "publishedResultTopics": [
@@ -36,8 +42,6 @@
     "layers",
     "tail",
     "source-changes",
-    "source-version-retest",
-    "measurement-tools",
     "step-1",
     "step-2",
     "step-3",
@@ -49,12 +53,17 @@
     "step-9",
     "step-10",
     "step-11",
-    "step-12"
+    "step-12",
+    "step-1-experiment-1-results",
+    "step-1-experiment-2-results",
+    "step-1-experiment-3-results",
+    "step-1-experiment-4-results",
+    "step-1-experiment-5-results"
   ],
   "sidebarAndHome": true,
   "searchAndBookmarkFiltering": true,
   "bookmarkStoragePreserved": true,
-  "coreKnowledgeRetained": 16,
+  "coreKnowledgeRetained": 32,
   "papersAndProtocolsRetained": true,
   "consoleErrors": [],
   "scope": "Offline DOM publication checks; five original analyses restored without editing data; no wireless experiment or screenshot/layout certification."

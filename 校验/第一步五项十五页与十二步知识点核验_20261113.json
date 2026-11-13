@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "date": "2026-11-13",
+  "rolePairs": [
+    {
+      "role": "knowledge",
+      "parent": "k51a2cb226724c7ad",
+      "pages": [
+        {
+          "id": "k503ca63f3b1bf2a2",
+          "source": "说明/算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md",
+          "stepExperiment": 1,
+          "sha256": "0a714c469ce1a5c75b52fcb6f83af71fa1f70be8de9724ff70dfd6dee3acf617"
+        },
+        {
+          "id": "k9cbf0e34cf8377a9",
+          "source": "说明/算法知识点说明/十二步知识点/第一步/2_80B与16B的UDP.md",
+          "stepExperiment": 2,
+          "sha256": "36789d28b9e2462f4ccb9c94941782638e18ba0df57ac90919dc8f4ebbda249d"
+        },
+        {
+          "id": "kf13a4d613d900f96",
+          "source": "说明/算法知识点说明/十二步知识点/第一步/3_16B测量字段的ping与UDP.md",
+          "stepExperiment": 3,
+          "sha256": "b9d1ad92a748ca2ab141135b250574ba25e1cf4a52fc9abb71fb3049b9c57ec1"
+        },
+        {
+          "id": "k49ea3f2683910753",
+          "source": "说明/算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md",
+          "stepExperiment": 4,
+          "sha256": "4cb3bd3c1c917efc909925adf84d12236056a9573bf6c376b2dcbbb80aebc173"
+        },
+        {
+          "id": "k00f801533e0d7eb9",
+          "source": "说明/算法知识点说明/十二步知识点/第一步/5_实验基线.md",
+          "stepExperiment": 5,
+          "sha256": "83a32d5fd1f208d672010dd19bd798531b76926dc6aae2bb1b88912af701b063"
+        }
+      ]
+    },
+    {
+      "role": "commands",
+      "parent": "r5dff788eedc6ae78",
+      "pages": [
+        {
+          "id": "rf653ec47ec5d76fb",
+          "source": "说明/启动命令/第一步/1_源码与当前代码.md",
+          "stepExperiment": 1,
+          "sha256": "a582c85ed989f404109b0253283293866165ebdb87d1aa8af4c9f0d9e18bbc0c"
+        },
+        {
+          "id": "r6c24398dc8adef7a",
+          "source": "说明/启动命令/第一步/2_80B与16B的UDP.md",
+          "stepExperiment": 2,
+          "sha256": "fcc1c45b91cc4c3d264196383cfbfa7183eb03ea4a4b45cc358b7b90c507383f"
+        },
+        {
+          "id": "r500ca0e1a471a51d",
+          "source": "说明/启动命令/第一步/3_16B测量字段的ping与UDP.md",
+          "stepExperiment": 3,
+          "sha256": "21782e1ba5a79dc5f086e2db39c6442534d2264bef36ec332f556357d1e0891a"
+        },
+        {
+          "id": "rf8ac5c7891d35660",
+          "source": "说明/启动命令/第一步/4_各包长的ping与UDP.md",
+          "stepExperiment": 4,
+          "sha256": "40de97f524cc593001ee8bde78f82bb37dcf5eb29b660364e948a1e67d660032"
+        },
+        {
+          "id": "r30567e028cc2d6df",
+          "source": "说明/启动命令/第一步/5_实验基线.md",
+          "stepExperiment": 5,
+          "sha256": "def4b6969b09355b372ce8adeecc81be336a54eee24f9f2a354cb3eaf7b8a37c"
+        }
+      ]
+    },
+    {
+      "role": "results",
+      "parent": "ede23798813389995",
+      "pages": [
+        {
+          "id": "eb7cf5197fc52463c",
+          "source": "说明/研究结果与分析/第一步/1_源码与当前代码.md",
+          "stepExperiment": 1,
+          "sha256": "8e4b6eab2e1d606000e19713edcf549f35cba741aff06874d63df1e576d30ff2"
+        },
+        {
+          "id": "ee1f9e357eb51f364",
+          "source": "说明/研究结果与分析/第一步/2_80B与16B的UDP.md",
+          "stepExperiment": 2,
+          "sha256": "8c3f19837fc0760b93c4abdaf60303d741444f0a10699825cb56ae47812e7549"
+        },
+        {
+          "id": "e14543603b9f4fd10",
+          "source": "说明/研究结果与分析/第一步/3_16B测量字段的ping与UDP.md",
+          "stepExperiment": 3,
+          "sha256": "8c27527a65fdac4d9c8b2f6faa4cc59750ea67e00a98aa3a50d4d5f41d6a9f92"
+        },
+        {
+          "id": "ef1a4c35417d53e6e",
+          "source": "说明/研究结果与分析/第一步/4_各包长的ping与UDP.md",
+          "stepExperiment": 4,
+          "sha256": "be91ba9bfcf63a95a14634a5c35fc1c03eceea6b8b5bb4e6a4edcb3c54415dda"
+        },
+        {
+          "id": "e9b27ab61d49c9e38",
+          "source": "说明/研究结果与分析/第一步/5_实验基线.md",
+          "stepExperiment": 5,
+          "sha256": "1fae934a4d3ff94b765b35a921f1b77928744d3408836c9eb5c06f460d45ad40"
+        }
+      ]
+    }
+  ],
+  "independentPages": 15,
+  "experimentNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "knowledgeStepCount": 12,
+  "protocolOriginalsReadable": 15,
+  "protectedFilesUnchanged": 43,
+  "archivedSourcesByteIdentical": 4,
+  "newRuns": 0,
+  "firstStepStatus": "partial",
+  "baselineReusesFormalUDP256Runs": 3,
+  "item3Definition": "Provisional16B measurement fields, total256B; no16B-payload measurement claimed",
+  "scope": "Document/UI/navigation/data-preservation audit; no communication experiment",
+  "baselinePlanningDetailsMovedToItem5": true
+}

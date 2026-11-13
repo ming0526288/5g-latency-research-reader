@@ -104,6 +104,11 @@ def build(kind='knowledge'):
             **({'algorithm': item['algorithm']} if algorithm_notes else {}),
             **({'experimentStage': item['topic']} if experiments else {}),
             **({'researchStep': item['researchStep']} if item.get('researchStep') else {}),
+            **({'knowledgeStep': item['knowledgeStep']} if item.get('knowledgeStep') else {}),
+            **({key:item[key] for key in ('documentRole','parentTopic','stepExperiment')} if item.get('documentRole') else {}),
+            **({'commandStatus': item['commandStatus']} if item.get('documentRole') == 'commands' else {}),
+            **({'status': item.get('status','not-started')} if item.get('documentRole') == 'results' else {}),
+            **({'subexperiments': item['subexperiments']} if item.get('subexperiments') else {}),
             **({key: item[key] for key in ('commandStep', 'planTopic', 'resultTopic', 'commandStatus')} if item.get('commandStep') else {}),
             **({'planTopic': item['planTopic'], 'status': item.get('status', 'not-started')} if experiments and item.get('planTopic') else {}),
             **({'independentExperiment': item['independentExperiment'], 'status': item.get('status', 'partial')} if experiments and item.get('independentExperiment') else {}),
@@ -195,6 +200,10 @@ def build(kind='knowledge'):
     catalog['stats'][stat_prefix + 'Formulas'] = len(builder.math)
     catalog['stats'][stat_prefix + 'Images'] = len(builder.assets)
     catalog[stat_prefix + 'UpdatedAt'] = manifest['updated']
+    if kind == 'knowledge':
+        catalog['movedKnowledgeRoutes'] = manifest.get('redirects', {})
+    elif experiments:
+        catalog['movedExperimentRoutes'] = manifest.get('redirects', {})
     if reading_notes:
         catalog['readingNotes'] = [d['id'] for d in metadata]
     elif not algorithm_notes:

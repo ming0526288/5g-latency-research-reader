@@ -22,7 +22,7 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  const knowledgeHeading=[...d.querySelectorAll('#sidebar .nav-heading')].find(el=>el.textContent==='知识点');
  assert(knowledgeHeading);const studyLinks=[];
  for(let el=knowledgeHeading.nextElementSibling;el&&!el.classList.contains('nav-heading');el=el.nextElementSibling)studyLinks.push(el);
- assert.equal(studyLinks.length,(legacyModulesVisible?7:6)+Number(Boolean(cat.knowledgeTopics['scheduling-basics']))+Number(Boolean(cat.knowledgeTopics['measurement-methods']))+Number(Boolean(cat.knowledgeTopics['source-version-basics'])));
+ assert.equal(studyLinks.length,(legacyModulesVisible?7:6)+Number(Boolean(cat.knowledgeTopics['scheduling-basics']))+Number(Boolean(cat.knowledgeTopics['twelve-step-knowledge'])));
  assert(!d.querySelector('#sidebar details'));
  assert(studyLinks.every(el=>el.matches('a.nav-link')&&!/^\d+$/.test(el.querySelector('.nav-icon').textContent)));
  const studyUrls=studyLinks.map(el=>el.getAttribute('href'));
@@ -131,29 +131,22 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
     assert(d.querySelector('.article a[href="#/doc/'+plan.id+'"]'));
     continue;
    }
-   if(resultDoc.independentExperiment==='E-SRC-01'){
-    assert.equal(resultDoc.status,'partial');assert(!resultDoc.researchStep&&!resultDoc.planTopic);
-    const text=d.querySelector('.article').textContent;
-    assert(text.includes('未进入业务')&&text.includes('中断')&&text.includes('根因未确定'));
-    assert(text.includes('original-ping-v1')&&!text.includes('80 B / 16 B 字段与功能'));
-    assert(d.querySelector('.article a[href="#/doc/'+cat.knowledgeTopics['source-version-basics']+'"]'));
+   if(resultDoc.researchStep==='step-1'){
+    assert.equal(resultDoc.status,'partial');assert.deepEqual(resultDoc.subexperiments,[1,2,3,4,5]);
+    assert.equal(d.querySelectorAll('.article tbody tr').length,5);
+    const children=cat.docs.filter(x=>x.documentRole==='results'&&x.parentTopic==='step-1');assert.equal(children.length,5);
+    for(const child of children)assert(d.querySelector('.article a[href="#/doc/'+child.id+'"]'));
     continue;
    }
-   if(resultDoc.independentExperiment){
-    assert.equal(resultDoc.independentExperiment,'E-MEAS-01');assert.equal(resultDoc.status,'partial');
-    assert(!resultDoc.researchStep&&!resultDoc.planTopic);
-    const text=d.querySelector('.article').textContent;
-    assert(text.includes('39600')&&text.includes('36000')&&text.includes('尚未完成'));
-    assert(!text.includes('original-ping-v1'));assert(d.querySelectorAll('.article figure').length>=4);
-    assert(d.querySelector('.article a[href="#/doc/'+cat.knowledgeTopics['measurement-methods']+'"]'));
-    continue;
-   }
-   if(resultDoc.status==='complete'){
-    assert.equal(resultDoc.researchStep,'step-1');
-    const text=d.querySelector('.article').textContent;
-    assert(text.includes('6600')&&text.includes('6000')&&text.includes('不是额外重测'));
-    assert(!text.includes('39600'));assert(d.querySelectorAll('.article table').length>=1);
-    assert(d.querySelector('.article a[href="#/doc/'+cat.experimentStages['measurement-tools']+'"]'));
+   if(resultDoc.documentRole==='results'){
+    assert(d.querySelector('.article h1').textContent.startsWith(resultDoc.stepExperiment+'. '));
+    for(const role of ['knowledge','commands']){
+     const peer=cat.docs.find(x=>x.documentRole===role&&x.stepExperiment===resultDoc.stepExperiment);assert(peer);
+     const link=d.querySelector('.article a[href="#/doc/'+peer.id+'"]');assert(link);link.click();
+     await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===peer.source,'peer interface '+role+resultDoc.stepExperiment);
+     assert(d.querySelector('.article a[href="#/doc/'+resultDoc.id+'"]'));
+     w.location.hash='#/doc/'+resultDoc.id;await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===resultDoc.source,'back to result interface');
+    }
     continue;
    }
    assert(d.querySelectorAll('.article figure').length>=2);
@@ -169,15 +162,34 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
   await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+resultSearchId+'"]'),'published result indexed');d.querySelector('#closeSearch').click();
   d.querySelector('#searchButton').click();query.value='原始源码与当前研究版本';query.dispatchEvent(new w.Event('input',{bubbles:true}));
   await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+cat.experimentStages['source-changes']+'"]'),'source version review indexed');d.querySelector('#closeSearch').click();
-  for(const [term,id] of [['80 B 与 16 B 测量格式对比',cat.knowledgeTopics['measurement-methods']],['独立实验：80 B 与 16 B',cat.experimentStages['measurement-tools']],['原始源码与当前版本：知识点分析',cat.knowledgeTopics['source-version-basics']],['独立实验：原始源码与当前版本对比',cat.experimentStages['source-version-retest']]]){
+  for(const [term,id] of [['十二步知识点',cat.knowledgeTopics['twelve-step-knowledge']],['第一步知识点',cat.knowledgeTopics['step-1-knowledge']],['第一步结果与分析',cat.experimentStages['step-1']]]){
    d.querySelector('#searchButton').click();query.value=term;query.dispatchEvent(new w.Event('input',{bubbles:true}));
-   await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+id+'"]'),'separate measurement page searchable '+term);
+   await waitFor(()=>d.querySelector('.search-result[href="#/doc/'+id+'"]'),'numbered learning/result page searchable '+term);
    d.querySelector('#closeSearch').click();
   }
   steps.push('当前结果入口、源码版本、空结果状态、规划互链与搜索正常；历史页不作为新结果');
  }
+ if(cat.knowledgeTopics['twelve-step-knowledge']){
+  assert(!cat.knowledgeTopics['source-version-basics']&&!cat.knowledgeTopics['measurement-methods']);
+  const hub=cat.docs.find(x=>x.id===cat.knowledgeTopics['twelve-step-knowledge']);
+  const numbered=cat.docs.filter(x=>x.knowledgeStep).sort((a,b)=>a.knowledgeStep.localeCompare(b.knowledgeStep,'en',{numeric:true}));
+  assert.equal(numbered.length,12);
+  for(const [i,target] of numbered.entries()){
+   w.location.hash='#/doc/'+hub.id;await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===hub.source,'twelve-step knowledge hub');
+   assert.equal(d.querySelectorAll('.article tbody tr').length,12);
+   const link=d.querySelector('.article a[href="#/doc/'+target.id+'"]');assert(link);link.click();
+   await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===target.source,'numbered knowledge '+(i+1));
+   if(i===0){assert.equal(d.querySelectorAll('.article tbody tr').length,5);const children=cat.docs.filter(x=>x.documentRole==='knowledge');assert.equal(children.length,5);for(const child of children)assert(d.querySelector('.article a[href="#/doc/'+child.id+'"]'));}
+   else assert(d.querySelector('.article').textContent.includes('尚未整理'));
+  }
+ }
+ for(const [oldId,topic] of Object.entries({...cat.movedKnowledgeRoutes,...cat.movedExperimentRoutes})){
+  const target=cat.docs.find(x=>x.topic===topic);assert(target);
+  w.location.hash='#/doc/'+oldId;
+  await waitFor(()=>w.location.hash==='#/doc/'+target.id&&d.querySelector('.source-label')?.getAttribute('title')===target.source,'moved old route '+oldId);
+ }
  if(cat.knowledgeTopics){
-  assert.equal(Object.keys(cat.knowledgeTopics).length,(legacyModulesVisible?7:6)+(cat.knowledgeTopics['scheduling-basics']?8:0)+Number(Boolean(cat.knowledgeTopics['measurement-methods']))+Number(Boolean(cat.knowledgeTopics['source-version-basics'])));
+  assert.equal(Object.keys(cat.knowledgeTopics).length,(legacyModulesVisible?7:6)+(cat.knowledgeTopics['scheduling-basics']?8:0)+(cat.knowledgeTopics['twelve-step-knowledge']?18:0));
   const tdd=cat.knowledgeTopics.tdd;w.location.hash='#/doc/'+tdd;
   await waitFor(()=>d.querySelector('.source-label')?.getAttribute('title')===cat.docs.find(x=>x.id===tdd).source,'reader-owned TDD lesson');
   assert(d.querySelector('.article .source-figure a[target="_blank"]'));
@@ -194,7 +206,7 @@ async function waitFor(fn,label){for(let i=0;i<240;i++){if(fn())return;await tic
  const timingDiagram=d.querySelector('.article img[alt="同一事务的上行、回复处理和下行应用边界"]')||d.querySelector('.diagram-panel img');
  assert(timingDiagram);assert(timingDiagram.getAttribute('src').endsWith('.svg'));
  assert(!d.querySelector('.article').textContent.includes('TDDLAT01'));assert(!d.querySelector('.article').textContent.includes('TDDLAT01、LOOP0001'));
- assert(d.querySelector('.article a[href="#/doc/'+cat.knowledgeTopics['measurement-methods']+'"]'));
+ assert(d.querySelector('.article a[href="#/doc/'+cat.knowledgeTopics['step-1-knowledge']+'"]'));
  steps.push('当前基础知识正文、KaTeX/MathML分式和同事务应用边界示意图正常');
  await waitFor(()=>d.querySelector('.article').textContent.includes('目标应用负载 8 Mbps'),'units in current foundation');
  const original=d.createElement('article');original.innerHTML=w.READER_CONTENT[basic.id].html;

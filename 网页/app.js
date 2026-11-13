@@ -36,8 +36,7 @@
  let bookmarks=storage.get('bookmarks',[]),history=storage.get('history',[]);
  const studyDocs=[
   ['basics','⌘','通信与时延基础','算法知识点说明/00_通信与时延基础知识.md'],
-  ['source-version-basics','⌂','原始源码与当前版本','算法知识点说明/原始源码与当前版本_知识点分析.md'],
-  ['measurement-methods','◈','80 B / 16 B 测量格式','算法知识点说明/80B与16B测量格式对比_知识点分析.md'],
+  ['twelve-step-knowledge','▤','十二步知识点','算法知识点说明/十二步知识点/十二步知识点总目录.md'],
   ['scheduling-basics','◇','算法知识点','算法知识点说明/调度算法入门/00_调度算法速览.md'],
   ['tdd','⇄','不同 TDD 知识点','docs/03_TDD配比与周期分析.md'],
   ['scs','≋','不同 SCS 知识点','docs/04_SCS分析与支持边界.md'],
@@ -55,13 +54,15 @@
  }
  const algorithmKnowledge=[...knowledgeByFile.values()];
  const outline=[...studyDocs.map(entry=>entry.doc),...algorithmKnowledge];
- const researchStages=Object.values(C.experimentStages).map(id=>docs.get(id)).filter(Boolean).map(doc=>({
+ const researchStages=Object.values(C.experimentStages).map(id=>docs.get(id)).filter(doc=>doc&&!doc.parentTopic).map(doc=>({
   icon:doc.experimentStage==='source-changes'?'⌘':'↗',
   label:doc.experimentStage==='source-changes'?'原始源码与当前版本':doc.title,doc
  }));
  const paperPlan=C.docs.find(d=>d.topic==='paper-plan');
  const experimentPlan=C.docs.find(d=>d.topic==='algorithm-experiment-plan');
  const stepPlans=C.docs.filter(d=>d.group==='guides'&&d.researchStep).sort((a,b)=>a.researchStep.localeCompare(b.researchStep,'en',{numeric:true}));
+ const knowledgeIndex=C.docs.find(d=>d.topic==='twelve-step-knowledge');
+ const knowledgeSteps=C.docs.filter(d=>d.knowledgeStep).sort((a,b)=>a.knowledgeStep.localeCompare(b.knowledgeStep,'en',{numeric:true}));
  const launchIndex=C.docs.find(d=>d.topic==='launch-index');
  const resultsIndex=C.docs.find(d=>d.topic==='research-results-index');
  function notify(s){$('#toast').textContent=s;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),2300);}
@@ -71,7 +72,7 @@
   const route=state.route;
   let algorithmMode=route.startsWith('/algorithm/')?route.split('/')[3]:null;
   if(state.doc&&familyForDoc(state.doc).length)algorithmMode=docs.get(state.doc).group==='knowledge'?'knowledge':'results';
-  const current=docs.get(state.doc),activeHub=current?.commandStep?launchIndex:current?.experimentStage?resultsIndex:current?.researchStep&&current.group==='guides'?experimentPlan:null;
+  const current=docs.get(state.doc),activeHub=current?.knowledgeStep||current?.documentRole==='knowledge'?knowledgeIndex:current?.commandStep||current?.documentRole==='commands'?launchIndex:current?.experimentStage?resultsIndex:current?.researchStep&&current.group==='guides'?experimentPlan:null;
   const nav=(url,icon,label,count)=>`<a href="${url}" class="nav-link ${route===url.slice(1)||activeHub&&url===docUrl(activeHub)||algorithmMode&&url===algorithmIndexUrl(algorithmMode)?'active':''}"><span class="nav-icon">${icon}</span>${label}${count?`<span class="nav-count">${count}</span>`:''}</a>`;
   $('#sidebar').innerHTML=nav('#/','⌂','阅读首页')+nav('#/bookmarks','☆','我的书签',bookmarks.filter(id=>docs.has(id)).length)+
    (paperPlan||experimentPlan?'<div class="nav-heading">论文规划与研究路线</div>'+(paperPlan?nav(docUrl(paperPlan),'↗','时延优化与算法对照'):'')+(experimentPlan?nav(docUrl(experimentPlan),'↗','算法实验规划'):''):'')+
@@ -117,14 +118,16 @@
   main.querySelectorAll('a[href^="#/paper/"]').forEach(a=>a.addEventListener('click',()=>storage.set('returnTo',location.hash)));
  }
  async function docView(id,params,seq){
+  const movedTopic={...(C.movedKnowledgeRoutes||{}),...(C.movedExperimentRoutes||{})}[id];
+  if(movedTopic){const target=C.docs.find(d=>d.topic===movedTopic);if(target){location.replace(docUrl(target));return;}}
   if(archivedIds.has(id))return archivedView();
   const d=docs.get(id);if(!d)return missing('没有找到这篇文档。');
   state.doc=id;const c=await content(id);if(seq!==state.sequence)return;
   const families=familyForDoc(id),family=families.length===1?families[0]:null;
   const kind=d.group==='knowledge'?'knowledge':'results';
-  const sequence=d.experimentStage?researchStages.map(entry=>entry.doc):family?familyDocumentIds(family,kind).map(did=>docs.get(did)):outline;
+  const sequence=d.parentTopic?C.docs.filter(x=>x.parentTopic===d.parentTopic&&x.documentRole===d.documentRole).sort((a,b)=>a.stepExperiment-b.stepExperiment):d.knowledgeStep?knowledgeSteps:d.experimentStage?researchStages.map(entry=>entry.doc):family?familyDocumentIds(family,kind).map(did=>docs.get(did)):outline;
   const pos=sequence.findIndex(x=>x.id===id);const prev=sequence[pos-1];const next=sequence[pos+1];
-  const docGroupLabel=d.commandStep||d.topic==='launch-index'?'启动命令':d.experimentStage||d.topic==='research-results-index'?'研究结果与分析':['paper-plan','algorithm-experiment-plan'].includes(d.topic)||d.researchStep&&d.group==='guides'?'论文规划与研究路线':groups[d.group]||'文档';
+  const docGroupLabel=d.commandStep||d.documentRole==='commands'||d.topic==='launch-index'?'启动命令':d.experimentStage||d.topic==='research-results-index'?'研究结果与分析':['paper-plan','algorithm-experiment-plan'].includes(d.topic)||d.researchStep&&d.group==='guides'?'论文规划与研究路线':groups[d.group]||'文档';
   main.innerHTML=`<div class="doc-view">${breadcrumbs(docGroupLabel)}${algorithmContext(d)}<div class="doc-toolbar"><span class="pill">${E(docGroupLabel)}</span><span class="pill warm">约 ${d.minutes} 分钟</span><button class="soft-button" id="bookmarkDoc">${bookmarks.includes(id)?'★ 已收藏':'☆ 加入书签'}</button><a class="soft-button" href="${encodeURI(d.snapshot)}" download>Markdown原稿</a><span class="source-label" title="${E(d.source)}">${E(d.source)}</span></div><article class="article">${c.html}</article>${pos>=0?`<nav class="doc-pagination">${prev?`<a href="${docUrl(prev)}"><small>← 上一篇</small>${E(prev.title)}</a>`:'<span></span>'}${next?`<a href="${docUrl(next)}"><small>下一篇 →</small>${E(next.title)}</a>`:family?`<a href="${algorithmUrl(family,kind)}"><small>返回算法目录 →</small>${E(family.name)} · ${kind==='knowledge'?'算法知识点':'实现与结果'}</a>`:`<a href="#/browse/research"><small>继续探索 →</small>研究报告与实验结果</a>`}</nav>`:''}</div>`;
   if(d.source.endsWith('算法知识点说明/00_通信与时延基础知识.md')){
    const h=Array.from(main.querySelectorAll('h2')).find(x=>x.textContent.startsWith('5.'));

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "documents": [
     {
       "id": "kc3e4e8560cabef23",
@@ -7,13 +7,69 @@
       "source": "说明/算法知识点说明/00_通信与时延基础知识.md"
     },
     {
-      "topic": "source-version-basics",
-      "source": "说明/算法知识点说明/原始源码与当前版本_知识点分析.md"
+      "topic": "twelve-step-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/十二步知识点总目录.md"
     },
     {
-      "topic": "measurement-methods",
-      "source": "说明/算法知识点说明/80B与16B测量格式对比_知识点分析.md",
+      "topic": "step-1-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第一步知识点.md",
+      "knowledgeStep": "step-1",
       "id": "k51a2cb226724c7ad"
+    },
+    {
+      "topic": "step-2-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第二步知识点.md",
+      "knowledgeStep": "step-2"
+    },
+    {
+      "topic": "step-3-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第三步知识点.md",
+      "knowledgeStep": "step-3"
+    },
+    {
+      "topic": "step-4-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第四步知识点.md",
+      "knowledgeStep": "step-4"
+    },
+    {
+      "topic": "step-5-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第五步知识点.md",
+      "knowledgeStep": "step-5"
+    },
+    {
+      "topic": "step-6-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第六步知识点.md",
+      "knowledgeStep": "step-6"
+    },
+    {
+      "topic": "step-7-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第七步知识点.md",
+      "knowledgeStep": "step-7"
+    },
+    {
+      "topic": "step-8-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第八步知识点.md",
+      "knowledgeStep": "step-8"
+    },
+    {
+      "topic": "step-9-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第九步知识点.md",
+      "knowledgeStep": "step-9"
+    },
+    {
+      "topic": "step-10-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第十步知识点.md",
+      "knowledgeStep": "step-10"
+    },
+    {
+      "topic": "step-11-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第十一步知识点.md",
+      "knowledgeStep": "step-11"
+    },
+    {
+      "topic": "step-12-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第十二步知识点.md",
+      "knowledgeStep": "step-12"
     },
     {
       "id": "k7be2718894117a09",
@@ -76,6 +132,44 @@
     {
       "topic": "quest-intro",
       "source": "说明/算法知识点说明/调度算法入门/QUEST_知识点说明.md"
+    },
+    {
+      "source": "说明/算法知识点说明/十二步知识点/第一步/1_源码与当前代码.md",
+      "topic": "step-1-experiment-1-knowledge",
+      "documentRole": "knowledge",
+      "parentTopic": "step-1-knowledge",
+      "stepExperiment": 1
+    },
+    {
+      "source": "说明/算法知识点说明/十二步知识点/第一步/2_80B与16B的UDP.md",
+      "topic": "step-1-experiment-2-knowledge",
+      "documentRole": "knowledge",
+      "parentTopic": "step-1-knowledge",
+      "stepExperiment": 2
+    },
+    {
+      "source": "说明/算法知识点说明/十二步知识点/第一步/3_16B测量字段的ping与UDP.md",
+      "topic": "step-1-experiment-3-knowledge",
+      "documentRole": "knowledge",
+      "parentTopic": "step-1-knowledge",
+      "stepExperiment": 3
+    },
+    {
+      "source": "说明/算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md",
+      "topic": "step-1-experiment-4-knowledge",
+      "documentRole": "knowledge",
+      "parentTopic": "step-1-knowledge",
+      "stepExperiment": 4
+    },
+    {
+      "source": "说明/算法知识点说明/十二步知识点/第一步/5_实验基线.md",
+      "topic": "step-1-experiment-5-knowledge",
+      "documentRole": "knowledge",
+      "parentTopic": "step-1-knowledge",
+      "stepExperiment": 5
     }
-  ]
+  ],
+  "redirects": {
+    "kc49170b2fb2e7df4": "step-1-knowledge"
+  }
 }

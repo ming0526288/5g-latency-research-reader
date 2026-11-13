@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "documents": [
     {
       "source": "说明/文献导读/39篇文献重要性排序与方法效果简述.md",
@@ -83,7 +83,7 @@
       "commandStep": "step-1",
       "planTopic": "step-1-plan",
       "resultTopic": "step-1",
-      "commandStatus": "validated"
+      "commandStatus": "partial"
     },
     {
       "source": "说明/启动命令/第二步启动命令.md",
@@ -180,6 +180,46 @@
     {
       "source": "说明/研究结果与分析/研究结果与分析总目录.md",
       "topic": "research-results-index"
+    },
+    {
+      "source": "说明/启动命令/第一步/1_源码与当前代码.md",
+      "topic": "step-1-experiment-1-commands",
+      "documentRole": "commands",
+      "parentTopic": "step-1-commands",
+      "stepExperiment": 1,
+      "commandStatus": "partial"
+    },
+    {
+      "source": "说明/启动命令/第一步/2_80B与16B的UDP.md",
+      "topic": "step-1-experiment-2-commands",
+      "documentRole": "commands",
+      "parentTopic": "step-1-commands",
+      "stepExperiment": 2,
+      "commandStatus": "partial"
+    },
+    {
+      "source": "说明/启动命令/第一步/3_16B测量字段的ping与UDP.md",
+      "topic": "step-1-experiment-3-commands",
+      "documentRole": "commands",
+      "parentTopic": "step-1-commands",
+      "stepExperiment": 3,
+      "commandStatus": "partial"
+    },
+    {
+      "source": "说明/启动命令/第一步/4_各包长的ping与UDP.md",
+      "topic": "step-1-experiment-4-commands",
+      "documentRole": "commands",
+      "parentTopic": "step-1-commands",
+      "stepExperiment": 4,
+      "commandStatus": "validated"
+    },
+    {
+      "source": "说明/启动命令/第一步/5_实验基线.md",
+      "topic": "step-1-experiment-5-commands",
+      "documentRole": "commands",
+      "parentTopic": "step-1-commands",
+      "stepExperiment": 5,
+      "commandStatus": "validated"
     }
   ]
 }
