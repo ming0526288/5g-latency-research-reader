@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "documents": [
+    {
+      "topic": "algorithm-experiment-plan",
+      "id": "r9add2badaf2ad40d",
+      "terms": [
+        "0.1024",
+        "0.3072",
+        "优先核验授权时机",
+        "十二步"
+      ],
+      "rendered": true
+    },
+    {
+      "topic": "paper-plan",
+      "id": "r8c699f85193efdfb",
+      "terms": [
+        "通信 RTT",
+        "16 B",
+        "同预算非预测主动授权",
+        "2 ms"
+      ],
+      "rendered": true
+    },
+    {
+      "topic": "step-2-plan",
+      "id": "rf08a17ef96454a42",
+      "terms": [
+        "R/N",
+        "Nr",
+        "0.1024",
+        "第五、六步"
+      ],
+      "rendered": true
+    },
+    {
+      "topic": "step-5-plan",
+      "id": "r01db9429db27accb",
+      "terms": [
+        "第二步",
+        "分段闭合"
+      ],
+      "rendered": true
+    },
+    {
+      "topic": "step-6-plan",
+      "id": "r1d03a72f977e6227",
+      "terms": [
+        "第二步",
+        "首包",
+        "因果"
+      ],
+      "rendered": true
+    },
+    {
+      "topic": "step-7-plan",
+      "id": "r8533b15719e02b69",
+      "terms": [
+        "两条对照轴",
+        "同预算"
+      ],
+      "rendered": true
+    },
+    {
+      "topic": "step-8-plan",
+      "id": "r6019f3cf9c7776d5",
+      "terms": [
+        "优先关注的授权时机",
+        "积压服务"
+      ],
+      "rendered": true
+    }
+  ],
+  "twelveStepsPreserved": true,
+  "firstStepIndependentPages": 20,
+  "steps2to12RemainNotStarted": true,
+  "fiveHistoricAnalysisPagesRetained": true,
+  "newContentSearchable": true,
+  "consoleErrors": [],
+  "newRadioExperiments": 0,
+  "scope": "Actual local DOM rendering, TOC and search; not a wireless experiment or client-browser screenshot."
+}
