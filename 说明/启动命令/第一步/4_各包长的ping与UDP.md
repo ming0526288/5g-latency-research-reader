@@ -1,32 +1,36 @@
 # 4. 各包长的 ping 与 UDP 对比
 
-[规划](../../文献导读/第一步/4_各包长的ping与UDP.md) · [知识点](../../算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md) · [启动命令](4_各包长的ping与UDP.md) · [结果与分析](../../研究结果与分析/第一步/4_各包长的ping与UDP.md) · [返回第一步启动命令](../第一步启动命令.md)
+[规划](../../文献导读/第一步/4_各包长的ping与UDP.md) · [知识点](../../算法知识点说明/十二步知识点/第一步/4_各包长的ping与UDP.md) · [结果与分析](../../研究结果与分析/第一步/4_各包长的ping与UDP.md) · [返回第一步命令](../第一步启动命令.md)
 
-## 日常启动先用分终端命令
+## 本项做什么
 
-核心网、现在代码 gNB 和 UE 的简单启动方式，统一见[1. 原始源码与当前代码的启动命令](1_源码与当前代码.md)。已验证单 UE、不加连续供样的接入和默认 ping；UDP 业务仍需另启对应业务程序，不能用 ping 代替 UDP 测量。
-
-下面是本项既有完整实验的实际命令，保留当时配置和参数用于追溯；**不表示已经按新的简单启动方式重测本项全部条件**，也不要求日常启动必须使用这些编排脚本。
-
-#### 新六条件：已执行的准备与短测命令
-
-在研究仓库根执行以下命令，v2 先导 exit 0、六条件全部通过；输出根已经存在，禁止重新 prepare 或覆盖。v1 首次先导失败记录保留在 `pilot-01`，不能与本轮混用。固定周期与抓包关联已实现；正式三轮也已全部执行并通过独立统计复核。
+我比较 56、256、1200 B 数据区，每个包长各做 ping 和 16 B 格式 UDP，各三轮。第 3 项的 16 B 总数据区单独对应，不重复累计。包长和速率、暖机包数、统计边界保持一致；工具自身 RTT 与共用 TUN RTT 分开报告。
 
 ```bash
-cd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis
-/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/selftest.py
-/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/prepare.py --kind pilot --output /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/pilot-02
-sudo -n /usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/run.py /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/pilot-02
+ping -D -n -I oaitun_ue1 -c 2200 -s 56 -i 0.02 -W 2 172.11.200.25
+ping -D -n -I oaitun_ue1 -c 2200 -s 256 -i 0.02 -W 2 172.11.200.25
+ping -D -n -I oaitun_ue1 -c 2200 -s 1200 -i 0.02 -W 2 172.11.200.25
 ```
 
-#### 新六条件：已执行的正式三轮与复核命令
+每条单独完成再执行下一条；正式三轮按冻结顺序运行，不把连续执行以上三条就称为全部矩阵已完成。UDP 对应 `--size 56/256/1200 --header-bytes 16`；用户无需自行从包长扣除 16 B。
 
-以下命令已实际执行、exit 0；`main-01` 已结束，不能重复运行或覆盖。下次重测需全新根，并重新核对协议、环境与冻结输入。
+## 先完成共用启动
+
+核心网、gNB、UE 和接入/路由顺序，见[1. 分终端启动命令](1_源码与当前代码.md)。本页的业务命令不会替我启动无线程序。
+
+## 业务和捕获工具
+
+新版统一工具为 `research/latency-analysis/step1-native-v1/traffic.py`，只发业务、启回复端和抓包，不启动/停止核心网、gNB 或 UE。先导 200 包、正式 2200 包由 `--pilot` 区分；输出根必须不存在。
 
 ```bash
-/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/prepare.py --kind main --output /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01
-sudo -n /usr/bin/python3 -B research/latency-analysis/step1-ping-udp-v2/run.py /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01
-/usr/bin/python3 -B research/latency-analysis/step1-ping-udp-results/aggregate.py /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01 --output /home/lbh/oiwireless/analysis-source-audit/step1-ping-udp-implementation-20261112/main-01-checked
+cd ~/oiwireless/oi-wireless-ran-latency-analysis
+python3 -B research/latency-analysis/step1-native-v1/traffic.py --help
 ```
 
-18 条件、39600 完整 / 36000 统计事务与 2308 冻结输入均核验通过，耗时 1163.408 s（包括全部编排与回收）。结果见[第一步结果与分析](../../研究结果与分析/第一步结果与分析.md)，规则和条件见[第一步规划](../../文献导读/第一步规划_单UE通信RTT基线.md)。图表生成与发布脚本在研究树 `step1-ping-udp-results/`，不得反复覆盖已发布数据根。
+实际运行时指定 `--source current --case 本项案例名 --ue-ip 本轮UE地址 --root 新的本地证据根`，并以 sudo 获取绑定网卡、抓包和进入 UPF 网络空间的权限。这些中文参数是填写说明，不能原样粘贴当命令。完整可复制的实际调用和验证结果将在本轮运行后回填，当前不冒称已验证。
+
+每轮核验 TUN/N3 请求回复、QFI/方向、包长、捕获丢弃和实际到达间隔；UDP 再核验同一时钟域的四时刻。失败保留新根和最后成功步骤，不删慢包。统计按前 200 包预热、后 2000 包；RTT 不除以二冒充单向时延。
+
+## 来源与范围
+
+共同无线与测量来源见[实验 1 的依据](1_源码与当前代码.md)。80/16 B 格式、包长、包数、间隔是本项目测量设计，3GPP 没有指定这些值；新工具的命令行整理不等于新通信算法或性能收益。旧运行命令完整保留在原 CHG/TEST 与本地历史证据，本页用于本轮新基线。
