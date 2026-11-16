@@ -136,7 +136,7 @@
       "kind": "numbered-result-interface",
       "experiment": 1,
       "status": "partial",
-      "canonicalSourceSHA": "c5f6ce2c2ac5be21f87e583b02effda198ce93c23d078dfb064fdc2fe76602a6"
+      "canonicalSourceSHA": "5ba8d395b9c595eda910c0aede69989aef41d8bc87e135d8124962ca687ac491"
     },
     {
       "id": "ee1f9e357eb51f364",
@@ -173,7 +173,7 @@
       "olderRetained": 19,
       "hubAndFirstResultMutualLinks": true,
       "newRadioExperiments": 0,
-      "canonicalSourceSHA": "0948bb907b2bd5267e01de8c0f8a35450d2013d8d79d18526a5e9fd0db076465"
+      "canonicalSourceSHA": "d0e1688a73fbdd2ca89eb7c7c4e12012e4dafa4d156fea4b36c1f958760aab6a"
     }
   ],
   "scope": "Portable aggregate/hash/link/identity checks; no new experiment or raw packet statistical recomputation."

@@ -38,6 +38,8 @@ def main():
             payload=json.loads(get('网页/data/'+doc['id']+'.js').split('=',1)[1].strip().rstrip(';'))
             for term in terms:
                 assert term in payload['html'] and term in doc['search'],(topic,term)
+            for term in ['348','0.834','直接','--continuous-tx']:
+                assert term in payload['html'] and term in doc['search'],(topic,term)
             assert any(terms[0] in h['title'] for h in payload['toc']),topic
             assert doc['sha256']==hashlib.sha256((ROOT/doc['source']).read_bytes()).hexdigest()
             ids.append(doc['id'])
@@ -45,9 +47,16 @@ def main():
         assert latest['status']=='VERIFIED_FAILURES_BEFORE_BUSINESS'
         assert latest['natural_attempts']==2 and latest['access_successes']==0
         assert all(not v['continuous_tx_gnb'] and not v['continuous_tx_ue'] and not v['business_started'] and v['RTT_ms'] is None for v in latest['attempts'])
+        direct=json.loads((ROOT/'说明/研究结果与分析/数据/第一步_原命令直接启动复测_20261116.json').read_text())
+        assert direct['status']=='ORIGINAL_DIRECT_COMMAND_PING_SUCCESS'
+        assert not direct['continuous_tx_gnb'] and not direct['continuous_tx_ue']
+        assert direct['ping']['transmitted']==direct['ping']['received']==direct['ping']['all_reply_lines']==348
+        assert direct['ping']['avg_ms']==0.834 and direct['ping']['max_ms']==1.251
+        assert direct['ping']['warmup_removed']==0 and direct['ping']['p99_9_ms'] is None
+        assert direct['original_runtime_file_check']=={'files':14,'unchanged':True}
         historical=json.loads((ROOT/'说明/研究结果与分析/数据/第一步_原始程序原核心网复测.json').read_text())
         assert historical['new_complete_transactions']==13320
-        report.update(status='PASS',topics=list(checks),document_ids=ids,body_toc_search_match=True,latest_natural_failures=2,latest_business_started=False,historical_transactions_preserved=13320)
+        report.update(status='PASS',topics=list(checks),document_ids=ids,body_toc_search_match=True,earlier_script_failures_preserved=2,latest_direct_command_success=True,latest_ping_replies=348,latest_avg_rtt_ms=0.834,historical_transactions_preserved=13320)
     except Exception as e:
         report.update(status='FAIL',error_type=type(e).__name__,error=str(e))
     args.output.parent.mkdir(parents=True,exist_ok=True)

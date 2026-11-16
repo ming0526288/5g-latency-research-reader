@@ -1,0 +1,65 @@
+{
+  "status": "ORIGINAL_DIRECT_COMMAND_PING_SUCCESS",
+  "date": "2026-11-16",
+  "execution": "separate interactive PTY terminals in original build directory; no Python RAN launcher",
+  "source": "oi-wireless-ran original binaries/configuration",
+  "cwd": "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build",
+  "continuous_tx_gnb": false,
+  "continuous_tx_ue": false,
+  "thread_pool_override": false,
+  "rfsim_server": "127.0.0.1",
+  "core_script": "./run-5gc.sh",
+  "core_script_result": "exit 0; containers up-to-date; not recreated by this command",
+  "access_stages": [
+    "sync",
+    "SIB1",
+    "random access",
+    "RRC connected",
+    "registration accept",
+    "UE TUN configured"
+  ],
+  "ping": {
+    "command": "ping 172.11.200.25 -I oaitun_ue1",
+    "boundary": "ICMP RTT from UE TUN to original target and back; not one-way or actuator loop",
+    "icmp_data_bytes": 56,
+    "icmp_header_bytes": 8,
+    "ipv4_header_bytes": 20,
+    "inner_ip_bytes": 84,
+    "transmitted": 348,
+    "received": 348,
+    "loss_percent": 0,
+    "elapsed_ms": 354340,
+    "min_ms": 0.598,
+    "avg_ms": 0.834,
+    "max_ms": 1.251,
+    "mdev_ms": 0.103,
+    "all_reply_lines": 348,
+    "unrounded_mean_of_displayed_reply_ms": 0.8340402298850574,
+    "sequence_contiguous_1_to_348": true,
+    "warmup_removed": 0,
+    "termination": "manual Ctrl-C after observed replies; not preset count",
+    "p99_ms": null,
+    "p99_9_ms": null
+  },
+  "route_evidence": "172.11.200.25 from 192.169.0.4 dev oaitun_ue1 table 10000",
+  "packet_capture_this_run": false,
+  "cleanup": {
+    "owned_gnb_ue_exit_codes": [
+      0,
+      0
+    ],
+    "no_remaining_ran_processes": true,
+    "core_retained": true
+  },
+  "original_runtime_file_check": {
+    "files": 14,
+    "unchanged": true
+  },
+  "limitations": [
+    "One successful natural startup; not a failure probability or a strict original/current-code A/B.",
+    "Route checked; no N3/TUN pcap packet association in this direct run.",
+    "PTY transcript is tool capture and may truncate RAN output; authentication lines filtered.",
+    "Earlier scripted failures retained separately; CWD, PTY, environment and launch timing were not independently isolated."
+  ],
+  "local_evidence": "/home/lbh/oiwireless/analysis-source-audit/original-direct-terminal-20261116/run-01"
+}
