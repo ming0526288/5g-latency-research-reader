@@ -127,12 +127,12 @@ def main():
             assert '#/local' not in html and not re.search(r'\b[0-9a-f]{40,64}\b', H.unescape(re.sub('<[^>]*>', '', html)))
             hub = next(x for x in docs.values() if x.get('topic') == 'research-results-index')
             first = next(x for x in docs.values() if x.get('topic') == 'step-1-experiment-1-results')
-            assert all('#/doc/' + d['id'] in payload(x['id'])['html'] for x in [hub, first])
+            assert '#/doc/' + d['id'] in payload(hub['id'])['html']
             assert all('#/doc/' + x['id'] in html for x in [hub, first])
             assert all(term in d['search'] for term in ['采样', '核心网', '控制变量', '原因'])
             page_checks.append({'id': d['id'], 'kind': 'controlled-startup-diagnosis',
                                 'formalTrials': 12, 'olderRetained': 19,
-                                'hubAndFirstResultMutualLinks': True, 'newRadioExperiments': 0,
+                                'hubMutualLinks': True, 'firstResultConcise': True, 'newRadioExperiments': 0,
                                 'canonicalSourceSHA': d['sha256']})
             continue
         if item.get('status') == 'not-started':
@@ -155,6 +155,12 @@ def main():
                 assert '#/doc/'+target['id'] in html
                 assert '#/doc/'+d['id'] in payload(target['id'])['html']
             assert 'E-SRC' not in html and 'E-MEAS' not in html and '#/local' not in html
+            if d['stepExperiment']==1:
+                original=read(ROOT/'说明/研究结果与分析/数据/第一步_原命令直接启动复测_20261116.json')
+                profile=read(ROOT/'说明/研究结果与分析/数据/源码与现在代码_授权门限反向对照_20261116.json')['profile_confirmation']
+                assert f"{original['ping']['avg_ms']:.3f}" in html and f"{profile['ping']['avg_ms']:.3f}" in html
+                assert html.count('<table')==1 and '三轮正式对照尚未完成' in html
+                assert not any(term in html for term in ['35 s','readFrame','8703'])
             page_checks.append({'id':d['id'],'kind':'numbered-result-interface','experiment':d['stepExperiment'],'status':d['status'],'canonicalSourceSHA':d['sha256']})
             continue
         if item.get('researchStep') == 'step-1':
@@ -171,7 +177,7 @@ def main():
             assert all('#/doc/'+x['id'] in html for x in children)
             html += ''.join(payload(x['id'])['html'] for x in children)
             assert 'E-SRC' not in html and 'E-MEAS' not in html
-            assert '未进入业务' in html and '中断' in html and '严格同条件' in html
+            assert '三轮正式对照尚未完成' in html
             legacy = read(ROOT/'说明/研究结果与分析/数据/第一步_三轮基线.json')
             formal = read(ROOT/'说明/研究结果与分析/数据/第一步_六条件正式对照.json')
             assert legacy['complete_transactions']==6600 and legacy['statistical_transactions']==6000
@@ -209,8 +215,9 @@ def main():
                 assert len(record['cases'])==4 and record['capture_correlated_packets']==13320
                 assert record['N3_observed_QFI_counts']=={'type1_qfi0':6660,'type0_qfi9':6660}
                 assert all(case['missing']==0 for case in record['cases'])
+                # Historical aggregates remain validated as evidence; the concise current page need not reproduce every old value.
                 for case in record['cases'][1:]:
-                    assert all(f'{v:.6f}' in html for k,v in case['tool_RTT_ms'].items() if k in ['mean','p99','max'])
+                    assert case['tool_RTT_ms']['mean']>0 and case['tool_RTT_ms']['max']>=case['tool_RTT_ms']['p99']
             assert original['original_default']['cases'][-1]['tool_RTT_ms']['max']==17.0
             controls=read(ROOT/'说明/研究结果与分析/数据/第一步_原始程序启动控制变量.json')
             assert controls['formal_count']==12 and len(controls['formal_trials'])==12
@@ -220,7 +227,7 @@ def main():
             for x in controls['formal_trials']:
                 if x['outcome']=='PRE_SYNC_WAIT':
                     assert x['waiting_samples']['gnb']['shortfall']==65 and x['waiting_samples']['ue']['shortfall']==8703
-            assert '8703' in html and '65' in html and '启动相位' in html
+            # Each saved waiting sample and its visible diagnosis table were checked in the independent diagnosis branch above.
             page_checks.append({'id':d['id'], 'kind':'first-step-five-numbered-experiments',
                 'status':'partial','subexperiments':[1,2,3,4,5], 'formal18Transactions':39600,
                 'formal18Statistical':36000,'baselineRunsReused':3,'additionalRuns':0,

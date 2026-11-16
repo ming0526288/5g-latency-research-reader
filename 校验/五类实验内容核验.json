@@ -63,7 +63,7 @@
       "newOriginalStatisticalTransactions": 12110,
       "strictVersionABComplete": false,
       "controlledHeaderABComplete": false,
-      "canonicalSourceSHA": "eafb0c98f234e8642d38420c4212b0b1b8f52bc16249ed595e06f22c27a5aa8a"
+      "canonicalSourceSHA": "0b430857781a8f72426fbb68b28e3f8882f3d8ace2ef3bde6fa34ea671024578"
     },
     {
       "id": "e6e9701a5fd751eec",
@@ -136,42 +136,43 @@
       "kind": "numbered-result-interface",
       "experiment": 1,
       "status": "partial",
-      "canonicalSourceSHA": "48135a0c8de42551a736e894756300f07e757cfafa20e3dc31a1fd95d9afbe7d"
+      "canonicalSourceSHA": "8ed1548826dab5503e47be7e3dab05ad332e4def345ac2153961958810d5c718"
     },
     {
       "id": "ee1f9e357eb51f364",
       "kind": "numbered-result-interface",
       "experiment": 2,
       "status": "partial",
-      "canonicalSourceSHA": "178b052a37292bca2e6935b15b350c657faea1cf637af4372e27117c71e3463b"
+      "canonicalSourceSHA": "7ae0251a1d8a6e46f174bce8dd63325d33627e6097e163859e0941444eadce54"
     },
     {
       "id": "e14543603b9f4fd10",
       "kind": "numbered-result-interface",
       "experiment": 3,
       "status": "partial",
-      "canonicalSourceSHA": "ab81c51ca6ba2d2de9f89faba0ccb2f3829621356cece200f28dc59d068f9660"
+      "canonicalSourceSHA": "079647bf7edc1313a3941ecb66190b29a38ef78f854e9e81015052dec8b8b681"
     },
     {
       "id": "ef1a4c35417d53e6e",
       "kind": "numbered-result-interface",
       "experiment": 4,
-      "status": "complete",
-      "canonicalSourceSHA": "7f82fc86005c17c6657ec397c4e642473ca63b8af1d31b34b518b262f82d5dda"
+      "status": "partial",
+      "canonicalSourceSHA": "faf9f654e76dd5ac0761807ec27d20dfba5a064184d99e72b783fe62f49648d9"
     },
     {
       "id": "e9b27ab61d49c9e38",
       "kind": "numbered-result-interface",
       "experiment": 5,
-      "status": "complete",
-      "canonicalSourceSHA": "251d161c48bbd35f987b792af06cc01aa046c83bd4800d9b06f65796595df4ec"
+      "status": "partial",
+      "canonicalSourceSHA": "c0f90823b5ae7fc5c685ad7e2a3bbe46525550448c15767f67adce95ee0c26a3"
     },
     {
       "id": "efe8187b2c435dc86",
       "kind": "controlled-startup-diagnosis",
       "formalTrials": 12,
       "olderRetained": 19,
-      "hubAndFirstResultMutualLinks": true,
+      "hubMutualLinks": true,
+      "firstResultConcise": true,
       "newRadioExperiments": 0,
       "canonicalSourceSHA": "db24200c9c77278089a2f7982d464df3845bbb41224c54d0d1c4837ae08c1764"
     },

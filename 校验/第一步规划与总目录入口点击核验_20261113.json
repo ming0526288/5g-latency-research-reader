@@ -13,16 +13,16 @@
   "originalPingValidated": true,
   "originalPingCompleteTransactions": 13320,
   "originalPingStatisticalTransactions": 12110,
-  "currentPingThreeRepeatMeans": [
-    1.701862,
-    1.812801,
-    1.842844
+  "conciseCurrentComparisonMeans": [
+    0.834,
+    0.843
   ],
+  "conciseResultKeepsHistoricalFailuresInRecords": true,
   "consoleErrors": [],
   "scope": "Actual local DOM clicks, not screenshot or radio experiment.",
   "detailedDiagnosis": {
     "id": "efe8187b2c435dc86",
-    "hubAndFirstResultClicks": 4,
+    "hubClicks": 2,
     "searchable": true,
     "visibleCommitHashesRemoved": true,
     "sidebarSiblingEntry": {

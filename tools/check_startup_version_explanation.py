@@ -32,7 +32,7 @@ def main():
         assert "d.topic==='source-latency-difference'" in app and 'current===latencyDifference' in app
         checks={'step-1-experiment-1-knowledge':['为什么现在能启动','--continuous-tx','18','readFrame','根治','是否需要恢复原始启动方式或源码','启动选项','全部源码'],
                 'original-startup-diagnosis':['为什么现在代码能启动','--continuous-tx','18','根治','2026-11-16','未开始 ping'],
-                'step-1-experiment-1-results':['2026-11-16','35 s','RTT 未测','2026-11-13'],
+                'step-1-experiment-1-results':['目前结果','0.834','0.843','三轮正式对照尚未完成'],
                 'step-1-experiment-1-commands':['新基线的共同启动方式','gnb.120k.low-latency.mcs9.conf','2200','oaitun_ue1','--continuous-tx'],
                 'source-latency-difference':['时延差异原因分析','0.829','2.191','0.843','空授权']}
         ids=[]
@@ -41,9 +41,11 @@ def main():
             payload=json.loads(get('网页/data/'+doc['id']+'.js').split('=',1)[1].strip().rstrip(';'))
             for term in terms:
                 assert term in payload['html'] and term in doc['search'],(topic,term)
-            for term in (['348','0.834','直接','--continuous-tx'] if topic!='step-1-experiment-1-commands' else ['原核心网','旧约','独立原因页']):
+            extra=(['348','60','0.843'] if topic=='step-1-experiment-1-results' else ['原核心网','旧约','独立原因页'] if topic=='step-1-experiment-1-commands' else ['348','0.834','直接','--continuous-tx'])
+            for term in extra:
                 assert term in payload['html'] and term in doc['search'],(topic,term)
-            assert '2.358' in payload['html'] and '2.358' in doc['search'],topic
+            if topic!='step-1-experiment-1-results':
+                assert '2.358' in payload['html'] and '2.358' in doc['search'],topic
             if topic in ['step-1-experiment-1-knowledge','source-latency-difference']:
                 for term in ['预测式提前授权','不预测','空授权']:
                     assert term in payload['html'] and term in doc['search'],(topic,term)
