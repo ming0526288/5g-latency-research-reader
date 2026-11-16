@@ -44,6 +44,9 @@ def main():
             for term in ['348','0.834','直接','--continuous-tx']:
                 assert term in payload['html'] and term in doc['search'],(topic,term)
             assert '2.358' in payload['html'] and '2.358' in doc['search'],topic
+            if topic in ['step-1-experiment-1-knowledge','source-latency-difference']:
+                for term in ['预测式提前授权','不预测','空授权']:
+                    assert term in payload['html'] and term in doc['search'],(topic,term)
             if topic=='step-1-experiment-1-knowledge':
                 for term in ['依次启动与等待接入','根本没有执行 ping','影响尚未单因素隔离','正式时延统计预热']:
                     assert term in payload['html'] and term in doc['search'],(topic,term)

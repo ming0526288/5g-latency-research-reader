@@ -181,7 +181,7 @@
       "successfulPingRuns": 3,
       "samplesPerRun": 60,
       "standalone": true,
-      "canonicalSourceSHA": "ce97d0a18e99874a06628e0f1bef3044079c750bff50b11c92fbf54ce504cf2c"
+      "canonicalSourceSHA": "a6cbe3f410ade7f8da68326e488891e9be1236c0e3eeb38d4c23bb4a1eb55e98"
     }
   ],
   "scope": "Portable aggregate/hash/link/identity checks; no new experiment or raw packet statistical recomputation."
