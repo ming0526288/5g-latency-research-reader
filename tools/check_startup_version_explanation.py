@@ -28,7 +28,7 @@ def main():
             report['resources'].append({'path':name,'sha256':hashlib.sha256(body).hexdigest(),'matches_checkout':True})
             return body.decode()
         catalog=json.loads(get('网页/catalog.js').split('window.READER_CATALOG=',1)[1].strip().rstrip(';'))
-        checks={'step-1-experiment-1-knowledge':['为什么现在能启动','--continuous-tx','18','readFrame','根治'],
+        checks={'step-1-experiment-1-knowledge':['为什么现在能启动','--continuous-tx','18','readFrame','根治','是否需要恢复原始启动方式或源码','启动选项','全部源码'],
                 'original-startup-diagnosis':['为什么现在代码能启动','--continuous-tx','18','根治']}
         ids=[]
         for topic,terms in checks.items():
