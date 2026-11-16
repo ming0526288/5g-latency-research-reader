@@ -110,4 +110,4 @@ v1 pilot-01 的 56 B ping 200/200 已交付，因额外 1 个内层 version6 背
 
 安全数据：[正式 summary.json](https://github.com/ming0526288/oiwireless-latency-analysis/blob/latency-standards-audit/research/latency-analysis/step1-ping-udp-results/evidence/main-01/summary.json)；运行与方法见[第一步启动命令](../../启动命令/第一步启动命令.md)、CHG402 / TEST552。原文与精确条款沿下方来源区；具体业务参数是工程安排，不是标准强制。
 
-旧 80 B 测量头的 256 B 结果保留在[2. 80 B 与 16 B 的 UDP 对比](2_80B与16B的UDP.md)，不与本页的新输入混用。
+当前 80 B/16 B 测量格式的同条件结果见[3. 80 B 与 16 B 的 UDP 对比](3_80B与16B的UDP.md)；本页数值仍属于旧批次，不与本轮新数据混用。

@@ -55,15 +55,16 @@
       "formal18Transactions": 39600,
       "formal18Statistical": 36000,
       "baselineRunsReused": 3,
-      "additionalRuns": 0,
+      "newHeaderContrastRuns": 6,
       "originalPingRTTAvailable": true,
       "newOriginalPingRuns": 8,
       "newOriginalStartupAttempts": 3,
       "newOriginalCompleteTransactions": 13320,
       "newOriginalStatisticalTransactions": 12110,
       "strictVersionABComplete": false,
-      "controlledHeaderABComplete": false,
-      "canonicalSourceSHA": "0b430857781a8f72426fbb68b28e3f8882f3d8ace2ef3bde6fa34ea671024578"
+      "controlledHeaderContrastComplete": true,
+      "identicalRadioArrivalPhaseControlled": false,
+      "canonicalSourceSHA": "75321ceef04964aed4e14f55cb5317d14e09d0ac1ac7ec50da93ce8d0e911073"
     },
     {
       "id": "e6e9701a5fd751eec",
@@ -141,23 +142,23 @@
     {
       "id": "ee1f9e357eb51f364",
       "kind": "numbered-result-interface",
-      "experiment": 2,
-      "status": "partial",
-      "canonicalSourceSHA": "7ae0251a1d8a6e46f174bce8dd63325d33627e6097e163859e0941444eadce54"
+      "experiment": 3,
+      "status": "complete",
+      "canonicalSourceSHA": "a15fef1563d20e05763a7795b49a0d55f88f89398062bad06b62096f52ae1fdd"
     },
     {
       "id": "e14543603b9f4fd10",
       "kind": "numbered-result-interface",
-      "experiment": 3,
-      "status": "partial",
-      "canonicalSourceSHA": "079647bf7edc1313a3941ecb66190b29a38ef78f854e9e81015052dec8b8b681"
+      "experiment": 2,
+      "status": "not-started",
+      "canonicalSourceSHA": "afb83e85d25128ea91c7989e5f8d77dc1621ef26ab48af914ff236b71ff0544e"
     },
     {
       "id": "ef1a4c35417d53e6e",
       "kind": "numbered-result-interface",
       "experiment": 4,
       "status": "partial",
-      "canonicalSourceSHA": "faf9f654e76dd5ac0761807ec27d20dfba5a064184d99e72b783fe62f49648d9"
+      "canonicalSourceSHA": "224cd0b5e36eb28e71b8b36f7f7771927f16af6934bfbb9a77c0c8f8016ea2f8"
     },
     {
       "id": "e9b27ab61d49c9e38",

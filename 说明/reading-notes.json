@@ -190,20 +190,22 @@
       "commandStatus": "partial"
     },
     {
-      "source": "说明/启动命令/第一步/2_80B与16B的UDP.md",
-      "topic": "step-1-experiment-2-commands",
-      "documentRole": "commands",
-      "parentTopic": "step-1-commands",
-      "stepExperiment": 2,
-      "commandStatus": "partial"
-    },
-    {
-      "source": "说明/启动命令/第一步/3_16B测量字段的ping与UDP.md",
+      "source": "说明/启动命令/第一步/3_80B与16B的UDP.md",
       "topic": "step-1-experiment-3-commands",
       "documentRole": "commands",
       "parentTopic": "step-1-commands",
       "stepExperiment": 3,
-      "commandStatus": "partial"
+      "commandStatus": "validated",
+      "id": "r6c24398dc8adef7a"
+    },
+    {
+      "source": "说明/启动命令/第一步/2_16B测量字段的ping与UDP.md",
+      "topic": "step-1-experiment-2-commands",
+      "documentRole": "commands",
+      "parentTopic": "step-1-commands",
+      "stepExperiment": 2,
+      "commandStatus": "pending-validation",
+      "id": "r500ca0e1a471a51d"
     },
     {
       "source": "说明/启动命令/第一步/4_各包长的ping与UDP.md",
@@ -211,7 +213,7 @@
       "documentRole": "commands",
       "parentTopic": "step-1-commands",
       "stepExperiment": 4,
-      "commandStatus": "validated"
+      "commandStatus": "partial"
     },
     {
       "source": "说明/启动命令/第一步/5_实验基线.md",
@@ -219,7 +221,7 @@
       "documentRole": "commands",
       "parentTopic": "step-1-commands",
       "stepExperiment": 5,
-      "commandStatus": "validated"
+      "commandStatus": "partial"
     },
     {
       "source": "说明/文献导读/第一步/1_源码与当前代码.md",
@@ -229,18 +231,20 @@
       "stepExperiment": 1
     },
     {
-      "source": "说明/文献导读/第一步/2_80B与16B的UDP.md",
-      "topic": "step-1-experiment-2-plans",
-      "documentRole": "plans",
-      "parentTopic": "step-1-plan",
-      "stepExperiment": 2
-    },
-    {
-      "source": "说明/文献导读/第一步/3_16B测量字段的ping与UDP.md",
+      "source": "说明/文献导读/第一步/3_80B与16B的UDP.md",
       "topic": "step-1-experiment-3-plans",
       "documentRole": "plans",
       "parentTopic": "step-1-plan",
-      "stepExperiment": 3
+      "stepExperiment": 3,
+      "id": "r3058d26016f0835b"
+    },
+    {
+      "source": "说明/文献导读/第一步/2_16B测量字段的ping与UDP.md",
+      "topic": "step-1-experiment-2-plans",
+      "documentRole": "plans",
+      "parentTopic": "step-1-plan",
+      "stepExperiment": 2,
+      "id": "rb789e32114a812e9"
     },
     {
       "source": "说明/文献导读/第一步/4_各包长的ping与UDP.md",

@@ -1,0 +1,897 @@
+{
+  "status": "PASS",
+  "display_experiment": 3,
+  "scope": "Six actual RFsim business runs; equal UDP data length, same native RAN and core; not smaller on-air packets or robot actuation loop",
+  "unique_runs": 6,
+  "complete_transactions": 13200,
+  "statistical_transactions": 12000,
+  "payload_bytes": 256,
+  "ipv4_packet_bytes": 284,
+  "target_interval_ms": 20,
+  "cases": [
+    {
+      "case": "current-r1-udp-256-h16",
+      "repeat": 1,
+      "header_bytes": 16,
+      "complete": 2200,
+      "statistical": 2000,
+      "application_metrics": {
+        "UL_ms": {
+          "mean": 0.9525853775,
+          "p50": 0.9378885,
+          "p95": 1.19395445,
+          "p99": 1.3469227000000001,
+          "max": 1.642564
+        },
+        "reply_ms": {
+          "mean": 0.013659999,
+          "p50": 0.012909,
+          "p95": 0.0235614,
+          "p99": 0.036786669999999994,
+          "max": 0.052171
+        },
+        "DL_ms": {
+          "mean": 0.376091691,
+          "p50": 0.36925149999999995,
+          "p95": 0.46839965,
+          "p99": 0.54084548,
+          "max": 0.724094
+        },
+        "RTT_ms": {
+          "mean": 1.3423370675,
+          "p50": 1.319465,
+          "p95": 1.6777901,
+          "p99": 1.8544236800000002,
+          "max": 2.315827
+        }
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 1.3057785695,
+        "p50": 1.2830270000000001,
+        "p95": 1.6342235000000003,
+        "p99": 1.79831932,
+        "max": 2.263345
+      },
+      "actual_TUN_interarrival_ms": {
+        "mean": 19.999934606639382,
+        "p50": 19.999859,
+        "p95": 20.0226356,
+        "p99": 20.04255528,
+        "max": 20.081655
+      },
+      "sender_lateness_ms": {
+        "mean": 0.07550642,
+        "p50": 0.0747235,
+        "p95": 0.0888031,
+        "p99": 0.10322056000000002,
+        "max": 0.209695
+      },
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "max_endpoint_clock_delta_us": 24.013,
+      "slowest": [
+        {
+          "seq": 1863,
+          "UL_ns": 1572919,
+          "reply_ns": 18814,
+          "DL_ns": 724094,
+          "RTT_ns": 2315827,
+          "UL": 1.572919,
+          "reply": 0.018814,
+          "DL": 0.724094,
+          "RTT": 2.315827
+        },
+        {
+          "seq": 662,
+          "UL_ns": 1642564,
+          "reply_ns": 9418,
+          "DL_ns": 574501,
+          "RTT_ns": 2226483,
+          "UL": 1.642564,
+          "reply": 0.009418,
+          "DL": 0.574501,
+          "RTT": 2.226483
+        },
+        {
+          "seq": 1613,
+          "UL_ns": 1461758,
+          "reply_ns": 18352,
+          "DL_ns": 615947,
+          "RTT_ns": 2096057,
+          "UL": 1.461758,
+          "reply": 0.018352,
+          "DL": 0.615947,
+          "RTT": 2.096057
+        }
+      ]
+    },
+    {
+      "case": "current-r1-udp-256-h80",
+      "repeat": 1,
+      "header_bytes": 80,
+      "complete": 2200,
+      "statistical": 2000,
+      "application_metrics": {
+        "UL_ms": {
+          "mean": 0.9431716935,
+          "p50": 0.9294325,
+          "p95": 1.1016552,
+          "p99": 1.28675097,
+          "max": 16.893776
+        },
+        "reply_ms": {
+          "mean": 0.016770923,
+          "p50": 0.016041,
+          "p95": 0.02718005,
+          "p99": 0.03980066,
+          "max": 0.067112
+        },
+        "DL_ms": {
+          "mean": 0.3717043655,
+          "p50": 0.36686399999999997,
+          "p95": 0.45372500000000004,
+          "p99": 0.50589616,
+          "max": 0.673731
+        },
+        "RTT_ms": {
+          "mean": 1.331646982,
+          "p50": 1.313027,
+          "p95": 1.53454675,
+          "p99": 1.7758627800000002,
+          "max": 17.273724
+        }
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 1.29645237,
+        "p50": 1.279129,
+        "p95": 1.4980892499999998,
+        "p99": 1.7347313300000002,
+        "max": 17.216195
+      },
+      "actual_TUN_interarrival_ms": {
+        "mean": 19.999949967257844,
+        "p50": 19.999513,
+        "p95": 20.026950499999998,
+        "p99": 20.04413086,
+        "max": 20.069697
+      },
+      "sender_lateness_ms": {
+        "mean": 0.07385435318181818,
+        "p50": 0.073567,
+        "p95": 0.08811695,
+        "p99": 0.10425109,
+        "max": 0.182927
+      },
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "max_endpoint_clock_delta_us": 34.767,
+      "slowest": [
+        {
+          "seq": 360,
+          "UL_ns": 16893776,
+          "reply_ns": 50675,
+          "DL_ns": 329273,
+          "RTT_ns": 17273724,
+          "UL": 16.893776,
+          "reply": 0.050675,
+          "DL": 0.329273,
+          "RTT": 17.273724
+        },
+        {
+          "seq": 264,
+          "UL_ns": 1495491,
+          "reply_ns": 28735,
+          "DL_ns": 593080,
+          "RTT_ns": 2117306,
+          "UL": 1.495491,
+          "reply": 0.028735,
+          "DL": 0.59308,
+          "RTT": 2.117306
+        },
+        {
+          "seq": 232,
+          "UL_ns": 1310621,
+          "reply_ns": 28175,
+          "DL_ns": 673731,
+          "RTT_ns": 2012527,
+          "UL": 1.310621,
+          "reply": 0.028175,
+          "DL": 0.673731,
+          "RTT": 2.012527
+        }
+      ]
+    },
+    {
+      "case": "current-r2-udp-256-h80",
+      "repeat": 2,
+      "header_bytes": 80,
+      "complete": 2200,
+      "statistical": 2000,
+      "application_metrics": {
+        "UL_ms": {
+          "mean": 0.9142924825,
+          "p50": 0.9102735,
+          "p95": 1.04973095,
+          "p99": 1.11296332,
+          "max": 6.898141
+        },
+        "reply_ms": {
+          "mean": 0.0158074265,
+          "p50": 0.0148545,
+          "p95": 0.02727375,
+          "p99": 0.039232920000000004,
+          "max": 0.060697
+        },
+        "DL_ms": {
+          "mean": 0.3573343025,
+          "p50": 0.35434449999999995,
+          "p95": 0.428583,
+          "p99": 0.46245283,
+          "max": 1.564859
+        },
+        "RTT_ms": {
+          "mean": 1.2874342115,
+          "p50": 1.2820205,
+          "p95": 1.4475695000000002,
+          "p99": 1.5291782799999998,
+          "max": 7.236884
+        }
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 1.2552246135,
+        "p50": 1.2491485,
+        "p95": 1.41646435,
+        "p99": 1.4843037099999998,
+        "max": 7.202035
+      },
+      "actual_TUN_interarrival_ms": {
+        "mean": 19.999901670304684,
+        "p50": 19.99956,
+        "p95": 20.0233313,
+        "p99": 20.043857459999998,
+        "max": 20.075715
+      },
+      "sender_lateness_ms": {
+        "mean": 0.0730733790909091,
+        "p50": 0.0727325,
+        "p95": 0.0850549,
+        "p99": 0.10375667,
+        "max": 0.269327
+      },
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "max_endpoint_clock_delta_us": 31.026,
+      "slowest": [
+        {
+          "seq": 1218,
+          "UL_ns": 6898141,
+          "reply_ns": 16982,
+          "DL_ns": 321761,
+          "RTT_ns": 7236884,
+          "UL": 6.898141,
+          "reply": 0.016982,
+          "DL": 0.321761,
+          "RTT": 7.236884
+        },
+        {
+          "seq": 591,
+          "UL_ns": 993134,
+          "reply_ns": 20108,
+          "DL_ns": 1564859,
+          "RTT_ns": 2578101,
+          "UL": 0.993134,
+          "reply": 0.020108,
+          "DL": 1.564859,
+          "RTT": 2.578101
+        },
+        {
+          "seq": 1323,
+          "UL_ns": 1141963,
+          "reply_ns": 18626,
+          "DL_ns": 459630,
+          "RTT_ns": 1620219,
+          "UL": 1.141963,
+          "reply": 0.018626,
+          "DL": 0.45963,
+          "RTT": 1.620219
+        }
+      ]
+    },
+    {
+      "case": "current-r2-udp-256-h16",
+      "repeat": 2,
+      "header_bytes": 16,
+      "complete": 2200,
+      "statistical": 2000,
+      "application_metrics": {
+        "UL_ms": {
+          "mean": 0.9448553405,
+          "p50": 0.9314385000000001,
+          "p95": 1.1141397,
+          "p99": 1.29567005,
+          "max": 7.534382
+        },
+        "reply_ms": {
+          "mean": 0.0133353425,
+          "p50": 0.012624,
+          "p95": 0.022634500000000002,
+          "p99": 0.03367387,
+          "max": 0.039182
+        },
+        "DL_ms": {
+          "mean": 0.375533189,
+          "p50": 0.371581,
+          "p95": 0.46382439999999997,
+          "p99": 0.5117972700000001,
+          "max": 0.623357
+        },
+        "RTT_ms": {
+          "mean": 1.333723872,
+          "p50": 1.3186775,
+          "p95": 1.5308222500000002,
+          "p99": 1.79423514,
+          "max": 7.943653
+        }
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 1.2973238045,
+        "p50": 1.2811534999999998,
+        "p95": 1.4938969,
+        "p99": 1.75752197,
+        "max": 7.884156
+      },
+      "actual_TUN_interarrival_ms": {
+        "mean": 19.999942860391087,
+        "p50": 19.9997,
+        "p95": 20.023919,
+        "p99": 20.042236680000002,
+        "max": 20.064732
+      },
+      "sender_lateness_ms": {
+        "mean": 0.075831935,
+        "p50": 0.0748245,
+        "p95": 0.08985794999999999,
+        "p99": 0.10792496,
+        "max": 0.197013
+      },
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "max_endpoint_clock_delta_us": 18.962,
+      "slowest": [
+        {
+          "seq": 476,
+          "UL_ns": 7534382,
+          "reply_ns": 37786,
+          "DL_ns": 371485,
+          "RTT_ns": 7943653,
+          "UL": 7.534382,
+          "reply": 0.037786,
+          "DL": 0.371485,
+          "RTT": 7.943653
+        },
+        {
+          "seq": 1568,
+          "UL_ns": 1621329,
+          "reply_ns": 8908,
+          "DL_ns": 508509,
+          "RTT_ns": 2138746,
+          "UL": 1.621329,
+          "reply": 0.008908,
+          "DL": 0.508509,
+          "RTT": 2.138746
+        },
+        {
+          "seq": 1134,
+          "UL_ns": 1438158,
+          "reply_ns": 12443,
+          "DL_ns": 564379,
+          "RTT_ns": 2014980,
+          "UL": 1.438158,
+          "reply": 0.012443,
+          "DL": 0.564379,
+          "RTT": 2.01498
+        }
+      ]
+    },
+    {
+      "case": "current-r3-udp-256-h16",
+      "repeat": 3,
+      "header_bytes": 16,
+      "complete": 2200,
+      "statistical": 2000,
+      "application_metrics": {
+        "UL_ms": {
+          "mean": 0.9540035365,
+          "p50": 0.933562,
+          "p95": 1.1125656000000002,
+          "p99": 1.3254538,
+          "max": 16.788076
+        },
+        "reply_ms": {
+          "mean": 0.013396721,
+          "p50": 0.0126585,
+          "p95": 0.0222986,
+          "p99": 0.03286087,
+          "max": 0.044785
+        },
+        "DL_ms": {
+          "mean": 0.372995494,
+          "p50": 0.36814199999999997,
+          "p95": 0.45375974999999996,
+          "p99": 0.53067308,
+          "max": 0.638523
+        },
+        "RTT_ms": {
+          "mean": 1.3403957515,
+          "p50": 1.3163204999999998,
+          "p95": 1.5261759999999998,
+          "p99": 1.7976571899999998,
+          "max": 17.159102
+        }
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 1.3037325305,
+        "p50": 1.2796685,
+        "p95": 1.48823045,
+        "p99": 1.7489712400000001,
+        "max": 17.118668
+      },
+      "actual_TUN_interarrival_ms": {
+        "mean": 19.999924874488404,
+        "p50": 19.999787,
+        "p95": 20.0232528,
+        "p99": 20.044636519999997,
+        "max": 20.084349
+      },
+      "sender_lateness_ms": {
+        "mean": 0.07521938454545454,
+        "p50": 0.0750835,
+        "p95": 0.088841,
+        "p99": 0.10064996000000001,
+        "max": 0.240226
+      },
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "max_endpoint_clock_delta_us": 35.892,
+      "slowest": [
+        {
+          "seq": 1228,
+          "UL_ns": 16788076,
+          "reply_ns": 14388,
+          "DL_ns": 356638,
+          "RTT_ns": 17159102,
+          "UL": 16.788076,
+          "reply": 0.014388,
+          "DL": 0.356638,
+          "RTT": 17.159102
+        },
+        {
+          "seq": 2138,
+          "UL_ns": 7111913,
+          "reply_ns": 10460,
+          "DL_ns": 315289,
+          "RTT_ns": 7437662,
+          "UL": 7.111913,
+          "reply": 0.01046,
+          "DL": 0.315289,
+          "RTT": 7.437662
+        },
+        {
+          "seq": 1068,
+          "UL_ns": 1687782,
+          "reply_ns": 14742,
+          "DL_ns": 578834,
+          "RTT_ns": 2281358,
+          "UL": 1.687782,
+          "reply": 0.014742,
+          "DL": 0.578834,
+          "RTT": 2.281358
+        }
+      ]
+    },
+    {
+      "case": "current-r3-udp-256-h80",
+      "repeat": 3,
+      "header_bytes": 80,
+      "complete": 2200,
+      "statistical": 2000,
+      "application_metrics": {
+        "UL_ms": {
+          "mean": 0.9436561335,
+          "p50": 0.938539,
+          "p95": 1.1083716000000001,
+          "p99": 1.32871377,
+          "max": 1.666665
+        },
+        "reply_ms": {
+          "mean": 0.017297663,
+          "p50": 0.016411000000000002,
+          "p95": 0.02778715,
+          "p99": 0.03980322,
+          "max": 0.063058
+        },
+        "DL_ms": {
+          "mean": 0.3778319405,
+          "p50": 0.3719925,
+          "p95": 0.4636674,
+          "p99": 0.54023901,
+          "max": 0.638388
+        },
+        "RTT_ms": {
+          "mean": 1.338785737,
+          "p50": 1.326759,
+          "p95": 1.5269577500000002,
+          "p99": 1.85496955,
+          "max": 2.283583
+        }
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 1.3010168405,
+        "p50": 1.2894465,
+        "p95": 1.4895632,
+        "p99": 1.80806883,
+        "max": 2.239951
+      },
+      "actual_TUN_interarrival_ms": {
+        "mean": 19.999947830377444,
+        "p50": 19.99994,
+        "p95": 20.0248234,
+        "p99": 20.03979758,
+        "max": 20.085808
+      },
+      "sender_lateness_ms": {
+        "mean": 0.07560100181818181,
+        "p50": 0.075256,
+        "p95": 0.08911725000000001,
+        "p99": 0.10058326,
+        "max": 0.185683
+      },
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "max_endpoint_clock_delta_us": 25.6,
+      "slowest": [
+        {
+          "seq": 1920,
+          "UL_ns": 1666665,
+          "reply_ns": 19226,
+          "DL_ns": 597692,
+          "RTT_ns": 2283583,
+          "UL": 1.666665,
+          "reply": 0.019226,
+          "DL": 0.597692,
+          "RTT": 2.283583
+        },
+        {
+          "seq": 1269,
+          "UL_ns": 1395402,
+          "reply_ns": 16229,
+          "DL_ns": 638388,
+          "RTT_ns": 2050019,
+          "UL": 1.395402,
+          "reply": 0.016229,
+          "DL": 0.638388,
+          "RTT": 2.050019
+        },
+        {
+          "seq": 1908,
+          "UL_ns": 1437590,
+          "reply_ns": 10672,
+          "DL_ns": 585567,
+          "RTT_ns": 2033829,
+          "UL": 1.43759,
+          "reply": 0.010672,
+          "DL": 0.585567,
+          "RTT": 2.033829
+        }
+      ]
+    }
+  ],
+  "formats": [
+    {
+      "header_bytes": 80,
+      "complete": 6600,
+      "statistical": 6000,
+      "mean_RTT_ms": 1.3192889768333333,
+      "per_run_p99_RTT_ms": [
+        1.7758627800000002,
+        1.5291782799999998,
+        1.85496955
+      ],
+      "max_RTT_ms": 17.273724,
+      "mean_UL_ms": 0.9337067698333333,
+      "mean_reply_ms": 0.0166253375,
+      "mean_DL_ms": 0.3689568695
+    },
+    {
+      "header_bytes": 16,
+      "complete": 6600,
+      "statistical": 6000,
+      "mean_RTT_ms": 1.338818897,
+      "per_run_p99_RTT_ms": [
+        1.8544236800000002,
+        1.79423514,
+        1.7976571899999998
+      ],
+      "max_RTT_ms": 17.159102,
+      "mean_UL_ms": 0.9504814181666666,
+      "mean_reply_ms": 0.013464020833333333,
+      "mean_DL_ms": 0.374873458
+    }
+  ],
+  "inputs": [
+    {
+      "case": "current-r1-udp-256-h16",
+      "file": "client/client_sent.csv",
+      "sha256": "f4d54e9542de0523825ab1f012f5c470066b84fd1f4eb60f03837df38903985e"
+    },
+    {
+      "case": "current-r1-udp-256-h16",
+      "file": "server/server.csv",
+      "sha256": "151afd4c90ba6d950d804d3246a1be75420680ec06e15406b05d676665d649f8"
+    },
+    {
+      "case": "current-r1-udp-256-h16",
+      "file": "client/client_received.csv",
+      "sha256": "462934e14257ebba9dd0bc50d45275da552fb440745eb1e724e57b14a0cd88fd"
+    },
+    {
+      "case": "current-r1-udp-256-h16",
+      "file": "tun.pcap",
+      "sha256": "8e7951acd7ab4b8666cf54442ebdb67cfc3be2e58676f74cc465b6059adc841c"
+    },
+    {
+      "case": "current-r1-udp-256-h16",
+      "file": "n3.pcap",
+      "sha256": "7b38e2a5cf0fc654f41dc6d33b62239ab6f80d70f30bc00adef7ce417af05e72"
+    },
+    {
+      "case": "current-r1-udp-256-h16",
+      "file": "summary.json",
+      "sha256": "ff8648d9d9e80132d5a245b239d5d053d753d722a5fb43a9b9e14f5b17327f4a"
+    },
+    {
+      "case": "current-r1-udp-256-h16",
+      "file": "client/settings.json",
+      "sha256": "e110a3edc40adfddc87aeca168e78780c6d81aefb26a1b7276fd4fea7ff36d45"
+    },
+    {
+      "case": "current-r1-udp-256-h16",
+      "file": "server/settings.json",
+      "sha256": "5c874fb437ca15b05c178e2faa385c35cce784e2c57e2b72304ce94d30708442"
+    },
+    {
+      "case": "current-r1-udp-256-h80",
+      "file": "client/client_sent.csv",
+      "sha256": "c3bb97129a2b5b9b47c8a69b123e5c347b36f79caa92c68e351cd759f8ccb2ee"
+    },
+    {
+      "case": "current-r1-udp-256-h80",
+      "file": "server/server.csv",
+      "sha256": "8ded2e09e60df672b7bf10241a0a35cf3d13172ce4a494dd564a289984b7ec1d"
+    },
+    {
+      "case": "current-r1-udp-256-h80",
+      "file": "client/client_received.csv",
+      "sha256": "a18c774c9f73260ff03cd2f7e1a827bf477ae6ef4fe81c0f358573814722f6fa"
+    },
+    {
+      "case": "current-r1-udp-256-h80",
+      "file": "tun.pcap",
+      "sha256": "bbe1933eb89f2f29402428f73e4fef0f2cfde208c75fc8803ecac71be0cdcc15"
+    },
+    {
+      "case": "current-r1-udp-256-h80",
+      "file": "n3.pcap",
+      "sha256": "839714a114f5dc5b068849917db6f60eb2877d5a99db11d64d7da03120a596eb"
+    },
+    {
+      "case": "current-r1-udp-256-h80",
+      "file": "summary.json",
+      "sha256": "bc8be5cb175dcf68d2f1a9ea298cf1a39a1ad9a9feef5d7891fa748c8c20a147"
+    },
+    {
+      "case": "current-r1-udp-256-h80",
+      "file": "client/settings.json",
+      "sha256": "41a2bd0eabc7ea2652152bb58cec6b1cfb62de4e5cf829f1fd2c722ea4abe75c"
+    },
+    {
+      "case": "current-r1-udp-256-h80",
+      "file": "server/settings.json",
+      "sha256": "353e3fca2ce4962b233bab72d562e994c4710133f6cff4022665da282a3c89ad"
+    },
+    {
+      "case": "current-r2-udp-256-h80",
+      "file": "client/client_sent.csv",
+      "sha256": "10d4c5fa79c5cc6d24a0ea3f6c535890aa88f4005ee54517825fc0f4dfbaeff8"
+    },
+    {
+      "case": "current-r2-udp-256-h80",
+      "file": "server/server.csv",
+      "sha256": "9aa928157cf0aaf935c394cf58420413572f97018d63564cc2f0d0b47420f7fa"
+    },
+    {
+      "case": "current-r2-udp-256-h80",
+      "file": "client/client_received.csv",
+      "sha256": "e56f1efd47e76bf916f50e649b2155bf7c158bd3faf26e43e206218c7ef08de8"
+    },
+    {
+      "case": "current-r2-udp-256-h80",
+      "file": "tun.pcap",
+      "sha256": "1ae918734f553b465ee680c0843edaa58633330ba7e9a57df322f4392da7fc52"
+    },
+    {
+      "case": "current-r2-udp-256-h80",
+      "file": "n3.pcap",
+      "sha256": "7d5886f10f2a1d25a66fef0d72f54e19b3dd05b58ddeb548c7ea464eb1b7c6cb"
+    },
+    {
+      "case": "current-r2-udp-256-h80",
+      "file": "summary.json",
+      "sha256": "9f275283b33fc8de85d9c431692012be6a36d4547f54f2d042d59faf10b28b6c"
+    },
+    {
+      "case": "current-r2-udp-256-h80",
+      "file": "client/settings.json",
+      "sha256": "51c7414cdd2458ea7a6777998a957fcb74b943f3ffb549171235894b0cfb0281"
+    },
+    {
+      "case": "current-r2-udp-256-h80",
+      "file": "server/settings.json",
+      "sha256": "ed3d1539bd97b056d24a84cbfdcbaaada546c2a7f1f698425e7114d262d3ba5b"
+    },
+    {
+      "case": "current-r2-udp-256-h16",
+      "file": "client/client_sent.csv",
+      "sha256": "8b8fe9ce8cb43c07a8c87fb59e1ad937048ebdbab3d1ff2ee87f96c51076d18d"
+    },
+    {
+      "case": "current-r2-udp-256-h16",
+      "file": "server/server.csv",
+      "sha256": "3a709829a51eb0116d609c0fb602bc381248f828900cf8d36eeb103f7115f79d"
+    },
+    {
+      "case": "current-r2-udp-256-h16",
+      "file": "client/client_received.csv",
+      "sha256": "2538f1721cd24ed86941982913c8a424cfd65abf7c64a0d29d21811264dd4211"
+    },
+    {
+      "case": "current-r2-udp-256-h16",
+      "file": "tun.pcap",
+      "sha256": "388d5fdd8161bd25379aecead165e812e51b2083800748f4231f54641d43ad5c"
+    },
+    {
+      "case": "current-r2-udp-256-h16",
+      "file": "n3.pcap",
+      "sha256": "d6cbb8cf85adc107e30d44bc16b1efc3c97f2e44e3fa127291fe74f31de5554d"
+    },
+    {
+      "case": "current-r2-udp-256-h16",
+      "file": "summary.json",
+      "sha256": "454d8394662b85cac4dbd92f545092531d7115efae374adecb4fbfff4be2a1b1"
+    },
+    {
+      "case": "current-r2-udp-256-h16",
+      "file": "client/settings.json",
+      "sha256": "d72684cc625346167fa23920825f80bddd89869ce89593b0b5212d5681bc6b37"
+    },
+    {
+      "case": "current-r2-udp-256-h16",
+      "file": "server/settings.json",
+      "sha256": "66f4e13c3a1408113cd06a47437fadd8fea15d3d7676d96c8865c25da04937c4"
+    },
+    {
+      "case": "current-r3-udp-256-h16",
+      "file": "client/client_sent.csv",
+      "sha256": "f3cc356f5b51683cc313224ba9104f1569c99c26a37e13e19f852465d9bca495"
+    },
+    {
+      "case": "current-r3-udp-256-h16",
+      "file": "server/server.csv",
+      "sha256": "569cf27e1ceb080917d591cad4f44f0f33eabd538aae9587b95f1c3cfad26f45"
+    },
+    {
+      "case": "current-r3-udp-256-h16",
+      "file": "client/client_received.csv",
+      "sha256": "d33a747f1a55c807219b6f54d9a34b560ec96d082b384c7da735a91845a88720"
+    },
+    {
+      "case": "current-r3-udp-256-h16",
+      "file": "tun.pcap",
+      "sha256": "34a93109ab78c36e30527521ebb976a9ec85ea72662ca44a612d5c7c8e08134f"
+    },
+    {
+      "case": "current-r3-udp-256-h16",
+      "file": "n3.pcap",
+      "sha256": "c53eae7d958b996f603caa55910e8acf2d541a02bacd073937b05d8f9960908f"
+    },
+    {
+      "case": "current-r3-udp-256-h16",
+      "file": "summary.json",
+      "sha256": "b43a399a155a758f12d758e2ab70e5fc28d4c15abf4f2fd87fcabe901ea3c205"
+    },
+    {
+      "case": "current-r3-udp-256-h16",
+      "file": "client/settings.json",
+      "sha256": "b142811d998ebc93ac984dcdc08082370ca56c250035727a36ef45e8cb26ac33"
+    },
+    {
+      "case": "current-r3-udp-256-h16",
+      "file": "server/settings.json",
+      "sha256": "d27b1ff3c7479ecb413fbe5a0dcc1c86d52512060eb4e7c47609aaab57c85e80"
+    },
+    {
+      "case": "current-r3-udp-256-h80",
+      "file": "client/client_sent.csv",
+      "sha256": "5a3b77313c4563f404f1b97e17c63f7de251b4e415422f3c2f88671c5e51372e"
+    },
+    {
+      "case": "current-r3-udp-256-h80",
+      "file": "server/server.csv",
+      "sha256": "addacf565d788591a2b8744b28ef4ffcbda49a66ffbaad9fc447e4e1a2f4c4c0"
+    },
+    {
+      "case": "current-r3-udp-256-h80",
+      "file": "client/client_received.csv",
+      "sha256": "c2f7b9c1a52d470ef1ceec95b7ef7b14fca60d20965ab53d0e8d3ce3ec062e5f"
+    },
+    {
+      "case": "current-r3-udp-256-h80",
+      "file": "tun.pcap",
+      "sha256": "e274d765e690b2be3a0b888887b25bdf48dec9c198ddc8cc6c98cc6961a6121c"
+    },
+    {
+      "case": "current-r3-udp-256-h80",
+      "file": "n3.pcap",
+      "sha256": "55b5fa73ca95f8c3e22de7489cb6076c0594f2784be16b9458e3fe1844891d91"
+    },
+    {
+      "case": "current-r3-udp-256-h80",
+      "file": "summary.json",
+      "sha256": "f76e830034fa017dbe5df9a2995664f50f786da06c66d57e54d466b7e5f6a874"
+    },
+    {
+      "case": "current-r3-udp-256-h80",
+      "file": "client/settings.json",
+      "sha256": "ab1d319f6b5a6200aff69bedec37540b00edcc26cb55f4f7c42813df7f8f4330"
+    },
+    {
+      "case": "current-r3-udp-256-h80",
+      "file": "server/settings.json",
+      "sha256": "338b4382f7d1894f7bc64d56fab04b884b9207bfe628e4413b2c2cc564330e4d"
+    }
+  ],
+  "quantiles": "inclusive per-run descriptive quantiles; P99 not averaged or summed",
+  "conditions": {
+    "SCS_kHz": 120,
+    "band": 261,
+    "carrier_hz": 27547560000,
+    "PRB": 66,
+    "tdd_period_ms": 0.625,
+    "full_slots_D": 3,
+    "full_slots_U": 1,
+    "mixed_symbols": "6D4F4U",
+    "scheduler": "PF",
+    "private_HOL": 0,
+    "inactivity_setting": 0,
+    "ul_dl_MCS_cap": 9,
+    "UEs": 1,
+    "core": "original",
+    "actual_NAS_fiveqi": 9,
+    "qfi": 9,
+    "continuous_tx": false,
+    "thread_pool_override": false,
+    "ran_start": "Separate native PTYs"
+  }
+}
