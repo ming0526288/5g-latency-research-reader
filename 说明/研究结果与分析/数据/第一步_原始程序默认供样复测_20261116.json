@@ -1,0 +1,80 @@
+{
+  "status": "VERIFIED_FAILURES_BEFORE_BUSINESS",
+  "date": "2026-11-16",
+  "attempts": [
+    {
+      "attempt": "attempt-01",
+      "continuous_tx_gnb": false,
+      "continuous_tx_ue": false,
+      "RFsim_TCP_connected": true,
+      "UE_access_completed": false,
+      "business_started": false,
+      "last_stage": "Synchronization pre-read: UE readFrame; gNB RU rx_rf",
+      "read_wait_stack_both_sides": true,
+      "socket_counters_unchanged_at_5_15_25s_and_timeout": true,
+      "wait_limit_s": 35,
+      "actual_handshake_phase": "not independently captured this run",
+      "RTT_ms": null,
+      "RTT_status": "Not measured; ping never started",
+      "children_stopped": true,
+      "original_checked_files_unchanged": true,
+      "preserved_evidence_sha256": {
+        "runtime.json": "3390a19c325095fa773bdcea2c49e912533b538e6790a7337e1e7b3721f704a9",
+        "commands.json": "6f15707407d2343890924ab40598a25f8c69399ef82e300afae9d61c0c1e1649",
+        "gnb-stack.txt": "9dbb1d1fd3a847e11730af8b6d7b6f8866907b6c3e3ed9eee16656f2875ead38",
+        "ue-stack.txt": "0cb28fbb31265660ae8ed8e78fa7e0cbd873d8044dc913d46d7d8b61717f5b4b",
+        "network.pcap": "f0812f4a5b69e3a03f2491eff5297103304c1e922fb6cd151bcd1ee6e06b105f"
+      }
+    },
+    {
+      "attempt": "attempt-02",
+      "continuous_tx_gnb": false,
+      "continuous_tx_ue": false,
+      "RFsim_TCP_connected": true,
+      "UE_access_completed": false,
+      "business_started": false,
+      "last_stage": "Synchronization pre-read: UE readFrame; gNB RU rx_rf",
+      "read_wait_stack_both_sides": true,
+      "socket_counters_unchanged_at_5_15_25s_and_timeout": true,
+      "wait_limit_s": 35,
+      "actual_handshake_phase": "not independently captured this run",
+      "RTT_ms": null,
+      "RTT_status": "Not measured; ping never started",
+      "children_stopped": true,
+      "original_checked_files_unchanged": true,
+      "preserved_evidence_sha256": {
+        "runtime.json": "c5292d3dfea59a0b613af39e44d3e7553fee9069c3e66621b2438ce5935cf134",
+        "commands.json": "38ab1acafb2a3accac237d7fe51bba3b40ccb47b4cab5c85f21cc25b6fee4bc9",
+        "gnb-stack.txt": "797995e8930018f16a85794af507263774059e8482649780555dedb8b9bac630",
+        "ue-stack.txt": "c0c0982dbdd8ccc82426d2b1a67857e262c0a65f68fd6edad2be2a85a576a0b2",
+        "network.pcap": "fa7aac42f5cc714a6eccc2ea18acf1181e60571fcf4de61a96daa4f5d1b88224"
+      }
+    }
+  ],
+  "natural_attempts": 2,
+  "access_successes": 0,
+  "original_core_unchanged_between_attempts": true,
+  "original_core_left_running": true,
+  "checked_original_files": 14,
+  "original_binary_config_sha256": {
+    "/home/lbh/oiwireless/oi-wireless-ran/targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb1.sa.band261.fr2.66PRB.5slot.dpdk.conf": "d6cd2c6445bf0652e97e71c2812650dacaad26f948713d2c3f72719cafed60bf",
+    "/home/lbh/oiwireless/oi-wireless-ran/targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf": "ed5c255e438bbf2a6b6fc0d0ec78353d6caceb2ba0209b709548a37bee0f17fb",
+    "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/nr-softmodem": "6d78cb33556daa4769dfb97189f49fa979e467117ab9567184774d4738fb4204",
+    "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/nr-uesoftmodem": "9038aeb3cdb67f9c4fd9b8c994945201a68f059266fa2d42f424853484607a2a",
+    "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/libcoding.so": "9edd25d22898c72571d8863cf96cd7bbd415d0b642d5241b27062dcfa5c57431",
+    "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/libdfts.so": "c82c03d45e7952e05d32b251042e8fb8e5643aa09a56b09f281978b82f1fe627",
+    "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/libldpc.so": "411a5b9bbe0d023a3de949eb8b00edd7e095ad4079ea878ae8fd6ee0c618c61d",
+    "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/libldpc_optim.so": "192a442ecfa0cb23515d0e4a7c3fd7daab472a8317db6263a4442c30177adb89",
+    "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/libldpc_optim8seg.so": "13924b9a263c01eb872919a8bcb7a4b26c01ae99b65a50c83a97474d674763c1",
+    "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/libldpc_orig.so": "8f9838d8cff8967bae1d3a7b8c60ff4f76c5ba693f98a64fc97bff7b5a188040",
+    "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/liboai_device.so": "50fce495c75814ec0cff6485eabff056034025dddfb47797ba632bf6c8db8bc7",
+    "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/liboai_dpdkrfdevif.so": "50fce495c75814ec0cff6485eabff056034025dddfb47797ba632bf6c8db8bc7",
+    "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/libparams_libconfig.so": "255a2a66a4f0bef40b6b469e2833aab091a8b4173ae4ad1111b09cecd24781b7",
+    "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/librfsimulator.so": "2c49e51d871a2658689708d97fb39b36e45c96d43f6ef6de8c37b4fcfef16f50"
+  },
+  "method": "Existing original-native-ping-v1/run.py, no continuous flag, no phase gate or startup-time debugger intervention; diagnostics after timeout only.",
+  "deployment_difference": "Same-host RFsim 127.0.0.1 because historical 192.168.10.1 is not assigned; evidence working directories differ from historical shell cwd.",
+  "failure_interpretation": "Both sides wait for RFsim samples with frozen socket counters. Consistent with prior circular-wait mechanism; current phase/shortfall not measured. Not proof every original/default launch fails.",
+  "new_business_latency_result": false,
+  "scope": "Original program/config/core, single UE, 120kHz; no original source rebuild or C/config modification."
+}
