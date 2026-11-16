@@ -1,0 +1,132 @@
+{
+  "status": "CURRENT_DIRECT_COMMAND_PING_SUCCESS",
+  "date": "2026-11-16",
+  "cwd": "/home/lbh/oiwireless/oi-wireless-ran-ping-slot-validation/cmake_targets/ran_build/build",
+  "commands": {
+    "gnb_cmd": "sudo -n ./nr-softmodem -O /home/lbh/oiwireless/oi-wireless-ran-latency-analysis/research/latency-analysis/direct-terminal-current/gnb1.sa.band261.fr2.66PRB.5slot.conf --sa --rfsim --rfsimulator.serveraddr server",
+    "ue_cmd": "sudo -n ./nr-uesoftmodem --band 261 -C 27547560000 -r 66 --numerology 3 --ssb 301 --sa -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 127.0.0.1",
+    "ping_cmd": "ping -c 60 172.11.200.25 -I oaitun_ue1"
+  },
+  "pty": true,
+  "python_ran_launcher": false,
+  "continuous_tx_gnb": false,
+  "continuous_tx_ue": false,
+  "extra_thread_pool": false,
+  "carrier_frequency_hz": 27547560000,
+  "band": 261,
+  "SCS_kHz": 120,
+  "PRB": 66,
+  "UE_ssb_offset": 301,
+  "TDD_period_ms": 0.625,
+  "complete_D_slots": 3,
+  "complete_U_slots": 1,
+  "mixed_symbols": {
+    "D": 6,
+    "F": 4,
+    "U": 4
+  },
+  "unchanged_radio_config_fields": {
+    "dl_frequencyBand": [
+      "261"
+    ],
+    "ul_frequencyBand": [
+      "261"
+    ],
+    "absoluteFrequencySSB": [
+      "2071675"
+    ],
+    "dl_absoluteFrequencyPointA": [
+      "2070833"
+    ],
+    "dl_carrierBandwidth": [
+      "66"
+    ],
+    "ul_carrierBandwidth": [
+      "66"
+    ],
+    "dl_subcarrierSpacing": [
+      "3"
+    ],
+    "ul_subcarrierSpacing": [
+      "3"
+    ],
+    "subcarrierSpacing": [
+      "3"
+    ],
+    "dl_UL_TransmissionPeriodicity": [
+      "1"
+    ],
+    "nrofDownlinkSlots": [
+      "3"
+    ],
+    "nrofDownlinkSymbols": [
+      "6"
+    ],
+    "nrofUplinkSlots": [
+      "1"
+    ],
+    "nrofUplinkSymbols": [
+      "4"
+    ]
+  },
+  "configuration_differences_from_original": {
+    "enable_sdap": {
+      "original_default": 0,
+      "current": 1,
+      "reason": "38.331 V19.4.0 SDAP-Config sdap-HeaderUL and 37.324 V19.0.0 5.2.1 NOTE2 require UL header on default DRB; this fork couples DL enabling."
+    },
+    "ssb_PositionsInBurst_Bitmap": {
+      "original": "0x0000000200000002L",
+      "current": "0x2L",
+      "reason": "Existing audited single-SSB implementation choice, not a mandated value."
+    },
+    "sib1_tda": {
+      "original_default": 1,
+      "current": 13,
+      "reason": "Existing audited zero-based default-table row14: K0=0,S=2,L=4; fits six DL symbols; engineering choice."
+    }
+  },
+  "runtime_declarations": {
+    "scheduler": "PF",
+    "private_hol_bsr": 0,
+    "probe_policy": "legacy",
+    "gnb_reported_5QI": 9
+  },
+  "core": "original deployment run-5gc.sh exit0; all services up-to-date",
+  "route": "172.11.200.25 from 192.169.0.4 dev oaitun_ue1 table 10000",
+  "ping": {
+    "transmitted": 60,
+    "received": 60,
+    "loss_percent": 0,
+    "elapsed_ms": 59069,
+    "min_ms": 1.394,
+    "avg_ms": 2.358,
+    "max_ms": 3.273,
+    "mdev_ms": 0.525,
+    "icmp_data_bytes": 56,
+    "inner_IP_bytes": 84,
+    "warmup_removed": 0,
+    "all_replies_contiguous": true,
+    "mean_of_rounded_reply_ms": 2.3585,
+    "p99_ms": null,
+    "p99_9_ms": null
+  },
+  "unchanged_runtime_and_base_configs": 12,
+  "production_source_files_match_prior_freeze": 2248,
+  "cleanup": {
+    "gnb_exit": 0,
+    "ue_exit": 0,
+    "ping_exit": 0,
+    "no_remaining_RAN": true,
+    "core_retained": true
+  },
+  "pcap_this_run": false,
+  "local_evidence": "/home/lbh/oiwireless/analysis-source-audit/current-direct-terminal-20261116/run-01",
+  "limitations": [
+    "One default ping run; not a strict causal A/B against original 348-packet result.",
+    "Control configuration, code behavior and sample sizes differ; cannot attribute RTT difference to continuous-tx or one code change.",
+    "Current default PF/private-HOL-off differs from historical PF/private-HOL-on 18-condition test.",
+    "Route checked only; no N3/TUN packet association or layer decomposition in this run.",
+    "RAN PTY capture may be truncated; sensitive lines filtered."
+  ]
+}

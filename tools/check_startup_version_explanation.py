@@ -40,6 +40,7 @@ def main():
                 assert term in payload['html'] and term in doc['search'],(topic,term)
             for term in ['348','0.834','直接','--continuous-tx']:
                 assert term in payload['html'] and term in doc['search'],(topic,term)
+            assert '2.358' in payload['html'] and '2.358' in doc['search'],topic
             if topic=='step-1-experiment-1-knowledge':
                 for term in ['依次启动与等待接入','根本没有执行 ping','影响尚未单因素隔离','正式时延统计预热']:
                     assert term in payload['html'] and term in doc['search'],(topic,term)
@@ -58,9 +59,18 @@ def main():
         assert direct['ping']['avg_ms']==0.834 and direct['ping']['max_ms']==1.251
         assert direct['ping']['warmup_removed']==0 and direct['ping']['p99_9_ms'] is None
         assert direct['original_runtime_file_check']=={'files':14,'unchanged':True}
+        current=json.loads((ROOT/'说明/研究结果与分析/数据/第一步_现在代码直接命令复测_20261116.json').read_text())
+        assert current['status']=='CURRENT_DIRECT_COMMAND_PING_SUCCESS'
+        assert current['ping']['transmitted']==current['ping']['received']==60
+        assert current['ping']['avg_ms']==2.358 and current['ping']['p99_9_ms'] is None
+        assert not current['continuous_tx_gnb'] and not current['continuous_tx_ue']
+        assert current['carrier_frequency_hz']==27547560000 and current['SCS_kHz']==120
+        assert current['runtime_declarations']['private_hol_bsr']==0
+        assert current['unchanged_runtime_and_base_configs']==12
         historical=json.loads((ROOT/'说明/研究结果与分析/数据/第一步_原始程序原核心网复测.json').read_text())
         assert historical['new_complete_transactions']==13320
         report.update(status='PASS',topics=list(checks),document_ids=ids,body_toc_search_match=True,earlier_script_failures_preserved=2,latest_direct_command_success=True,latest_ping_replies=348,latest_avg_rtt_ms=0.834,historical_transactions_preserved=13320)
+        report.update(current_direct_command_success=True,current_ping_replies=60,current_avg_rtt_ms=2.358)
     except Exception as e:
         report.update(status='FAIL',error_type=type(e).__name__,error=str(e))
     args.output.parent.mkdir(parents=True,exist_ok=True)
