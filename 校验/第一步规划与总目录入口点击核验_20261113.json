@@ -31,5 +31,12 @@
       "clickOpensIndependentPage": true,
       "onlyOwnEntryActive": true
     }
+  },
+  "latencyDifferenceSibling": {
+    "id": "e7f88d3aa62190b42",
+    "sameParentAndLevel": true,
+    "clicks": 7,
+    "searchable": true,
+    "onlyOwnEntryActive": true
   }
 }

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "documents_checked": 1276,
+  "static_errors": [],
+  "static_warnings": [],
+  "independent_topic": "source-latency-difference",
+  "id": "e7f88d3aa62190b42",
+  "sidebar": {
+    "id": "e7f88d3aa62190b42",
+    "sameParentAndLevel": true,
+    "clicks": 7,
+    "searchable": true,
+    "onlyOwnEntryActive": true
+  },
+  "HTTP_resources_matching_checkout": 7,
+  "source_data": "说明/研究结果与分析/数据/源码与现在代码_授权门限反向对照_20261116.json",
+  "scope": "Native experiment data checked separately; DOM and HTTP tests use working checkout. Unrelated preexisting cache features excluded from this commit."
+}

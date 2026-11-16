@@ -62,6 +62,20 @@ async function until(fn,label){for(let i=0;i<300;i++){if(fn())return;await delay
  assert.equal(hubEntry.parentElement,diagnosisEntry.parentElement);assert(hubEntry.classList.contains('nav-link')&&diagnosisEntry.classList.contains('nav-link'));
  diagnosisEntry.click();await until(()=>d.querySelector('.source-label')?.getAttribute('title')===diagnosis.source,'sidebar sibling diagnosis');
  assert(d.querySelector('#sidebar a.active[href="'+url(diagnosis)+'"]'));assert(!d.querySelector('#sidebar a.active[href="'+url(hub)+'"]'));
+ const difference=byTopic('source-latency-difference');assert(difference);
+ const differenceEntry=d.querySelector('#sidebar a[href="'+url(difference)+'"]');assert(differenceEntry);
+ const currentHubEntry=d.querySelector('#sidebar a[href="'+url(hub)+'"]');assert(currentHubEntry);
+ assert.equal(differenceEntry.parentElement,currentHubEntry.parentElement);assert(differenceEntry.classList.contains('nav-link'));
+ differenceEntry.click();await until(()=>d.querySelector('.source-label')?.getAttribute('title')===difference.source,'latency difference sibling');
+ assert(d.querySelector('#sidebar a.active[href="'+url(difference)+'"]'));assert(!d.querySelector('#sidebar a.active[href="'+url(hub)+'"]'));
+ for(const term of ['2.358','0.829','2.191','空授权','0.625'])assert(d.querySelector('.article').textContent.includes(term));
+ let differenceClicks=1;
+ for(const origin of [hub,sourceResult,children.find(x=>x.documentRole==='commands'&&x.stepExperiment===1)]){
+  await open(origin);const a=d.querySelector('.article a[href="'+url(difference)+'"]');assert(a);a.click();
+  await until(()=>d.querySelector('.source-label')?.getAttribute('title')===difference.source,'open new cause from '+origin.topic);differenceClicks++;
+  const back=d.querySelector('.article a[href="'+url(origin)+'"]');assert(back);back.click();
+  await until(()=>d.querySelector('.source-label')?.getAttribute('title')===origin.source,'return from new cause');differenceClicks++;
+ }
  let diagnosisClicks=0;
  for(const origin of [hub,sourceResult]){
   await open(origin);const a=d.querySelector('.article a[href="'+url(diagnosis)+'"]');assert(a,'Missing detailed diagnosis entry');a.click();
@@ -74,9 +88,12 @@ async function until(fn,label){for(let i=0;i<300;i++){if(fn())return;await delay
  }
  d.querySelector('#searchButton').click();const query=d.querySelector('#searchInput');query.value='原因定位与控制变量全过程';query.dispatchEvent(new w.Event('input',{bubbles:true}));
  await until(()=>d.querySelector('.search-result[href="'+url(diagnosis)+'"]'),'diagnosis search');d.querySelector('#closeSearch').click();
+ d.querySelector('#searchButton').click();query.value='时延差异原因分析';query.dispatchEvent(new w.Event('input',{bubbles:true}));
+ await until(()=>d.querySelector('.search-result[href="'+url(difference)+'"]'),'latency difference search');d.querySelector('#closeSearch').click();
  assert.deepEqual(errors,[]);
  const report={status:'PASS',independentPages:20,parentEntryClicks:entryClicks,peerPageClicks:peerClicks,planningTitlesAndNumbersClickable:true,twelveStepDirectoriesExposeFiveItems:true,fullSourceRows:41,oldStandaloneSourceRedirects:true,visibleCommitHashesRemoved:true,controlledStartupFormalTrials:12,controlledPhaseMatrixValidated:true,originalPingValidated:true,originalPingCompleteTransactions:13320,originalPingStatisticalTransactions:12110,currentPingThreeRepeatMeans:[1.701862,1.812801,1.842844],consoleErrors:errors,scope:'Actual local DOM clicks, not screenshot or radio experiment.'};
  report.detailedDiagnosis={id:diagnosis.id,hubAndFirstResultClicks:diagnosisClicks,searchable:true,visibleCommitHashesRemoved:true};
  report.detailedDiagnosis.sidebarSiblingEntry={belowResultsIndex:true,sameParentAndLevel:true,clickOpensIndependentPage:true,onlyOwnEntryActive:true};
+ report.latencyDifferenceSibling={id:difference.id,sameParentAndLevel:true,clicks:differenceClicks,searchable:true,onlyOwnEntryActive:true};
  fs.writeFileSync(path.join(root,'校验/第一步规划与总目录入口点击核验_20261113.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));w.close();
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});

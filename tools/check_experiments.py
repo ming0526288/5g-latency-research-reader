@@ -31,7 +31,7 @@ def main():
     step_numbers = sorted(int(p['researchStep'].removeprefix('step-')) for p in plans)
     assert step_numbers == list(range(1, len(plans) + 1)), 'Plan steps must be unique and contiguous'
     assert len(manifest) == len({d['topic'] for d in manifest}), 'Duplicate result topic'
-    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'original-startup-diagnosis'} | {p['researchStep'] for p in plans} | {f'step-1-experiment-{i}-results' for i in range(1,6)}
+    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'original-startup-diagnosis', 'source-latency-difference'} | {p['researchStep'] for p in plans} | {f'step-1-experiment-{i}-results' for i in range(1,6)}
     for plan in plans:
         matches = [d for d in manifest if d.get('researchStep') == plan['researchStep']]
         assert len(matches) == 1 and matches[0]['planTopic'] == plan['topic'], plan['source']
@@ -87,6 +87,26 @@ def main():
         assert d['sha256'] == sha(ROOT / item['source']) and d['snapshot'] == item['source']
         assert d['experimentStage'] == item['topic'] and cat['experimentStages'][item['topic']] == d['id']
         p = payload(d['id']); html = p['html']
+        if item['topic'] == 'source-latency-difference':
+            contrast = read(ROOT/'说明/研究结果与分析/数据/源码与现在代码_授权门限反向对照_20261116.json')
+            assert contrast['status'] == 'VERIFIED_NATIVE_A_B_A_CONTRAST'
+            assert [c['received'] for c in contrast['cases']] == [60,60,60]
+            for value in [c['ping']['avg_ms'] for c in contrast['cases']]:
+                assert f'{value:.3f}' in html
+            assert contrast['lower_mean_with_B_and_return_with_A']
+            assert contrast['profile_confirmation']['received']==60
+            assert '0.843' in html
+            assert d['independentExperiment'] == item['topic']
+            assert 'researchStep' not in d and 'stepExperiment' not in d
+            assert all(term in d['search'] for term in ['时延差异','主动授权','0.829','空授权'])
+            assert any('主要影响项' in h['title'] for h in p['toc'])
+            for topic in ['research-results-index','step-1-experiment-1-results','step-1-experiment-1-commands']:
+                other=next(x for x in docs.values() if x.get('topic')==topic)
+                assert '#/doc/'+other['id'] in html
+                assert '#/doc/'+d['id'] in payload(other['id'])['html']
+            page_checks.append({'id':d['id'],'kind':'native-grant-A-B-A-cause','successfulPingRuns':3,
+                                'samplesPerRun':60,'standalone':True,'canonicalSourceSHA':d['sha256']})
+            continue
         if item['topic'] == 'original-startup-diagnosis':
             controls = read(ROOT/'说明/研究结果与分析/数据/第一步_原始程序启动控制变量.json')
             trials = controls['formal_trials']

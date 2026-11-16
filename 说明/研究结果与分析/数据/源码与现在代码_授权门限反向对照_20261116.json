@@ -1,0 +1,331 @@
+{
+  "status": "VERIFIED_NATIVE_A_B_A_CONTRAST",
+  "date": "2026-11-16",
+  "cases": [
+    {
+      "folder": "run-01",
+      "commands": {
+        "gnb": [
+          "sudo",
+          "-n",
+          "./nr-softmodem",
+          "-O",
+          "/home/lbh/oiwireless/oi-wireless-ran-latency-analysis/research/latency-analysis/direct-terminal-current/gnb1.sa.band261.fr2.66PRB.5slot.conf",
+          "--sa",
+          "--rfsim",
+          "--rfsimulator.serveraddr",
+          "server"
+        ],
+        "ue": [
+          "sudo",
+          "-n",
+          "./nr-uesoftmodem",
+          "--band",
+          "261",
+          "-C",
+          "27547560000",
+          "-r",
+          "66",
+          "--numerology",
+          "3",
+          "--ssb",
+          "301",
+          "--sa",
+          "-O",
+          "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf",
+          "--ue-txgain",
+          "0",
+          "--ue-rxgain",
+          "20",
+          "--ue-fo-compensation",
+          "--rfsim",
+          "--rfsimulator.serveraddr",
+          "127.0.0.1"
+        ],
+        "ping": [
+          "ping",
+          "-c",
+          "60",
+          "172.11.200.25",
+          "-I",
+          "oaitun_ue1"
+        ]
+      },
+      "received": 60,
+      "ping": {
+        "min_ms": 1.394,
+        "avg_ms": 2.358,
+        "max_ms": 3.273,
+        "mdev_ms": 0.525
+      },
+      "warmup_removed": 0,
+      "elapsed_ms": 59069,
+      "MAC_UL_kbps_last_reports": [
+        18,
+        18,
+        18,
+        18,
+        18,
+        18
+      ],
+      "log_sha256": {
+        "ping.log": "b3da5c1f23e2a063c354eeed27be527b456a0debc18c473c0dc025244360abe0",
+        "gnb.redacted.log": "94f222b2e554254bbf72812ded68a513f1bdeb41b8c0bf76828dd326dce473c5",
+        "ue.redacted.log": "7a66eda32db43dbb26b2444fe56886a90f113a93addbd1b781cbbf120ba01b7c"
+      }
+    },
+    {
+      "folder": "grant-timing-B02",
+      "commands": {
+        "gnb": [
+          "sudo",
+          "-n",
+          "./nr-softmodem",
+          "-O",
+          "/home/lbh/oiwireless/oi-wireless-ran-latency-analysis/research/latency-analysis/direct-terminal-current/gnb1.sa.band261.fr2.66PRB.5slot.conf",
+          "--sa",
+          "--rfsim",
+          "--rfsimulator.serveraddr",
+          "server",
+          "--MACRLCs.[0].ulsch_max_frame_inactivity",
+          "0"
+        ],
+        "ue": [
+          "sudo",
+          "-n",
+          "./nr-uesoftmodem",
+          "--band",
+          "261",
+          "-C",
+          "27547560000",
+          "-r",
+          "66",
+          "--numerology",
+          "3",
+          "--ssb",
+          "301",
+          "--sa",
+          "-O",
+          "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf",
+          "--ue-txgain",
+          "0",
+          "--ue-rxgain",
+          "20",
+          "--ue-fo-compensation",
+          "--rfsim",
+          "--rfsimulator.serveraddr",
+          "127.0.0.1"
+        ],
+        "ping": [
+          "ping",
+          "-c",
+          "60",
+          "172.11.200.25",
+          "-I",
+          "oaitun_ue1"
+        ]
+      },
+      "received": 60,
+      "ping": {
+        "min_ms": 0.623,
+        "avg_ms": 0.829,
+        "max_ms": 1.041,
+        "mdev_ms": 0.086
+      },
+      "warmup_removed": 0,
+      "elapsed_ms": 60324,
+      "MAC_UL_kbps_last_reports": [
+        2969,
+        2968,
+        2968,
+        2968,
+        2969,
+        2968
+      ],
+      "log_sha256": {
+        "ping.log": "e070ce7cace3ab826f672c0697ebc42fe3f11a0e3d715d94ba5b7f77b0f6243e",
+        "gnb.redacted.log": "282a8fa3deaa947edda91ab01b038271cf1ad8a355734614e39765d2455683aa",
+        "ue.redacted.log": "29cfdb14add7b038077379bf285e5d1ee95f1788de942d8b48d336c6bab80610"
+      }
+    },
+    {
+      "folder": "grant-timing-A2",
+      "commands": {
+        "gnb": [
+          "sudo",
+          "-n",
+          "./nr-softmodem",
+          "-O",
+          "/home/lbh/oiwireless/oi-wireless-ran-latency-analysis/research/latency-analysis/direct-terminal-current/gnb1.sa.band261.fr2.66PRB.5slot.conf",
+          "--sa",
+          "--rfsim",
+          "--rfsimulator.serveraddr",
+          "server"
+        ],
+        "ue": [
+          "sudo",
+          "-n",
+          "./nr-uesoftmodem",
+          "--band",
+          "261",
+          "-C",
+          "27547560000",
+          "-r",
+          "66",
+          "--numerology",
+          "3",
+          "--ssb",
+          "301",
+          "--sa",
+          "-O",
+          "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf",
+          "--ue-txgain",
+          "0",
+          "--ue-rxgain",
+          "20",
+          "--ue-fo-compensation",
+          "--rfsim",
+          "--rfsimulator.serveraddr",
+          "127.0.0.1"
+        ],
+        "ping": [
+          "ping",
+          "-c",
+          "60",
+          "172.11.200.25",
+          "-I",
+          "oaitun_ue1"
+        ]
+      },
+      "received": 60,
+      "ping": {
+        "min_ms": 1.403,
+        "avg_ms": 2.191,
+        "max_ms": 3.222,
+        "mdev_ms": 0.472
+      },
+      "warmup_removed": 0,
+      "elapsed_ms": 59067,
+      "MAC_UL_kbps_last_reports": [
+        18,
+        18,
+        18,
+        18,
+        18,
+        19
+      ],
+      "log_sha256": {
+        "ping.log": "98a8518e979cae39a9dd6f327e999142a20b322ab34147590ba3e7a8e049d976",
+        "gnb.redacted.log": "2142c319e08054e1854ad97e43d9f0a9edadd8355060b18670ab8ce5a3ef308a",
+        "ue.redacted.log": "3fb7bc6d14119d069bdfc709077c971cf2f81277ed5dcf989888f9b97c873870"
+      }
+    }
+  ],
+  "one_command_input_changed": "--MACRLCs.[0].ulsch_max_frame_inactivity",
+  "A_default_frames": 10,
+  "B_override": 0,
+  "source_threshold_slots": {
+    "A": 800,
+    "B": 5
+  },
+  "source_threshold_ms": {
+    "A": 100,
+    "B": 0.625
+  },
+  "threshold_note": "Eligibility only; source uses a TDD reference slot, not an exact packet waiting time or guaranteed grant period.",
+  "B_vs_A1_mean_reduction_percent": 64.84308736217133,
+  "B_vs_A2_mean_reduction_percent": 62.163395709721584,
+  "lower_mean_with_B_and_return_with_A": true,
+  "unchanged_runtime_and_base_config_files": 12,
+  "failed_startup_retained": {
+    "folder": "grant-timing-B01",
+    "RTT_ms": null,
+    "ping_started": false
+  },
+  "failed_profile_startup_retained": {
+    "folder": "grant-timing-B3-profile",
+    "RTT_ms": null,
+    "ping_started": false
+  },
+  "profile_confirmation": {
+    "folder": "grant-timing-B4-profile",
+    "commands": {
+      "gnb": [
+        "sudo",
+        "-n",
+        "./nr-softmodem",
+        "-O",
+        "/home/lbh/oiwireless/oi-wireless-ran-latency-analysis/research/latency-analysis/direct-terminal-current/gnb1.sa.band261.fr2.66PRB.5slot.low-latency.conf",
+        "--sa",
+        "--rfsim",
+        "--rfsimulator.serveraddr",
+        "server"
+      ],
+      "ue": [
+        "sudo",
+        "-n",
+        "./nr-uesoftmodem",
+        "--band",
+        "261",
+        "-C",
+        "27547560000",
+        "-r",
+        "66",
+        "--numerology",
+        "3",
+        "--ssb",
+        "301",
+        "--sa",
+        "-O",
+        "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf",
+        "--ue-txgain",
+        "0",
+        "--ue-rxgain",
+        "20",
+        "--ue-fo-compensation",
+        "--rfsim",
+        "--rfsimulator.serveraddr",
+        "127.0.0.1"
+      ],
+      "ping": [
+        "ping",
+        "-c",
+        "60",
+        "172.11.200.25",
+        "-I",
+        "oaitun_ue1"
+      ]
+    },
+    "received": 60,
+    "ping": {
+      "min_ms": 0.654,
+      "avg_ms": 0.843,
+      "max_ms": 1.274,
+      "mdev_ms": 0.097
+    },
+    "warmup_removed": 0,
+    "elapsed_ms": 60292,
+    "MAC_UL_kbps_last_reports": [
+      2968,
+      2969,
+      2967,
+      2970,
+      2968,
+      2967
+    ],
+    "log_sha256": {
+      "ping.log": "aa77207cb134115a95629cc03eb23f9dce94f38a8a470707f6c63b99aaea27be",
+      "gnb.redacted.log": "46a103ccb6981539ff6513afdff4994083056d0c323b69fd397557350053d67f",
+      "ue.redacted.log": "ed0d7b37ed8c20a4c0fda537a4f2b83fef7e5ed48e6e5008fe3559fb8d5534fe"
+    }
+  },
+  "profile_only_semantic_difference": "ulsch_max_frame_inactivity = 0;",
+  "low_latency_config_sha256": "eac04149d6acf6d5778e059835a876c4483d76d14e9b780f5b1fc42667db7187",
+  "limits": [
+    "One successful 60-packet run per position; exploratory order A-B-A, not randomized repeated certification.",
+    "Only the explicit inactivity input changed; host load, adaptive MCS and internal state were not forced identical.",
+    "No per-packet SR/grant/PHY decomposition or packet capture; do not assign the whole RTT difference to an exact interval.",
+    "MAC rate samples include padding/control, are not aligned business windows and do not quantify PRB/CCE utilization.",
+    "No general multi-UE guarantee, new P99/P99.9 claim, or AUGUSTE/QUEST algorithm implementation."
+  ]
+}

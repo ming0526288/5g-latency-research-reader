@@ -28,10 +28,13 @@ def main():
             report['resources'].append({'path':name,'sha256':hashlib.sha256(body).hexdigest(),'matches_checkout':True})
             return body.decode()
         catalog=json.loads(get('网页/catalog.js').split('window.READER_CATALOG=',1)[1].strip().rstrip(';'))
+        app=get('网页/app.js')
+        assert "d.topic==='source-latency-difference'" in app and 'current===latencyDifference' in app
         checks={'step-1-experiment-1-knowledge':['为什么现在能启动','--continuous-tx','18','readFrame','根治','是否需要恢复原始启动方式或源码','启动选项','全部源码'],
                 'original-startup-diagnosis':['为什么现在代码能启动','--continuous-tx','18','根治','2026-11-16','未开始 ping'],
                 'step-1-experiment-1-results':['2026-11-16','35 s','RTT 未测','2026-11-13'],
-                'step-1-experiment-1-commands':['2026-11-16','attempt-01','attempt-02','verify_failed_startups.py']}
+                'step-1-experiment-1-commands':['2026-11-16','attempt-01','attempt-02','verify_failed_startups.py'],
+                'source-latency-difference':['时延差异原因分析','0.829','2.191','0.843','空授权']}
         ids=[]
         for topic,terms in checks.items():
             doc=next(d for d in catalog['docs'] if d.get('topic')==topic)
@@ -67,10 +70,13 @@ def main():
         assert current['carrier_frequency_hz']==27547560000 and current['SCS_kHz']==120
         assert current['runtime_declarations']['private_hol_bsr']==0
         assert current['unchanged_runtime_and_base_configs']==12
+        contrast=json.loads((ROOT/'说明/研究结果与分析/数据/源码与现在代码_授权门限反向对照_20261116.json').read_text())
+        assert contrast['profile_confirmation']['ping']['avg_ms']==0.843
         historical=json.loads((ROOT/'说明/研究结果与分析/数据/第一步_原始程序原核心网复测.json').read_text())
         assert historical['new_complete_transactions']==13320
         report.update(status='PASS',topics=list(checks),document_ids=ids,body_toc_search_match=True,earlier_script_failures_preserved=2,latest_direct_command_success=True,latest_ping_replies=348,latest_avg_rtt_ms=0.834,historical_transactions_preserved=13320)
         report.update(current_direct_command_success=True,current_ping_replies=60,current_avg_rtt_ms=2.358)
+        report.update(low_latency_profile_avg_ms=0.843,independent_latency_cause_page=True)
     except Exception as e:
         report.update(status='FAIL',error_type=type(e).__name__,error=str(e))
     args.output.parent.mkdir(parents=True,exist_ok=True)

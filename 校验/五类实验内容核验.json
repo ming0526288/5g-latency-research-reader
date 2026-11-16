@@ -136,7 +136,7 @@
       "kind": "numbered-result-interface",
       "experiment": 1,
       "status": "partial",
-      "canonicalSourceSHA": "e4cd9d10018161bbf0ed6979ea1c310b04985e7a9f3580f1b144d179177510d7"
+      "canonicalSourceSHA": "48135a0c8de42551a736e894756300f07e757cfafa20e3dc31a1fd95d9afbe7d"
     },
     {
       "id": "ee1f9e357eb51f364",
@@ -173,7 +173,15 @@
       "olderRetained": 19,
       "hubAndFirstResultMutualLinks": true,
       "newRadioExperiments": 0,
-      "canonicalSourceSHA": "60a4b28348789ac4cc2aabf51c27d1aa084dd37a22899ccb903bac4fed50342b"
+      "canonicalSourceSHA": "db24200c9c77278089a2f7982d464df3845bbb41224c54d0d1c4837ae08c1764"
+    },
+    {
+      "id": "e7f88d3aa62190b42",
+      "kind": "native-grant-A-B-A-cause",
+      "successfulPingRuns": 3,
+      "samplesPerRun": 60,
+      "standalone": true,
+      "canonicalSourceSHA": "ce97d0a18e99874a06628e0f1bef3044079c750bff50b11c92fbf54ce504cf2c"
     }
   ],
   "scope": "Portable aggregate/hash/link/identity checks; no new experiment or raw packet statistical recomputation."
