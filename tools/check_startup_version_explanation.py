@@ -40,6 +40,10 @@ def main():
                 assert term in payload['html'] and term in doc['search'],(topic,term)
             for term in ['348','0.834','直接','--continuous-tx']:
                 assert term in payload['html'] and term in doc['search'],(topic,term)
+            if topic=='step-1-experiment-1-knowledge':
+                for term in ['依次启动与等待接入','根本没有执行 ping','影响尚未单因素隔离','正式时延统计预热']:
+                    assert term in payload['html'] and term in doc['search'],(topic,term)
+                assert any('依次启动与等待接入' in h['title'] for h in payload['toc'])
             assert any(terms[0] in h['title'] for h in payload['toc']),topic
             assert doc['sha256']==hashlib.sha256((ROOT/doc['source']).read_bytes()).hexdigest()
             ids.append(doc['id'])
