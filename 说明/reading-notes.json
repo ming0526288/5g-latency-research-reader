@@ -204,7 +204,7 @@
       "documentRole": "commands",
       "parentTopic": "step-1-commands",
       "stepExperiment": 2,
-      "commandStatus": "pending-validation",
+      "commandStatus": "validated",
       "id": "r500ca0e1a471a51d"
     },
     {

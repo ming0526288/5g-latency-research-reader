@@ -1,0 +1,255 @@
+{
+  "status": "CURRENT_ONLY",
+  "display_experiment": 1,
+  "unique_runs": 3,
+  "complete_transactions": 6600,
+  "statistical_transactions": 6000,
+  "data_bytes": 56,
+  "inner_IP_bytes": 84,
+  "cases": [
+    {
+      "case": "current-r1-ping-56-h16",
+      "source": "current",
+      "repeat": 1,
+      "data_bytes": 56,
+      "inner_IP_bytes": 84,
+      "complete": 2200,
+      "statistical": 2000,
+      "native_RTT_ms": {
+        "mean": 0.787593,
+        "p50": 0.785,
+        "p95": 0.938,
+        "p99": 1.04,
+        "max": 1.45
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 0.772297667,
+        "p50": 0.7694075,
+        "p95": 0.92136135,
+        "p99": 1.0288112200000001,
+        "max": 1.430611
+      },
+      "actual_interarrival_ms": {
+        "mean": 25.29388123965439,
+        "p50": 24.003074,
+        "p95": 28.0060455,
+        "p99": 28.017440660000002,
+        "max": 28.068193
+      },
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "original_QFI_limit": null
+    },
+    {
+      "case": "current-r2-ping-56-h16",
+      "source": "current",
+      "repeat": 2,
+      "data_bytes": 56,
+      "inner_IP_bytes": 84,
+      "complete": 2200,
+      "statistical": 2000,
+      "native_RTT_ms": {
+        "mean": 0.7951775,
+        "p50": 0.788,
+        "p95": 0.9669999999999999,
+        "p99": 1.1201,
+        "max": 1.39
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 0.77984395,
+        "p50": 0.77269,
+        "p95": 0.9513981499999999,
+        "p99": 1.10710052,
+        "max": 1.371342
+      },
+      "actual_interarrival_ms": {
+        "mean": 25.36671711959982,
+        "p50": 24.003875,
+        "p95": 28.005232000000007,
+        "p99": 28.0148839,
+        "max": 28.123352
+      },
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "original_QFI_limit": null
+    },
+    {
+      "case": "current-r3-ping-56-h16",
+      "source": "current",
+      "repeat": 3,
+      "data_bytes": 56,
+      "inner_IP_bytes": 84,
+      "complete": 2200,
+      "statistical": 2000,
+      "native_RTT_ms": {
+        "mean": 0.7882455,
+        "p50": 0.781,
+        "p95": 0.9400499999999999,
+        "p99": 1.06,
+        "max": 1.3
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 0.7730312535,
+        "p50": 0.7663105,
+        "p95": 0.9261375000000001,
+        "p99": 1.0409357300000002,
+        "max": 1.284055
+      },
+      "actual_interarrival_ms": {
+        "mean": 25.272963457480675,
+        "p50": 24.002879,
+        "p95": 28.0063231,
+        "p99": 28.01634892,
+        "max": 28.043799
+      },
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      },
+      "original_QFI_limit": null
+    }
+  ],
+  "groups": [
+    {
+      "source": "current",
+      "complete": 6600,
+      "statistical": 6000,
+      "mean_RTT_ms": 0.7903386666666666,
+      "per_run_p99_ms": [
+        1.04,
+        1.1201,
+        1.06
+      ],
+      "max_RTT_ms": 1.45,
+      "mean_common_TUN_RTT_ms": 0.7750576235,
+      "mean_actual_interarrival_ms": 25.31118727224496
+    }
+  ],
+  "inputs": [
+    {
+      "case": "current-r1-ping-56-h16",
+      "file": "summary.json",
+      "sha256": "b64ae4f56d2d67f1a581cc820eacb035491ec56891cd7429f840b2093865b575"
+    },
+    {
+      "case": "current-r1-ping-56-h16",
+      "file": "ping.log",
+      "sha256": "e74da595f50a7bef0b65d93309b20c284afcf2d05b2e2ef829005da25055218b"
+    },
+    {
+      "case": "current-r1-ping-56-h16",
+      "file": "tun.pcap",
+      "sha256": "5c934a95fd35cd8ca1b0f09ca6b70546fe0d16cfe07c3ce32aafda5c2d5b2362"
+    },
+    {
+      "case": "current-r1-ping-56-h16",
+      "file": "n3.pcap",
+      "sha256": "2fa798fce0567d042ce5006167a3b5eb11df6f6843ce10024ba50b69d80e30b9"
+    },
+    {
+      "case": "current-r1-ping-56-h16",
+      "file": "capture-transactions.csv",
+      "sha256": "cd2e613cb90db2474411183478f1eaa577995421e5a3ab013a78e9a7f44c51d5"
+    },
+    {
+      "case": "current-r2-ping-56-h16",
+      "file": "summary.json",
+      "sha256": "ea13091667aa5159cea8d4a08c8ca101e1d485b582aec432dea1e1f941dd7eb7"
+    },
+    {
+      "case": "current-r2-ping-56-h16",
+      "file": "ping.log",
+      "sha256": "e0355d3d425f90e0b25c2dabf3dd04d229775645ef6bceadf28cd22a404c2323"
+    },
+    {
+      "case": "current-r2-ping-56-h16",
+      "file": "tun.pcap",
+      "sha256": "4c2be5d0049aba32b3c1c34514fcb56ace97641658412ce0d7f022cf94f074a2"
+    },
+    {
+      "case": "current-r2-ping-56-h16",
+      "file": "n3.pcap",
+      "sha256": "a30c1112ba17b0c1aba36ead75a2dac0241e7ece18a20ac5c1efee6b3524e24f"
+    },
+    {
+      "case": "current-r2-ping-56-h16",
+      "file": "capture-transactions.csv",
+      "sha256": "9db2b129909808042d2203436b7e988c892f50bf5884e1617a4f9811bd6cdd9d"
+    },
+    {
+      "case": "current-r3-ping-56-h16",
+      "file": "summary.json",
+      "sha256": "1c8dd00b2c44c4064db791e03ad9429a8ad13ed914f8b9b7a6e1bc136a59db1e"
+    },
+    {
+      "case": "current-r3-ping-56-h16",
+      "file": "ping.log",
+      "sha256": "b2f6b98b44524f6a0e92e732ea3d203794c917ea66890b94a43ca2c35e6687e4"
+    },
+    {
+      "case": "current-r3-ping-56-h16",
+      "file": "tun.pcap",
+      "sha256": "48c40a9e79dcf8f54e41f01a08d13357934ac6f5b81eacef8dd81654e7c99f39"
+    },
+    {
+      "case": "current-r3-ping-56-h16",
+      "file": "n3.pcap",
+      "sha256": "c12f2f33e39aca92e80c5fe4e1bb868637a3880d5415730f81148b917757f893"
+    },
+    {
+      "case": "current-r3-ping-56-h16",
+      "file": "capture-transactions.csv",
+      "sha256": "0d22519214b70aa4d7bf095675272703a5252e6dd1cec290293ba36c04b45be3"
+    }
+  ],
+  "scope": "Same external research config, original implementation retained as reference with known QFI0 limitation; not algorithm gain or full conformance",
+  "conditions": {
+    "SCS_kHz": 120,
+    "band": 261,
+    "carrier_hz": 27547560000,
+    "PRB": 66,
+    "tdd_period_ms": 0.625,
+    "full_slots_D": 3,
+    "full_slots_U": 1,
+    "mixed_symbols": "6D4F4U",
+    "scheduler": "PF",
+    "private_HOL": 0,
+    "inactivity_setting": 0,
+    "ul_dl_MCS_cap": 9,
+    "UEs": 1,
+    "core": "original",
+    "actual_NAS_fiveqi": 9,
+    "qfi": 9,
+    "continuous_tx": false,
+    "thread_pool_override": false,
+    "ran_start": "Separate native PTYs",
+    "rfsim_server": "127.0.0.1",
+    "actual_UE_business_ip": "192.169.0.4",
+    "target": "172.11.200.25",
+    "config_filename": "gnb1.sa.band261.fr2.66PRB.5slot.low-latency.mcs9.dpdk.conf"
+  },
+  "date": "2026-11-17",
+  "evidence_root": "/home/lbh/oiwireless/analysis-source-audit/step1-current-dpdk-20261117",
+  "current_inputs_unchanged": true,
+  "original_current_contrast_complete": false,
+  "original_attempts": [
+    {
+      "attempt": 1,
+      "last_success": "RFsim TCP connected",
+      "business_started": false,
+      "RTT_ms": null,
+      "root_cause": "Not isolated"
+    },
+    {
+      "attempt": 2,
+      "last_success": "RFsim TCP connected",
+      "business_started": false,
+      "RTT_ms": null,
+      "root_cause": "Not isolated"
+    }
+  ]
+}

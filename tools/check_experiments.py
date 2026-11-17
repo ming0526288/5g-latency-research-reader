@@ -156,9 +156,12 @@ def main():
                 assert '#/doc/'+d['id'] in payload(target['id'])['html']
             assert 'E-SRC' not in html and 'E-MEAS' not in html and '#/local' not in html
             if d['stepExperiment']==1:
-                original=read(ROOT/'说明/研究结果与分析/数据/第一步_原命令直接启动复测_20261116.json')
-                profile=read(ROOT/'说明/研究结果与分析/数据/源码与现在代码_授权门限反向对照_20261116.json')['profile_confirmation']
-                assert f"{original['ping']['avg_ms']:.3f}" in html and f"{profile['ping']['avg_ms']:.3f}" in html
+                current=read(ROOT/'说明/研究结果与分析/数据/第一步_当前程序56B三轮ping_20261117.json')
+                assert current['status']=='CURRENT_ONLY' and current['unique_runs']==3
+                assert current['complete_transactions']==6600 and current['statistical_transactions']==6000
+                assert f"{current['groups'][0]['mean_RTT_ms']:.3f}" in html
+                assert current['original_current_contrast_complete'] is False
+                assert all(x['RTT_ms'] is None and not x['business_started'] for x in current['original_attempts'])
                 assert html.count('<table')==1 and '三轮正式对照尚未完成' in html
                 assert not any(term in html for term in ['35 s','readFrame','8703'])
             if d['stepExperiment']==3:
@@ -173,8 +176,15 @@ def main():
                     assert abs(v['mean_UL_ms']+v['mean_reply_ms']+v['mean_DL_ms']-v['mean_RTT_ms'])<1e-12
                 assert '没有测到' in html and '同条件 A/B 尚未完成' not in html
             if d['stepExperiment']==2:
-                assert d['status']=='not-started' and '待测内容' in html
-                assert '16 B 数据区' in html and '<table' not in html
+                small=read(ROOT/'说明/研究结果与分析/数据/第一步_16B数据区ping与UDP对照_20261117.json')
+                assert d['status']=='complete' and small['status']=='PASS' and small['unique_runs']==6
+                assert small['complete_transactions']==13200 and small['statistical_transactions']==12000
+                assert small['data_bytes']==16 and small['inner_IP_bytes']==44
+                for g in small['groups']:
+                    assert f"{g['mean_tool_RTT_ms']:.3f}" in html
+                    assert f"{g['max_tool_RTT_ms']:.3f}" in html
+                    assert f"{g['mean_actual_interarrival_ms']:.3f}" in html
+                assert '相同目标间隔没有变成相同实际间隔' in html and '慢包全部保留' in html
             page_checks.append({'id':d['id'],'kind':'numbered-result-interface','experiment':d['stepExperiment'],'status':d['status'],'canonicalSourceSHA':d['sha256']})
             continue
         if item.get('researchStep') == 'step-1':

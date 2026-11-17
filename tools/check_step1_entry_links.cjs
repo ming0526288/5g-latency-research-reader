@@ -53,8 +53,8 @@ async function until(fn,label){for(let i=0;i<300;i++){if(fn())return;await delay
  w.location.hash='#/doc/e4c1f2a8800000006';await until(()=>w.location.hash===url(sourceKnowledge)&&d.querySelector('.source-label')?.getAttribute('title')===sourceKnowledge.source,'old full-source route redirects');
  const sourceResult=children.find(x=>x.documentRole==='results'&&x.stepExperiment===1);await open(sourceResult);
  const resultText=d.querySelector('.article').textContent;
- for(const value of ['0.834','0.843','348 / 348','60 / 60','三轮正式对照尚未完成'])assert(resultText.includes(value));
- assert.equal(d.querySelectorAll('.article tbody tr').length,2);assert(resultText.length<1600);
+ for(const value of ['0.790','6600 / 6600','6000','业务未开始','三轮正式对照尚未完成'])assert(resultText.includes(value));
+ assert.equal(d.querySelectorAll('.article tbody tr').length,2);assert(resultText.length<2200);
  for(const old of ['35 s','8703','1.701862','readFrame','attempt-01'])assert(!resultText.includes(old));
  assert(!/383aa52a|61654513|159208eb/.test(resultText));
  const diagnosis=byTopic('original-startup-diagnosis'),hub=byTopic('research-results-index');assert(diagnosis&&hub);
@@ -93,7 +93,7 @@ async function until(fn,label){for(let i=0;i<300;i++){if(fn())return;await delay
  d.querySelector('#searchButton').click();query.value='时延差异原因分析';query.dispatchEvent(new w.Event('input',{bubbles:true}));
  await until(()=>d.querySelector('.search-result[href="'+url(difference)+'"]'),'latency difference search');d.querySelector('#closeSearch').click();
  assert.deepEqual(errors,[]);
- const report={status:'PASS',independentPages:20,parentEntryClicks:entryClicks,peerPageClicks:peerClicks,planningTitlesAndNumbersClickable:true,twelveStepDirectoriesExposeFiveItems:true,fullSourceRows:41,oldStandaloneSourceRedirects:true,visibleCommitHashesRemoved:true,controlledStartupFormalTrials:12,controlledPhaseMatrixValidated:true,originalPingValidated:true,originalPingCompleteTransactions:13320,originalPingStatisticalTransactions:12110,conciseCurrentComparisonMeans:[0.834,0.843],conciseResultKeepsHistoricalFailuresInRecords:true,consoleErrors:errors,scope:'Actual local DOM clicks, not screenshot or radio experiment.'};
+ const report={status:'PASS',independentPages:20,parentEntryClicks:entryClicks,peerPageClicks:peerClicks,planningTitlesAndNumbersClickable:true,twelveStepDirectoriesExposeFiveItems:true,fullSourceRows:41,oldStandaloneSourceRedirects:true,visibleCommitHashesRemoved:true,controlledStartupFormalTrials:12,controlledPhaseMatrixValidated:true,originalPingValidated:true,originalPingCompleteTransactions:13320,originalPingStatisticalTransactions:12110,currentFormalPingMean:0.7903386666666666,originalFormalComparisonComplete:false,conciseResultKeepsHistoricalFailuresInRecords:true,consoleErrors:errors,scope:'Actual local DOM clicks, not screenshot or radio experiment.'};
  report.detailedDiagnosis={id:diagnosis.id,hubClicks:diagnosisClicks,searchable:true,visibleCommitHashesRemoved:true};
  report.detailedDiagnosis.sidebarSiblingEntry={belowResultsIndex:true,sameParentAndLevel:true,clickOpensIndependentPage:true,onlyOwnEntryActive:true};
  report.latencyDifferenceSibling={id:difference.id,sameParentAndLevel:true,clicks:differenceClicks,searchable:true,onlyOwnEntryActive:true};

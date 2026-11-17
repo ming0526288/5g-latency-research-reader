@@ -20,13 +20,18 @@ ping -D -n -I oaitun_ue1 -c 2200 -s 16 -i 0.02 -W 2 172.11.200.25
 
 新版统一工具为 `research/latency-analysis/step1-native-v1/traffic.py`，只发业务、启回复端和抓包，不启动/停止核心网、gNB 或 UE。先导 200 包、正式 2200 包由 `--pilot` 区分；输出根必须不存在。
 
+本轮已实际完成下列先导和正式命令；其中 `192.169.0.4` 是**本轮接入后分配的业务地址**，再次运行须先读网卡，不能照抄成永久值。它不替换 UE 启动命令中的 `--rfsimulator.serveraddr 127.0.0.1`。
+
 ```bash
+ip -4 addr show dev oaitun_ue1
+ip -4 route get 172.11.200.25 from 192.169.0.4 oif oaitun_ue1
 cd ~/oiwireless/oi-wireless-ran-latency-analysis
-python3 -B research/latency-analysis/step1-native-v1/traffic.py --help
+sudo -n /usr/bin/python3 -B research/latency-analysis/step1-native-v1/traffic.py --source current --small-data-contrast --pilot --ue-ip 192.169.0.4 --root /home/lbh/oiwireless/analysis-source-audit/step1-current-dpdk-20261117/pilot-16-01
+sudo -n /usr/bin/python3 -B research/latency-analysis/step1-native-v1/traffic.py --source current --small-data-contrast --ue-ip 192.169.0.4 --root /home/lbh/oiwireless/analysis-source-audit/step1-current-dpdk-20261117/main-16-01
+/usr/bin/python3 -B research/latency-analysis/step1-native-v1/analyze_small_data.py /home/lbh/oiwireless/analysis-source-audit/step1-current-dpdk-20261117/main-16-01 --output /home/lbh/oiwireless/analysis-source-audit/step1-current-dpdk-20261117/small-data-independent.json
 ```
 
-实际运行时指定 `--source current --case 本项案例名 --ue-ip 本轮UE地址 --root 新的本地证据根`，并以 sudo 获取绑定网卡、抓包和进入 UPF 网络空间的权限。这些中文参数是填写说明，不能原样粘贴当命令。完整可复制的实际调用和验证结果将在本轮运行后回填，当前不冒称已验证。
-
+这些是已发生的命令，输出根现已存在；复跑须换新的输出根，不能覆盖。先导和正式六轮均通过，独立复算一致；真实顺序为第 1 轮 ping→UDP、第 2 轮 UDP→ping、第 3 轮 ping→UDP。工具内部执行的 ping 就是上面的直接业务命令，gNB/UE 仍由分终端命令启动。
 每轮核验 TUN/N3 请求回复、QFI/方向、包长、捕获丢弃和实际到达间隔；UDP 再核验同一时钟域的四时刻。失败保留新根和最后成功步骤，不删慢包。统计按前 200 包预热、后 2000 包；RTT 不除以二冒充单向时延。
 
 ## 来源与范围

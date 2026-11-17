@@ -1,0 +1,555 @@
+{
+  "status": "PASS",
+  "display_experiment": 2,
+  "unique_runs": 6,
+  "complete_transactions": 13200,
+  "statistical_transactions": 12000,
+  "data_bytes": 16,
+  "inner_IP_bytes": 44,
+  "target_interval_ms": 20,
+  "cases": [
+    {
+      "case": "current-r1-ping-16-h16",
+      "repeat": 1,
+      "tool": "ping",
+      "size": 16,
+      "complete": 2200,
+      "statistical": 2000,
+      "tool_RTT_ms": {
+        "mean": 0.780504,
+        "p50": 0.78,
+        "p95": 0.9200500000000001,
+        "p99": 0.9710099999999998,
+        "max": 1.04
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 0.765309522,
+        "p50": 0.7650064999999999,
+        "p95": 0.90528445,
+        "p99": 0.95531547,
+        "max": 1.014696
+      },
+      "actual_TUN_interarrival_ms": {
+        "mean": 25.38824365666212,
+        "p50": 24.003259,
+        "p95": 28.005780100000003,
+        "p99": 28.01667248,
+        "max": 28.04905
+      },
+      "application_metrics": null,
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      }
+    },
+    {
+      "case": "current-r1-udp-16-h16",
+      "repeat": 1,
+      "tool": "udp",
+      "size": 16,
+      "complete": 2200,
+      "statistical": 2000,
+      "tool_RTT_ms": {
+        "mean": 0.8556261715,
+        "p50": 0.8389960000000001,
+        "p95": 0.9914955999999999,
+        "p99": 1.05921031,
+        "max": 16.713185
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 0.819267741,
+        "p50": 0.8022024999999999,
+        "p95": 0.9515627499999999,
+        "p99": 1.0212611100000002,
+        "max": 16.668893
+      },
+      "actual_TUN_interarrival_ms": {
+        "mean": 19.999929458390177,
+        "p50": 20.000009,
+        "p95": 20.024494999999998,
+        "p99": 20.0444643,
+        "max": 20.082478
+      },
+      "application_metrics": {
+        "UL_ms": {
+          "mean": 0.4939612895,
+          "p50": 0.4766555,
+          "p95": 0.6067843,
+          "p99": 0.6485671799999999,
+          "max": 16.356904
+        },
+        "reply_ms": {
+          "mean": 0.014024813,
+          "p50": 0.0131105,
+          "p95": 0.02515135,
+          "p99": 0.03483,
+          "max": 0.056692
+        },
+        "DL_ms": {
+          "mean": 0.347640069,
+          "p50": 0.342764,
+          "p95": 0.41931365,
+          "p99": 0.45429003,
+          "max": 0.504637
+        },
+        "RTT_ms": {
+          "mean": 0.8556261715,
+          "p50": 0.8389960000000001,
+          "p95": 0.9914955999999999,
+          "p99": 1.05921031,
+          "max": 16.713185
+        }
+      },
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      }
+    },
+    {
+      "case": "current-r2-udp-16-h16",
+      "repeat": 2,
+      "tool": "udp",
+      "size": 16,
+      "complete": 2200,
+      "statistical": 2000,
+      "tool_RTT_ms": {
+        "mean": 0.8322580145,
+        "p50": 0.831461,
+        "p95": 0.9725734,
+        "p99": 1.03929062,
+        "max": 1.134411
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 0.7967584765,
+        "p50": 0.7955595,
+        "p95": 0.9350927000000001,
+        "p99": 0.9995107300000001,
+        "max": 1.075651
+      },
+      "actual_TUN_interarrival_ms": {
+        "mean": 19.999919196452932,
+        "p50": 19.999846,
+        "p95": 20.024326400000003,
+        "p99": 20.04533328,
+        "max": 20.092595
+      },
+      "application_metrics": {
+        "UL_ms": {
+          "mean": 0.475834891,
+          "p50": 0.4739295,
+          "p95": 0.6032169500000001,
+          "p99": 0.64519531,
+          "max": 0.707156
+        },
+        "reply_ms": {
+          "mean": 0.01324516,
+          "p50": 0.0128005,
+          "p95": 0.02213035,
+          "p99": 0.03040721,
+          "max": 0.046598
+        },
+        "DL_ms": {
+          "mean": 0.3431779635,
+          "p50": 0.339418,
+          "p95": 0.40881504999999996,
+          "p99": 0.45200278000000005,
+          "max": 0.506883
+        },
+        "RTT_ms": {
+          "mean": 0.8322580145,
+          "p50": 0.831461,
+          "p95": 0.9725734,
+          "p99": 1.03929062,
+          "max": 1.134411
+        }
+      },
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      }
+    },
+    {
+      "case": "current-r2-ping-16-h16",
+      "repeat": 2,
+      "tool": "ping",
+      "size": 16,
+      "complete": 2200,
+      "statistical": 2000,
+      "tool_RTT_ms": {
+        "mean": 0.783103,
+        "p50": 0.783,
+        "p95": 0.922,
+        "p99": 0.9830199999999999,
+        "max": 1.1
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 0.767964839,
+        "p50": 0.7681549999999999,
+        "p95": 0.906285,
+        "p99": 0.9663128400000001,
+        "max": 1.090228
+      },
+      "actual_TUN_interarrival_ms": {
+        "mean": 25.379331100500227,
+        "p50": 24.003211,
+        "p95": 28.005398299999996,
+        "p99": 28.016539339999998,
+        "max": 28.240668
+      },
+      "application_metrics": null,
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      }
+    },
+    {
+      "case": "current-r3-ping-16-h16",
+      "repeat": 3,
+      "tool": "ping",
+      "size": 16,
+      "complete": 2200,
+      "statistical": 2000,
+      "tool_RTT_ms": {
+        "mean": 0.7974325,
+        "p50": 0.781,
+        "p95": 0.941,
+        "p99": 1.0501,
+        "max": 22.1
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 0.781913516,
+        "p50": 0.7651355,
+        "p95": 0.92446585,
+        "p99": 1.03013403,
+        "max": 22.03581
+      },
+      "actual_TUN_interarrival_ms": {
+        "mean": 25.210665698044565,
+        "p50": 24.00265,
+        "p95": 28.0056126,
+        "p99": 28.017825279999997,
+        "max": 28.32555
+      },
+      "application_metrics": null,
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      }
+    },
+    {
+      "case": "current-r3-udp-16-h16",
+      "repeat": 3,
+      "tool": "udp",
+      "size": 16,
+      "complete": 2200,
+      "statistical": 2000,
+      "tool_RTT_ms": {
+        "mean": 0.841105087,
+        "p50": 0.8293505,
+        "p95": 0.9803189,
+        "p99": 1.04227618,
+        "max": 17.332032
+      },
+      "common_TUN_RTT_ms": {
+        "mean": 0.8045181385,
+        "p50": 0.7934135,
+        "p95": 0.9400791500000001,
+        "p99": 1.0035661,
+        "max": 17.295124
+      },
+      "actual_TUN_interarrival_ms": {
+        "mean": 19.999965216007276,
+        "p50": 20.000067,
+        "p95": 20.0249847,
+        "p99": 20.044347260000002,
+        "max": 20.115678
+      },
+      "application_metrics": {
+        "UL_ms": {
+          "mean": 0.4820424085,
+          "p50": 0.47343999999999997,
+          "p95": 0.6029982500000001,
+          "p99": 0.64162897,
+          "max": 17.004077
+        },
+        "reply_ms": {
+          "mean": 0.013450986,
+          "p50": 0.012864500000000001,
+          "p95": 0.0218905,
+          "p99": 0.0340047,
+          "max": 0.07612
+        },
+        "DL_ms": {
+          "mean": 0.3456116925,
+          "p50": 0.3417245,
+          "p95": 0.41660849999999994,
+          "p99": 0.46016615,
+          "max": 0.574661
+        },
+        "RTT_ms": {
+          "mean": 0.841105087,
+          "p50": 0.8293505,
+          "p95": 0.9803189,
+          "p99": 1.04227618,
+          "max": 17.332032
+        }
+      },
+      "N3_QFI_counts": {
+        "type1_qfi9": 2200,
+        "type0_qfi9": 2200
+      }
+    }
+  ],
+  "groups": [
+    {
+      "tool": "ping",
+      "complete": 6600,
+      "statistical": 6000,
+      "mean_tool_RTT_ms": 0.7870131666666667,
+      "per_run_tool_p99_ms": [
+        0.9710099999999998,
+        0.9830199999999999,
+        1.0501
+      ],
+      "max_tool_RTT_ms": 22.1,
+      "mean_common_TUN_RTT_ms": 0.7717292923333333,
+      "per_run_TUN_p99_ms": [
+        0.95531547,
+        0.9663128400000001,
+        1.03013403
+      ],
+      "mean_actual_interarrival_ms": 25.32608015173564
+    },
+    {
+      "tool": "udp",
+      "complete": 6600,
+      "statistical": 6000,
+      "mean_tool_RTT_ms": 0.8429964243333333,
+      "per_run_tool_p99_ms": [
+        1.05921031,
+        1.03929062,
+        1.04227618
+      ],
+      "max_tool_RTT_ms": 17.332032,
+      "mean_common_TUN_RTT_ms": 0.8068481186666666,
+      "per_run_TUN_p99_ms": [
+        1.0212611100000002,
+        0.9995107300000001,
+        1.0035661
+      ],
+      "mean_actual_interarrival_ms": 19.999937956950127
+    }
+  ],
+  "inputs": [
+    {
+      "case": "current-r1-ping-16-h16",
+      "file": "ping.log",
+      "sha256": "4a1d1f78cbb7c0cc8a1380405efee2e99fc25e2aefc78dad77651c29261d1cee"
+    },
+    {
+      "case": "current-r1-ping-16-h16",
+      "file": "tun.pcap",
+      "sha256": "6d2cbb75af60a745c630eadceda4de37c4fa01cd934ad2b87536ddb45ad9c546"
+    },
+    {
+      "case": "current-r1-ping-16-h16",
+      "file": "n3.pcap",
+      "sha256": "cd0e673b526caf44be9efebd1db1880adc89a7958a715f18ee8be9d63813c61f"
+    },
+    {
+      "case": "current-r1-ping-16-h16",
+      "file": "capture-transactions.csv",
+      "sha256": "669d376df9efa1fd4ab0adcad4a77183db0f425ab8a43d49cc15416581008e9b"
+    },
+    {
+      "case": "current-r1-ping-16-h16",
+      "file": "summary.json",
+      "sha256": "281a8c1f19b1023172ef00e376cbbde1c04fd4193070e48c8b2ccedaa9167eea"
+    },
+    {
+      "case": "current-r1-udp-16-h16",
+      "file": "client/client_sent.csv",
+      "sha256": "7f8372feef4159341023a8bcc0dc91ee749d612a9deef07b26e4b7a081edbacd"
+    },
+    {
+      "case": "current-r1-udp-16-h16",
+      "file": "server/server.csv",
+      "sha256": "3edf4a847624363dba5f620f371a329283708509a6a08b715f16fae40239b2d0"
+    },
+    {
+      "case": "current-r1-udp-16-h16",
+      "file": "client/client_received.csv",
+      "sha256": "b18c0035376855076c70e6dce38bcb91b8afe4307185a71a9120521d2e70b371"
+    },
+    {
+      "case": "current-r1-udp-16-h16",
+      "file": "tun.pcap",
+      "sha256": "206e824532531d930c5fe47545b0d3ac32ae29564a3c7636dd15b145f5b9db39"
+    },
+    {
+      "case": "current-r1-udp-16-h16",
+      "file": "n3.pcap",
+      "sha256": "a108f115405b622c6ec6667ffd835654991070a5301d97b0485aa98ce43a7dc7"
+    },
+    {
+      "case": "current-r1-udp-16-h16",
+      "file": "capture-transactions.csv",
+      "sha256": "6e3a9476ac7f95d356a9aa2450c7b17672f261f4cb28d1f18cc83be6ea587456"
+    },
+    {
+      "case": "current-r1-udp-16-h16",
+      "file": "summary.json",
+      "sha256": "868cf11c64e2bf4ecdec722be7d46d8d0457385b7480d32af11a27997f5c048c"
+    },
+    {
+      "case": "current-r2-udp-16-h16",
+      "file": "client/client_sent.csv",
+      "sha256": "34955bd6150cdb0dc1638a26a8aea49980729af584ac1fc74f88fd8cbd7db432"
+    },
+    {
+      "case": "current-r2-udp-16-h16",
+      "file": "server/server.csv",
+      "sha256": "265543a91137cc8f2cca4d7f668748cc7681677dbb5c8afc4f157b5cb919aea5"
+    },
+    {
+      "case": "current-r2-udp-16-h16",
+      "file": "client/client_received.csv",
+      "sha256": "223744b08d74e58d25ac27802044dd117eb70bb22f4976541593f7404ec55c70"
+    },
+    {
+      "case": "current-r2-udp-16-h16",
+      "file": "tun.pcap",
+      "sha256": "7447e59853a47b19db308e0b9f30964106e97068228ecca6866c11e5a76680cd"
+    },
+    {
+      "case": "current-r2-udp-16-h16",
+      "file": "n3.pcap",
+      "sha256": "82155f2bc48de8bde23fedada0851a59f54b3094b924e77a1fb8ec9a743db40a"
+    },
+    {
+      "case": "current-r2-udp-16-h16",
+      "file": "capture-transactions.csv",
+      "sha256": "72830f9dda6c95090bf8f8f5012ec0e8e9bc09aa41c60b3349339d925cc23746"
+    },
+    {
+      "case": "current-r2-udp-16-h16",
+      "file": "summary.json",
+      "sha256": "f0730e8027bc6638615d0a1af3760d1c0b9d0da88780d7725245558e7ab6f8d3"
+    },
+    {
+      "case": "current-r2-ping-16-h16",
+      "file": "ping.log",
+      "sha256": "f7c6cfc26e8e19c3ec15a92dda42787d2ecd1e0720a6cc7dca9a6be03f3c2029"
+    },
+    {
+      "case": "current-r2-ping-16-h16",
+      "file": "tun.pcap",
+      "sha256": "e49bd6f4257cd5623d140e1bfa264b81fde07ca7e869418cdad1f4aa44dd65dd"
+    },
+    {
+      "case": "current-r2-ping-16-h16",
+      "file": "n3.pcap",
+      "sha256": "de769476b4d5ccbfd95c4adea34a96e64a50e88907ea2c7ef6e1754577a94426"
+    },
+    {
+      "case": "current-r2-ping-16-h16",
+      "file": "capture-transactions.csv",
+      "sha256": "9bdf72c0262c516f24054a77bb649584b8e6308b9b9d9e9c4fca8c2e033cd382"
+    },
+    {
+      "case": "current-r2-ping-16-h16",
+      "file": "summary.json",
+      "sha256": "7f657d930b55b1d6f9ac0587a597316afb3eb4081c0b7c3da1d47f6c323d1611"
+    },
+    {
+      "case": "current-r3-ping-16-h16",
+      "file": "ping.log",
+      "sha256": "ce1920d460355c52dbbd44899f1fdc62e036f0b6f483040f2468445f42a508e5"
+    },
+    {
+      "case": "current-r3-ping-16-h16",
+      "file": "tun.pcap",
+      "sha256": "bc8e27e1c84295208be77c51879b4e523f00b7b266abf507375f2b1ecf0e3c1b"
+    },
+    {
+      "case": "current-r3-ping-16-h16",
+      "file": "n3.pcap",
+      "sha256": "8725f71152eb7ebefc23855b419ac370bd1a3861c3a2f217c4860c8446b3e856"
+    },
+    {
+      "case": "current-r3-ping-16-h16",
+      "file": "capture-transactions.csv",
+      "sha256": "6bbc31093c8929ad6889398622fead4ca7e94bb37da4cf73815f3f92cdde3e76"
+    },
+    {
+      "case": "current-r3-ping-16-h16",
+      "file": "summary.json",
+      "sha256": "22ccebbdfdf5810710fd37fa326cd1b5fb2ae00d2a72e2053717a6b44a50ab6d"
+    },
+    {
+      "case": "current-r3-udp-16-h16",
+      "file": "client/client_sent.csv",
+      "sha256": "12b4cf9b28a41bb0c7f328eab26d3d69552a4533768d8f52637c50b4996f77a1"
+    },
+    {
+      "case": "current-r3-udp-16-h16",
+      "file": "server/server.csv",
+      "sha256": "d991b94c20f5eb500c4309b9b8504057e352dc20e466a5b3c8175ef79622423c"
+    },
+    {
+      "case": "current-r3-udp-16-h16",
+      "file": "client/client_received.csv",
+      "sha256": "59134e8cba0f54846058c6c74191d09298806cca4a91c0861ab0c2cf56f107e8"
+    },
+    {
+      "case": "current-r3-udp-16-h16",
+      "file": "tun.pcap",
+      "sha256": "77f8eb54dbfdcd70d02611bca6d265f9d9f0ace11b11c23649c776cec4cb3455"
+    },
+    {
+      "case": "current-r3-udp-16-h16",
+      "file": "n3.pcap",
+      "sha256": "8afb3a5fc688bd3b1e0487b4e000642dadff889a31703592f54c21155fa59ab8"
+    },
+    {
+      "case": "current-r3-udp-16-h16",
+      "file": "capture-transactions.csv",
+      "sha256": "d5e392b99b3bb48e1644fca68159a94a3e0c2102a650ea068f337c698b96e080"
+    },
+    {
+      "case": "current-r3-udp-16-h16",
+      "file": "summary.json",
+      "sha256": "99306496fffd3089b3f35b6d956d0aecbf23f7634ef923cda70b3ad4e368e22d"
+    }
+  ],
+  "scope": "ICMP/UDP 16-byte total data, native tool RTT and common TUN RTT separate; not RTT/2 or robot actuation",
+  "limits": "Same target interval, actual spacing measured separately; no equal-radio-phase or equal-processing-path causal claim",
+  "conditions": {
+    "SCS_kHz": 120,
+    "band": 261,
+    "carrier_hz": 27547560000,
+    "PRB": 66,
+    "tdd_period_ms": 0.625,
+    "full_slots_D": 3,
+    "full_slots_U": 1,
+    "mixed_symbols": "6D4F4U",
+    "scheduler": "PF",
+    "private_HOL": 0,
+    "inactivity_setting": 0,
+    "ul_dl_MCS_cap": 9,
+    "UEs": 1,
+    "core": "original",
+    "actual_NAS_fiveqi": 9,
+    "qfi": 9,
+    "continuous_tx": false,
+    "thread_pool_override": false,
+    "ran_start": "Separate native PTYs",
+    "rfsim_server": "127.0.0.1",
+    "actual_UE_business_ip": "192.169.0.4",
+    "target": "172.11.200.25",
+    "config_filename": "gnb1.sa.band261.fr2.66PRB.5slot.low-latency.mcs9.dpdk.conf"
+  },
+  "date": "2026-11-17",
+  "evidence_root": "/home/lbh/oiwireless/analysis-source-audit/step1-current-dpdk-20261117",
+  "current_inputs_unchanged": true
+}
