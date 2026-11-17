@@ -33,7 +33,7 @@ def main():
         checks={'step-1-experiment-1-knowledge':['为什么现在能启动','--continuous-tx','18','readFrame','根治','是否需要恢复原始启动方式或源码','启动选项','全部源码'],
                 'original-startup-diagnosis':['为什么现在代码能启动','--continuous-tx','18','根治','2026-11-16','未开始 ping'],
                 'step-1-experiment-1-results':['目前结果','0.834','0.843','三轮正式对照尚未完成'],
-                'step-1-experiment-1-commands':['新基线的共同启动方式','gnb.120k.low-latency.mcs9.conf','2200','oaitun_ue1','--continuous-tx'],
+                'step-1-experiment-1-commands':['新基线的共同启动方式','gnb1.sa.band261.fr2.66PRB.5slot.low-latency.mcs9.dpdk.conf','2200','oaitun_ue1','--continuous-tx'],
                 'source-latency-difference':['时延差异原因分析','0.829','2.191','0.843','空授权']}
         ids=[]
         for topic,terms in checks.items():
