@@ -31,7 +31,7 @@ def main():
     step_numbers = sorted(int(p['researchStep'].removeprefix('step-')) for p in plans)
     assert step_numbers == list(range(1, len(plans) + 1)), 'Plan steps must be unique and contiguous'
     assert len(manifest) == len({d['topic'] for d in manifest}), 'Duplicate result topic'
-    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'original-startup-diagnosis', 'source-latency-difference'} | {p['researchStep'] for p in plans} | {f'step-1-experiment-{i}-results' for i in range(1,6)}
+    assert {d['topic'] for d in manifest} == {'tdd', 'scs', 'multi-ue', 'layers', 'tail', 'original-startup-diagnosis', 'source-latency-difference', 'rfsim-startup-sync-design'} | {p['researchStep'] for p in plans} | {f'step-1-experiment-{i}-results' for i in range(1,6)}
     for plan in plans:
         matches = [d for d in manifest if d.get('researchStep') == plan['researchStep']]
         assert len(matches) == 1 and matches[0]['planTopic'] == plan['topic'], plan['source']
@@ -87,6 +87,23 @@ def main():
         assert d['sha256'] == sha(ROOT / item['source']) and d['snapshot'] == item['source']
         assert d['experimentStage'] == item['topic'] and cat['experimentStages'][item['topic']] == d['id']
         p = payload(d['id']); html = p['html']
+        if item['topic'] == 'rfsim-startup-sync-design':
+            assert d['group'] == 'research' and d['status'] == 'planned-not-implemented'
+            assert d['independentExperiment'] == item['topic']
+            assert 'researchStep' not in d and 'stepExperiment' not in d
+            for term in ['尚未修改 RFsim 初始化流程','正缺口本身不等于死锁',
+                         '待同步连接','真实射频','不是 UE 命令的启动时刻',
+                         '65 个采样','8703 个采样','待同步 UE 已经进入正常阻塞判据']:
+                assert term in html, term
+            assert len(p['toc']) >= 10 and html.count('<table') >= 5 and '<img' in html
+            for origin_topic in ['research-results-index','step-1-experiment-1-knowledge','step-1-experiment-1-results']:
+                other = next(x for x in docs.values() if x.get('topic') == origin_topic)
+                assert '#/doc/' + d['id'] in payload(other['id'])['html']
+            assert all(term in d['search'] for term in ['循环等待','方案 A','方案 B','真实射频'])
+            assert '#/local' not in html
+            page_checks.append({'id':d['id'],'kind':'rfsim-startup-design','implemented':False,
+                                'newRadioLatencyResults':0,'canonicalSourceSHA':d['sha256']})
+            continue
         if item['topic'] == 'source-latency-difference':
             contrast = read(ROOT/'说明/研究结果与分析/数据/源码与现在代码_授权门限反向对照_20261116.json')
             assert contrast['status'] == 'VERIFIED_NATIVE_A_B_A_CONTRAST'

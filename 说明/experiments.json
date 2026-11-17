@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "documents": [
     {
       "id": "e4c1f2a8800000001",
@@ -171,6 +171,12 @@
       "topic": "source-latency-difference",
       "independentExperiment": "source-latency-difference",
       "status": "completed-with-scope"
+    },
+    {
+      "source": "说明/研究结果与分析/RFsim启动同步_设计方案与验证计划.md",
+      "topic": "rfsim-startup-sync-design",
+      "independentExperiment": "rfsim-startup-sync-design",
+      "status": "planned-not-implemented"
     }
   ],
   "redirects": {

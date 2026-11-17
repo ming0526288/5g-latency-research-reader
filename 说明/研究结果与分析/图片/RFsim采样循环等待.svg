@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 540" role="img" aria-labelledby="title desc">
+<title id="title">RFsim 初始化时两端可能形成的采样循环等待</title>
+<desc id="desc">UE 要先读够下行采样才回送；gNB 等够上行采样才继续推进。两个读取都不返回时，后续发送互相依赖。正缺口本身不等于死锁。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#456785"/></marker></defs>
+<rect width="1080" height="540" rx="20" fill="#f4f7fb"/>
+<g font-family="Arial, 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" fill="#203b53">
+<text x="54" y="54" font-size="27" font-weight="700">为什么连接成功后，采样仍可能停住</text>
+<text x="54" y="89" font-size="18">源码机制示意 · RFsim 初始化阶段 · 不表示每次启动都会发生</text>
+<rect x="58" y="133" width="402" height="236" rx="16" fill="white" stroke="#a8bfd3" stroke-width="2"/>
+<rect x="620" y="133" width="402" height="236" rx="16" fill="white" stroke="#a8bfd3" stroke-width="2"/>
+<text x="86" y="177" font-size="25" font-weight="700">UE：先读，读完才回送</text>
+<text x="86" y="219" font-size="20">① readFrame 请求一块下行采样</text>
+<text x="86" y="259" font-size="20">② 没读够 → 等待 gNB 继续供样</text>
+<text x="86" y="299" font-size="20">③ 读完之后 → dummyWrite 回送</text>
+<text x="86" y="341" font-size="18" fill="#5b7184">卡在②时，③尚未执行</text>
+<text x="648" y="177" font-size="25" font-weight="700">gNB：收够后才能推进</text>
+<text x="648" y="219" font-size="20">① rfsimulator_read 请求 UE 采样</text>
+<text x="648" y="259" font-size="20">② 没收够 → 等待 UE 回送</text>
+<text x="648" y="299" font-size="20">③ 返回上层 → 继续后续收发</text>
+<text x="648" y="341" font-size="18" fill="#5b7184">卡在②时，后续推进可能受阻</text>
+<path d="M460 212 H606" fill="none" stroke="#456785" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="478" y="196" font-size="17">等下行</text>
+<path d="M620 318 H474" fill="none" stroke="#456785" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="489" y="352" font-size="17">等回送</text>
+<rect x="58" y="402" width="964" height="101" rx="13" fill="#e5eef6"/>
+<text x="82" y="438" font-size="21" font-weight="700">等待判据：读取起点 R ＋ 请求量 N ＞ 已收边界 L</text>
+<text x="82" y="475" font-size="19">正缺口只表示暂未收齐；双端长期不推进，且下一次发送互相依赖，才支持循环等待判断。</text>
+</g></svg>

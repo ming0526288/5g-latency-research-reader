@@ -92,10 +92,25 @@ async function until(fn,label){for(let i=0;i<300;i++){if(fn())return;await delay
  await until(()=>d.querySelector('.search-result[href="'+url(diagnosis)+'"]'),'diagnosis search');d.querySelector('#closeSearch').click();
  d.querySelector('#searchButton').click();query.value='时延差异原因分析';query.dispatchEvent(new w.Event('input',{bubbles:true}));
  await until(()=>d.querySelector('.search-result[href="'+url(difference)+'"]'),'latency difference search');d.querySelector('#closeSearch').click();
+ const sync=byTopic('rfsim-startup-sync-design');assert(sync);
+ const syncEntry=d.querySelector('#sidebar a[href="'+url(sync)+'"]');assert(syncEntry);
+ assert.equal(syncEntry.parentElement,d.querySelector('#sidebar a[href="'+url(hub)+'"]').parentElement);
+ assert(syncEntry.classList.contains('nav-link'));syncEntry.click();
+ await until(()=>d.querySelector('.source-label')?.getAttribute('title')===sync.source,'startup sync sibling');
+ assert(d.querySelector('#sidebar a.active[href="'+url(sync)+'"]'));assert(!d.querySelector('#sidebar a.active[href="'+url(hub)+'"]'));
+ for(const term of ['循环等待','尚未修改 RFsim 初始化流程','方案 A','真实射频'])assert(d.querySelector('.article').textContent.includes(term));
+ assert(d.querySelector('.article img'));let syncClicks=1;
+ for(const origin of [hub,sourceKnowledge,sourceResult]){
+  await open(origin);const a=d.querySelector('.article a[href="'+url(sync)+'"]');assert(a);a.click();
+  await until(()=>d.querySelector('.source-label')?.getAttribute('title')===sync.source,'startup design from '+origin.topic);syncClicks++;
+ }
+ d.querySelector('#searchButton').click();query.value='RFsim 启动同步';query.dispatchEvent(new w.Event('input',{bubbles:true}));
+ await until(()=>d.querySelector('.search-result[href="'+url(sync)+'"]'),'startup sync search');d.querySelector('#closeSearch').click();
  assert.deepEqual(errors,[]);
  const report={status:'PASS',independentPages:20,parentEntryClicks:entryClicks,peerPageClicks:peerClicks,planningTitlesAndNumbersClickable:true,twelveStepDirectoriesExposeFiveItems:true,fullSourceRows:41,oldStandaloneSourceRedirects:true,visibleCommitHashesRemoved:true,controlledStartupFormalTrials:12,controlledPhaseMatrixValidated:true,originalPingValidated:true,originalPingCompleteTransactions:13320,originalPingStatisticalTransactions:12110,currentFormalPingMean:0.7903386666666666,originalFormalComparisonComplete:false,conciseResultKeepsHistoricalFailuresInRecords:true,consoleErrors:errors,scope:'Actual local DOM clicks, not screenshot or radio experiment.'};
  report.detailedDiagnosis={id:diagnosis.id,hubClicks:diagnosisClicks,searchable:true,visibleCommitHashesRemoved:true};
  report.detailedDiagnosis.sidebarSiblingEntry={belowResultsIndex:true,sameParentAndLevel:true,clickOpensIndependentPage:true,onlyOwnEntryActive:true};
  report.latencyDifferenceSibling={id:difference.id,sameParentAndLevel:true,clicks:differenceClicks,searchable:true,onlyOwnEntryActive:true};
+ report.startupSyncSibling={id:sync.id,sameParentAndLevel:true,clicks:syncClicks,searchable:true,onlyOwnEntryActive:true,implemented:false};
  fs.writeFileSync(path.join(root,'校验/第一步规划与总目录入口点击核验_20261113.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));w.close();
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});
