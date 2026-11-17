@@ -250,6 +250,15 @@
       "business_started": false,
       "RTT_ms": null,
       "root_cause": "Not isolated"
+    },
+    {
+      "attempt": 3,
+      "last_success": "RFsim TCP connected",
+      "business_started": false,
+      "RTT_ms": null,
+      "root_cause": "Not isolated; no recent socket byte advancement",
+      "gnb_bytes_sent": 149156,
+      "ue_bytes_sent": 184456
     }
   ]
 }
