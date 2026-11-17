@@ -1,0 +1,124 @@
+{
+  "status": "INCOMPLETE_ACCESS_NO_RTT",
+  "date": "2026-11-17",
+  "source": "Original source and original stock configuration; separate from common research profile attempts",
+  "attempts": [
+    {
+      "attempt": 1,
+      "evidence_root": "/home/lbh/oiwireless/analysis-source-audit/original-stock-ping-20261117-01",
+      "terminal": "tool PTY",
+      "gnb_reused": false,
+      "startup_control_capture": true,
+      "last_success": "RFsim TCP connected",
+      "access_completed": false,
+      "business_started": false,
+      "RTT_ms": null,
+      "root_cause": "not isolated"
+    },
+    {
+      "attempt": 2,
+      "evidence_root": "/home/lbh/oiwireless/analysis-source-audit/original-stock-ping-20261117-02",
+      "terminal": "tool PTY",
+      "gnb_reused": false,
+      "startup_control_capture": true,
+      "last_success": "RFsim TCP connected",
+      "access_completed": false,
+      "business_started": false,
+      "RTT_ms": null,
+      "root_cause": "not isolated"
+    },
+    {
+      "attempt": 3,
+      "evidence_root": "/home/lbh/oiwireless/analysis-source-audit/original-stock-ping-20261117-03",
+      "terminal": "tool PTY",
+      "gnb_reused": false,
+      "startup_control_capture": false,
+      "last_success": "RFsim TCP connected",
+      "access_completed": false,
+      "business_started": false,
+      "RTT_ms": null,
+      "root_cause": "not isolated"
+    },
+    {
+      "attempt": 4,
+      "evidence_root": "/home/lbh/oiwireless/analysis-source-audit/original-stock-ping-20261117-04",
+      "terminal": "tool PTY",
+      "gnb_reused": true,
+      "startup_control_capture": false,
+      "last_success": "RFsim TCP connected",
+      "access_completed": false,
+      "business_started": false,
+      "RTT_ms": null,
+      "root_cause": "not isolated"
+    },
+    {
+      "attempt": 5,
+      "evidence_root": "/home/lbh/oiwireless/analysis-source-audit/original-stock-ping-20261117-05",
+      "terminal": "GNOME desktop",
+      "gnb_reused": false,
+      "startup_control_capture": false,
+      "last_success": "RFsim TCP connected",
+      "access_completed": false,
+      "business_started": false,
+      "RTT_ms": null,
+      "root_cause": "not isolated",
+      "intermediate_access_stages": "Not individually verified; no saved desktop stdout"
+    }
+  ],
+  "carrier_hz": 27547560000,
+  "SCS_kHz": 120,
+  "PRB": 66,
+  "UEs": 1,
+  "rfsim_server": "127.0.0.1",
+  "gnb_config": "gnb1.sa.band261.fr2.66PRB.5slot.dpdk.conf",
+  "ue_config": "ue.oiwireless.conf",
+  "core": "original",
+  "target": "172.11.200.25",
+  "planned_ping_data_bytes": 56,
+  "planned_inner_IP_bytes": 84,
+  "continuous_tx": false,
+  "extra_thread_pool": false,
+  "startup_phase_control": false,
+  "inputs_unchanged": true,
+  "original_inputs": [
+    {
+      "path": "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/nr-softmodem",
+      "sha256": "6d78cb33556daa4769dfb97189f49fa979e467117ab9567184774d4738fb4204"
+    },
+    {
+      "path": "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/nr-uesoftmodem",
+      "sha256": "9038aeb3cdb67f9c4fd9b8c994945201a68f059266fa2d42f424853484607a2a"
+    },
+    {
+      "path": "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/librfsimulator.so",
+      "sha256": "2c49e51d871a2658689708d97fb39b36e45c96d43f6ef6de8c37b4fcfef16f50"
+    },
+    {
+      "path": "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/libparams_libconfig.so",
+      "sha256": "255a2a66a4f0bef40b6b469e2833aab091a8b4173ae4ad1111b09cecd24781b7"
+    },
+    {
+      "path": "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/libdfts.so",
+      "sha256": "c82c03d45e7952e05d32b251042e8fb8e5643aa09a56b09f281978b82f1fe627"
+    },
+    {
+      "path": "/home/lbh/oiwireless/oi-wireless-ran/cmake_targets/ran_build/build/libldpc.so",
+      "sha256": "411a5b9bbe0d023a3de949eb8b00edd7e095ad4079ea878ae8fd6ee0c618c61d"
+    },
+    {
+      "path": "/home/lbh/oiwireless/oi-wireless-ran/targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb1.sa.band261.fr2.66PRB.5slot.dpdk.conf",
+      "sha256": "d6cd2c6445bf0652e97e71c2812650dacaad26f948713d2c3f72719cafed60bf"
+    },
+    {
+      "path": "/home/lbh/oiwireless/oi-wireless-ran/targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf",
+      "sha256": "ed5c255e438bbf2a6b6fc0d0ec78353d6caceb2ba0209b709548a37bee0f17fb"
+    }
+  ],
+  "desktop_waits": {
+    "gnb_RU": "ep_poll",
+    "UE_main": "ep_poll"
+  },
+  "business_capture_started": false,
+  "clock_boundary": "No business timestamp; no measured RTT",
+  "own_processes_stopped": true
+}
