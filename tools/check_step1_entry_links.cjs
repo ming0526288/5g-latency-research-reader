@@ -53,7 +53,7 @@ async function until(fn,label){for(let i=0;i<300;i++){if(fn())return;await delay
  w.location.hash='#/doc/e4c1f2a8800000006';await until(()=>w.location.hash===url(sourceKnowledge)&&d.querySelector('.source-label')?.getAttribute('title')===sourceKnowledge.source,'old full-source route redirects');
  const sourceResult=children.find(x=>x.documentRole==='results'&&x.stepExperiment===1);await open(sourceResult);
  const resultText=d.querySelector('.article').textContent;
- for(const value of ['0.790','6600 / 6600','6000','业务未开始','三轮正式对照尚未完成'])assert(resultText.includes(value));
+ for(const value of ['0.829','6600 / 6600','6000','业务未开始','三轮正式对照尚未完成'])assert(resultText.includes(value));
  assert.equal(d.querySelectorAll('.article tbody tr').length,2);assert(resultText.length<2200);
  for(const old of ['35 s','8703','1.701862','readFrame','attempt-01'])assert(!resultText.includes(old));
  assert(!/383aa52a|61654513|159208eb/.test(resultText));
@@ -98,7 +98,7 @@ async function until(fn,label){for(let i=0;i<300;i++){if(fn())return;await delay
  assert(syncEntry.classList.contains('nav-link'));syncEntry.click();
  await until(()=>d.querySelector('.source-label')?.getAttribute('title')===sync.source,'startup sync sibling');
  assert(d.querySelector('#sidebar a.active[href="'+url(sync)+'"]'));assert(!d.querySelector('#sidebar a.active[href="'+url(hub)+'"]'));
- for(const term of ['循环等待','尚未修改 RFsim 初始化流程','方案 A','真实射频'])assert(d.querySelector('.article').textContent.includes(term));
+ for(const term of ['循环等待','C 实现已完成','方案 A','真实射频'])assert(d.querySelector('.article').textContent.includes(term));
  assert(d.querySelector('.article img'));let syncClicks=1;
  for(const origin of [hub,sourceKnowledge,sourceResult]){
   await open(origin);const a=d.querySelector('.article a[href="'+url(sync)+'"]');assert(a);a.click();
@@ -107,10 +107,10 @@ async function until(fn,label){for(let i=0;i<300;i++){if(fn())return;await delay
  d.querySelector('#searchButton').click();query.value='RFsim 启动同步';query.dispatchEvent(new w.Event('input',{bubbles:true}));
  await until(()=>d.querySelector('.search-result[href="'+url(sync)+'"]'),'startup sync search');d.querySelector('#closeSearch').click();
  assert.deepEqual(errors,[]);
- const report={status:'PASS',independentPages:20,parentEntryClicks:entryClicks,peerPageClicks:peerClicks,planningTitlesAndNumbersClickable:true,twelveStepDirectoriesExposeFiveItems:true,fullSourceRows:41,oldStandaloneSourceRedirects:true,visibleCommitHashesRemoved:true,controlledStartupFormalTrials:12,controlledPhaseMatrixValidated:true,originalPingValidated:true,originalPingCompleteTransactions:13320,originalPingStatisticalTransactions:12110,currentFormalPingMean:0.7903386666666666,originalFormalComparisonComplete:false,conciseResultKeepsHistoricalFailuresInRecords:true,consoleErrors:errors,scope:'Actual local DOM clicks, not screenshot or radio experiment.'};
+ const report={status:'PASS',independentPages:20,parentEntryClicks:entryClicks,peerPageClicks:peerClicks,planningTitlesAndNumbersClickable:true,twelveStepDirectoriesExposeFiveItems:true,fullSourceRows:41,oldStandaloneSourceRedirects:true,visibleCommitHashesRemoved:true,controlledStartupFormalTrials:12,controlledPhaseMatrixValidated:true,originalPingValidated:true,originalPingCompleteTransactions:13320,originalPingStatisticalTransactions:12110,currentFormalPingMean:0.8286543333333334,originalFormalComparisonComplete:false,conciseResultKeepsHistoricalFailuresInRecords:true,consoleErrors:errors,scope:'Actual local DOM clicks, not screenshot or radio experiment.'};
  report.detailedDiagnosis={id:diagnosis.id,hubClicks:diagnosisClicks,searchable:true,visibleCommitHashesRemoved:true};
  report.detailedDiagnosis.sidebarSiblingEntry={belowResultsIndex:true,sameParentAndLevel:true,clickOpensIndependentPage:true,onlyOwnEntryActive:true};
  report.latencyDifferenceSibling={id:difference.id,sameParentAndLevel:true,clicks:differenceClicks,searchable:true,onlyOwnEntryActive:true};
- report.startupSyncSibling={id:sync.id,sameParentAndLevel:true,clicks:syncClicks,searchable:true,onlyOwnEntryActive:true,implemented:false};
+ report.startupSyncSibling={id:sync.id,sameParentAndLevel:true,clicks:syncClicks,searchable:true,onlyOwnEntryActive:true,implemented:true};
  fs.writeFileSync(path.join(root,'校验/第一步规划与总目录入口点击核验_20261113.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));w.close();
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});

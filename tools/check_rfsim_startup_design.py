@@ -35,11 +35,11 @@ def main():
     try:
         catalog = json.loads(get('网页/catalog.js').split('window.READER_CATALOG=', 1)[1].rstrip(';'))
         doc = next(d for d in catalog['docs'] if d.get('topic') == 'rfsim-startup-sync-design')
-        assert doc['status'] == 'planned-not-implemented'
+        assert doc['status'] == 'implemented-startup-validated'
         assert not doc.get('researchStep') and not doc.get('stepExperiment')
         content = json.loads(get('网页/data/' + doc['id'] + '.js').split('=', 1)[1].rstrip(';'))
         assert doc['sha256'] == hashlib.sha256((ROOT / doc['source']).read_bytes()).hexdigest()
-        for term in ['循环等待', '方案 A', '方案 B', '真实射频', '尚未修改 RFsim 初始化流程']:
+        for term in ['循环等待', '方案 A', '方案 B', '真实射频', 'C 实现已完成']:
             assert term in content['html'] and term in doc['search'], term
         assert any('真实射频' in h['title'] for h in content['toc'])
         assert 'katex' in content['html']
@@ -53,8 +53,12 @@ def main():
             other = next(d for d in catalog['docs'] if d.get('topic') == topic)
             payload = json.loads(get('网页/data/' + other['id'] + '.js').split('=', 1)[1].rstrip(';'))
             assert '#/doc/' + doc['id'] in payload['html']
+        startup=json.loads(get('说明/研究结果与分析/数据/RFsim突发末同步_启动验证_20261117.json'))
+        assert len(startup['on_cases'])==4 and all(c['registered'] for c in startup['on_cases'])
+        assert all(c['activated']['kind']=='mixed' for c in startup['on_cases'])
         report.update(status='PASS', id=doc['id'], body_toc_search_match=True,
-                      declared_implemented=False, sibling_entry=True, image=images[0])
+                      declared_implemented=True, startup_checks_passed=4,
+                      sibling_entry=True, image=images[0])
     except Exception as e:
         report.update(status='FAIL', error_type=type(e).__name__, error=str(e))
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')

@@ -35,6 +35,14 @@ def main():
     for plan in plans:
         matches = [d for d in manifest if d.get('researchStep') == plan['researchStep']]
         assert len(matches) == 1 and matches[0]['planTopic'] == plan['topic'], plan['source']
+    latest = read(ROOT/'说明/研究结果与分析/数据/第一步_槽边界同步修复后_27条件_20261117.json')
+    assert latest['status']=='PASS' and latest['unique_runs']==27
+    assert latest['complete_transactions']==59400 and latest['statistical_transactions']==54000
+    assert latest['original_formal_runs']==0 and latest['actual_NAS']==[{'actual_fiveqi':9,'qfi':9}]
+    assert latest['conditions']['sync_at_burst_end']==1 and not latest['conditions']['continuous_tx']
+    assert len(latest['groups'])==9 and all(c['complete']==2200 and c['statistical']==2000 for c in latest['cases'])
+    def current_group(tool,size,head=None):
+        return next(g for g in latest['groups'] if (g['tool'],g['data_bytes'],g['header_bytes'])==(tool,size,head))
     provenance = read(BASE / '数据/来源与图片核验.json')
     for item in provenance['aggregateCopies']:
         assert sha(BASE / item['file']) == item['sha256'], item['file']
@@ -88,21 +96,27 @@ def main():
         assert d['experimentStage'] == item['topic'] and cat['experimentStages'][item['topic']] == d['id']
         p = payload(d['id']); html = p['html']
         if item['topic'] == 'rfsim-startup-sync-design':
-            assert d['group'] == 'research' and d['status'] == 'planned-not-implemented'
+            assert d['group'] == 'research' and d['status'] == 'implemented-startup-validated'
             assert d['independentExperiment'] == item['topic']
             assert 'researchStep' not in d and 'stepExperiment' not in d
-            for term in ['尚未修改 RFsim 初始化流程','正缺口本身不等于死锁',
+            for term in ['C 实现已完成','正缺口本身不等于死锁',
                          '待同步连接','真实射频','不是 UE 命令的启动时刻',
-                         '65 个采样','8703 个采样','待同步 UE 已经进入正常阻塞判据']:
+                         '65 个采样','8703 个采样','pending_sync','250.540']:
                 assert term in html, term
+            startup = read(ROOT/'说明/研究结果与分析/数据/RFsim突发末同步_启动验证_20261117.json')
+            assert len(startup['on_cases']) == 4
+            assert [c['accepted']['kind'] for c in startup['on_cases']] == ['D1','D2','D0','mixed']
+            assert all(c['activated']['kind'] == 'mixed' and c['registered'] and c['ping_check']['received']==20 for c in startup['on_cases'])
+            assert not startup['off_case']['business_started'] and startup['off_case']['RTT_ms'] is None
             assert len(p['toc']) >= 10 and html.count('<table') >= 5 and '<img' in html
             for origin_topic in ['research-results-index','step-1-experiment-1-knowledge','step-1-experiment-1-results']:
                 other = next(x for x in docs.values() if x.get('topic') == origin_topic)
                 assert '#/doc/' + d['id'] in payload(other['id'])['html']
             assert all(term in d['search'] for term in ['循环等待','方案 A','方案 B','真实射频'])
             assert '#/local' not in html
-            page_checks.append({'id':d['id'],'kind':'rfsim-startup-design','implemented':False,
-                                'newRadioLatencyResults':0,'canonicalSourceSHA':d['sha256']})
+            page_checks.append({'id':d['id'],'kind':'rfsim-startup-design','implemented':True,
+                                'onNativeStartsPassed':4,'offNativeStalls':1,
+                                'newRadioLatencyResults':27,'canonicalSourceSHA':d['sha256']})
             continue
         if item['topic'] == 'source-latency-difference':
             contrast = read(ROOT/'说明/研究结果与分析/数据/源码与现在代码_授权门限反向对照_20261116.json')
@@ -173,35 +187,34 @@ def main():
                 assert '#/doc/'+d['id'] in payload(target['id'])['html']
             assert 'E-SRC' not in html and 'E-MEAS' not in html and '#/local' not in html
             if d['stepExperiment']==1:
-                current=read(ROOT/'说明/研究结果与分析/数据/第一步_当前程序56B三轮ping_20261117.json')
-                assert current['status']=='CURRENT_ONLY' and current['unique_runs']==3
-                assert current['complete_transactions']==6600 and current['statistical_transactions']==6000
-                assert f"{current['groups'][0]['mean_RTT_ms']:.3f}" in html
-                assert current['original_current_contrast_complete'] is False
-                assert all(x['RTT_ms'] is None and not x['business_started'] for x in current['original_attempts'])
+                current=current_group('ping',56)
+                assert current['complete']==6600 and current['statistical']==6000
+                assert f"{current['pooled']['RTT_ms']['mean']:.3f}" in html
                 assert html.count('<table')==1 and '三轮正式对照尚未完成' in html
                 assert not any(term in html for term in ['35 s','readFrame','8703'])
+                assert '没有证明稳态 RTT' in html
             if d['stepExperiment']==3:
-                contrast=read(ROOT/'说明/研究结果与分析/数据/第一步_80与16字节UDP同条件对照_20261116.json')
-                assert contrast['status']=='PASS' and contrast['unique_runs']==6
-                assert contrast['complete_transactions']==13200 and contrast['statistical_transactions']==12000
-                assert contrast['display_experiment']==3 and d['status']=='complete'
-                assert contrast['payload_bytes']==256 and contrast['ipv4_packet_bytes']==284
-                assert [(v['repeat'],v['header_bytes']) for v in contrast['cases']]==[(1,16),(1,80),(2,80),(2,16),(3,16),(3,80)]
-                for v in contrast['formats']:
-                    assert f"{v['mean_RTT_ms']:.3f}" in html and f"{v['max_RTT_ms']:.3f}" in html
-                    assert abs(v['mean_UL_ms']+v['mean_reply_ms']+v['mean_DL_ms']-v['mean_RTT_ms'])<1e-12
-                assert '没有测到' in html and '同条件 A/B 尚未完成' not in html
+                assert d['status']=='complete'
+                for head in [80,16]:
+                    v=current_group('udp',256,head)['pooled']
+                    assert f"{v['RTT_ms']['mean']:.3f}" in html and f"{v['RTT_ms']['max']:.3f}" in html
+                    assert abs(v['UL_ms']['mean']+v['reply_ms']['mean']+v['DL_ms']['mean']-v['RTT_ms']['mean'])<1e-12
+                assert '没有形成稳定时延收益的证据' in html and '284 B' in html
             if d['stepExperiment']==2:
-                small=read(ROOT/'说明/研究结果与分析/数据/第一步_16B数据区ping与UDP对照_20261117.json')
-                assert d['status']=='complete' and small['status']=='PASS' and small['unique_runs']==6
-                assert small['complete_transactions']==13200 and small['statistical_transactions']==12000
-                assert small['data_bytes']==16 and small['inner_IP_bytes']==44
-                for g in small['groups']:
-                    assert f"{g['mean_tool_RTT_ms']:.3f}" in html
-                    assert f"{g['max_tool_RTT_ms']:.3f}" in html
-                    assert f"{g['mean_actual_interarrival_ms']:.3f}" in html
-                assert '相同目标间隔没有变成相同实际间隔' in html and '慢包全部保留' in html
+                assert d['status']=='complete' and '44 B' in html
+                for tool,head in [('ping',None),('udp',16)]:
+                    g=current_group(tool,16,head)['pooled']
+                    for value in [g['RTT_ms']['mean'],g['RTT_ms']['max'],g['interarrival_ms']['mean']]:
+                        assert f"{value:.3f}" in html
+                assert '实际间隔不同' in html and '慢包仍保留' in html
+            if d['stepExperiment']==4:
+                assert d['status']=='complete' and '39,600' in html and html.count('<img')==2
+                for tool,head in [('ping',None),('udp',16)]:
+                    for size in [56,256,1200]:
+                        assert f"{current_group(tool,size,head)['pooled']['RTT_ms']['mean']:.3f}" in html
+            if d['stepExperiment']==5:
+                assert d['status']=='complete' and '不重复计数' in html
+                assert f"{current_group('udp',256,16)['pooled']['RTT_ms']['mean']:.3f}" in html
             page_checks.append({'id':d['id'],'kind':'numbered-result-interface','experiment':d['stepExperiment'],'status':d['status'],'canonicalSourceSHA':d['sha256']})
             continue
         if item.get('researchStep') == 'step-1':
@@ -212,7 +225,7 @@ def main():
             tables=re.findall(r'<table>.*?</table>',source_html,re.S)
             source_table=next(t for t in tables if '源码文件（相对研究树）' in t)
             assert source_table.count('<tr>')==42
-            assert '1796' in source_html and '161' in source_html and '不是全部时延结果都已重测' in source_html
+            assert '1880' in source_html and '168' in source_html and '不是全部时延结果都已重测' in source_html
             children=sorted([x for x in docs.values() if x.get('parentTopic')=='step-1' and x.get('documentRole')=='results'],key=lambda x:x['stepExperiment'])
             assert [x['stepExperiment'] for x in children]==[1,2,3,4,5]
             assert all('#/doc/'+x['id'] in html for x in children)

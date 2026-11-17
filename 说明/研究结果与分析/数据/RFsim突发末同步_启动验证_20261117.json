@@ -1,0 +1,157 @@
+{
+  "status": "FOUR_ON_STARTS_ATTACHED_SINGLE_OFF_STALLED",
+  "original_directory_modified": false,
+  "on_cases": [
+    {
+      "case": "on01",
+      "mode": 1,
+      "accepted": {
+        "timestamp": 405073920,
+        "frame_local_sample": 798720,
+        "slot": 51,
+        "kind": "D1",
+        "endpoint": "full_DL_slot_end"
+      },
+      "activated": {
+        "timestamp": 405095904,
+        "frame_local_sample": 820704,
+        "slot": 53,
+        "kind": "mixed",
+        "endpoint": "mixed_DL_segment_end"
+      },
+      "pending_wall_us": 2072,
+      "registered": true,
+      "TUN_IP": "192.169.0.6",
+      "ping_check": {
+        "transmitted": 20,
+        "received": 20,
+        "min": 0.588,
+        "mean": 0.893,
+        "max": 1.455,
+        "mdev": 0.172,
+        "target_interval_ms": 1000
+      }
+    },
+    {
+      "case": "on02",
+      "mode": 1,
+      "accepted": {
+        "timestamp": 6867425312,
+        "frame_local_sample": 890912,
+        "slot": 57,
+        "kind": "D2",
+        "endpoint": "full_DL_slot_end"
+      },
+      "activated": {
+        "timestamp": 6867431888,
+        "frame_local_sample": 897488,
+        "slot": 58,
+        "kind": "mixed",
+        "endpoint": "mixed_DL_segment_end"
+      },
+      "pending_wall_us": 1021,
+      "registered": true,
+      "TUN_IP": "192.169.0.6",
+      "ping_check": {
+        "transmitted": 20,
+        "received": 20,
+        "min": 0.679,
+        "mean": 0.931,
+        "max": 1.289,
+        "mdev": 0.155,
+        "target_interval_ms": 100
+      }
+    },
+    {
+      "case": "on03",
+      "mode": 1,
+      "accepted": {
+        "timestamp": 1355535376,
+        "frame_local_sample": 168976,
+        "slot": 10,
+        "kind": "D0",
+        "endpoint": "full_DL_slot_end"
+      },
+      "activated": {
+        "timestamp": 1355572704,
+        "frame_local_sample": 206304,
+        "slot": 13,
+        "kind": "mixed",
+        "endpoint": "mixed_DL_segment_end"
+      },
+      "pending_wall_us": 3108,
+      "registered": true,
+      "TUN_IP": "192.169.0.6",
+      "ping_check": {
+        "transmitted": 20,
+        "received": 20,
+        "min": 0.711,
+        "mean": 0.83,
+        "max": 1.024,
+        "mdev": 0.083,
+        "target_interval_ms": 100
+      }
+    },
+    {
+      "case": "on04",
+      "mode": 1,
+      "accepted": {
+        "timestamp": 511847872,
+        "frame_local_sample": 667072,
+        "slot": 43,
+        "kind": "mixed",
+        "endpoint": "mixed_DL_segment_end"
+      },
+      "activated": {
+        "timestamp": 511847872,
+        "frame_local_sample": 667072,
+        "slot": 43,
+        "kind": "mixed",
+        "endpoint": "mixed_DL_segment_end"
+      },
+      "pending_wall_us": 12,
+      "registered": true,
+      "TUN_IP": "192.169.0.6",
+      "ping_check": {
+        "transmitted": 20,
+        "received": 20,
+        "min": 0.691,
+        "mean": 0.825,
+        "max": 1.038,
+        "mdev": 0.079,
+        "target_interval_ms": 100
+      }
+    }
+  ],
+  "off_case": {
+    "mode": 0,
+    "accepted": {
+      "timestamp": 917713936,
+      "frame_local_sample": 1029136,
+      "slot": 66,
+      "kind": "D1",
+      "endpoint": "full_DL_slot_end"
+    },
+    "TCP_ESTABLISHED": true,
+    "client_bytes_sent": 123056,
+    "server_bytes_sent": 88012,
+    "last_data_activity_ms": 250540,
+    "UE_IPv4_configured": false,
+    "business_started": false,
+    "RTT_ms": null,
+    "scope": "Finite natural observation; not a protocol attach deadline"
+  },
+  "identity": [
+    {
+      "actual_fiveqi": 9,
+      "qfi": 9
+    }
+  ],
+  "limits": [
+    "Natural finite starts, not universal failure probability",
+    "Short pings do not replace formal RTT",
+    "No multiUE/otherTDD/SCS/realRF coverage",
+    "5s pending timeout path not tested"
+  ],
+  "source": "C source in latency-rfsim-slot-sync; independent native terminal commands"
+}

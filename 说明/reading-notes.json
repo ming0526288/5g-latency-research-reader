@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "documents": [
     {
       "source": "说明/文献导读/39篇文献重要性排序与方法效果简述.md",
@@ -213,7 +213,7 @@
       "documentRole": "commands",
       "parentTopic": "step-1-commands",
       "stepExperiment": 4,
-      "commandStatus": "partial"
+      "commandStatus": "validated"
     },
     {
       "source": "说明/启动命令/第一步/5_实验基线.md",
@@ -221,7 +221,7 @@
       "documentRole": "commands",
       "parentTopic": "step-1-commands",
       "stepExperiment": 5,
-      "commandStatus": "partial"
+      "commandStatus": "validated"
     },
     {
       "source": "说明/文献导读/第一步/1_源码与当前代码.md",
