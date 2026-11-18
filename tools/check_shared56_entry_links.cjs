@@ -1,0 +1,121 @@
+/* Click the actual plan/directory entry labels and verify the individual pages. */
+const fs=require('fs'),path=require('path'),assert=require('assert');
+const {JSDOM,VirtualConsole,ResourceLoader}=require('/usr/share/nodejs/jsdom');
+const root=path.resolve(__dirname,'..');
+const cohort=JSON.parse(fs.readFileSync(path.join(root,'说明/研究结果与分析/数据/第一步_56B共用基线重测_20261118.json'),'utf8'));
+const ping56=cohort.groups.find(g=>g.tool==='ping'&&g.data_bytes===56);
+const expectedMean=ping56.pooled.RTT_ms.mean.toFixed(3);
+class LocalLoader extends ResourceLoader{fetch(url,opt){if(opt.element?.localName==='iframe'||/\.pdf(?:#|$)/i.test(url))return null;return super.fetch(url,opt);}}
+const delay=ms=>new Promise(r=>setTimeout(r,ms));
+async function until(fn,label){for(let i=0;i<300;i++){if(fn())return;await delay(20);}throw Error('Timed out: '+label);}
+(async()=>{
+ const errors=[],vc=new VirtualConsole();vc.on('jsdomError',e=>{if(!/navigation|scroll|PDF/i.test(e.message))errors.push(e.message);});
+ const dom=await JSDOM.fromFile(path.join(root,'打开阅读站.html'),{resources:new LocalLoader(),runScripts:'dangerously',pretendToBeVisual:true,virtualConsole:vc,beforeParse(w){
+  w.scrollTo=()=>{};w.matchMedia=()=>({matches:false});w.IntersectionObserver=class{observe(){}disconnect(){}};
+  w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;};
+  const store=new Map();Object.defineProperty(w,'localStorage',{value:{getItem:k=>store.get(k)??null,setItem:(k,v)=>store.set(k,v)}});
+ }});
+ const w=dom.window,d=w.document;await until(()=>w.READER_VISIBLE_CATALOG&&d.querySelector('.path-card'),'home');
+ const cat=w.READER_VISIBLE_CATALOG,byTopic=t=>cat.docs.find(x=>x.topic===t);
+ const roles=['plans','knowledge','commands','results'];
+ const children=cat.docs.filter(x=>x.documentRole&&x.stepExperiment);assert.equal(children.length,20);
+ const parentTopics={plans:'step-1-plan',knowledge:'step-1-knowledge',commands:cat.docs.find(x=>x.commandStep==='step-1').topic,results:'step-1'};
+ const url=x=>'#/doc/'+x.id;let entryClicks=0,peerClicks=0;
+ async function open(doc){w.location.hash=url(doc);await until(()=>d.querySelector('.source-label')?.getAttribute('title')===doc.source,'open '+doc.topic);}
+ async function landed(doc){await until(()=>w.location.hash===url(doc)&&d.querySelector('.source-label')?.getAttribute('title')===doc.source,'land '+doc.topic);assert(d.querySelector('.article h1').textContent.startsWith(doc.stepExperiment+'. '));}
+ for(const role of roles){
+  const parent=byTopic(parentTopics[role]);assert(parent);
+  for(let n=1;n<=5;n++){
+   const child=children.find(x=>x.documentRole===role&&x.stepExperiment===n);assert(child);
+   for(const column of [0,1]){
+    await open(parent);const rows=d.querySelectorAll('.article tbody tr');assert.equal(rows.length,5);
+    const a=rows[n-1].cells[column].querySelector('a');assert(a,'Unclickable '+role+' row '+n+' column '+column);assert.equal(a.getAttribute('href'),url(child));a.click();await landed(child);entryClicks++;
+   }
+   for(const peerRole of roles.filter(x=>x!==role)){
+    await open(child);const peer=children.find(x=>x.documentRole===peerRole&&x.stepExperiment===n);const a=d.querySelector('.article a[href="'+url(peer)+'"]');assert(a,'Missing peer '+role+' -> '+peerRole+' '+n);a.click();await landed(peer);peerClicks++;
+   }
+  }
+ }
+ for(const [topic,role] of [['launch-index','commands'],['research-results-index','results']]){
+  const hub=byTopic(topic);assert(hub);
+  const parent=byTopic(parentTopics[role]);
+  for(const col of [0,1]){
+   await open(hub);const first=d.querySelector('.article tbody tr'),a=first.cells[col].querySelector('a');assert(a);assert.equal(a.getAttribute('href'),url(parent));a.click();
+   await until(()=>d.querySelector('.source-label')?.getAttribute('title')===parent.source,'directory step-one number/title');entryClicks++;
+  }
+  for(let n=1;n<=5;n++){
+   await open(hub);const items=d.querySelectorAll('.article ol > li');assert.equal(items.length,5);
+   const target=children.find(x=>x.documentRole===role&&x.stepExperiment===n),a=items[n-1].querySelector('a');assert.equal(a.getAttribute('href'),url(target));a.click();await landed(target);entryClicks++;
+  }
+ }
+ const sourceKnowledge=children.find(x=>x.documentRole==='knowledge'&&x.stepExperiment===1);
+ await open(sourceKnowledge);
+ const fullTable=[...d.querySelectorAll('.article table')].find(t=>t.textContent.includes('源码文件（相对研究树）'));
+ assert(fullTable);assert.equal(fullTable.querySelectorAll('tbody tr').length,41);
+ assert(!/383aa52a|61654513|159208eb/.test(d.querySelector('.article').textContent));
+ w.location.hash='#/doc/e4c1f2a8800000006';await until(()=>w.location.hash===url(sourceKnowledge)&&d.querySelector('.source-label')?.getAttribute('title')===sourceKnowledge.source,'old full-source route redirects');
+ const sourceResult=children.find(x=>x.documentRole==='results'&&x.stepExperiment===1);await open(sourceResult);
+ const resultText=d.querySelector('.article').textContent;
+ for(const value of [expectedMean,'6600 / 6600','6000'])assert(resultText.includes(value));
+ if(cohort.original.status==='PASS')assert(resultText.includes(cohort.original.pooled.mean.toFixed(3))&&resultText.includes('三轮已完成'));
+ else assert(resultText.includes('三轮正式对照尚未完成'));
+ assert.equal(d.querySelector('.article tbody').querySelectorAll('tr').length,2);assert(resultText.length<3200);
+ for(const old of ['35 s','8703','1.701862','readFrame','attempt-01'])assert(!resultText.includes(old));
+ assert(!/383aa52a|61654513|159208eb/.test(resultText));
+ const diagnosis=byTopic('original-startup-diagnosis'),hub=byTopic('research-results-index');assert(diagnosis&&hub);
+ const heading=[...d.querySelectorAll('#sidebar .nav-heading')].find(x=>x.textContent==='研究结果与分析');assert(heading);
+ const hubEntry=heading.nextElementSibling,diagnosisEntry=hubEntry.nextElementSibling;
+ assert.equal(hubEntry.getAttribute('href'),url(hub));assert.equal(diagnosisEntry.getAttribute('href'),url(diagnosis));
+ assert.equal(hubEntry.parentElement,diagnosisEntry.parentElement);assert(hubEntry.classList.contains('nav-link')&&diagnosisEntry.classList.contains('nav-link'));
+ diagnosisEntry.click();await until(()=>d.querySelector('.source-label')?.getAttribute('title')===diagnosis.source,'sidebar sibling diagnosis');
+ assert(d.querySelector('#sidebar a.active[href="'+url(diagnosis)+'"]'));assert(!d.querySelector('#sidebar a.active[href="'+url(hub)+'"]'));
+ const difference=byTopic('source-latency-difference');assert(difference);
+ const differenceEntry=d.querySelector('#sidebar a[href="'+url(difference)+'"]');assert(differenceEntry);
+ const currentHubEntry=d.querySelector('#sidebar a[href="'+url(hub)+'"]');assert(currentHubEntry);
+ assert.equal(differenceEntry.parentElement,currentHubEntry.parentElement);assert(differenceEntry.classList.contains('nav-link'));
+ differenceEntry.click();await until(()=>d.querySelector('.source-label')?.getAttribute('title')===difference.source,'latency difference sibling');
+ assert(d.querySelector('#sidebar a.active[href="'+url(difference)+'"]'));assert(!d.querySelector('#sidebar a.active[href="'+url(hub)+'"]'));
+ for(const term of ['2.358','0.829','2.191','空授权','0.625'])assert(d.querySelector('.article').textContent.includes(term));
+ let differenceClicks=1;
+ for(const origin of [hub,sourceResult,children.find(x=>x.documentRole==='commands'&&x.stepExperiment===1)]){
+  await open(origin);const a=d.querySelector('.article a[href="'+url(difference)+'"]');assert(a);a.click();
+  await until(()=>d.querySelector('.source-label')?.getAttribute('title')===difference.source,'open new cause from '+origin.topic);differenceClicks++;
+  const back=d.querySelector('.article a[href="'+url(origin)+'"]');assert(back);back.click();
+  await until(()=>d.querySelector('.source-label')?.getAttribute('title')===origin.source,'return from new cause');differenceClicks++;
+ }
+ let diagnosisClicks=0;
+ for(const origin of [hub]){
+  await open(origin);const a=d.querySelector('.article a[href="'+url(diagnosis)+'"]');assert(a,'Missing detailed diagnosis entry');a.click();
+  await until(()=>d.querySelector('.source-label')?.getAttribute('title')===diagnosis.source,'detailed diagnosis');diagnosisClicks++;
+  const body=d.querySelector('.article').textContent;
+  for(const term of ['第三次是关键反例','19 份现场记录','506928','522207','8703','连续供样','没有重新启动核心网'])assert(body.includes(term));
+  assert(!/\b[0-9a-f]{40,64}\b/.test(body));assert(d.querySelectorAll('.article table').length>=10);
+  const back=d.querySelector('.article a[href="'+url(origin)+'"]');assert(back);back.click();
+  await until(()=>d.querySelector('.source-label')?.getAttribute('title')===origin.source,'diagnosis return');diagnosisClicks++;
+ }
+ d.querySelector('#searchButton').click();const query=d.querySelector('#searchInput');query.value='原因定位与控制变量全过程';query.dispatchEvent(new w.Event('input',{bubbles:true}));
+ await until(()=>d.querySelector('.search-result[href="'+url(diagnosis)+'"]'),'diagnosis search');d.querySelector('#closeSearch').click();
+ d.querySelector('#searchButton').click();query.value='时延差异原因分析';query.dispatchEvent(new w.Event('input',{bubbles:true}));
+ await until(()=>d.querySelector('.search-result[href="'+url(difference)+'"]'),'latency difference search');d.querySelector('#closeSearch').click();
+ const sync=byTopic('rfsim-startup-sync-design');assert(sync);
+ const syncEntry=d.querySelector('#sidebar a[href="'+url(sync)+'"]');assert(syncEntry);
+ assert.equal(syncEntry.parentElement,d.querySelector('#sidebar a[href="'+url(hub)+'"]').parentElement);
+ assert(syncEntry.classList.contains('nav-link'));syncEntry.click();
+ await until(()=>d.querySelector('.source-label')?.getAttribute('title')===sync.source,'startup sync sibling');
+ assert(d.querySelector('#sidebar a.active[href="'+url(sync)+'"]'));assert(!d.querySelector('#sidebar a.active[href="'+url(hub)+'"]'));
+ for(const term of ['循环等待','C 实现已完成','方案 A','真实射频'])assert(d.querySelector('.article').textContent.includes(term));
+ assert(d.querySelector('.article img'));let syncClicks=1;
+ for(const origin of [hub,sourceKnowledge,sourceResult]){
+  await open(origin);const a=d.querySelector('.article a[href="'+url(sync)+'"]');assert(a);a.click();
+  await until(()=>d.querySelector('.source-label')?.getAttribute('title')===sync.source,'startup design from '+origin.topic);syncClicks++;
+ }
+ d.querySelector('#searchButton').click();query.value='RFsim 启动同步';query.dispatchEvent(new w.Event('input',{bubbles:true}));
+ await until(()=>d.querySelector('.search-result[href="'+url(sync)+'"]'),'startup sync search');d.querySelector('#closeSearch').click();
+ assert.deepEqual(errors,[]);
+ const report={status:'PASS',independentPages:20,parentEntryClicks:entryClicks,peerPageClicks:peerClicks,planningTitlesAndNumbersClickable:true,twelveStepDirectoriesExposeFiveItems:true,fullSourceRows:41,oldStandaloneSourceRedirects:true,visibleCommitHashesRemoved:true,historicalDiagnosisPagePreserved:true,originalPingValidated:cohort.original.status==='PASS',originalPingCompleteTransactions:cohort.original.complete,originalPingStatisticalTransactions:cohort.original.statistical,currentFormalPingMean:ping56.pooled.RTT_ms.mean,originalFormalComparisonComplete:cohort.original.status==='PASS',conciseResultKeepsHistoricalFailuresInRecords:true,consoleErrors:errors,scope:'Actual local DOM clicks, not screenshot or radio experiment.'};
+ report.detailedDiagnosis={id:diagnosis.id,hubClicks:diagnosisClicks,searchable:true,visibleCommitHashesRemoved:true};
+ report.detailedDiagnosis.sidebarSiblingEntry={belowResultsIndex:true,sameParentAndLevel:true,clickOpensIndependentPage:true,onlyOwnEntryActive:true};
+ report.latencyDifferenceSibling={id:difference.id,sameParentAndLevel:true,clicks:differenceClicks,searchable:true,onlyOwnEntryActive:true};
+ report.startupSyncSibling={id:sync.id,sameParentAndLevel:true,clicks:syncClicks,searchable:true,onlyOwnEntryActive:true,implemented:true};
+ fs.writeFileSync(process.argv[2]||path.join(root,'校验/第一步56B共用基线入口点击核验_20261118.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));w.close();
+})().catch(e=>{console.error(e.stack);process.exitCode=1;});
