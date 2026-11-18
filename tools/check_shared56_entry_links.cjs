@@ -18,7 +18,7 @@ async function until(fn,label){for(let i=0;i<300;i++){if(fn())return;await delay
  const w=dom.window,d=w.document;await until(()=>w.READER_VISIBLE_CATALOG&&d.querySelector('.path-card'),'home');
  const cat=w.READER_VISIBLE_CATALOG,byTopic=t=>cat.docs.find(x=>x.topic===t);
  const roles=['plans','knowledge','commands','results'];
- const children=cat.docs.filter(x=>x.documentRole&&x.stepExperiment);assert.equal(children.length,20);
+ const children=cat.docs.filter(x=>x.topic?.startsWith('step-1-experiment-')&&x.documentRole&&x.stepExperiment);assert.equal(children.length,20);
  const parentTopics={plans:'step-1-plan',knowledge:'step-1-knowledge',commands:cat.docs.find(x=>x.commandStep==='step-1').topic,results:'step-1'};
  const url=x=>'#/doc/'+x.id;let entryClicks=0,peerClicks=0;
  async function open(doc){w.location.hash=url(doc);await until(()=>d.querySelector('.source-label')?.getAttribute('title')===doc.source,'open '+doc.topic);}

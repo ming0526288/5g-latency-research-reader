@@ -16,7 +16,7 @@ try:
  cat=json.loads(get('网页/catalog.js').split('window.READER_CATALOG=',1)[1].rstrip(';'))
  data=json.loads(get('说明/研究结果与分析/数据/第一步_56B共用基线重测_20261118.json'))
  assert (data['unique_runs'],data['complete_transactions'],data['statistical_transactions'])==(21,46200,42000)
- docs=[d for d in cat['docs'] if d.get('documentRole') and d.get('stepExperiment')]
+ docs=[d for d in cat['docs'] if d.get('topic','').startswith('step-1-experiment-') and d.get('documentRole') and d.get('stepExperiment')]
  assert len(docs)==20 and len({d['id'] for d in docs})==20
  roles=['plans','knowledge','commands','results'];bodies={}
  for d in docs:

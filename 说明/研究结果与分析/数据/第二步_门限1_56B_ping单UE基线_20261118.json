@@ -1,0 +1,154 @@
+{
+  "status": "PASS",
+  "gate": 1,
+  "tool": "native_ping",
+  "bytes": 56,
+  "successful_runs": 3,
+  "complete": 6600,
+  "statistical": 6000,
+  "pooled": {
+    "mean": 1.8507786666666666,
+    "p50": 1.84,
+    "p95": 2.83,
+    "p99": 3.37,
+    "max": 18.9
+  },
+  "runs": [
+    {
+      "path": "gate1-ping-r2",
+      "summary": {
+        "status": "PASS",
+        "ues": 1,
+        "regime": "per-ue",
+        "complete": 2200,
+        "statistical": 2000,
+        "flows": [
+          {
+            "ue": 0,
+            "complete": 2200,
+            "statistical": 2000,
+            "native_ping_RTT_ms": {
+              "mean": 1.8729335,
+              "p50": 1.87,
+              "p95": 2.8905000000000003,
+              "p99": 3.3802,
+              "max": 5.84
+            },
+            "TUN_RTT_ms": {
+              "mean": 1.863752818,
+              "p50": 1.8644855,
+              "p95": 2.8855216,
+              "p99": 3.36655096,
+              "max": 5.829339
+            },
+            "actual_interarrival_ms": {
+              "mean": 20.87763174033652,
+              "p50": 20.555823,
+              "p95": 23.777823199999997,
+              "p99": 27.25177612,
+              "max": 28.909673
+            },
+            "N3_QFI_counts": {
+              "type1_qfi9": 2200,
+              "type0_qfi9": 2200
+            }
+          }
+        ]
+      },
+      "ping_stdout_sha256": "35ad572aea661627aa31accc8bfcf8400ac935c585105a952acaa2a9cd856651"
+    },
+    {
+      "path": "gate1-ping-r3",
+      "summary": {
+        "status": "PASS",
+        "ues": 1,
+        "regime": "per-ue",
+        "complete": 2200,
+        "statistical": 2000,
+        "flows": [
+          {
+            "ue": 0,
+            "complete": 2200,
+            "statistical": 2000,
+            "native_ping_RTT_ms": {
+              "mean": 1.8423464999999999,
+              "p50": 1.83,
+              "p95": 2.8209999999999997,
+              "p99": 3.3399999999999994,
+              "max": 5.26
+            },
+            "TUN_RTT_ms": {
+              "mean": 1.8332769345,
+              "p50": 1.8238425,
+              "p95": 2.8103617,
+              "p99": 3.32486194,
+              "max": 5.253989
+            },
+            "actual_interarrival_ms": {
+              "mean": 20.884855853569803,
+              "p50": 20.579491,
+              "p95": 23.669369799999995,
+              "p99": 27.419786759999997,
+              "max": 28.66111
+            },
+            "N3_QFI_counts": {
+              "type1_qfi9": 2200,
+              "type0_qfi9": 2200
+            }
+          }
+        ]
+      },
+      "ping_stdout_sha256": "c971375752b9bc5a34af5d963e981ac8ef1a5fb43aae477c8700c36c12c5fe36"
+    },
+    {
+      "path": "gate1-ping-r4",
+      "summary": {
+        "status": "PASS",
+        "ues": 1,
+        "regime": "per-ue",
+        "complete": 2200,
+        "statistical": 2000,
+        "flows": [
+          {
+            "ue": 0,
+            "complete": 2200,
+            "statistical": 2000,
+            "native_ping_RTT_ms": {
+              "mean": 1.837056,
+              "p50": 1.8250000000000002,
+              "p95": 2.75,
+              "p99": 3.37,
+              "max": 18.9
+            },
+            "TUN_RTT_ms": {
+              "mean": 1.8274397305,
+              "p50": 1.8156984999999999,
+              "p95": 2.7424955,
+              "p99": 3.35806691,
+              "max": 18.885914
+            },
+            "actual_interarrival_ms": {
+              "mean": 20.908573461573443,
+              "p50": 20.563752,
+              "p95": 23.9856075,
+              "p99": 27.736317980000003,
+              "max": 28.806475
+            },
+            "N3_QFI_counts": {
+              "type1_qfi9": 2200,
+              "type0_qfi9": 2200
+            }
+          }
+        ]
+      },
+      "ping_stdout_sha256": "38f1b35f838dfcaa7aa93865d8dcf9c5a9f2ba5bc5ef905c05b0125f4bf10040"
+    }
+  ],
+  "failed_attempt_separate": {
+    "path": "gate1-ping-r1",
+    "sent": 2200,
+    "received": 0,
+    "RTT": null
+  },
+  "scope": "samegate1samecode, freshnative1UE episode; diagnostics/failures notpooled; oldgate0hostnetworkdiffretained"
+}

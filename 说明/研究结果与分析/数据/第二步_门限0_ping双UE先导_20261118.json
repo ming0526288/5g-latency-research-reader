@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "gate": 0,
+  "scope": "dualUE56Bnativeping200/20pilot; not fullformal",
+  "case": {
+    "status": "PASS",
+    "ues": 2,
+    "regime": "per-ue",
+    "complete": 400,
+    "statistical": 360,
+    "flows": [
+      {
+        "ue": 0,
+        "complete": 200,
+        "statistical": 180,
+        "native_ping_RTT_ms": {
+          "mean": 1.7088166666666667,
+          "p50": 1.71,
+          "p95": 2.3305,
+          "p99": 2.4536000000000002,
+          "max": 3.25
+        },
+        "TUN_RTT_ms": {
+          "mean": 1.6968724277777778,
+          "p50": 1.69909,
+          "p95": 2.3115561,
+          "p99": 2.43838298,
+          "max": 3.232562
+        },
+        "actual_interarrival_ms": {
+          "mean": 20.634281296482413,
+          "p50": 20.639597,
+          "p95": 20.988218200000002,
+          "p99": 21.033956680000003,
+          "max": 21.049262
+        },
+        "N3_QFI_counts": {
+          "type1_qfi9": 200,
+          "type0_qfi9": 200
+        }
+      },
+      {
+        "ue": 1,
+        "complete": 200,
+        "statistical": 180,
+        "native_ping_RTT_ms": {
+          "mean": 1.707,
+          "p50": 1.66,
+          "p95": 2.231,
+          "p99": 2.6058999999999997,
+          "max": 3.9
+        },
+        "TUN_RTT_ms": {
+          "mean": 1.6956349222222222,
+          "p50": 1.645563,
+          "p95": 2.22530285,
+          "p99": 2.5928436400000003,
+          "max": 3.88758
+        },
+        "actual_interarrival_ms": {
+          "mean": 20.645344497487436,
+          "p50": 20.649192,
+          "p95": 20.9980058,
+          "p99": 21.05706852,
+          "max": 21.059302
+        },
+        "N3_QFI_counts": {
+          "type1_qfi9": 200,
+          "type0_qfi9": 200
+        }
+      }
+    ]
+  }
+}

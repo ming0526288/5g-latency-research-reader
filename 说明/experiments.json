@@ -45,7 +45,13 @@
       "topic": "step-2",
       "researchStep": "step-2",
       "planTopic": "step-2-plan",
-      "status": "not-started"
+      "status": "partial",
+      "subexperiments": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "source": "说明/研究结果与分析/第三步结果与分析.md",
@@ -177,6 +183,44 @@
       "topic": "rfsim-startup-sync-design",
       "independentExperiment": "rfsim-startup-sync-design",
       "status": "implemented-startup-validated"
+    },
+    {
+      "source": "说明/研究结果与分析/多UE接入异常_CPU与空闲探测对照分析.md",
+      "topic": "multiue-idle-probe-diagnosis",
+      "independentExperiment": "multiue-idle-probe-diagnosis",
+      "status": "partial"
+    },
+    {
+      "source": "说明/研究结果与分析/第二步/1_门限0的ping多UE.md",
+      "topic": "step-2-experiment-1-results",
+      "documentRole": "results",
+      "parentTopic": "step-2",
+      "stepExperiment": 1,
+      "status": "partial"
+    },
+    {
+      "source": "说明/研究结果与分析/第二步/2_门限1的ping多UE.md",
+      "topic": "step-2-experiment-2-results",
+      "documentRole": "results",
+      "parentTopic": "step-2",
+      "stepExperiment": 2,
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/第二步/3_门限0的UDP多UE.md",
+      "topic": "step-2-experiment-3-results",
+      "documentRole": "results",
+      "parentTopic": "step-2",
+      "stepExperiment": 3,
+      "status": "partial"
+    },
+    {
+      "source": "说明/研究结果与分析/第二步/4_门限1的UDP多UE.md",
+      "topic": "step-2-experiment-4-results",
+      "documentRole": "results",
+      "parentTopic": "step-2",
+      "stepExperiment": 4,
+      "status": "partial"
     }
   ],
   "redirects": {

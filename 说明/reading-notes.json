@@ -25,7 +25,13 @@
     {
       "source": "说明/文献导读/第二步规划_多UE_PF基线与负载竞争.md",
       "topic": "step-2-plan",
-      "researchStep": "step-2"
+      "researchStep": "step-2",
+      "subexperiments": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "source": "说明/文献导读/第三步规划_TDD配比与周期分析.md",
@@ -91,7 +97,13 @@
       "commandStep": "step-2",
       "planTopic": "step-2-plan",
       "resultTopic": "step-2",
-      "commandStatus": "pending-validation"
+      "commandStatus": "partial",
+      "subexperiments": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "source": "说明/启动命令/第三步启动命令.md",
@@ -259,6 +271,66 @@
       "documentRole": "plans",
       "parentTopic": "step-1-plan",
       "stepExperiment": 5
+    },
+    {
+      "source": "说明/文献导读/第二步/1_门限0的ping多UE.md",
+      "topic": "step-2-experiment-1-plans",
+      "documentRole": "plans",
+      "parentTopic": "step-2-plan",
+      "stepExperiment": 1
+    },
+    {
+      "source": "说明/文献导读/第二步/2_门限1的ping多UE.md",
+      "topic": "step-2-experiment-2-plans",
+      "documentRole": "plans",
+      "parentTopic": "step-2-plan",
+      "stepExperiment": 2
+    },
+    {
+      "source": "说明/文献导读/第二步/3_门限0的UDP多UE.md",
+      "topic": "step-2-experiment-3-plans",
+      "documentRole": "plans",
+      "parentTopic": "step-2-plan",
+      "stepExperiment": 3
+    },
+    {
+      "source": "说明/文献导读/第二步/4_门限1的UDP多UE.md",
+      "topic": "step-2-experiment-4-plans",
+      "documentRole": "plans",
+      "parentTopic": "step-2-plan",
+      "stepExperiment": 4
+    },
+    {
+      "source": "说明/启动命令/第二步/1_门限0的ping多UE.md",
+      "topic": "step-2-experiment-1-commands",
+      "documentRole": "commands",
+      "parentTopic": "step-2-commands",
+      "stepExperiment": 1,
+      "commandStatus": "partial"
+    },
+    {
+      "source": "说明/启动命令/第二步/2_门限1的ping多UE.md",
+      "topic": "step-2-experiment-2-commands",
+      "documentRole": "commands",
+      "parentTopic": "step-2-commands",
+      "stepExperiment": 2,
+      "commandStatus": "partial"
+    },
+    {
+      "source": "说明/启动命令/第二步/3_门限0的UDP多UE.md",
+      "topic": "step-2-experiment-3-commands",
+      "documentRole": "commands",
+      "parentTopic": "step-2-commands",
+      "stepExperiment": 3,
+      "commandStatus": "partial"
+    },
+    {
+      "source": "说明/启动命令/第二步/4_门限1的UDP多UE.md",
+      "topic": "step-2-experiment-4-commands",
+      "documentRole": "commands",
+      "parentTopic": "step-2-commands",
+      "stepExperiment": 4,
+      "commandStatus": "partial"
     }
   ]
 }

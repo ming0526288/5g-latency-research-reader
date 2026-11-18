@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "scope": "four independent singleUE references; gate0 frompriorstep1,gate1new; no duplicate count orenvironment-causalityclaim",
+  "rows": [
+    {
+      "gate": 0,
+      "tool": "ping",
+      "mean_RTT_ms": 0.8204106666666666,
+      "complete": 6600,
+      "statistical": 6000,
+      "source": "第一步_56B共用基线重测_20261118.json",
+      "reused": true,
+      "environment": "hostnetwork,RFsim127.0.0.1"
+    },
+    {
+      "gate": 1,
+      "tool": "ping",
+      "mean_RTT_ms": 1.8507786666666666,
+      "complete": 6600,
+      "statistical": 6000,
+      "source": "第二步_门限1_56B_ping单UE基线_20261118.json",
+      "reused": false,
+      "environment": "isolatednetns,RFsim10.203.1.1",
+      "failed_attempt_separate": {
+        "sent": 2200,
+        "received": 0
+      }
+    },
+    {
+      "gate": 0,
+      "tool": "UDP",
+      "mean_RTT_ms": 0.8704206706666666,
+      "complete": 6600,
+      "statistical": 6000,
+      "source": "第一步_56B共用基线重测_20261118.json",
+      "reused": true,
+      "environment": "hostnetwork,RFsim127.0.0.1"
+    },
+    {
+      "gate": 1,
+      "tool": "UDP",
+      "mean_RTT_ms": 1.9061363173333332,
+      "complete": 6600,
+      "statistical": 6000,
+      "source": "第二步_门限1_56B_UDP多UE_20261118.json",
+      "reused": false,
+      "environment": "isolatednetns,RFsim10.203.1.1"
+    }
+  ]
+}

@@ -19,7 +19,13 @@
     {
       "topic": "step-2-knowledge",
       "source": "说明/算法知识点说明/十二步知识点/第二步知识点.md",
-      "knowledgeStep": "step-2"
+      "knowledgeStep": "step-2",
+      "subexperiments": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "topic": "step-3-knowledge",
@@ -169,6 +175,34 @@
       "documentRole": "knowledge",
       "parentTopic": "step-1-knowledge",
       "stepExperiment": 5
+    },
+    {
+      "source": "说明/算法知识点说明/十二步知识点/第二步/1_门限0的ping多UE.md",
+      "topic": "step-2-experiment-1-knowledge",
+      "documentRole": "knowledge",
+      "parentTopic": "step-2-knowledge",
+      "stepExperiment": 1
+    },
+    {
+      "source": "说明/算法知识点说明/十二步知识点/第二步/2_门限1的ping多UE.md",
+      "topic": "step-2-experiment-2-knowledge",
+      "documentRole": "knowledge",
+      "parentTopic": "step-2-knowledge",
+      "stepExperiment": 2
+    },
+    {
+      "source": "说明/算法知识点说明/十二步知识点/第二步/3_门限0的UDP多UE.md",
+      "topic": "step-2-experiment-3-knowledge",
+      "documentRole": "knowledge",
+      "parentTopic": "step-2-knowledge",
+      "stepExperiment": 3
+    },
+    {
+      "source": "说明/算法知识点说明/十二步知识点/第二步/4_门限1的UDP多UE.md",
+      "topic": "step-2-experiment-4-knowledge",
+      "documentRole": "knowledge",
+      "parentTopic": "step-2-knowledge",
+      "stepExperiment": 4
     }
   ],
   "redirects": {
