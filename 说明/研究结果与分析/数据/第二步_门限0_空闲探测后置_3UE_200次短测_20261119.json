@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "condition": "Three UEs, threshold 0, residual probe ordering, RFsim 120 kHz",
+  "request_data_bytes": 56,
+  "target_request_pps_per_ue": 50,
+  "warmup_per_ue": 20,
+  "packets_per_ue": 200,
+  "tools": {
+    "ping": {
+      "scope": "native ICMP RTT",
+      "overlap_s": 3.219956527,
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "replies": 200,
+          "statistical_samples": 180,
+          "mean_ms": 2.2412222222222224,
+          "p99_ms": 2.8684000000000003,
+          "max_ms": 2.93,
+          "actual_request_pps": 48.81290772405397
+        },
+        {
+          "ue": 2,
+          "sent": 200,
+          "replies": 200,
+          "statistical_samples": 180,
+          "mean_ms": 2.2918333333333334,
+          "p99_ms": 3.492500000000002,
+          "max_ms": 3.86,
+          "actual_request_pps": 48.83469457921759
+        },
+        {
+          "ue": 3,
+          "sent": 200,
+          "replies": 200,
+          "statistical_samples": 180,
+          "mean_ms": 7.187055555555556,
+          "p99_ms": 11.7,
+          "max_ms": 11.8,
+          "actual_request_pps": 48.94018768101102
+        }
+      ]
+    },
+    "udp": {
+      "scope": "UDP application RTT",
+      "overlap_s": 3.582307857,
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "replies": 200,
+          "statistical_samples": 180,
+          "mean_ms": 2.5424288166666664,
+          "p99_ms": 3.45245622,
+          "max_ms": 3.514726,
+          "actual_request_pps": 50.00037643499485
+        },
+        {
+          "ue": 2,
+          "sent": 200,
+          "replies": 200,
+          "statistical_samples": 180,
+          "mean_ms": 2.5494115944444444,
+          "p99_ms": 3.59552343,
+          "max_ms": 3.654251,
+          "actual_request_pps": 50.00045004173916
+        },
+        {
+          "ue": 3,
+          "sent": 200,
+          "replies": 200,
+          "statistical_samples": 180,
+          "mean_ms": 7.98352446111111,
+          "p99_ms": 14.012930750000002,
+          "max_ms": 15.78103,
+          "actual_request_pps": 50.00039992782194
+        }
+      ]
+    }
+  },
+  "path": "TUN and N3 requests and replies linked with QFI 9; zero kernel capture drops"
+}
