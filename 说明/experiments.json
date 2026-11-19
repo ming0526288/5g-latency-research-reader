@@ -191,6 +191,12 @@
       "status": "partial"
     },
     {
+      "source": "说明/研究结果与分析/门限0下第三个UE的接入验证.md",
+      "topic": "gate-zero-third-ue-admission",
+      "independentExperiment": "gate-zero-third-ue-admission",
+      "status": "completed-with-scope"
+    },
+    {
       "source": "说明/研究结果与分析/第二步/1_门限0的ping多UE.md",
       "topic": "step-2-experiment-1-results",
       "documentRole": "results",
