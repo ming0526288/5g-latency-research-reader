@@ -78,8 +78,11 @@ def build(kind='knowledge'):
                 raise ValueError('Algorithm note must be below ' + folder)
         if experiments and not any(path.is_relative_to(ROOT / folder) for folder in ('说明/五类时延分析', '说明/研究结果与分析')):
             raise ValueError('Experiment page must be below an approved results folder')
-        if reading_notes and not (any(path.is_relative_to(ROOT / folder) for folder in ('说明/文献导读', '说明/启动命令')) or path == ROOT / '说明/研究结果与分析/研究结果与分析总目录.md'):
-            raise ValueError('Reading note must be below an approved guide/command folder or the results hub')
+        if reading_notes and not (
+            any(path.is_relative_to(ROOT / folder) for folder in ('说明/文献导读', '说明/启动命令'))
+            or path in (ROOT / '说明/研究代码/代码目录.md', ROOT / '说明/研究结果与分析/研究结果与分析总目录.md')
+        ):
+            raise ValueError('Reading note must be below an approved guide/command folder or be a registered index')
         if item.get('commandStep') and (not reading_notes or not re.fullmatch(r'step-[1-9][0-9]*', item['commandStep']) or item.get('commandStatus') not in ('pending-validation', 'partial', 'validated')):
             raise ValueError('Command page requires a valid step and explicit validation status')
         if not path.is_relative_to(source_root) or path.suffix != '.md':

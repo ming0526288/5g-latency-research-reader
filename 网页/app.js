@@ -64,6 +64,7 @@
  const knowledgeIndex=C.docs.find(d=>d.topic==='twelve-step-knowledge');
  const knowledgeSteps=C.docs.filter(d=>d.knowledgeStep).sort((a,b)=>a.knowledgeStep.localeCompare(b.knowledgeStep,'en',{numeric:true}));
  const launchIndex=C.docs.find(d=>d.topic==='launch-index');
+ const codeIndex=C.docs.find(d=>d.topic==='research-code-index');
  const resultsIndex=C.docs.find(d=>d.topic==='research-results-index');
  const startupDiagnosis=C.docs.find(d=>d.topic==='original-startup-diagnosis');
  const latencyDifference=C.docs.find(d=>d.topic==='source-latency-difference');
@@ -90,6 +91,7 @@
    '<div class="nav-heading">知识点</div>'+studyDocs.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
    (legacyModulesVisible?nav('#/browse/algorithm-knowledge','◇','算法知识点',algorithmFamilies.length):'')+
    (launchIndex?'<div class="nav-heading">启动命令</div>'+nav(docUrl(launchIndex),'▷','十二步启动命令'):'')+
+   (codeIndex?'<div class="nav-heading">研究代码</div>'+nav(docUrl(codeIndex),'⌘',E(codeIndex.title)):'')+
    '<div class="nav-heading">研究结果与分析</div>'+(resultsIndex?nav(docUrl(resultsIndex),'↗','结果与分析总目录'):nav('#/browse/research','↗','结果与分析总目录'))+
    (startupDiagnosis?nav(docUrl(startupDiagnosis),'↗','启动失败原因与排查过程'):'')+
    (latencyDifference?nav(docUrl(latencyDifference),'↗','源码与现在代码的时延差异'):'')+
@@ -149,7 +151,7 @@
   const kind=d.group==='knowledge'?'knowledge':'results';
   const sequence=d.parentTopic?C.docs.filter(x=>x.parentTopic===d.parentTopic&&x.documentRole===d.documentRole).sort((a,b)=>a.stepExperiment-b.stepExperiment):d.knowledgeStep?knowledgeSteps:d.experimentStage?researchStages.map(entry=>entry.doc):family?familyDocumentIds(family,kind).map(did=>docs.get(did)):outline;
   const pos=sequence.findIndex(x=>x.id===id);const prev=sequence[pos-1];const next=sequence[pos+1];
-  const docGroupLabel=d.commandStep||d.documentRole==='commands'||d.topic==='launch-index'?'启动命令':d.experimentStage||d.topic==='research-results-index'?'研究结果与分析':['paper-plan','algorithm-experiment-plan'].includes(d.topic)||d.documentRole==='plans'||d.researchStep&&d.group==='guides'?'论文规划与研究路线':groups[d.group]||'文档';
+  const docGroupLabel=d.topic==='research-code-index'?'研究代码':d.commandStep||d.documentRole==='commands'||d.topic==='launch-index'?'启动命令':d.experimentStage||d.topic==='research-results-index'?'研究结果与分析':['paper-plan','algorithm-experiment-plan'].includes(d.topic)||d.documentRole==='plans'||d.researchStep&&d.group==='guides'?'论文规划与研究路线':groups[d.group]||'文档';
   main.innerHTML=`<div class="doc-view">${breadcrumbs(docGroupLabel)}${algorithmContext(d)}<div class="doc-toolbar"><span class="pill">${E(docGroupLabel)}</span><span class="pill warm">约 ${d.minutes} 分钟</span><button class="soft-button" id="bookmarkDoc">${bookmarks.includes(id)?'★ 已收藏':'☆ 加入书签'}</button><a class="soft-button" href="${encodeURI(d.snapshot)}" download>Markdown原稿</a><span class="source-label" title="${E(d.source)}">${E(d.source)}</span></div><article class="article">${c.html}</article>${pos>=0?`<nav class="doc-pagination">${prev?`<a href="${docUrl(prev)}"><small>← 上一篇</small>${E(prev.title)}</a>`:'<span></span>'}${next?`<a href="${docUrl(next)}"><small>下一篇 →</small>${E(next.title)}</a>`:family?`<a href="${algorithmUrl(family,kind)}"><small>返回算法目录 →</small>${E(family.name)} · ${kind==='knowledge'?'算法知识点':'实现与结果'}</a>`:`<a href="#/browse/research"><small>继续探索 →</small>研究报告与实验结果</a>`}</nav>`:''}</div>`;
   if(d.source.endsWith('算法知识点说明/00_通信与时延基础知识.md')){
    const h=Array.from(main.querySelectorAll('h2')).find(x=>x.textContent.startsWith('5.'));
