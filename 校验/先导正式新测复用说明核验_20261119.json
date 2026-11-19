@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "date": "2026-11-19",
+  "topics": [
+    "basics",
+    "step-2-knowledge"
+  ],
+  "checks": [
+    "two sources rendered",
+    "sample count and per-UE meaning in HTML and search",
+    "source hashes match catalog",
+    "TOC regenerated",
+    "existing topic navigation retained",
+    "unrelated catalog/report changes preserved"
+  ],
+  "scope": "static content and indexing; no browser or wireless experiment"
+}
