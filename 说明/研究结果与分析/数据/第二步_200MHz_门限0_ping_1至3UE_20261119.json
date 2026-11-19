@@ -1,0 +1,144 @@
+{
+  "verified": true,
+  "scope": "RFsim gate 0 residual PF; 120 kHz; 200 MHz; 132 PRB",
+  "center_freq_hz": 27612360000,
+  "sent_per_ue": 200,
+  "warmup_per_ue": 20,
+  "data_bytes": 56,
+  "target_pps_per_ue": 50,
+  "theoretical_round_cap": 5,
+  "groups": [
+    {
+      "ues": 1,
+      "concurrent_statistics_s": 3.655754315,
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "samples": 180,
+          "ping_RTT_ms": {
+            "mean": 1.3541666666666667,
+            "p50": 1.315,
+            "p95": 1.7614999999999994,
+            "p99": 1.9510000000000007,
+            "max": 2.1
+          },
+          "request_pps": 48.979889093576936,
+          "capture_mean_ms": {
+            "uplink": 0.7307206055555555,
+            "corepath": 0.06140537777777778,
+            "downlink": 0.5453808666666666
+          }
+        }
+      ]
+    },
+    {
+      "ues": 2,
+      "concurrent_statistics_s": 2.894915694,
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "samples": 180,
+          "ping_RTT_ms": {
+            "mean": 2.945444444444444,
+            "p50": 2.85,
+            "p95": 3.96,
+            "p99": 4.2042,
+            "max": 4.35
+          },
+          "request_pps": 48.48934158536027,
+          "capture_mean_ms": {
+            "uplink": 1.8262186666666667,
+            "corepath": 0.042267816666666666,
+            "downlink": 1.0645496555555556
+          }
+        },
+        {
+          "ue": 2,
+          "sent": 200,
+          "received": 200,
+          "samples": 180,
+          "ping_RTT_ms": {
+            "mean": 3.0641666666666665,
+            "p50": 2.92,
+            "p95": 4.0424999999999995,
+            "p99": 4.3268,
+            "max": 4.49
+          },
+          "request_pps": 48.45736221163422,
+          "capture_mean_ms": {
+            "uplink": 1.8647595722222223,
+            "corepath": 0.0630794,
+            "downlink": 1.1208099666666667
+          }
+        }
+      ]
+    },
+    {
+      "ues": 3,
+      "concurrent_statistics_s": 2.834334783,
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "samples": 180,
+          "ping_RTT_ms": {
+            "mean": 4.029222222222222,
+            "p50": 4.0600000000000005,
+            "p95": 5.180499999999999,
+            "p99": 5.581,
+            "max": 5.68
+          },
+          "request_pps": 48.78661494688275,
+          "capture_mean_ms": {
+            "uplink": 2.6786071444444444,
+            "corepath": 0.05099588333333333,
+            "downlink": 1.2850029
+          }
+        },
+        {
+          "ue": 2,
+          "sent": 200,
+          "received": 200,
+          "samples": 180,
+          "ping_RTT_ms": {
+            "mean": 4.372277777777778,
+            "p50": 4.31,
+            "p95": 5.4905,
+            "p99": 6.029400000000001,
+            "max": 6.22
+          },
+          "request_pps": 48.7571909509385,
+          "capture_mean_ms": {
+            "uplink": 2.8759748833333334,
+            "corepath": 0.04793401111111111,
+            "downlink": 1.4361513055555555
+          }
+        },
+        {
+          "ue": 3,
+          "sent": 200,
+          "received": 200,
+          "samples": 180,
+          "ping_RTT_ms": {
+            "mean": 4.616222222222222,
+            "p50": 4.425,
+            "p95": 6.296999999999998,
+            "p99": 7.1989,
+            "max": 7.47
+          },
+          "request_pps": 48.74743701868065,
+          "capture_mean_ms": {
+            "uplink": 3.050401838888889,
+            "corepath": 0.05024987777777778,
+            "downlink": 1.5029846111111111
+          }
+        }
+      ]
+    }
+  ]
+}

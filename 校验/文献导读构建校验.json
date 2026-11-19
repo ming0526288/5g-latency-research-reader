@@ -2196,6 +2196,59 @@
       "words": 1451,
       "minutes": 2,
       "search": "  5. 实验基线\n\n 知识点 (../../算法知识点说明/十二步知识点/第一步/5_实验基线.md) ·  启动命令 (../../启动命令/第一步/5_实验基线.md) ·  结果与分析 (../../研究结果与分析/第一步/5_实验基线.md) ·  返回第一步规划 (../第一步规划_单UE通信RTT基线.md)\n\n   我的目标\n\n我从本轮新测UDP256B三轮冻结后续可复现的单UE低时延参照。\n\n   本轮怎么做\n\n复用实验4三轮数据，不另发业务。记录程序/配置、PF/HOL0/legacy、MCS上限9、资格0、SCS/TDD、包内容、四时刻、真实QoS和失败/资源边界；默认资格10机制对照保留独立入口，不冒充本轮新数据。\n\n   结果边界与当前状态\n\n资格0空授权开销更高，不能自动作为多UE的唯一或最优基线。后续算法比较需资源开销与公平性，原有18条件为旧输入身份，不改标签。\n\n当前已重新规划，资料已核，尚未完成本轮正式矩阵；不得把计划数写成实测。\n\n   本轮共同条件与来源\n\n我固定原核心网、单 UE、27.54756 GHz/n261、120 kHz、66 PRB、0.625 ms＝3D＋混合槽(6D4F4U)＋1U。使用同一修正程序、PF、legacy 探测、私有 HOL 关闭、现有 SR 构造40槽，UL/DL MCS上限均为9，保留必要SDAP/SSB/SIB1配置。上限不是每个TB实际值，需检查运行日志。低时延基线取已有空闲资格参数0；它增加空授权，是单UE参照，不直接推广多UE。\n\n核心网/gNB/UE仍在指定目录分终端直接启动，不加continuous-tx或额外线程池。UDP业务生成、抓包和只读统计可以使用独立工具，它们不负责启动RAN。相同原核心/目标、实际地址、路由、时钟域、真实会话5QI与N3 QFI先核；不能凭配置文件宣称已经生效。\n\n每个正式条件2200次，前200次为预先规定的预热，后2000次统计，三轮；目标50包/秒。UDP固定相对20ms计划，ping以-i 0.02给目标，实际间隔分别报告，不能声称实际绝对发包时刻相同。主指标保留原生RTT，并用同一UE TUN的请求—对应回复区间作共同辅助边界。UDP另关联同宿主四应用时刻；不把RTT除2当单向时延，不相加P99，不以6000样本认证P99.9可靠性。\n\n协议沿本轮已核用户本地原文：38.211 V19.5.0 §4.2/4.3.2；38.213 V19.5.0 §11.1/9.2.4/13；38.214 V19.5.0 §5.1.3.1/6.1.4.1及适用表、§6.1.2.1；38.321 V19.4.0 §5.4.1/4/5；38.331 V19.4.0 §6.3.2；37.324 V19.0.0 §5.2.1 NOTE2；29.281 V19.2.0 §5.1/5.2.1/5.2.2.7与38.415 V19.1.0 §5.5.2/5.5.3.3核路径。真实NAS采用24.501 V20.1.0和23.501 V20.3.0既有定位。具体包长、50pps、样本/预热、MCS上限和授权参数均为工程选择，不是3GPP指定实验。\n\nP01《Dissecting 5G New-Radio Latency》本地IFIP Networking2025版PDF2—4页§III/IV、图1/表I用于包关联与边界；本文作者UL RAN边界不是本项目应用RTT。指定教材第2章PDF49—55页用于用户面架构。80/16B格式来自本项目历史代码，不冒称论文规定。缺所需协议立即停止；用户本地版本不冒称官网最高版。\n"
+    },
+    {
+      "id": "rc94c1b03bb8240a1",
+      "title": "1. 门限 0 的 ping 多 UE启动命令",
+      "source": "说明/启动命令/第二步/1_门限0的ping多UE.md",
+      "aliases": [
+        "说明/启动命令/第二步/1_门限0的ping多UE.md"
+      ],
+      "group": "guides",
+      "topic": "step-2-experiment-1-commands",
+      "prerequisite": false,
+      "documentRole": "commands",
+      "parentTopic": "step-2-commands",
+      "stepExperiment": 1,
+      "commandStatus": "partial",
+      "sha256": "3036ef251b7765b39c0e57788e8634277f6ee7dafd88a6c526cb4175acf506de",
+      "snapshot": "说明/启动命令/第二步/1_门限0的ping多UE.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "1-门限-0-的-ping-多-ue启动命令",
+          "title": "1. 门限 0 的 ping 多 UE启动命令",
+          "level": 1
+        },
+        {
+          "id": "本项命令与实际状态",
+          "title": "本项命令与实际状态",
+          "level": 2
+        },
+        {
+          "id": "先捕获-再在独立终端运行原生-ping",
+          "title": "先捕获 再在独立终端运行原生 ping",
+          "level": 2
+        },
+        {
+          "id": "200-mhz-独立短测命令",
+          "title": "200 MHz 独立短测命令",
+          "level": 2
+        },
+        {
+          "id": "本轮证据目录",
+          "title": "本轮证据目录",
+          "level": 2
+        },
+        {
+          "id": "依据与测量边界",
+          "title": "依据与测量边界",
+          "level": 2
+        }
+      ],
+      "words": 4191,
+      "minutes": 6,
+      "search": "  1. 门限 0 的 ping 多 UE启动命令\n\n 规划 (../../文献导读/第二步/1_门限0的ping多UE.md) ·  知识点 (../../算法知识点说明/十二步知识点/第二步/1_门限0的ping多UE.md) ·  结果与分析 (../../研究结果与分析/第二步/1_门限0的ping多UE.md) ·  返回第二步启动命令 (../第二步启动命令.md)\n\n   本项命令与实际状态\n\n先按 第二步共同启动表 (../第二步启动命令.md)选择门限 0 配置，核心网、gNB、各 UE 分终端直接启动。业务工具不启动无线程序，不加 continuous-tx 或额外线程池。看到所有本轮 UE 的 TUN 地址并核路由、实际 NAS/QFI 后，才开始本页业务。\n\n UE 数 每种负载的规模 每 UE 固定负载间隔 总量固定间隔 实际完成范围 \n --- --- --- --- --- \n 1 三轮各 2200，前 200 预热 0.02 s 与左侧同一条件，不重复测 既有三轮复用 \n 2 各三轮，每轮每 UE 2200/200 0.02 s 0.04 s 两种负载均已补齐 \n 3 未开始本工具业务 不执行 不执行 共同接入问题后置，RTT 未测 \n\n   先捕获 再在独立终端运行原生 ping\n\n捕获终端进入研究仓库，以下为正式双 UE、每 UE 50 包／秒的命令形式。 --root  必须换成未存在的新目录；此命令仅抓包、检查路由和核验，不启动 ping／gNB／UE。\n\n   bash\ncd ~/oiwireless/oi-wireless-ran-latency-analysis\nsudo -n /usr/bin/python3 -B research/latency-analysis/step2-multiue56-v1/ping_capture.py --environment /home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/environment --root /home/lbh/oiwireless/analysis-source-audit/new-ping-output --ues 2 --regime per-ue --packets 2200 --warmup 200\n   \n\n看到  READY  后，在两个独立业务终端分别执行；用各自新输出目录的  ping.log  保存完整原生结果：\n\n   bash\nsudo -n ip netns exec s2m56u0 ping -D -n -I oaitun_ue1 -c 2200 -s 56 -i 0.02 -W 2 172.11.200.25   tee /home/lbh/oiwireless/analysis-source-audit/new-ping-output/ue0/ping.log\n   \n\n   bash\nsudo -n ip netns exec s2m56u1 ping -D -n -I oaitun_ue1 -c 2200 -s 56 -i 0.02 -W 2 172.11.200.25   tee /home/lbh/oiwireless/analysis-source-audit/new-ping-output/ue1/ping.log\n   \n\n总量固定组将捕获改为  --regime fixed-total ，两个 UE 的 ping 都改为  -i 0.04 ；三 UE 的对应间隔为  0.06 。每轮换新输出根。两路／三路发包要在同一测试时段进行；原生终端自然启动，事后核对实际公共统计时段，不要求修改 RFsim 启动相位。\n\n全部 ping 真正结束、确认发收数量后，另一个普通终端执行以下结束标记，捕获工具才会停止自己的 tcpdump 并核验；管道退出 0 不能代替数量与 TUN/N3/QFI 检查：\n\n   bash\ntouch /home/lbh/oiwireless/analysis-source-audit/new-ping-output/finish.request\n   \n\n独立短测使用新的目录，包数／预热对应 200/20；它与正式 2200/200 分开保存。三轮正式合计每 UE 6600 完整、6000 统计。不能只把第一次测试的前 200 次预热当成独立短测。\n\n   200 MHz 独立短测命令\n\n核心网沿用共同启动方式。本轮复用原核心网。基站在后置策略试验构建目录直接启动，使用新配置 132 PRB、门限 0。这个配置还沿用已有的 RFsim 同步项。\n\n   bash\ncd ~/oiwireless/analysis-source-audit/step2-three-ue-admission-20261119/residual-build-v2\nsudo -n OAI_RESEARCH_PROBE_POLICY=residual ./nr-softmodem -O /home/lbh/oiwireless/oi-wireless-ran-latency-analysis/research/latency-analysis/step2-multiue56-v1/configs/gnb1.sa.band261.fr2.132PRB.5slot.multiue.mcs9.inactivity0.sync1.dpdk.conf --sa --rfsim --rfsimulator.serveraddr server\n   \n\n在独立终端分别启动各 UE。下例用  ue_index=0 ，第二、第三台分别为 1、2。前一台有 TUN IPv4 后再接入下一台。本批先测单 UE，再加入第二台，最后加入第三台。\n\n   bash\ncd ~/oiwireless/oi-wireless-ran-ping-slot-validation/cmake_targets/ran_build/build\nue_index=0\nsudo -n ip netns exec \"s2m56u${ue_index}\" ./nr-uesoftmodem --band 261 -C 27612360000 -r 132 --numerology 3 --ssb 301 --sa -O \"/home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/environment/private/ue${ue_index}.conf\" --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr \"10.203.$((ue_index+1)).1\"\n   \n\n三个 UE 数分别使用新的捕获目录， --ues  为 1、2 或 3。下例为单 UE；实际证据在  step2-gate0-200mhz-ping-20261119/n1 、 n2 、 n3 。\n\n   bash\ncd ~/oiwireless/oi-wireless-ran-latency-analysis\nsudo -n /usr/bin/python3 -B research/latency-analysis/step2-multiue56-v1/ping_capture.py --environment /home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/environment --root /home/lbh/oiwireless/analysis-source-audit/new-200mhz-n1 --ues 1 --regime per-ue --packets 200 --warmup 20\n   \n\n看到捕获终端显示  READY  后，在每个业务终端直接运行 ping。双／三 UE 组让各路业务在同一时段运行。下例为单 UE。每组全部 ping 完成后再创建本组的  finish.request ，按上文核验收包。\n\n   bash\nsudo -n ip netns exec s2m56u0 ping -D -n -I oaitun_ue1 -c 200 -s 56 -i 0.02 -W 2 172.11.200.25   tee /home/lbh/oiwireless/analysis-source-audit/new-200mhz-n1/ue0/ping.log\n   \n\n200 MHz 与 132 PRB 的对应、频率栅格和同步栅格按 TS 38.104 V20.1.0 §5.3.2／§5.3.5／§5.4.2／§5.4.3 及 TS 38.101-2 V20.1.0 对应表核对。实际参数差异和首轮未接入原因见 CHG478／TEST633。\n\n   本轮证据目录\n\n目录前缀为  /home/lbh/oiwireless/analysis-source-audit/ ；下列是已运行证据，不能原样覆盖重跑。\n\n 条件 目录 用途 \n --- --- --- \n 单 UE step1-shared56-20261118 既有三轮参照，未新增发包 \n 双 UE step2-four-formal-20261118/g0-ping-n2-concurrent 五轮原证据链接＋一轮并发补正；原六次仍在 g0-ping-n2 \n 三 UE step2-multiue56-20261118/three-ue-failure.json 共同接入记录，无 RTT \n\n本批补测结束后暂停。原生 RTT 不除以 2 冒充单向时延；完整原生输出、pcap 和配置身份保留在本地。\n\n   依据与测量边界\n\nTS 38.211 V19.5.0 §4.3.2、§7.3.2.2；TS 38.213 V19.5.0 §9.2.4、§11.1；TS 38.321 V19.4.0 §5.4.1、§5.4.4、§5.4.5；TS 38.331 V19.4.0 §6.3.2；TS 38.300 V19.4.0 §10.2/10.3。门限 0/1、56 B、50 包/秒、样本/预热和本配置均为实现或实验选择，不是协议规定的最优值。\n\nP01《Dissecting 5G New-Radio Latency》，IFIP Networking 2025，§III–IV、本地 PDF 第 2–4 页；P24 QUEST，本地 IEEE TNSM 2026 版，§V–VI、PDF 第 6–10 页；教材 §13.1.1.2、PDF 第 530–532 页。使用用户提供且本次核读的本地版本，不冒称官网最高。17 份相关原文可读，缺件立即停止。\n"
     }
   ],
   "formulas": 122,
