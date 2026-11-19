@@ -24,4 +24,23 @@
 
 标准依据为 TS 38.104 V20.1.0 §5.3.2 表 5.3.2-2、TS 38.211 V19.5.0 §4.4.4.1 和 §4.3.2 表 4.3.2-1。FFT 选择、采样率和断言来自项目的 `nr_parms.c`、`nr_common.c`、`nr_prach.c`。实际命令和证据入口见 CHG-482、TEST-637。[OAI 的四分之三采样说明](https://github.com/OPENAIRINTERFACE/openairinterface5g/blob/develop/radio/rfsimulator/README.md#how-to-improve-performance)
 
+## 换成真实射频后，能用 `-E` 降时延吗
+
+这次实验的价值是排除了当前 200 MHz 配置下的 `-E` 方案。它在业务开始前就退出了，因此没有降时延数据。真实射频由硬件采样时钟推进。支持四分之三采样的硬件和驱动可以减少要搬运的数据量，能否缩短 RTT 还要看基带处理是否原本卡在业务路径上。120 kHz 的时隙仍为 0.125 ms。OAI 把 `-E` 作为有设备和配置条件的实现选项。[OAI 真射频 UE 文档](https://github.com/openairinterface/openairinterface5g/blob/develop/doc/NR_SA_Tutorial_OAI_nrUE_GPU_offload.md)
+
+## 原来的真实射频配置，改成 200 MHz 能适配吗
+
+我核对了原构建和本次研究构建。两者的 `liboai_device.so` 都指向同一份 `liboai_dpdkrfdevif.so`。当前真实射频的 DPDK 驱动在 `device_init` 检查采样率，最高列出的档位为 **122.88 MS/s**，该档发射和接收都设为 **100 MHz**。其他采样率进入 `unknown sampling rate` 分支并退出。下表根据本地 `nr_common.c` 给出的配置值和原驱动代码核对。
+
+|n261、120 kHz 配置|gNB 射频接口所需采样率|当前真实射频 DPDK 驱动|
+|---|---:|---|
+|100 MHz、66 PRB，默认采样|122.88 MS/s|有对应档位，和原有配置一致|
+|100 MHz、66 PRB，加 `-E`|92.16 MS/s|没有该档位|
+|200 MHz、132 PRB，默认采样|245.76 MS/s|没有该档位|
+|200 MHz、132 PRB，加 `-E`|184.32 MS/s|没有该档位，基带本身也有前文的 FFT 与 PRACH 限制|
+
+**因此当前驱动不能直接从 100 MHz 升到 200 MHz，也不能靠 `-E` 绕过去。** 3GPP 给 n261、120 kHz 列出了 100 MHz 和 200 MHz 两个档位。要让实验室的真实射频链路跑 200 MHz，需要支持该带宽和采样率的驱动、射频设备及固件，承载样本的接口和现有 3.1 GHz 中频链路也要支持对应带宽，终端需要支持同一无线配置。单凭原来的 100 MHz 可以工作，还无法判断硬件本体的 200 MHz 能力。本次核对只读了源码和已编译的库，真实 200 MHz 接入与 RTT 尚未测量。
+
+依据为 TS 38.104 V20.1.0 §5.3.2 表 5.3.2-2、§5.3.5 表 5.3.5-2，以及 TS 38.101-2 V20.1.0 §5.3.2 表 5.3.2-1、§5.3.5 表 5.3.5-1。驱动初始化入口和构建库核验见 CHG-483、TEST-638。[3GPP 基站射频规范](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3202) · [3GPP FR2 终端射频规范](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3284)
+
 [查看时延变化原因](100到200MHz单UE时延变化的原因.md) · [查看现有方案](100到200MHz单UE时延现有的解决方案.md) · [结果与分析总目录](研究结果与分析总目录.md)
