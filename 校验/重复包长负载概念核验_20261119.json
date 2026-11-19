@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "date": "2026-11-19",
+  "topic": "step-2-knowledge",
+  "page": "k12c45ef9114f5290",
+  "source": "说明/算法知识点说明/十二步知识点/第二步知识点.md",
+  "checks": [
+    "source rendered",
+    "new heading in page TOC",
+    "search includes clarification",
+    "existing navigation topic unchanged",
+    "unrelated pre-existing catalog and report content preserved"
+  ],
+  "http": "UnicodeEncodeError",
+  "scope": "explanation only, no experiment",
+  "source_sha256": "43151c25ec47c404efc64fc265bcac2dddae7c4c586cc13ac6838047a4fd5e80"
+}
