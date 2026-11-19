@@ -1364,7 +1364,7 @@
       "experimentStage": "single-ue-bandwidth-existing-solutions",
       "independentExperiment": "single-ue-bandwidth-existing-solutions",
       "status": "literature-review",
-      "sha256": "b2b79188af22359ebcf61cc0ad331ca7465df399896120102f1abcfea079ff46",
+      "sha256": "e9d2284142448d6013a6c2f99eeaba6bf91220d06f620c2a7d5504a4dbbb2db9",
       "snapshot": "说明/研究结果与分析/100到200MHz单UE时延现有的解决方案.md",
       "redacted": false,
       "toc": [
@@ -1379,14 +1379,51 @@
           "level": 2
         },
         {
-          "id": "先验证最接近问题的方案",
-          "title": "先验证最接近问题的方案",
+          "id": "本机的四分之三采样已经验证",
+          "title": "本机的四分之三采样已经验证",
           "level": 2
         }
       ],
-      "words": 2178,
+      "words": 2187,
       "minutes": 3,
-      "search": "  100 到 200 MHz 单 UE 时延现有的解决方案\n\n同一载频的单 UE 回切实验中，两档基站都每隔 5 槽准备一次上行授权。5 槽对应 0.625 ms 的仿真时间，但实际经过的主机时间从 0.222 增至 0.453 ms。这是本机 RFsim 中观测到的运行差异。 带宽回切结果 (100到200MHz单UE时延变化的原因.md)\n\n   已有做法与适用条件\n\n 遇到的问题 已有方法 对本项目的用法 \n --- --- --- \n RFsim 采样处理和搬运较重 OAI 建议在基站和 UE 两端使用  -E  四分之三采样，也可以在基带线程上检查核绑定和处理抖动。 保持 200 MHz、132 PRB 和 TDD，单独比较两种采样设置。本地代码的 200 MHz 分支为 245.76→184.32 MS/s。本项目尚未验证这档配置的接入、采样推进或时延收益。 OAI RFsim 官方文档 (https://github.com/OPENAIRINTERFACE/openairinterface5g/blob/develop/radio/rfsimulator/README.md how-to-improve-performance) \n 周期控制数据到来后还要等上行授权 配置授权（Configured Grant，CG）提前给 UE 配好可用的上行机会，终端在满足授权条件时便可使用，省去对应包的临时请求与授权等待。业务相位匹配时更有效，空闲时仍要考虑资源占用。 当前 RFsim UE 的  config_ue.c  会拒绝  ConfiguredGrantConfig ，基站  nr_rrc_config.c  也未生成这项配置。门限 0 是基站主动发动态授权。依据为 TS 38.331 V19.4.0 §6.3.2、TS 38.321 V19.4.0 §5.8.2、TS 38.214 V19.5.0 §6.1.2.3。 3GPP 配置规范版本 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3197) \n 上行或下行的发送机会隔得太久 按业务方向配置 TDD，并看一次闭环内上行和下行机会怎样衔接。 同一配比下还要看可用机会间距、终端处理时序和接入是否通过。条款为 TS 38.213 V19.5.0 §11.1 与 TS 38.214 V19.5.0 §5.1.2.1、§6.1.2.1。已有商用设备试验按包长、负载和 TDD 图样做对照。 工业 TDD 实测论文 (https://arxiv.org/abs/2504.00912) \n 有规律的突发包需要少等，长期保留授权又浪费资源 AUGUSTE 学习来包时刻，在预计有包时提前动态授权。 适合作为授权时机和空授权开销的论文对照。作者试验的时延数值属于其平台。 AUGUSTE v1 (https://arxiv.org/abs/2606.03664v1) \n\n工业验收可按 TS 22.104 V19.2.0 §5.2、附录 A.2.2.1 界定工业控制业务的传输间隔、时延与可靠性要求，再按应用的负载和测量边界做测试。5G-ACIA 白皮书 §3 给出测试条件和测量指标，5G-SMART 的实测论文在工厂现场分别统计上行与下行。报告 RFsim 结果时同时保留主机 RTT、无线槽差和仿真推进速率。全程 RTT 包含不同来源的处理时间，不用单一推进比把它换算成真实射频时延。 3GPP 工业控制需求 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3528) ·  5G-ACIA 工业测试白皮书 (https://5g-acia.org/wp-content/uploads/2021/04/5G-ACIA_PerformanceTestingOf5GSystemsForIndustrialAutomation-1.pdf) ·  5G-SMART 工业实测 (https://www.mdpi.com/2079-9292/11/3/412)\n\n论文中，P01 用逐包探针量出各层等待与处理，P30 LatencyScope 把调度机会、TDD 和硬件／软件处理纳入单向时延模型。两者可以用来设计计时点、解释差异。实际选哪种优化取决于慢包主要在授权前等待，还是在主机上等样本处理。 P01 原文 (https://networking.ifip.org/2025/images/Net25_papers/1571143492.pdf) ·  P30 LatencyScope v3 (https://arxiv.org/abs/2511.21277v3)\n\n   先验证最接近问题的方案\n\n保持 200 MHz、132 PRB、120 kHz、0.625 ms TDD 和门限 0，对照默认采样和两端  -E 。先核验两端实际采样率一致、接入成功，再用同样的 56 B ping 测 RTT，同时记录实际发包间隔、RFsim 推进速率和 5 槽授权准备间隔。四分之三采样减少的是每秒处理的采样数，收益要通过这组对照量出来。\n\n 返回时延变化的原因 (100到200MHz单UE时延变化的原因.md) ·  结果与分析总目录 (研究结果与分析总目录.md)\n"
+      "search": "  100 到 200 MHz 单 UE 时延现有的解决方案\n\n同一载频的单 UE 回切实验中，两档基站都每隔 5 槽准备一次上行授权。5 槽对应 0.625 ms 的仿真时间，但实际经过的主机时间从 0.222 增至 0.453 ms。这是本机 RFsim 中观测到的运行差异。 带宽回切结果 (100到200MHz单UE时延变化的原因.md)\n\n   已有做法与适用条件\n\n 遇到的问题 已有方法 对本项目的用法 \n --- --- --- \n RFsim 采样处理和搬运较重 OAI 给出两端  -E  四分之三采样这个选项，也可检查基带线程的资源占用和处理抖动。 本机 200 MHz、120 kHz、132 PRB 已完成回切验证。 -E  令 RF 接口报告 184.32 MS/s，但 PHY 选择 3,072 点 FFT，PRACH 遇到 368.64 MS/s 后退出。 方案一实测 (100到200MHz单UE降低时延方案一_本机RFsim.md) ·  OAI RFsim 官方文档 (https://github.com/OPENAIRINTERFACE/openairinterface5g/blob/develop/radio/rfsimulator/README.md how-to-improve-performance) \n 周期控制数据到来后还要等上行授权 配置授权（Configured Grant，CG）提前给 UE 配好可用的上行机会，终端在满足授权条件时便可使用，省去对应包的临时请求与授权等待。业务相位匹配时更有效，空闲时仍要考虑资源占用。 当前 RFsim UE 的  config_ue.c  会拒绝  ConfiguredGrantConfig ，基站  nr_rrc_config.c  也未生成这项配置。门限 0 是基站主动发动态授权。依据为 TS 38.331 V19.4.0 §6.3.2、TS 38.321 V19.4.0 §5.8.2、TS 38.214 V19.5.0 §6.1.2.3。 3GPP 配置规范版本 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3197) \n 上行或下行的发送机会隔得太久 按业务方向配置 TDD，并看一次闭环内上行和下行机会怎样衔接。 同一配比下还要看可用机会间距、终端处理时序和接入是否通过。条款为 TS 38.213 V19.5.0 §11.1 与 TS 38.214 V19.5.0 §5.1.2.1、§6.1.2.1。已有商用设备试验按包长、负载和 TDD 图样做对照。 工业 TDD 实测论文 (https://arxiv.org/abs/2504.00912) \n 有规律的突发包需要少等，长期保留授权又浪费资源 AUGUSTE 学习来包时刻，在预计有包时提前动态授权。 适合作为授权时机和空授权开销的论文对照。作者试验的时延数值属于其平台。 AUGUSTE v1 (https://arxiv.org/abs/2606.03664v1) \n\n工业验收可按 TS 22.104 V19.2.0 §5.2、附录 A.2.2.1 界定工业控制业务的传输间隔、时延与可靠性要求，再按应用的负载和测量边界做测试。5G-ACIA 白皮书 §3 给出测试条件和测量指标，5G-SMART 的实测论文在工厂现场分别统计上行与下行。报告 RFsim 结果时同时保留主机 RTT、无线槽差和仿真推进速率。全程 RTT 包含不同来源的处理时间，不用单一推进比把它换算成真实射频时延。 3GPP 工业控制需求 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3528) ·  5G-ACIA 工业测试白皮书 (https://5g-acia.org/wp-content/uploads/2021/04/5G-ACIA_PerformanceTestingOf5GSystemsForIndustrialAutomation-1.pdf) ·  5G-SMART 工业实测 (https://www.mdpi.com/2079-9292/11/3/412)\n\n论文中，P01 用逐包探针量出各层等待与处理，P30 LatencyScope 把调度机会、TDD 和硬件／软件处理纳入单向时延模型。两者可以用来设计计时点、解释差异。实际选哪种优化取决于慢包主要在授权前等待，还是在主机上等样本处理。 P01 原文 (https://networking.ifip.org/2025/images/Net25_papers/1571143492.pdf) ·  P30 LatencyScope v3 (https://arxiv.org/abs/2511.21277v3)\n\n   本机的四分之三采样已经验证\n\n默认采样在前后两轮均接入并完成 200/200 个 ping。启用  -E  的一轮在基站随机接入程序退出，业务没有开始。200 MHz 的现有实验继续使用默认采样。 方案一的完整结果 (100到200MHz单UE降低时延方案一_本机RFsim.md)\n\n 返回时延变化的原因 (100到200MHz单UE时延变化的原因.md) ·  结果与分析总目录 (研究结果与分析总目录.md)\n"
+    },
+    {
+      "id": "ec3a35cee21d072ca",
+      "title": "100 到 200 MHz 单 UE 降低时延方案一（针对本机 RFsim 变慢）",
+      "source": "说明/研究结果与分析/100到200MHz单UE降低时延方案一_本机RFsim.md",
+      "aliases": [
+        "说明/研究结果与分析/100到200MHz单UE降低时延方案一_本机RFsim.md"
+      ],
+      "group": "research",
+      "topic": "single-ue-rfsim-undersampling-validation",
+      "prerequisite": false,
+      "experimentStage": "single-ue-rfsim-undersampling-validation",
+      "independentExperiment": "single-ue-rfsim-undersampling-validation",
+      "status": "completed-with-scope",
+      "sha256": "b09ed2a41237497bded2399597c55c74648d2b7d993f82ab660b31ba533f9000",
+      "snapshot": "说明/研究结果与分析/100到200MHz单UE降低时延方案一_本机RFsim.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "100-到-200-mhz-单-ue-降低时延方案一针对本机-rfsim-变慢",
+          "title": "100 到 200 MHz 单 UE 降低时延方案一（针对本机 RFsim 变慢）",
+          "level": 1
+        },
+        {
+          "id": "默认--四分之三采样--切回默认",
+          "title": "默认 → 四分之三采样 → 切回默认",
+          "level": 2
+        },
+        {
+          "id": "为什么这套配置用不了--e",
+          "title": "为什么这套配置用不了 -E",
+          "level": 2
+        }
+      ],
+      "words": 1600,
+      "minutes": 2,
+      "search": "  100 到 200 MHz 单 UE 降低时延方案一（针对本机 RFsim 变慢）\n\n我验证了 OAI 的四分之三采样选项  -E 。  在本机 200 MHz、120 kHz、132 PRB 配置下，启用后基站在处理随机接入时退出，UE 未接入，因此没有测到这一档的 RTT。   切回默认采样后，单 UE 恢复接入，200 个 ping 全部收到回复。\n\n   默认 → 四分之三采样 → 切回默认\n\n三轮使用同一套基站和 UE 程序、同一核心网、n261、27.61236 GHz、200 MHz、132 PRB、120 kHz、0.625 ms TDD、MCS 上限 9、门限 0 和空闲探测后置。唯一切换的无线启动选项是 gNB 和 UE 是否同时加  -E 。接入后，发送 200 个 56 B ping，前 20 个作预热，后 180 个用于统计。\n\n 轮次 RF 接口报告采样率 PHY 帧参数等效采样率 接入及业务 平均 RTT P99 \n --- ---: ---: --- ---: ---: \n 默认采样 245.76 MS/s 245.76 MS/s 成功，200/200 1.278 ms 1.522 ms \n 两端加  -E  184.32 MS/s 368.64 MS/s 基站在随机接入处理退出，业务未开始 未测 未测 \n 切回默认采样 245.76 MS/s 245.76 MS/s 成功，200/200 1.327 ms 1.888 ms \n\n两轮默认采样均验证 TUN 和 N3 路由、逐包匹配和抓包完整性。两轮实发平均间隔为 20.385、20.414 ms。表中 P99 描述本次短测样本。\n\n   为什么这套配置用不了  -E \n\n1.   资源栅格需要 1,584 个子载波。   132 个 PRB，每个 PRB 有 12 个子载波，所以资源栅格宽度是 1,584 × 120 kHz，即 190.08 MHz。这里的 190.08 MHz 表示资源栅格，200 MHz 是信道标称带宽。\n2.   按接口的 184.32 MS/s 只对应 1,536 个 FFT 点。   保持 120 kHz 间隔时，184.32 MS/s ÷ 120 kHz = 1,536，小于 1,584。当前 OAI 初始化的四分之三采样分支按 384、768、1,536、3,072 递增，于是选了   3,072 点  。每子帧实际要处理 368,640 个基带样本，相当于   368.64 MS/s  。\n3.   射频接口与基带选出了两套规格。   基站日志仍报告接口采样率 184.32 MS/s，但 PRACH 随机接入接收程序用的是物理层每子帧的采样数。它遇到 368,640 时触发断言，日志为  sample rate 368.640000 MHz not supported for numerology 3 。基站退出码为 1，UE 随后连接 4043 被拒绝，未取得 TUN 的 IPv4 地址。\n\n  本轮结论  是当前程序的 200 MHz、132 PRB 配置保留默认采样。OAI 文档中的四分之三采样属于实现选项，适用性要按资源栅格和执行路径核验。这里验证的是本机 RFsim，真实射频性能需要在对应链路上测量。\n\n标准依据为 TS 38.104 V20.1.0 §5.3.2 表 5.3.2-2、TS 38.211 V19.5.0 §4.4.4.1 和 §4.3.2 表 4.3.2-1。FFT 选择、采样率和断言来自项目的  nr_parms.c 、 nr_common.c 、 nr_prach.c 。实际命令和证据入口见 CHG-482、TEST-637。 OAI 的四分之三采样说明 (https://github.com/OPENAIRINTERFACE/openairinterface5g/blob/develop/radio/rfsimulator/README.md how-to-improve-performance)\n\n 查看时延变化原因 (100到200MHz单UE时延变化的原因.md) ·  查看现有方案 (100到200MHz单UE时延现有的解决方案.md) ·  结果与分析总目录 (研究结果与分析总目录.md)\n"
     }
   ],
   "formulas": 55,
