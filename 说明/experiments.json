@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "documents": [
     {
       "id": "e4c1f2a8800000001",
@@ -204,7 +204,7 @@
       "documentRole": "results",
       "parentTopic": "step-2",
       "stepExperiment": 2,
-      "status": "not-started"
+      "status": "partial"
     },
     {
       "source": "说明/研究结果与分析/第二步/3_门限0的UDP多UE.md",

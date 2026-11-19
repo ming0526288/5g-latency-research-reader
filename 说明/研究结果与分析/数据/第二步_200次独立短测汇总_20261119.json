@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "groups": [
+    {
+      "gate": 0,
+      "tool": "ping",
+      "ues": 2,
+      "complete_perUE": 200,
+      "statistical_perUE": 180,
+      "RTT_mean_ms_by_UE": [
+        1.7088166666666667,
+        1.707
+      ],
+      "source_run": "gate0-ping-n2-pilot"
+    },
+    {
+      "gate": 1,
+      "tool": "ping",
+      "ues": 2,
+      "complete_perUE": 200,
+      "statistical_perUE": 180,
+      "RTT_mean_ms_by_UE": [
+        4.7811111111111115,
+        4.7362222222222226
+      ],
+      "source_run": "gate1-ping-n2-pilot"
+    },
+    {
+      "gate": 1,
+      "tool": "ping",
+      "ues": 3,
+      "complete_perUE": 200,
+      "statistical_perUE": 180,
+      "RTT_mean_ms_by_UE": [
+        6.237444444444445,
+        6.132055555555556,
+        6.145888888888889
+      ],
+      "source_run": "gate1-ping-n3-pilot"
+    },
+    {
+      "gate": 0,
+      "tool": "UDP",
+      "ues": 1,
+      "complete_perUE": 200,
+      "statistical_perUE": 180,
+      "RTT_mean_ms_by_UE": [
+        0.9443290388888889
+      ],
+      "source_run": "pilot-n1-01"
+    },
+    {
+      "gate": 0,
+      "tool": "UDP",
+      "ues": 2,
+      "complete_perUE": 200,
+      "statistical_perUE": 180,
+      "RTT_mean_ms_by_UE": [
+        1.7669480333333334,
+        1.7591991944444445
+      ],
+      "source_run": "pilot-n2-01"
+    },
+    {
+      "gate": 1,
+      "tool": "UDP",
+      "ues": 3,
+      "complete_perUE": 200,
+      "statistical_perUE": 180,
+      "RTT_mean_ms_by_UE": [
+        6.477405038888889,
+        6.4940518888888885,
+        6.84836025
+      ],
+      "source_run": "gateC-pilot-n3"
+    }
+  ],
+  "missing_independent_200": "All other cells remain unmeasured; do not reuse formal warm-up or connectivity checks"
+}

@@ -1,0 +1,795 @@
+{
+  "status": "PASS",
+  "gate": 1,
+  "ues": 3,
+  "tool": "native_ping",
+  "data_bytes": 56,
+  "formal_runs": 6,
+  "complete": 39600,
+  "statistical": 36000,
+  "cases": [
+    {
+      "case": "r1-per-ue",
+      "regime": "per-ue",
+      "complete": 6600,
+      "statistical": 6000,
+      "flows": [
+        {
+          "ue": 0,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.235725,
+            "p50": 6.1850000000000005,
+            "p95": 10.3,
+            "p99": 12.100999999999999,
+            "max": 14.5
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.2254752255,
+            "p50": 6.1757405,
+            "p95": 10.31349325,
+            "p99": 12.07181923,
+            "max": 14.461523
+          },
+          "actual_interarrival_ms": {
+            "mean": 20.497685795361527,
+            "p50": 20.512243,
+            "p95": 21.0115537,
+            "p99": 21.04695132,
+            "max": 21.063101
+          },
+          "actual_request_pps": 48.785995159819095,
+          "RTT_over_ms_counts": {
+            "2": 1964,
+            "5": 1308,
+            "10": 151
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        },
+        {
+          "ue": 1,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.21989,
+            "p50": 6.1,
+            "p95": 10.3,
+            "p99": 12.100999999999999,
+            "max": 15.8
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.2112389695,
+            "p50": 6.0849265,
+            "p95": 10.312141149999999,
+            "p99": 12.136460739999999,
+            "max": 15.758365
+          },
+          "actual_interarrival_ms": {
+            "mean": 20.501138008640293,
+            "p50": 20.501007,
+            "p95": 21.0029157,
+            "p99": 21.04231126,
+            "max": 21.065628
+          },
+          "actual_request_pps": 48.77778002267707,
+          "RTT_over_ms_counts": {
+            "2": 1955,
+            "5": 1298,
+            "10": 151
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        },
+        {
+          "ue": 2,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.17825,
+            "p50": 6.18,
+            "p95": 10.2,
+            "p99": 11.7,
+            "max": 13.1
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.169416057,
+            "p50": 6.169983500000001,
+            "p95": 10.19295135,
+            "p99": 11.703741899999999,
+            "max": 13.05495
+          },
+          "actual_interarrival_ms": {
+            "mean": 20.469527457480673,
+            "p50": 20.441881,
+            "p95": 20.9981345,
+            "p99": 21.0435992,
+            "max": 21.060119
+          },
+          "actual_request_pps": 48.85310626135367,
+          "RTT_over_ms_counts": {
+            "2": 1963,
+            "5": 1318,
+            "10": 128
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        }
+      ],
+      "all_UE_business_overlap_s": 41.295528668,
+      "statistical_window_common_overlap_s": 37.18539296
+    },
+    {
+      "case": "r1-fixed-total",
+      "regime": "fixed-total",
+      "complete": 6600,
+      "statistical": 6000,
+      "flows": [
+        {
+          "ue": 0,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.8026599999999995,
+            "p50": 6.795,
+            "p95": 10.7,
+            "p99": 12.4,
+            "max": 13.5
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.7914935905,
+            "p50": 6.78706,
+            "p95": 10.6490859,
+            "p99": 12.36563046,
+            "max": 13.519517
+          },
+          "actual_interarrival_ms": {
+            "mean": 60.560047790814,
+            "p50": 60.567678,
+            "p95": 61.010512899999995,
+            "p99": 61.04999628,
+            "max": 61.118832
+          },
+          "actual_request_pps": 16.512536506810424,
+          "RTT_over_ms_counts": {
+            "2": 1971,
+            "5": 1508,
+            "10": 179
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        },
+        {
+          "ue": 1,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.783905,
+            "p50": 6.82,
+            "p95": 10.5,
+            "p99": 12.3,
+            "max": 14.4
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.772942949,
+            "p50": 6.81039,
+            "p95": 10.47712505,
+            "p99": 12.26269471,
+            "max": 14.438132
+          },
+          "actual_interarrival_ms": {
+            "mean": 60.56995195770804,
+            "p50": 60.591678,
+            "p95": 61.006066600000004,
+            "p99": 61.05250382,
+            "max": 61.739058
+          },
+          "actual_request_pps": 16.509836439993105,
+          "RTT_over_ms_counts": {
+            "2": 1968,
+            "5": 1493,
+            "10": 164
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        },
+        {
+          "ue": 2,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.760185000000001,
+            "p50": 6.745,
+            "p95": 10.5,
+            "p99": 12.2,
+            "max": 14.5
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.749716513,
+            "p50": 6.732215999999999,
+            "p95": 10.49679245,
+            "p99": 12.14619812,
+            "max": 14.469383
+          },
+          "actual_interarrival_ms": {
+            "mean": 60.57280296771259,
+            "p50": 60.589335,
+            "p95": 61.0057921,
+            "p99": 61.05221384,
+            "max": 61.071273
+          },
+          "actual_request_pps": 16.509059363375254,
+          "RTT_over_ms_counts": {
+            "2": 1972,
+            "5": 1501,
+            "10": 168
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        }
+      ],
+      "all_UE_business_overlap_s": 130.999910388,
+      "statistical_window_common_overlap_s": 118.878632545
+    },
+    {
+      "case": "r2-fixed-total",
+      "regime": "fixed-total",
+      "complete": 6600,
+      "statistical": 6000,
+      "flows": [
+        {
+          "ue": 0,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.809444999999999,
+            "p50": 6.885,
+            "p95": 10.6,
+            "p99": 12.4,
+            "max": 14.0
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.7988513995,
+            "p50": 6.8783405,
+            "p95": 10.572719,
+            "p99": 12.41096413,
+            "max": 14.032881
+          },
+          "actual_interarrival_ms": {
+            "mean": 60.5594961587085,
+            "p50": 60.554124,
+            "p95": 61.0135821,
+            "p99": 61.051350719999995,
+            "max": 61.076238
+          },
+          "actual_request_pps": 16.512686918320725,
+          "RTT_over_ms_counts": {
+            "2": 1973,
+            "5": 1509,
+            "10": 170
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        },
+        {
+          "ue": 1,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.82229,
+            "p50": 6.86,
+            "p95": 10.5,
+            "p99": 12.200999999999999,
+            "max": 14.0
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.8130294750000004,
+            "p50": 6.849786,
+            "p95": 10.46212035,
+            "p99": 12.161742679999998,
+            "max": 13.982127
+          },
+          "actual_interarrival_ms": {
+            "mean": 60.56093948522055,
+            "p50": 60.56249,
+            "p95": 61.0107583,
+            "p99": 61.05526048,
+            "max": 61.079486
+          },
+          "actual_request_pps": 16.512293377549774,
+          "RTT_over_ms_counts": {
+            "2": 1982,
+            "5": 1511,
+            "10": 172
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        },
+        {
+          "ue": 2,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.965175,
+            "p50": 7.01,
+            "p95": 10.7,
+            "p99": 12.501,
+            "max": 13.8
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.955965281,
+            "p50": 7.003914,
+            "p95": 10.70168335,
+            "p99": 12.50972998,
+            "max": 13.76119
+          },
+          "actual_interarrival_ms": {
+            "mean": 60.56393596543884,
+            "p50": 60.577864,
+            "p95": 61.0134629,
+            "p99": 61.05628998,
+            "max": 61.087865
+          },
+          "actual_request_pps": 16.511476410163564,
+          "RTT_over_ms_counts": {
+            "2": 1982,
+            "5": 1520,
+            "10": 209
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        }
+      ],
+      "all_UE_business_overlap_s": 132.019743939,
+      "statistical_window_common_overlap_s": 119.910819226
+    },
+    {
+      "case": "r2-per-ue",
+      "regime": "per-ue",
+      "complete": 6600,
+      "statistical": 6000,
+      "flows": [
+        {
+          "ue": 0,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.254935000000001,
+            "p50": 6.16,
+            "p95": 10.4,
+            "p99": 12.100999999999999,
+            "max": 13.4
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.245397549500001,
+            "p50": 6.15227,
+            "p95": 10.3823347,
+            "p99": 12.11644814,
+            "max": 13.427482
+          },
+          "actual_interarrival_ms": {
+            "mean": 20.4833971055025,
+            "p50": 20.4744,
+            "p95": 20.9948441,
+            "p99": 21.04685986,
+            "max": 21.415303
+          },
+          "actual_request_pps": 48.82002701257829,
+          "RTT_over_ms_counts": {
+            "2": 1968,
+            "5": 1302,
+            "10": 168
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        },
+        {
+          "ue": 1,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.153985,
+            "p50": 5.93,
+            "p95": 10.4,
+            "p99": 12.2,
+            "max": 14.4
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.1440495695,
+            "p50": 5.9179055,
+            "p95": 10.393798999999998,
+            "p99": 12.19515326,
+            "max": 14.380879
+          },
+          "actual_interarrival_ms": {
+            "mean": 20.488153045475215,
+            "p50": 20.480697,
+            "p95": 21.0048776,
+            "p99": 21.0460797,
+            "max": 21.088426
+          },
+          "actual_request_pps": 48.808694360121876,
+          "RTT_over_ms_counts": {
+            "2": 1949,
+            "5": 1259,
+            "10": 157
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        },
+        {
+          "ue": 2,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.334365,
+            "p50": 6.34,
+            "p95": 10.4,
+            "p99": 12.001,
+            "max": 15.3
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.325667875,
+            "p50": 6.327985,
+            "p95": 10.3598899,
+            "p99": 11.99215241,
+            "max": 15.321921
+          },
+          "actual_interarrival_ms": {
+            "mean": 20.48508426557526,
+            "p50": 20.467384,
+            "p95": 21.0118274,
+            "p99": 21.04812666,
+            "max": 21.072727
+          },
+          "actual_request_pps": 48.81600617481854,
+          "RTT_over_ms_counts": {
+            "2": 1972,
+            "5": 1336,
+            "10": 143
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        }
+      ],
+      "all_UE_business_overlap_s": 40.452852433,
+      "statistical_window_common_overlap_s": 36.361862855
+    },
+    {
+      "case": "r3-per-ue",
+      "regime": "per-ue",
+      "complete": 6600,
+      "statistical": 6000,
+      "flows": [
+        {
+          "ue": 0,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.1451899999999995,
+            "p50": 6.0600000000000005,
+            "p95": 10.2,
+            "p99": 12.0,
+            "max": 13.4
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.134751293500001,
+            "p50": 6.0481545,
+            "p95": 10.174285,
+            "p99": 11.962711489999998,
+            "max": 13.399158
+          },
+          "actual_interarrival_ms": {
+            "mean": 20.513733447021373,
+            "p50": 20.520079,
+            "p95": 21.0059222,
+            "p99": 21.042418599999998,
+            "max": 21.058324
+          },
+          "actual_request_pps": 48.747830451370206,
+          "RTT_over_ms_counts": {
+            "2": 1944,
+            "5": 1282,
+            "10": 118
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        },
+        {
+          "ue": 1,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.154685000000001,
+            "p50": 6.04,
+            "p95": 10.1,
+            "p99": 12.001,
+            "max": 14.0
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.145714557,
+            "p50": 6.034927,
+            "p95": 10.1204831,
+            "p99": 12.03115326,
+            "max": 13.997177
+          },
+          "actual_interarrival_ms": {
+            "mean": 20.517522034561164,
+            "p50": 20.516654,
+            "p95": 21.0018783,
+            "p99": 21.04446328,
+            "max": 21.062478
+          },
+          "actual_request_pps": 48.73882910009939,
+          "RTT_over_ms_counts": {
+            "2": 1937,
+            "5": 1296,
+            "10": 115
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        },
+        {
+          "ue": 2,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.17655,
+            "p50": 6.125,
+            "p95": 10.2,
+            "p99": 12.001,
+            "max": 14.8
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.167052287000001,
+            "p50": 6.116567,
+            "p95": 10.149429600000001,
+            "p99": 11.992313989999998,
+            "max": 14.79458
+          },
+          "actual_interarrival_ms": {
+            "mean": 20.508646226466578,
+            "p50": 20.508036,
+            "p95": 21.0107216,
+            "p99": 21.04903266,
+            "max": 21.167431
+          },
+          "actual_request_pps": 48.759922471600866,
+          "RTT_over_ms_counts": {
+            "2": 1941,
+            "5": 1306,
+            "10": 120
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        }
+      ],
+      "all_UE_business_overlap_s": 42.494585159,
+      "statistical_window_common_overlap_s": 38.392005961
+    },
+    {
+      "case": "r3-fixed-total",
+      "regime": "fixed-total",
+      "complete": 6600,
+      "statistical": 6000,
+      "flows": [
+        {
+          "ue": 0,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.59588,
+            "p50": 6.74,
+            "p95": 10.2,
+            "p99": 11.6,
+            "max": 13.5
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.5831636305000005,
+            "p50": 6.7234095,
+            "p95": 10.2339199,
+            "p99": 11.574046990000001,
+            "max": 13.44399
+          },
+          "actual_interarrival_ms": {
+            "mean": 60.55361171759891,
+            "p50": 60.554216,
+            "p95": 61.0122954,
+            "p99": 61.05039578,
+            "max": 61.063154
+          },
+          "actual_request_pps": 16.514291577910395,
+          "RTT_over_ms_counts": {
+            "2": 1968,
+            "5": 1467,
+            "10": 137
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        },
+        {
+          "ue": 1,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.707075,
+            "p50": 6.85,
+            "p95": 10.3,
+            "p99": 11.9,
+            "max": 15.0
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.6967700704999995,
+            "p50": 6.839829,
+            "p95": 10.244486700000001,
+            "p99": 11.8701461,
+            "max": 15.024905
+          },
+          "actual_interarrival_ms": {
+            "mean": 60.55032525420645,
+            "p50": 60.54019,
+            "p95": 61.010667,
+            "p99": 61.05041636,
+            "max": 61.074856
+          },
+          "actual_request_pps": 16.51518791685648,
+          "RTT_over_ms_counts": {
+            "2": 1968,
+            "5": 1478,
+            "10": 141
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        },
+        {
+          "ue": 2,
+          "complete": 2200,
+          "statistical": 2000,
+          "native_RTT_ms": {
+            "mean": 6.646495,
+            "p50": 6.775,
+            "p95": 10.3,
+            "p99": 11.7,
+            "max": 13.3
+          },
+          "TUN_RTT_ms": {
+            "mean": 6.6360553465,
+            "p50": 6.7609985,
+            "p95": 10.25605645,
+            "p99": 11.72266114,
+            "max": 13.258543
+          },
+          "actual_interarrival_ms": {
+            "mean": 60.5354029695316,
+            "p50": 60.523425,
+            "p95": 61.0096821,
+            "p99": 61.04975446,
+            "max": 61.065611
+          },
+          "actual_request_pps": 16.51925899466326,
+          "RTT_over_ms_counts": {
+            "2": 1977,
+            "5": 1491,
+            "10": 135
+          },
+          "QFI": {
+            "type1_qfi9": 2200,
+            "type0_qfi9": 2200
+          }
+        }
+      ],
+      "all_UE_business_overlap_s": 132.754763481,
+      "statistical_window_common_overlap_s": 120.646716657
+    }
+  ],
+  "perUE_pooled": [
+    {
+      "regime": "fixed-total",
+      "ue": 0,
+      "samples": 6000,
+      "native_RTT_ms": {
+        "mean": 6.735995,
+        "p50": 6.8,
+        "p95": 10.5,
+        "p99": 12.2,
+        "max": 14.0
+      }
+    },
+    {
+      "regime": "fixed-total",
+      "ue": 1,
+      "samples": 6000,
+      "native_RTT_ms": {
+        "mean": 6.77109,
+        "p50": 6.845,
+        "p95": 10.4,
+        "p99": 12.1,
+        "max": 15.0
+      }
+    },
+    {
+      "regime": "fixed-total",
+      "ue": 2,
+      "samples": 6000,
+      "native_RTT_ms": {
+        "mean": 6.790618333333333,
+        "p50": 6.84,
+        "p95": 10.5,
+        "p99": 12.2,
+        "max": 14.5
+      }
+    },
+    {
+      "regime": "per-ue",
+      "ue": 0,
+      "samples": 6000,
+      "native_RTT_ms": {
+        "mean": 6.21195,
+        "p50": 6.135,
+        "p95": 10.3,
+        "p99": 12.1,
+        "max": 14.5
+      }
+    },
+    {
+      "regime": "per-ue",
+      "ue": 1,
+      "samples": 6000,
+      "native_RTT_ms": {
+        "mean": 6.176186666666667,
+        "p50": 6.035,
+        "p95": 10.3,
+        "p99": 12.2,
+        "max": 15.8
+      }
+    },
+    {
+      "regime": "per-ue",
+      "ue": 2,
+      "samples": 6000,
+      "native_RTT_ms": {
+        "mean": 6.229721666666667,
+        "p50": 6.22,
+        "p95": 10.2,
+        "p99": 11.9,
+        "max": 15.3
+      }
+    }
+  ],
+  "scope": "independent stdout/linear quantiles; existing strict wire parser reused, not second PHY decoder; natural start/end phase and pacing disclosed; samples not dropped outside common overlap"
+}

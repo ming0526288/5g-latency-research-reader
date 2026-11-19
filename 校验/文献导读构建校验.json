@@ -1025,11 +1025,17 @@
       "group": "guides",
       "topic": "step-2-commands",
       "prerequisite": false,
+      "subexperiments": [
+        1,
+        2,
+        3,
+        4
+      ],
       "commandStep": "step-2",
       "planTopic": "step-2-plan",
       "resultTopic": "step-2",
-      "commandStatus": "pending-validation",
-      "sha256": "1e5c21161ea5e693c600ada2129d871aef2885b291cd62573e7e0369e86ea66e",
+      "commandStatus": "partial",
+      "sha256": "592af0b974a5f8045d5f071876050b3b5a1d481dee7b952e2cdd0001c6f917be",
       "snapshot": "说明/启动命令/第二步启动命令.md",
       "redacted": false,
       "toc": [
@@ -1039,34 +1045,29 @@
           "level": 1
         },
         {
-          "id": "先做哪件事",
-          "title": "先做哪件事",
+          "id": "核心网无线与业务分终端",
+          "title": "核心网、无线与业务分终端",
           "level": 2
         },
         {
-          "id": "共用启动与本步专用命令分开",
-          "title": "共用启动与本步专用命令分开",
+          "id": "逐ue配置和网络空间",
+          "title": "逐UE配置和网络空间",
           "level": 2
         },
         {
-          "id": "本步最容易误用的地方",
-          "title": "本步最容易误用的地方",
+          "id": "停止",
+          "title": "停止",
           "level": 2
         },
         {
-          "id": "可用的只读准备检查",
-          "title": "可用的只读准备检查",
-          "level": 2
-        },
-        {
-          "id": "对应页面",
-          "title": "对应页面",
+          "id": "依据与测量边界",
+          "title": "依据与测量边界",
           "level": 2
         }
       ],
-      "words": 1225,
-      "minutes": 2,
-      "search": "  第二步启动命令\n\n本步主题：  多 UE PF 基线与负载竞争  。本页已按新版第一步与分终端启动方式重写；  本步专属配置/业务尚未执行，仍为待验证  。\n\n   先做哪件事\n\n先完成第一步的新单UE参照，再准备2/3个UE的独立身份、TUN/网络命名空间和承载映射。不能在同一网络空间把同一条UE命令复制多次。\n\n   共用启动与本步专用命令分开\n\n核心网、单UE gNB/UE的已测分终端参考，以及接入成功后再发业务的顺序，见 第一步1：直接启动命令 (第一步/1_源码与当前代码.md)。新MCS9统一基线仍在第一步准备/复测中。参考中的27.54756GHz/n261/120kHz只能用于对应单UE条件，不能直接当作本步正式测量。\n\n 环节 本步执行要求 \n --- --- \n 资料与版本 先查本地所需原文、当前计划和程序/配置身份；缺件立即停止并告知，不自行下载。 \n 核心网 有空闲且本步获授权时，按原目录./run-5gc.sh确认可用；不能重启其他任务占用的核心。 \n gNB 分终端直接启动，使用本步实际审核并生成的配置；文件未准备前不填“已验证”的专用-O。 \n UE 等待基站就绪后按本步频段/身份/网络空间启动；不能仅凭TCP连接当接入。 \n 业务 等TUN配置、承载、地址和路由核验后再启动本步业务；具体包长/规律/输出根按本步冻结。 \n 停止 在各自终端Ctrl-C，只回收本次进程；保留他人任务和原核心，不用全局pkill。 \n\n   本步最容易误用的地方\n\n基站保持同一公共程序；逐UE配置、独立地址/端口和总负载/每UE负载分组待本步冻结。资格0是资源较积极的单UE参照，不能自动作为唯一多UE设置。\n\n   可用的只读准备检查\n\n这些命令只查看工作区和已有进程，不会启动本步实验：\n\n   bash\ncd ~/oiwireless/oi-wireless-ran-latency-analysis\ngit branch --show-current\ngit status --short\nps -C nr-softmodem,nr-uesoftmodem -o pid,ppid,comm\n   \n\nps无匹配进程时通常返回1，只表示当前未运行，并非无线测试失败。业务生成/抓包/统计工具可以另列，但不再用旧Python RAN编排结果代替直接启动复现。\n\n   对应页面\n\n-  第二步规划 (../文献导读/第二步规划_多UE_PF基线与负载竞争.md)\n-  第二步结果与分析 (../研究结果与分析/第二步结果与分析.md)\n-  返回十二步启动命令总目录 (启动命令总目录.md)\n-  返回全部规划 (../文献导读/算法实验规划_通信RTT与时延优化.md)\n-  返回结果与分析总目录 (../研究结果与分析/研究结果与分析总目录.md)\n\n本轮是按新基线整理启动职责和验证状态，3GPP/新增数学推导不适用；没有新增本步协议参数或时延结论。未来实际通信命令必须引用该步直接协议、论文/教材或明确的实现依据；尚未验证不能写成通过。\n"
+      "words": 5178,
+      "minutes": 8,
+      "search": "  第二步启动命令\n\n我按门限与工具分成四项，每项单独进入。门限 0 的单 UE ping/UDP 复用第一步既有参照，先不重测；门限 1 单 UE 两工具已补齐；本批可运行多 UE 正式重复也已补齐，完成网页后暂停。实际测试状态见对应结果，未完成项不填数值。\n\n 编号与实验 门限 工具 规划 知识点 启动命令 结果与分析 \n --- ---: --- --- --- --- --- \n  1. 门限 0 的 ping 多 UE (../研究结果与分析/第二步/1_门限0的ping多UE.md) 0 ping  规划 (../文献导读/第二步/1_门限0的ping多UE.md)  知识点 (../算法知识点说明/十二步知识点/第二步/1_门限0的ping多UE.md)  启动命令 (第二步/1_门限0的ping多UE.md)  结果与分析 (../研究结果与分析/第二步/1_门限0的ping多UE.md) \n  2. 门限 1 的 ping 多 UE (../研究结果与分析/第二步/2_门限1的ping多UE.md) 1 ping  规划 (../文献导读/第二步/2_门限1的ping多UE.md)  知识点 (../算法知识点说明/十二步知识点/第二步/2_门限1的ping多UE.md)  启动命令 (第二步/2_门限1的ping多UE.md)  结果与分析 (../研究结果与分析/第二步/2_门限1的ping多UE.md) \n  3. 门限 0 的 UDP 多 UE (../研究结果与分析/第二步/3_门限0的UDP多UE.md) 0 UDP  规划 (../文献导读/第二步/3_门限0的UDP多UE.md)  知识点 (../算法知识点说明/十二步知识点/第二步/3_门限0的UDP多UE.md)  启动命令 (第二步/3_门限0的UDP多UE.md)  结果与分析 (../研究结果与分析/第二步/3_门限0的UDP多UE.md) \n  4. 门限 1 的 UDP 多 UE (../研究结果与分析/第二步/4_门限1的UDP多UE.md) 1 UDP  规划 (../文献导读/第二步/4_门限1的UDP多UE.md)  知识点 (../算法知识点说明/十二步知识点/第二步/4_门限1的UDP多UE.md)  启动命令 (第二步/4_门限1的UDP多UE.md)  结果与分析 (../研究结果与分析/第二步/4_门限1的UDP多UE.md) \n\n 多UE接入异常：CPU与空闲探测对照分析 (../研究结果与分析/多UE接入异常_CPU与空闲探测对照分析.md)在侧栏与结果总目录并列，记录共同接入问题，不占本步1—4编号。\n\n   核心网、无线与业务分终端\n\n 终端/环节 操作 确认条件 \n --- --- --- \n 1：原核心网 在原目录执行  ./run-5gc.sh  本轮原服务可用；不重建他人任务 \n 2：gNB 在实际研究构建目录执行下方对应门限配置命令 RF已启动，配置与本项门限一致 \n 3/4/5：UE 各网络空间分别直接启动UE 每个UE都出现TUN地址并核路由 \n 独立业务终端 进入上表1—4对应命令页 先捕获、再业务；实际活动UE数等于本项条件 \n\n   bash\ncd ~/oiwireless/oiwireless-5gc-deploy\n./run-5gc.sh\n   \n\n 门限 实际gNB配置文件 用途 \n --- --- --- \n 0  oi-wireless-ran-ping-slot-validation/research/latency-analysis/rfsim-slot-sync-v1/configs/gnb1.sa.band261.fr2.66PRB.5slot.low-latency.mcs9.sync1.dpdk.conf  第一步积极空闲探测参照；本轮3UE接入异常 \n 1  oi-wireless-ran-latency-analysis/research/latency-analysis/step2-multiue56-v1/configs/gnb1.sa.band261.fr2.66PRB.5slot.multiue.mcs9.inactivity1.sync1.dpdk.conf  只改  ulsch_max_frame_inactivity=1 ；当前共同诊断/UDP基线 \n\n两个文件实质只差该一个参数；完整比较留在CHG/TEST。扩展名dpdk不决定驱动，本轮均用  --rfsim ，没有验证实际射频。\n\n门限0基站：\n\n   bash\ncd ~/oiwireless/oi-wireless-ran-ping-slot-validation/cmake_targets/ran_build/build\nsudo ./nr-softmodem -O /home/lbh/oiwireless/oi-wireless-ran-ping-slot-validation/research/latency-analysis/rfsim-slot-sync-v1/configs/gnb1.sa.band261.fr2.66PRB.5slot.low-latency.mcs9.sync1.dpdk.conf --sa --rfsim --rfsimulator.serveraddr server\n   \n\n门限1基站，与门限0二选一；切换前先停止自己的全部UE/gNB，原核心保留：\n\n   bash\ncd ~/oiwireless/oi-wireless-ran-ping-slot-validation/cmake_targets/ran_build/build\nsudo ./nr-softmodem -O /home/lbh/oiwireless/oi-wireless-ran-latency-analysis/research/latency-analysis/step2-multiue56-v1/configs/gnb1.sa.band261.fr2.66PRB.5slot.multiue.mcs9.inactivity1.sync1.dpdk.conf --sa --rfsim --rfsimulator.serveraddr server\n   \n\n   逐UE配置和网络空间\n\n仅第一次准备时，在研究仓库执行下列两条；目标已存在不能重复覆盖。工具只读取已有订阅和准备隔离网络，不启动核心/RAN、不修改数据库。私有配置不上传Git。\n\n   bash\ncd ~/oiwireless/oi-wireless-ran-latency-analysis\nsudo -n /usr/bin/python3 -B research/latency-analysis/step2-multiue56-v1/prepare.py inventory --root /home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/environment\nsudo -n /usr/bin/python3 -B research/latency-analysis/step2-multiue56-v1/prepare.py setup --root /home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/environment\n   \n\n 业务UE编号 命名空间 私有配置文件 RFsim宿主地址 \n --- --- --- --- \n 1 s2m56u0 environment/private/ue0.conf 10.203.1.1 \n 2 s2m56u1 environment/private/ue1.conf 10.203.2.1 \n 3 s2m56u2 environment/private/ue2.conf 10.203.3.1 \n\n三个UE分别开终端，在相同研究构建目录启动。命名空间中的127.0.0.1属于UE自己，因此本轮使用其可达的宿主veth地址；频率、SCS、PRB、SSB及增益未因此改变。\n\n   bash\ncd ~/oiwireless/oi-wireless-ran-ping-slot-validation/cmake_targets/ran_build/build\nsudo ip netns exec s2m56u0 ./nr-uesoftmodem --band 261 -C 27547560000 -r 66 --numerology 3 --ssb 301 --sa -O /home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/environment/private/ue0.conf --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 10.203.1.1\n   \n\n   bash\ncd ~/oiwireless/oi-wireless-ran-ping-slot-validation/cmake_targets/ran_build/build\nsudo ip netns exec s2m56u1 ./nr-uesoftmodem --band 261 -C 27547560000 -r 66 --numerology 3 --ssb 301 --sa -O /home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/environment/private/ue1.conf --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 10.203.2.1\n   \n\n   bash\ncd ~/oiwireless/oi-wireless-ran-ping-slot-validation/cmake_targets/ran_build/build\nsudo ip netns exec s2m56u2 ./nr-uesoftmodem --band 261 -C 27547560000 -r 66 --numerology 3 --ssb 301 --sa -O /home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/environment/private/ue2.conf --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 10.203.3.1\n   \n\n每个UE先核验TUN与路由，例如第1个：\n\n   bash\nsudo ip netns exec s2m56u0 ip -4 addr show dev oaitun_ue1\nsudo ip netns exec s2m56u0 ip -4 route get 172.11.200.25 oif oaitun_ue1\n   \n\n实际UE地址从本轮读取，不能把RFsim地址当业务UE地址。先NAS/QFI和双向路径核验，再发正式业务。两端均不加continuous-tx或额外线程池。\n\n   停止\n\n各UE/gNB终端Ctrl-C，仅回收自己本轮进程，原核心网保留。确认各命名空间无自己的UE/业务/抓包后，才可运行准备工具的cleanup；它核对命名空间和网卡身份，发现活进程即拒绝。\n\n   依据与测量边界\n\nTS 38.211 V19.5.0 §4.3.2、§7.3.2.2；TS 38.213 V19.5.0 §9.2.4、§11.1；TS 38.321 V19.4.0 §5.4.1、§5.4.4、§5.4.5；TS 38.331 V19.4.0 §6.3.2；TS 38.300 V19.4.0 §10.2/10.3。门限 0/1、56 B、50 包/秒、样本/预热和本配置均为实现或实验选择，不是协议规定的最优值。\n\nP01《Dissecting 5G New-Radio Latency》，IFIP Networking 2025，§III–IV、本地 PDF 第 2–4 页；P24 QUEST，本地 IEEE TNSM 2026 版，§V–VI、PDF 第 6–10 页；教材 §13.1.1.2、PDF 第 530–532 页。使用用户提供且本次核读的本地版本，不冒称官网最高。17 份相关原文可读，缺件立即停止。\n\n 返回全部规划 (../文献导读/算法实验规划_通信RTT与时延优化.md) ·  结果与分析总目录 (../研究结果与分析/研究结果与分析总目录.md)\n"
     },
     {
       "id": "r80c1a1f879c1c778",
