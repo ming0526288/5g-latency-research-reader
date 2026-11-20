@@ -239,6 +239,24 @@
       "status": "partial"
     },
     {
+      "source": "说明/研究结果与分析/方案三的第一种_业务到达时刻与上行发送机会对齐.md",
+      "topic": "single-ue-tdd-arrival-alignment",
+      "independentExperiment": "single-ue-tdd-arrival-alignment",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/方案三的第二种_调整TDD.md",
+      "topic": "single-ue-tdd-layout-adjustment",
+      "independentExperiment": "single-ue-tdd-layout-adjustment",
+      "status": "not-started"
+    },
+    {
+      "source": "说明/研究结果与分析/方案三的第三种_调整调度时序.md",
+      "topic": "single-ue-tdd-scheduling-timing",
+      "independentExperiment": "single-ue-tdd-scheduling-timing",
+      "status": "not-started"
+    },
+    {
       "source": "说明/研究结果与分析/第二步/1_门限0的ping多UE.md",
       "topic": "step-2-experiment-1-results",
       "documentRole": "results",
