@@ -1,0 +1,258 @@
+{
+  "status": "PASS",
+  "complete": 200,
+  "measured": 180,
+  "clock_offset_change_ns": 852,
+  "trace_counts": {
+    "ue/pdcp": {
+      "count": 1820,
+      "capacity": 262144,
+      "dropped": 0
+    },
+    "ue/sdap_api": {
+      "count": 204,
+      "capacity": 131072,
+      "dropped": 0
+    },
+    "ue/rlc": {
+      "count": 608,
+      "capacity": 131072,
+      "dropped": 0
+    },
+    "gnb/rlc": {
+      "count": 604,
+      "capacity": 131072,
+      "dropped": 0
+    },
+    "ue/rlc-am": {
+      "count": 213,
+      "capacity": 262144,
+      "dropped": 0
+    },
+    "ue/ue-mac": {
+      "count": 90039,
+      "capacity": 262144,
+      "dropped": 0
+    },
+    "ue/ue-dci": {
+      "count": 89622,
+      "capacity": 262144,
+      "dropped": 0
+    },
+    "gnb/gnb-mac": {
+      "count": 185090,
+      "capacity": 262144,
+      "dropped": 0
+    },
+    "ue/ue-phy": {
+      "count": 179246,
+      "capacity": 262144,
+      "dropped": 0
+    },
+    "gnb/gnb-crc": {
+      "count": 89634,
+      "capacity": 262144,
+      "dropped": 0
+    }
+  },
+  "all": {
+    "n": 180,
+    "means_ms": {
+      "to_ready": 0.020301533333333333,
+      "wait_grant": 0.12110646666666666,
+      "grant_to_target_mac": 0.09074952222222223,
+      "mac_to_phy_start": 0.006997938888888889,
+      "phy_encode_span": 0.00587885,
+      "after_encode_to_crc": 0.41077645555555553,
+      "crc_to_n3": 0.046036883333333334
+    },
+    "early_grants": 57,
+    "earlier_dci_counts": {
+      "0": 180
+    },
+    "grant_wait_ms": {
+      "ready_to_prepare": 0.00290215,
+      "prepare_to_accept": 0.11820431666666667
+    },
+    "radio_offset_slots": {
+      "4": 180
+    },
+    "mean_ul_ms": 0.70184765,
+    "mean_rtt_ms": 1.2741302833333332
+  },
+  "ul_metric": {
+    "mean": 0.70184765,
+    "p50": 0.70349,
+    "p95": 0.9220095500000001,
+    "p99": 0.9912150599999999,
+    "max": 1.759549
+  },
+  "cohorts": {
+    "rtt_ms": {
+      "tail": {
+        "n": 18,
+        "means_ms": {
+          "to_ready": 0.019757555555555556,
+          "wait_grant": 0.3261978888888889,
+          "grant_to_target_mac": 0.10851294444444444,
+          "mac_to_phy_start": 0.0069551111111111116,
+          "phy_encode_span": 0.006035166666666667,
+          "after_encode_to_crc": 0.44234755555555555,
+          "crc_to_n3": 0.0470085
+        },
+        "early_grants": 0,
+        "earlier_dci_counts": {
+          "0": 18
+        },
+        "grant_wait_ms": {
+          "ready_to_prepare": 0.021319833333333333,
+          "prepare_to_accept": 0.3048780555555556
+        },
+        "radio_offset_slots": {
+          "4": 18
+        },
+        "mean_ul_ms": 0.9568147222222222,
+        "mean_rtt_ms": 1.5668695
+      },
+      "ref": {
+        "n": 162,
+        "means_ms": {
+          "to_ready": 0.020361975308641974,
+          "wait_grant": 0.09831853086419753,
+          "grant_to_target_mac": 0.0887758086419753,
+          "mac_to_phy_start": 0.007002697530864198,
+          "phy_encode_span": 0.005861481481481481,
+          "after_encode_to_crc": 0.4072685555555556,
+          "crc_to_n3": 0.04592892592592593
+        },
+        "early_grants": 57,
+        "earlier_dci_counts": {
+          "0": 162
+        },
+        "grant_wait_ms": {
+          "ready_to_prepare": 0.0008557407407407407,
+          "prepare_to_accept": 0.0974627901234568
+        },
+        "radio_offset_slots": {
+          "4": 162
+        },
+        "mean_ul_ms": 0.673517975308642,
+        "mean_rtt_ms": 1.2416037037037038
+      },
+      "increment_ms": {
+        "to_ready": -0.000604419753086418,
+        "wait_grant": 0.22787935802469136,
+        "grant_to_target_mac": 0.019737135802469136,
+        "mac_to_phy_start": -4.758641975308609e-05,
+        "phy_encode_span": 0.00017368518518518557,
+        "after_encode_to_crc": 0.03507899999999997,
+        "crc_to_n3": 0.001079574074074073
+      },
+      "max": {
+        "icmp_seq": 130,
+        "parts_ms": {
+          "to_ready": 0.016311,
+          "wait_grant": 1.109674,
+          "grant_to_target_mac": 0.102358,
+          "mac_to_phy_start": 0.005751,
+          "phy_encode_span": 0.005387,
+          "after_encode_to_crc": 0.472343,
+          "crc_to_n3": 0.047725
+        },
+        "ul_ms": 1.759549,
+        "rtt_ms": 2.327899,
+        "slot_distance": 4,
+        "before_ready": false,
+        "encoding_work_ms": 0.005367,
+        "earlier_dci": 0,
+        "grant_wait_ms": {
+          "ready_to_prepare": 0.0,
+          "prepare_to_accept": 1.109674
+        }
+      }
+    },
+    "ul_ms": {
+      "tail": {
+        "n": 18,
+        "means_ms": {
+          "to_ready": 0.020559166666666667,
+          "wait_grant": 0.3284332222222222,
+          "grant_to_target_mac": 0.10255027777777778,
+          "mac_to_phy_start": 0.007918777777777778,
+          "phy_encode_span": 0.006737777777777777,
+          "after_encode_to_crc": 0.46017355555555556,
+          "crc_to_n3": 0.04711877777777778
+        },
+        "early_grants": 0,
+        "earlier_dci_counts": {
+          "0": 18
+        },
+        "grant_wait_ms": {
+          "ready_to_prepare": 0.021248944444444445,
+          "prepare_to_accept": 0.3071842777777778
+        },
+        "radio_offset_slots": {
+          "4": 18
+        },
+        "mean_ul_ms": 0.9734915555555556,
+        "mean_rtt_ms": 1.549501888888889
+      },
+      "ref": {
+        "n": 162,
+        "means_ms": {
+          "to_ready": 0.020272907407407406,
+          "wait_grant": 0.09807016049382716,
+          "grant_to_target_mac": 0.08943832716049382,
+          "mac_to_phy_start": 0.006895623456790123,
+          "phy_encode_span": 0.005783413580246913,
+          "after_encode_to_crc": 0.4052878888888889,
+          "crc_to_n3": 0.04591667283950617
+        },
+        "early_grants": 57,
+        "earlier_dci_counts": {
+          "0": 162
+        },
+        "grant_wait_ms": {
+          "ready_to_prepare": 0.0008636172839506173,
+          "prepare_to_accept": 0.09720654320987654
+        },
+        "radio_offset_slots": {
+          "4": 162
+        },
+        "mean_ul_ms": 0.6716649938271605,
+        "mean_rtt_ms": 1.243533438271605
+      },
+      "increment_ms": {
+        "to_ready": 0.0002862592592592604,
+        "wait_grant": 0.23036306172839505,
+        "grant_to_target_mac": 0.013111950617283957,
+        "mac_to_phy_start": 0.001023154320987655,
+        "phy_encode_span": 0.0009543641975308641,
+        "after_encode_to_crc": 0.054885666666666666,
+        "crc_to_n3": 0.0012021049382716087
+      },
+      "max": {
+        "icmp_seq": 130,
+        "parts_ms": {
+          "to_ready": 0.016311,
+          "wait_grant": 1.109674,
+          "grant_to_target_mac": 0.102358,
+          "mac_to_phy_start": 0.005751,
+          "phy_encode_span": 0.005387,
+          "after_encode_to_crc": 0.472343,
+          "crc_to_n3": 0.047725
+        },
+        "ul_ms": 1.759549,
+        "rtt_ms": 2.327899,
+        "slot_distance": 4,
+        "before_ready": false,
+        "encoding_work_ms": 0.005367,
+        "earlier_dci": 0,
+        "grant_wait_ms": {
+          "ready_to_prepare": 0.0,
+          "prepare_to_accept": 1.109674
+        }
+      }
+    }
+  }
+}
