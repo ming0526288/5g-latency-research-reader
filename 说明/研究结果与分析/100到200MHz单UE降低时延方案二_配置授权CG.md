@@ -10,7 +10,7 @@
 |UE 怎么知道何时能发|基站通过下行控制信道发送一份动态授权，告诉 UE 这次在哪个上行时隙、用哪些资源发。|UE 按已经生效的周期配置找到下一次发送机会，每次机会可直接按配置使用。|
 |数据来了是否一定要先发 SR|已经有合适的动态授权时，对应包可以直接用它。基站也可以在收到 SR 前主动给授权。|满足使用条件并赶上已配置的机会时，数据可直接发送，省去对应包的临时请求和动态授权等待。|
 |没有数据时的代价|基站可能照样发授权并分配资源，有些授权没有带业务数据。|周期资源如果为该业务预留，业务没来时可能闲置。周期和业务相位匹配能减少等待。|
-|本项目的实现状态|本项目已经运行，`ulsch_max_frame_inactivity = 0` 用在基站调度资格判断。|目前基站未生成 `ConfiguredGrantConfig`，试验用的 UE 收到该字段会触发不支持的断言。尚未做 CG 时延实验。|
+|本项目的实现状态|本项目已经运行，`ulsch_max_frame_inactivity = 0` 用在基站调度资格判断。|独立研究副本已跑通 200 MHz 单 UE 的 Type 1 先导。原运行版本仍保留。|
 
 **CG 有两种启用方式。** Type 1 由 RRC 直接配置上行授权。Type 2 先由 RRC 配置，然后通过 PDCCH 上的控制信令激活或停用，激活后授权按配置重复使用。Type 2 的激活信令和门限 0 的逐次动态授权是不同操作。这里的 SR 是 UE 向基站申请上行资源的调度请求，PDCCH 是基站发送控制信息的下行信道。[3GPP TS 38.331](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3197) · [3GPP TS 38.321](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3194)
 
@@ -31,8 +31,25 @@
 
 已测的单 UE 对照，两档都是每隔 5 槽**准备**一次动态上行授权。100 MHz 主机上平均间隔 0.222 ms，200 MHz 是 0.453 ms。配置授权可以改变特定业务等授权的方式，当前测试看到的 RFsim 样本推进速度属于另一个环节。现有结果也没有逐包关联 UE 收到授权和实际发出该包的时刻。[100 到 200 MHz 的时延变化](100到200MHz单UE时延变化的原因.md)
 
-**方案二当前完成协议和源码核对。** 后续如果要实测，需要基站和 UE 都支持标准 CG。对照时可固定带宽、TDD 和发包节奏，比较门限 0 动态授权与 CG 的上行等待、RTT 和空闲资源占用。当前没有 CG 的时延结果。AUGUSTE 同样会在 SR 之前安排资源，但它走的是预测来包再发动态授权的路线。[AUGUSTE 原文](https://arxiv.org/abs/2606.03664v1)
+## 200 MHz 单 UE ping 实测
 
-依据为本地 TS 38.331 V19.4.0 §6.3.2 的 `ConfiguredGrantConfig`，TS 38.321 V19.4.0 §5.4.1、§5.4.4、§5.8.2，TS 38.214 V19.5.0 §6.1.2.3，以及 TS 38.211 V19.5.0 §4.3.2 表 4.3.2-1。对应实现和网页核验见 CHG-485、TEST-640。[3GPP TS 38.214](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3216)
+**这轮 Type 1 跑通，平均 RTT 和 P99 都高于前后两轮门限 0。** 我用同一套 gNB 和 UE 程序、同一份 200 MHz 配置依次跑「门限 0 → Type 1 → 门限 0」。每轮一个 UE，n261、120 kHz、132 PRB，发 200 个 56 B ICMP 数据区的 ping，目标间隔 20 ms。前 20 个为预热，表中 RTT 用后 180 个计算。
+
+| 轮次 | 发出／收到 | 平均 RTT / ms | P99 RTT / ms |
+| --- | ---: | ---: | ---: |
+| 历史门限 0（TEST-633） | 200／200 | 1.354 | 1.951 |
+| 门限 0，第 1 轮 | 200／200 | 1.302 | 1.855 |
+| **CG Type 1** | **200／200** | **1.420** | **2.088** |
+| 门限 0，切回轮 | 200／200 | 1.349 | 1.884 |
+
+gNB 下发了 `ConfiguredGrantConfig`，UE 日志确认应用在上行 BWP 0。Type 1 每 5 槽安排一次发送机会，即 0.625 ms 无线时间。每次在完整上行槽中放 5 PRB，MCS 为 9，有待发数据才安排 PUSCH。这个固定配置用于本次先导。
+
+相比两轮新门限 0 的平均值，Type 1 的平均 RTT 增加 **0.095 ms**。逐包关联同机 TUN 和 N3 抓包后，TUN 往返均值增加 0.095 ms，其中请求上行段增加 0.086 ms、核心网侧减少 0.010 ms、下行段增加 0.019 ms。当前可定位到请求上行段。段内的排队、配置机会和主机处理时间仍需逐包拆分。
+
+这是一轮 Type 1、两轮门限 0 的 RFsim 短测。适用范围是单 UE 和当前低负载，使用固定单层上行配置。资源空闲比例、CG HARQ 重传、Type 2 与真实射频待验证。[代码目录](../研究代码/代码目录.md)
+
+AUGUSTE 也能在 SR 之前安排资源，它使用业务到达预测来决定何时发动态授权。[AUGUSTE 原文](https://arxiv.org/abs/2606.03664v1)
+
+依据为本地 TS 38.331 V19.4.0 §6.3.2 的 `ConfiguredGrantConfig`，TS 38.306 V19.4.0 的 `configuredUL-GrantType1`，TS 38.321 V19.4.0 §5.4.1、§5.4.4、§5.8.2，TS 38.214 V19.5.0 §6.1.2.3，以及 TS 38.211 V19.5.0 §4.3.2 表 4.3.2-1。实现、启动命令和核验见 CHG-488、TEST-643。[3GPP TS 38.214](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3216)
 
 [查看现有解决方案](100到200MHz单UE时延现有的解决方案.md) · [结果与分析总目录](研究结果与分析总目录.md)
