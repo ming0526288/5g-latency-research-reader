@@ -1364,7 +1364,7 @@
       "experimentStage": "single-ue-bandwidth-existing-solutions",
       "independentExperiment": "single-ue-bandwidth-existing-solutions",
       "status": "literature-review",
-      "sha256": "6320937c0087412b5137f88e0ca29b522f49af2e9d2a14bea2318dc02d0f4d21",
+      "sha256": "64dcf029e0aba3295d7f487a6eba20db9f24a584f09becea8c71c39cef7e286f",
       "snapshot": "说明/研究结果与分析/100到200MHz单UE时延现有的解决方案.md",
       "redacted": false,
       "toc": [
@@ -1384,9 +1384,9 @@
           "level": 2
         }
       ],
-      "words": 2238,
-      "minutes": 3,
-      "search": "  100 到 200 MHz 单 UE 时延现有的解决方案\n\n同一载频的单 UE 回切实验中，两档基站都每隔 5 槽准备一次上行授权。5 槽对应 0.625 ms 的仿真时间，但实际经过的主机时间从 0.222 增至 0.453 ms。这是本机 RFsim 中观测到的运行差异。 带宽回切结果 (100到200MHz单UE时延变化的原因.md)\n\n   已有做法与适用条件\n\n 遇到的问题 已有方法 对本项目的用法 \n --- --- --- \n RFsim 采样处理和搬运较重 OAI 给出两端  -E  四分之三采样这个选项，也可检查基带线程的资源占用和处理抖动。 本机 200 MHz、120 kHz、132 PRB 已完成回切验证。 -E  令 RF 接口报告 184.32 MS/s，但 PHY 选择 3,072 点 FFT，PRACH 遇到 368.64 MS/s 后退出。 方案一实测 (100到200MHz单UE降低时延方案一_本机RFsim.md) ·  OAI RFsim 官方文档 (https://github.com/OPENAIRINTERFACE/openairinterface5g/blob/develop/radio/rfsimulator/README.md how-to-improve-performance) \n 周期控制数据到来后还要等上行授权 配置授权（Configured Grant，CG）提前给 UE 配好可用的上行机会，终端在满足授权条件时便可使用，省去对应包的临时请求与授权等待。业务相位匹配时更有效，空闲时仍要考虑资源占用。 独立研究副本已跑通 200 MHz 单 UE 的两种 CG。激活后同构建短测中，门限 0、Type 1、Type 2 的平均 RTT 分别为 1.259、1.340、1.409 ms。门限 0 使用基站主动发出的动态授权。依据为 TS 38.331 V19.4.0 §6.3.2、TS 38.321 V19.4.0 §5.8.2、TS 38.214 V19.5.0 §6.1.2.3。 方案二：CG 与门限 0 的区别 (100到200MHz单UE降低时延方案二_配置授权CG.md) ·  3GPP 配置规范版本 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3197) \n 上行或下行的发送机会隔得太久 按业务方向配置 TDD，并看一次闭环内上行和下行机会怎样衔接。 同一配比下还要看可用机会间距、终端处理时序和接入是否通过。条款为 TS 38.213 V19.5.0 §11.1 与 TS 38.214 V19.5.0 §5.1.2.1、§6.1.2.1。已有商用设备试验按包长、负载和 TDD 图样做对照。 工业 TDD 实测论文 (https://arxiv.org/abs/2504.00912) \n 有规律的突发包需要少等，长期保留授权又浪费资源 AUGUSTE 学习来包时刻，在预计有包时提前动态授权。 适合作为授权时机和空授权开销的论文对照。作者试验的时延数值属于其平台。 AUGUSTE v1 (https://arxiv.org/abs/2606.03664v1) \n\n工业验收可按 TS 22.104 V19.2.0 §5.2、附录 A.2.2.1 界定工业控制业务的传输间隔、时延与可靠性要求，再按应用的负载和测量边界做测试。5G-ACIA 白皮书 §3 给出测试条件和测量指标，5G-SMART 的实测论文在工厂现场分别统计上行与下行。报告 RFsim 结果时同时保留主机 RTT、无线槽差和仿真推进速率。全程 RTT 包含不同来源的处理时间，不用单一推进比把它换算成真实射频时延。 3GPP 工业控制需求 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3528) ·  5G-ACIA 工业测试白皮书 (https://5g-acia.org/wp-content/uploads/2021/04/5G-ACIA_PerformanceTestingOf5GSystemsForIndustrialAutomation-1.pdf) ·  5G-SMART 工业实测 (https://www.mdpi.com/2079-9292/11/3/412)\n\n论文中，P01 用逐包探针量出各层等待与处理，P30 LatencyScope 把调度机会、TDD 和硬件／软件处理纳入单向时延模型。两者可以用来设计计时点、解释差异。实际选哪种优化取决于慢包主要在授权前等待，还是在主机上等样本处理。 P01 原文 (https://networking.ifip.org/2025/images/Net25_papers/1571143492.pdf) ·  P30 LatencyScope v3 (https://arxiv.org/abs/2511.21277v3)\n\n   本机的四分之三采样已经验证\n\n默认采样在前后两轮均接入并完成 200/200 个 ping。启用  -E  的一轮在基站随机接入程序退出，业务没有开始。200 MHz 的现有实验继续使用默认采样。 方案一的完整结果 (100到200MHz单UE降低时延方案一_本机RFsim.md)\n\n 返回时延变化的原因 (100到200MHz单UE时延变化的原因.md) ·  结果与分析总目录 (研究结果与分析总目录.md)\n"
+      "words": 2283,
+      "minutes": 4,
+      "search": "  100 到 200 MHz 单 UE 时延现有的解决方案\n\n同一载频的单 UE 回切实验中，两档基站都每隔 5 槽准备一次上行授权。5 槽对应 0.625 ms 的仿真时间，但实际经过的主机时间从 0.222 增至 0.453 ms。这是本机 RFsim 中观测到的运行差异。 带宽回切结果 (100到200MHz单UE时延变化的原因.md)\n\n   已有做法与适用条件\n\n 遇到的问题 已有方法 对本项目的用法 \n --- --- --- \n RFsim 采样处理和搬运较重 OAI 给出两端  -E  四分之三采样这个选项，也可检查基带线程的资源占用和处理抖动。 本机 200 MHz、120 kHz、132 PRB 已完成回切验证。 -E  令 RF 接口报告 184.32 MS/s，但 PHY 选择 3,072 点 FFT，PRACH 遇到 368.64 MS/s 后退出。 方案一实测 (100到200MHz单UE降低时延方案一_本机RFsim.md) ·  OAI RFsim 官方文档 (https://github.com/OPENAIRINTERFACE/openairinterface5g/blob/develop/radio/rfsimulator/README.md how-to-improve-performance) \n 周期控制数据到来后还要等上行授权 配置授权（Configured Grant，CG）提前给 UE 配好可用的上行机会，终端在满足授权条件时便可使用，省去对应包的临时请求与授权等待。业务相位匹配时更有效，空闲时仍要考虑资源占用。 独立研究副本已跑通 200 MHz 单 UE 的两种 CG。激活后同构建短测中，门限 0、Type 1、Type 2 的平均 RTT 分别为 1.259、1.340、1.409 ms。门限 0 使用基站主动发出的动态授权。依据为 TS 38.331 V19.4.0 §6.3.2、TS 38.321 V19.4.0 §5.8.2、TS 38.214 V19.5.0 §6.1.2.3。 方案二：CG 与门限 0 的区别 (100到200MHz单UE降低时延方案二_配置授权CG.md) ·  3GPP 配置规范版本 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3197) \n 上行或下行的发送机会隔得太久 按业务方向配置 TDD，并看一次闭环内上行和下行机会怎样衔接。 同一配比下还要看可用机会间距、终端处理时序和接入是否通过。条款为 TS 38.213 V19.5.0 §11.1 与 TS 38.214 V19.5.0 §5.1.2.1、§6.1.2.1。已有商用设备试验按包长、负载和 TDD 图样做对照。 方案三：上下行发送机会 (100到200MHz单UE时延方案三_上下行发送机会.md) ·  工业 TDD 实测论文 (https://arxiv.org/abs/2504.00912) \n 有规律的突发包需要少等，长期保留授权又浪费资源 AUGUSTE 学习来包时刻，在预计有包时提前动态授权。 适合作为授权时机和空授权开销的论文对照。作者试验的时延数值属于其平台。 AUGUSTE v1 (https://arxiv.org/abs/2606.03664v1) \n\n工业验收可按 TS 22.104 V19.2.0 §5.2、附录 A.2.2.1 界定工业控制业务的传输间隔、时延与可靠性要求，再按应用的负载和测量边界做测试。5G-ACIA 白皮书 §3 给出测试条件和测量指标，5G-SMART 的实测论文在工厂现场分别统计上行与下行。报告 RFsim 结果时同时保留主机 RTT、无线槽差和仿真推进速率。全程 RTT 包含不同来源的处理时间，不用单一推进比把它换算成真实射频时延。 3GPP 工业控制需求 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3528) ·  5G-ACIA 工业测试白皮书 (https://5g-acia.org/wp-content/uploads/2021/04/5G-ACIA_PerformanceTestingOf5GSystemsForIndustrialAutomation-1.pdf) ·  5G-SMART 工业实测 (https://www.mdpi.com/2079-9292/11/3/412)\n\n论文中，P01 用逐包探针量出各层等待与处理，P30 LatencyScope 把调度机会、TDD 和硬件／软件处理纳入单向时延模型。两者可以用来设计计时点、解释差异。实际选哪种优化取决于慢包主要在授权前等待，还是在主机上等样本处理。 P01 原文 (https://networking.ifip.org/2025/images/Net25_papers/1571143492.pdf) ·  P30 LatencyScope v3 (https://arxiv.org/abs/2511.21277v3)\n\n   本机的四分之三采样已经验证\n\n默认采样在前后两轮均接入并完成 200/200 个 ping。启用  -E  的一轮在基站随机接入程序退出，业务没有开始。200 MHz 的现有实验继续使用默认采样。 方案一的完整结果 (100到200MHz单UE降低时延方案一_本机RFsim.md)\n\n 返回时延变化的原因 (100到200MHz单UE时延变化的原因.md) ·  结果与分析总目录 (研究结果与分析总目录.md)\n"
     },
     {
       "id": "ec3a35cee21d072ca",
@@ -1491,9 +1491,56 @@
       "words": 3826,
       "minutes": 6,
       "search": "  100 到 200 MHz 单 UE 降低时延方案二（配置授权 CG）\n\n  门限 0 和配置授权都可能让 UE 少等一次调度请求。区别在于 UE 怎么知道哪次可以发。   门限 0 时，基站可以在还没收到调度请求时主动发一份动态授权。配置授权（Configured Grant，CG）是先给 UE 配好可周期复用的资源，之后 UE 按生效的配置在合适的机会发送。\n\n   同样是提前给机会，区别在哪里\n\n 对照项 本项目的门限 0 3GPP 配置授权 CG \n --- --- --- \n 决定了什么 决定空闲 UE 何时具备候选资格，基站每次仍要决定给谁、给多少资源。 提前配置周期、时频资源等，UE 保存生效的授权。 \n UE 怎么知道何时能发 基站通过下行控制信道发送一份动态授权，告诉 UE 这次在哪个上行时隙、用哪些资源发。 UE 按已经生效的周期配置找到下一次发送机会，每次机会可直接按配置使用。 \n 数据来了是否一定要先发 SR 已经有合适的动态授权时，对应包可以直接用它。基站也可以在收到 SR 前主动给授权。 满足使用条件并赶上已配置的机会时，数据可直接发送，省去对应包的临时请求和动态授权等待。 \n 没有数据时的代价 基站可能照样发授权并分配资源，有些授权没有带业务数据。 周期资源如果为该业务预留，业务没来时可能闲置。周期和业务相位匹配能减少等待。 \n 本项目的实现状态 本项目已经运行， ulsch_max_frame_inactivity = 0  用在基站调度资格判断。 独立研究副本已在 200 MHz 单 UE RFsim 中跑通 Type 1 和 Type 2。 \n\n  CG 有两种启用方式。   Type 1 由 RRC 直接配置上行授权。Type 2 先由 RRC 配置，然后通过 PDCCH 上的控制信令激活或停用，激活后授权按配置重复使用。Type 2 的激活信令和门限 0 的逐次动态授权是不同操作。这里的 SR 是 UE 向基站申请上行资源的调度请求，PDCCH 是基站发送控制信息的下行信道。 3GPP TS 38.331 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3197) ·  3GPP TS 38.321 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3194)\n\n  CG 类型   怎么启用   适合验证什么  \n  ---   ---   ---  \n    Type 1     基站通过 RRC 直接配置周期性的上行发送机会，配置生效后 UE 就能在符合条件时使用。   业务周期稳定时，提前配置发送机会能减少多少上行等待。  \n    Type 2     基站先用 RRC 配置，再用下行控制信息（DCI）激活这些周期性的发送机会，也可以通过 DCI 停用。   业务有明显的开始和停止阶段时，按需启停能否减少空闲资源占用，以及从激活到首次发送要等多久。  \n\n   用一个待发的小包来理解\n\n  门限 0 的例子。   基站判断 UE 空闲到了候选门限，还有可用资源，就主动发消息安排「接下来这个上行时隙可以发」。若小包及时进入待发队列，就能用这份授权。下次发送仍由新的动态授权决定。\n\n  CG 的例子。   假设配置生效后，每 2.5 ms 有一次可用上行机会，依次是 2.5、5.0、7.5 ms。包在 2.4 ms 已准备好且赶得上，则等 0.1 ms。包在 2.6 ms 才准备好，则要等到 5.0 ms，也就是 2.4 ms。等的时间就是「下一次可用机会的时刻 − 包准备好的时刻」。这是说明相位影响的算例，省略了本机处理时间，数字来自示意设置。\n\n   这对 100 MHz 和 200 MHz 对照意味着什么\n\n门限 0 的「0」是软件参数值。在本项目 TDD 配置下，代码把空闲资格门限换算成一个 TDD 周期，即 5 槽 × 0.125 ms = 0.625 ms。符合资格后，基站还要检查实际资源才能发授权。 第二步知识点 (../算法知识点说明/十二步知识点/第二步知识点.md)\n\n已测的单 UE 对照，两档都是每隔 5 槽  准备  一次动态上行授权。100 MHz 主机上平均间隔 0.222 ms，200 MHz 是 0.453 ms。配置授权可以改变特定业务等授权的方式，当前测试看到的 RFsim 样本推进速度属于另一个环节。现有结果也没有逐包关联 UE 收到授权和实际发出该包的时刻。 100 到 200 MHz 的时延变化 (100到200MHz单UE时延变化的原因.md)\n\n   Type 1 首轮 200 MHz 单 UE ping 对照\n\n  这轮 Type 1 跑通，平均 RTT 和 P99 都高于前后两轮门限 0。   我用同一套 gNB 和 UE 程序、同一份 200 MHz 配置依次跑「门限 0 → Type 1 → 门限 0」。每轮一个 UE，n261、120 kHz、132 PRB，发 200 个 56 B ICMP 数据区的 ping，目标间隔 20 ms。前 20 个为预热，表中 RTT 用后 180 个计算。\n\n  轮次   发出／收到   平均 RTT / ms   P99 RTT / ms  \n  ---   ---:   ---:   ---:  \n  历史门限 0（TEST-633）   200／200   1.354   1.951  \n  门限 0，第 1 轮   200／200   1.302   1.855  \n    CG Type 1       200／200       1.420       2.088    \n  门限 0，切回轮   200／200   1.349   1.884  \n\ngNB 下发了  ConfiguredGrantConfig ，UE 日志确认应用在上行 BWP 0。Type 1 每 5 槽安排一次发送机会，即 0.625 ms 无线时间。每次在完整上行槽中放 5 PRB，MCS 为 9，有待发数据才安排 PUSCH。这个固定配置用于本次先导。\n\n相比两轮新门限 0 的平均值，Type 1 的平均 RTT 增加   0.095 ms  。逐包关联同机 TUN 和 N3 抓包后，TUN 往返均值增加 0.095 ms，其中请求上行段增加 0.086 ms、核心网侧减少 0.010 ms、下行段增加 0.019 ms。当前可定位到请求上行段。段内的排队、配置机会和主机处理时间仍需逐包拆分。\n\n这是一轮 Type 1、两轮门限 0 的 RFsim 短测。适用范围是单 UE 和当前低负载，使用固定单层上行配置。资源空闲比例、CG HARQ 重传与真实射频待验证。 代码目录 (../研究代码/代码目录.md)\n\n   Type 2 激活后的 200 MHz 单 UE ping 实测\n\n  Type 2 已在 RFsim 中通过 PDCCH 的 DCI 激活，并完成 MAC 确认。这轮激活后的平均 RTT 为 1.409 ms，P99 为 1.982 ms。   我在同一构建依次测 Type 2、门限 0、Type 1。三组保持 n261、120 kHz、132 PRB、同一核心网与 TDD、每轮 200 个 56 B ping、目标间隔 20 ms。各组用后 180 个样本统计。两种 CG 均用 5 槽周期、完整 UL 槽、5 PRB 和 MCS 9。\n\n  模式   发出／收到   平均 RTT / ms   P99 RTT / ms   平均请求上行 TUN→N3 / ms  \n  ---   ---:   ---:   ---:   ---:  \n  门限 0   200／200   1.259   1.536   0.684  \n  CG Type 1   200／200   1.340   1.642   0.745  \n    CG Type 2       200／200       1.409       1.982       0.797    \n\nType 2 比本次门限 0 的平均 RTT 高   0.150 ms  ，比同构建 Type 1 高   0.069 ms  。相对于门限 0，抓包中的请求上行段增加   0.114 ms  ，是当前差异最大的分段。每种模式仅一轮，尚无法判断该差值在重复运行中是否稳定。\n\ngNB 在 655.35 槽发出 DCI 0_1，UE 验证后在 655.39 槽发出确认，gNB 在该槽收到。4 槽是   0.500 ms 的无线时间  。实际 ping 在收到确认后才开始，表中 RTT 测的是已激活后的通信往返。还需要另测应用首包触发激活的等待、停用后的空闲资源消耗和 CG 重传。激活校验与确认的依据为 TS 38.213 V19.5.0 §10.2 表 10.2-1，以及 TS 38.321 V19.4.0 §5.4.1、§5.8.2、§6.1.3.7。实测与前一次失败详情见 CHG-489、TEST-644。\n\nAUGUSTE 也能在 SR 之前安排资源，它使用业务到达预测来决定何时发动态授权。 AUGUSTE 原文 (https://arxiv.org/abs/2606.03664v1)\n\n依据为本地 TS 38.331 V19.4.0 §6.3.2 的  ConfiguredGrantConfig ，TS 38.306 V19.4.0 的  configuredUL-GrantType1 ，TS 38.321 V19.4.0 §5.4.1、§5.4.4、§5.8.2，TS 38.214 V19.5.0 §6.1.2.3，以及 TS 38.211 V19.5.0 §4.3.2 表 4.3.2-1。实现、启动命令和核验见 CHG-488、TEST-643。 3GPP TS 38.214 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3216)\n\n 查看现有解决方案 (100到200MHz单UE时延现有的解决方案.md) ·  结果与分析总目录 (研究结果与分析总目录.md)\n"
+    },
+    {
+      "id": "ef3b701051b2edacc",
+      "title": "100 到 200 MHz 单 UE 时延方案三（优化上下行发送机会）",
+      "source": "说明/研究结果与分析/100到200MHz单UE时延方案三_上下行发送机会.md",
+      "aliases": [
+        "说明/研究结果与分析/100到200MHz单UE时延方案三_上下行发送机会.md"
+      ],
+      "group": "research",
+      "topic": "single-ue-tdd-opportunity-plan",
+      "prerequisite": false,
+      "experimentStage": "single-ue-tdd-opportunity-plan",
+      "independentExperiment": "single-ue-tdd-opportunity-plan",
+      "status": "not-started",
+      "sha256": "bdbdddbdb4a60075a28c5c6db032bdd2b5e331cf59ae0791cbf2873740e3ecf6",
+      "snapshot": "说明/研究结果与分析/100到200MHz单UE时延方案三_上下行发送机会.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "100-到-200-mhz-单-ue-时延方案三优化上下行发送机会",
+          "title": "100 到 200 MHz 单 UE 时延方案三（优化上下行发送机会）",
+          "level": 1
+        },
+        {
+          "id": "发送机会隔得太久是什么意思",
+          "title": "发送机会隔得太久是什么意思",
+          "level": 2
+        },
+        {
+          "id": "可以按上行和下行分也可以按怎么改分",
+          "title": "可以按上行和下行分，也可以按怎么改分",
+          "level": 2
+        },
+        {
+          "id": "后续如何判断方案有没有用",
+          "title": "后续如何判断方案有没有用",
+          "level": 2
+        },
+        {
+          "id": "依据",
+          "title": "依据",
+          "level": 2
+        }
+      ],
+      "words": 3566,
+      "minutes": 5,
+      "search": "  100 到 200 MHz 单 UE 时延方案三（优化上下行发送机会）\n\n  我想缩短的是包已准备好以后，等到下一次能在无线侧发出去的时间。   上行请求从 UE 发往基站，下行回复从基站发往 UE。一次 ping 要把两段接起来，所以上行机会密、下行机会稀的图样，也可能让回复等更久。本页是方案设计，暂无新实验数据。\n\n   发送机会隔得太久是什么意思\n\nTDD 让上行和下行在同一载波上分时使用资源。现在的 120 kHz、200 MHz 基线，5 个槽组成 0.625 ms 的周期。用  D  表示全下行槽， U  表示全上行槽， S  表示本项目的混合槽。\n\n  周期内位置   槽 0   槽 1   槽 2   槽 3   槽 4   下一周期  \n  ---   ---   ---   ---   ---   ---   ---  \n  当前图样   D   D   D   S：6 下行＋4 灵活＋4 上行符号   U   从 D 再开始  \n\n-   上行等太久。   UE 手里有 ping 请求，到达时如果刚错过可用的上行资源，需要等下一处能用的上行数据位置。混合槽末尾虽然有 4 个上行符号，仍要看它们能否安排这次上行数据。\n-   下行等太久。   基站拿到 ping 回复时，如果刚错过可用的下行资源，也得等下一处能用的下行数据位置。混合槽开头的下行部分能不能用，要看控制信令、数据分配和处理时间。\n-   上下行衔接差。   即使上行和下行各自的机会都不少，如果回复准备好的时候，最近的下行机会刚好结束，整次 ping 的往返时延还是会增加。\n\n举个只看时隙起点的例子。如果某个包每 5 槽只能用一次槽 4，刚错过这一槽就要再等接近 0.625 ms 的  无线时间  。这只是说明“刚错过”的影响，实际等待取决于包何时就绪、授权和符号位置，也可能跨过多个周期。方向允许只说明有可能发送。真正可用还要有适当的控制信令、数据符号和资源，并满足终端处理时序。时隙依据见 TS 38.211 V19.5.0 §4.3.2 表 4.3.2-1，方向依据见 TS 38.213 V19.5.0 §11.1。\n\n   可以按上行和下行分，也可以按怎么改分\n\n按  问题出现的方向  ，先看上行等待、下行等待，再看一次请求与回复能不能接得上。按  能调整的地方  ，我把候选办法归为下面三类，便于决定下一次只改哪一项。\n\n  可以调整什么   通俗解释   在本项目里先看什么  \n  ---   ---   ---  \n    TDD 周期     改变同一套上下行安排多久重复一次。   先看 0.625 ms 下布局还能怎么调。若再研究周期缩短，0.5 ms 在 120 kHz 下只有 4 槽，需重新核对有效上下行资源和接入时序。  \n    全下行槽、全上行槽与混合槽布局     周期相同，也可以把某一方向的发送机会提前、增加，或改变混合槽中的可用符号。   上行慢就看能否更早出现可用上行数据机会，同时核对会不会挤掉下行控制和回复机会。下行慢时也按同样原则核对两个方向。  \n    既有机会内的调度时序     图样固定时，看控制信令能否安排到更近的合法数据位置。   下行看  K0 ，上行看  K2 ，还要看指定槽里从哪个符号开始、能用多少符号、UE 是否来得及处理。  \n\n三类是本研究的  调整办法  。3GPP 用公共 TDD 配置定义周期和基本方向，也提供专用配置及适用的动态时隙格式指示来处理灵活资源。专用配置只能细化公共配置中的灵活符号。第一轮设计只比较固定公共图样，更容易追踪变化来源。条款见 TS 38.331 V19.4.0 §6.3.2 的  TDD-UL-DL-ConfigCommon 、 TDD-UL-DL-Pattern 、 TDD-UL-DL-ConfigDedicated ，以及 TS 38.213 V19.5.0 §11.1、§11.1.1。上述图样按本项目未配置子带全双工的传统 TDD 讨论。\n\n  和 CG 的关系。   方案二的 Type 1、Type 2 都用于上行，分的是「UE 怎样获得并启用可以周期复用的上行授权」。本方案分的是「无线时间表上有哪些合法机会，以及包多久能用到它们」。即使 UE 已有 CG，也要等到配置允许的上行位置；下行回复还要找可用下行位置。优先用门限 0 的动态授权考察图样，避免同时改变授权方式。CG 的依据见 TS 38.214 V19.5.0 §6.1.2.3 和  方案二（配置授权 CG） (100到200MHz单UE降低时延方案二_配置授权CG.md)。\n\n   后续如何判断方案有没有用\n\n对一个在无线时间 $t$ 就绪的包，我把该方向之后第一个它  实际赶得上  的合法机会记为 $t_{\\mathrm{next}}$，对应等待为 $W=t_{\\mathrm{next}}-t$。上行从请求就绪算，下行从回复就绪算。下行起点受上行送达和回复处理影响。已有抓包能把 RTT 分成上行 TUN→N3、N3 上的请求到回复、下行 N3→TUN 三段。要进一步确认等待发生在哪里，还需关联包就绪、基站发调度指令、目标槽及实际 PUSCH／PDSCH（承载上行／下行数据的物理信道）。无线槽差与 RFsim 主机上的毫秒数分别记录。\n\n  顺序   拟做的事   怎样判读  \n  ---   ---   ---  \n  1. 固定基线   200 MHz、n261、120 kHz、132 PRB、单 UE，沿用 56 B ping、目标间隔 20 ms、门限 0、现有 0.625 ms 图样及同一构建。   用分段计时找出慢包主要是在等上行、等下行，还是 RFsim 推进变慢。  \n  2. 先对照图样   若等待集中在某一方向，先保持 0.625 ms 和授权策略，只对照一套向该方向增加早期机会的公共图样。若慢在上行，可先核算  D D S U U ，保留原混合槽 6 下行＋4 灵活＋4 上行符号。   此候选图样把混合槽与首个完整上行槽各提前 1 槽，即 0.125 ms 无线时间，同时少 1 个完整下行槽。还需核验 SSB／SIB1、随机接入、PDCCH、HARQ 反馈及  K0 ／ K2  的有效位置，才能判断可否接入及承载业务。  \n  3. 比较完整往返   后续做原图样 → 候选图样 → 切回原图样，固定包长、业务间隔和统计口径。只有需要时，再把周期或调度时序各作为单独对照。   比较上行和下行的实际等待、RTT 中位数／P99、丢包和无线到主机推进速度。若配置须联动调整，逐项记录后按组合比较。  \n\n已有带宽回切中，100 和 200 MHz 的 TDD 图样相同，上行授权准备都隔 5 槽，200 MHz 在主机上推进这些槽更慢。本方案在 200 MHz 内检验能否少等无线机会，让包更早发出；收益大小要靠上面的对照和逐包计时确认。 带宽回切结果 (100到200MHz单UE时延变化的原因.md)\n\n   依据\n\n- 时域分配与处理时间：TS 38.214 V19.5.0 §5.1.2.1、§6.1.2.1 说明  K0 ／ K2 、起始符号和长度；§5.3、§6.4 给出相关的 UE 处理时间。随机接入机会和上行报告 HARQ 反馈分别参考 TS 38.213 V19.5.0 §8.1、§9.2.3。协议约束可用位置，具体候选图样及实验条件由本项目选取。  38.211 版本 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3213) ·  38.213 版本 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3215) ·  38.214 版本 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3216) ·  38.331 版本 (https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3197)\n- P30《LatencyScope》v3，§III、图 2 和 §IV.A，本地 PDF 第 3–4 页，参考其按 TDD 相位拆分调度等待；P19 工厂 TDD 论文，§III.A、§IV.B，本地 PDF 第 3–5 页，参考其分别看业务方向和图样。教材《5G 移动通信系统设计与标准详解》§4.3.1，本地 PDF 第 79–80 页，参考帧结构和 D／U／灵活符号。  P30 原文 (https://arxiv.org/abs/2511.21277v3) ·  P19 原文 (https://arxiv.org/abs/2012.05507)\n\n 现有解决方案 (100到200MHz单UE时延现有的解决方案.md) ·  方案二（配置授权 CG） (100到200MHz单UE降低时延方案二_配置授权CG.md) ·  结果与分析总目录 (研究结果与分析总目录.md)\n"
     }
   ],
-  "formulas": 55,
+  "formulas": 58,
   "mathErrors": [],
   "imageCount": 15,
   "warnings": [],

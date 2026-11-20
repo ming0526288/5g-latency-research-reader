@@ -77,6 +77,7 @@
  const singleUeBandwidthSolutions=C.docs.find(d=>d.topic==='single-ue-bandwidth-existing-solutions');
  const singleUeRfsimSampling=C.docs.find(d=>d.topic==='single-ue-rfsim-undersampling-validation');
  const singleUeConfiguredGrant=C.docs.find(d=>d.topic==='single-ue-configured-grant');
+ const singleUeTddOpportunityPlan=C.docs.find(d=>d.topic==='single-ue-tdd-opportunity-plan');
  function notify(s){$('#toast').textContent=s;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),2300);}
  function header(category,title,description=''){return `<div class="library-heading"><div class="eyebrow">${category}</div><h1>${E(title)}</h1>${description?`<p>${E(description)}</p>`:''}</div>`;}
  function breadcrumbs(label){return `<nav class="breadcrumbs"><a href="#/">阅读首页</a><span>／</span><span>${E(label)}</span></nav>`;}
@@ -84,7 +85,7 @@
   const route=state.route;
   let algorithmMode=route.startsWith('/algorithm/')?route.split('/')[3]:null;
   if(state.doc&&familyForDoc(state.doc).length)algorithmMode=docs.get(state.doc).group==='knowledge'?'knowledge':'results';
-  const current=docs.get(state.doc),activeHub=current&&(current===startupDiagnosis||current===latencyDifference||current===startupSync||current===multiueDiagnosis||current===gateZeroAdmission||current===threeUeUplinkPlan||current===gateZeroPingDelay||current===singleUeBandwidthLatency||current===singleUeBandwidthSolutions||current===singleUeRfsimSampling||current===singleUeConfiguredGrant)?null:current?.knowledgeStep||current?.documentRole==='knowledge'?knowledgeIndex:current?.commandStep||current?.documentRole==='commands'?launchIndex:current?.experimentStage?resultsIndex:current?.documentRole==='plans'||current?.researchStep&&current.group==='guides'?experimentPlan:null;
+  const current=docs.get(state.doc),activeHub=current&&(current===startupDiagnosis||current===latencyDifference||current===startupSync||current===multiueDiagnosis||current===gateZeroAdmission||current===threeUeUplinkPlan||current===gateZeroPingDelay||current===singleUeBandwidthLatency||current===singleUeBandwidthSolutions||current===singleUeRfsimSampling||current===singleUeConfiguredGrant||current===singleUeTddOpportunityPlan)?null:current?.knowledgeStep||current?.documentRole==='knowledge'?knowledgeIndex:current?.commandStep||current?.documentRole==='commands'?launchIndex:current?.experimentStage?resultsIndex:current?.documentRole==='plans'||current?.researchStep&&current.group==='guides'?experimentPlan:null;
   const nav=(url,icon,label,count)=>`<a href="${url}" class="nav-link ${route===url.slice(1)||activeHub&&url===docUrl(activeHub)||algorithmMode&&url===algorithmIndexUrl(algorithmMode)?'active':''}"><span class="nav-icon">${icon}</span>${label}${count?`<span class="nav-count">${count}</span>`:''}</a>`;
   $('#sidebar').innerHTML=nav('#/','⌂','阅读首页')+nav('#/bookmarks','☆','我的书签',bookmarks.filter(id=>docs.has(id)).length)+
    (paperPlan||experimentPlan?'<div class="nav-heading">论文规划与研究路线</div>'+(paperPlan?nav(docUrl(paperPlan),'↗','时延优化与算法对照'):'')+(experimentPlan?nav(docUrl(experimentPlan),'↗','算法实验规划'):''):'')+
@@ -104,6 +105,7 @@
    (singleUeBandwidthSolutions?nav(docUrl(singleUeBandwidthSolutions),'↗',E(singleUeBandwidthSolutions.title)):'')+
    (singleUeRfsimSampling?nav(docUrl(singleUeRfsimSampling),'↗',E(singleUeRfsimSampling.title)):'')+
    (singleUeConfiguredGrant?nav(docUrl(singleUeConfiguredGrant),'↗',E(singleUeConfiguredGrant.title)):'')+
+   (singleUeTddOpportunityPlan?nav(docUrl(singleUeTddOpportunityPlan),'↗',E(singleUeTddOpportunityPlan.title)):'')+
    (legacyModulesVisible?nav('#/browse/algorithms','<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-3px"><rect x="2.5" y="3.5" width="19" height="17" rx="3"/><path d="m9 9-3 3 3 3m6-6 3 3-3 3"/></svg>','算法实现与结果',algorithmFamilies.length):'')+
    '<div class="nav-heading">研究资料</div>'+nav('#/library/papers','▥','文献与材料',C.papers.length)+nav('#/library/protocols','▦','3GPP 协议',C.stats.protocolSpecs)+
    '<div class="nav-heading">过程与依据</div>'+nav('#/browse/changes','↳','修改记录 CHG',C.docs.filter(d=>d.group==='changes').length)+nav('#/browse/tests','✓','测试记录 TEST',C.docs.filter(d=>d.group==='tests').length)+nav('#/browse/all','☷','全部文档',C.docs.length)+
