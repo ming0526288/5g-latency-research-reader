@@ -28,6 +28,8 @@
 
 结合抓包时间戳和代码复算，**UE 在等基站发下一批下行采样，基站在等 UE 补齐当前混合槽的采样**。这份构建中，基站读完周期内的槽 2，才会安排下一周期槽 0 的下行发送。初始标记在槽 2 的前 6 个下行符号末尾，UE 首块的采样覆盖到这里就结束了。基站需要读完 14 个符号，余下 8 个符号各 2,192 个采样，再计同步标记的 1 个采样差，两次都还差 **17,537 个采样**。这是启动时的样本缺口，采样计数来自抓包，内部读边界由代码复算。这一步发生在业务调度之前，新增的槽 3 是否能承担业务、能否降低 RTT，仍需候选组接入后测量。若沿用既有基线实测的 `K2 = 4`，槽 3 对应的授权槽会落在上一周期的槽 4（全上行），所以还需核验当前实现有没有其他合法调度时序。
 
-依据为 TS 38.211 V19.5.0 §4.3.2 表 4.3.2-1，TS 38.213 V19.5.0 §8.1、§9.2.3、§11.1 、TS 38.214 V19.5.0 §6.1.2.1 及 TS 38.331 V19.4.0 §6.3.2 的 `TDD-UL-DL-ConfigCommon` 与 `TDD-UL-DL-Pattern`。参考 P19 工厂 TDD 论文 §III.A、§IV.B（本地 PDF 第 3–5 页）及教材 §4.3.1（本地 PDF 第 79–80 页）。[38.213 版本](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3215) · [38.331 版本](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3197) · [P19 原文](https://arxiv.org/abs/2012.05507)
+本轮沿用 **方案 A**，在混合槽下行段末发出同步标记。标记已经发出，后续采样仍然互相等待。这个启动问题对应以前提出的 **方案 B**，即从首读窗口、初始时间戳和无发送区间的推进关系着手。方案 B 仍待实现和验证。 [查看原设计中的方案 B](RFsim启动同步_设计方案与验证计划.md#方案-b从首读与无发送区间的推进机制修复)
+
+依据为 TS 38.211 V19.5.0 §4.3.2 表 4.3.2-1，TS 38.213 V19.5.0 §8.1、§9.2.3、§11.1、TS 38.214 V19.5.0 §6.1.2.1 及 TS 38.331 V19.4.0 §6.3.2 的 `TDD-UL-DL-ConfigCommon` 与 `TDD-UL-DL-Pattern`。参考 P19 工厂 TDD 论文 §III.A、§IV.B（本地 PDF 第 3–5 页）及教材 §4.3.1（本地 PDF 第 79–80 页）。[38.213 版本](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3215) · [38.331 版本](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3197) · [P19 原文](https://arxiv.org/abs/2012.05507)
 
 [方案三总览](100到200MHz单UE时延方案三_上下行发送机会.md) · [结果与分析总目录](研究结果与分析总目录.md)
