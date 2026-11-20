@@ -242,7 +242,7 @@
       "source": "说明/研究结果与分析/方案三的第一种_业务到达时刻与上行发送机会对齐.md",
       "topic": "single-ue-tdd-arrival-alignment",
       "independentExperiment": "single-ue-tdd-arrival-alignment",
-      "status": "partial"
+      "status": "completed-with-scope"
     },
     {
       "source": "说明/研究结果与分析/方案三的第二种_调整TDD.md",
