@@ -14,6 +14,11 @@
 
 **CG 有两种启用方式。** Type 1 由 RRC 直接配置上行授权。Type 2 先由 RRC 配置，然后通过 PDCCH 上的控制信令激活或停用，激活后授权按配置重复使用。Type 2 的激活信令和门限 0 的逐次动态授权是不同操作。这里的 SR 是 UE 向基站申请上行资源的调度请求，PDCCH 是基站发送控制信息的下行信道。[3GPP TS 38.331](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3197) · [3GPP TS 38.321](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3194)
 
+| CG 类型 | 怎么启用 | 适合验证什么 |
+| --- | --- | --- |
+| **Type 1** | 基站通过 RRC 直接配置周期性的上行发送机会，配置生效后 UE 就能在符合条件时使用。 | 业务周期稳定时，提前配置发送机会能减少多少上行等待。 |
+| **Type 2** | 基站先用 RRC 配置，再用下行控制信息（DCI）激活这些周期性的发送机会，也可以通过 DCI 停用。 | 业务有明显的开始和停止阶段时，按需启停能否减少空闲资源占用，以及从激活到首次发送要等多久。 |
+
 ## 用一个待发的小包来理解
 
 **门限 0 的例子。** 基站判断 UE 空闲到了候选门限，还有可用资源，就主动发消息安排「接下来这个上行时隙可以发」。若小包及时进入待发队列，就能用这份授权。下次发送仍由新的动态授权决定。
