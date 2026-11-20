@@ -1,0 +1,401 @@
+{
+  "status": "OFFLINE_REANALYSIS",
+  "test": "TEST-646",
+  "conditions": {
+    "bandwidth_MHz": 200,
+    "scs_kHz": 120,
+    "prb": 132,
+    "ue_count": 1,
+    "idle_probe_threshold": 0,
+    "icmp_data_bytes": 56,
+    "target_interval_ms": 20,
+    "complete_per_run": 200,
+    "excluded_warmup_per_run": 20
+  },
+  "methods": {
+    "aggregate": "equal run weights with equal group sizes",
+    "ranking": "within each run, TUN RTT descending, ICMP sequence ascending for ties",
+    "normal_tail_count_per_run": 18,
+    "normal_complement_count_per_run": 162
+  },
+  "primary_group_means_ms": {
+    "tail": {
+      "ul_ms": 0.9912277333333332,
+      "core_ms": 0.06305436666666667,
+      "dl_ms": 0.6331638666666667,
+      "tun_rtt_ms": 1.6874459666666666
+    },
+    "rest": {
+      "ul_ms": 0.6938279382716049,
+      "core_ms": 0.05785722839506173,
+      "dl_ms": 0.5178918913580247,
+      "tun_rtt_ms": 1.2695770580246912
+    },
+    "excess": {
+      "ul_ms": 0.29739979506172837,
+      "core_ms": 0.005197138271604939,
+      "dl_ms": 0.115271975308642,
+      "tun_rtt_ms": 0.4178689086419754
+    }
+  },
+  "primary_ul_extra_share_pct": {
+    "top10_by_tun_rtt": 71.17059654623326,
+    "top10_by_native_rtt": 71.62760272327871,
+    "top5_by_tun_rtt": 70.83030020180534
+  },
+  "diagnostic_ul_extra_share_pct_top10_by_tun_rtt": 72.947761217591,
+  "runs": [
+    {
+      "label": "633 单 UE",
+      "evidence": "step2-gate0-200mhz-ping-20261119/n1",
+      "observer": false,
+      "complete": 200,
+      "samples": 180,
+      "qfi": 9,
+      "mean_by_segment_ms": {
+        "ul_ms": 0.7307206055555555,
+        "core_ms": 0.06140537777777778,
+        "dl_ms": 0.5453808666666666,
+        "tun_rtt_ms": 1.33750685
+      },
+      "top10_ms": {
+        "count": 18,
+        "tail": {
+          "ul_ms": 1.0205152777777777,
+          "core_ms": 0.07564505555555555,
+          "dl_ms": 0.7038799444444445,
+          "tun_rtt_ms": 1.8000402777777778
+        },
+        "rest": {
+          "ul_ms": 0.6985211975308642,
+          "core_ms": 0.05982319135802469,
+          "dl_ms": 0.5277698580246913,
+          "tun_rtt_ms": 1.2861142469135802
+        },
+        "excess": {
+          "ul_ms": 0.32199408024691356,
+          "core_ms": 0.015821864197530858,
+          "dl_ms": 0.17611008641975312,
+          "tun_rtt_ms": 0.5139260308641975
+        },
+        "ul_share_pct": 62.65377912565767,
+        "peak": {
+          "icmp_seq": 196,
+          "ul_ms": 1.222132,
+          "core_ms": 0.047073,
+          "dl_ms": 0.813734,
+          "tun_rtt_ms": 2.082939,
+          "native_ping_ms": 2.1
+        }
+      }
+    },
+    {
+      "label": "635 200 MHz",
+      "evidence": "step2-single-ue-bandwidth-aba-20261119/b",
+      "observer": false,
+      "complete": 200,
+      "samples": 180,
+      "qfi": 9,
+      "mean_by_segment_ms": {
+        "ul_ms": 0.76566765,
+        "core_ms": 0.055168133333333334,
+        "dl_ms": 0.54547685,
+        "tun_rtt_ms": 1.3663126333333333
+      },
+      "top10_ms": {
+        "count": 18,
+        "tail": {
+          "ul_ms": 1.0806073333333333,
+          "core_ms": 0.05920533333333333,
+          "dl_ms": 0.6705148888888889,
+          "tun_rtt_ms": 1.8103275555555556
+        },
+        "rest": {
+          "ul_ms": 0.7306743518518518,
+          "core_ms": 0.054719555555555556,
+          "dl_ms": 0.5315837345679012,
+          "tun_rtt_ms": 1.3169776419753085
+        },
+        "excess": {
+          "ul_ms": 0.34993298148148144,
+          "core_ms": 0.004485777777777776,
+          "dl_ms": 0.13893115432098768,
+          "tun_rtt_ms": 0.49334991358024705
+        },
+        "ul_share_pct": 70.92997725326696,
+        "peak": {
+          "icmp_seq": 190,
+          "ul_ms": 1.165525,
+          "core_ms": 0.091111,
+          "dl_ms": 0.913583,
+          "tun_rtt_ms": 2.170219,
+          "native_ping_ms": 2.19
+        }
+      }
+    },
+    {
+      "label": "643 门限 0 A1",
+      "evidence": "step2-cg-type1-20261120/gate0-a1",
+      "observer": false,
+      "complete": 200,
+      "samples": 180,
+      "qfi": 9,
+      "mean_by_segment_ms": {
+        "ul_ms": 0.7049790888888889,
+        "core_ms": 0.056732733333333334,
+        "dl_ms": 0.5224152555555556,
+        "tun_rtt_ms": 1.2841270777777778
+      },
+      "top10_ms": {
+        "count": 18,
+        "tail": {
+          "ul_ms": 0.9401521666666667,
+          "core_ms": 0.05705955555555556,
+          "dl_ms": 0.5853305555555556,
+          "tun_rtt_ms": 1.5825422777777778
+        },
+        "rest": {
+          "ul_ms": 0.6788487469135802,
+          "core_ms": 0.05669641975308642,
+          "dl_ms": 0.5154246666666666,
+          "tun_rtt_ms": 1.2509698333333332
+        },
+        "excess": {
+          "ul_ms": 0.26130341975308646,
+          "core_ms": 0.0003631358024691403,
+          "dl_ms": 0.06990588888888893,
+          "tun_rtt_ms": 0.33157244444444456
+        },
+        "ul_share_pct": 78.80733882784045,
+        "peak": {
+          "icmp_seq": 197,
+          "ul_ms": 1.218888,
+          "core_ms": 0.046653,
+          "dl_ms": 0.690544,
+          "tun_rtt_ms": 1.956085,
+          "native_ping_ms": 1.98
+        }
+      }
+    },
+    {
+      "label": "643 门限 0 A2",
+      "evidence": "step2-cg-type1-20261120/gate0-a2",
+      "observer": false,
+      "complete": 200,
+      "samples": 180,
+      "qfi": 9,
+      "mean_by_segment_ms": {
+        "ul_ms": 0.7328525888888889,
+        "core_ms": 0.06131341111111111,
+        "dl_ms": 0.5346783222222222,
+        "tun_rtt_ms": 1.3288443222222222
+      },
+      "top10_ms": {
+        "count": 18,
+        "tail": {
+          "ul_ms": 1.0393876666666666,
+          "core_ms": 0.06549705555555556,
+          "dl_ms": 0.6816163333333334,
+          "tun_rtt_ms": 1.7865010555555556
+        },
+        "rest": {
+          "ul_ms": 0.6987931358024692,
+          "core_ms": 0.06084856172839506,
+          "dl_ms": 0.5183518765432099,
+          "tun_rtt_ms": 1.277993574074074
+        },
+        "excess": {
+          "ul_ms": 0.34059453086419744,
+          "core_ms": 0.004648493827160496,
+          "dl_ms": 0.16326445679012347,
+          "tun_rtt_ms": 0.5085074814814816
+        },
+        "ul_share_pct": 66.97925660246179,
+        "peak": {
+          "icmp_seq": 28,
+          "ul_ms": 1.193141,
+          "core_ms": 0.049635,
+          "dl_ms": 0.640698,
+          "tun_rtt_ms": 1.883474,
+          "native_ping_ms": 1.91
+        }
+      }
+    },
+    {
+      "label": "644 门限 0",
+      "evidence": "step2-cg-type2-20261120/gate0",
+      "observer": false,
+      "complete": 200,
+      "samples": 180,
+      "qfi": 9,
+      "mean_by_segment_ms": {
+        "ul_ms": 0.6836196555555556,
+        "core_ms": 0.057265055555555555,
+        "dl_ms": 0.49914415,
+        "tun_rtt_ms": 1.2400288611111112
+      },
+      "top10_ms": {
+        "count": 18,
+        "tail": {
+          "ul_ms": 0.8754762222222222,
+          "core_ms": 0.05786483333333334,
+          "dl_ms": 0.5244776111111111,
+          "tun_rtt_ms": 1.4578186666666666
+        },
+        "rest": {
+          "ul_ms": 0.6623022592592592,
+          "core_ms": 0.057198413580246917,
+          "dl_ms": 0.4963293209876543,
+          "tun_rtt_ms": 1.2158299938271604
+        },
+        "excess": {
+          "ul_ms": 0.21317396296296298,
+          "core_ms": 0.000666419753086421,
+          "dl_ms": 0.02814829012345682,
+          "tun_rtt_ms": 0.2419886728395062
+        },
+        "ul_share_pct": 88.0925377463209,
+        "peak": {
+          "icmp_seq": 34,
+          "ul_ms": 0.945553,
+          "core_ms": 0.054759,
+          "dl_ms": 0.548686,
+          "tun_rtt_ms": 1.548998,
+          "native_ping_ms": 1.57
+        }
+      }
+    },
+    {
+      "label": "635 诊断 200 MHz",
+      "evidence": "step2-single-ue-bandwidth-aba-20261119/diag200",
+      "observer": true,
+      "complete": 200,
+      "samples": 180,
+      "qfi": 9,
+      "mean_by_segment_ms": {
+        "ul_ms": 0.7705849,
+        "core_ms": 0.05712743333333333,
+        "dl_ms": 0.5429137055555555,
+        "tun_rtt_ms": 1.370626038888889
+      },
+      "top10_ms": {
+        "count": 18,
+        "tail": {
+          "ul_ms": 1.0509273888888888,
+          "core_ms": 0.0633496111111111,
+          "dl_ms": 0.677822,
+          "tun_rtt_ms": 1.7920989999999999
+        },
+        "rest": {
+          "ul_ms": 0.7394357345679012,
+          "core_ms": 0.05643608024691358,
+          "dl_ms": 0.5279238950617284,
+          "tun_rtt_ms": 1.3237957098765432
+        },
+        "excess": {
+          "ul_ms": 0.3114916543209876,
+          "core_ms": 0.006913530864197527,
+          "dl_ms": 0.1498981049382716,
+          "tun_rtt_ms": 0.46830329012345673
+        },
+        "ul_share_pct": 66.51494040088218,
+        "peak": {
+          "icmp_seq": 63,
+          "ul_ms": 1.342096,
+          "core_ms": 0.084131,
+          "dl_ms": 0.942262,
+          "tun_rtt_ms": 2.368489,
+          "native_ping_ms": 2.39
+        }
+      }
+    },
+    {
+      "label": "637 默认 A1",
+      "evidence": "step2-rfsim-threequarter-20261119/a1",
+      "observer": true,
+      "complete": 200,
+      "samples": 180,
+      "qfi": 9,
+      "mean_by_segment_ms": {
+        "ul_ms": 0.6847790055555556,
+        "core_ms": 0.05159455555555555,
+        "dl_ms": 0.5232663611111111,
+        "tun_rtt_ms": 1.2596399222222223
+      },
+      "top10_ms": {
+        "count": 18,
+        "tail": {
+          "ul_ms": 0.8735322777777778,
+          "core_ms": 0.048993777777777775,
+          "dl_ms": 0.5502485555555555,
+          "tun_rtt_ms": 1.472774611111111
+        },
+        "rest": {
+          "ul_ms": 0.6638064197530864,
+          "core_ms": 0.05188353086419753,
+          "dl_ms": 0.5202683395061728,
+          "tun_rtt_ms": 1.2359582901234567
+        },
+        "excess": {
+          "ul_ms": 0.20972585802469135,
+          "core_ms": -0.002889753086419755,
+          "dl_ms": 0.029980216049382724,
+          "tun_rtt_ms": 0.23681632098765437
+        },
+        "ul_share_pct": 88.56055914981665,
+        "peak": {
+          "icmp_seq": 171,
+          "ul_ms": 0.812656,
+          "core_ms": 0.074548,
+          "dl_ms": 0.636979,
+          "tun_rtt_ms": 1.524183,
+          "native_ping_ms": 1.54
+        }
+      }
+    },
+    {
+      "label": "637 默认 A2",
+      "evidence": "step2-rfsim-threequarter-20261119/a2",
+      "observer": true,
+      "complete": 200,
+      "samples": 180,
+      "qfi": 9,
+      "mean_by_segment_ms": {
+        "ul_ms": 0.7227488777777777,
+        "core_ms": 0.05674303888888889,
+        "dl_ms": 0.5277352833333333,
+        "tun_rtt_ms": 1.3072272
+      },
+      "top10_ms": {
+        "count": 18,
+        "tail": {
+          "ul_ms": 0.9917375555555555,
+          "core_ms": 0.06479794444444445,
+          "dl_ms": 0.6278826666666667,
+          "tun_rtt_ms": 1.6844181666666667
+        },
+        "rest": {
+          "ul_ms": 0.6928612469135802,
+          "core_ms": 0.05584804938271605,
+          "dl_ms": 0.5166077962962963,
+          "tun_rtt_ms": 1.2653170925925925
+        },
+        "excess": {
+          "ul_ms": 0.29887630864197534,
+          "core_ms": 0.0089498950617284,
+          "dl_ms": 0.11127487037037043,
+          "tun_rtt_ms": 0.41910107407407415
+        },
+        "ul_share_pct": 71.31365847779963,
+        "peak": {
+          "icmp_seq": 183,
+          "ul_ms": 1.202543,
+          "core_ms": 0.074591,
+          "dl_ms": 0.640746,
+          "tun_rtt_ms": 1.91788,
+          "native_ping_ms": 1.94
+        }
+      }
+    }
+  ]
+}
