@@ -1164,7 +1164,7 @@
       "group": "knowledge",
       "topic": "edf-intro",
       "prerequisite": true,
-      "sha256": "4ce349ece753fcd1a0e34334acab476ab45dabb9a50082506072b1ffa9617a2c",
+      "sha256": "98fb7780ba3f6e71efdf44085fe6c4efd058770e2ab264133049a777fb1b8f6a",
       "snapshot": "说明/算法知识点说明/调度算法入门/EDF_知识点说明.md",
       "redacted": false,
       "toc": [
@@ -1189,14 +1189,19 @@
           "level": 2
         },
         {
+          "id": "之前的三-ue-实测",
+          "title": "之前的三 UE 实测",
+          "level": 3
+        },
+        {
           "id": "来源与边界",
           "title": "来源与边界",
           "level": 2
         }
       ],
-      "words": 1011,
+      "words": 1491,
       "minutes": 2,
-      "search": "  EDF：最早截止期限优先是什么意思\n\nEDF 通常称   Earliest Deadline First，最早截止期限优先  。可以理解成：  谁离自己的期限更近，就先考虑谁。   它与单纯“谁等得最久”不同。\n\n   怎么算分数\n\n如果包的到达时刻是 $a_i$、允许等待预算是 $D_i$，那么绝对截止时刻是 $d_i=a_i+D_i$。当前时刻为 $t$，已等待时间为 $H_i=t-a_i$，因此：\n\n   math\ns_i=d_i-t=D_i-H_i.\n   \n\n$s_i$ 是剩余时间，本文 $D_i$、$H_i$、$s_i$ 都用 ms。对尚未超时的包，选最小 $s_i$，等价于选最早截止时刻。\n\nP24 对 UE 队首包使用的评分近似是：\n\n   math\nM_i=\\frac{1}{\\max(\\varepsilon,D_i-H_i)}.\n   \n\n分数单位为 $\\mathrm{ms}^{-1}$，越大越先考虑；$\\varepsilon$ 是防止除零的小正时间。所有过期包被截到同一分母后，还需要明确并列和过期处理，不能把这种实现直接等同于全部情况下的逐包 EDF。\n\n   两个 UE 的例子\n\n UE 教学预算 $D_i$ 已等待 $H_i$ 剩余时间 分数 \n --- ---: ---: ---: ---: \n A 20 ms 17 ms 3 ms 1 / 3 \n B 5 ms 4 ms 1 ms 1 \n\n  先考虑 B。   虽然 A 等了 17 ms，比 B 久，但 B 离期限只剩 1 ms。这里的预算是教学假设，不是本实验已选的标准 5QI 或 RTT 期限。\n\n   对时延有什么用\n\nEDF 直接照顾临近期限的数据，适合做时延对照。但单纯 EDF 不看当前传输效率；资源不足或无线条件差时，先排到也不代表能及时发完，更不保证应用通信 RTT 达标。\n\n   来源与边界\n\nP24 §VI-C 式 (15)，本地 PDF 第 8–9 页，将其称为 Earliest delay first；本页保留该论文的具体评分身份，同时解释通常 EDF 的绝对截止时刻定义。 nr_quest_metric.h::quest_metric  历史 EDF 分支使用剩余预算倒数。TS 23.501 V20.3.0 §5.7.3.4 定义 PDB 的 UE–UPF N6 边界；PDB 减 HOL 只是论文紧迫程度，不扣除全部剩余链路耗时。教材 §13.1.1.2、本地 PDF 第 530–532 页为背景。本页是定义推算和手算，没有新测量。\n\n 返回七种算法速览 (00_调度算法速览.md) ·  对比 M-LWDF (M-LWDF_知识点说明.md)\n"
+      "search": "  EDF：最早截止期限优先是什么意思\n\nEDF 通常称   Earliest Deadline First，最早截止期限优先  。可以理解成：  谁离自己的期限更近，就先考虑谁。   它与单纯“谁等得最久”不同。\n\n   怎么算分数\n\n如果包的到达时刻是 $a_i$、允许等待预算是 $D_i$，那么绝对截止时刻是 $d_i=a_i+D_i$。当前时刻为 $t$，已等待时间为 $H_i=t-a_i$，因此：\n\n   math\ns_i=d_i-t=D_i-H_i.\n   \n\n$s_i$ 是剩余时间，本文 $D_i$、$H_i$、$s_i$ 都用 ms。对尚未超时的包，选最小 $s_i$，等价于选最早截止时刻。\n\nP24 对 UE 队首包使用的评分近似是：\n\n   math\nM_i=\\frac{1}{\\max(\\varepsilon,D_i-H_i)}.\n   \n\n分数单位为 $\\mathrm{ms}^{-1}$，越大越先考虑；$\\varepsilon$ 是防止除零的小正时间。所有过期包被截到同一分母后，还需要明确并列和过期处理，不能把这种实现直接等同于全部情况下的逐包 EDF。\n\n   两个 UE 的例子\n\n UE 教学预算 $D_i$ 已等待 $H_i$ 剩余时间 分数 \n --- ---: ---: ---: ---: \n A 20 ms 17 ms 3 ms 1 / 3 \n B 5 ms 4 ms 1 ms 1 \n\n  先考虑 B。   虽然 A 等了 17 ms，比 B 久，但 B 离期限只剩 1 ms。这里的预算是教学假设，不是本实验已选的标准 5QI 或 RTT 期限。\n\n   对时延有什么用\n\n当几台 UE 同时有数据，但本次上行资源只够一部分 UE 发送时，EDF 让剩余时间更少的 UE 优先拿到资源。排在前面的包可能少等一次上行机会，排在后面的包可能多等。有数据的 UE 每次只有一台，或者资源足以同时服务所有候选时，单靠改变排序通常没有这类收益。\n\n    之前的三 UE 实测\n\n 历史对照 PF 的最差 UE 上行 P99 EDF 的最差 UE 上行 P99 下降 \n --- ---: ---: ---: \n 第 1 组 11.245 ms 10.307 ms 0.938 ms（8.34%） \n 第 2 组 12.029 ms 10.722 ms 1.307 ms（10.86%） \n\n两组均为单机 RFsim、120 kHz、66 PRB、三台同为 5QI 9 的 UE，总业务负载 4 Mbps，请求数据区 1200 B，PF 与 EDF 使用相同的队首等待上报开销。先计算各 UE 从发送应用到核心网侧接收应用的单向时延 P99，再取三台中最大值。两组的三台 UE 平均上行时延均约 6 ms，主要变化在慢包一端。当前 56 B ping 基线测的是往返时间，第四步同条件对照尚未执行。  原始对照报告 (/home/lbh/oiwireless/oi-wireless-ran-quest-reproduction/research/latency-analysis/quest-reproduction/evidence/current-01/复现结果与边界.md)\n\n   来源与边界\n\nP24 §VI-C 式 (15) 将这一评分称为 Earliest delay first，见本地 PDF 第 8–9 页。历史实现  nr_quest_metric.h::quest_metric  使用剩余预算的倒数。TS 23.501 V20.3.0 §5.7.3.4 定义 PDB 的 UE–UPF N6 边界。论文用 PDB 减去队首已等时间表示紧迫程度，后续处理和传输也会占用这个剩余预算。教材的调度背景见 §13.1.1.2、本地 PDF 第 530–532 页。表格复用已测数据。\n\n 返回七种算法速览 (00_调度算法速览.md) ·  对比 M-LWDF (M-LWDF_知识点说明.md)\n"
     },
     {
       "id": "k252fff9d4bb24a01",
