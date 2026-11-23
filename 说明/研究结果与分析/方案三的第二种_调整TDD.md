@@ -55,3 +55,8 @@
 依据为 TS 38.211 V19.5.0 §4.3.2 表 4.3.2-1，TS 38.213 V19.5.0 §8.1、§9.2.3、§11.1、TS 38.214 V19.5.0 §6.1.2.1 及 TS 38.331 V19.4.0 §6.3.2 的 `TDD-UL-DL-ConfigCommon` 与 `TDD-UL-DL-Pattern`。参考 P19 工厂 TDD 论文 §III.A、§IV.B（本地 PDF 第 3–5 页）及教材 §4.3.1（本地 PDF 第 79–80 页）。[38.213 版本](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3215) · [38.331 版本](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3197) · [P19 原文](https://arxiv.org/abs/2012.05507)
 
 [方案三总览](100到200MHz单UE时延方案三_上下行发送机会.md) · [结果与分析总目录](研究结果与分析总目录.md)
+
+
+## 下行逐包复核
+
+我用同一构建回切两种 TDD 图样，并逐包对齐基站收包、下行调度、RFsim 写入和 UE 解码的时刻。固定 K2 = 4 时，换成 D D S U U 后，首次下行队列查询前的平均等待仍约为 0.070 ms。下行平均增加的 0.097 ms 主要发生在基站写入采样到 UE 解码交付这一段。 [下行逐包时间和三组对照](方案三的第三种_调整调度时序.md#同一个-ping-回复在哪一段变慢)
