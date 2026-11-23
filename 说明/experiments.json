@@ -188,6 +188,12 @@
       "status": "completed-with-scope"
     },
     {
+      "source": "说明/研究结果与分析/PF下三UE前两台同时发第三台排队.md",
+      "topic": "pf-three-ue-staggered-ping",
+      "independentExperiment": "pf-three-ue-staggered-ping",
+      "status": "completed-with-scope"
+    },
+    {
       "source": "说明/研究结果与分析/100到200MHz单UE时延变化的原因.md",
       "topic": "single-ue-bandwidth-latency",
       "independentExperiment": "single-ue-bandwidth-latency",
