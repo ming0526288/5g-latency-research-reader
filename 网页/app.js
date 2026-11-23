@@ -107,13 +107,13 @@
    (gateZeroAdmission?nav(docUrl(gateZeroAdmission),'↗',E(gateZeroAdmission.title)):'')+
    (threeUeUplinkPlan?nav(docUrl(threeUeUplinkPlan),'↗',E(threeUeUplinkPlan.title)):'')+
    (gateZeroPingDelay?nav(docUrl(gateZeroPingDelay),'↗',E(gateZeroPingDelay.title)):'')+
-   (staggeredPing?nav(docUrl(staggeredPing),'↗',E(staggeredPing.title)):'')+
    (singleUeBandwidthLatency?nav(docUrl(singleUeBandwidthLatency),'↗',E(singleUeBandwidthLatency.title)):'')+
    (singleUeBandwidthSolutions?nav(docUrl(singleUeBandwidthSolutions),'↗',E(singleUeBandwidthSolutions.title)):'')+
    (singleUeRfsimSampling?nav(docUrl(singleUeRfsimSampling),'↗',E(singleUeRfsimSampling.title)):'')+
    (singleUeConfiguredGrant?nav(docUrl(singleUeConfiguredGrant),'↗',E(singleUeConfiguredGrant.title)):'')+
    (singleUeTddOpportunityPlan?nav(docUrl(singleUeTddOpportunityPlan),'↗',E(singleUeTddOpportunityPlan.title)):'')+
    singleUeTddOpportunityOptions.map(doc=>nav(docUrl(doc),'↗',E(doc.title))).join('')+
+   (staggeredPing?nav(docUrl(staggeredPing),'↗',E(staggeredPing.title)):'')+
    (legacyModulesVisible?nav('#/browse/algorithms','<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-3px"><rect x="2.5" y="3.5" width="19" height="17" rx="3"/><path d="m9 9-3 3 3 3m6-6 3 3-3 3"/></svg>','算法实现与结果',algorithmFamilies.length):'')+
    '<div class="nav-heading">研究资料</div>'+nav('#/library/papers','▥','文献与材料',C.papers.length)+nav('#/library/protocols','▦','3GPP 协议',C.stats.protocolSpecs)+
    '<div class="nav-heading">过程与依据</div>'+nav('#/browse/changes','↳','修改记录 CHG',C.docs.filter(d=>d.group==='changes').length)+nav('#/browse/tests','✓','测试记录 TEST',C.docs.filter(d=>d.group==='tests').length)+nav('#/browse/all','☷','全部文档',C.docs.length)+
