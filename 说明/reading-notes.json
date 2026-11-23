@@ -39,29 +39,34 @@
       "researchStep": "step-3"
     },
     {
-      "source": "说明/文献导读/第八步规划_单项优化设计与实现.md",
+      "source": "说明/文献导读/第七步规划_同程序强对照算法.md",
       "topic": "step-4-plan",
       "researchStep": "step-4"
     },
     {
-      "source": "说明/文献导读/第九步规划_新算法效果验证.md",
+      "source": "说明/文献导读/第八步规划_单项优化设计与实现.md",
       "topic": "step-5-plan",
       "researchStep": "step-5"
     },
     {
-      "source": "说明/文献导读/第十步规划_消融资源代价与公平性.md",
+      "source": "说明/文献导读/第九步规划_新算法效果验证.md",
       "topic": "step-6-plan",
       "researchStep": "step-6"
     },
     {
-      "source": "说明/文献导读/第十一步规划_跨场景稳健性验证.md",
+      "source": "说明/文献导读/第十步规划_消融资源代价与公平性.md",
       "topic": "step-7-plan",
       "researchStep": "step-7"
     },
     {
-      "source": "说明/文献导读/第十二步规划_论文结果整理与研究收尾.md",
+      "source": "说明/文献导读/第十一步规划_跨场景稳健性验证.md",
       "topic": "step-8-plan",
       "researchStep": "step-8"
+    },
+    {
+      "source": "说明/文献导读/第十二步规划_论文结果整理与研究收尾.md",
+      "topic": "step-9-plan",
+      "researchStep": "step-9"
     },
     {
       "source": "说明/启动命令/第一步启动命令.md",
@@ -94,7 +99,7 @@
       "commandStatus": "pending-validation"
     },
     {
-      "source": "说明/启动命令/第八步启动命令.md",
+      "source": "说明/启动命令/第七步启动命令.md",
       "topic": "step-4-commands",
       "commandStep": "step-4",
       "planTopic": "step-4-plan",
@@ -102,7 +107,7 @@
       "commandStatus": "pending-validation"
     },
     {
-      "source": "说明/启动命令/第九步启动命令.md",
+      "source": "说明/启动命令/第八步启动命令.md",
       "topic": "step-5-commands",
       "commandStep": "step-5",
       "planTopic": "step-5-plan",
@@ -110,7 +115,7 @@
       "commandStatus": "pending-validation"
     },
     {
-      "source": "说明/启动命令/第十步启动命令.md",
+      "source": "说明/启动命令/第九步启动命令.md",
       "topic": "step-6-commands",
       "commandStep": "step-6",
       "planTopic": "step-6-plan",
@@ -118,7 +123,7 @@
       "commandStatus": "pending-validation"
     },
     {
-      "source": "说明/启动命令/第十一步启动命令.md",
+      "source": "说明/启动命令/第十步启动命令.md",
       "topic": "step-7-commands",
       "commandStep": "step-7",
       "planTopic": "step-7-plan",
@@ -126,11 +131,19 @@
       "commandStatus": "pending-validation"
     },
     {
-      "source": "说明/启动命令/第十二步启动命令.md",
+      "source": "说明/启动命令/第十一步启动命令.md",
       "topic": "step-8-commands",
       "commandStep": "step-8",
       "planTopic": "step-8-plan",
       "resultTopic": "step-8",
+      "commandStatus": "pending-validation"
+    },
+    {
+      "source": "说明/启动命令/第十二步启动命令.md",
+      "topic": "step-9-commands",
+      "commandStep": "step-9",
+      "planTopic": "step-9-plan",
+      "resultTopic": "step-9",
       "commandStatus": "pending-validation"
     },
     {

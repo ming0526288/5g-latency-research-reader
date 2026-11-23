@@ -34,28 +34,33 @@
     },
     {
       "topic": "step-4-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第八步知识点.md",
+      "source": "说明/算法知识点说明/十二步知识点/第七步知识点.md",
       "knowledgeStep": "step-4"
     },
     {
       "topic": "step-5-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第九步知识点.md",
+      "source": "说明/算法知识点说明/十二步知识点/第八步知识点.md",
       "knowledgeStep": "step-5"
     },
     {
       "topic": "step-6-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第十步知识点.md",
+      "source": "说明/算法知识点说明/十二步知识点/第九步知识点.md",
       "knowledgeStep": "step-6"
     },
     {
       "topic": "step-7-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第十一步知识点.md",
+      "source": "说明/算法知识点说明/十二步知识点/第十步知识点.md",
       "knowledgeStep": "step-7"
     },
     {
       "topic": "step-8-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第十二步知识点.md",
+      "source": "说明/算法知识点说明/十二步知识点/第十一步知识点.md",
       "knowledgeStep": "step-8"
+    },
+    {
+      "topic": "step-9-knowledge",
+      "source": "说明/算法知识点说明/十二步知识点/第十二步知识点.md",
+      "knowledgeStep": "step-9"
     },
     {
       "id": "k7be2718894117a09",
