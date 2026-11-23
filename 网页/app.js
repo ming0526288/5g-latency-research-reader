@@ -36,7 +36,7 @@
  let bookmarks=storage.get('bookmarks',[]),history=storage.get('history',[]);
  const studyDocs=[
   ['basics','⌘','通信与时延基础','算法知识点说明/00_通信与时延基础知识.md'],
-  ['twelve-step-knowledge','▤','十二步知识点','算法知识点说明/十二步知识点/十二步知识点总目录.md'],
+  ['twelve-step-knowledge','▤','实验知识点','算法知识点说明/十二步知识点/十二步知识点总目录.md'],
   ['scheduling-basics','◇','算法知识点','算法知识点说明/调度算法入门/00_调度算法速览.md'],
   ['tdd','⇄','不同 TDD 知识点','docs/03_TDD配比与周期分析.md'],
   ['scs','≋','不同 SCS 知识点','docs/04_SCS分析与支持边界.md'],
@@ -96,7 +96,7 @@
    (paperPlan||experimentPlan?'<div class="nav-heading">论文规划与研究路线</div>'+(paperPlan?nav(docUrl(paperPlan),'↗','时延优化与算法对照'):'')+(experimentPlan?nav(docUrl(experimentPlan),'↗','算法实验规划'):''):'')+
    '<div class="nav-heading">知识点</div>'+studyDocs.map(entry=>nav(docUrl(entry.doc),entry.icon,entry.label)).join('')+
    (legacyModulesVisible?nav('#/browse/algorithm-knowledge','◇','算法知识点',algorithmFamilies.length):'')+
-   (launchIndex?'<div class="nav-heading">启动命令</div>'+nav(docUrl(launchIndex),'▷','十二步启动命令'):'')+
+   (launchIndex?'<div class="nav-heading">启动命令</div>'+nav(docUrl(launchIndex),'▷','启动命令总目录'):'')+
    (codeIndex?'<div class="nav-heading">研究代码</div>'+nav(docUrl(codeIndex),'⌘',E(codeIndex.title)):'')+
    '<div class="nav-heading">研究结果与分析</div>'+(resultsIndex?nav(docUrl(resultsIndex),'↗','结果与分析总目录'):nav('#/browse/research','↗','结果与分析总目录'))+
    (startupDiagnosis?nav(docUrl(startupDiagnosis),'↗','启动失败原因与排查过程'):'')+
@@ -118,7 +118,7 @@
    '<div class="nav-note"><strong>一份可以带走的研究资料</strong>资料快照 · '+E(C.builtAt)+'<br>历史结论请结合对应版本阅读。</div>';
  }
  function home(){
-  const descriptions=legacyModulesVisible?['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','查看五类已做实验、结果图片与错误案例。','先读概念与例子，再进入调度公式。','连接原理、代码改动、实验结果与限制。','查看最新工作点，以及尚未完成的部分。']:['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','从总目录进入十二步结果、原有分析与源码说明。','从通信RTT场景和PF基线开始，按阶段推进。','了解文献的方法、用途和版本边界。','查看论文主线、对比算法与研究路线。'];
+  const descriptions=legacyModulesVisible?['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','查看五类已做实验、结果图片与错误案例。','先读概念与例子，再进入调度公式。','连接原理、代码改动、实验结果与限制。','查看最新工作点，以及尚未完成的部分。']:['了解文件用途，找到自己的阅读起点。','从单位、包长与负载，读到单向时延与P99。','从总目录进入分步结果、原有分析与源码说明。','从通信RTT场景和PF基线开始，按阶段推进。','了解文献的方法、用途和版本边界。','查看论文主线、对比算法与研究路线。'];
   const recent=history.filter(h=>docs.has(h.id)).slice(0,3);
   const latest=legacyModulesVisible?['docs/22_ALG005不同负载验证与69代价分析.md','docs/24_ALG005同业务编号慢包配对分析.md','docs/28_上行重传RB预算指针修复与旧数据影响.md'].map(find).filter(Boolean):[experimentPlan,paperPlan].filter(Boolean);
   main.innerHTML=`<section class="hero"><div class="hero-grid"><div><div class="eyebrow">5G LATENCY · RESEARCH NOTEBOOK</div><h1>从基础开始，<br>读懂每一次改动。</h1><p>把分散的知识点、算法、实验记录和原始文献连起来。<br>沿着阅读路线学习，遇到公式与引用，随时向下追溯。</p><div class="stats"><span><b>${C.stats.documents}</b>篇研究文档</span><span><b>${C.papers.length}</b>份论文与教材</span><span><b>${C.stats.protocolSpecs}</b>个协议编号</span></div></div><img class="hero-art" src="网页/assets/阅读地图.svg" alt="从知识点到算法、实验与原文的阅读关系图"></div></section>

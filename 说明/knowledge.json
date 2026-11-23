@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-18",
+  "updated": "2026-11-23",
   "documents": [
     {
       "id": "kc3e4e8560cabef23",
@@ -29,53 +29,33 @@
     },
     {
       "topic": "step-3-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第三步知识点.md",
+      "source": "说明/算法知识点说明/十二步知识点/第三步知识点_PF.md",
       "knowledgeStep": "step-3"
     },
     {
       "topic": "step-4-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第四步知识点.md",
+      "source": "说明/算法知识点说明/十二步知识点/第八步知识点.md",
       "knowledgeStep": "step-4"
     },
     {
       "topic": "step-5-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第五步知识点.md",
+      "source": "说明/算法知识点说明/十二步知识点/第九步知识点.md",
       "knowledgeStep": "step-5"
     },
     {
       "topic": "step-6-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第六步知识点.md",
+      "source": "说明/算法知识点说明/十二步知识点/第十步知识点.md",
       "knowledgeStep": "step-6"
     },
     {
       "topic": "step-7-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第七步知识点.md",
+      "source": "说明/算法知识点说明/十二步知识点/第十一步知识点.md",
       "knowledgeStep": "step-7"
     },
     {
       "topic": "step-8-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第八步知识点.md",
-      "knowledgeStep": "step-8"
-    },
-    {
-      "topic": "step-9-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第九步知识点.md",
-      "knowledgeStep": "step-9"
-    },
-    {
-      "topic": "step-10-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第十步知识点.md",
-      "knowledgeStep": "step-10"
-    },
-    {
-      "topic": "step-11-knowledge",
-      "source": "说明/算法知识点说明/十二步知识点/第十一步知识点.md",
-      "knowledgeStep": "step-11"
-    },
-    {
-      "topic": "step-12-knowledge",
       "source": "说明/算法知识点说明/十二步知识点/第十二步知识点.md",
-      "knowledgeStep": "step-12"
+      "knowledgeStep": "step-8"
     },
     {
       "id": "k7be2718894117a09",
