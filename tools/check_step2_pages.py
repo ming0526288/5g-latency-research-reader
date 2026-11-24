@@ -17,8 +17,22 @@ for doc in kids+[d[t] for t in ['step-2','step-2-plan','step-2-commands','step-2
   for other in kids:
    if other['stepExperiment']==i and other!=doc:assert '#/doc/'+other['id'] in v['html']
 parent=js(get('网页/data/'+d['step-2']['id']+'.js'),'=')['html']
-pilot=parent.index('200 次独立短测');formal=parent.index('6600 次正式三轮');end=parent.index('</table>',formal);load=parent.index('每 UE 目标间隔 20 ms');assert pilot<formal<end<load
-for term in ['4.704/4.695','6.327/6.330/6.477','0.0224','0.0448','0.0672','未做独立 200 次短测','各 6600/6600']:assert term in parent,term
+pilot=parent.index('100 MHz、200 次独立短测');formal=parent.index('6600 次正式三轮');end=parent.index('</table>',formal);load=parent.index('每 UE 目标间隔 20 ms',formal);assert pilot<formal<end<load
+for term in ['4.704/4.695','6.327/6.330/6.477','0.0224','0.0448','0.0672','各 6600/6600']:assert term in parent,term
+short=json.loads(get('说明/研究结果与分析/数据/第二步_100MHz_200次独立短测汇总_20261124.json'))
+assert short['status']=='PASS' and short['legacy_gate0_three_ue']['RTT_ms'] is None
+group_keys={(g['gate'],g['tool'],g['ues']) for g in short['groups']}
+assert len(short['groups'])==12 and group_keys=={(gate,tool,n) for gate in (0,1) for tool in ('ping','UDP') for n in (1,2,3)}
+assert sum(g['source_kind']=='new_measurement' for g in short['groups'])==4
+short_table=parent[pilot:parent.index('</table>',pilot)]
+for g in short['groups']:
+ item={(0,'ping'):1,(1,'ping'):2,(0,'UDP'):3,(1,'UDP'):4}[(g['gate'],g['tool'])]
+ payload=js(get('网页/data/'+d[f'step-2-experiment-{item}-results']['id']+'.js'),'=')['html']
+ assert len(g['flows'])==g['ues'] and all((f['sent'],f['received'],f['statistical'])==(200,200,180) for f in g['flows'])
+ for metric in ['RTT_mean_ms','RTT_p99_ms']:
+  values=' / '.join(f'{f[metric]:.3f}' for f in g['flows'])
+  assert values in short_table and values in payload,values
+assert short_table.count('空闲探测后置')==2 and '原探测顺序未完成共同接入' in parent[pilot:formal]
 for gate,n in [(0,2),(1,2),(1,3)]:
  safe=json.loads(get(f'说明/研究结果与分析/数据/第二步_门限{gate}_56B_ping_{n}UE正式_20261119.json'));assert safe['status']=='PASS' and safe['formal_runs']==6
  for regime in ['per-ue','fixed-total']:

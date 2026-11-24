@@ -1,0 +1,336 @@
+{
+  "status": "PASS",
+  "bandwidth_MHz": 100,
+  "scs_kHz": 120,
+  "prb": 66,
+  "tdd": "DDDSU",
+  "payload_bytes": 56,
+  "target_requests_per_ue_pps": 50,
+  "transmitted_per_ue": 200,
+  "warmup_per_ue": 20,
+  "statistical_per_ue": 180,
+  "groups": [
+    {
+      "gate": 0,
+      "tool": "ping",
+      "ues": 1,
+      "probe_order": "legacy",
+      "source_kind": "new_measurement",
+      "source_run": "analysis-source-audit/step2-short-completion-20261124/g0-ping-n1",
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 0.8104166666666667,
+          "RTT_p99_ms": 1.1452
+        }
+      ]
+    },
+    {
+      "gate": 0,
+      "tool": "ping",
+      "ues": 2,
+      "probe_order": "legacy",
+      "source_kind": "reused_measurement",
+      "source_run": "analysis-source-audit/step2-multiue56-20261118/gate0-ping-n2-pilot",
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 1.7088166666666667,
+          "RTT_p99_ms": 2.4536000000000002
+        },
+        {
+          "ue": 2,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 1.707,
+          "RTT_p99_ms": 2.6058999999999997
+        }
+      ]
+    },
+    {
+      "gate": 0,
+      "tool": "ping",
+      "ues": 3,
+      "probe_order": "residual",
+      "source_kind": "reused_measurement",
+      "source_run": "analysis-source-audit/step2-three-ue-admission-20261119/gate0-residual-200-pilot/ping",
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 2.241222222222222,
+          "RTT_p99_ms": 2.8684
+        },
+        {
+          "ue": 2,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 2.2918333333333334,
+          "RTT_p99_ms": 3.4925
+        },
+        {
+          "ue": 3,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 7.187055555555555,
+          "RTT_p99_ms": 11.7
+        }
+      ]
+    },
+    {
+      "gate": 1,
+      "tool": "ping",
+      "ues": 1,
+      "probe_order": "legacy",
+      "source_kind": "new_measurement",
+      "source_run": "analysis-source-audit/step2-short-completion-20261124/g1-ping-n1",
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 1.8108666666666666,
+          "RTT_p99_ms": 3.2484
+        }
+      ]
+    },
+    {
+      "gate": 1,
+      "tool": "ping",
+      "ues": 2,
+      "probe_order": "legacy",
+      "source_kind": "reused_measurement",
+      "source_run": "analysis-source-audit/step2-multiue56-20261118/gate1-ping-n2-pilot",
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 4.7811111111111115,
+          "RTT_p99_ms": 8.5571
+        },
+        {
+          "ue": 2,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 4.7362222222222226,
+          "RTT_p99_ms": 8.3567
+        }
+      ]
+    },
+    {
+      "gate": 1,
+      "tool": "ping",
+      "ues": 3,
+      "probe_order": "legacy",
+      "source_kind": "reused_measurement",
+      "source_run": "analysis-source-audit/step2-multiue56-20261118/gate1-ping-n3-pilot",
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 6.237444444444445,
+          "RTT_p99_ms": 12.020999999999999
+        },
+        {
+          "ue": 2,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 6.132055555555556,
+          "RTT_p99_ms": 12.321000000000002
+        },
+        {
+          "ue": 3,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 6.145888888888889,
+          "RTT_p99_ms": 11.91
+        }
+      ]
+    },
+    {
+      "gate": 0,
+      "tool": "UDP",
+      "ues": 1,
+      "probe_order": "legacy",
+      "source_kind": "reused_measurement",
+      "source_run": "analysis-source-audit/step2-multiue56-20261118/pilot-n1-01",
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 0.9443290388888889,
+          "RTT_p99_ms": 2.06829541
+        }
+      ]
+    },
+    {
+      "gate": 0,
+      "tool": "UDP",
+      "ues": 2,
+      "probe_order": "legacy",
+      "source_kind": "reused_measurement",
+      "source_run": "analysis-source-audit/step2-multiue56-20261118/pilot-n2-01",
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 1.7669480333333334,
+          "RTT_p99_ms": 2.52607046
+        },
+        {
+          "ue": 2,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 1.7591991944444445,
+          "RTT_p99_ms": 2.58006936
+        }
+      ]
+    },
+    {
+      "gate": 0,
+      "tool": "UDP",
+      "ues": 3,
+      "probe_order": "residual",
+      "source_kind": "reused_measurement",
+      "source_run": "analysis-source-audit/step2-three-ue-admission-20261119/gate0-residual-200-pilot/udp",
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 2.542428816666667,
+          "RTT_p99_ms": 3.45245622
+        },
+        {
+          "ue": 2,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 2.5494115944444444,
+          "RTT_p99_ms": 3.5955234300000005
+        },
+        {
+          "ue": 3,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 7.983524461111111,
+          "RTT_p99_ms": 14.01293075
+        }
+      ]
+    },
+    {
+      "gate": 1,
+      "tool": "UDP",
+      "ues": 1,
+      "probe_order": "legacy",
+      "source_kind": "new_measurement",
+      "source_run": "analysis-source-audit/step2-short-completion-20261124/g1-udp-n1",
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 1.9371692555555555,
+          "RTT_p99_ms": 3.39364784
+        }
+      ]
+    },
+    {
+      "gate": 1,
+      "tool": "UDP",
+      "ues": 2,
+      "probe_order": "legacy",
+      "source_kind": "new_measurement",
+      "source_run": "analysis-source-audit/step2-short-completion-20261124/g1-udp-n2",
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 4.705647094444444,
+          "RTT_p99_ms": 7.476312230000001
+        },
+        {
+          "ue": 2,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 4.7337313666666665,
+          "RTT_p99_ms": 7.52115564
+        }
+      ]
+    },
+    {
+      "gate": 1,
+      "tool": "UDP",
+      "ues": 3,
+      "probe_order": "legacy",
+      "source_kind": "reused_measurement",
+      "source_run": "analysis-source-audit/step2-multiue56-20261118/gateC-pilot-n3",
+      "flows": [
+        {
+          "ue": 1,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 6.477405038888889,
+          "RTT_p99_ms": 11.36057843
+        },
+        {
+          "ue": 2,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 6.4940518888888885,
+          "RTT_p99_ms": 11.38656624
+        },
+        {
+          "ue": 3,
+          "sent": 200,
+          "received": 200,
+          "statistical": 180,
+          "RTT_mean_ms": 6.84836025,
+          "RTT_p99_ms": 12.40532732
+        }
+      ]
+    }
+  ],
+  "legacy_gate0_three_ue": {
+    "status": "admission_incomplete",
+    "business_started": false,
+    "applies_to": [
+      "ping",
+      "UDP"
+    ],
+    "source": "TEST-622",
+    "RTT_ms": null
+  }
+}
