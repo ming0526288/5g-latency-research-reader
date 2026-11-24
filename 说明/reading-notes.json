@@ -151,6 +151,13 @@
       "topic": "launch-index"
     },
     {
+      "source": "说明/启动命令/独立实验启动命令.md",
+      "topic": "independent-launch-commands",
+      "documentRole": "commands",
+      "parentTopic": "launch-index",
+      "commandStatus": "partial"
+    },
+    {
       "source": "说明/研究代码/代码目录.md",
       "topic": "research-code-index"
     },

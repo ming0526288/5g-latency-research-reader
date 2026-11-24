@@ -1231,7 +1231,7 @@
       "group": "guides",
       "topic": "launch-index",
       "prerequisite": false,
-      "sha256": "ab1bf825cc9463daee816e0c62d6426cba8e2edf95ef16fe9680a955f9f09b97",
+      "sha256": "f8a0c21fba817cb48614e437384365ce7ca53f5f09f40a75862d2dea540b65dc",
       "snapshot": "说明/启动命令/启动命令总目录.md",
       "redacted": false,
       "toc": [
@@ -1246,14 +1246,141 @@
           "level": 2
         },
         {
+          "id": "独立实验启动命令",
+          "title": "独立实验启动命令",
+          "level": 2
+        },
+        {
           "id": "我怎样查看当前工程",
           "title": "我怎样查看当前工程",
           "level": 2
         }
       ],
-      "words": 1852,
-      "minutes": 3,
-      "search": "  启动命令总目录\n\n核心网、gNB、UE 和业务分别在独立终端执行。第二步多 UE 的实际命令已按条件记录，第三步从 PF 的既有双 UE 基线核验开始。\n\n单UE已测参考见 第一步1的直接命令 (第一步/1_源码与当前代码.md)；本轮MCS上限9的统一配置与30条件计划见 第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)。积极授权0的低时延和资源开销参照不能自动推广多UE。\n\n我从总目录进入每一步的启动与查看说明，每条都对应同编号的规划和结果。\n\n第一步命令分五项，第二步命令按四项登记条件。第三步先用已有 PF 记录，后续独立配置的专用命令按实测填写。\n\n 步骤 本步主题 启动与查看 规划 结果 \n --- --- --- --- --- \n  1 (第一步启动命令.md)  单 UE 场景与 PF 通信 RTT 基线 (第一步启动命令.md)  第一步启动命令 (第一步启动命令.md)  第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)  第一步结果与分析 (../研究结果与分析/第一步结果与分析.md) \n 2 多 UE PF 基线与负载竞争  第二步启动命令 (第二步启动命令.md)  第二步规划 (../文献导读/第二步规划_多UE_PF基线与负载竞争.md)  第二步结果与分析 (../研究结果与分析/第二步结果与分析.md) \n 3 PF 基线与调度核验  第三步启动命令 (第三步启动命令_PF.md)  第三步规划 (../文献导读/第三步规划_PF基线与调度核验.md)  第三步结果与分析 (../研究结果与分析/第三步结果与分析_PF.md) \n 4 PF、EDF、M-LWDF、QUEST 的同程序强对照  第四步启动命令 (第七步启动命令.md)  第四步规划 (../文献导读/第七步规划_同程序强对照算法.md)  第四步结果与分析 (../研究结果与分析/第七步结果与分析.md) \n 5 瓶颈驱动的单项优化设计与实现  第五步启动命令 (第八步启动命令.md)  第五步规划 (../文献导读/第八步规划_单项优化设计与实现.md)  第五步结果与分析 (../研究结果与分析/第八步结果与分析.md) \n 6 新算法的配对重复效果验证  第六步启动命令 (第九步启动命令.md)  第六步规划 (../文献导读/第九步规划_新算法效果验证.md)  第六步结果与分析 (../研究结果与分析/第九步结果与分析.md) \n 7 消融、资源代价与服务公平性  第七步启动命令 (第十步启动命令.md)  第七步规划 (../文献导读/第十步规划_消融资源代价与公平性.md)  第七步结果与分析 (../研究结果与分析/第十步结果与分析.md) \n 8 跨配置、负载和 UE 数的稳健性验证  第八步启动命令 (第十一步启动命令.md)  第八步规划 (../文献导读/第十一步规划_跨场景稳健性验证.md)  第八步结果与分析 (../研究结果与分析/第十一步结果与分析.md) \n 9 论文证据、图表与可复现交付  第九步启动命令 (第十二步启动命令.md)  第九步规划 (../文献导读/第十二步规划_论文结果整理与研究收尾.md)  第九步结果与分析 (../研究结果与分析/第十二步结果与分析.md) \n\n   第一步：五个分项入口\n\n1.  最开始源码与现在代码：均用 56 B 数据区 ping 对照 (第一步/1_源码与当前代码.md)\n2.  56 B 数据区的 ping 与 UDP 对比 (第一步/2_56B数据区的ping与UDP.md)\n3.  80 B 与 16 B 的 UDP 对比 (第一步/3_80B与16B的UDP.md)\n4.  各包长的 ping 与 UDP 对比 (第一步/4_各包长的ping与UDP.md)\n5.  实验基线 (第一步/5_实验基线.md)\n\n   我怎样查看当前工程\n\n以下是只读查看命令，不会启动核心网或无线实验；工作目录指研究记录主树，不能据此假定正式运行二进制已经选定。\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\ngit status --short --branch\ngit log -1 --oneline\n   \n\n具体实验工作树、配置及命令会在每步准备并核验后写进对应命令页。\n\n 返回全部规划 (../文献导读/算法实验规划_通信RTT与时延优化.md) ·  查看结果与分析总目录 (../研究结果与分析/研究结果与分析总目录.md)。\n"
+      "words": 3774,
+      "minutes": 6,
+      "search": "  启动命令总目录\n\n核心网、gNB、UE 和业务分别在独立终端执行。第二步多 UE 的实际命令已按条件记录，第三步从 PF 的既有双 UE 基线核验开始。\n\n单UE已测参考见 第一步1的直接命令 (第一步/1_源码与当前代码.md)；本轮MCS上限9的统一配置与30条件计划见 第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)。积极授权0的低时延和资源开销参照不能自动推广多UE。\n\n我从总目录进入每一步的启动与查看说明，每条都对应同编号的规划和结果。\n\n第一步命令分五项，第二步命令按四项登记条件。第三步先用已有 PF 记录，后续独立配置的专用命令按实测填写。\n\n 步骤 本步主题 启动与查看 规划 结果 \n --- --- --- --- --- \n  1 (第一步启动命令.md)  单 UE 场景与 PF 通信 RTT 基线 (第一步启动命令.md)  第一步启动命令 (第一步启动命令.md)  第一步规划 (../文献导读/第一步规划_单UE通信RTT基线.md)  第一步结果与分析 (../研究结果与分析/第一步结果与分析.md) \n 2 多 UE PF 基线与负载竞争  第二步启动命令 (第二步启动命令.md)  第二步规划 (../文献导读/第二步规划_多UE_PF基线与负载竞争.md)  第二步结果与分析 (../研究结果与分析/第二步结果与分析.md) \n 3 PF 基线与调度核验  第三步启动命令 (第三步启动命令_PF.md)  第三步规划 (../文献导读/第三步规划_PF基线与调度核验.md)  第三步结果与分析 (../研究结果与分析/第三步结果与分析_PF.md) \n 4 PF、EDF、M-LWDF、QUEST 的同程序强对照  第四步启动命令 (第七步启动命令.md)  第四步规划 (../文献导读/第七步规划_同程序强对照算法.md)  第四步结果与分析 (../研究结果与分析/第七步结果与分析.md) \n 5 瓶颈驱动的单项优化设计与实现  第五步启动命令 (第八步启动命令.md)  第五步规划 (../文献导读/第八步规划_单项优化设计与实现.md)  第五步结果与分析 (../研究结果与分析/第八步结果与分析.md) \n 6 新算法的配对重复效果验证  第六步启动命令 (第九步启动命令.md)  第六步规划 (../文献导读/第九步规划_新算法效果验证.md)  第六步结果与分析 (../研究结果与分析/第九步结果与分析.md) \n 7 消融、资源代价与服务公平性  第七步启动命令 (第十步启动命令.md)  第七步规划 (../文献导读/第十步规划_消融资源代价与公平性.md)  第七步结果与分析 (../研究结果与分析/第十步结果与分析.md) \n 8 跨配置、负载和 UE 数的稳健性验证  第八步启动命令 (第十一步启动命令.md)  第八步规划 (../文献导读/第十一步规划_跨场景稳健性验证.md)  第八步结果与分析 (../研究结果与分析/第十一步结果与分析.md) \n 9 论文证据、图表与可复现交付  第九步启动命令 (第十二步启动命令.md)  第九步规划 (../文献导读/第十二步规划_论文结果整理与研究收尾.md)  第九步结果与分析 (../研究结果与分析/第十二步结果与分析.md) \n\n   第一步：五个分项入口\n\n1.  最开始源码与现在代码：均用 56 B 数据区 ping 对照 (第一步/1_源码与当前代码.md)\n2.  56 B 数据区的 ping 与 UDP 对比 (第一步/2_56B数据区的ping与UDP.md)\n3.  80 B 与 16 B 的 UDP 对比 (第一步/3_80B与16B的UDP.md)\n4.  各包长的 ping 与 UDP 对比 (第一步/4_各包长的ping与UDP.md)\n5.  实验基线 (第一步/5_实验基线.md)\n\n   独立实验启动命令\n\n这些条目与「结果与分析总目录」的独立题目同序。点「启动命令」可跳到原用构建、配置、终端命令和验证状态。\n\n 独立题目 启动与查看 记录状态 \n --- --- --- \n  原始程序为什么有时启动失败：原因定位与控制变量全过程 (../研究结果与分析/原始程序启动失败_原因定位与控制变量全过程.md)  启动命令 (独立实验启动命令.md 原始程序启动问题) 有直接启动和历史控制记录 \n  原始源码与现在代码：时延差异原因分析 (../研究结果与分析/源码与现在代码_时延差异原因分析.md)  启动命令 (独立实验启动命令.md 原始源码与现在代码的时延差异) 默认→短门限→默认实测 \n  RFsim 启动同步：设计方案与验证计划 (../研究结果与分析/RFsim启动同步_设计方案与验证计划.md)  启动命令 (独立实验启动命令.md rfsim-启动同步) 方案 A 开关实测，方案 B 有对应候选 \n  多 UE 接入异常：CPU 与空闲探测对照分析 (../研究结果与分析/多UE接入异常_CPU与空闲探测对照分析.md)  启动命令 (独立实验启动命令.md 多-ue-接入异常的-cpu-与空闲探测对照) 门限和双 UE 绑核对照实测 \n  门限 0 下第三个 UE 为什么接不进来 (../研究结果与分析/门限0下第三个UE的接入验证.md)  启动命令 (独立实验启动命令.md 门限-0-下第三个-ue-的接入验证) 原顺序失败、后置通过的启动均有记录 \n  三 UE 上行调度优化方案 (../研究结果与分析/三UE上行调度优化方案.md)  启动命令 (独立实验启动命令.md 三-ue-上行调度优化方案) 有已测基线，轮转候选待测 \n  门限 0 的 ping 从双 UE 到三 UE，时延增加在哪里 (../研究结果与分析/门限0的ping双UE与三UE时延差异分析.md)  启动命令 (独立实验启动命令.md 门限-0-的-ping-从双-ue-到三-ue) 抓包复算与三 UE 接入正反序已测 \n  100 到 200 MHz 单 UE 时延变化的原因 (../研究结果与分析/100到200MHz单UE时延变化的原因.md)  启动命令 (独立实验启动命令.md 100-到-200-mhz-单-ue-时延变化的原因) 同载频 100→200→100 MHz 实测 \n  100 到 200 MHz 单 UE 时延现有的解决方案 (../研究结果与分析/100到200MHz单UE时延现有的解决方案.md)  启动命令 (独立实验启动命令.md 100-到-200-mhz-单-ue-时延现有的解决方案) 资料综述，无独立启动命令 \n  100 到 200 MHz 单 UE 降低时延方案一（针对本机 RFsim 变慢） (../研究结果与分析/100到200MHz单UE降低时延方案一_本机RFsim.md)  启动命令 (独立实验启动命令.md 方案一本机-rfsim-四分之三采样) 两端 -E 对照已做，候选未接入 \n  100 到 200 MHz 单 UE 降低时延方案二（配置授权 CG） (../研究结果与分析/100到200MHz单UE降低时延方案二_配置授权CG.md)  启动命令 (独立实验启动命令.md 方案二配置授权-cg) Type 1、Type 2 与门限 0 实测 \n  100 到 200 MHz 单 UE 时延方案三（优化上下行发送机会） (../研究结果与分析/100到200MHz单UE时延方案三_上下行发送机会.md)  启动命令 (独立实验启动命令.md 方案三上下行发送机会) 授权逐包定位实测，三个子题各有状态 \n  方案三的第一种（业务到达时刻与上行发送机会对齐） (../研究结果与分析/方案三的第一种_业务到达时刻与上行发送机会对齐.md)  启动命令 (独立实验启动命令.md 方案三的第一种业务到达时刻与上行发送机会对齐) 自然发包有记录，主动对齐的 ping 待测 \n  方案三的第二种（调整 TDD） (../研究结果与分析/方案三的第二种_调整TDD.md)  启动命令 (独立实验启动命令.md 方案三的第二种调整-tdd) 原图样与候选均有记录，候选可用构建已验证 \n  方案三的第三种（调整调度时序） (../研究结果与分析/方案三的第三种_调整调度时序.md)  启动命令 (独立实验启动命令.md 方案三的第三种调整调度时序) K2 和 RFsim 读取方式的实测命令 \n  PF 下三 UE 前两台同时发、第三台排队 (../研究结果与分析/PF下三UE前两台同时发第三台排队.md)  启动命令 (独立实验启动命令.md pf-下三-ue-前两台同时发第三台排队) 原排队及暂停探测各有实测 \n\n   我怎样查看当前工程\n\n以下是只读查看命令，不会启动核心网或无线实验；工作目录指研究记录主树，不能据此假定正式运行二进制已经选定。\n\n   bash\ncd /home/lbh/oiwireless/oi-wireless-ran-latency-analysis\ngit status --short --branch\ngit log -1 --oneline\n   \n\n具体实验工作树、配置及命令会在每步准备并核验后写进对应命令页。\n\n 返回全部规划 (../文献导读/算法实验规划_通信RTT与时延优化.md) ·  查看结果与分析总目录 (../研究结果与分析/研究结果与分析总目录.md)。\n"
+    },
+    {
+      "id": "re6c18479e80498b1",
+      "title": "独立实验启动命令",
+      "source": "说明/启动命令/独立实验启动命令.md",
+      "aliases": [
+        "说明/启动命令/独立实验启动命令.md"
+      ],
+      "group": "guides",
+      "topic": "independent-launch-commands",
+      "prerequisite": false,
+      "documentRole": "commands",
+      "parentTopic": "launch-index",
+      "commandStatus": "partial",
+      "sha256": "9f269c80c1599f8de5c1f0bfb4d34969e8bb0e4b6509837895b877b63bf96d87",
+      "snapshot": "说明/启动命令/独立实验启动命令.md",
+      "redacted": false,
+      "toc": [
+        {
+          "id": "独立实验启动命令",
+          "title": "独立实验启动命令",
+          "level": 1
+        },
+        {
+          "id": "公共准备",
+          "title": "公共准备",
+          "level": 2
+        },
+        {
+          "id": "多-ue-通用命名空间命令",
+          "title": "多 UE 通用命名空间命令",
+          "level": 2
+        },
+        {
+          "id": "独立-ping-与抓包",
+          "title": "独立 ping 与抓包",
+          "level": 2
+        },
+        {
+          "id": "原始程序启动问题",
+          "title": "原始程序启动问题",
+          "level": 2
+        },
+        {
+          "id": "原始源码与现在代码的时延差异",
+          "title": "原始源码与现在代码的时延差异",
+          "level": 2
+        },
+        {
+          "id": "rfsim-启动同步",
+          "title": "RFsim 启动同步",
+          "level": 2
+        },
+        {
+          "id": "多-ue-接入异常的-cpu-与空闲探测对照",
+          "title": "多 UE 接入异常的 CPU 与空闲探测对照",
+          "level": 2
+        },
+        {
+          "id": "门限-0-下第三个-ue-的接入验证",
+          "title": "门限 0 下第三个 UE 的接入验证",
+          "level": 2
+        },
+        {
+          "id": "三-ue-上行调度优化方案",
+          "title": "三 UE 上行调度优化方案",
+          "level": 2
+        },
+        {
+          "id": "门限-0-的-ping-从双-ue-到三-ue",
+          "title": "门限 0 的 ping 从双 UE 到三 UE",
+          "level": 2
+        },
+        {
+          "id": "100-到-200-mhz-单-ue-时延变化的原因",
+          "title": "100 到 200 MHz 单 UE 时延变化的原因",
+          "level": 2
+        },
+        {
+          "id": "100-到-200-mhz-单-ue-时延现有的解决方案",
+          "title": "100 到 200 MHz 单 UE 时延现有的解决方案",
+          "level": 2
+        },
+        {
+          "id": "方案一本机-rfsim-四分之三采样",
+          "title": "方案一（本机 RFsim 四分之三采样）",
+          "level": 2
+        },
+        {
+          "id": "方案二配置授权-cg",
+          "title": "方案二（配置授权 CG）",
+          "level": 2
+        },
+        {
+          "id": "方案三上下行发送机会",
+          "title": "方案三（上下行发送机会）",
+          "level": 2
+        },
+        {
+          "id": "方案三的第一种业务到达时刻与上行发送机会对齐",
+          "title": "方案三的第一种（业务到达时刻与上行发送机会对齐）",
+          "level": 2
+        },
+        {
+          "id": "方案三的第二种调整-tdd",
+          "title": "方案三的第二种（调整 TDD）",
+          "level": 2
+        },
+        {
+          "id": "方案三的第三种调整调度时序",
+          "title": "方案三的第三种（调整调度时序）",
+          "level": 2
+        },
+        {
+          "id": "pf-下三-ue-前两台同时发第三台排队",
+          "title": "PF 下三 UE 前两台同时发、第三台排队",
+          "level": 2
+        }
+      ],
+      "words": 15859,
+      "minutes": 24,
+      "search": "  独立实验启动命令\n\n从 启动命令总目录 (启动命令总目录.md)选题目可直达对应小节。下文整理的是实际运行记录。每个工作点使用自己的构建、配置和参数。复用已有结果时可以直接查对应结果页。\n\n   公共准备\n\n核心网、gNB、每台 UE 和业务分别开独立终端。原核心网已在线时沿用。若本机尚未运行原部署，在核心网终端执行：\n\n\n   bash\ncd ~/oiwireless/oiwireless-5gc-deploy\n./run-5gc.sh\n   \n\ngNB 报告 RF 已启动后再启动 UE。有多台 UE 时，上一台的 TUN IPv4 配置完成后再启动下一台。检查前往  172.11.200.25  的路径经过  oaitun_ue1 ，业务完成后在本轮各终端按 Ctrl-C 停止自己的进程。\n\n下列变量是本机已有目录。把所用变量赋值粘贴到各自的终端。每轮的  CASE  要选自己的绝对目录，并在涉及探针时先建探针目录。抓包工具的输出子目录由工具创建，给  --root  的那一级须尚不存在。私有 UE 配置沿用各命名空间已登记的本机文件。\n\n\n   bash\nLAB=/home/lbh/oiwireless\nREPO=\"$LAB/oi-wireless-ran-latency-analysis\"\nAUDIT=\"$LAB/analysis-source-audit\"\nUE_BUILD=\"$LAB/oi-wireless-ran-ping-slot-validation/cmake_targets/ran_build/build\"\nENV_DIR=\"$AUDIT/step2-multiue56-20261118/environment\"\nTOOLS=\"$REPO/research/latency-analysis/step2-multiue56-v1\"\nGNB100=\"$LAB/oi-wireless-ran-ping-slot-validation/research/latency-analysis/rfsim-slot-sync-v1/configs/gnb1.sa.band261.fr2.66PRB.5slot.low-latency.mcs9.sync1.dpdk.conf\"\nGNB100_GATE1=\"$TOOLS/configs/gnb1.sa.band261.fr2.66PRB.5slot.multiue.mcs9.inactivity1.sync1.dpdk.conf\"\nGNB200=\"$TOOLS/configs/gnb1.sa.band261.fr2.132PRB.5slot.multiue.mcs9.inactivity0.sync1.dpdk.conf\"\nGNB200_DDSUU=\"$AUDIT/step2-scheme3-tdd-20261120/gnb1.sa.band261.fr2.132PRB.5slot.DDSUU.mcs9.inactivity0.sync1.dpdk.conf\"\nRESIDUAL_BUILD=\"$AUDIT/step2-three-ue-admission-20261119/residual-build-v2\"\nCG2_BUILD=\"$AUDIT/step2-cg-type2-20261120/build-02\"\nBOOT_BUILD=\"$AUDIT/step2-scheme3-plan-b-20261120/build-v2\"\n   \n\n每轮在一个终端先生成并显示  CASE ，再把同一个绝对路径赋给其他终端的  CASE 。探针目录只在启用探针时创建。\n\n   bash\nCASE=\"$AUDIT/independent-replay-$(date +%Y%m%d-%H%M%S)\"\nprintf '%s\\n' \"$CASE\"\n   \n\n   多 UE 通用命名空间命令\n\n N  为 UE 编号减 1。每台 UE 在自己的终端设置  N=0 、 N=1  或  N=2 。以下为 100 MHz、27.54756 GHz、66 PRB、SSB 偏移 301 的命令。单机非隔离试验的 UE 命令另列。\n\n\n   bash\ncd \"$UE_BUILD\"\nN=0\nsudo -n ip netns exec \"s2m56u$N\" ./nr-uesoftmodem --band 261 -C 27547560000 -r 66 --numerology 3 --ssb 301 --sa -O \"$ENV_DIR/private/ue$N.conf\" --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr \"10.203.$((N+1)).1\"\n   \n\n接入后在业务终端用同一  N  查看本轮网卡及路由。\n\n\n   bash\nsudo -n ip netns exec \"s2m56u$N\" ip -4 addr show dev oaitun_ue1\nsudo -n ip netns exec \"s2m56u$N\" ip -4 route get 172.11.200.25 oif oaitun_ue1\n   \n\n   独立 ping 与抓包\n\n这组命令适用于标记为每 UE 200 次、56 B、20 ms 目标间隔的短测。联通检查或历史正式样本量以各题目说明为准。捕获终端设  UE_COUNT=1 、 2  或  3 ，须与实际接入并参与业务的 UE 台数一致。\n\n\n   bash\nsudo -n /usr/bin/python3 -B \"$TOOLS/ping_capture.py\" --environment \"$ENV_DIR\" --root \"$CASE/packets\" --ues \"$UE_COUNT\" --regime per-ue --packets 200 --warmup 20\n   \n\n等捕获终端显示 READY，每台 UE 在独立业务终端发包。全部结束后由一个终端创建结束标记。\n\n\n   bash\nsudo -n ip netns exec \"s2m56u$N\" ping -D -n -I oaitun_ue1 -c 200 -s 56 -i 0.02 -W 2 172.11.200.25   tee \"$CASE/packets/ue$N/ping.log\"\n   \n\n\n   bash\ntouch \"$CASE/packets/finish.request\"\n   \n\n   原始程序启动问题\n\n 查看本项结果与分析 (../研究结果与分析/原始程序启动失败_原因定位与控制变量全过程.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n原始程序不加连续供样的成功轮见 TEST-581。下面三块分别在 gNB、UE、业务终端执行。历史的相位与连续供样控制路径另见第一步实验 1 命令页及 TEST-564 至 TEST-568。\n\n\n   bash\ncd \"$LAB/oi-wireless-ran/cmake_targets/ran_build/build\"\nsudo -n ./nr-softmodem -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb1.sa.band261.fr2.66PRB.5slot.dpdk.conf --sa --rfsim --rfsimulator.serveraddr server\n   \n\n\n   bash\ncd \"$LAB/oi-wireless-ran/cmake_targets/ran_build/build\"\nsudo -n ./nr-uesoftmodem --band 261 -C 27547560000 -r 66 --numerology 3 --ssb 301 --sa -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 127.0.0.1\n   \n\n\n   bash\nping 172.11.200.25 -I oaitun_ue1\n   \n\n 第一步实验 1 的完整命令和历史控制对照 (第一步/1_源码与当前代码.md)\n\n   原始源码与现在代码的时延差异\n\n 查看本项结果与分析 (../研究结果与分析/源码与现在代码_时延差异原因分析.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\nTEST-583／584 在同一现在代码构建比较默认门限、短门限并切回默认。gNB 终端使用：\n\n\n   bash\ncd \"$UE_BUILD\"\nCONF=\"$REPO/research/latency-analysis/direct-terminal-current/gnb1.sa.band261.fr2.66PRB.5slot.conf\"\nsudo -n ./nr-softmodem -O \"$CONF\" --sa --rfsim --rfsimulator.serveraddr server\n   \n\n短门限 B 轮在 gNB 命令末尾加  '--MACRLCs. 0 .ulsch_max_frame_inactivity' 0 ，切回默认时移除。另有同目录  gnb1.sa.band261.fr2.66PRB.5slot.low-latency.conf  的文件方式验证，该轮用文件设门限。各轮独立 UE 终端用：\n\n\n   bash\ncd \"$UE_BUILD\"\nsudo -n ./nr-uesoftmodem --band 261 -C 27547560000 -r 66 --numerology 3 --ssb 301 --sa -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 127.0.0.1\n   \n\n\n   bash\nping -c 60 172.11.200.25 -I oaitun_ue1\n   \n\n   RFsim 启动同步\n\n 查看本项结果与分析 (../研究结果与分析/RFsim启动同步_设计方案与验证计划.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n方案 A 对照在同一研究生成物上换配置。打开用  sync1 ，关闭对照用同目录  sync0 。核心网按公共步骤处理。\n\n\n   bash\ncd \"$UE_BUILD\"\nCONF=\"$GNB100\"\nsudo -n ./nr-softmodem -O \"$CONF\" --sa --rfsim --rfsimulator.serveraddr server\n   \n\n\n   bash\ncd \"$UE_BUILD\"\nsudo -n ./nr-uesoftmodem --band 261 -C 27547560000 -r 66 --numerology 3 --ssb 301 --sa -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.oiwireless.conf --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 127.0.0.1\n   \n\n\n   bash\nping -c 20 -i 0.1 -I oaitun_ue1 172.11.200.25\n   \n\n只在注册、TUN 配置和路由完成后做连通检查。初轮使用默认间隔，后续开启检查用了 100 ms。关闭对照未完成接入。正式业务见 TEST-604。200 MHz 研究构建的方案 B 命令见 方案三的第二种 ( 方案三的第二种调整-tdd)。来源 TEST-603。\n\n   多 UE 接入异常的 CPU 与空闲探测对照\n\n 查看本项结果与分析 (../研究结果与分析/多UE接入异常_CPU与空闲探测对照分析.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n各 UE 用 多 UE 通用命令 ( 多-ue-通用命名空间命令)。gNB 从  UE_BUILD  启动。门限 0 用  GNB100 ，门限 1 的三 UE 通路用  GNB100_GATE1 。\n\n\n   bash\ncd \"$UE_BUILD\"\nCONF=\"$GNB100\"\nsudo -n ./nr-softmodem -O \"$CONF\" --sa --rfsim --rfsimulator.serveraddr server\n   \n\nCPU 回切只对本轮已接入的第二台 UE 的关键线程操作，先核验本机 CPU 编号与第二台身份。TEST-612 中安排为 CPU 4→8→4。每次操作使用新的输出文件。\n\n\n   bash\nsudo -n /usr/bin/python3 -B \"$TOOLS/cpu_control.py\" pin --environment \"$ENV_DIR\" --ue 1 --cpu 8 --expected-cpu 4 --output \"$CASE/cpu-to8.json\"\nsudo -n /usr/bin/python3 -B \"$TOOLS/cpu_control.py\" pin --environment \"$ENV_DIR\" --ue 1 --cpu 4 --expected-cpu 8 --output \"$CASE/cpu-to4.json\"\n   \n\n双 UE 的诊断业务为每台 1200 个 UDP 请求、前 100 次预热、每台 50 包／秒。在每个绑核状态用独立业务终端运行一次， CASE  和  NONCE  按轮设置（ NONCE  为本轮整数标记）。正式门限 1 UDP 见 第二步第 4 项命令 (第二步/4_门限1的UDP多UE.md)。\n\n\n   bash\nsudo -n /usr/bin/python3 -B \"$TOOLS/business.py\" --environment \"$ENV_DIR\" --root \"$CASE/udp\" --ues 2 --regime per-ue --packets 1200 --warmup 100 --nonce \"$NONCE\" --rate 50 --pilot\n   \n\n   门限 0 下第三个 UE 的接入验证\n\n 查看本项结果与分析 (../研究结果与分析/门限0下第三个UE的接入验证.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n同一诊断 gNB 构建切换  POLICY=legacy （原顺序）和  POLICY=residual （空闲探测后置），两轮同用  GNB100 。诊断探针以本轮新目录保存。UE 沿用 多 UE 通用命令 ( 多-ue-通用命名空间命令)，如复现诊断在  sudo -n  后加  OAI_UL_STATE_TRACE_DIR=\"CASE/trace\" ，与 gNB 的该项一致。\n\n\n   bash\nmkdir -p \"$CASE/trace\"\ncd \"$RESIDUAL_BUILD\"\nPOLICY=residual\nsudo -n OAI_RESEARCH_PROBE_POLICY=\"$POLICY\" OAI_UL_STATE_TRACE_DIR=\"$CASE/trace\" OAI_QUEST_TRACE_DIR=\"$CASE/trace\" ./nr-softmodem -O \"$GNB100\" --sa --rfsim --rfsimulator.serveraddr server\n   \n\n三台接入后才发包。TEST-622 的连通仅用 20 次：\n\n\n   bash\nsudo -n ip netns exec \"s2m56u$N\" ping -D -n -I oaitun_ue1 -c 20 -s 56 -i 0.02 -W 2 172.11.200.25\n   \n\nTEST-623 的 200 次业务轮采用后置构建，不开上述诊断跟踪。ping 用 独立 ping 与抓包 ( 独立-ping-与抓包)中三 UE 命令。UDP 短测的实际业务形式为：\n\n\n   bash\nsudo -n /usr/bin/python3 -B \"$TOOLS/business.py\" --environment \"$ENV_DIR\" --root \"$CASE/udp\" --ues 3 --regime per-ue --packets 200 --warmup 20 --nonce 2026112960 --rate 50 --pilot\n   \n\n   三 UE 上行调度优化方案\n\n 查看本项结果与分析 (../研究结果与分析/三UE上行调度优化方案.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n上行剩余探测机会的轮转方案还没有候选试验启动命令。已测比较起点可按 门限 0 后置构建及三 UE 的 200 次短测 ( 门限-0-下第三个-ue-的接入验证)运行，来源 TEST-622／623。基线的  OAI_RESEARCH_PROBE_POLICY=residual  选择空闲探测后置。\n\n   门限 0 的 ping 从双 UE 到三 UE\n\n 查看本项结果与分析 (../研究结果与分析/门限0的ping双UE与三UE时延差异分析.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n双 UE 使用第二步门限 0 短测的原构建，命令见 第二步第 1 项 (第二步/1_门限0的ping多UE.md)。三 UE 用 门限 0 后置构建 ( 门限-0-下第三个-ue-的接入验证)。TEST-628 在 gNB 和各 UE 开启  OAI_UL_STATE_TRACE_DIR=\"CASE/trace\" ，gNB 使用  OAI_RESEARCH_PROBE_POLICY=residual 。正序和反序各新起一轮，按下表改变接入顺序，然后由三个业务终端并发执行 200 次短测 ( 独立-ping-与抓包)。\n\n 轮次 启动 UE 的顺序 \n --- --- \n 正序 UE 1 → UE 2 → UE 3 \n 反序 UE 3 → UE 2 → UE 1 \n\n 原抓包的分析依据 (../研究结果与分析/门限0的ping双UE与三UE时延差异分析.md)记录了原顺序的调度探针覆盖局限。\n\n   100 到 200 MHz 单 UE 时延变化的原因\n\n 查看本项结果与分析 (../研究结果与分析/100到200MHz单UE时延变化的原因.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n同载频回切使用 TEST-635 的两份配置，射频中心保持 27.61236 GHz。依次设  BW=100 、 200 、 100 。每轮用独立的  CASE ，单 UE 启动。原始研究命令如下。\n\n 带宽（MHz） UE 的 PRB 数 SSB 偏移 \n --- ---: ---: \n 100 66 337 \n 200 132 733 \n\n\n   bash\ncd \"$RESIDUAL_BUILD\"\nCONF=\"$AUDIT/step2-single-ue-bandwidth-aba-20261119/configs/band261.${BW}MHz.common-center.dpdk.conf\"\nsudo -n OAI_RESEARCH_PROBE_POLICY=residual ./nr-softmodem -O \"$CONF\" --sa --rfsim --rfsimulator.serveraddr server\n   \n\n\n   bash\ncd \"$UE_BUILD\"\nsudo -n ip netns exec s2m56u0 ./nr-uesoftmodem --band 261 -C 27612360000 -r \"$PRB\" --numerology 3 --ssb \"$SSB\" --sa -O \"$ENV_DIR/private/ue0.conf\" --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 10.203.1.1\n   \n\n诊断轮两端另外各设  OAI_RAN_DIAG_DIR ，分别指向该轮  gnb  与  ue  的记录目录。业务用 独立 ping 与抓包 ( 独立-ping-与抓包)中单 UE 命令。\n\n   100 到 200 MHz 单 UE 时延现有的解决方案\n\n 查看本项结果与分析 (../研究结果与分析/100到200MHz单UE时延现有的解决方案.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n这页对照标准、文献和已保存的代码路径。验证采样、配置授权和发送机会的启动方式分别见 方案一 ( 方案一本机-rfsim-四分之三采样)、 方案二 ( 方案二配置授权-cg)与 方案三总览 ( 方案三上下行发送机会)。\n\n   方案一（本机 RFsim 四分之三采样）\n\n 查看本项结果与分析 (../研究结果与分析/100到200MHz单UE降低时延方案一_本机RFsim.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n沿用 同载频带宽对照 ( 100-到-200-mhz-单-ue-时延变化的原因)的 200 MHz 配置，UE 使用  27612360000 Hz / 132 PRB / SSB 733 。TEST-637 的 A1、A2 默认采样，B 轮在 gNB 和 UE 同时加  -E 。三轮分别保留诊断目录，下面将  CASE  用作当轮证据根。\n\n\n   bash\nCONF=\"$AUDIT/step2-single-ue-bandwidth-aba-20261119/configs/band261.200MHz.common-center.dpdk.conf\"\nmkdir -p \"$CASE/trace/gnb\" \"$CASE/trace/ue\"\ncd \"$RESIDUAL_BUILD\"\nsudo -n OAI_RAN_DIAG_DIR=\"$CASE/trace/gnb\" OAI_RESEARCH_PROBE_POLICY=residual ./nr-softmodem -O \"$CONF\" --sa --rfsim --rfsimulator.serveraddr server\n   \n\n\n   bash\ncd \"$UE_BUILD\"\nsudo -n OAI_RAN_DIAG_DIR=\"$CASE/trace/ue\" ip netns exec s2m56u0 ./nr-uesoftmodem --band 261 -C 27612360000 -r 132 --numerology 3 --ssb 733 --sa -O \"$ENV_DIR/private/ue0.conf\" --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 10.203.1.1\n   \n\n接入成功的 A 轮再用 单 UE 200 次 ping ( 独立-ping-与抓包)。B 轮未完成接入，业务未发。真实 DPDK 射频档位阶段为静态检查（TEST-638／639）。\n\n   方案二（配置授权 CG）\n\n 查看本项结果与分析 (../研究结果与分析/100到200MHz单UE降低时延方案二_配置授权CG.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n固定 200 MHz、原 DDDSU、单 UE。gNB 与 UE 在各自终端进入所选构建目录。Type 1 和 Type 2 的环境变量须在两端设置成同一组。对照门限 0 两端均省略 CG 变量。\n\n 试验 两端实际工作目录 原试验顺序 \n --- --- --- \n TEST-643  AUDIT/step2-cg-type1-20261120/build-02  门限 0 → Type 1 → 门限 0 \n TEST-644  CG2_BUILD  Type 2 → 门限 0 → Type 1 \n\n以下为 Type 2 的实际启动参数。Type 1 把两条命令的  OAI_RESEARCH_CG_TYPE2=1  改为  OAI_RESEARCH_CG_TYPE1=1 ，并在上表选对应对照的构建。\n\n\n   bash\ncd \"$CG2_BUILD\"\nsudo -n OAI_RESEARCH_CG_TYPE2=1 OAI_RESEARCH_PROBE_POLICY=residual ./nr-softmodem -O \"$GNB200\" --sa --rfsim --rfsimulator.serveraddr server\n   \n\n\n   bash\ncd \"$CG2_BUILD\"\nsudo -n OAI_RESEARCH_CG_TYPE2=1 ip netns exec s2m56u0 ./nr-uesoftmodem --band 261 -C 27612360000 -r 132 --numerology 3 --ssb 301 --sa -O \"$ENV_DIR/private/ue0.conf\" --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 10.203.1.1\n   \n\nType 1 核对 UE 应用配置。Type 2 须等激活和确认均完成并通过路由检查，再执行 单 UE 200 次 ping ( 独立-ping-与抓包)。\n\n   方案三（上下行发送机会）\n\n 查看本项结果与分析 (../研究结果与分析/100到200MHz单UE时延方案三_上下行发送机会.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n慢包方向曾复算多个已存 ping 记录。逐包授权定位见 TEST-647，200 MHz DDDSU、门限 0、单 UE。两端从  CG2_BUILD  直接启动，省略 CG 环境变量。路径用当前轮的  CASE 。 OAI_LAYER_TRACE_DIR  和  OAI_UL_SERVICE_TRACE_DIR  均启用。\n\n\n   bash\nmkdir -p \"$CASE/trace/gnb\" \"$CASE/trace/ue\"\ncd \"$CG2_BUILD\"\nsudo -n OAI_RESEARCH_PROBE_POLICY=residual OAI_LAYER_TRACE_DIR=\"$CASE/trace/gnb\" OAI_UL_SERVICE_TRACE_DIR=\"$CASE/trace/gnb\" ./nr-softmodem -O \"$GNB200\" --sa --rfsim --rfsimulator.serveraddr server\n   \n\n\n   bash\ncd \"$CG2_BUILD\"\nsudo -n OAI_LAYER_TRACE_DIR=\"$CASE/trace/ue\" OAI_UL_SERVICE_TRACE_DIR=\"$CASE/trace/ue\" ip netns exec s2m56u0 ./nr-uesoftmodem --band 261 -C 27612360000 -r 132 --numerology 3 --ssb 301 --sa -O \"$ENV_DIR/private/ue0.conf\" --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 10.203.1.1\n   \n\n接入后及时运行 单 UE 200 次 ping ( 独立-ping-与抓包)，按 TEST-647 记录业务前后的实时时钟与单调时钟偏移、核对探针覆盖。三种方法分别见 业务到达对齐 ( 方案三的第一种业务到达时刻与上行发送机会对齐)、 调整 TDD ( 方案三的第二种调整-tdd)和 调整调度时序 ( 方案三的第三种调整调度时序)。\n\n   方案三的第一种（业务到达时刻与上行发送机会对齐）\n\n 查看本项结果与分析 (../研究结果与分析/方案三的第一种_业务到达时刻与上行发送机会对齐.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n自然到达时机的分组复用 TEST-647 的 56 B ping，使用 方案三总览的 gNB、UE、跟踪及业务命令 ( 方案三上下行发送机会)。改变发包时刻的 56 B ping 候选仍待实测，尚无验证过的候选启动命令。\n\n   方案三的第二种（调整 TDD）\n\n 查看本项结果与分析 (../研究结果与分析/方案三的第二种_调整TDD.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n原始 TEST-654 在  CG2_BUILD  按 方案三总览 ( 方案三上下行发送机会)启动，依次选择  GNB200 （DDDSU）、 GNB200_DDSUU （DDSUU）。该构建的 DDSUU 两轮停在启动采样，未发业务。\n\nTEST-657 使用已验证方案 B 的  BOOT_BUILD 。按组选择同样两份图样，把  RF_BUILD  设为此构建目录。两端复用该目录的 RFsim 库，UE 保留该轮搜索阶段的空采样参数。\n\n\n   bash\nmkdir -p \"$CASE/trace/gnb\" \"$CASE/trace/ue\"\ncd \"$BOOT_BUILD\"\nRF_BUILD=\"$BOOT_BUILD\"\nCONF=\"$GNB200_DDSUU\"\nsudo -n OAI_RESEARCH_PROBE_POLICY=residual OAI_LAYER_TRACE_DIR=\"$CASE/trace/gnb\" OAI_UL_SERVICE_TRACE_DIR=\"$CASE/trace/gnb\" ./nr-softmodem -O \"$CONF\" --sa --rfsim --rfsimulator.serveraddr server --loader.rfsimulator.shlibpath \"$RF_BUILD\"\n   \n\n\n   bash\ncd \"$BOOT_BUILD\"\nRF_BUILD=\"$BOOT_BUILD\"\nsudo -n OAI_LAYER_TRACE_DIR=\"$CASE/trace/ue\" OAI_UL_SERVICE_TRACE_DIR=\"$CASE/trace/ue\" ip netns exec s2m56u0 ./nr-uesoftmodem --band 261 -C 27612360000 -r 132 --numerology 3 --ssb 301 --sa -O \"$ENV_DIR/private/ue0.conf\" --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 10.203.1.1 --loader.rfsimulator.shlibpath \"$RF_BUILD\" --rfsimulator.bootstrap_dummy_tail 30688\n   \n\n基线  CONF  换为  GNB200 。待接入及路由核验，再执行 单 UE 200 次 ping ( 独立-ping-与抓包)。K2=3 的槽 3 专用对照见下一题。\n\n   方案三的第三种（调整调度时序）\n\n 查看本项结果与分析 (../研究结果与分析/方案三的第三种_调整调度时序.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n这些试验均为单 UE、200 MHz、56 B ping。每轮取表中同一行的程序、RFsim 库、图样和开关。下表的目录位于  AUDIT ，各表内的  BUILD 、 RF_BUILD  在两端用相同绝对路径。 K2_FLAG=0  为 K2=4， K2_FLAG=1  为 K2=3，K0=0。\n\n 记录 程序目录 RFsim 库目录 图样与开关 \n --- --- --- --- \n TEST-659 槽 3  step3-k2-slot3-20261121/build   BOOT_BUILD  DDSUU，K2_FLAG=0／1，保留该构建原读法 \n TEST-660 下行逐包  step3-dl-path-20261123/build-v3   BOOT_BUILD  DDDSU 取 0，DDSUU 取 0／1 \n TEST-661 收样与解码  step3-ue-rx-timing-20261123/build-v2  同本行程序目录 DDDSU／DDSUU，K2_FLAG=0 \n TEST-662 分段读取  step3-ue-rx-split-20261123/build  同本行程序目录 DDDSU 原读，DDSUU 原读／分段，K2_FLAG=0 \n TEST-664 分段下调 K2  step3-rx-split-k2-20261123/build  同本行程序目录 DDSUU，SPLIT=1，K2_FLAG=0／1 \n TEST-665 DDDSU 分段  step3-dddsu-rx-split-20261123/build  同本行程序目录 DDDSU，SPLIT=0／1，K2_FLAG=0 \n TEST-667 DDDSU 改 K2  step3-dddsu-k2-20261123/build  同本行程序目录 DDDSU，SPLIT=0，K2_FLAG=0／1 \n\n以下用 TEST-665 的 DDDSU 分段组演示各终端实际命令形式。其它组按表改  BUILD 、 RF_BUILD 、 CONF  和开关。TEST-659 没用  OAI_DL_TRACE_ARM_FILE ，该轮两端去掉这一项。只有明确对照分段读取的构建在 UE 命令中使用  OAI_RFSIM_RX_SPLIT 。\n\n\n   bash\nBUILD=\"$AUDIT/step3-dddsu-rx-split-20261123/build\"\nRF_BUILD=\"$BUILD\"\nCONF=\"$GNB200\"\nK2_FLAG=0\nmkdir -p \"$CASE/trace/gnb\" \"$CASE/trace/ue\"\ncd \"$BUILD\"\nsudo -n OAI_DL_TRACE_ARM_FILE=\"$CASE/dl-trace.arm\" OAI_RESEARCH_DYNAMIC_K2_3=\"$K2_FLAG\" OAI_RESEARCH_PROBE_POLICY=residual OAI_LAYER_TRACE_DIR=\"$CASE/trace/gnb\" OAI_UL_SERVICE_TRACE_DIR=\"$CASE/trace/gnb\" ./nr-softmodem -O \"$CONF\" --sa --rfsim --rfsimulator.serveraddr server --loader.rfsimulator.shlibpath \"$RF_BUILD\"\n   \n\n\n   bash\nBUILD=\"$AUDIT/step3-dddsu-rx-split-20261123/build\"\nRF_BUILD=\"$BUILD\"\nK2_FLAG=0\nSPLIT=1\ncd \"$BUILD\"\nsudo -n OAI_DL_TRACE_ARM_FILE=\"$CASE/dl-trace.arm\" OAI_RESEARCH_DYNAMIC_K2_3=\"$K2_FLAG\" OAI_LAYER_TRACE_DIR=\"$CASE/trace/ue\" OAI_UL_SERVICE_TRACE_DIR=\"$CASE/trace/ue\" OAI_RFSIM_RX_SPLIT=\"$SPLIT\" ip netns exec s2m56u0 ./nr-uesoftmodem --band 261 -C 27612360000 -r 132 --numerology 3 --ssb 301 --sa -O \"$ENV_DIR/private/ue0.conf\" --ue-txgain 0 --ue-rxgain 20 --ue-fo-compensation --rfsim --rfsimulator.serveraddr 10.203.1.1 --loader.rfsimulator.shlibpath \"$RF_BUILD\" --rfsimulator.bootstrap_dummy_tail 30688\n   \n\n抓包就绪后，带下行探针的组在业务终端写业务前时钟偏移并打开标记，再按 单 UE 200 次 ping ( 独立-ping-与抓包)运行。业务结束记录末次时钟偏移，创建捕获结束标记。复现 TEST-665／667 的捕获及 TEST-664 的 B3 时，使用原记录注明的本地采集副本。其他组用共用脚本。\n\n\n   bash\npython3 -c 'import time; print(time.time_ns()-time.monotonic_ns())'   \"$CASE/clock-start.txt\"\ntouch \"$CASE/dl-trace.arm\"\nsleep 0.1\n   \n\n\n   bash\npython3 -c 'import time; print(time.time_ns()-time.monotonic_ns())'   \"$CASE/clock-end.txt\"\ntouch \"$CASE/packets/finish.request\"\n   \n\n离线分段与逐槽关联按各 TEST 中的分析入口处理。这里列的是稳态 56 B ping 的已记录启动形式。\n\n   PF 下三 UE 前两台同时发、第三台排队\n\n 查看本项结果与分析 (../研究结果与分析/PF下三UE前两台同时发第三台排队.md) ·  返回启动命令总目录 (启动命令总目录.md)\n\n固定 100 MHz、门限 0 和空闲探测后置。三台 UE 均用 多 UE 通用命令 ( 多-ue-通用命名空间命令)逐台接入。原排队组 gNB 使用 TEST-675 的  RESIDUAL_BUILD ：\n\n\n   bash\ncd \"$RESIDUAL_BUILD\"\nsudo -n OAI_RESEARCH_PROBE_POLICY=residual ./nr-softmodem -O \"$GNB100\" --sa --rfsim --rfsimulator.serveraddr server\n   \n\n三台都已配置 TUN 且路由通过后，在业务终端执行。业务工具只协调每批的原生 ping、抓包和统计。\n\n\n   bash\nmkdir -p \"$CASE\"\nsudo -n /usr/bin/python3 -B \"$TOOLS/staggered_ping.py\" --environment \"$ENV_DIR\" --root \"$CASE/packets\"\n   \n\n暂停探测组使用 TEST-676 的  paused-build 。启动前用当轮新目录创建 56 字节控制文件，gNB 和业务终端使用同一绝对路径。\n\n\n   bash\nmkdir -p \"$CASE\"\nCONTROL=\"$CASE/control.bin\"\n(umask 077; set -o noclobber; head -c 56 /dev/zero   \"$CONTROL\")\ncd \"$AUDIT/step2-ping-probe-pause-20261123/paused-build\"\nsudo -n OAI_RESEARCH_PROBE_POLICY=residual OAI_RESEARCH_PROBE_PAUSE_FILE=\"$CONTROL\" ./nr-softmodem -O \"$GNB100\" --sa --rfsim --rfsimulator.serveraddr server\n   \n\n依次接入三台 UE 时，从响应日志核对每次新增的临时无线标识 RNTI，把前两台本轮的十六进制 RNTI 填入  RNTI_1  和  RNTI_2 。随后在业务终端执行：\n\n\n   bash\nCONTROL=\"$CASE/control.bin\"\nsudo -n /usr/bin/python3 -B \"$TOOLS/staggered_ping.py\" --environment \"$ENV_DIR\" --root \"$CASE/packets\" --pause-file \"$CONTROL\" --pause-rntis \"$RNTI_1\" \"$RNTI_2\"\n   \n\n三台并行基线沿用 TEST-623 的 三 UE 后置短测 ( 门限-0-下第三个-ue-的接入验证)。单、双 UE 的短测沿用 TEST-679 与原双 UE 记录。\n"
     },
     {
       "id": "r0a5bda85bde8666e",
@@ -2299,7 +2426,7 @@
       "search": "  4. 门限 1 的 UDP 多 UE启动命令\n\n 规划 (../../文献导读/第二步/4_门限1的UDP多UE.md) ·  知识点 (../../算法知识点说明/十二步知识点/第二步/4_门限1的UDP多UE.md) ·  结果与分析 (../../研究结果与分析/第二步/4_门限1的UDP多UE.md) ·  返回第二步启动命令 (../第二步启动命令.md)\n\n   本项命令与条件对应\n\n 项 本项实际选择 核验要求 \n --- --- --- \n 门限 1 gNB 配置必须对应，不靠文件名猜内容 \n 工具 UDP 与另一工具分开运行，不叠加负载 \n UE 数 1、2、3 业务前确认实际活动数，不是三 UE 都挂着只给其中一个发包 \n 包长 56 B 数据区 三种 UE 数口径一致 \n 参考基线 本轮补测单UE，不复用门限0的数值 旧网络隔离差异写明 \n\n共同的核心网、gNB、逐 UE 启动和停止命令见 第二步共同启动表 (../第二步启动命令.md)。选择该表的门限 1 配置。每个 UE 分终端直接启动，不能用旧 RAN 启动器代替。\n\n   1、2、3 UE 命令参数对应\n\n UE数 本轮状态 工具参数 输出根 \n --- --- --- --- \n 1 正式三轮完成  --ues 1 ；每轮2200/200，per-ue与fixed-total同点只计一次 formal-n1 \n 2 两种负载各三轮完成  --ues 2 ；每轮每UE2200/200 formal-n2 \n 3 两种负载各三轮完成  --ues 3 ；每轮每UE2200/200 formal-n3 \n\n   业务命令\n\nUDP、回复、抓包、统计是独立业务工具；它不启动/重启/停止核心网、gNB 或 UE。以下为一个新的输出目录的先导形式：\n\n   bash\ncd ~/oiwireless/oi-wireless-ran-latency-analysis\nsudo -n /usr/bin/python3 -B research/latency-analysis/step2-multiue56-v1/business.py --environment /home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/environment --root /home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/new-output --ues 2 --regime per-ue --packets 200 --warmup 20 --nonce 2026113000 --rate 50 --pilot\n   \n\n 需要改变的量 参数 用途 \n --- --- --- \n UE数  --ues 1/2/3  必须与实际已启动UE数一致 \n 每UE速率固定  --regime per-ue --rate 50  每UE目标50包/秒 \n 总速率固定  --regime fixed-total --rate 50  全部UE总目标50包/秒 \n 正式样本  --packets 2200 --warmup 200 ，去掉  --pilot  每UE后2000个统计 \n 新轮次 更换  --root  与  --nonce  不覆盖、不混入其他轮次 \n\n本项当前状态：门限1 UDP已完成1/2/3 UE共15次正式业务；本工具与抓包/关联核验通过，详结果页。\n\n   依据与测量边界\n\nTS 38.211 V19.5.0 §4.3.2、§7.3.2.2；TS 38.213 V19.5.0 §9.2.4、§11.1；TS 38.321 V19.4.0 §5.4.1、§5.4.4、§5.4.5；TS 38.331 V19.4.0 §6.3.2；TS 38.300 V19.4.0 §10.2/10.3。门限 0/1、56 B、50 包/秒、样本/预热和本配置均为实现或实验选择，不是协议规定的最优值。\n\nP01《Dissecting 5G New-Radio Latency》，IFIP Networking 2025，§III–IV、本地 PDF 第 2–4 页；P24 QUEST，本地 IEEE TNSM 2026 版，§V–VI、PDF 第 6–10 页；教材 §13.1.1.2、PDF 第 530–532 页。使用用户提供且本次核读的本地版本，不冒称官网最高。17 份相关原文可读，缺件立即停止。\n\n   本轮正式串行业务命令\n\n下列每条都要求先用原生终端把实际活动UE数调成对应N；工具不会替你停UE或改变gNB。在研究仓库根目录执行，三个不同输出根不能覆盖；本轮这些根已存在，复跑必须另取新根。\n\n 对应UE数  --ues   --root  实际状态 \n --- --- --- --- \n 1 1 formal-n1 3/3业务通过 \n 2 2 formal-n2 6/6业务通过 \n 3 3 formal-n3 6/6业务通过 \n\n   bash\ncd ~/oiwireless/oi-wireless-ran-latency-analysis\nsudo -n /usr/bin/python3 -B research/latency-analysis/step2-multiue56-v1/matrix.py --environment /home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/environment --root /home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/formal-n1 --ues 1 --plan /home/lbh/oiwireless/analysis-source-audit/step2-multiue56-20261118/formal-gate1-plan.json\n   \n\nN=2/3对应命令只把 --ues 和新输出根分别换成表中两项。正式计划先冻结，per-ue为每UE50包/秒，fixed-total为总50包/秒；N=1相同点不重复运行。以上只管理独立UDP端点/捕获/统计，不启动/停止任何RAN或核心网。\n"
     }
   ],
-  "formulas": 128,
+  "formulas": 130,
   "mathErrors": [],
   "imageCount": 0,
   "warnings": [],

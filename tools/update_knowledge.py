@@ -108,7 +108,7 @@ def build(kind='knowledge'):
             **({'experimentStage': item['topic']} if experiments else {}),
             **({'researchStep': item['researchStep']} if item.get('researchStep') else {}),
             **({'knowledgeStep': item['knowledgeStep']} if item.get('knowledgeStep') else {}),
-            **({key:item[key] for key in ('documentRole','parentTopic','stepExperiment')} if item.get('documentRole') else {}),
+            **({key:item[key] for key in ('documentRole','parentTopic','stepExperiment') if key in item} if item.get('documentRole') else {}),
             **({'commandStatus': item['commandStatus']} if item.get('documentRole') == 'commands' else {}),
             **({'status': item.get('status','not-started')} if item.get('documentRole') == 'results' else {}),
             **({'subexperiments': item['subexperiments']} if item.get('subexperiments') else {}),
